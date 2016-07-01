@@ -1,0 +1,3390 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+R: Package MAIN 5/12
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\end_layout
+
+\begin_layout Date
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First version: Nov 
+\begin_inset Formula $11{}^{th}$
+\end_inset
+
+, 2013.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part*
+Book Reference
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+http://cos.name/2011/05/write-r-packages-like-a-ninja/
+\end_layout
+
+\begin_layout Plain Layout
+
+http://r-pkgs.had.co.nz/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Workflow Summary:
+\end_layout
+
+\begin_layout Enumerate
+Construct a new PROJECT in Rstudio, choose PACKAGE.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Then working foldering will automatically be that PACKAGE fiolder.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Put all your R source code with Roxygen comments in the R PKACAGE folder.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+all source code shall be in one .R file.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+In your R code file, write Roxygen comments
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Insert Roxygen2 comments template: In RStudio v0.99 there is a new option
+ under the "Code" menu for .R files: "Insert Roxygen Skeleton".
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Write Vignette
+\end_layout
+
+\begin_layout Enumerate
+Run 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+roxygen2::roxygenise().
+\end_layout
+
+\end_inset
+
+then the result is:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+man/
+\series default
+ folder will be created/replaced.
+
+\series bold
+ .Rd
+\series default
+ fles of each function will be in 
+\series bold
+man/
+\series default
+ folder.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+NAMESPACE
+\series default
+ will be created/replaced.
+
+\series bold
+ 
+\end_layout
+
+\begin_layout Enumerate
+DESCRIPTION will be created, but not replaced.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Mannually edit the DESCRIPTION file.
+\end_layout
+
+\begin_layout Enumerate
+Check 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://r-pkgs.had.co.nz/release.html
+\end_layout
+
+\end_inset
+
+.
+ You need to insure 0 NOTES (except the note saying that this is the first
+ submission), WARNINGS and ERRORS
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Configure the biuld tools in Rstudio, select 'biuld vignette'
+\end_layout
+
+\begin_layout Enumerate
+Remove all the unnessary files from the package
+\end_layout
+
+\begin_layout Enumerate
+run the 
+\series bold
+check
+\series default
+ in Rustio
+\end_layout
+
+\begin_layout Enumerate
+run the 
+\series bold
+check
+\series default
+ bu running R in the package folder 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+devtools:::check()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Release: reference
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+biuld the package as source: tgz
+\end_layout
+
+\begin_layout Enumerate
+upload to 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://cran.r-project.org/submit.html
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Part
+Basics
+\end_layout
+
+\begin_layout Section
+Package Structures
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+pkg_name
+\end_layout
+
+\begin_layout Plain Layout
+
+|
+\end_layout
+
+\begin_layout Plain Layout
+
+|--DESCRIPTION 
+\end_layout
+
+\begin_layout Plain Layout
+
+|--R (your source code)
+\end_layout
+
+\begin_layout Plain Layout
+
+	|--function1.R
+\end_layout
+
+\begin_layout Plain Layout
+
+	|--function2.R
+\end_layout
+
+\begin_layout Plain Layout
+
+	|--...
+\end_layout
+
+\begin_layout Plain Layout
+
+|--man (help docs of your source code)
+\end_layout
+
+\begin_layout Plain Layout
+
+	|--function1.Rd
+\end_layout
+
+\begin_layout Plain Layout
+
+	|--function2.Rd
+\end_layout
+
+\begin_layout Plain Layout
+
+	|--...
+\end_layout
+
+\begin_layout Plain Layout
+
+|--...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+optional folders:
+\end_layout
+
+\begin_layout Itemize
+demo: put codes there so that users can use demo() to show the demo
+\end_layout
+
+\begin_layout Itemize
+inst: put Vignette here.
+ (Depreciated)
+\end_layout
+
+\begin_layout Section
+package formats
+\end_layout
+
+\begin_layout Subsection
+Source packages
+\end_layout
+
+\begin_layout Standard
+So far, we’ve just worked with a source package: the development version
+ of a package that lives on your computer.
+ A source package is just a directory with components like R/, DESCRIPTION,
+ and so on.
+\end_layout
+
+\begin_layout Subsection
+Bundled packages: .tar
+\end_layout
+
+\begin_layout Subsection
+zipped file..gz
+\end_layout
+
+\begin_layout Standard
+A bundled package is a package that’s been compressed into a single file.
+ By convention (from Linux), package bundles in R use the extension 
+\family typewriter
+\series bold
+.tar.gz.
+
+\family default
+\series default
+ 
+\series bold
+This means that multiple files have been reduced to a single file (.tar)
+ and then compressed using gzip (.gz).
+\end_layout
+
+\begin_layout Standard
+While a bundle is not that useful on its own, it’s a useful intermediary
+ between the other states.
+ In the rare case that you do need a bundle, call devtools::build() to make
+ it.
+\end_layout
+
+\begin_layout Standard
+If you decompress a bundle, you’ll see it looks almost the same as your
+ source package.
+ The main differences between an uncompressed bundle and a source package
+ are:
+\end_layout
+
+\begin_layout Itemize
+Vignettes are built so that you get HTML and PDF output instead of Markdown
+ or LaTeX input.
+\end_layout
+
+\begin_layout Itemize
+Your source package might contain temporary files used to save time during
+ development, like compilation artefacts in src/.
+ These are never found in a bundle.
+\end_layout
+
+\begin_layout Itemize
+Any files listed in .Rbuildignore are not included in the bundle.
+\end_layout
+
+\begin_layout Subsection
+Binary packages
+\end_layout
+
+\begin_layout Standard
+If you want to distribute your package to an R user who doesn’t have package
+ development tools, you’ll need to make a binary package.
+ Like a package bundle, a binary package is a single file.
+ But if you uncompress it, you’ll see that the internal structure is rather
+ different from a source package:
+\end_layout
+
+\begin_layout Standard
+Binary packages are platform specific: you can’t install a Windows binary
+ package on a Mac or vice versa.
+ Also, while Mac binary packages end in .tgz, Windows binary packages end
+ in .zip.
+ You can use devtools::build(binary = TRUE) to make a binary package.
+\end_layout
+
+\begin_layout Subsection
+Installed packages
+\end_layout
+
+\begin_layout Standard
+An installed package is just a binary package that’s been decompressed into
+ a package library (described below).
+ The following diagram illustrates the many ways a package can be installed.
+\end_layout
+
+\begin_layout Standard
+The tool that powers all package installation is the command line tool R
+ CMD INSTALL - it can install a source, bundle or a binary package.
+\end_layout
+
+\begin_layout Standard
+If someone tries to use it:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+library(foo)
+\end_layout
+
+\begin_layout Plain Layout
+
+show_mtcars()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The code won’t work because ggplot2’s qplot() function won’t be available:
+ library(foo) doesn’t re-execute library(ggplot2).
+ The top-level R code in a package is only executed when the package is
+ built, not when it’s loaded.
+\end_layout
+
+\begin_layout Section
+R Source Code
+\end_layout
+
+\begin_layout Standard
+stored in 
+\family typewriter
+R/ folder
+\end_layout
+
+\begin_layout Subsection
+Loading code: only write functions
+\end_layout
+
+\begin_layout Standard
+When you load a script with source(), every line of code is executed and
+ the results are immediately made available.
+ Things are different in a package, because it is loaded in two steps.
+ When the package is built (e.g.
+ by CRAN) all the code in R/ is executed and the results are saved.
+ When you load a package, with library() or require(), the cached results
+ are made available to you.
+ If you loaded scripts in the same way as packages, your code would look
+ like this:
+\end_layout
+
+\begin_layout Subsection
+welcome message
+\end_layout
+
+\begin_layout Standard
+To display an informative message when the package loads.
+ This might make usage conditions clear, or display useful tips.
+ Startup messages is one place where you should use .onAttach() instead of
+ .onLoad().
+ To display startup messages, always use packageStartupMessage(), and not
+ message().
+ (This allows suppressPackageStartupMessages() to selectively suppress package
+ startup messages).
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+.onAttach <- function(libname, pkgname) {
+\end_layout
+
+\begin_layout Plain Layout
+
+packageStartupMessage("Welcome to my package")
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+options
+\end_layout
+
+\begin_layout Standard
+To set custom options for your package with options().
+ To avoid conflicts with other packages, ensure that you prefix option names
+ with the name of your package.
+ Also be careful not to override options that the user has already set.
+\end_layout
+
+\begin_layout Standard
+I use the following code in devtools to set up useful options:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+.onLoad <- function(libname, pkgname) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	op <- options()
+\end_layout
+
+\begin_layout Plain Layout
+
+	op.devtools <- list(
+\end_layout
+
+\begin_layout Plain Layout
+
+	devtools.path = "~/R-dev",
+\end_layout
+
+\begin_layout Plain Layout
+
+	devtools.install.args = "",
+\end_layout
+
+\begin_layout Plain Layout
+
+	devtools.name = "Your name goes here",
+\end_layout
+
+\begin_layout Plain Layout
+
+	devtools.desc.author = '"First Last <first.last@example.com> [aut, cre]"',
+\end_layout
+
+\begin_layout Plain Layout
+
+	devtools.desc.license = "What license is it under?",
+\end_layout
+
+\begin_layout Plain Layout
+
+	devtools.desc.suggests = NULL,
+\end_layout
+
+\begin_layout Plain Layout
+
+	devtools.desc = list()
+\end_layout
+
+\begin_layout Plain Layout
+
+	)
+\end_layout
+
+\begin_layout Plain Layout
+
+	toset <- !(names(op.devtools) %in% names(op))
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(any(toset)) options(op.devtools[toset])
+\end_layout
+
+\begin_layout Plain Layout
+
+	invisible()
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Data
+\end_layout
+
+\begin_layout Standard
+As you’ll learn about in data, files that live in data/ don’t use the usual
+ namespace mechanism and don’t need to be exported.
+\end_layout
+
+\begin_layout Itemize
+data is always exported.
+\end_layout
+
+\begin_layout Itemize
+Generally, package data in CRAN should be smaller than a megabyte - if it’s
+ larger you’ll need to argue for an exemption.
+ 
+\end_layout
+
+\begin_layout Itemize
+The most common location for package data is (surprise!) data/.
+ Each file in this directory should be a .RData file created by save() containing
+ a single object (with the same name as the file).
+ The easiest way to adhere to these rules is to use devtools::use_data():
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+x <- sample(1000)
+\end_layout
+
+\begin_layout Plain Layout
+
+devtools::use_data(x, mtcars)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There are two additional tags that are important for documenting datasets:
+\end_layout
+
+\begin_layout Itemize
+@format gives an overview of the dataset.
+ For data frames, you should include a definition list that describes each
+ variable.
+ It’s usually a good idea to describe variables’ units here.
+\end_layout
+
+\begin_layout Itemize
+@source provides details of where you got the data, often a 
+\backslash
+url{}.
+\end_layout
+
+\begin_layout Standard
+Never @export a data set.
+\end_layout
+
+\begin_layout Section
+License
+\end_layout
+
+\begin_layout Subsection
+MIT (v.
+ similar: to BSD 2 and 3 clause licenses).
+ 
+\end_layout
+
+\begin_layout Standard
+This is a simple and permissive license.
+ It lets people use and freely distribute your code subject to only one
+ restriction: the license must always be distributed with the code.
+\end_layout
+
+\begin_layout Standard
+The MIT license is a “template”, so if you use it, you need License: MIT
+ + file LICENSE, and a LICENSE file that looks like this:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+YEAR: <Year or years when changes have been made>
+\end_layout
+
+\begin_layout Plain Layout
+
+COPYRIGHT HOLDER: <Name of the copyright holder>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+GPL-2 or GPL-3.
+ 
+\end_layout
+
+\begin_layout Standard
+These are “copy-left” licenses.
+ This means that anyone who distributes your code in a bundle must license
+ the whole bundle in a GPL-compatible way.
+ Additionally, anyone who distributes modified versions of your code (derivative
+ works) must also make the source code available.
+ GPL-3 is a little stricter than GPL-2, closing some older loopholes.
+\end_layout
+
+\begin_layout Subsection
+CC0.
+ 
+\end_layout
+
+\begin_layout Standard
+It relinquishes all your rights on the code and data so that it can be freely
+ used by anyone for any purpose.
+ This is sometimes called putting it in the public domain, a term which
+ is neither well-defined nor meaningful in all countries.
+\end_layout
+
+\begin_layout Standard
+This license is most appropriate for data packages.
+ Data, at least in the US, is not copyrightable, so you’re not really giving
+ up much.
+ This license just makes this point clear.
+\end_layout
+
+\begin_layout Section
+Version
+\end_layout
+
+\begin_layout Standard
+Formally, an R package version is a sequence of at least two integers separated
+ by either .
+ or -.
+ For example, 1.0 and 0.9.1-10 are valid versions, but 1 or 1.0-devel are not.
+ You can parse a version number with numeric_version.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+numeric_version("1.9") == numeric_version("1.9.0")
+\end_layout
+
+\begin_layout Plain Layout
+
+## [1] TRUE
+\end_layout
+
+\begin_layout Plain Layout
+
+numeric_version("1.9.0") < numeric_version("1.10.0")
+\end_layout
+
+\begin_layout Plain Layout
+
+## [1] TRUE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For example, a package might have a version 1.9.
+ This version number is considered by R to be the same as 1.9.0, less than
+ version 1.9.2, and all of these are less than version 1.10 (which is version
+ “one point ten”, not “one point one zero).
+ 
+\end_layout
+
+\begin_layout Part
+Roxygen2 and Rd2roxygen
+\end_layout
+
+\begin_layout Itemize
+Add roxygen comments to your .R files.
+\end_layout
+
+\begin_layout Itemize
+Run devtools::document() (or press Ctrl/Cmd + Shift + D in RStudio) to convert
+ roxygen comments to .Rd files.
+\end_layout
+
+\begin_layout Section
+roxygen comments
+\end_layout
+
+\begin_layout Subsection
+Compulsory comments
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#' Title English Name of Function 
+\end_layout
+
+\begin_layout Plain Layout
+
+#'
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @param Pairs_data.frame 
+\end_layout
+
+\begin_layout Plain Layout
+
+#'
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @return
+\end_layout
+
+\begin_layout Plain Layout
+
+#'
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @examples
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Title English Name of Function
+\end_layout
+
+\begin_layout Description
+@param name description describes the function’s inputs or parameters.
+ The description should provide a succinct summary of the type of the parameter
+ (e.g., string, numeric vector) and, if not obvious from the name, what the
+ parameter does.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+The description should start with a capital letter and end with a full stop.
+ 
+\end_layout
+
+\begin_layout Standard
+It can span multiple lines (or even paragraphs) if necessary.
+ 
+\end_layout
+
+\begin_layout Standard
+All parameters must be documented.
+\end_layout
+
+\begin_layout Standard
+You can document multiple arguments in one place by separating the names
+ with commas (no spaces).
+ For example, to document both x and y, you can write @param x,y Numeric
+ vectors..
+\end_layout
+
+\end_deeper
+\begin_layout Description
+@examples provides executable R code showing how to use the function in
+ practice.
+ This is a very important part of the documentation because many people
+ look at the examples first.
+ Example code must work without errors as it is run automatically as part
+ of R CMD check.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+For the purpose of illustration, it’s often useful to include code that
+ causes an error.
+ 
+\backslash
+dontrun{} allows you to include code in the example that is not run.
+ (You used to be able to use 
+\backslash
+donttest{} for a similar purpose, but it’s no longer recommended because
+ it actually is tested.)
+\end_layout
+
+\begin_layout Standard
+Instead of including examples directly in the documentation, you can put
+ them in separate files and use @example path/relative/to/packge/root to
+ insert them into the documentation.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+@return description describes the output from the function.
+ This is not always necessary, but is a good idea if your function returns
+ different types of output depending on the input, or if you’re returning
+ an S3, S4 or RC object.
+\end_layout
+
+\begin_layout Standard
+Example:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#' Sum of vector elements.
+\end_layout
+
+\begin_layout Plain Layout
+
+#'
+\end_layout
+
+\begin_layout Plain Layout
+
+#' 
+\backslash
+code{sum} returns the sum of all the values present in its arguments.
+\end_layout
+
+\begin_layout Plain Layout
+
+#'
+\end_layout
+
+\begin_layout Plain Layout
+
+#' This is a generic function: methods can be defined for it directly
+\end_layout
+
+\begin_layout Plain Layout
+
+#' or via the 
+\backslash
+code{
+\backslash
+link{Summary}} group generic.
+ For this to work properly,
+\end_layout
+
+\begin_layout Plain Layout
+
+#' the arguments 
+\backslash
+code{...} should be unnamed, and dispatch is on the
+\end_layout
+
+\begin_layout Plain Layout
+
+#' first argument.
+\end_layout
+
+\begin_layout Plain Layout
+
+#'
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @param ...
+ Numeric, complex, or logical vectors.
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @param na.rm A logical scalar.
+ Should missing values (including NaN)
+\end_layout
+
+\begin_layout Plain Layout
+
+#'   be removed?
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @return If all inputs are integer and logical, then the output
+\end_layout
+
+\begin_layout Plain Layout
+
+#'   will be an integer.
+ If integer overflow
+\end_layout
+
+\begin_layout Plain Layout
+
+#'   
+\backslash
+url{http://en.wikipedia.org/wiki/Integer_overflow} occurs, the output
+\end_layout
+
+\begin_layout Plain Layout
+
+#'   will be NA with a warning.
+ Otherwise it will be a length-one numeric or
+\end_layout
+
+\begin_layout Plain Layout
+
+#'   complex vector.
+\end_layout
+
+\begin_layout Plain Layout
+
+#'
+\end_layout
+
+\begin_layout Plain Layout
+
+#'   Zero-length vectors have sum 0 by definition.
+ See
+\end_layout
+
+\begin_layout Plain Layout
+
+#'   
+\backslash
+url{http://en.wikipedia.org/wiki/Empty_sum} for more details.
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @examples
+\end_layout
+
+\begin_layout Plain Layout
+
+#' sum(1:10)
+\end_layout
+
+\begin_layout Plain Layout
+
+#' sum(1:5, 6:10)
+\end_layout
+
+\begin_layout Plain Layout
+
+#' sum(F, F, F, T, T)
+\end_layout
+
+\begin_layout Plain Layout
+
+#'
+\end_layout
+
+\begin_layout Plain Layout
+
+#' sum(.Machine$integer.max, 1L)
+\end_layout
+
+\begin_layout Plain Layout
+
+#' sum(.Machine$integer.max, 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+#'
+\end_layout
+
+\begin_layout Plain Layout
+
+#' 
+\backslash
+dontrun{
+\end_layout
+
+\begin_layout Plain Layout
+
+#' sum("a")
+\end_layout
+
+\begin_layout Plain Layout
+
+#' }
+\end_layout
+
+\begin_layout Plain Layout
+
+sum <- function(..., na.rm = TRUE) {}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Other tags
+\end_layout
+
+\begin_layout Description
+@description One sentence description of your function.
+\end_layout
+
+\begin_layout Description
+@details detailed explanations.
+\end_layout
+
+\begin_layout Description
+@export If not export this function, then not put it there.
+\end_layout
+
+\begin_layout Subsection
+section formt
+\end_layout
+
+\begin_layout Standard
+You can add arbitrary sections to the documentation with the 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+@section tag
+\end_layout
+
+\end_inset
+
+ This is a useful way of breaking a long details section into multiple chunks
+ with useful headings.
+ Section titles should be in sentence case, must be followed by a colon,
+ and they can only be one line long.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#' @section Warning:
+\end_layout
+
+\begin_layout Plain Layout
+
+#' Do not operate heavy machinery within 8 hours of using this function.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+sections that help you to navigate the package
+\end_layout
+
+\begin_layout Standard
+There are two tags that make it easier for people to navigate between help
+ files:
+\end_layout
+
+\begin_layout Description
+@seealso: allows you to point to other useful resources, either on the web,
+ 
+\backslash
+url{http://www.r-project.org}, in your package 
+\backslash
+code{
+\backslash
+link{functioname}}, or another package 
+\backslash
+code{
+\backslash
+link[packagename]{functioname}}.
+\end_layout
+
+\begin_layout Description
+@family: If you have a family of related functions where every function
+ should link to every other function in the family, use @family.
+ The value of @family should be plural.
+\end_layout
+
+\begin_layout Section
+Documenting packages
+\end_layout
+
+\begin_layout Standard
+You can use roxygen to provide a help page for your package as a whole.
+ This is accessed with package?foo, and can be used to describe the most
+ important components of your package.
+ It’s a useful supplement to vignettes, as described in the next chapter.
+\end_layout
+
+\begin_layout Standard
+There’s no object that corresponds to a package, so you need to document
+ NULL, and then manually label it with @docType package and @name <package-name>.
+ This is also an excellent place to use the @section tag to divide up page
+ into useful categories.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#' foo: A package for computating the notorious bar statistic.
+\end_layout
+
+\begin_layout Plain Layout
+
+#'
+\end_layout
+
+\begin_layout Plain Layout
+
+#' The foo package provides three categories of important functions:
+\end_layout
+
+\begin_layout Plain Layout
+
+#' foo, bar and baz.
+\end_layout
+
+\begin_layout Plain Layout
+
+#' 
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @section Foo functions:
+\end_layout
+
+\begin_layout Plain Layout
+
+#' The foo functions ...
+\end_layout
+
+\begin_layout Plain Layout
+
+#'
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @docType package
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @name foo
+\end_layout
+
+\begin_layout Plain Layout
+
+NULL
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Documenting classes, generics and methods
+\end_layout
+
+\begin_layout Subsection
+S3
+\end_layout
+
+\begin_layout Standard
+S3 generics are regular functions, so document them as such.
+ S3 classes have no formal definition, so document the constructor function.
+ It is your choice whether or not to document S3 methods.
+ 
+\end_layout
+
+\begin_layout Standard
+Use @slot to document the slots of the class in the same way you use @param
+ to describe the parameters of a function.
+ Here’s a simple example:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#' An S4 class to represent a bank account.
+\end_layout
+
+\begin_layout Plain Layout
+
+#'
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @slot balance A length-one numeric vector
+\end_layout
+
+\begin_layout Plain Layout
+
+Account <- setClass("Account",
+\end_layout
+
+\begin_layout Plain Layout
+
+  slots = list(balance = "numeric")
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Write Namespace
+\end_layout
+
+\begin_layout Standard
+For a function to be usable outside of your package, you must export it.
+ When you create a new package with devtools::create(), it produces a temporary
+ NAMESPACE that exports everything in your package that doesn’t start with
+ .
+ (a single period)
+\end_layout
+
+\begin_layout Standard
+To export an object, put @export in its roxygen block.
+ For example:
+\end_layout
+
+\begin_layout Standard
+This will then generate export(), exportMethods(), exportClass() or S3method()
+ depending on the type of the object.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#' @export
+\end_layout
+
+\begin_layout Plain Layout
+
+foo <- function(x, y, z) {
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Write DESCRIPTION file
+\end_layout
+
+\begin_layout Standard
+roxygen2 will only help you to auto generate a template of the DESCRIPTION
+ file.
+ You still need to edit it.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Package: linear.tools
+\end_layout
+
+\begin_layout Plain Layout
+
+Type: Package
+\end_layout
+
+\begin_layout Plain Layout
+
+Title: What the Package Does (Title Case)
+\end_layout
+
+\begin_layout Plain Layout
+
+Version: 0.1
+\end_layout
+
+\begin_layout Plain Layout
+
+Date: 2016-04-07
+\end_layout
+
+\begin_layout Plain Layout
+
+Author: Who wrote it
+\end_layout
+
+\begin_layout Plain Layout
+
+Maintainer: Who to complain to <yourfault@somewhere.net>
+\end_layout
+
+\begin_layout Plain Layout
+
+Description: More about what it does (maybe more than one line)
+\end_layout
+
+\begin_layout Plain Layout
+
+License: What license is it under?
+\end_layout
+
+\begin_layout Plain Layout
+
+LazyData: TRUE
+\end_layout
+
+\begin_layout Plain Layout
+
+RoxygenNote: 5.0.1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Documenting datasets
+\end_layout
+
+\begin_layout Standard
+Objects in data/ are always effectively exported (they use a slightly different
+ mechanism than NAMESPACE’s but the details are not important).
+ This means that they must be documented.
+ Documenting data is like documenting a function with a few minor differences.
+ Instead of documenting the data directly, you document the name of the
+ dataset and save it in R/.
+ For example, the roxygen2 block used to document the diamonds data in ggplot2
+ is saved as R/data.R and looks something like this:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#' Prices of 50,000 round cut diamonds.
+\end_layout
+
+\begin_layout Plain Layout
+
+#'
+\end_layout
+
+\begin_layout Plain Layout
+
+#' A dataset containing the prices and other attributes of almost 54,000
+\end_layout
+
+\begin_layout Plain Layout
+
+#' diamonds.
+\end_layout
+
+\begin_layout Plain Layout
+
+#'
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @format A data frame with 53940 rows and 10 variables:
+\end_layout
+
+\begin_layout Plain Layout
+
+#' 
+\backslash
+describe{
+\end_layout
+
+\begin_layout Plain Layout
+
+#'   
+\backslash
+item{price}{price, in US dollars}
+\end_layout
+
+\begin_layout Plain Layout
+
+#'   
+\backslash
+item{carat}{weight of the diamond, in carats}
+\end_layout
+
+\begin_layout Plain Layout
+
+#'   ...
+\end_layout
+
+\begin_layout Plain Layout
+
+#' }
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @source 
+\backslash
+url{http://www.diamondse.info/}
+\end_layout
+
+\begin_layout Plain Layout
+
+"diamonds"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Text formatting reference sheet
+\end_layout
+
+\begin_layout Itemize
+Character formatting
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\backslash
+emph{italics}: italics.
+\end_layout
+
+\begin_layout Description
+
+\backslash
+strong{bold}: bold.
+\end_layout
+
+\begin_layout Description
+
+\backslash
+code{r_function_call(with = "arguments")}: r_function_call(with = "arguments")
+ (format inline code)
+\end_layout
+
+\begin_layout Description
+
+\backslash
+preformatted{}: format text as-is, can be used for multi-line code
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Links To other documentation:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\backslash
+code{
+\backslash
+link{function}}: function in this package.
+\end_layout
+
+\begin_layout Description
+
+\backslash
+code{
+\backslash
+link[MASS]{abbey}}: function in another package.
+\end_layout
+
+\begin_layout Description
+
+\backslash
+link[=dest]{name}: link to dest, but show name.
+\end_layout
+
+\begin_layout Description
+
+\backslash
+linkS4class{abc}: link to an S4 class.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Links To the web:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+
+\backslash
+url{http://rstudio.com}: a url.
+\end_layout
+
+\begin_layout Description
+
+\backslash
+href{http://rstudio.com}{Rstudio}:, a url with custom link text.
+\end_layout
+
+\begin_layout Description
+
+\backslash
+email{hadley@@rstudio.com} (note the doubled @): an email address.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Lists: Ordered (numbered) lists:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#' 
+\backslash
+enumerate{
+\end_layout
+
+\begin_layout Plain Layout
+
+	#' 
+\backslash
+item First item
+\end_layout
+
+\begin_layout Plain Layout
+
+	#' 
+\backslash
+item Second item
+\end_layout
+
+\begin_layout Plain Layout
+
+#' }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Unordered (bulleted) lists:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#' 
+\backslash
+itemize{
+\end_layout
+
+\begin_layout Plain Layout
+
+	#' 
+\backslash
+item First item
+\end_layout
+
+\begin_layout Plain Layout
+
+	#' 
+\backslash
+item Second item
+\end_layout
+
+\begin_layout Plain Layout
+
+#' }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Definition (named) lists:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#' 
+\backslash
+describe{
+\end_layout
+
+\begin_layout Plain Layout
+
+	#' 
+\backslash
+item{One}{First item}
+\end_layout
+
+\begin_layout Plain Layout
+
+	#' 
+\backslash
+item{Two}{Second item}
+\end_layout
+
+\begin_layout Plain Layout
+
+#' }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Special Characters
+\end_layout
+
+\begin_layout Standard
+There are three special characters that need special handling if you want
+ them to appear in the final documentation:
+\end_layout
+
+\begin_layout Description
+@, which usually marks the start of a roxygen tag.
+ Use @@ to insert a literal @ in the final documentation.
+\end_layout
+
+\begin_layout Description
+%, which usually marks the start of a latex comment which continues to the
+ end of the line.
+ Use 
+\backslash
+% to insert a literal % in the output document.
+ The escape is not needed in examples.
+\end_layout
+
+\begin_layout Description
+
+\backslash
+, which usually marks the start of a latex escaping.
+ Use 
+\backslash
+
+\backslash
+ to insert a literal 
+\backslash
+ in the documentation.
+\end_layout
+
+\begin_layout Section
+Rd2roxygen: convert package back to Roxygen comments
+\end_layout
+
+\begin_layout Subsection
+Rd2roxygen: convert the whole package to Roxygen pattern 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+library(Rd2roxygen) 
+\end_layout
+
+\begin_layout Plain Layout
+
+Rd2roxygen('H:/jpmDesk/Desktop/Personal/Research_personal/Core_Code/linear.tools/
+CommonTrend') 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+create_roxygen(parse_file(rd.file): parse a single function to Roxygen pattern
+\end_layout
+
+\begin_layout Itemize
+parse_file(rd.file): create a named list
+\end_layout
+
+\begin_layout Itemize
+create_roxygen(parse_file(rd.file): create the Roxygen patten comments
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+> rd.file = system.file("examples", "parse_and_save.Rd", package = "Rd2roxygen")
+\end_layout
+
+\begin_layout Plain Layout
+
+> parse_file(rd.file)
+\end_layout
+
+\begin_layout Plain Layout
+
+$title
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] "Parse the input Rd file and save the roxygen documentation into a file."
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$usage
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] "parse_and_save(path, file, usage=FALSE)"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$desc
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] "Parse the input Rd file and save the roxygen documentation into a file."
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$section
+\end_layout
+
+\begin_layout Plain Layout
+
+character(0)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$value
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] "a character vector if 
+\backslash
+
+\backslash
+code{file} is not specified, or write the vector
+\backslash
+ninto a file"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$author
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] "Hadley Wickham; modified by Yihui Xie <
+\backslash
+
+\backslash
+url{http://yihui.name}>"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$name
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] "parse_and_save"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$keywords
+\end_layout
+
+\begin_layout Plain Layout
+
+list()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$params
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] "path the path of the Rd file"                                     
+\end_layout
+
+\begin_layout Plain Layout
+
+[2] "file the path to save the roxygen documentation"                  
+\end_layout
+
+\begin_layout Plain Layout
+
+[3] "usage logical: whether to include the usage section in the output"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+> cat(paste(create_roxygen(parse_file(rd.file)), collapse = '
+\backslash
+n'))
+\end_layout
+
+\begin_layout Plain Layout
+
+#' Parse the input Rd file and save the roxygen documentation into a file.
+\end_layout
+
+\begin_layout Plain Layout
+
+#' 
+\end_layout
+
+\begin_layout Plain Layout
+
+#' Parse the input Rd file and save the roxygen documentation into a file.
+\end_layout
+
+\begin_layout Plain Layout
+
+#' 
+\end_layout
+
+\begin_layout Plain Layout
+
+#' 
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @param path the path of the Rd file
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @param file the path to save the roxygen documentation
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @param usage logical: whether to include the usage section in the output
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @return a character vector if 
+\backslash
+code{file} is not specified, or write the
+\end_layout
+
+\begin_layout Plain Layout
+
+#' vector into a file
+\end_layout
+
+\begin_layout Plain Layout
+
+#' @author Hadley Wickham; modified by Yihui Xie <
+\backslash
+url{http://yihui.name}>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+roxygen_and_build: Roxygenize a package, clean up and build/check the package
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+roxygen_and_build(pkg, build = TRUE, build.opts = "--no-manual", install
+ = FALSE,
+\end_layout
+
+\begin_layout Plain Layout
+
+install.opts = if (build) "" else "--with-keep.source", check = FALSE,
+\end_layout
+
+\begin_layout Plain Layout
+
+check.opts = "--as-cran --no-manual", remove.check = TRUE, reformat = TRUE,
+\end_layout
+
+\begin_layout Plain Layout
+
+before = NULL, ...)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Namespace
+\end_layout
+
+\begin_layout Standard
+Only governs what to import and what to output.
+\end_layout
+
+\begin_layout Section
+Structure
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Example: 
+\series default
+The following code is the NAMESPACE file from the testthat package.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# Generated by roxygen2 (4.0.2): do not edit by hand
+\end_layout
+
+\begin_layout Plain Layout
+
+S3method(as.character,expectation)
+\end_layout
+
+\begin_layout Plain Layout
+
+S3method(compare,character)
+\end_layout
+
+\begin_layout Plain Layout
+
+export(auto_test)
+\end_layout
+
+\begin_layout Plain Layout
+
+export(auto_test_package)
+\end_layout
+
+\begin_layout Plain Layout
+
+export(colourise)
+\end_layout
+
+\begin_layout Plain Layout
+
+export(context)
+\end_layout
+
+\begin_layout Plain Layout
+
+exportClasses(ListReporter)
+\end_layout
+
+\begin_layout Plain Layout
+
+exportClasses(MinimalReporter)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+importFrom(methods,setRefClass)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+useDynLib(testthat,duplicate_)
+\end_layout
+
+\begin_layout Plain Layout
+
+useDynLib(testthat,reassign_function)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In total, there are eight namespace directives.
+ Four describe exports:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+export(): export functions (including S3 and S4 generics).
+\end_layout
+
+\begin_layout Enumerate
+exportPattern(): export all functions that match a pattern.
+\end_layout
+
+\begin_layout Enumerate
+exportClasses(), exportMethods(): export S4 classes and methods.
+\end_layout
+
+\begin_layout Enumerate
+S3method(): export S3 methods.
+\end_layout
+
+\begin_layout Standard
+And four describe imports:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+import(): import all functions from a package.
+\end_layout
+
+\begin_layout Enumerate
+importFrom(): import selected functions (including S4 generics).
+\end_layout
+
+\begin_layout Enumerate
+importClassesFrom(), importMethodsFrom(): import S4 classes and methods.
+\end_layout
+
+\begin_layout Enumerate
+useDynLib(): import a function from C.
+ This is described in more detail in compiled code.
+\end_layout
+
+\begin_layout Subsection
+Email
+\end_layout
+
+\begin_layout Standard
+(Note that in my email address here, I’ve doubled the @, so it’s kbroman@@biosta
+t.wisc.edu.
+ Roxygen2 is looking for those @’s for its field names; if you want an actual
+ @, you need to double it like this.)
+\end_layout
+
+\begin_layout Section
+Export
+\end_layout
+
+\begin_layout Standard
+Generally, it’s better to export too little than too much.
+ It’s easy to export things that you didn’t before; it’s hard to stop exporting
+ a function because it might break existing code.
+ Always err on the side of caution, and simplicity.
+ It’s easier to give people more functionality than it is to take away stuff
+ they’re used to.
+\end_layout
+
+\begin_layout Standard
+I believe that packages that have a wide audience should strive to do one
+ thing and do it well.
+ All functions in a package should be related to a single problem (or a
+ set of closely related problems).
+ Any functions not related to that purpose should not be exported.
+\end_layout
+
+\begin_layout Itemize
+You want to use non-expoted function easily, you do not want to call package:::f
+oo in your development file
+\end_layout
+
+\begin_layout Itemize
+Solution is: export it as internal function, and still write the documents
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+  #' @export
+\end_layout
+
+\begin_layout Plain Layout
+
+  #' @keywords internal
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+The result is, those functions will not show up in the package index, but
+ can be called directly and use help(foo) to show the docs.
+\end_layout
+
+\begin_layout Section
+import
+\end_layout
+
+\begin_layout Subsection
+import in NAMESPACE
+\end_layout
+
+\begin_layout Enumerate
+If you are using just a few functions from another package, my recommendation
+ is to note the package name in the Imports: field of the DESCRIPTION file
+ and call the function(s) explicitly using ::, e.g., pkg::fun().
+\end_layout
+
+\begin_layout Enumerate
+If you are using functions repeatedly, you can avoid :: by importing the
+ function with @importFrom pgk fun.
+ This also has a small performance benefit, because :: adds approximately
+ 5 µs to function evaluation time.
+\end_layout
+
+\begin_layout Enumerate
+Alternatively, if you are repeatedly using many functions from another package,
+ you can import all of them using @import package.
+ This is the least recommended solution because it makes your code harder
+ to read (you can’t tell where a function is coming from), and if you @import
+ many packages, it increases the chance of conflicting function names.
+\end_layout
+
+\begin_layout Subsection
+Difference from the import field in DESCRIPTION 
+\end_layout
+
+\begin_layout Standard
+The Imports field really has nothing to do with functions imported into
+ the namespace: it just makes sure the package is installed when your package
+ is.
+ It doesn’t make functions available.
+ You need to import functions in exactly the same way regardless of whether
+ or not the package is attached.
+\end_layout
+
+\begin_layout Standard
+That means if you put a package name in the import filed in DESCRIPTION,
+ then when your package is installed, those listed packages are also installed.
+ But that doesn't mean you can use those packages in your package, unless
+ you 
+\end_layout
+
+\begin_layout Enumerate
+explicitly import them in NAMESPACE.
+\end_layout
+
+\begin_layout Enumerate
+write 
+\family typewriter
+pkg::fun()
+\family default
+ in your code.
+\end_layout
+
+\begin_layout Section
+Search path
+\end_layout
+
+\begin_layout Standard
+To call a function, R first has to find it.
+ R does this by first looking in the global environment.
+ If R doesn’t find it there, it looks in the search path, the list of all
+ the packages you have attached.
+ You can see this list by running search().
+\end_layout
+
+\begin_layout Standard
+library(): is always recomended.
+ It actually attached the package.
+\end_layout
+
+\begin_layout Subsection
+Load vs.
+ Attach
+\end_layout
+
+\begin_layout Itemize
+Loading will load code, data and any DLLs; register S3 and S4 methods; and
+ run the .onLoad() function.
+ After loading, the package is available in memory, but because it’s not
+ in the search path, you won’t be able to access its components without
+ using ::.
+ Confusingly, :: will also load a package automatically if it isn’t already
+ loaded.
+ It’s rare to load a package explicitly, but you can do so with requireNamespace
+() or loadNamespace().
+\end_layout
+
+\begin_layout Itemize
+Attaching puts the package in the search path.
+ You can’t attach a package without first loading it, so both library()
+ or require(), load then attach the package.
+ You can see the currently attached packages with search().
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+but require does not insure the package is installed
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+namespace of a package is almost invariant to change
+\end_layout
+
+\begin_layout Itemize
+nrow is defined through dim()
+\end_layout
+
+\begin_layout Itemize
+change dim() in gloabl environment won't change the nrow(), as nrow() only
+ depends on dim() in namespace of base.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+nrow
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+## function (x) 
+\end_layout
+
+\begin_layout Plain Layout
+
+## dim(x)[1L]
+\end_layout
+
+\begin_layout Plain Layout
+
+## <bytecode: 0x15a0110>
+\end_layout
+
+\begin_layout Plain Layout
+
+## <environment: namespace:base>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+dim <- function(x) c(1, 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+dim(mtcars)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+## [1] 1 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+nrow(mtcars)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+## [1] 32
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+library() vs require()
+\end_layout
+
+\begin_layout Subsection
+use packages when compose packages
+\end_layout
+
+\begin_layout Standard
+You never need to use require() (requireNamespace() is almost always better),
+ or loadNamespace() (which is only needed for internal R code).
+ You should never use require() or library() in a package: instead, use
+ the 
+\series bold
+Depends
+\series default
+ or 
+\series bold
+Imports
+\series default
+ fields in the 
+\series bold
+DESCRIPTION
+\series default
+.
+\end_layout
+
+\begin_layout Subsection
+require vs library
+\end_layout
+
+\begin_layout Standard
+NEVER use require
+\end_layout
+
+\begin_layout Description
+library('foo') stops when foo was not installed 
+\end_layout
+
+\begin_layout Description
+require() is basically try(library()) 
+\end_layout
+
+\begin_layout Subsection
+functions from other packages cannot be used in example code
+\end_layout
+
+\begin_layout Standard
+Even if it is imported.
+\end_layout
+
+\begin_layout Standard
+It cannot pass the 'Check'
+\end_layout
+
+\begin_layout Part
+DESCRIPTION
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Package: linear.tools
+\end_layout
+
+\begin_layout Plain Layout
+
+Type: Package
+\end_layout
+
+\begin_layout Plain Layout
+
+Title: Tools for linear models.
+\end_layout
+
+\begin_layout Plain Layout
+
+Version: 1.27
+\end_layout
+
+\begin_layout Plain Layout
+
+Date: 2016-04-07
+\end_layout
+
+\begin_layout Plain Layout
+
+Author: Fan Yang
+\end_layout
+
+\begin_layout Plain Layout
+
+Maintainer: Who to complain to <yourfault@somewhere.net>
+\end_layout
+
+\begin_layout Plain Layout
+
+Description: More about what it does (maybe more than one line)
+\end_layout
+
+\begin_layout Plain Layout
+
+License: What license is it under?
+\end_layout
+
+\begin_layout Plain Layout
+
+LazyData: TRUE
+\end_layout
+
+\begin_layout Plain Layout
+
+RoxygenNote: 5.0.1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Package: mypackage
+\end_layout
+
+\begin_layout Plain Layout
+
+Title: What The Package Does (one line, title case required)
+\end_layout
+
+\begin_layout Plain Layout
+
+Version: 0.1
+\end_layout
+
+\begin_layout Plain Layout
+
+Authors@R: person("First", "Last", email = "first.last@example.com",
+\end_layout
+
+\begin_layout Plain Layout
+
+                  role = c("aut", "cre"))
+\end_layout
+
+\begin_layout Plain Layout
+
+Description: What the package does (one paragraph)
+\end_layout
+
+\begin_layout Plain Layout
+
+Depends: R (>= 3.1.0)
+\end_layout
+
+\begin_layout Plain Layout
+
+License: What license is it under?
+\end_layout
+
+\begin_layout Plain Layout
+
+LazyData: true
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Each line consists of a field name and a value, separated by a colon.
+\end_layout
+
+\begin_layout Itemize
+When values span multiple lines, they need to be indented:
+\end_layout
+
+\begin_layout Description
+Title is a one line description of the package, and is often shown in package
+ listing.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+It should be plain text (no markup), 
+\series bold
+capitalised like a title, and NOT end in a period
+\series default
+.
+ Keep it short: listings will often truncate the title to 65 characters.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Description is more detailed than the title.
+ You can use multiple sentences but you are limited to one paragraph.
+ If your description spans multiple lines (and it should!), each line must
+ be no more than 80 characters wide.
+ Indent subsequent lines with 4 spaces.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Cannot be multiple lines using 
+\backslash
+n, must all be in one line, no matter how long it is.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Author To identify the package’s author, and whom to contact if something
+ goes wrong, use the Authors@R field.
+ This field is unusual because it contains executable R code rather than
+ plain text.
+ Here’s an example:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Authors@R: person("Hadley", "Wickham", email = "hadley@rstudio.com",   role
+ = c("aut", "cre"))
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A three letter code specifying the role.
+ There are four important roles:
+\end_layout
+
+\begin_layout Description
+cre: the creator or maintainer, the person you should bother if you have
+ problems.
+\end_layout
+
+\begin_layout Description
+aut: authors, those who have made significant contributions to the package.
+\end_layout
+
+\begin_layout Description
+ctb: contributors, those who have made smaller contributions, like patches.
+\end_layout
+
+\begin_layout Description
+cph: copyright holder.
+ This is used if the copyright is held by someone other than the author,
+ typically a company (i.e.
+ the author’s employer).
+ 
+\end_layout
+
+\begin_layout Standard
+You can list multiple authors with c():
+\end_layout
+
+\end_deeper
+\begin_layout Description
+URL: http://yihui.name/knitr/
+\end_layout
+
+\begin_layout Description
+BugReports: https://github.com/yihui/knitr/issues
+\end_layout
+
+\begin_layout Subsection
+Dependencies: What does your package need?
+\end_layout
+
+\begin_layout Standard
+Both Imports and Suggests take a comma separated list of package names.
+ I recommend putting one package on each line, and keeping them in alphabetical
+ order.
+ That makes it easy to skim.
+\end_layout
+
+\begin_layout Itemize
+Imports: packages listed here must be present for your package to work.
+ In fact, any time your package is installed, those packages will, if not
+ already present, be installed on your computer (devtools::load_all() also
+ checks that the packages are installed).
+\end_layout
+
+\begin_layout Itemize
+Suggests: your package can use these packages, but doesn’t require them.
+ You might use suggested packages for example datasets, to run tests, build
+ vignettes, or maybe there’s only one function that needs the package.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Packages listed in Suggests are not automatically installed along with your
+ package.
+ This means that you need to check if the package is available before using
+ it (use requireNamespace(x, quietly = TRUE)).
+ There are two basic scenarios:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# You need the suggested package for this function    
+\end_layout
+
+\begin_layout Plain Layout
+
+my_fun <- function(a, b) {
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (!requireNamespace("pkg", quietly = TRUE)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    stop("Pkg needed for this function to work.
+ Please install it.",
+\end_layout
+
+\begin_layout Plain Layout
+
+      call.
+ = FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# There's a fallback method if the package isn't available
+\end_layout
+
+\begin_layout Plain Layout
+
+my_fun <- function(a, b) {
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (requireNamespace("pkg", quietly = TRUE)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    pkg::f()
+\end_layout
+
+\begin_layout Plain Layout
+
+  } else {
+\end_layout
+
+\begin_layout Plain Layout
+
+    g()
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+The easiest way to add Imports and Suggests to your package is to use devtools::
+use_package().
+ This automatically puts them in the right place in your DESCRIPTION, and
+ reminds you how to use them.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+devtools::use_package("dplyr") # Defaults to imports
+\end_layout
+
+\begin_layout Plain Layout
+
+#> Adding dplyr to Imports
+\end_layout
+
+\begin_layout Plain Layout
+
+#> Refer to functions with dplyr::fun()
+\end_layout
+
+\begin_layout Plain Layout
+
+devtools::use_package("dplyr", "Suggests")
+\end_layout
+
+\begin_layout Plain Layout
+
+#> Adding dplyr to Suggests
+\end_layout
+
+\begin_layout Plain Layout
+
+#> Use requireNamespace("dplyr", quietly = TRUE) to test if package is 
+\end_layout
+
+\begin_layout Plain Layout
+
+#>  installed, then use dplyr::fun() to refer to functions.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Version of of Dependencies
+\end_layout
+
+\begin_layout Standard
+If you need a specific version of a package, specify it in parentheses after
+ the package name:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Imports:
+\end_layout
+
+\begin_layout Plain Layout
+
+    ggvis (>= 0.2),
+\end_layout
+
+\begin_layout Plain Layout
+
+    dplyr (>= 0.3.0.1)
+\end_layout
+
+\begin_layout Plain Layout
+
+Suggests:
+\end_layout
+
+\begin_layout Plain Layout
+
+    MASS (>= 7.3.0)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+import field in DESCRIPTION 
+\end_layout
+
+\begin_layout Standard
+see NAMESPACE section.
+\end_layout
+
+\begin_layout Part
+Vignette
+\end_layout
+
+\begin_layout Enumerate
+You need to add the following metadata in your vignette
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+You’ll need to modifiy the 
+\backslash
+VignetteIndexEntry to provide the title of your vignette as you’d like it
+ to appear in the vignette index.
+ Leave the other two lines as is.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+---
+\end_layout
+
+\begin_layout Plain Layout
+
+title: "Vignette Title"
+\end_layout
+
+\begin_layout Plain Layout
+
+author: "Vignette Author"
+\end_layout
+
+\begin_layout Plain Layout
+
+date: "`r Sys.Date()`"
+\end_layout
+
+\begin_layout Plain Layout
+
+output: rmarkdown::html_vignette
+\end_layout
+
+\begin_layout Plain Layout
+
+vignette: >
+\end_layout
+
+\begin_layout Plain Layout
+
+  %
+\backslash
+VignetteIndexEntry{Vignette Title}
+\end_layout
+
+\begin_layout Plain Layout
+
+  %
+\backslash
+VignetteEngine{knitr::rmarkdown}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+usepackage[utf8]{inputenc}
+\end_layout
+
+\begin_layout Plain Layout
+
+---
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Create a 
+\series bold
+vignettes/
+\series default
+ directory.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+put all vignettes source code and output into that folder.
+\end_layout
+
+\begin_layout Enumerate
+The directory is called vignettes/ and not vignette/.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Add the following lines to your package’s DESCRIPTION file:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Suggests: knitr, rmarkdown
+\end_layout
+
+\begin_layout Plain Layout
+
+VignetteBuilder: knitr
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Suggests: knitr, rmarkdown VignetteBuilder: knitr 
+\end_layout
+
+\begin_layout Enumerate
+You can build all vignettes from the console with devtools::build_vignettes(),
+ but this is rarely useful.
+ Instead use 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+devtools::build()
+\end_layout
+
+\end_inset
+
+ to create a package bundle with the vignettes included.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Everything works interactively, but the vignette doesn’t show up after you’ve
+ installed the package.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+because RStudio’s “build and reload” doesn’t build vignettes, you may need
+ to run 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+devtools::install()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If you use error = TRUE, you must use purl = FALSE.
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

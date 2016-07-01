@@ -1,0 +1,1235 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 3cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 2bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+R_Literature Programming
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First version: Nov 2012
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+knitr
+\end_layout
+
+\begin_layout Section
+Global condition
+\end_layout
+
+\begin_layout Subsection
+Global condition
+\end_layout
+
+\begin_layout Itemize
+#need to be set in the beginning of the article.
+ 除非具体chunk中另定义option选项，否则global管所有chunk
+\end_layout
+
+\begin_layout Itemize
+# cache (whether 开启缓存 这样复杂code若未改变 则跑了一片后 再跑时可直接调用缓存中结果 就不去跑复杂code了。但这功能还不成熟)
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+opts_chunk$set(
+\end_layout
+
+\begin_layout Plain Layout
+
+	cache=FALSE,
+\end_layout
+
+\begin_layout Plain Layout
+
+	fig.width=5, 
+\end_layout
+
+\begin_layout Plain Layout
+
+	fig.height=3,
+\end_layout
+
+\begin_layout Plain Layout
+
+	echo=F,
+\end_layout
+
+\begin_layout Plain Layout
+
+	message=F,
+\end_layout
+
+\begin_layout Plain Layout
+
+	error=F,
+\end_layout
+
+\begin_layout Plain Layout
+
+	warning=F
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Chunk Condition
+\end_layout
+
+\begin_layout Itemize
+All global conditions can be redefined in Chunk level
+\end_layout
+
+\begin_layout Itemize
+YOU MUST load package 
+\family typewriter
+library(knitr)
+\family default
+ before set up options or use knitr_child
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<<Name of Chunk,
+\end_layout
+
+\begin_layout Plain Layout
+
+	echo= ,#whether to display code, 
+\end_layout
+
+\begin_layout Plain Layout
+
+	eval = TRUE or FALSE, to run or skip the code.
+\end_layout
+
+\begin_layout Plain Layout
+
+	results = "hide" # will hide results.
+ They will still be executed
+\end_layout
+
+\begin_layout Plain Layout
+
+	error= ,#whether to show error, 
+\end_layout
+
+\begin_layout Plain Layout
+
+	warning=, # display warnings?
+\end_layout
+
+\begin_layout Plain Layout
+
+	message=, # display noisy “messages” ?
+\end_layout
+
+\begin_layout Plain Layout
+
+	tidy= , # tidy the code 
+\end_layout
+
+\begin_layout Plain Layout
+
+>>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+child document
+\end_layout
+
+\begin_layout Standard
+Use Markdown syntax as example
+\end_layout
+
+\begin_layout Subsection
+insert child document: child option
+\end_layout
+
+\begin_layout Standard
+insert a separate child document into the parent document
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+```{r Economic Data,child='attach+Devp+Prod_UCL_MainData.Rmd',cache=F}
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+```
+\end_layout
+
+\begin_layout Standard
+In the child document, no need for preamble, since the preamble is already
+ in parent document.
+ 
+\end_layout
+
+\begin_layout Standard
+Similarly, no need for options in child document
+\end_layout
+
+\begin_layout Subsection
+insert child document: knitr_child
+\end_layout
+
+\begin_layout Standard
+Another way to insert a child document is to write an incline code in Rmarkdown
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+`r paste(knit_child('attach_EconData.Rmd',quiet = T),collapse='
+\backslash
+n')`
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+knit_child()
+\family default
+ will compile the Rmd file, return characters that the parent file can read.
+\end_layout
+
+\begin_layout Standard
+So you just need to 
+\family typewriter
+paste(.., collapse=”
+\backslash
+n”) 
+\family default
+to put it in the context of parent file.
+\end_layout
+
+\begin_layout Subsection
+insert child document: both in Compilation and in Console
+\end_layout
+
+\begin_layout Standard
+child option and knitr_child will only do its work when compiling the file.
+ It will not run the code in Console when you click “Chunks run all” or
+ “Ctrl+Alr+R” in Rstudio
+\end_layout
+
+\begin_layout Standard
+A way to solve this problem is:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+```{r ,eval=F,echo=F,cache=F}
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+knit('attach_EconData.Rmd',quiet = T)
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+```
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+`r paste(knit_child('attach_EconData.Rmd',quiet = T),collapse='
+\backslash
+n')`
+\end_layout
+
+\begin_layout Standard
+The R code chunk will run in Console when you click Ctrl+Alr+R”.
+ But it will not run or even show up when you compile the markdown file,
+ as you put 
+\family typewriter
+eval=F, echo=F.
+\end_layout
+
+\begin_layout Standard
+The inline knit_child will run when you compile the file.
+ But it will NOT run when you run it in console, as it is outside the R
+ code chunk.
+\end_layout
+
+\begin_layout Subsection
+Run code in Knit file 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+knit(paste(bcriskpolicy,'Fan Yang/First_Solution_201409/Devp_UCL_Model.Rmd',sep='
+'),quiet = T)
+\end_layout
+
+\begin_layout Part
+Latex
+\end_layout
+
+\begin_layout Standard
+http://yihui.name/knitr/demo/externalization/
+\end_layout
+
+\begin_layout Section
+Chunk
+\end_layout
+
+\begin_layout Subsection
+Setup in lyx
+\end_layout
+
+\begin_layout Standard
+document menu: module option: add knitr into module
+\end_layout
+
+\begin_layout Subsection
+create a chunk
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+command+L 
+\family default
+：begin to type raw LaTex code.
+ If you then type
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+# 0r 
+\end_layout
+
+\begin_layout Plain Layout
+
+@knitr Trading
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+@与knitr中间cannot have space!
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+Trading
+\family default
+ here is the chunk name
+\end_layout
+
+\begin_layout Subsection
+double quote is not valid, use single quote in chunk
+\end_layout
+
+\begin_layout Subsection
+knit a file cannot be used inside a function
+\end_layout
+
+\begin_layout Subsection
+read other chunk
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+<<echo=F>>=
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+read_chunk('Ass3.R')
+\family default
+ # This is the document to store the R code.
+ Use single quote, rather than double quote.
+ ### Put Ass3.R in the same folder of the lyx document
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+@
+\end_layout
+
+\begin_layout Standard
+To run the code in 'Ass3.R'
+\end_layout
+
+\begin_layout Standard
+Just refer the name of chunk in ‘Ass3.R’
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+<<Problem_Match,echo=T>>= 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+@
+\end_layout
+
+\begin_layout Subsection
+Cite R variable in text
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+
+\backslash
+Sexpr{portfolio}
+\end_layout
+
+\begin_layout Subsection
+result block
+\end_layout
+
+\begin_layout Standard
+results of codes will print into following blocks in the documents.
+\end_layout
+
+\begin_layout Itemize
+Graphs, message(), warnings(), errors() will break the continuity of blocks
+ (they will start as a new block)
+\end_layout
+
+\begin_layout Itemize
+cat() and print() will not break the block.
+\end_layout
+
+\begin_layout Section
+Bueatify
+\end_layout
+
+\begin_layout Subsection
+Xtable
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(xtable) 
+\end_layout
+
+\begin_layout Plain Layout
+
+xtable(head(mtcars[, 1:5])) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It’s a function, input is data.frame, result is LaTex code.
+ Data.frame's colnames and rownames need to be defined.
+\end_layout
+
+\begin_layout Standard
+Generate the latex code, thus the pdf output will show a table here.
+\end_layout
+
+\begin_layout Standard
+Prameter 
+\family typewriter
+label
+\family default
+ is used to refer this table in Lyx document.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+xtable(data, caption = "1990-2, label = "1")
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+print(Table_1, add.to.row = addtorow, include.colnames = FALSE)
+\end_layout
+
+\begin_layout Subsection
+xtable关于add.to.row = addtorow
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+addtorow <- list()
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+addtorow$pos <- list()
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+addtorow$pos[[1]] <- -1 ＃code应加入此行后
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+addtorow$pos[[2]] <- 1
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+addtorow$command = c("
+\backslash
+
+\backslash
+hline 
+\backslash
+n & 
+\backslash
+
+\backslash
+multicolumn{4}{c}{Equal Weighted} &
+\backslash
+n
+\backslash
+
+\backslash
+multicolumn{4
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+"
+\backslash
+
+\backslash
+hline 
+\backslash
+n ")
+\family default
+＃　须为一个vector，第一项为加入pos[[1]]处place的LaTex code。# 此处为在colname之上再加上两个general
+ 的colname
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+hline 为一横线。
+\backslash
+n为code的换行。
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+multicolumn{4}{c}{…}为跨四行的居中（central）的cell，其中内容为。。。
+\end_layout
+
+\begin_layout Standard
+& （前不必加
+\backslash
+）为小竖线隔开column。
+\end_layout
+
+\begin_layout Part
+Markdown
+\end_layout
+
+\begin_layout Subsubsection
+Inline formatting 
+\end_layout
+
+\begin_layout Standard
+Emphasis
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+*italic* **bold**
+\end_layout
+
+\begin_layout Plain Layout
+
+_italic_ __bold__
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+code style
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+`code`
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+url link
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+[link text](destination) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+See [UCLA Stats](http://www.ats.ucla.edu/stat/r/library/contrast_coding.htm)
+ for details.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+special character
+\end_layout
+
+\begin_layout Standard
+most special character is accepted in Rmarkdown directly.
+ Exacept @
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+yfno1
+\backslash
+@msn.com
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Paragraph
+\end_layout
+
+\begin_layout Subsubsection
+Headers
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# Header 1
+\end_layout
+
+\begin_layout Plain Layout
+
+## Header 2
+\end_layout
+
+\begin_layout Plain Layout
+
+### Header 3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Lists: 
+\end_layout
+
+\begin_layout Standard
+List is better to have one line spacing from main paragrah, and start with
+ 
+\backslash
+tab directly
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+This package has two parts: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  * The first part provides tools to manipulate formulas.
+\end_layout
+
+\begin_layout Plain Layout
+
+  * The second part provides functions to evaluate and check the marginal
+ impacts of a linear model.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Unordered List:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+* Item 1
+\end_layout
+
+\begin_layout Plain Layout
+
+* Item 2
+\end_layout
+
+\begin_layout Plain Layout
+
+	+ Item 2a
+\end_layout
+
+\begin_layout Plain Layout
+
+	+ Item 2b
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ordered List:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+1.
+ Item 1
+\end_layout
+
+\begin_layout Plain Layout
+
+2.
+ Item 2
+\end_layout
+
+\begin_layout Plain Layout
+
+3.
+ Item 3
+\end_layout
+
+\begin_layout Plain Layout
+
+	+ Item 3a
+\end_layout
+
+\begin_layout Plain Layout
+
+	+ Item 3b
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Definition lists use :
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Definition
+\end_layout
+
+\begin_layout Plain Layout
+
+  : a statement of the exact meaning of a word, especially in a dictionary.
+\end_layout
+
+\begin_layout Plain Layout
+
+List 
+\end_layout
+
+\begin_layout Plain Layout
+
+  : a number of connected items or names written or printed consecutively,
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    typically one below the other.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  : barriers enclosing an area for a jousting tournament.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Manual Line Breaks
+\end_layout
+
+\begin_layout Standard
+End a line with two or more spaces:
+\end_layout
+
+\begin_layout Section
+html syntax
+\end_layout
+
+\begin_layout Standard
+You can put html syntax directly in Rmakdown
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<center> <font size="3">Fan Yang</font> </center> 
+\end_layout
+
+\begin_layout Plain Layout
+
+<center> <font size="1">yfno1
+\backslash
+@msn.com</font> </center> 
+\end_layout
+
+\begin_layout Plain Layout
+
+<center> <h1>  </h1> </center> 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tables
+\end_layout
+
+\begin_layout Standard
+Tables
+\end_layout
+
+\begin_layout Standard
+There are four types of tables.
+ I recommend using the pipe table which looks like this:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+| Right | Left | Default | Center |
+\end_layout
+
+\begin_layout Plain Layout
+
+|------:|:-----|---------|:------:|
+\end_layout
+
+\begin_layout Plain Layout
+
+|   12  |  12  |    12   |    12  |
+\end_layout
+
+\begin_layout Plain Layout
+
+|  123  |  123 |   123   |   123  |
+\end_layout
+
+\begin_layout Plain Layout
+
+|    1  |    1 |     1   |     1  |
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notice the use of the : in the spacer under the heading.
+ This determines the alignment of the column.
+\end_layout
+
+\begin_layout Standard
+If the data underlying your table exists in R, don’t lay it out by hand.
+ Instead use 
+\series bold
+knitr::kable()
+\series default
+, or look at 
+\series bold
+printr
+\series default
+ or 
+\series bold
+pander
+\series default
+.
+\end_layout
+
+\begin_layout Subsection
+<!--- --> as html comments
+\end_layout
+
+\begin_layout Standard
+Can also use as Rmarkdown comments.
+\end_layout
+
+\begin_layout Section
+Output 
+\end_layout
+
+\begin_layout Standard
+choose your output types in the metadata section 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+output: html_document html file (web page)
+\end_layout
+
+\begin_layout Plain Layout
+
+output: pdf_document
+\end_layout
+
+\begin_layout Plain Layout
+
+output: beamer_presentation (pdf)
+\end_layout
+
+\begin_layout Plain Layout
+
+output: ioslides_presentation (html)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Chunk
+\end_layout
+
+\begin_layout Subsection
+Inline R Code
+\end_layout
+
+\begin_layout Standard
+There were `r nrow(cars)` cars studied
+\end_layout
+
+\begin_layout Subsection
+R code chunk 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+```{r chunk_name, options..}
+\end_layout
+
+\begin_layout Plain Layout
+
+```
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Underline can be used freely, no worry: YYY_OO
+\end_layout
+
+\end_body
+\end_document

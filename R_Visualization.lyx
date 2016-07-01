@@ -1,0 +1,3298 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+
+\begin_body
+
+\begin_layout Title
+_______________________________________________________________________________
+\end_layout
+
+\begin_layout Part
+Code Preamble
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+###  Packages  -------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+# _______________________________________________________________________
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+n 
+\end_layout
+
+\begin_layout Plain Layout
+
+    Global Option Settings: 
+\backslash
+n
+\end_layout
+
+\begin_layout Plain Layout
+
+    Not transform string to factor when load data 
+\backslash
+n
+\end_layout
+
+\begin_layout Plain Layout
+
+    Not use NA in any calculation 
+\backslash
+n
+\end_layout
+
+\begin_layout Plain Layout
+
+    Only print 4 ts.
+ 
+\backslash
+n 
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    Print Warnings as they occure 
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+options(stringsAsFactors = FALSE, na.rm=T,warn=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Pakcages we will use:
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+list.of.packages <- 
+\end_layout
+
+\begin_layout Plain Layout
+
+  c(
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # visualization
+\end_layout
+
+\begin_layout Plain Layout
+
+    "ggplot2","scales",
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # regular expression
+\end_layout
+
+\begin_layout Plain Layout
+
+    "stringr", 
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # data maniputaltion
+\end_layout
+
+\begin_layout Plain Layout
+
+    "reshape","reshape2","data.table","plyr","dplyr","magrittr","DataCombine",
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # some functions in dplyr are duplicate in plyr, and we want to use
+ functions in dplyr 
+\end_layout
+
+\begin_layout Plain Layout
+
+    # so load plyr first and then let dplyr to mask it.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # panel and cross sectional data 
+\end_layout
+
+\begin_layout Plain Layout
+
+    "plm","AER","censReg",
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # machine learning and Bayesian
+\end_layout
+
+\begin_layout Plain Layout
+
+    # "nnet",
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # time series
+\end_layout
+
+\begin_layout Plain Layout
+
+    "lubridate", "zoo","tseries", 
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # statistics and regression
+\end_layout
+
+\begin_layout Plain Layout
+
+    "VGAM","MASS","Formula", 
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # excel files
+\end_layout
+
+\begin_layout Plain Layout
+
+    "readxl",
+\end_layout
+
+\begin_layout Plain Layout
+
+    # "XML","XLConnect",
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # literature programming & code style
+\end_layout
+
+\begin_layout Plain Layout
+
+    "knitr","formatR",'yaml', 'htmltools', 'caTools','rmarkdown',"xtable",
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # Computing on the Language
+\end_layout
+
+\begin_layout Plain Layout
+
+    "pryr", "gtools","lazyeval"
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+  )
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("Pakcages we will use : 
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+print(list.of.packages)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+n 
+\backslash
+n check new packages that this computer did not install before 
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Packag
+e"])]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+n 
+\backslash
+n download & install new packages 
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+if(length(new.packages)) install.packages(new.packages)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# _____________________________________________________________
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+n 
+\backslash
+n load packages to R 
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+for (Library in list.of.packages) library(Library,character.only = T)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# ggplot2 default font size
+\end_layout
+
+\begin_layout Plain Layout
+
+theme_set(theme_gray(base_size = 18))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+R Default Plotting 
+\end_layout
+
+\begin_layout Subsection
+two y-axis.
+\end_layout
+
+\begin_layout Standard
+twoord.plot in the plotrix package; 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://cran.r-project.org/web/packages/plotrix/plotrix.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+points
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(faraway)
+\end_layout
+
+\begin_layout Plain Layout
+
+data(teengamb)           
+\end_layout
+
+\begin_layout Plain Layout
+
+attach(teengamb)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(verbal,gamble,pch=2*sex) 
+\end_layout
+
+\begin_layout Plain Layout
+
+## set verbal onto X-axis and gamble onto Y-axis.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+# “pch” is used to set the type of point.
+ Since “sex” is either 1 or 2 in this data set, pch=2*sex means point type
+ is 0 (small square) or 2 triangle..
+ for example, if one person has the property with verbal=10 gamble close
+ to 0 and sex=1, then its point type is trangle.
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Line
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+data(iris)
+\end_layout
+
+\begin_layout Plain Layout
+
+setosa = subset(iris,Species == 'setosa')
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(setosa$Sepal.Width, setosa$Sepal.Length)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+## abline
+\end_layout
+
+\begin_layout Plain Layout
+
+# the first value is intercept, 
+\end_layout
+
+\begin_layout Plain Layout
+
+# second is slope.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+# lty=? is to define the type of the line.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+abline(lm(Sepal.Length ~ Sepal.Width,data = setosa)$coeff,lty=1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+abline(h=mean(setosa$Sepal.Length)) # horizontal
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+ggplot2
+\end_layout
+
+\begin_layout Section
+Structure
+\end_layout
+
+\begin_layout Subsection
+Code Structure
+\end_layout
+
+\begin_layout Enumerate
+First specify ggplot, you have to put the data into it.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# exogen.plot.JP=ggplot(exogen.prepare[[2]],aes(x=X,y=Y,colour=choice))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Then when you specify the graph you want to draw, by setting geom.
+ 
+\end_layout
+
+\begin_layout Enumerate
+In each geom, you have to specify the aes (mapping relations from variable
+ to a dimentional of a graph)
+\end_layout
+
+\begin_layout Enumerate
+Outside the aes, you just specify whatever fixed aes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# exogen.plot.JP+geom_path(size=1)+ geom_path(aes(x=Date,y=X10.),colour=1,alpha=0.4,
+data=exogen)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Data structure
+\end_layout
+
+\begin_layout Standard
+The principle is data mapping: if you only care first 10 data point, then
+ you only use the first 10 as data in ggplot()
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+### So this is correct: 
+\end_layout
+
+\begin_layout Plain Layout
+
+# ggplot(Gibbs[1:10,])+geom_path(aes(x=N,y=Beta)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+### This is incorrect 
+\end_layout
+
+\begin_layout Plain Layout
+
+# ggplot(Gibbs)+geom_path(aes(x=N[1:10],y=Beta[1:10])) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Using another Dataset in different layer
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# p <- ggplot(final) + 
+\end_layout
+
+\begin_layout Plain Layout
+
+#   geom_boxplot(aes(factor(Born_Cohort), Height) )+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+#   coord_flip()+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+#   labs(title="NHANSE 1999-2010: Height, by Born_Cohort")
+\end_layout
+
+\begin_layout Plain Layout
+
+@ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Facet
+\end_layout
+
+\begin_layout Itemize
+graphs will be placed vertically: 
+\family typewriter
++ facet_grid( facets = color ~ .) 
+\end_layout
+
+\begin_layout Itemize
+graphs will be placed horizontally: 
+\family typewriter
+.~ 
+\end_layout
+
+\begin_layout Itemize
+free scale of y-axis, not fixed scale: 
+\family typewriter
+facet_grid( Key~., scales="free_y")
+\end_layout
+
+\begin_layout Subsection
+
+\backslash
+n is to change line in any text.
+ In windows it is 
+\backslash
+r
+\backslash
+n
+\end_layout
+
+\begin_layout Standard
+If you want to use time series as the X-axis, you has to transfer the interested
+ variable into Data class: 
+\family typewriter
+as.Date()
+\end_layout
+
+\begin_layout Standard
+Thus the ggplot2 can recognize the Date automatically 
+\end_layout
+
+\begin_layout Subsection
+Theme
+\end_layout
+
+\begin_layout Standard
+There are a lot of other themes
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+library(ggthemes)
+\end_layout
+
+\begin_layout Standard
+just add this line after the 
+\family typewriter
+ggolot()+geom_...
+ +..
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
++theme_solarized(light = FALSE,base_size=16) + scale_colour_solarized("red")
+\end_layout
+
+\begin_layout Subsection
+parse string as variable
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+ggplot(plot_data) + geom_line(aes_string(x='carat',y = 'predict'))
+\end_layout
+
+\begin_layout Section
+Geom
+\end_layout
+
+\begin_layout Standard
+Geom decides the type of graph.
+ Every Geom has its corresponding Aesetics 
+\end_layout
+
+\begin_layout Subsection
+geom_line/geom_point
+\end_layout
+
+\begin_layout Standard
+For line segments/points
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+aes(x=A, y=B )
+\end_layout
+
+\begin_layout Subsection
+geom_ribbon
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+geom_ribbon(aes(ymin=CI_Bottom, ymax=CI_Upper, x= year))
+\end_layout
+
+\begin_layout Subsection
+geom_density 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+aes(x=A)
+\end_layout
+
+\begin_layout Standard
+Directly use x's frequency as density, so no need aes(y)
+\end_layout
+
+\begin_layout Subsection
+geom_histogram
+\end_layout
+
+\begin_layout Standard
+Same as 
+\family typewriter
+geom_bar(stat = "bin")
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+aes(x=A)
+\family default
+: Directly use x's frequency as density, so no need aes(y).
+\end_layout
+
+\begin_layout Standard
+How to decide the scale of y:
+\end_layout
+
+\begin_layout Itemize
+Default is by count: 
+\family typewriter
+y = ..count..
+ #
+\end_layout
+
+\begin_layout Itemize
+Change to Density: You can change the y scale into that in density function:
+ 
+\family typewriter
+aes(x=A,y=..density..)
+\family default
+ # Same scale as in density function
+\end_layout
+
+\begin_layout Subsection
+geom_bar
+\end_layout
+
+\begin_layout Standard
+scale of y:
+\end_layout
+
+\begin_layout Enumerate
+default is by count of x, so no need to provide y.
+\end_layout
+
+\begin_layout Enumerate
+when Hight provided
+\family typewriter
+: geom_bar(aes(x=A,y=Height),stat = "identity")
+\end_layout
+
+\begin_layout Standard
+position dodged or stacked or stacked to 1: 
+\end_layout
+
+\begin_layout Itemize
+default is stacked 
+\end_layout
+
+\begin_layout Itemize
+otherwise: outside aes: 
+\family typewriter
+geom(aes(),position = c('dodge','fill')) 
+\family default
+('fill' means stack to 100%)
+\end_layout
+
+\begin_layout Subsection
+double layers 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(mtcars, aes(wt, mpg))
+\end_layout
+
+\begin_layout Plain Layout
+
+p + aes(shape = factor(cyl)) + geom_point(aes(colour = factor(cyl)), size
+ = 4) + 
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_point(colour="grey90", size = 1.5) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+geom_point(colour="pink", size = 4) +
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_point(aes(shape = factor(cyl)))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# These extra layers don't usually appear in the legend, but we can
+\end_layout
+
+\begin_layout Plain Layout
+
+# force their inclusion
+\end_layout
+
+\begin_layout Plain Layout
+
+p + geom_point(colour="black", size = 4.5, show_guide = TRUE) +
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_point(colour="pink", size = 4, show_guide = TRUE) +
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_point(aes(shape = factor(cyl)))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Aesetics
+\end_layout
+
+\begin_layout Standard
+Aesetics can be mapped from a variable, and later in scale_AES you can manual
+ adjust the mapping relations.
+ It can also be fixed outside aes() in geom_PLOT.
+\end_layout
+
+\begin_layout Itemize
+x - x position (some geoms also have other aesthetics representing x positions,
+ such as "xend" or "xmin")
+\end_layout
+
+\begin_layout Itemize
+y - y position (some geoms also have other aesthetics representing y positions,
+ such as "yend" or "ymin")
+\end_layout
+
+\begin_layout Itemize
+size - size of a geom
+\end_layout
+
+\begin_layout Itemize
+shape - shape of a geom
+\end_layout
+
+\begin_layout Itemize
+linetype - type of a geom's outline (e.g., dashed, dotted)
+\end_layout
+
+\begin_layout Itemize
+colour - color of a geom's outline
+\end_layout
+
+\begin_layout Itemize
+fill - color of a geom's fill
+\end_layout
+
+\begin_layout Itemize
+alpha - transparency of a geom (0=transparent ...
+ 1=opaque) 
+\end_layout
+
+\begin_layout Subsection
+Code Structure
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot(DATA) + 
+\end_layout
+
+\begin_layout Plain Layout
+
+    # this is to map variable to aesthetics: mapping aesthetics
+\end_layout
+
+\begin_layout Plain Layout
+
+    # PLOT means type of plot(line,point etc)
+\end_layout
+
+\begin_layout Plain Layout
+
+    geom_PLOT (aes( AESTHETIC = VARIABLE),     
+\end_layout
+
+\begin_layout Plain Layout
+
+        AESTHETIC = AESTHETIC_VALUE) + # this is fixed AESTHETIC
+\end_layout
+
+\begin_layout Plain Layout
+
+    scale_AESTHETIC_manual/discrete/continous(value = ...) # manual adjustment
+ of aesthetics.
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Manual Aesthetics
+\end_layout
+
+\begin_layout Subsection
+Hidden Aesthetics
+\end_layout
+
+\begin_layout Standard
+Below is the correct graph, where cut is shape, and color is color.
+ If you want to still separate the cut, but not by any aesthetics, just
+ separate them, you can still do it.
+ We call it Hidden Aesthetics.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Aesthetics not hidden
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot(head(diamonds,100)) + 
+\end_layout
+
+\begin_layout Plain Layout
+
+    geom_point(aes( y = price, x = carat, shape = cut, color = color, alpha
+ = clarity ))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# "cut" aesthetics is the hidden: still separate  "cut", 
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot(subset(diamonds, clarity == 'SI2' & price <=1000) ) + 
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_point(aes( y = price, x = carat, sdadwee2 = cut, color = color))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Color
+\end_layout
+
+\begin_layout Standard
+# source: http://sape.inf.usi.ch/quick-reference/ggplot2/colour
+\end_layout
+
+\begin_layout Subsubsection
+Hexadecimal values
+\end_layout
+
+\begin_layout Standard
+Basically, a colour is defined, like in HTML/CSS, using the hexadecimal
+ values (00 to FF) for red, green, and blue, concatenated into a string,
+ prefixed with a "#".
+ A pure red colour this is represented with "#FF0000".
+\end_layout
+
+\begin_layout Subsubsection
+Red Green Blue (RGB) Colour Space
+\end_layout
+
+\begin_layout Standard
+RGB is the built-in colour space.
+ Instead of "manually" creating a #RRGGBB colour string, a colour can be
+ specified using R's rgb() function that takes three arguments: red, green,
+ and blue (which, by default, all have a range of [0, 1]).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+d=expand.grid(r=seq(0,1,0.1), g=seq(0,1,0.1), b=seq(0,1,0.1))
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot() +
+\end_layout
+
+\begin_layout Plain Layout
+
+facet_wrap(~b) +
+\end_layout
+
+\begin_layout Plain Layout
+
+scale_x_continuous(name="red", breaks=seq(0.05, 1.05, 0.2), labels=seq(0, 1,
+ 0.2)) +
+\end_layout
+
+\begin_layout Plain Layout
+
+scale_y_continuous(name="green", breaks=seq(0.05, 1.05, 0.2), labels=seq(0,
+ 1, 0.2)) +
+\end_layout
+
+\begin_layout Plain Layout
+
+scale_fill_identity() +
+\end_layout
+
+\begin_layout Plain Layout
+
+geom_rect(data=d, mapping=aes(xmin=r, xmax=r+resolution(r), 
+\end_layout
+
+\begin_layout Plain Layout
+
+    ymin=g, ymax=g+resolution(g), fill=rgb(r,g,b)), color="white", size=0.1)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Predefined Colour Names
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+d=data.frame(c=colors(), y=seq(0, length(colors())-1)%%66, x=seq(0, length(colors
+())-1)%/%66)
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot() +
+\end_layout
+
+\begin_layout Plain Layout
+
+  scale_x_continuous(name="",  expand=c(0, 0)) +
+\end_layout
+
+\begin_layout Plain Layout
+
+  scale_y_continuous(name="", expand=c(0, 0)) +
+\end_layout
+
+\begin_layout Plain Layout
+
+  scale_fill_identity() +
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_rect(data=d, mapping=aes(xmin=x, xmax=x+1, ymin=y, ymax=y+1), fill="white
+") +
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_rect(data=d, mapping=aes(xmin=x+0.05, xmax=x+0.95, ymin=y+0.5, ymax=y+1,
+ fill=c)) +
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_text(data=d, mapping=aes(x=x+0.5, y=y+0.5, label=c), colour="black",
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+            hjust=0.5, vjust=1, size=3)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Hue Saturation Value (HSV) = Hue Saturation Brightness (HSB) Colour Space
+\end_layout
+
+\begin_layout Standard
+A colour can be specified using R's hsv() function that takes three arguments:
+ hue, saturation, and value (brightness), all in the range [0, 1].
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+d=expand.grid(h=seq(0,0.95,0.05), s=seq(0,0.95,0.05), v=seq(0,1,0.2))
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot() +
+\end_layout
+
+\begin_layout Plain Layout
+
+coord_polar(theta="x") +
+\end_layout
+
+\begin_layout Plain Layout
+
+facet_wrap(~v) +
+\end_layout
+
+\begin_layout Plain Layout
+
+scale_x_continuous(name="hue", limits=c(0,1), breaks=seq(0.025,0.925,0.1),
+ labels=seq(0,0.9,0.1)) +
+\end_layout
+
+\begin_layout Plain Layout
+
+scale_y_continuous(name="saturation", breaks=seq(0, 1, 0.2)) +
+\end_layout
+
+\begin_layout Plain Layout
+
+scale_fill_identity() +
+\end_layout
+
+\begin_layout Plain Layout
+
+geom_rect(data=d, mapping=aes(xmin=h, xmax=h+resolution(h), ymin=s, ymax=s+resol
+ution(s), fill=hsv(h,s,v)), color="white", size=0.1)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Hue Chroma Luminance (HCL) Colour Space
+\end_layout
+
+\begin_layout Standard
+A colour can be specified using R's hcl() function that takes three arguments:
+ hue [0,360], chroma [0,100], and luminance [0,100].
+ This space is similar to the HSV space, however, in the HCL space steps
+ of equal size correspond to approximately equal perceptual changes in colour.
+ Note that the possible values of chroma and luminance actually depend on
+ the specific hue.
+ The ranges above are only indicative.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+d=expand.grid(h=seq(0,350,10), c=seq(0,100,5), l=seq(0,100,20))
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot() +
+\end_layout
+
+\begin_layout Plain Layout
+
+    coord_polar(theta="x")+facet_wrap(~l) +
+\end_layout
+
+\begin_layout Plain Layout
+
+    scale_x_continuous(name="hue", limits=c(0,360), breaks=seq(5,345,20),
+ labels=seq(0,340,20)) +
+\end_layout
+
+\begin_layout Plain Layout
+
+    scale_y_continuous(name="chroma", breaks=seq(0, 100, 20)) +
+\end_layout
+
+\begin_layout Plain Layout
+
+    scale_fill_identity() +
+\end_layout
+
+\begin_layout Plain Layout
+
+    geom_rect(data=d, mapping=aes(xmin=h, xmax=h+resolution(h), 
+\end_layout
+
+\begin_layout Plain Layout
+
+        ymin=c, ymax=c+resolution(c), fill=hcl(h,c,l)), color="white", size=0.1)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+lintype
+\end_layout
+
+\begin_layout Standard
+Geoms that draw lines have a "linetype" parameter.
+\end_layout
+
+\begin_layout Standard
+Legal values are the strings "blank", "solid", "dashed", "dotted", "dotdash",
+ "longdash", and "twodash".
+ Alternatively, the numbers 0 to 6 can be used (0 for "blank", 1 for "solid",
+ ...).
+ Moreover, one can also use strings that define the linetype with up to
+ 8 hexadecimal digits (each digit specifying the length of interleaved lines
+ and gaps).
+\end_layout
+
+\begin_layout Standard
+For most geoms, the default linetype is 1 (a solid line).
+\end_layout
+
+\begin_layout Standard
+The linetype can be set to a constant value or it can be mapped via a scale.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Setting to constant value in aes()
+\end_layout
+
+\begin_layout Standard
+To set the linetype to a constant value, use the linetype geom parameter
+ (e.g., geom_line(data=d, mapping=aes(x=x, y=y), linetype=3) sets the linetype
+ of all lines in the layer to 3, which corresponds to a dotted line).
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Mapping via scale_linetype_identity
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>
+\end_layout
+
+\begin_layout Plain Layout
+
+d=data.frame(lt=c("blank", "solid", "dashed", "dotted", "dotdash", "longdash",
+ "twodash", "1F", "F1", "4C88C488", "12345678"))
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot() +
+\end_layout
+
+\begin_layout Plain Layout
+
+scale_x_continuous(name="", limits=c(0,1)) +
+\end_layout
+
+\begin_layout Plain Layout
+
+scale_y_discrete(name="linetype") +
+\end_layout
+
+\begin_layout Plain Layout
+
+scale_linetype_identity() +
+\end_layout
+
+\begin_layout Plain Layout
+
+geom_segment(data=d, mapping=aes(x=0, xend=1, y=lt, yend=lt, linetype=lt))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Alpha
+\end_layout
+
+\begin_layout Standard
+Control the transparncy, has values from 0 to 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot() +
+\end_layout
+
+\begin_layout Plain Layout
+
+    scale_alpha_continuous(range =c(0,1), guide="none") +
+\end_layout
+
+\begin_layout Plain Layout
+
+    scale_x_continuous(name="alpha") +
+\end_layout
+
+\begin_layout Plain Layout
+
+    scale_y_continuous(name="alpha") +
+\end_layout
+
+\begin_layout Plain Layout
+
+    geom_segment(data=d, mapping=aes(x=0, y=a, xend=1, yend=a, alpha=a),
+ color="red", size=6) +
+\end_layout
+
+\begin_layout Plain Layout
+
+    geom_segment(data=d, mapping=aes(x=a, y=0, xend=a, yend=1, alpha=a),
+ color="blue", size=6)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Shape
+\end_layout
+
+\begin_layout Standard
+Geoms that draw points have a "shape" parameter.
+\end_layout
+
+\begin_layout Standard
+Legal shape values are the numbers 0 to 25, and the numbers 32 to 127.
+ Only shapes 21 to 25 are filled (and thus are affected by the fill color),
+ the rest are just drawn in the outline color.
+ Shapes 32 to 127 correspond to the corresponding ASCII characters.
+\end_layout
+
+\begin_layout Standard
+For most geoms, the default shape is 16 (a dot).
+\end_layout
+
+\begin_layout Standard
+The shape can be set to a constant value or it can be mapped via a scale.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>
+\end_layout
+
+\begin_layout Plain Layout
+
+d=data.frame(p=c(0:25,32:127))
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot() +
+\end_layout
+
+\begin_layout Plain Layout
+
+scale_y_continuous(name="") +
+\end_layout
+
+\begin_layout Plain Layout
+
+scale_x_continuous(name="") +
+\end_layout
+
+\begin_layout Plain Layout
+
+scale_shape_identity() +
+\end_layout
+
+\begin_layout Plain Layout
+
+geom_point(data=d, mapping=aes(x=p%%16, y=p%/%16, shape=p), size=5, fill="red")
+ +
+\end_layout
+
+\begin_layout Plain Layout
+
+geom_text(data=d, mapping=aes(x=p%%16, y=p%/%16+0.25, label=p), size=3)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+solid point or hollow
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+scale_shape_discrete(solid=F)
+\end_layout
+
+\begin_layout Standard
+also you can fill the points with fill(color)
+\end_layout
+
+\begin_layout Section
+Scale
+\end_layout
+
+\begin_layout Standard
+scale controls how the aesthetics behaviors
+\end_layout
+
+\begin_layout Standard
+Continous: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="6">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x (or y) position 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+size 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+shape 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+linetype 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+colour (or fill) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+alpha
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_x_continuous
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_size_continuous
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_colour_gradient
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_alpha_continuous
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_x_date
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_area
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_colour_gradient2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_x_datetime
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_colour_gradientn
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Discrete
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="6">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x (or y) position 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+size 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+shape 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+linetype 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+colour (or fill) 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+alpha
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_x_discrete
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_size_discrete
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_shape_discrete
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_linetype_discrete
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_colour_hue
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_size_identity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_shape_identity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_linetype_identity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_colour_brewer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_size_manual
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_shape_manual
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_linetype_manual
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_colour_grey
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_colour_identity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+scale_colour_manual
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+dollar or comma as scale
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+p + scale_y_continuous(labels = dollar).
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+p + scale_x_continuous(labels = comma).
+ 
+\end_layout
+
+\begin_layout Subsection
+continuous scale vs.
+ discrete scale
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+scale_manual #is only for discrete.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+factor() #is to transform the continuous to discrete
+\end_layout
+
+\begin_layout Subsection
+range of continouse aesthetics
+\end_layout
+
+\begin_layout Standard
+range =c(0,0.5)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot() +
+\end_layout
+
+\begin_layout Plain Layout
+
+    scale_alpha_continuous(range =c(0,0.5), guide="none") +
+\end_layout
+
+\begin_layout Plain Layout
+
+    scale_x_continuous(name="alpha") +
+\end_layout
+
+\begin_layout Plain Layout
+
+    scale_y_continuous(name="alpha") +
+\end_layout
+
+\begin_layout Plain Layout
+
+    geom_segment(data=d, mapping=aes(x=0, y=a, xend=1, yend=a, alpha=a),
+ color="red", size=6)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Scale used to insert geom that is not showed in label
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval = F>>
+\end_layout
+
+\begin_layout Plain Layout
+
+exogen.plot=ggplot(exogen.prepare[[1]],aes(x=X,y=Y,colour=choice))
+\end_layout
+
+\begin_layout Plain Layout
+
+    exogen.plot+geom_path(size=1)+
+\end_layout
+
+\begin_layout Plain Layout
+
+    geom_path(aes(x=Date,y=X10.),colour=1,alpha=0.4,data=exogen)+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+## Insert geom that is not showed in label and You have to specify the color
+ since you already specify the color for exogen.prepare
+\end_layout
+
+\begin_layout Plain Layout
+
+    scale_colour_discrete("Normalized Statistics of
+\backslash
+n Exogenous Test",
+\end_layout
+
+\begin_layout Plain Layout
+
+                            labels=c("Japan","USA"))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+scale_manual
+\end_layout
+
+\begin_layout Itemize
+To change the values of aesthetics, use “
+\family typewriter
+values=
+\family default
+” inside.
+\end_layout
+
+\begin_layout Itemize
+2.
+ could be
+\family typewriter
+ scale_colour_manual
+\family default
+, or 
+\family typewriter
+scale_..._manual
+\family default
+ a lot of things.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+example: 
+\family typewriter
+scale_alpha_manual(values=c(1, 0.4))
+\end_layout
+
+\begin_layout Section
+Legend for Aesthetics
+\end_layout
+
+\begin_layout Subsection
+Rename Legends
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+scale_.._..(name = ''country', labels=c("Japan","USA"))
+\end_layout
+
+\begin_layout Itemize
+name: the name of the scale - used as the axis label or the legend title
+\end_layout
+
+\begin_layout Itemize
+labels: must have the same length as the number of unique values of mapped
+ variable.
+\end_layout
+
+\begin_layout Subsection
+Legend Position Adjustment and Alignment
+\end_layout
+
+\begin_layout Standard
+Position bottom, horizontal direction and horizontal box alignment
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p + geom_point(aes(color = factor(cyl),shape  = factor(vs) ), size =3 )
+ +    
+\end_layout
+
+\begin_layout Plain Layout
+
+    theme (legend.direction = "horizontal", legend.position = "bottom") 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The position and justification of legends are controlled by the theme setting
+ legend.position, and the value can be right, left, top, bottom, none (no
+ legend), or a numeric position.
+ The numeric position gives (in values between 0 and 1) the position of
+ the corner given by legend.justification, a numeric vector of length two.
+ Top right = c(1, 1), bottom left = c(0, 0) 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
++ opts(legend.position = "none") 
+\end_layout
+
+\begin_layout Subsection
+Not show in legend: 
+\end_layout
+
+\begin_layout Standard
+scale_linetype_discrete(
+\series bold
+guide="none"
+\series default
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+d=data.frame(a=c("a","b","c","d","e","f","g","h", "i", "j", "k", "l"))
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot() +
+\end_layout
+
+\begin_layout Plain Layout
+
+scale_x_continuous(limits=c(0,1), name="") +
+\end_layout
+
+\begin_layout Plain Layout
+
+scale_linetype_discrete(guide="none") +
+\end_layout
+
+\begin_layout Plain Layout
+
+geom_segment(data=d, mapping=aes(x=0, xend=1, y=a, yend=a, linetype=a))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Not in aesthetics, but force to show in Legend
+\end_layout
+
+\begin_layout Standard
+add show_guide = TRUE in geom
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(mtcars, aes(wt, mpg))
+\end_layout
+
+\begin_layout Plain Layout
+
+p + aes(shape = factor(cyl)) + geom_point(aes(colour = factor(cyl)), size
+ = 4) + 
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_point(colour="grey90", size = 1.5) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+geom_point(colour="pink", size = 4) +
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_point(aes(shape = factor(cyl)))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# These extra Pink layers don't appear in the legend as it has no aesthetics,
+ but we can
+\end_layout
+
+\begin_layout Plain Layout
+
+# force their inclusion
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+p + geom_point(colour="black", size = 4.5, show_guide = TRUE) +
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_point(colour="pink", size = 4, show_guide = TRUE) +
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_point(aes(shape = factor(cyl)))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Axis and Labels
+\end_layout
+
+\begin_layout Subsection
+labs: Title of Graph 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
++labs(title="Persistent Diagram") 
+\end_layout
+
+\begin_layout Subsection
+labs: name of the x.axis and y.axis
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+labs(x="Standard Deviation", y="Return")+
+\end_layout
+
+\begin_layout Subsection
+Axis tickers labels
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+scale_x_discrete/continuous/(labels=unique(Track$vintage)) 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+unique(Track$vintage))
+\family default
+ must have the same length as x-ticker in plot.
+ 
+\end_layout
+
+\begin_layout Standard
+Though 
+\family typewriter
+scale_x_discrete
+\family default
+ can also set the axis tikers label，But it is better to set all label related
+ changes in 
+\family typewriter
+labs()
+\family default
+.
+\end_layout
+
+\begin_layout Subsection
+Axis scales: as percent
+\end_layout
+
+\begin_layout Standard
+need to load 
+\family typewriter
+scales
+\family default
+ library first 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+scale_x_continuous(labels=percent) 
+\end_layout
+
+\begin_layout Subsection
+Axis Breaker: scale_y/x_continuous
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(mtcars, aes(wt, mpg))
+\end_layout
+
+\begin_layout Plain Layout
+
+p + geom_point(aes(color = factor(cyl),shape = factor(vs) ), size =3 ) +
+\end_layout
+
+\begin_layout Plain Layout
+
+    scale_y_continuous(breaks = seq(10, 35, by = 1))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Axis tiker label’s angle, adjustment, and font size
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+theme(axis.text.x = element_text(angle=90, vjust=1, size=20)) 
+\end_layout
+
+\begin_layout Standard
+# adjust the vertical justification of the labels, which is often useful
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Change font options: # X-axis label: bold, red, and 20 points # X-axis
+ tick marks: rotate 90 degrees CCW, move to the left a bit (hjust), and
+ 16 points 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+bp <- ggplot(PlantGrowth, aes(x=group, y=weight)) +
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_boxplot()
+\end_layout
+
+\begin_layout Plain Layout
+
+bp + theme(axis.title.x = element_text(face="bold", colour="#990000", size=20),
+            
+\end_layout
+
+\begin_layout Plain Layout
+
+           axis.text.x  = element_text(angle=90, hjust=1.2, size=16)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Coordination Range
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+coord_cartesian(xlim = c(-0.02, 0.14),ylim=c(0,0.03))
+\end_layout
+
+\begin_layout Subsection
+Coordination Flip
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
++ coord_flip() 
+\end_layout
+
+\begin_layout Standard
+http://had.co.nz/ggplot2/geom_bar.html
+\end_layout
+
+\begin_layout Subsection
+Speify ratios between x and y axes
+\end_layout
+
+\begin_layout Standard
+It is possible to set the scaling of the axes to an equal ratio, with one
+ visual unit being representing the same numeric unit on both axes.
+ It is also possible to set them to ratios other than 1:1.
+\end_layout
+
+\begin_layout Standard
+# Data where x ranges from 0-10, y ranges from 0-30 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+set.seed(202) 
+\end_layout
+
+\begin_layout Plain Layout
+
+dat <- data.frame(xval = runif(40,0,10), yval = runif(40,0,30)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+sp <- ggplot(dat, aes(xval, yval)) + geom_point() # Force equal scaling
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+sp + coord_fixed() # Equal scaling, with each 1 on the x axis the same length
+ as y on x axis 
+\end_layout
+
+\begin_layout Plain Layout
+
+sp + coord_fixed(ratio=1/3) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Reversing the direction of an axis
+\end_layout
+
+\begin_layout Standard
+# Reverse order of a continuous-valued axis
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
++ scale_y_reverse()
+\end_layout
+
+\begin_layout Section
+Theme
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://sape.inf.usi.ch/quick-reference/ggplot2/themes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+overall theme
+\end_layout
+
+\begin_layout Itemize
+theme_grey() - the default theme, with a grey background
+\end_layout
+
+\begin_layout Itemize
+theme_bw() - a theme with a white background 
+\end_layout
+
+\begin_layout Subsection
+font size
+\end_layout
+
+\begin_layout Standard
+Use 
+\family typewriter
+theme_set() 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+theme_set(theme_gray(base_size = 18)) 
+\end_layout
+
+\begin_layout Section
+LaTex in GGPLOT2
+\end_layout
+
+\begin_layout Standard
+Use 
+\family typewriter
+expression():
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+plot(1, main=expression(beta[1]))
+\end_layout
+
+\begin_layout Standard
+See 
+\family typewriter
+?plotmath
+\family default
+ for more details.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+q <- qplot(cty, hwy, data = mpg, colour = displ)
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+q + xlab(
+\series bold
+expression
+\series default
+(beta +
+\series bold
+frac
+\series default
+(miles, gallon)))
+\end_layout
+
+\end_body
+\end_document

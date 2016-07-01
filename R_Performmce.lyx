@@ -1,0 +1,381 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+R: Performmce
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\end_layout
+
+\begin_layout Date
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First version: 2014.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part*
+Book Reference
+\end_layout
+
+\begin_layout Part
+Performance
+\end_layout
+
+\begin_layout Standard
+“We should forget about small efficiencies, say about 97% of the time: premature
+ optimization is the root of all evil.
+ Yet we should not pass up our opportunities in that critical 3%.
+ A good programmer will not be lulled into complacency by such reasoning,
+ he will be wise to look carefully at the critical code; but only after
+ that code has been identified.”
+\end_layout
+
+\begin_layout Standard
+— Donald Knuth.
+\end_layout
+
+\begin_layout Standard
+Three trade-offs that limit the performance of the R-language: 1.
+ extreme dynamism, 2.
+ name lookup with mutable environments, 3.
+ lazy evaluation of function arguments.
+ 
+\end_layout
+
+\begin_layout Section
+Memory
+\end_layout
+
+\begin_layout Subsection
+Total memory usage
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+library(pryr) 
+\end_layout
+
+\begin_layout Plain Layout
+
+mem_used() 
+\end_layout
+
+\begin_layout Plain Layout
+
+#> 44.9 MB
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+pryr::object_size() Memory size of object
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+library(pryr)
+\end_layout
+
+\begin_layout Plain Layout
+
+object_size(1:10)
+\end_layout
+
+\begin_layout Plain Layout
+
+#> 88 B
+\end_layout
+
+\begin_layout Plain Layout
+
+object_size(mean)
+\end_layout
+
+\begin_layout Plain Layout
+
+#> 832 B
+\end_layout
+
+\begin_layout Plain Layout
+
+object_size(mtcars)
+\end_layout
+
+\begin_layout Plain Layout
+
+#> 6.74 kB
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Memory Block of an object
+\end_layout
+
+\begin_layout Standard
+1.
+ Requesting memory (with malloc()) is a relatively expensive operation.
+ Having to request memory every time a small vector is created would slow
+ R down considerably.
+ Instead, R asks for a big block of memory and then manages that block itself.
+ This block is called the small vector pool and is used for vectors less
+ than 128 bytes long.
+ For efficiency and simplicity, it only allocates vectors that are 8, 16,
+ 32, 48, 64, or 128 bytes long.
+\end_layout
+
+\begin_layout Standard
+2.
+ Both R and the operating system are lazy: they won’t reclaim memory until
+ it’s actually needed.
+ R might be holding on to memory because the OS hasn’t yet asked for it
+ back.
+\end_layout
+
+\begin_layout Standard
+3.
+ 
+\end_layout
+
+\begin_layout Subsection
+garbage collection in R
+\end_layout
+
+\begin_layout Standard
+GC automatically releases memory when an object is no longer used.
+ It does this by tracking how many names point to each object, and when
+ there are no names pointing to an object, it deletes that object.
+\end_layout
+
+\begin_layout Standard
+1.
+ there’s never any need to call gc()yourself.
+ 
+\end_layout
+
+\begin_layout Standard
+2.
+ The only reason you might want to call gc() is to ask R to return memory
+ to the operating system.
+ 
+\end_layout
+
+\begin_layout Section
+Quicken the code
+\end_layout
+
+\begin_layout Subsection
+Modification in place or Copy
+\end_layout
+
+\begin_layout Standard
+There are two possibilities:
+\end_layout
+
+\begin_layout Standard
+• R modifies x in place.
+\end_layout
+
+\begin_layout Standard
+• R makes a copy of x to a new location, modifies the copy, and then uses
+ the name x to point to the new location.
+ (this ensures that other pointers to the object remain unaffected)
+\end_layout
+
+\begin_layout Standard
+o tracemem().
+ It prints a message every time the traced object is copied:
+\end_layout
+
+\begin_layout Standard
+• For loops in R have a reputation for being slow.
+ Often that slowness is because you’re modifying a copy instead of modifying
+ in place
+\end_layout
+
+\begin_layout Standard
+Rules 
+\end_layout
+
+\begin_layout Standard
+It turns out that R can do either depending on the circumstances.
+\end_layout
+
+\begin_layout Standard
+Generally, provided that the object is not referred to elsewhere, any primitive
+ replacement function will modify in place.
+ This includes [[<-, [<-, @<-, $<-, attr<-,attributes<-, class<-, dim<-,
+ dimnames<-, names<-, and levels<-.
+\end_layout
+
+\begin_layout Subsection
+vectorise your code!
+\end_layout
+
+\begin_layout Subsection
+Avoid copies
+\end_layout
+
+\begin_layout Standard
+A pernicious source of slow R code is growing an object with a loop.
+ Whenever you use c(), append(), cbind(), rbind(), or paste() to create
+ a bigger object, R must first allocate space for the new object and then
+ copy the old object to its new home.
+ If you’re repeating this many times, like in a for loop, this can be quite
+ expensive.
+ 
+\end_layout
+
+\begin_layout Section
+Parallel
+\end_layout
+
+\begin_layout Standard
+Example: substitute mclapply() for lapply() in Mac only
+\end_layout
+
+\begin_layout Standard
+• Parallel R by Q.
+ Ethan McCallum and Stephen Weston.
+\end_layout
+
+\begin_layout Standard
+• Parallel Computing for Data Science by Norm Matloff.
+\end_layout
+
+\end_body
+\end_document

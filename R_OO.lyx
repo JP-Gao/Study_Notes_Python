@@ -1,0 +1,4588 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+R: Objectiive Programming
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\end_layout
+
+\begin_layout Date
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First version: Nov 
+\begin_inset Formula $11{}^{th}$
+\end_inset
+
+, 2013.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part*
+Book Reference
+\end_layout
+
+\begin_layout Part
+OO
+\end_layout
+
+\begin_layout Section
+Class
+\end_layout
+
+\begin_layout Standard
+A class defines the behaviour of objects by describing their attributes
+ and their relationship to other classes.
+ 
+\end_layout
+
+\begin_layout Subsection
+create a S3 new class 
+\end_layout
+
+\begin_layout Standard
+with attributes: name and age
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+setClass(Class = "Person", 
+\end_layout
+
+\begin_layout Plain Layout
+
+		representation(name = "character", age = "numeric")) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+create inheritance for S3
+\end_layout
+
+\begin_layout Standard
+Use contains to show “Reporter” inherits from “Person”
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+setClass(Class = "Reporter", 
+\end_layout
+
+\begin_layout Plain Layout
+
+		representation(title = "character"), contains = "Person") 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Create a S4 new instance.
+\end_layout
+
+\begin_layout Standard
+S4 method is capable check each attributes satisfy the constraints.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+yuchen <- new("Reporter", name = "yuchen", age = 22, title = 22) 
+\end_layout
+
+\begin_layout Plain Layout
+
+yuchen <- new("Reporter", name = "yuchen", age = 22, title = "R and OO")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+unclass: remove the class attribute & features.to de-factor or delist
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+test_str = substring("statistics", 1:10, 1:10)
+\end_layout
+
+\begin_layout Plain Layout
+
+test_str
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+# x is the labels provided
+\end_layout
+
+\begin_layout Plain Layout
+
+# levels are the universe of all labels.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ff <- factor(x = test_str, levels = letters)
+\end_layout
+
+\begin_layout Plain Layout
+
+ff
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+unclass_ff = unclass(ff)
+\end_layout
+
+\begin_layout Plain Layout
+
+unclass_ff
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+attr(,"levels")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class(unclass_ff)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+method
+\end_layout
+
+\begin_layout Standard
+methods are functions that behave differently depending on the class of
+ their input.
+ 
+\end_layout
+
+\begin_layout Standard
+Often you will see the function’s source code is hiding behind some generic
+ method
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+lda
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+All the methods of a generic function: 
+\family typewriter
+methods(generic.function)
+\family default
+:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+methods(generic.function=predict)
+\end_layout
+
+\begin_layout Plain Layout
+
+methods("mean") 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+All generics that have a method for a given class 
+\family typewriter
+methods(class)
+\family default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+methods(class = "ts")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+• Because methods are normal R functions, you can call them directly:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+print.data.frame()
+\end_layout
+
+\begin_layout Plain Layout
+
+getS3method("predict", "lm") # show the source code of generic function
+ predict on class lm
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+## OR package::: generic.class
+\end_layout
+
+\begin_layout Plain Layout
+
+MASS:::lda.formula
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\family typewriter
+UseMethod
+\family default
+() get methods from an S3 object
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+UseMethod("mean") 
+\end_layout
+
+\begin_layout Subsection
+DispatchGroup() get methods from an S3 object coded by C
+\end_layout
+
+\begin_layout Standard
+Some S3 generics, like [, sum(), and cbind(), don’t call UseMethod() because
+ they are implemented in C.
+ Instead, they call the C functions 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+DispatchGroup() 
+\end_layout
+
+\begin_layout Standard
+or 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+DispatchOrEval()
+\end_layout
+
+\begin_layout Subsection
+Generic method in S4
+\end_layout
+
+\begin_layout Standard
+Define a generic function named as “prepare”
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+setGeneric("prepare", function(object) { standardGeneric("prepare") }) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Define a method on a specific class “Person”
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+setMethod("prepare", 
+\end_layout
+
+\begin_layout Plain Layout
+
+			signature(object = "Person"), 
+\end_layout
+
+\begin_layout Plain Layout
+
+			function(object) cat("Got Materials.
+\backslash
+n") }) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Use the specific method
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+prepare(new("Person")) 
+\end_layout
+
+\begin_layout Plain Layout
+
+## Got Materials.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Define method hierarchy using 
+\family typewriter
+callNextMethod() 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+setMethod("prepare", signature(object = "Reporter"), function(object){ 
+\end_layout
+
+\begin_layout Plain Layout
+
+callNextMethod() 
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("Slides are ready.
+\backslash
+n") 
+\end_layout
+
+\begin_layout Plain Layout
+
+}) 
+\end_layout
+
+\begin_layout Plain Layout
+
+prepare(new("Reporter")) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Attributes
+\end_layout
+
+\begin_layout Subsection
+Attributes: storage of metadata
+\end_layout
+
+\begin_layout Standard
+All objects can have arbitrary additional attributes, used to store metadata
+ about the object.
+ Attributes can be thought of as a named list (with unique names).
+ Attributes can be accessed individually with 
+\family typewriter
+attr()
+\family default
+ or all at once (as a list) with 
+\family typewriter
+attributes()
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+• attr ()
+\family default
+: Add an attribute to an object / get a specific attribute
+\end_layout
+
+\begin_layout Standard
+• 
+\family typewriter
+attributes ()
+\family default
+: show all attributes.
+\end_layout
+
+\begin_layout Standard
+An object’s class, dimension, names, colnames etc are most common attributes.
+ 
+\end_layout
+
+\begin_layout Standard
+Each of these attributes has a specific accessor function to get and set
+ values.
+ When working with these attributes, use names(x), class(x), and dim(x),
+ not attr(x, "names"), attr(x, "class"), and attr(x, "dim").
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+attr(y, "my_attribute") <- "This is a vector"
+\end_layout
+
+\begin_layout Plain Layout
+
+attr(y, "my_attribute")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# this is a list
+\end_layout
+
+\begin_layout Plain Layout
+
+str(attributes(y)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# By default, most attributes are lost when modifying a vector:
+\end_layout
+
+\begin_layout Plain Layout
+
+attributes(y[1])
+\end_layout
+
+\begin_layout Plain Layout
+
+#> NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+attributes(sum(y))
+\end_layout
+
+\begin_layout Plain Layout
+
+#> NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The only attributes not lost are the three most important:
+\end_layout
+
+\begin_layout Itemize
+Names, a character vector giving each element a name, described in names.
+\end_layout
+
+\begin_layout Itemize
+Dimensions, used to turn vectors into matrices and arrays, described in
+ matrices and arrays.
+\end_layout
+
+\begin_layout Itemize
+Class, used to implement the S3 object system, described in S3.
+\end_layout
+
+\begin_layout Subsubsection
+Access attributes 
+\family typewriter
+S3$attr
+\end_layout
+
+\begin_layout Subsubsection
+Access attributes 
+\family typewriter
+S4@attr
+\end_layout
+
+\begin_layout Subsection
+Set default values of attributes: S4 class
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+setClass("Person", 
+\end_layout
+
+\begin_layout Plain Layout
+
+         # attributes in S4
+\end_layout
+
+\begin_layout Plain Layout
+
+         representation(name = "character", age = "numeric"),  
+\end_layout
+
+\begin_layout Plain Layout
+
+         # prototype is to set default values
+\end_layout
+
+\begin_layout Plain Layout
+
+         prototype(name = NA_character_, # default name is NA
+\end_layout
+
+\begin_layout Plain Layout
+
+                   age = NA_real_)) # default age is NA
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+new("Person", name = "yuchen")@name
+\end_layout
+
+\begin_layout Plain Layout
+
+new("Person", name = "yuchen")@age
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Add constraints to attributes
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+CheckAge <- function(object) { if (object@age <= 0) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  stop("Age is negative.") } 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+setClass("Person", 
+\end_layout
+
+\begin_layout Plain Layout
+
+         representation(name = "character", age = "numeric"), 
+\end_layout
+
+\begin_layout Plain Layout
+
+         # constraints are in the format of a function
+\end_layout
+
+\begin_layout Plain Layout
+
+         validity = CheckAge) 
+\end_layout
+
+\begin_layout Plain Layout
+
+new("Person", age = -5) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+S3, S4 and R5
+\end_layout
+
+\begin_layout Subsection
+S3
+\end_layout
+
+\begin_layout Itemize
+In S3, methods belong to functions, called generic functions, or generics
+ for short.
+ They do not belong to objects or classes.
+ This is different from most other programming languages, but is a legitimate
+ OO style.
+\end_layout
+
+\begin_layout Itemize
+You can recognize S3 methods by their names, which look like 
+\family typewriter
+generic.class()
+\family default
+.
+ For example, the Date method for the mean() generic is called 
+\family typewriter
+mean.Date()
+\family default
+, and the factor method for print() is called print.factor().
+\end_layout
+
+\begin_layout Itemize
+Apart from methods defined in the base package, most S3 methods will not
+ be visible: use getS3method()
+\end_layout
+
+\begin_layout Standard
+You can also call an S3 generic with a non-S3 object.
+ Non-internal S3 generics will dispatch on the implicit class of base types.
+\end_layout
+
+\begin_layout Standard
+Print that function you will see
+\end_layout
+
+\begin_layout Subsection
+S4
+\end_layout
+
+\begin_layout Standard
+S4 works in a similar way to S3: Methods still belong to functions, not
+ classes.
+\end_layout
+
+\begin_layout Standard
+But it adds formality and rigor.
+\end_layout
+
+\begin_layout Itemize
+Classes have formal definitions which describe their fields and inheritance
+ structures (parent classes).
+\end_layout
+
+\begin_layout Itemize
+Method dispatch can be based on multiple arguments to a generic function,
+ not just one.
+ (S3’s method dispatch can only be based on one argument’s class)
+\end_layout
+
+\begin_layout Itemize
+There is a special operator, @, for extracting slots (aka fields) from an
+ S4 object.
+\end_layout
+
+\begin_layout Itemize
+You can identify an S4 object because str() describes it as a “
+\family typewriter
+formal
+\family default
+” class, 
+\family typewriter
+isS4()
+\family default
+ returns TRUE, and 
+\family typewriter
+pryr::otype()
+\family default
+ returns “S4”.
+ 
+\end_layout
+
+\begin_layout Subsection
+R5 or RC: Reference classes
+\end_layout
+
+\begin_layout Standard
+http://adv-r.had.co.nz/OO-essentials.html
+\end_layout
+
+\begin_layout Standard
+Reference classes (or RC for short) are the newest OO system in R.
+ They were introduced in version 2.12.
+ They are fundamentally different to S3 and S4 because:
+\end_layout
+
+\begin_layout Itemize
+RC methods belong to objects, not functions
+\end_layout
+
+\begin_layout Itemize
+RC objects are mutable: the usual R copy-on-modify semantics do not apply
+\end_layout
+
+\begin_layout Standard
+These properties make RC objects behave more like objects do in most other
+ programming languages, e.g., Python, Ruby, Java, and C#.
+ 
+\end_layout
+
+\begin_layout Standard
+When you usually call 
+\family typewriter
+f(a, b)
+\family default
+ in 
+\family typewriter
+R
+\family default
+ you can assume that 
+\family typewriter
+a
+\family default
+ and 
+\family typewriter
+b
+\family default
+ will not be modified.
+ But if 
+\family typewriter
+a
+\family default
+ and 
+\family typewriter
+b
+\family default
+ are RC objects, they might be modified in the place.
+ Generally, when using RC objects you want to minimise side effects as much
+ as possible, and use them only where mutable states are absolutely required.
+ The majority of functions should still be “functional”, and free of side
+ effects.
+ 
+\end_layout
+
+\begin_layout Section
+get structure of Objects
+\end_layout
+
+\begin_layout Subsection
+class(), type() and mode()
+\end_layout
+
+\begin_layout Enumerate
+The c
+\family typewriter
+lass()
+\family default
+ is used to define/identify what "type" an object is from the point of view
+ of general object-oriented programming .
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+typeof()
+\family default
+ gives the "type" of object from R's point of view.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+mode()
+\family default
+ gives the "type" of object from the point of view of Becker, Chambers &
+ Wilks (1988).
+ The latter may be more compatible with other S implementations according
+ to the R Language Definition manual.
+\end_layout
+
+\begin_layout Subsection
+
+\family typewriter
+str()
+\family default
+: structure of the object
+\end_layout
+
+\begin_layout Standard
+Often used on data.frame: Compactly Display the Structure of an Arbitrary
+ R Object.
+ Useful to show the structure and classes/types of data.frame and its each
+ column
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+df <- data.frame(x = 1:3, y = c("a", "b", "c"))
+\end_layout
+
+\begin_layout Plain Layout
+
+str(df)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+structure(): return/assign/change the attributes
+\end_layout
+
+\begin_layout Standard
+change the dimension attributes .
+\end_layout
+
+\begin_layout Standard
+Note that this is different from 
+\family typewriter
+str()
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+structure(1:6, dim = 2:3)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# assign the class attributes
+\end_layout
+
+\begin_layout Plain Layout
+
+foo <- structure(1, class = c("son", "father"))
+\end_layout
+
+\begin_layout Plain Layout
+
+class(foo)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+foo + 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+attr(,"class")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Also you can use this to create a return of function on certain class
+\end_layout
+
+\begin_layout Plain Layout
+
+# Like the fda.defualt ‘s return:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# structure(list(prior = prior, counts = counts, means = group.means, 
+\end_layout
+
+\begin_layout Plain Layout
+
+#    scaling = scaling, lev = lev, svd = X.s$d[1L:rank], N = n, 
+\end_layout
+
+\begin_layout Plain Layout
+
+#    call = cl), class = "lda")
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Expression
+\end_layout
+
+\begin_layout Subsection
+expression as an object
+\end_layout
+
+\begin_layout Standard
+expression: an object that represents an 
+\series bold
+action
+\series default
+ that can be performed by R.
+\end_layout
+
+\begin_layout Standard
+There are four possible components of an expression: 
+\end_layout
+
+\begin_layout Enumerate
+constants
+\end_layout
+
+\begin_layout Enumerate
+names
+\end_layout
+
+\begin_layout Enumerate
+calls
+\end_layout
+
+\begin_layout Enumerate
+pairlists.
+ (see the subsection of tree structure of the code)
+\end_layout
+
+\begin_layout Standard
+To create an epxression, use quote:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+z <- quote(y <- x * 10)
+\end_layout
+
+\begin_layout Plain Layout
+
+z
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Structure of Calls 
+\end_layout
+
+\begin_layout Standard
+Call is one type of expression.
+\end_layout
+
+\begin_layout Itemize
+Calls represent the action of calling a function.
+ Like lists, calls are recursive: they can contain constraints, names, pairlists
+ and other calls.
+\end_layout
+
+\begin_layout Itemize
+Call has the structure of a list
+\end_layout
+
+\begin_layout Itemize
+First element is function name
+\end_layout
+
+\begin_layout Itemize
+Other elements are arguments in that function
+\end_layout
+
+\begin_layout Subsection
+
+\family typewriter
+quote()
+\family default
+ : Creaate a call: Put a function in a quote, then later you can evaluate
+ the call’s structure.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- quote(read.csv("important.csv", row.names = FALSE))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+x[[1]]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+x[[3]]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+x[[4]]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+length(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# If you want a list of the unevaluated arguments (expressions), 
+\end_layout
+
+\begin_layout Plain Layout
+
+# use explicit coercion:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# A list of the unevaluated arguments
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+as.list(x[-1])
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+as.call: create a call by its component
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+as.call(list(quote(mean), quote(1:10)))
+\end_layout
+
+\begin_layout Plain Layout
+
+as.call(list(quote(adder(10)), 20))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+list: modify a call
+\end_layout
+
+\begin_layout Standard
+You can add, modify and delete elements of the call with the standard replacemen
+t operators, $<- and [[<-:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- quote(read.csv("important.csv", row.names = FALSE))
+\end_layout
+
+\begin_layout Plain Layout
+
+y$row.names <- TRUE
+\end_layout
+
+\begin_layout Plain Layout
+
+y$col.names <- FALSE
+\end_layout
+
+\begin_layout Plain Layout
+
+y
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+y[[2]] <- quote(paste0(filename, ".csv"))
+\end_layout
+
+\begin_layout Plain Layout
+
+y[[4]] <- NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+y
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+y$sep <- ","
+\end_layout
+
+\begin_layout Plain Layout
+
+y
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+ast : tree structure of the code (expression)
+\end_layout
+
+\begin_layout Standard
+An expression is also called an abstract syntax tree (AST) because it represents
+ the hierarchical tree structure of a code.
+ We’ll use pryr::ast() to see this more clearly:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+ast(y <- x * 10)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+update: update a call
+\end_layout
+
+\begin_layout Subsection
+update: update a linear formula
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mod <- lm(mpg ~ wt, data = mtcars)
+\end_layout
+
+\begin_layout Plain Layout
+
+update(mod, formula = .
+ ~ .
+ + cyl)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+standardise_call : standardize argument position of a call
+\end_layout
+
+\begin_layout Standard
+Calls are different, sometimes only due to they have different positions
+ for the same arguments.
+\end_layout
+
+\begin_layout Standard
+Calls below have the same effect, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+m1 <- quote(read.delim("data.txt", sep = "|"))
+\end_layout
+
+\begin_layout Plain Layout
+
+m2 <- quote(read.delim(s = "|", "data.txt"))
+\end_layout
+
+\begin_layout Plain Layout
+
+m3 <- quote(read.delim(file = "data.txt", , "|"))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# To work around this problem, pryr provides standardise_call().
+ It uses the base match.call() function to convert all positional arguments
+ to named arguments:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+standardise_call(m1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+standardise_call(m2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+standardise_call(m3)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Advanced Modification of a call: Walking the AST with recursive functions
+\end_layout
+
+\begin_layout Standard
+It’s easy to modify a single call with substitute() or pryr::modify_call().
+ For more complicated tasks we need to work directly with the AST.
+ The base codetools package provides some useful motivating examples of
+ how we can do this:
+\end_layout
+
+\begin_layout Standard
+http://adv-r.had.co.nz/Expressions.html#parsing-and-deparsing
+\end_layout
+
+\begin_layout Part
+Functional Programming
+\end_layout
+
+\begin_layout Quote
+An object is data with functions.
+ A closure is a function with data.” 
+\end_layout
+
+\begin_layout Quote
+— John D.
+ Cook
+\end_layout
+
+\begin_layout Quote
+“To understand computations in R, two slogans are helpful:
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+— Everything that exists is an object.
+\end_layout
+
+\begin_layout Quote
+— Everything that happens is a function call."
+\end_layout
+
+\end_deeper
+\begin_layout Quote
+— John Chambers
+\end_layout
+
+\begin_layout Subsection
+get/modify Function components: 
+\family typewriter
+body(), formals()
+\family default
+ and 
+\family typewriter
+environment()
+\end_layout
+
+\begin_layout Standard
+All R functions have three parts:
+\end_layout
+
+\begin_layout Itemize
+the 
+\family typewriter
+body()
+\family default
+, the code inside the function.
+\end_layout
+
+\begin_layout Itemize
+the 
+\family typewriter
+formals()
+\family default
+, the list of arguments which controls how you can call the function.
+\end_layout
+
+\begin_layout Itemize
+the 
+\family typewriter
+environment()
+\family default
+, the “map” of the location of the function’s variables.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+addup = function(a,n) a+b
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+body(addup)
+\end_layout
+
+\begin_layout Plain Layout
+
+body(addup) %>% class
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+formals(addup)
+\end_layout
+
+\begin_layout Plain Layout
+
+formals(addup) %>% class
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+environment(addup)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The assignment forms of 
+\family typewriter
+body()
+\family default
+, 
+\family typewriter
+formals()
+\family default
+, and 
+\family typewriter
+environment()
+\family default
+ can also be used to modify functions.
+\end_layout
+
+\begin_layout Standard
+Primitive functions, like 
+\family typewriter
+sum()
+\family default
+, call C code directly with 
+\family typewriter
+.Primitive()
+\family default
+ and contain no R code.
+ Therefore their 
+\family typewriter
+body()
+\family default
+, 
+\family typewriter
+formals()
+\family default
+, and 
+\family typewriter
+environment()
+\family default
+ are all NULL:
+\end_layout
+
+\begin_layout Subsection
+Function to create(return) functions
+\end_layout
+
+\begin_layout Standard
+Refer enclosing envior 于 namespace 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+missing_fixer <- function(na_value) {
+\end_layout
+
+\begin_layout Plain Layout
+
+function(x) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    x[x == na_value] <- NA
+\end_layout
+
+\begin_layout Plain Layout
+
+    x
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+fix_missing_99 <- missing_fixer(-99)
+\end_layout
+
+\begin_layout Plain Layout
+
+fix_missing_99
+\end_layout
+
+\begin_layout Plain Layout
+
+fix_missing_999 <- missing_fixer(-999)
+\end_layout
+
+\begin_layout Plain Layout
+
+fix_missing_999
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Replacement functions 'function<-': change the global object when it serves
+ as an argument
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Replacement functions
+\end_layout
+
+\end_inset
+
+Replacement functions act like they modify their arguments in place, and
+ have the special name xxx<-.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+`second<-` <- function(x, value) {
+\end_layout
+
+\begin_layout Plain Layout
+
+x[2] <- value
+\end_layout
+
+\begin_layout Plain Layout
+
+x
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 1:10
+\end_layout
+
+\begin_layout Plain Layout
+
+second(x) <- 5L
+\end_layout
+
+\begin_layout Plain Layout
+
+x
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] 1 5 3 4 5 6 7 8 9 10
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+`modify<-` <- function(x, position, value) {
+\end_layout
+
+\begin_layout Plain Layout
+
+x[position] <- value
+\end_layout
+
+\begin_layout Plain Layout
+
+x
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+modify(x, 1) <- 10
+\end_layout
+
+\begin_layout Plain Layout
+
+x
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] 10 6 3 4 5 6 7 8 9 10
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Functional
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Functional
+\end_layout
+
+\end_inset
+
+: take function as argument
+\end_layout
+
+\begin_layout Standard
+the three most frequently used are lapply(), apply(), and tapply().
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+randomise <- function(f) f(runif(1e3))
+\end_layout
+
+\begin_layout Plain Layout
+
+randomise(mean)
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] 0.5015259
+\end_layout
+
+\begin_layout Plain Layout
+
+randomise(sum)
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] 523.4922
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operator as function `+`
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 10; y <- 5
+\end_layout
+
+\begin_layout Plain Layout
+
+x + y
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+`+`(x, y)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i in 1:2) print(i)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+`for`(i, 1:2, print(i))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Function operators
+\end_layout
+
+\begin_layout Standard
+http://adv-r.had.co.nz/Function-operators.html
+\end_layout
+
+\begin_layout Standard
+In this chapter, you’ll learn about function operators (FOs).
+ A function operator is a function that takes one (or more) functions as
+ input and returns a function as output.
+ In some ways, function operators are similar to functionals:
+\end_layout
+
+\begin_layout Standard
+there’s nothing you can’t do without them, but they can make your code more
+ readable and expressive, and they can help you write code faster.
+ 
+\end_layout
+
+\begin_layout Standard
+The main difference is that functionals extract common patterns of loop
+ use, where function operators extract common patterns of anonymous function
+ use.
+\end_layout
+
+\begin_layout Subsection
+list of functions
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+summary <- function(x) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	funs <- c(mean, median, sd, mad, IQR)
+\end_layout
+
+\begin_layout Plain Layout
+
+	lapply(funs, function(f) f(x, na.rm = TRUE))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Use the list in apply
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+compute_mean <- list(
+\end_layout
+
+\begin_layout Plain Layout
+
+base = function(x) mean(x),
+\end_layout
+
+\begin_layout Plain Layout
+
+sum = function(x) sum(x) / length(x),
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+lapply(compute_mean, function(f) f(x))
+\end_layout
+
+\begin_layout Plain Layout
+
+#> $base
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] 0.4994771
+\end_layout
+
+\begin_layout Plain Layout
+
+#> 
+\end_layout
+
+\begin_layout Plain Layout
+
+#> $sum
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] 0.4994771
+\end_layout
+
+\begin_layout Plain Layout
+
+@ 
+\end_layout
+
+\end_inset
+
+Extra argument
+\end_layout
+
+\begin_layout Standard
+Example: To remove NA
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+lapply(funs, function(f) f(x, na.rm = TRUE))
+\end_layout
+
+\begin_layout Subsection
+Anonymous functions in apply()
+\end_layout
+
+\begin_layout Standard
+You use an anonymous function when it’s not worth the effort to give it
+ a name:
+\end_layout
+
+\begin_layout Standard
+Often used in functions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+lapply(mtcars, function(x) length(unique(x))) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# With appropriate parenthesis, the function is called: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+(function(x) 3)() 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# So this anonymous function syntax 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+(function(x) x + 3)(10) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Metaprogramming Theory
+\end_layout
+
+\begin_layout Standard
+Metaprogramming is the writing of computer programs with the ability to
+ treat programs/code as their data.
+ It means that a program could be designed to read, generate, analyse and/or
+ transform other programs, and even modify itself while running.
+\end_layout
+
+\begin_layout Subsection
+What is Lazy evaluation
+\end_layout
+
+\begin_layout Standard
+In programming language theory, lazy evaluation, or call-by-need[1] is an
+ evaluation strategy which delays the evaluation of an expression until
+ its value is needed (non-strict evaluation) and which also avoids repeated
+ evaluations (sharing).
+\end_layout
+
+\begin_layout Standard
+# a simple example of lazy evaluation
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+lazy_eval = function(variable,values){
+\end_layout
+
+\begin_layout Plain Layout
+
+    assign(names(values)[1],values[1]) # create a local environment where
+ CFSDF = 2
+\end_layout
+
+\begin_layout Plain Layout
+
+    eval(I(CFSDF^2))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+lazy_eval(I(CFSDF^2),c(CFSDF=2))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+• To create unevaluated code directly: use 
+\family typewriter
+quote()
+\end_layout
+
+\begin_layout Standard
+• To create unevaluated code from text: use 
+\family typewriter
+parse(), 
+\family default
+example below
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+parse(text = "ttt^2")
+\end_layout
+
+\begin_layout Plain Layout
+
+parse(text = "ttt^2") %>% class 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+eval(parse(text = "ttt^2"),envir= list(ttt=2))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# parse returns the parsed but unevaluated expressions in a list.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Promise objects as Function Arguments
+\end_layout
+
+\begin_layout Standard
+Function arguments in R is in class of “promise”.
+ They are not evaluated when defined, they are only evaluated when we call
+ the function.
+\end_layout
+
+\begin_layout Standard
+Promise objects are part of R's lazy evaluation mechanism.
+ They contain three slots:
+\end_layout
+
+\begin_layout Standard
+1.
+ an expression, (the expression/code to get a value)
+\end_layout
+
+\begin_layout Standard
+2.
+ a value, (the value you would get when you evaluate the expression) 
+\end_layout
+
+\begin_layout Standard
+3.
+ and an environment ( yes, an argument may have different values in Global
+ Environment from a next environment)
+\end_layout
+
+\begin_layout Standard
+When a function is called the arguments are matched and then each of the
+ formal arguments is bound to a promise.
+ The expression that was given for that formal argument and a pointer to
+ the environment the function was called from are stored in the promise.
+\end_layout
+
+\begin_layout Standard
+Until that argument is accessed there is no value associated with the promise.
+ When the argument is accessed, the stored expression is evaluated in the
+ stored environment, and the result is returned.
+ The result is also saved by the promise.
+ The substitute function will extract the content of the expression slot.
+ This allows the programmer to access either the value or the expression
+ associated with the promise.
+\end_layout
+
+\begin_layout Standard
+Within the R language, promise objects are almost only seen implicitly:
+ actual function arguments are of this type.
+ There is also a delayed.
+ Assign function that will make a promise out of an expression.
+ There is generally no way in R code to check whether an object is a promise
+ or not, nor is there a way to use R code to determine the environment of
+ a promise.
+\end_layout
+
+\begin_layout Part
+Metaprogramming Practice
+\end_layout
+
+\begin_layout Subsection
+substitute(x)
+\end_layout
+
+\begin_layout Standard
+Retun the code and not the value you supply as an argument to a function,
+ and returns the unevaluated expression (really a parse tree, but we can
+ think of it as an expression).
+\end_layout
+
+\begin_layout Standard
+Substitute can be used to change the parse tree of an expression, but It
+ is in fact not often that one wants to modify the innards of an expression
+ like in the previous section.
+\end_layout
+
+\begin_layout Subsection
+deparse(substitute(x)): return the object's name as character
+\end_layout
+
+\begin_layout Standard
+deparse(substitute(x))
+\end_layout
+
+\begin_layout Standard
+# to let the code print the original name of x in a function.
+ Only used inside function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+foo = function(x= y){
+\end_layout
+
+\begin_layout Plain Layout
+
++ deparse(substitute(x)) 
+\end_layout
+
+\begin_layout Plain Layout
+
++ }
+\end_layout
+
+\begin_layout Plain Layout
+
+foo(y)
+\end_layout
+
+\begin_layout Plain Layout
+
+foo(b)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Example: 
+\family typewriter
+deparse(substitute(ggplot2))
+\family default
+: used in direct reference without quotes
+\end_layout
+
+\begin_layout Standard
+Here are a lot of functions in Base R that use these ideas.
+ Some use them to avoid quotes:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+library(ggplot2)
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+# because inside the function “library”, we use deparse(substitute(ggplot2)).
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+# It is the same as
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+library("ggplot2")
+\end_layout
+
+\begin_layout Subsection
+substitute(x, envir): used in plot label and math annotation
+\end_layout
+
+\begin_layout Standard
+More frequently, one wants to simply get at an expression in order to deparse
+ it (expression to string) and use it for labeling plots, for instance.
+ An example of this is seen at the beginning of plot.default:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+xlabel <- if (!missing(x))
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+deparse(substitute(x))
+\end_layout
+
+\begin_layout Standard
+Also, substitute has an additional argument which can be an environment
+ or a list in which the variables are looked up.
+ So that for variables that can be found a value in the provided environment,
+ the substitute will force to evaluate it and return its value.
+\end_layout
+
+\begin_layout Standard
+The exact rules for substitutions are as follows: 
+\end_layout
+
+\begin_layout Standard
+1.
+ Each symbol in the parse tree for the first is matched against the second
+ argument, which can be a tagged list or an environment frame.
+ 
+\end_layout
+
+\begin_layout Standard
+2.
+ If it is a simple local object, its value is inserted, except if matching
+ against the global environment.
+\end_layout
+
+\begin_layout Standard
+3.
+ If it is a promise (usually a function argument), the promise expression
+ is substituted.
+ If the symbol is not matched, it is left untouched.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(0)
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i in 1:4) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    text(1, 0.2 * i,substitute(x[ix] == y, list(ix = i, y = pnorm(i))))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+# If not provide the environment for it, we will have no values
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(0)
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i in 1:4) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    text(1, 0.2 * i,substitute(x[i] == pnorm(i)))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+lazy(), lazyeval(exp, envir)
+\end_layout
+
+\begin_layout Standard
+See : https://cran.r-project.org/web/packages/lazyeval/vignettes/lazyeval.html
+\end_layout
+
+\begin_layout Standard
+The key tool that makes this approach possible is lazy(), an equivalent
+ to substitute() that captures both expression and environment associated
+ with a function argument:
+\end_layout
+
+\begin_layout Standard
+# 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(lazyeval)
+\end_layout
+
+\begin_layout Plain Layout
+
+f <- function(x = a - b) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    lazy(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+f()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#> <lazy>
+\end_layout
+
+\begin_layout Plain Layout
+
+#> expr: a - b
+\end_layout
+
+\begin_layout Plain Layout
+
+#> env: <environment: 0x7fd2f3a406b0>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+f(a + b)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#> <lazy>
+\end_layout
+
+\begin_layout Plain Layout
+
+#> expr: a + b
+\end_layout
+
+\begin_layout Plain Layout
+
+#> env: <environment: R_GlobalEnv>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+lazyeval(exp, envir)
+\end_layout
+
+\begin_layout Standard
+As a complement to eval(), the lazy package provides lazy_eval() that uses
+ the environment associated with the lazy object:
+\end_layout
+
+\begin_layout Itemize
+lazy_eval() will always coerce it’s first argument into a lazy object, so
+ a variety of specifications will work:
+\end_layout
+
+\begin_layout Itemize
+The second argument to lazy eval is a list or data frame where names should
+ be looked up first:
+\end_layout
+
+\begin_layout Itemize
+lazy_eval() also works with formulas, since they contain the same information
+ as a lazy object: an expression (only the RHS is used by convention) and
+ an environment:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+a <- 10
+\end_layout
+
+\begin_layout Plain Layout
+
+b <- 1
+\end_layout
+
+\begin_layout Plain Layout
+
+lazy_eval(f())
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+lazy_eval(f(a + b))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+lazy_eval(f(), list(a = 1))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# lazy_eval() also works with formulas, since they contain the same information
+ as a lazy object: an expression (only the RHS is used by convention) and
+ an environment:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+lazy_eval(~ a + b)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+h <- function(i) {
+\end_layout
+
+\begin_layout Plain Layout
+
+~ 10 + i
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+lazy_eval(h(1))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+as.name(“x”) : return object's name
+\end_layout
+
+\begin_layout Standard
+Often use with eval,
+\end_layout
+
+\begin_layout Standard
+eval(as.name(character))
+\end_layout
+
+\begin_layout Standard
+“name” is a class; it is one kind of expressions
+\end_layout
+
+\begin_layout Standard
+A ‘name’ (also known as a ‘symbol’) is a way to refer to R objects by name
+\end_layout
+
+\begin_layout Standard
+as.name and as.symbol are identical: they attempt to coerce the argument to
+ a name.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+a=1
+\end_layout
+
+\begin_layout Plain Layout
+
+as.name('a')
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class(as.name('a'))
+\end_layout
+
+\begin_layout Plain Layout
+
+eval(as.name('a'))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+get(
+\begin_inset Quotes eld
+\end_inset
+
+x
+\begin_inset Quotes erd
+\end_inset
+
+): return a call: Call an R object using a character string.
+\end_layout
+
+\begin_layout Standard
+Call an R object using a character string.
+\end_layout
+
+\begin_layout Standard
+ x – The name of an R object, listed as a character string.
+\end_layout
+
+\begin_layout Standard
+The reverse of a <- get(nam) is assign(name, a).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+L3 <- list("list", "of", "three")
+\end_layout
+
+\begin_layout Plain Layout
+
+get("L3")
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+get("L3[[3]]")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+get("L3")[[3]]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+get("mean")(c(1.5, 2.5, 3.5, 4.5))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+assign (create variable with specific character name)
+\end_layout
+
+\begin_layout Standard
+http://stackoverflow.com/questions/5510966/create-a-variable-name-with-paste-in-r
+\end_layout
+
+\begin_layout Standard
+assign(character_as_name, object)
+\end_layout
+
+\begin_layout Standard
+Y<<>>=ou can use assign (doc) to change the value of perf.a1:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+assign(paste("perf.a", "1", sep=""),5)
+\end_layout
+
+\begin_layout Plain Layout
+
+perf.a1
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This can only be used with paste( ) or something already exists.
+\end_layout
+
+\begin_layout Subsection
+match.call in function: lazy eval of the function for later change
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+test_initial = function (formula, data, ...){
+\end_layout
+
+\begin_layout Plain Layout
+
+  m <- match.call(expand.dots = FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+   cat("
+\backslash
+n 1 "); print(m)
+\end_layout
+
+\begin_layout Plain Layout
+
+   m$...
+ <- NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+   cat("
+\backslash
+n 2 "); print(m) ; print(m[[1]])
+\end_layout
+
+\begin_layout Plain Layout
+
+   m[[1L]] <- quote(stats::model.frame)
+\end_layout
+
+\begin_layout Plain Layout
+
+   cat("
+\backslash
+n 2.5 "); print(m)
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+   cat("
+\backslash
+n 3"); 
+\end_layout
+
+\begin_layout Plain Layout
+
+   head(eval.parent(m))
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+test_initial (formula = Species ~ ., data=iris)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+defmacro: Macro Programming in R
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(gtools)
+\end_layout
+
+\begin_layout Plain Layout
+
+Test=defmacro(A,
+\end_layout
+
+\begin_layout Plain Layout
+
+    expr={
+\end_layout
+
+\begin_layout Plain Layout
+
+        R=A+1;
+\end_layout
+
+\begin_layout Plain Layout
+
+        R-2
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    )
+\end_layout
+
+\begin_layout Plain Layout
+
+Test(1)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Can have multiple variables
+\end_layout
+
+\begin_layout Standard
+expression can be multi-line, but by default will only print the last line
+\end_layout
+
+\begin_layout Standard
+Note that everything inside defmacro is GLOBAL, so if you change a variable
+ inside, it will be changed globally.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+y=1
+\end_layout
+
+\begin_layout Plain Layout
+
+test = defmacro(change, expr = {y=change})
+\end_layout
+
+\begin_layout Plain Layout
+
+test(2)
+\end_layout
+
+\begin_layout Plain Layout
+
+y
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Environments & Namespace
+\end_layout
+
+\begin_layout Subsection
+identical(x, y).
+ Check if two R objects x and y are exactly identical.
+\end_layout
+
+\begin_layout Subsection
+exists(x)
+\end_layout
+
+\begin_layout Standard
+Check if an R object exists in the current session.
+ Functions and data objects from the base or other packages may also be
+ checked.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+x
+\family default
+ – The name of an R object as a character string.
+\end_layout
+
+\begin_layout Section
+Environments: Practis
+\end_layout
+
+\begin_layout Subsection
+Functions that have problem with Environments
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+dfmacro, update(lm/glm), step/stwpwise
+\end_layout
+
+\begin_layout Standard
+most of them has the problem due to lazy evaluation.
+ 
+\end_layout
+
+\begin_layout Standard
+Use those functions really carefully…..
+\end_layout
+
+\begin_layout Subsection
+:: (double colon) refer an (exported) object from a namespace.
+\end_layout
+
+\begin_layout Standard
+Use :: when
+\end_layout
+
+\begin_layout Itemize
+don't want toload the package! 
+\end_layout
+
+\begin_layout Itemize
+Useful when two packages have overlapping objects.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+When load plyr and then reshape, Note that if we just type rename, R will
+ return the value from the reshape package, because that package was loaded
+ after the plyr package.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\family typewriter
+reshape ::rename
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+plyr ::rename
+\end_layout
+
+\begin_layout Subsection
+::: refer an (non-exported) object from a namespace.
+\end_layout
+
+\begin_layout Standard
+Some objects are hided in the namespace and the author of namespace doesn’t
+ want them to be exposed and seen.
+ You can use ::: to refer them.
+ ::: can also refer exported objects
+\end_layout
+
+\begin_layout Standard
+Again No need to load the package!
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+plyr::id_var
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+# Error: 'id_var' is not an exported object from 'namespace:plyr'
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+plyr:::id_var
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+#function (x, drop = FALSE) 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+#{
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+#……
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+#}
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+#<environment: namespace:plyr>
+\end_layout
+
+\begin_layout Subsection
+getAnywhere() show where to find the function
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+> getAnywhere("lda")
+\end_layout
+
+\begin_layout Standard
+A single object matching ‘lda’ was found
+\end_layout
+
+\begin_layout Standard
+It was found in the following places
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+package:MASS
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+namespace:MASS
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+with value
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+function (x, ...) 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+UseMethod("lda")
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+<bytecode: 0x103eeca68>
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+<environment: namespace:MASS>
+\end_layout
+
+\begin_layout Subsection
+Side effect & copy-on-modify rule: 
+\end_layout
+
+\begin_layout Standard
+R’s function does not and should not have any side effect: local variable
+ in function will not affect globally
+\end_layout
+
+\begin_layout Standard
+EXCEPT: environments and reference classes.
+ These can be modified in place, so extra care is needed when working with
+ them.)
+\end_layout
+
+\begin_layout Subsection
+parent.frame(): show the current environment 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+parent.frame()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+<environment: R_GlobalEnv>
+\end_layout
+
+\begin_layout Subsection
+where: show which envior the object is in
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(pryr) 
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 5 
+\end_layout
+
+\begin_layout Plain Layout
+
+where("x") 
+\end_layout
+
+\begin_layout Plain Layout
+
+where("mean")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+with, within: Evaluate an Expression in a Data Environment
+\end_layout
+
+\begin_layout Subsection
+Never use attach, use with() 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://rfunction.com/archives/2182
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+with(data, expr, ...)
+\end_layout
+
+\begin_layout Standard
+The biggest use: no need attach() anymore, any variable in a data.frame can
+ be referred without $
+\end_layout
+
+\begin_layout Standard
+expression can be multiple line using {…}
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+aq <- within(airquality, { # Notice that multiple vars can be changed
+\end_layout
+
+\begin_layout Plain Layout
+
+    lOzone <- log(Ozone)
+\end_layout
+
+\begin_layout Plain Layout
+
+    Month <- factor(month.abb[Month])
+\end_layout
+
+\begin_layout Plain Layout
+
+    cTemp <- round((Temp - 32) * 5/9, 1) # From Fahrenheit to Celsius
+\end_layout
+
+\begin_layout Plain Layout
+
+    S.cT <- Solar.R / cTemp # using the newly created variable
+\end_layout
+
+\begin_layout Plain Layout
+
+    rm(Day, Temp)
+\end_layout
+
+\begin_layout Plain Layout
+
+})
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Environments: Theory
+\end_layout
+
+\begin_layout Subsection
+new.env(): Create new envir & refer to
+\end_layout
+
+\begin_layout Standard
+anything you attach (like a loaded library) would be a sub-envir
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+is.str(x) 
+\family default
+to see objects in envior x
+\end_layout
+
+\begin_layout Standard
+use $ to refer an object.
+\end_layout
+
+\begin_layout Standard
+autoloads is used by R to save memory by only loading package objects (like
+ big datasets) when needed.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+e <- new.env() 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+e$a <- FALSE 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+e$b <- "a" 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+e$c <- 2.3 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+e$d <- 1:3
+\end_layout
+
+\begin_layout Subsection
+Autoloading
+\end_layout
+
+\begin_layout Standard
+http://www.inside-r.org/r-doc/base/Autoloads
+\end_layout
+
+\begin_layout Standard
+Autoloading provides a way of loading packages in the future, only at the
+ point at which they are used (if at all).
+ So if a function from a package may soon be used, but (for memory reasons,
+ perhaps) you don't want to load the package unless absolutely necessary,
+ you can use the autoload function to promise to make a function available
+ if it is used.
+\end_layout
+
+\begin_layout Standard
+The Autoloads environment (accessible via as.environment("Autoloads") or
+ .AutoloadEnv) stores the functions that it will promise to load and a character
+ vector, .Autoloaded, that names the packages that need to be loaded.
+\end_layout
+
+\begin_layout Subsection
+lexical scoping
+\end_layout
+
+\begin_layout Standard
+refer word
+\end_layout
+
+\begin_layout Subsection
+Search Path
+\end_layout
+
+\begin_layout Standard
+When a package is loaded via library or require, it is automatically attached
+ to the search path (typically in position 2).
+ 
+\end_layout
+
+\begin_layout Standard
+he first position is reserved for the global environment (i.e., the workspace
+ where interactive commands are executed).
+ 
+\end_layout
+
+\begin_layout Standard
+When an object (function, data, etc.) is called from the command line, R
+ first looks in the global environment, then proceeds up the search path
+ until the object is found.
+ 
+\end_layout
+
+\begin_layout Subsection
+Environments in function
+\end_layout
+
+\begin_layout Itemize
+IF function has its own namespace，Then it can have enclosing envior which
+ is independent from Global.
+ The enclosing environment is the environment where the function was created.
+ Every function has one and only one enclosing environment.
+ 
+\end_layout
+
+\begin_layout Itemize
+IF function has not namespace（like in global user-defined function） then
+ its enclosing envior will be the binding space, which is not independent
+ from global.
+\end_layout
+
+\begin_layout Itemize
+Calling a function creates an ephemeral execution environment that stores
+ variables created during execution.
+\end_layout
+
+\begin_layout Subsection
+Binding & Enclosing environments
+\end_layout
+
+\begin_layout Standard
+Take the base function sd().
+ It’s binding and enclosing environments are different: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+environment(sd) 
+\end_layout
+
+\begin_layout Plain Layout
+
+#> <environment: namespace:stats> 
+\end_layout
+
+\begin_layout Plain Layout
+
+where("sd") 
+\end_layout
+
+\begin_layout Plain Layout
+
+# <environment: package:stats>
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The definition of sd() uses var(), but if we make our own version of var()
+ it doesn’t affect sd():
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 1:10
+\end_layout
+
+\begin_layout Plain Layout
+
+sd(x) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+var <- function(x, na.rm = TRUE) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+sd(x) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When we type var into the console, its found first in the global environment.
+ When sd() looks for var() it finds it first in its namespace environment,
+ so no go further to look into the globalenv().
+\end_layout
+
+\begin_layout Standard
+• Binding (also called First-Class Environment): The package environment
+ contains every publicly accessible function, and is placed on the search
+ path.
+ Package environment is a subspace of global.
+\end_layout
+
+\begin_layout Standard
+• Enclosing Through Namespace: The namespace environment contains all functions
+ (including internal functions), and its parent environment is a special
+ imports environment that contains bindings to all the functions that the
+ package needs.
+ 
+\end_layout
+
+\begin_layout Standard
+o Namespace is an environment that is entirely independent with Global.
+ It is parallel with Global.
+ 
+\end_layout
+
+\begin_layout Standard
+• Enclosing through Nested Functions: Some function is created through other
+ function。The created function use the creating function as its enclosing
+ environment.
+ The parent environment of a closure is the execution environment of the
+ function that created it, as shown by this code:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# enclosing Example: k’ s enclosing envior is function j
+\end_layout
+
+\begin_layout Plain Layout
+
+# .
+ It works because k preserves the environment 
+\end_layout
+
+\begin_layout Plain Layout
+
+# in which it was defined and because the environment includes the value
+ of y.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+j <- function(x) {
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- 2
+\end_layout
+
+\begin_layout Plain Layout
+
+function() {
+\end_layout
+
+\begin_layout Plain Layout
+
+c(x, y)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+> k <- j(1)
+\end_layout
+
+\begin_layout Plain Layout
+
+> k()
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 1 2
+\end_layout
+
+\begin_layout Plain Layout
+
+> 
+\end_layout
+
+\begin_layout Plain Layout
+
+> 
+\end_layout
+
+\begin_layout Plain Layout
+
+> y=1000
+\end_layout
+
+\begin_layout Plain Layout
+
+> x=178
+\end_layout
+
+\begin_layout Plain Layout
+
+> k()
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 1 2
+\end_layout
+
+\begin_layout Plain Layout
+
+> environment(k)
+\end_layout
+
+\begin_layout Plain Layout
+
+<environment: 0x7fafa79d0110>
+\end_layout
+
+\begin_layout Plain Layout
+
+> where("k")
+\end_layout
+
+\begin_layout Plain Layout
+
+<environment: R_GlobalEnv>
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Mutable Enclosing
+\end_layout
+
+\begin_layout Standard
+‘<<-‘ can make values mutable in Enclosing space.
+\end_layout
+
+\begin_layout Standard
+That means the object you use ‘<<-’ you assign value on is essentially global.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+new_counter <- function() {
+\end_layout
+
+\begin_layout Plain Layout
+
+i <- 0
+\end_layout
+
+\begin_layout Plain Layout
+
+function() {
+\end_layout
+
+\begin_layout Plain Layout
+
+i <<- i + 1
+\end_layout
+
+\begin_layout Plain Layout
+
+i
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+counter_one <- new_counter()
+\end_layout
+
+\begin_layout Plain Layout
+
+counter_two <- new_counter()
+\end_layout
+
+\begin_layout Plain Layout
+
+counter_one()
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] 1
+\end_layout
+
+\begin_layout Plain Layout
+
+counter_one()
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] 2
+\end_layout
+
+\begin_layout Plain Layout
+
+counter_two()
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] 1
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
