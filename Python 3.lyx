@@ -1,0 +1,2821 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+%%%%%%%%%%%
+\usepackage{color}
+\usepackage{xcolor}
+% \definecolor{keywordcolor}{rgb}{0.8,0.1,0.5}
+\usepackage{listings}
+\lstset{breaklines}%这条命令可以让LaTeX自动将长的代码行换行排版
+\lstset{extendedchars=false}%这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题
+\lstset{language= R, %用于设置语言为C++
+  %背景框
+  framexleftmargin=10mm,
+  frame=none,
+  %背景色
+  %backgroundcolor=\color[rgb]{1,1,0.76},
+  backgroundcolor=\color[RGB]{245,245,244},
+  %样式
+  keywordstyle=\bf\color{blue},
+  identifierstyle=\bf,
+  numberstyle=\color[RGB]{0,192,192},
+  commentstyle=\it\color[RGB]{0,96,96},
+  stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},
+  %显示空格
+  showstringspaces=false,
+  xleftmargin=2em, %边距
+  xrightmargin=2em, 
+  aboveskip=1em
+}
+
+
+%%%%%%%%%%%%
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+%%%%%%%%%%%
+\usepackage{color}
+\usepackage{xcolor}
+% \definecolor{keywordcolor}{rgb}{0.8,0.1,0.5}
+\usepackage{listings}
+\lstset{breaklines}%这条命令可以让LaTeX自动将长的代码行换行排版
+\lstset{extendedchars=false}%这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题
+\lstset{language= R, %用于设置语言为C++
+  %背景框
+  framexleftmargin=10mm,
+  frame=none,
+  %背景色
+  %backgroundcolor=\color[rgb]{1,1,0.76},
+  backgroundcolor=\color[RGB]{245,245,244},
+  %样式
+  keywordstyle=\bf\color{blue},
+  identifierstyle=\bf,
+  numberstyle=\color[RGB]{0,192,192},
+  commentstyle=\it\color[RGB]{0,96,96},
+  stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},
+  %显示空格
+  showstringspaces=false,
+  xleftmargin=2em, %边距
+  xrightmargin=2em, 
+  aboveskip=1em
+}
+
+
+%%%%%%%%%%%%
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Python 3
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+2014
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Functional Programming
+\end_layout
+
+\begin_layout Standard
+today's Python blends support for multiple programming paradigms: procedural
+ (with its basic statements), object-oriented (with its classes), and functional.
+\end_layout
+
+\begin_layout Standard
+Python includes a set of built-ins used for functional programming---tools
+ that apply functions to sequences and other iterables:
+\end_layout
+
+\begin_layout Standard
+This set includes tools that
+\end_layout
+
+\begin_layout Itemize
+call functions on an iterable's items (map); 
+\end_layout
+
+\begin_layout Itemize
+filter out items based on a test function (filter); 
+\end_layout
+
+\begin_layout Itemize
+and apply functions to pairs of items and running results (reduce).
+ 
+\end_layout
+
+\begin_layout Itemize
+first-class object model 
+\end_layout
+
+\begin_layout Itemize
+the nested scope closures 
+\end_layout
+
+\begin_layout Itemize
+anonymous function lambdas 
+\end_layout
+
+\begin_layout Itemize
+the generators 
+\end_layout
+
+\begin_layout Itemize
+comprehensions 
+\end_layout
+
+\begin_layout Section
+Lambda function
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+lambda argument1, argument2,...
+ argumentN : expression using arguments
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Like def, this expression creates a function to be called later, but it
+ returns the function instead of assigning it to a name.
+ This is why lambdas are sometimes known as anonymous (i.e., unnamed) functions.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lambda
+\series default
+ is an expression, not a statement.
+ Because of this, a lambda can appear in places a def that is not allowed
+ by Python's syntax---inside a list literal or a function call's arguments,
+ for example.
+ 
+\end_layout
+
+\begin_layout Itemize
+Lambda is a single, rather than a block of statements.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+def func(x, y, z): return x + y + z
+\end_layout
+
+\begin_layout Plain Layout
+
+func(2, 3, 4)
+\end_layout
+
+\begin_layout Plain Layout
+
+9
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lambda Version
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+f = lambda x, y, z: x + y + z
+\end_layout
+
+\begin_layout Plain Layout
+
+f(2, 3, 4)
+\end_layout
+
+\begin_layout Plain Layout
+
+9
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Defaults work on lambda arguments, just like in a def:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+>>> x = (lambda a="fee", b="fie", c="foe": a + b + c)
+\end_layout
+
+\begin_layout Plain Layout
+
+ >>> x("wee")
+\end_layout
+
+\begin_layout Plain Layout
+
+ 'weefiefoe'
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nested
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+>>>  ((lambda x: (lambda y: x + y))(99))(4) 
+\end_layout
+
+\begin_layout Plain Layout
+
+103 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+lambda as jump tables, lists or dictionaries of actions to be performed
+ on demand.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+L = [lambda x: x ** 2, 
+\end_layout
+
+\begin_layout Plain Layout
+
+    lambda x: x ** 3, 
+\end_layout
+
+\begin_layout Plain Layout
+
+    lambda x: x ** 4]  # A list of three callable functions
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for f in L: print(f(2)) # Prints 4, 8, 16
+\end_layout
+
+\begin_layout Plain Layout
+
+print(L[0](3)) # Prints 9
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+a def won't work inside a list literal like this because it is a statement,
+ not an expression
+\end_layout
+
+\begin_layout Standard
+The equivalent def coding:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+def f1(x): return x**1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def f2(x): return x**2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+L = [f1,f2]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+L[0]
+\end_layout
+
+\begin_layout Plain Layout
+
+Out[120]: <function __main__.f1>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for f in L:
+\end_layout
+
+\begin_layout Plain Layout
+
+    print((f(2)))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+2
+\end_layout
+
+\begin_layout Plain Layout
+
+4
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+print(L[0](2))
+\end_layout
+
+\begin_layout Plain Layout
+
+2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+This works, too, but your defs may be arbitrarily far away in your file,
+ even if they are just little bits of code.
+ The code proximity that lambdas provide is especially useful for functions
+ that will only be used in a single context.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Moreover, the def form requires you to make up names for these little functions
+ that may clash with other names in this file (perhaps unlikely, but always
+ possible).
+\end_layout
+
+\begin_layout Subsection
+Lamnda in dictionary
+\end_layout
+
+\begin_layout Standard
+Indexing by key fetches one of those functions, and parentheses () force
+ the fetched function to be called.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+>>> key = 'got' 
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> {'already': (lambda: 2 + 2),
+\end_layout
+
+\begin_layout Plain Layout
+
+    'got': (lambda: 2 * 4),
+\end_layout
+
+\begin_layout Plain Layout
+
+    'one': (lambda: 2 ** 6)}[key]()
+\end_layout
+
+\begin_layout Plain Layout
+
+8
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When coded this way, a dictionary becomes a more general multiway branching
+ tool
+\end_layout
+
+\begin_layout Subsection
+For Lambda: code most statements in Python as expression-based equivalents.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+# Statements:
+\end_layout
+
+\begin_layout Plain Layout
+
+if a: b
+\end_layout
+
+\begin_layout Plain Layout
+
+else: c
+\end_layout
+
+\begin_layout Plain Layout
+
+# Expressions
+\end_layout
+
+\begin_layout Plain Layout
+
+b if a else c
+\end_layout
+
+\begin_layout Plain Layout
+
+((a and b) or c)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+if you need to perform loops within a lambda, you can also embed things
+ like 
+\series bold
+map
+\series default
+ calls and list 
+\series bold
+comprehension
+\series default
+ expressions
+\end_layout
+
+\begin_layout Subsection
+Lambda for callbacks (in Metaprogramming)
+\end_layout
+
+\begin_layout Standard
+In computer programming, a callback is a piece of
+\series bold
+ executable code that is passed as an argument
+\series default
+ to other code, which is expected t
+\series bold
+o call back (execute) the argument at some convenient tim
+\series default
+e.
+ The invocation may be immediate as in a synchronous callback or it might
+ happen at later time, as in an asynchronous callback.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+import sys
+\end_layout
+
+\begin_layout Plain Layout
+
+from tkinter import Button, mainloop
+\end_layout
+
+\begin_layout Plain Layout
+
+x = Button(
+\end_layout
+
+\begin_layout Plain Layout
+
+    text='Press me',
+\end_layout
+
+\begin_layout Plain Layout
+
+    command=(lambda:sys.stdout.write('Spam
+\backslash
+n'))) # 3.X: print()
+\end_layout
+
+\begin_layout Plain Layout
+
+x.pack()
+\end_layout
+
+\begin_layout Plain Layout
+
+mainloop()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The advantage of lambda over def here is that the code that handles a button
+ press is right here, embedded in the button-creation call.
+ 
+\end_layout
+
+\begin_layout Itemize
+In effect, the lambda 
+\series bold
+defers execution
+\series default
+ of the handler until the event occurs: the write call happens on button
+ presses, not when the button is created, and effectively 
+\begin_inset Quotes eld
+\end_inset
+
+knows
+\begin_inset Quotes erd
+\end_inset
+
+ the string it should write when the event occurs.
+ 
+\end_layout
+
+\begin_layout Section
+map(function, list)
+\end_layout
+
+\begin_layout Standard
+The map function applies a passed-in function to each item in an iterable
+ object and returns a list containing all the function call results.
+ For example:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+def inc(x): return x + 10 # Function to be run
+\end_layout
+
+\begin_layout Plain Layout
+
+list(map(inc, counters)) # Collect results
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# [11, 12, 13, 14]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+map with lambda
+\end_layout
+
+\begin_layout Standard
+Because map expects a function to be passed in and applied, it also happens
+ to be one of the places where lambda commonly appears:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+list(map((lambda x: x + 3), counters)) # Function expression
+\end_layout
+
+\begin_layout Plain Layout
+
+[4, 5, 6, 7]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+map with multiple arguments
+\end_layout
+
+\begin_layout Standard
+With multiple sequences, map expects an N-argument function for N sequences.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+>>> pow(3, 4) # 3**4 
+\end_layout
+
+\begin_layout Plain Layout
+
+81
+\end_layout
+
+\begin_layout Plain Layout
+
+ >>> list(map(pow, [1, 2, 3], [2, 3, 4])) # 1**2, 2**3, 3**4 
+\end_layout
+
+\begin_layout Plain Layout
+
+[1, 8, 81]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+filter: functional programming ??
+\end_layout
+
+\begin_layout Standard
+map's close relatives, filter and reduce, select an iterable's items based
+ on a test function and apply functions to item pairs, respectively.
+\end_layout
+
+\begin_layout Standard
+Because it also returns an iterable, filter (like range) requires a list
+ call to display all its results in 3.X.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+>>> list(filter((lambda x: x > 0), range(−5, 5))) # An iterable in 3.X 
+\end_layout
+
+\begin_layout Plain Layout
+
+[1, 2, 3, 4]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+reduce: functional programming
+\end_layout
+
+\begin_layout Standard
+It accepts an iterable to process, but it's not an iterable itself---it
+ returns a single result.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+>>> from functools import reduce # Import in 3.X, not in 2.X
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> reduce((lambda x, y: x + y), [1, 2, 3, 4]) 
+\end_layout
+
+\begin_layout Plain Layout
+
+10 
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> reduce((lambda x, y: x * y), [1, 2, 3, 4])
+\end_layout
+
+\begin_layout Plain Layout
+
+24    
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By default, the first item in the sequence initializes the starting value.
+\end_layout
+
+\begin_layout Part
+OOP 设计思想
+\end_layout
+
+\begin_layout Subsection
+Polymorphism Means Interfaces, Not Call Signatures ??
+\end_layout
+
+\begin_layout Standard
+In computer science, a type signature or type annotation defines the inputs
+ and outputs for a function, subroutine or method.
+ Example here is type signature.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+class C:
+\end_layout
+
+\begin_layout Plain Layout
+
+     def meth(self, *args):
+\end_layout
+
+\begin_layout Plain Layout
+
+        if len(args) == 1: .
+\end_layout
+
+\begin_layout Plain Layout
+
+        ..
+\end_layout
+
+\begin_layout Plain Layout
+
+        elif type(arg[0]) == int: 
+\end_layout
+
+\begin_layout Plain Layout
+
+        ...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You normally shouldn't do this, though---it's not the Python way.
+\end_layout
+
+\begin_layout Standard
+You should write your code to expect only an object interface, not a specific
+ data type.
+ That way, it will be useful for a broader category of types and applications,
+ both now and in the future:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+class C: def meth(self, x):
+\end_layout
+
+\begin_layout Plain Layout
+
+    x.operationTakeCareAll()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如下，在每一个SUPER和SUB里都定义了work method 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+class Employee:
+\end_layout
+
+\begin_layout Plain Layout
+
+class Chef(Employee):
+\end_layout
+
+\begin_layout Plain Layout
+
+class Server(Employee):
+\end_layout
+
+\begin_layout Plain Layout
+
+class PizzaRobot(Chef):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for klass in Employee, Chef, Server, PizzaRobot: 
+\end_layout
+
+\begin_layout Plain Layout
+
+    obj = klass(klass.__name__) 
+\end_layout
+
+\begin_layout Plain Layout
+
+    obj.work()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Employee does stuff 
+\end_layout
+
+\begin_layout Plain Layout
+
+Chef makes food 
+\end_layout
+
+\begin_layout Plain Layout
+
+Server interfaces with customer 
+\end_layout
+
+\begin_layout Plain Layout
+
+PizzaRobot makes pizza
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Encapsulation: 封装
+\end_layout
+
+\begin_layout Standard
+Encapsulation:  Methods and operators implement behavior, though data hiding
+ is a convention by default.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+class Processor: 
+\end_layout
+
+\begin_layout Plain Layout
+
+    def __init__(self, reader, writer):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.reader = reader 
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.writer = writer
+\end_layout
+
+\begin_layout Plain Layout
+
+    def process(self): 
+\end_layout
+
+\begin_layout Plain Layout
+
+        while True:
+\end_layout
+
+\begin_layout Plain Layout
+
+            data = self.reader.readline() 
+\end_layout
+
+\begin_layout Plain Layout
+
+            if not data: break 
+\end_layout
+
+\begin_layout Plain Layout
+
+            data = self.converter(data) 
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.writer.write(data)
+\end_layout
+
+\begin_layout Plain Layout
+
+    def converter(self, data): 
+\end_layout
+
+\begin_layout Plain Layout
+
+        assert False, 'converter must be defined'
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The processing code only cares that writers have a write method and that
+ a method named convert is defined; it doesn’t care what those methods do
+ when they are called.
+ Such polymorphism and encapsulation of logic is behind much of the power
+ of classes in Python.
+ in the process, turn it into a full-blown application framework.
+ 
+\end_layout
+
+\begin_layout Standard
+此处并不急于在 Processer中定义converter 将converter定义于SUB中，会更好的增加converter这个method的灵活性
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+class Uppercase(Processor): 
+\end_layout
+
+\begin_layout Plain Layout
+
+    def converter(self, data):
+\end_layout
+
+\begin_layout Plain Layout
+
+        return data.upper()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Inheritance: “Is-a” Relationships 
+\end_layout
+
+\begin_layout Itemize
+From a programmer’s point of view, inheritance is kicked off by attribute
+ qualifications, which trigger searches for names in instances, their classes,
+ and then any superclasses.
+ 
+\end_layout
+
+\begin_layout Itemize
+From a designer’s point of view, inheritance is a way to specify set membership:
+ a class defines a set of properties that may be inherited and customized
+ by more specific sets (i.e., subclasses).
+ 
+\end_layout
+
+\begin_layout Subsection
+Composition: 
+\begin_inset Quotes eld
+\end_inset
+
+Has-a
+\begin_inset Quotes erd
+\end_inset
+
+ Relationships
+\end_layout
+
+\begin_layout Itemize
+From a programmer's point of view, composition involves embedding other
+ objects in a container object, and activating them to implement container
+ methods.
+ 
+\end_layout
+
+\begin_layout Itemize
+To a designer, composition is another way to represent relationships in
+ a problem domain.
+ But, rather than set membership, composition has to do with components---parts
+ of a whole.
+ 
+\end_layout
+
+\begin_layout Itemize
+Composition also reflects the relationships between parts, called 
+\begin_inset Quotes eld
+\end_inset
+
+has-a
+\begin_inset Quotes erd
+\end_inset
+
+ relationships.
+ Some OOP design texts refer to composition as aggregation, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+class Oven: def bake(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+    print("oven bakes")
+\end_layout
+
+\begin_layout Plain Layout
+
+class Customer: 
+\end_layout
+
+\begin_layout Plain Layout
+
+    …
+\end_layout
+
+\begin_layout Plain Layout
+
+class PizzaShop: 
+\end_layout
+
+\begin_layout Plain Layout
+
+    def __init__(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.server = Server('Pat') 
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.chef = PizzaRobot('Bob') 
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.oven = Oven()
+\end_layout
+
+\begin_layout Plain Layout
+
+    def order(self, name): 
+\end_layout
+
+\begin_layout Plain Layout
+
+        customer = Customer(name)
+\end_layout
+
+\begin_layout Plain Layout
+
+        customer.order(self.server)
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.chef.work() 
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.oven.bake() 
+\end_layout
+
+\begin_layout Plain Layout
+
+        customer.pay(self.server)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The PizzaShop class is a 
+\series bold
+container and controller
+\series default
+; its 
+\series bold
+constructor
+\series default
+ makes and embeds instances of the employee classes we wrote in the prior
+ section, as well as an 
+\series bold
+Oven
+\series default
+ class defined here.
+ (Oven 和 employee class没有从属关系)。
+\end_layout
+
+\begin_layout Standard
+Notice that we make a new Customer object for each order, and we pass on
+ the embedded Server object to Customer methods; customers come and go,
+ but the server is part of the pizza shop composite.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+scene = PizzaShop() 
+\end_layout
+
+\begin_layout Plain Layout
+
+scene.order('Homer')
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Homer orders from Employee: name=Pat, salary=40000> 
+\end_layout
+
+\begin_layout Plain Layout
+
+Bob makes pizza 
+\end_layout
+
+\begin_layout Plain Layout
+
+oven bakes 
+\end_layout
+
+\begin_layout Plain Layout
+
+Homer pa ys for item to Employee: name=Pat, salary=40000>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Delegation: 
+\begin_inset Quotes eld
+\end_inset
+
+Wrapper
+\begin_inset Quotes erd
+\end_inset
+
+ Proxy Objects
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+class Wrapper: 
+\end_layout
+
+\begin_layout Plain Layout
+
+    def __init__(self, object):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.wrapped = object     # Save object
+\end_layout
+
+\begin_layout Plain Layout
+
+    def __getattr__(self, attrname):
+\end_layout
+
+\begin_layout Plain Layout
+
+        print('Trace: ' + attrname)     # Trace fetch
+\end_layout
+
+\begin_layout Plain Layout
+
+        return getattr(self.wrapped, attrname)    # Delegate fetch
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> from trace import Wrapper
+\end_layout
+
+\begin_layout Plain Layout
+
+ >>> x = Wrapper([1, 2, 3]) 
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> x.append(4)     # Delegate to list method
+\end_layout
+
+\begin_layout Plain Layout
+
+Trace: append
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> x.wrapped 
+\end_layout
+
+\begin_layout Plain Layout
+
+[1, 2, 3, 4]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+此中的class Warpper 无限灵活，可以delegate all other classes, since __getatrr__ will
+ get any method passed onto it.
+ 所以 Wapper即其他所有class的proxy.
+\end_layout
+
+\begin_layout Subsection
+Bound method
+\end_layout
+
+\begin_layout Standard
+必须先定义instance，即self，才能引用bound method
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+class Spam: 
+\end_layout
+
+\begin_layout Plain Layout
+
+    def doit(self, message):
+\end_layout
+
+\begin_layout Plain Layout
+
+    print(message)
+\end_layout
+
+\begin_layout Plain Layout
+
+object1 = Spam() # Assign instance
+\end_layout
+
+\begin_layout Plain Layout
+
+object1.doit(‘hello world’)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In fact, we can fetch a bound method without actually calling it.
+ An 
+\emph on
+object
+\emph default
+.
+\emph on
+name
+\emph default
+ expression evaluates to an object as all expressions do.
+ In the following, it returns a bound method object that packages the instance
+ (object1) with the method function (Spam.doit).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+object1 = Spam() 
+\end_layout
+
+\begin_layout Plain Layout
+
+x = object1.doit # Bound method object 这个object是一个method/function!! 
+\end_layout
+
+\begin_layout Plain Layout
+
+                  #: instance+function 
+\end_layout
+
+\begin_layout Plain Layout
+
+x(‘hello world’) # Same effect as object1.doit(‘…’)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Unbound (class) method objects: no self
+\series default
+ 
+\end_layout
+
+\begin_layout Itemize
+In Python 3.X, the language has dropped the notion of unbound methods.
+ What we describe as an unbound method here is treated as a simple function
+ in 3.X.
+ 
+\end_layout
+
+\begin_layout Itemize
+No self，即no instance
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+t = Spam.doit 
+\end_layout
+
+\begin_layout Plain Layout
+
+# 直接Class.method
+\end_layout
+
+\begin_layout Plain Layout
+
+# 没有call instance，不产生self/instance
+\end_layout
+
+\begin_layout Plain Layout
+
+# Unbound method object (a function in 3.X: see ahead)
+\end_layout
+
+\begin_layout Plain Layout
+
+t(object1, 'howdy') # Pass in instance (if the method expects one in 3.X)
+\end_layout
+
+\begin_layout Plain Layout
+
+object1 = Spam()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Classes Are Objects: Generic Object Factories
+\end_layout
+
+\begin_layout Standard
+You can also pass classes to functions that generate arbitrary kinds of
+ objects; such functions are sometimes called 
+\series bold
+factories
+\series default
+ in OOP design circles.
+\end_layout
+
+\begin_layout Standard
+Factories can be a major undertaking in a strongly typed language such as
+ C++ but are almost trivial to implement in Python.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+def factory(aClass, *pargs, **kargs): # Varargs tuple, dict 
+\end_layout
+
+\begin_layout Plain Layout
+
+    return aClass(*pargs, **kargs) # Call aClass (or apply in 2.X only)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class Spam:
+\end_layout
+
+\begin_layout Plain Layout
+
+    def doit(self, message): 
+\end_layout
+
+\begin_layout Plain Layout
+
+        print(message)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class Person: 
+\end_layout
+
+\begin_layout Plain Layout
+
+    def __init__(self, name, job=None):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.name = name 
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.job = job
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+RUN!
+\end_layout
+
+\begin_layout Enumerate
+将Spam这个class作为factory的argument
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+object1 = factory(Spam) ＃ 同时initialize了Spam and create a instance
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> object1.doit(99)
+\end_layout
+
+\begin_layout Plain Layout
+
+ 99 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+将CLASS PERSON作为argument！ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+# inside factory, "Arthur", "King" will be the argument for PERSON.__init__
+\end_layout
+
+\begin_layout Plain Layout
+
+object2 = factory(Person, "Arthur", "King") 
+\end_layout
+
+\begin_layout Plain Layout
+
+object2.name, object2.job 
+\end_layout
+
+\begin_layout Plain Layout
+
+('Arthur', 'King')
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+object3 = factory(Person, name='Brian') 
+\end_layout
+
+\begin_layout Plain Layout
+
+ >>> object3.name, object3.job 
+\end_layout
+
+\begin_layout Plain Layout
+
+('Brian', None)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Why Factories?
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+P1007
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Name Space
+\end_layout
+
+\begin_layout Subsection
+Layer of name space: (LEGB rule)
+\end_layout
+
+\begin_layout Standard
+Name references search at most four scopes: local (L), then enclosing functions
+ (E)(if any), then global (G), then built-in (B).
+\end_layout
+
+\begin_layout Subsection
+Build-in scope
+\end_layout
+
+\begin_layout Standard
+P544
+\end_layout
+
+\begin_layout Standard
+This technique can be useful, however, both to illustrate the underlying
+ namespace model, and for tool writers who must change built-ins such as
+ 
+\series bold
+\emph on
+open
+\series default
+\emph default
+ to customized functions.
+\end_layout
+
+\begin_layout Standard
+By reassigning a function's name in the built-in scope, you reset it to
+ your customization for every module in the process.
+ If you do, you'll probably also need to remember the original version to
+ call from your customization
+\end_layout
+
+\begin_layout Subsection
+Scopes: global and declare global
+\end_layout
+
+\begin_layout Standard
+Declare the otherwise-local variable X as global.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+def func():
+\end_layout
+
+\begin_layout Plain Layout
+
+    global X
+\end_layout
+
+\begin_layout Plain Layout
+
+    X = 99
+\end_layout
+
+\end_inset
+
+Claiming X as global, means in the function it refers to the X defined outside.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+X=11
+\end_layout
+
+\begin_layout Plain Layout
+
+def func():
+\end_layout
+
+\begin_layout Plain Layout
+
+    global X
+\end_layout
+
+\begin_layout Plain Layout
+
+    X = X+1
+\end_layout
+
+\end_inset
+
+Overuse of globals, for example, is a generally bad thing.
+\end_layout
+
+\begin_layout Subsection
+locals(), gloables and vars()
+\end_layout
+
+\begin_layout Itemize
+globals() always returns the dictionary of the module namespace 
+\end_layout
+
+\begin_layout Itemize
+locals() always returns a dictionary of the current namespace 
+\end_layout
+
+\begin_layout Itemize
+vars() returns either a dictionary of the current namespace (if called with
+ no argument) or the dictionary of the argument.
+\end_layout
+
+\begin_layout Itemize
+locals and vars could use some more explanation.
+ if locals() is called inside a function it constructs a dictionary of the
+ function namespace as of that moment and returns it -- any further name
+ assignments are not reflected in the returned dictionary, and any assignments
+ to the dictionary are not reflected in the actual local namespace:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+def test():
+\end_layout
+
+\begin_layout Plain Layout
+
+    a = 1
+\end_layout
+
+\begin_layout Plain Layout
+
+    b = 2
+\end_layout
+
+\begin_layout Plain Layout
+
+    huh = locals()
+\end_layout
+
+\begin_layout Plain Layout
+
+    c = 3
+\end_layout
+
+\begin_layout Plain Layout
+
+    print(huh)
+\end_layout
+
+\begin_layout Plain Layout
+
+    huh['d'] = 4
+\end_layout
+
+\begin_layout Plain Layout
+
+    print(d)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gives us:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{'a': 1, 'b': 2}
+\end_layout
+
+\begin_layout Plain Layout
+
+Traceback (most recent call last):
+\end_layout
+
+\begin_layout Plain Layout
+
+    File "test.py", line 30, in module>
+\end_layout
+
+\begin_layout Plain Layout
+
+        test()
+\end_layout
+
+\begin_layout Plain Layout
+
+    File "test.py", line 26, in test
+\end_layout
+
+\begin_layout Plain Layout
+
+        print(d)
+\end_layout
+
+\begin_layout Plain Layout
+
+NameError: global name 'd' is not defined
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If locals() is called outside a function it returns the actual dictionary
+ that is the current namespace.
+ Further changes to the namespace are reflected in the dictionary, and changes
+ to the dictionary are reflected in the namespace:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+class Test(object):
+\end_layout
+
+\begin_layout Plain Layout
+
+    a = 'one'
+\end_layout
+
+\begin_layout Plain Layout
+
+    b = 'two'
+\end_layout
+
+\begin_layout Plain Layout
+
+    huh = locals()
+\end_layout
+
+\begin_layout Plain Layout
+
+    c = 'three'
+\end_layout
+
+\begin_layout Plain Layout
+
+    huh['d'] = 'four'
+\end_layout
+
+\begin_layout Plain Layout
+
+    print huh
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gives us:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    'a': 'one',
+\end_layout
+
+\begin_layout Plain Layout
+
+    'b': 'two',
+\end_layout
+
+\begin_layout Plain Layout
+
+    'c': 'three',
+\end_layout
+
+\begin_layout Plain Layout
+
+    'd': 'four',
+\end_layout
+
+\begin_layout Plain Layout
+
+    'huh': {...},
+\end_layout
+
+\begin_layout Plain Layout
+
+    '__module__': '__main__',
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+So far, everything I've said about locals() is also true for vars()...
+ here's the difference: vars() accepts a single object as its argument,
+ and if you give it an object it returns the __dict__ of that object.
+ If that object was not a function the __dict__ returned is that object's
+ namespace:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+class Test(object):
+\end_layout
+
+\begin_layout Plain Layout
+
+    a = 'one'
+\end_layout
+
+\begin_layout Plain Layout
+
+    b = 'two'
+\end_layout
+
+\begin_layout Plain Layout
+
+    def frobber(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+        print self.c
+\end_layout
+
+\begin_layout Plain Layout
+
+t = Test()
+\end_layout
+
+\begin_layout Plain Layout
+
+huh = vars(t)
+\end_layout
+
+\begin_layout Plain Layout
+
+huh['c'] = 'three'
+\end_layout
+
+\begin_layout Plain Layout
+
+t.frobber()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which gives us:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+three
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If the object was a function, you still get its __dict__, but unless you're
+ doing fun and interesting stuff its probably not very useful:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+def test():
+\end_layout
+
+\begin_layout Plain Layout
+
+    a = 1
+\end_layout
+
+\begin_layout Plain Layout
+
+    b = 2
+\end_layout
+
+\begin_layout Plain Layout
+
+    print test.c
+\end_layout
+
+\begin_layout Plain Layout
+
+huh = vars(test) # these two lines are the same as 'test.c = 3'
+\end_layout
+
+\begin_layout Plain Layout
+
+huh['c'] = 3
+\end_layout
+
+\begin_layout Plain Layout
+
+test()
+\end_layout
+
+\begin_layout Plain Layout
+
+# which gives us:
+\end_layout
+
+\begin_layout Plain Layout
+
+3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Dynamic typing & Polymorphism
+\end_layout
+
+\begin_layout Subsection
+Dynamic typing
+\end_layout
+
+\begin_layout Standard
+In Python, we do not declare the specific types of the objects our scripts
+ use.
+ In fact, most programs should not even care about specific types; in exchange,
+ they are naturally applicable in more contexts than 
+\series bold
+we can sometimes even plan ahead for.
+\end_layout
+
+\begin_layout Standard
+Because dynamic typing is the root of this flexibility
+\end_layout
+
+\begin_layout Standard
+EXAMPLE: the very meaning of the expression x * y in our simple times function
+ depends completely upon the kinds of objects that x and y are
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> def times(x, y): # Create and assign function ...
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+return x * y # Body executed when called ...
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> x = times(3.14, 4) # Save the result object 
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> x 12.56
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> times('Ni', 4) # Functions are "typeless" 
+\end_layout
+
+\begin_layout Plain Layout
+
+'NiNiNiNi'
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This turns out to be a crucial philosophical difference between Python and
+ statically typed languages like C++ and Java: 
+\series bold
+in Python, your code is not supposed to care about specific data types.
+\end_layout
+
+\begin_layout Standard
+By and large 大体上，总的来说, we code to object interfaces in Python, not data
+ types.
+\end_layout
+
+\begin_layout Subsection
+polymorphism
+\end_layout
+
+\begin_layout Standard
+By checking for specific types in your code, you effectively break its flexibili
+ty---you limit it to working on just one type.
+ Without such tests, your code may be able to work on a whole range of types.
+\end_layout
+
+\begin_layout Standard
+This is related to the idea of 
+\series bold
+polymorphism
+\series default
+ mentioned earlier, and it stems from Python's lack of type declarations.
+ As you'll learn, in Python, we code to object interfaces (operations supported)
+, not to types.
+ That is, we care what an object does, not what it is.
+ Not caring about specific types means that code is automatically applicable
+ to many of them.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+In R, it seems we wish to code a function to only deal with one type of
+ class
+\end_layout
+
+\begin_layout Part
+memory
+\end_layout
+
+\begin_layout Itemize
+Objects are pieces of allocated memory, with enough space to represent the
+ values for which they stand.
+\end_layout
+
+\begin_layout Itemize
+Python creates a new object (i.e., a chunk of memory) to represent that value.
+ As an optimization, Python internally caches and reuses certain kinds of
+ un-changeable objects, such as small integers and strings (each 0 is not
+ really a new piece of memory---more on this caching behavior later)
+\end_layout
+
+\begin_layout Itemize
+References are automatically followed pointers from variables to objects.
+\end_layout
+
+\begin_layout Section
+Pointers
+\end_layout
+
+\begin_layout Subsection
+Pointers
+\end_layout
+
+\begin_layout Standard
+A pointer
+\emph on
+ references
+\emph default
+ a location in memory, and obtaining the value stored at that location is
+ known as
+\emph on
+ dereferencing
+\emph default
+ the pointer.
+\end_layout
+
+\begin_layout Standard
+Pointer is a relation, so copy it is faster than copying the data it refers
+ to.
+\end_layout
+
+\begin_layout Standard
+Pointers to data significantly improve performance for repetitive operations
+ such as traversing, and structures.
+ In particular, it is often much cheaper in time and space to copy and dereferen
+ce pointers than it is to copy and access the data to which the pointers
+ point.
+\end_layout
+
+\begin_layout Subsection
+Garbage Collection
+\end_layout
+
+\begin_layout Standard
+Whenever a name is assigned to a new object, the space held by the prior
+ object is reclaimed if it is not referenced by any other name or object.
+ This automatic reclamation of objects' space is known as garbage collection,
+\end_layout
+
+\begin_layout Standard
+Internally, Python accomplishes this feat by keeping a counter in every
+ object that keeps track of the number of references currently pointing
+ to that object.
+ As soon as (and exactly when) this counter drops to zero, the object's
+ memory space is automatically reclaimed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+x = 42
+\end_layout
+
+\begin_layout Plain Layout
+
+x = 'shrubbery' # Reclaim 42 now?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Because Python caches and reuses small integers and small strings, as mentioned
+ earlier, the object 42 here is probably not literally reclaimed; instead,
+ it will likely remain in a system table to be reused the next time you
+ generate a 42 in your code
+\end_layout
+
+\begin_layout Section
+References
+\end_layout
+
+\begin_layout Itemize
+Names=Variabls.
+ 
+\end_layout
+
+\begin_layout Itemize
+Objects are in memory.
+ 
+\end_layout
+
+\begin_layout Itemize
+Reference is the link between variables and objects
+\end_layout
+
+\begin_layout Subsection
+References
+\end_layout
+
+\begin_layout Standard
+References serve as a level of indirection: A pointer's value determines
+ which memory address (that is, which datum) is to be used in a calculation.
+ Because indirection is a fundamental aspect of algorithms, pointers are
+ often expressed as a fundamental data type in programming languages; in
+ statically (or strongly) typed programming languages, the type of a pointer
+ determines the type of the datum to which the pointer points.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+>>> a = 3
+\end_layout
+
+\begin_layout Plain Layout
+
+ >>> a = 'spam'
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This example tends to look especially odd to ex-C programmers, as it appears
+ as though the type of a changes from integer to string when we say a =
+ 'spam'.
+\end_layout
+
+\begin_layout Subsection
+Names
+\end_layout
+
+\begin_layout Standard
+Names have no types; as stated earlier, types live with objects, not names.
+ In the preceding listing, we've simply changed a to reference different
+ objects.
+ Because variables have no type, we haven't actually changed the type of
+ the variable ; we've simply made the variable reference a different type
+ of object.
+\end_layout
+
+\begin_layout Subsection
+Store the same reference vs.
+ Copy
+\end_layout
+
+\begin_layout Standard
+Store the same reference in more than one place (variables, lists, and so
+ on).
+ This is a feature---you can pass a large object around a program without
+ generating expensive copies of it along the way.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+>>> X = [1, 2, 3] 
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> L = ['a', X, 'b'] # Embed references to X's object 
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> D = {'x':X, 'y':2}
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> X[1] = 'surprise' # Changes all three references! 
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> L
+\end_layout
+
+\begin_layout Plain Layout
+
+ ['a', [1, 'surprise', 3], 'b'] 
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> D
+\end_layout
+
+\begin_layout Plain Layout
+
+{'x': [1, 'surprise', 3], 'y': 2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+# equal sign to store for the same reference!!!
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+>>> L = [1,2,3]  
+\end_layout
+
+\begin_layout Plain Layout
+
+>> A = L #Same reference
+\end_layout
+
+\begin_layout Plain Layout
+
+>>> A = L[:] # Create copy
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Compilation
+\end_layout
+
+\begin_layout Subsection
+Interpreter
+\end_layout
+
+\begin_layout Standard
+Interpreter is a layer of software logic between your code and the computer
+ hardware on your machine.
+\end_layout
+
+\begin_layout Standard
+Depending on which flavor of Python you run, the interpreter itself may
+ be implemented as a C program, a set of Java classes, or something else.
+\end_layout
+
+\begin_layout Subsection
+byte code and .pyc file
+\end_layout
+
+\begin_layout Standard
+It will store the byte code of your programs in files that end with a .pyc
+ extension (
+\begin_inset Quotes eld
+\end_inset
+
+.pyc
+\begin_inset Quotes erd
+\end_inset
+
+ means compiled 
+\begin_inset Quotes eld
+\end_inset
+
+.py
+\begin_inset Quotes erd
+\end_inset
+
+ source).
+ Python saves byte code like this as a startup speed optimization.
+ The next time you run your program, Python will load the .pyc files and
+ skip the compilation step, as long as you haven't changed your source code
+ since the byte code was last saved, and aren't running with a different
+ Python than the one that created the byte code.
+\end_layout
+
+\begin_layout Standard
+Byte code files are also one way to ship Python programs---Python is happy
+ to run a program if all it can find are .pyc files, even if the original
+ .py source files are absent.
+\end_layout
+
+\begin_layout Subsection
+Python Virtual Machine (PVM) ?
+\end_layout
+
+\begin_layout Standard
+It's just the last step of what is called the 
+\begin_inset Quotes eld
+\end_inset
+
+Python interpreter.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Source: m.py
+\end_layout
+
+\begin_layout Enumerate
+byte code: m.pyc
+\end_layout
+
+\begin_layout Enumerate
+runtime: pvm
+\end_layout
+
+\begin_layout Standard
+This structure is also why Python lends itself to product customization---becaus
+e Python code can be changed on the fly, users can modify the Python parts
+ of a system onsite without needing to have or compile the entire system's
+ code.
+\end_layout
+
+\begin_layout Standard
+Python code --> compile (i.e., translate) source code statements to an intermediat
+e format known as byte code
+\end_layout
+
+\begin_layout Standard
+Furthermore, whenever you do something 
+\begin_inset Quotes eld
+\end_inset
+
+real
+\begin_inset Quotes erd
+\end_inset
+
+ in a Python script, like processing a file or constructing a graphical
+ user interface (GUI), your program will actually run at C speed, since
+ such tasks are immediately dispatched to compiled C code inside the Python
+ interpreter.
+\end_layout
+
+\begin_layout Subsection
+Rapid Prototyping
+\end_layout
+
+\begin_layout Standard
+It's possible to prototype systems in Python initially, and then move selected
+ components to a compiled language such as C or C++ for delivery.
+\end_layout
+
+\end_body
+\end_document
