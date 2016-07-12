@@ -1,0 +1,9719 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 16419249 "v660271" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Machine Learning Advanced
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First version: Feb 
+\begin_inset Formula $4{}^{th}$
+\end_inset
+
+, 2013
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset index_print
+LatexCommand printindex
+type "idx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+To be done
+\end_layout
+
+\begin_layout Part*
+Book Reference
+\end_layout
+
+\begin_layout Itemize
+Reproducible Research in Computational Science 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Welcome to this site about reproducible research in computational science
+ (including signal processing, computer vision, machine learning and neural
+ computation).
+ This site is intended to share the source codes of the latest advances
+ in various technical fields to the best of my knowledge.
+ Only through Reproducible Research (RR), can we live up to the standard
+ that hard-core science has established since Bacon and Newton.
+ If you know of any release of the source codes that is missing from the
+ list or any broken link, please kindly let me know.
+ 
+\end_layout
+
+\begin_layout Itemize
+http://www.csee.wvu.edu/~xinl/source.html
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperlink{<reference "ISL">}{<text
+\backslash
+_classical
+\backslash
+_An Introduction to Statistical Learning with Applications in R.pdf>}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hypertarget{<reference "ISL">}{<text
+\backslash
+_classical
+\backslash
+_An Introduction to Statistical Learning with Applications in R.pdf>}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+http://www.cs.toronto.edu/~radford/ professor using R to teach ML
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/algorithm_summary.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Algorithm I: Optimization
+\end_layout
+
+\begin_layout Section
+fixed-point
+\end_layout
+
+\begin_layout Standard
+In numerical analysis, fixed-point iteration is a method of computing fixed
+ points of iterated functions.
+\end_layout
+
+\begin_layout Standard
+More specifically, given a function 
+\begin_inset Formula ${\displaystyle f}$
+\end_inset
+
+ defined on the real numbers with real values and given a point x 0 
+\begin_inset Formula ${\displaystyle x_{0}}$
+\end_inset
+
+ in the domain of f 
+\begin_inset Formula ${\displaystyle f}$
+\end_inset
+
+ , the fixed point iteration is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\displaystyle x_{n+1}=f(x_{n}),\,n=0,1,2,\dots}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which gives rise to the sequence 
+\begin_inset Formula ${\displaystyle x_{0},x_{1},x_{2},\dots}$
+\end_inset
+
+ which is hoped to converge to a point 
+\begin_inset Formula ${\displaystyle x}$
+\end_inset
+
+ .
+ If 
+\begin_inset Formula ${\displaystyle f}$
+\end_inset
+
+ is continuous, then one can prove that the obtained x 
+\begin_inset Formula ${\displaystyle x}$
+\end_inset
+
+ is a fixed point of f 
+\begin_inset Formula ${\displaystyle f}$
+\end_inset
+
+, i.e.,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\displaystyle f(x)=x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Application:
+\end_layout
+
+\begin_layout Standard
+Newton's method for finding roots of a given differentiable function f(x)
+ is 
+\begin_inset Formula ${\displaystyle x_{n+1}=x_{n}-\frac{f(x_{n})}{f'(x_{n})}.}$
+\end_inset
+
+ or 
+\begin_inset Formula ${\displaystyle g(x)=x-\frac{f(x)}{f'(x)}}$
+\end_inset
+
+, we may rewrite the Newton iteration as the fixed-point iteration 
+\begin_inset Formula ${\displaystyle x_{n+1}=g(x_{n})}$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Standard
+If this iteration converges to a fixed point x of g, then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\displaystyle x=g(x)=x-{\frac{f(x)}{f'(x)}}}\thinspace
+\]
+
+\end_inset
+
+ so .
+ 
+\begin_inset Formula ${\displaystyle f(x)/f'(x)=0.}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+The inverse of anything is nonzero, therefore f(x) = 0: x is a root of f.
+\end_layout
+
+\begin_layout Section
+Newton's Method
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Lecture 4 10m.
+ Also See the dynamic graph in wiki!
+\end_layout
+
+\begin_layout Standard
+Usage: To find the root 
+\begin_inset Formula $x$
+\end_inset
+
+ of function 
+\begin_inset Formula $f(x)=0$
+\end_inset
+
+, oe to max/min 
+\begin_inset Formula $F(x)$
+\end_inset
+
+, you need to find 
+\begin_inset Formula $x$
+\end_inset
+
+ to let 
+\begin_inset Formula $F'(x)=f(x)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From any arbitray point 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+, then the targent line of 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ at 
+\begin_inset Formula $x=x_{n}$
+\end_inset
+
+ is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y=f'(x_{n})(x-x_{n})+f(x_{n})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The targent line cross 
+\begin_inset Formula $y=0$
+\end_inset
+
+ at 
+\begin_inset Formula $x=x_{n+1}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+0=f'(x_{n})(x_{n+1}-x_{n})+f(x_{n})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solve for 
+\begin_inset Formula $x_{n+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x_{n+1}=x_{n}-\frac{f(x_{n})}{f'(x_{n})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then redraw the targent line of 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ ar 
+\begin_inset Formula $x=x_{n+1}$
+\end_inset
+
+ to find 
+\begin_inset Formula $x_{n+2}$
+\end_inset
+
+.
+ Keep doing this you will find root 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Often Used in Maximum/Minimize Problem
+\end_layout
+
+\begin_layout Standard
+To maximize 
+\begin_inset Formula $L(\theta)$
+\end_inset
+
+, is eseentially to find root for 
+\begin_inset Formula $L'(\theta)$
+\end_inset
+
+.
+ Then just repeat the process
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x_{n+1}=x_{n}-\frac{L'(x_{n})}{L''(x_{n})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+The form does not change for minimizing problem
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $\theta$
+\end_inset
+
+ as a vector
+\end_layout
+
+\begin_layout Standard
+Problem above assumes 
+\begin_inset Formula $x$
+\end_inset
+
+ or 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is a scaler, here 
+\begin_inset Formula $\theta$
+\end_inset
+
+ contains multi-features:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\theta^{T+1}=\theta-H^{-1}\nabla_{\theta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\nabla_{\theta}$
+\end_inset
+
+ is the first derivative and 
+\begin_inset Formula $H=\frac{\partial^{2}L}{\partial\theta_{i}\partial\theta_{j}}$
+\end_inset
+
+ is the second deriative (Hessian Matrix 
+\begin_inset Formula $n\times n$
+\end_inset
+
+, where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of features)
+\end_layout
+
+\begin_layout Standard
+For everytime of iteration, you need to calculate the inverse of Hessian.
+ When number of features is so large, it is slow to calculate 
+\begin_inset Formula $H^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Compare with Gradient Descent
+\end_layout
+
+\begin_layout Itemize
+More greedy: 
+\begin_inset Formula $L''(\theta_{n})$
+\end_inset
+
+ searves as 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ in Gradient Descent as speed at step 
+\begin_inset Formula $n+1$
+\end_inset
+
+ .
+ Thus, it is much faster than normal gradient descent.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+As Newtons's method has the property of 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+quadratic convergence
+\end_layout
+
+\end_inset
+
+quadratic convergence: Every step makes the error term smaller quadratically
+ (二次的):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left|\epsilon_{n+1}\right|\le M\epsilon_{n}^{2}\,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+However, Newton method requires inverse of second deriatives, which is often
+ to complex to calculate.
+\end_layout
+
+\begin_layout Section
+Gradient Descent
+\end_layout
+
+\begin_layout Itemize
+Surface of hill (height of hill) is 
+\begin_inset Formula $J(\theta)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+On any point of the hill, which direction should I take a small step to
+ get downward the most?
+\end_layout
+
+\begin_layout Itemize
+Keep going, you get a local minimum.
+ From a different starting point, you may end up a different local minmum.
+\end_layout
+
+\begin_layout Subsection
+Calculate 
+\begin_inset Formula $\nabla J(\theta),$
+\end_inset
+
+ Update 
+\begin_inset Formula $\theta$
+\end_inset
+
+ (Batch Gradient Descent)
+\end_layout
+
+\begin_layout Standard
+It follows that, if
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\theta^{*}=\theta-\alpha\nabla F(\mathbf{\theta})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+for 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ small enough, then 
+\begin_inset Formula $F(\theta)\geq F(\mathbf{\theta^{*}}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+If you write the above formula into each variable 
+\begin_inset Formula $i$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mbox{for every \ensuremath{i:} }\mbox{\theta}_{i}^{*}:=\theta_{i}-\alpha\frac{\partial}{\partial\theta_{i}}F(\theta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As we approach to the local minimum, 
+\begin_inset Formula $\frac{\partial}{\partial\theta_{i}}F(\theta)$
+\end_inset
+
+ will become smaller and smaller, so no matter how large 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is, 
+\begin_inset Formula $F(\theta)$
+\end_inset
+
+ will always converge to local minimum.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\theta_{i}$
+\end_inset
+
+ is the point.
+ 
+\end_layout
+
+\begin_layout Enumerate
+At point 
+\begin_inset Formula $\theta_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{\partial}{\partial\theta_{i}}F(\theta)$
+\end_inset
+
+ is the steepest direction, it is a vetor, or movement.
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is an arbitray speed.
+\end_layout
+
+\begin_layout Standard
+It follows that, if
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\theta^{*}=\theta-\alpha\nabla F(\mathbf{\theta})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+for 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ small enough, then 
+\begin_inset Formula $F(\theta)\geq F(\mathbf{\theta^{*}}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+If you write the above formula into each variable 
+\begin_inset Formula $i$
+\end_inset
+
+: (becoming cordinate ascebt)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mbox{for every \ensuremath{i:} }\mbox{\theta}_{i}^{*}:=\theta_{i}-\alpha\frac{\partial}{\partial\theta_{i}}F(\theta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As we approach to the local minimum, 
+\begin_inset Formula $\frac{\partial}{\partial\theta_{i}}F(\theta)$
+\end_inset
+
+ will become smaller and smaller, so no matter how large 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is, 
+\begin_inset Formula $F(\theta)$
+\end_inset
+
+ will always converge to local minimum.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\theta_{i}$
+\end_inset
+
+ is the point.
+ 
+\end_layout
+
+\begin_layout Enumerate
+At point 
+\begin_inset Formula $\theta_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{\partial}{\partial\theta_{i}}F(\theta)$
+\end_inset
+
+ is the steepest direction, it is a vetor, or movement.
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is an arbitray speed.
+\end_layout
+
+\begin_layout Subsection
+Stochastic (Incremental) Gradient Descent
+\end_layout
+
+\begin_layout Standard
+This is an online learning method.
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $J=1$
+\end_inset
+
+ to 
+\begin_inset Formula $m$
+\end_inset
+
+, just using the 
+\begin_inset Formula $j^{th}$
+\end_inset
+
+ (bunch of) training observation (a lot of times it is not just one observation,
+ we may each time only use a newly coming dataset, ie a group of new observation
+ss.
+ ) to update all the 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mbox{\ensuremath{\theta}}_{i}:=\theta_{i}-\alpha\frac{\partial}{\partial\theta_{i}}J(\theta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the second tranining sample, you then update 
+\begin_inset Formula $\theta$
+\end_inset
+
+ from the updated 
+\begin_inset Formula $\theta$
+\end_inset
+
+ got from 
+\begin_inset Formula $1^{st}$
+\end_inset
+
+ traning sample.
+\end_layout
+
+\begin_layout Standard
+Quick to start the updating process.
+ Keep doing this till 
+\begin_inset Formula $m$
+\end_inset
+
+, if not converge, then do it through 
+\begin_inset Formula $1...m$
+\end_inset
+
+ again and again till converge to local minimum.
+ (Several passes over the training set are made until the algorithm converges.
+ Typical implementations may also randomly shuffle training examples at
+ each pass and use an adaptive learning rate.)
+\end_layout
+
+\begin_layout Standard
+Converg sign: when the value of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ become more and more stable.
+\end_layout
+
+\begin_layout Standard
+May not go as the steepest downward direction as we use the all trainning
+ sample, 会走弯路，but will still converge, and often much quicker than normal
+ Gradient Descent.
+\end_layout
+
+\begin_layout Subsection
+Maximum or Minimum
+\end_layout
+
+\begin_layout Itemize
+linear regression, 似然函数J(theta)是ball shaped, 很明显只有一个极值点.
+ 
+\end_layout
+
+\begin_layout Itemize
+对于logistic regression's likelihood function's Hessian矩阵是正定的, 因而梯度为0的点只有一个.
+ 同样对于多项分布,可求L(theta)的梯度和Hessian矩阵即可说明
+\end_layout
+
+\begin_layout Section
+Cordinate Ascent
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Cordinate Ascent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vedio 8: used in SVO algorithm in SVM
+\end_layout
+
+\begin_layout Standard
+https://en.wikipedia.org/wiki/Coordinate_descent
+\end_layout
+
+\begin_layout Standard
+Goal is to maxify the problem 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+max_{\alpha}W(\alpha_{1},...\alpha_{m})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Method: Loop until convergence: 
+\end_layout
+
+\begin_layout Enumerate
+From an initial starting point 
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Until convergence is reached, or for some fixed number of iterations: For
+ each dimention 
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Then Update 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ to 
+\begin_inset Formula $x_{i}−α\frac{\text{∂}f}{\text{∂}x_{i}}$
+\end_inset
+
+.
+ (
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is the learning rate.)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+No need to go with the order of i = 1, .
+ .
+ .
+ , m.
+\end_layout
+
+\begin_layout Subsection
+Non-differential case
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $\frac{\text{∂}f}{\text{∂}x_{i}}$
+\end_inset
+
+ does not exist, then we can just choose to loosely ask for an 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ sufficient decrease in 
+\begin_inset Formula $f$
+\end_inset
+
+ in dimention 
+\begin_inset Formula $i$
+\end_inset
+
+: 
+\begin_inset Formula $f(x_{i}^{*},x_{j\ne i})=f(x_{i}\text{−}\alpha,x_{j\ne i})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Cordinate Ascent vs Gradient Descent
+\end_layout
+
+\begin_layout Itemize
+Gradient Descent first solve the 
+\begin_inset Formula $\nabla f$
+\end_inset
+
+, the steepest descent direction in 
+\begin_inset Formula $\mathbb{R}_{+}$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Itemize
+Cordinate Ascent each time only solves 
+\begin_inset Formula $\frac{\text{∂}f}{\text{∂}x_{i}}$
+\end_inset
+
+, the steepest descent direction in dimention 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Cordinate Ascent can also deal with Non-differential case
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Line search
+\end_layout
+
+\begin_layout Standard
+In optimization, the line search strategy is one of two basic iterative
+ approaches to find a local minimum 
+\begin_inset Formula $\mathbf{x}^{*}$
+\end_inset
+
+of an objective function 
+\begin_inset Formula $f:\mathbb{R}^{n}\to\mathbb{R}$
+\end_inset
+
+.
+ The other approach is trust region.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Cordinate Ascent is one type of Line Seach.
+\end_layout
+
+\begin_layout Part
+Algorithm II
+\end_layout
+
+\begin_layout Section
+Sparseness
+\end_layout
+
+\begin_layout Itemize
+Sparseness is good assumption
+\end_layout
+
+\begin_layout Standard
+The answer is simple.
+ In machine learning, you might have a correlation matrix or stochastic
+ matrix whose edges define a relationship between data points.
+ The algorithm used by Google to rank pages for their search engine is a
+ stochastic matrix, meaning that each element denotes some probability for
+ a "transition" from one [webpage] to another, via a click or something
+ similar by the user.
+ It is a graph of the internet, in a sense.
+\end_layout
+
+\begin_layout Standard
+But it's pretty clear why this graph should not be densely populated.
+ What's the probability that you'll jump to a CNN article about Ukraine
+ from a math tutoring website? Very small, as it's pretty unlikely.
+ Most things don't have direct connections with each other, a statement
+ that runs contrary to the often-used phrase, "everything's connected, man"
+ (it's not that this is wrong, it's just missing the information about how
+ things are connected, which is to say, very indirectly).
+\end_layout
+
+\begin_layout Standard
+The Google stochastic matrix for all Wikipedia articles has a rank of about
+ 3 million.
+ If you store the complete matrix, zeros included, you are storing 9 trillion
+ 64-bit floating-point numbers.
+ For an arbitrary number of pages, the number of numbers you have to store
+ goes as the square, which quickly becomes unmanageable even for the world's
+ fastest supercomputers (which typically also have the largest memories).
+ For Google, this is simply unacceptable.
+ But given the earlier example, we know that the graph encoded by the stochastic
+ matrix is sparse.
+ In practice, you would see the numbers you need to store drop by several
+ orders of magnitude.
+\end_layout
+
+\begin_layout Itemize
+Sparseness as a constraints on coefficients:
+\end_layout
+
+\begin_layout Standard
+Usually sparsity is a good assumption, but even if the reality of the problem
+ disagrees with this, which can certainly be the case, it is usually very
+ beneficial to assume that it does not, both for computational tractability
+ and for the interpretability of your model.
+ For example, modeling a physical system like a pond can be done using a
+ statistical model that links many things together, like water temperature,
+ humidity, wind, solar radiation, dissolved oxygen, air pressure, etc.
+ However, if you want to predict the temperature of the water at some depth
+ over time, it's unlikely that the humidity will effect the type of vertical
+ oscillations you'll see in a water column.
+ The more likely explanation is because of variations in solar radiation
+ (night and day, plus seasonal trends) and internal seiches due to wind.
+ This does not mean that humidity is completely independent of water temperature
+, of course.
+ You will find that this is true using a simple dynamical or regression
+ model.
+\end_layout
+
+\begin_layout Section
+Batch Learning vs Online Learning
+\end_layout
+
+\begin_layout Itemize
+Batch means for every step of updates, you use all the training data.
+ (slow when whole dataset is large).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+ESL P416: The updates in (11.13) are a kind of batch learning, with the parameter
+ updates being a sum over all of the training cases.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Learning can also be carried out online—processing each observation/a small
+ group of observations, one at a time, updating the gradient after each
+ training case, and cycling through the training cases many times.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Online machine learning is a method of learning in which data becomes available
+ in a sequential order and at each step we use the new data to update our
+ best predictor for future data.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Derive Online Learning from Batch Learning ??
+\end_layout
+
+\begin_layout Standard
+For linear regression with squared loss, we can estimate its coefficient
+ using batch learning 
+\begin_inset Formula $w_{n}=(X^{T}X)^{-1}X^{T}Y$
+\end_inset
+
+ given data 
+\begin_inset Formula $X=\{x_{0},....x_{n-1}\}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y=\{y_{0}..y_{n-1}\}$
+\end_inset
+
+ If one more data 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+,
+\begin_inset Formula $y_{n}$
+\end_inset
+
+ is added,
+\end_layout
+
+\begin_layout Standard
+Thenwe fit the same model using the batch learning (see p33 for derivation:
+ http://www.mit.edu/~9.520/spring11/slides/class15_online.pdf )
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w_{n+1}=w_{n}+\frac{C_{n}^{-1}}{1+x_{n}^{T}C_{n}^{-1}x_{n}}x_{n}\{y_{n}-x_{n}^{T}w_{n}\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $C_{n}=(X^{T}X)$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $w_{n+1}$
+\end_inset
+
+ is a function of the passt error 
+\begin_inset Formula $y_{n}-x_{n}^{T}w_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this requires us to 
+\end_layout
+
+\begin_layout Itemize
+store all the data to calculate 
+\begin_inset Formula $C_{n}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+updates the inverse via matrix/vector multiplication.
+\end_layout
+
+\begin_layout Standard
+Then we can write the above formula into an Online-Learning formula
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w_{n+1}=w_{n}+\gamma_{n}x_{n}\left[y_{n}-x_{n}^{T}w_{n}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If there are 
+\begin_inset Formula $t$
+\end_inset
+
+ new data points
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w_{n+1}=w_{n}+\gamma_{n}\frac{1}{t}\sum_{t=0}^{t-1}x_{n}\left[y_{n}-x_{n}^{T}w_{n}\right]
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\gamma_{t}$
+\end_inset
+
+ is a decreasing sequence.
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\gamma_{n}$
+\end_inset
+
+ decreases too fast the iterate will get stuck away from the real solution.
+ In general the convergence of the online iterate is slower than the recursive
+ least squares since we use a simpler step-size.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Polyak Averging:
+\end_layout
+
+\begin_layout Standard
+If we choose 
+\begin_inset Formula $\gamma_{n}=n^{-\alpha}$
+\end_inset
+
+, with 
+\begin_inset Formula $\alpha\in(1/2,1)$
+\end_inset
+
+ and use, at each step, the solution obtained averaging all previous solutions
+ (namely Polyak averaging), then convergence is ensured and is almost the
+ same as recursive least squares.
+\end_layout
+
+\begin_layout Section
+Boostrap
+\end_layout
+
+\begin_layout Standard
+ESL P268: General idea: The basic idea is 
+\end_layout
+
+\begin_layout Enumerate
+to randomly draw datasets with replacement from the training data, each
+ sample the same size as the original training set.
+ This is done B times (B = 100 say), producing B bootstrap datasets, as
+ shown in Figure 7.12.
+\end_layout
+
+\begin_layout Enumerate
+Then we refit the model to each of the bootstrap datasets, and examine the
+ behavior of the fits over the B replications.
+\end_layout
+
+\begin_layout Standard
+P187 ISL.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Monte-Carlo variance
+\end_layout
+
+\begin_layout Standard
+You get the estimate 
+\begin_inset Formula $\beta=f(X,y)$
+\end_inset
+
+ from data 
+\begin_inset Formula $X,y$
+\end_inset
+
+ according to method 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ To get the variance of 
+\begin_inset Formula $\beta$
+\end_inset
+
+, you can each time randomly use part of whole data 
+\begin_inset Formula $X,y$
+\end_inset
+
+ 
+\series bold
+( select with replacement),
+\series default
+ to estimate
+\series bold
+ 
+\begin_inset Formula $\beta_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Repeat this by N times, then the variance of 
+\begin_inset Formula $\hat{\beta}$
+\end_inset
+
+ is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Var(\hat{\beta})=\frac{1}{N-1}\sum(\hat{\beta}_{i}-\frac{\sum\hat{\beta}_{i}}{N})^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Formula $Var(\hat{\beta})$
+\end_inset
+
+ can be thought as 
+\series bold
+Monte-Carlo estimate of the variance of 
+\begin_inset Formula $\beta$
+\end_inset
+
+ 
+\series default
+under sampling from the empirical distribution function.
+\end_layout
+
+\begin_layout Subsection
+Averaging Bagging, or Bootstrap to get low variance Estimate
+\end_layout
+
+\begin_layout Standard
+Bootstrap aggregation, or bagging, is a general-purpose procedure for reducing
+ the variance of a statistical learning method.
+ 
+\end_layout
+
+\begin_layout Standard
+We boostrap the sample to get several estimates for one thing, and then
+ average them to get one estimate.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{f}_{avg}(x)=\frac{1}{B}\sum_{b}^{B}\hat{f}_{b}(x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Bagging in decision tree
+\series default
+: biuld several trees: For a given test observation, we can record the class
+ predicted by each of the B trees, and take a majority vote: Thus, bagging
+ improves prediction accuracy at the expense of interpretability.
+\end_layout
+
+\begin_layout Section
+Shrinkage Regression: Ridge and Lasso
+\end_layout
+
+\begin_layout Standard
+They are essentially GLM with punishment factor
+\end_layout
+
+\begin_layout Subsection
+Ridge
+\end_layout
+
+\begin_layout Standard
+ISL P265.
+ R function
+\end_layout
+
+\begin_layout Standard
+Ridge regression penalizes the size of the regression coefficients Specifically,
+ the ridge regression estimate 
+\begin_inset Formula $\beta$
+\end_inset
+
+ is defined as the value of β that minimizes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+RSS_{eidge}=\sum(y-\beta^{T}x)^{2}+\lambda\sum\beta^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Shrinkage penalty 
+\begin_inset Formula $\lambda\sum\beta^{2}$
+\end_inset
+
+ can pull coeffs to 0 ( not shrink the intercept)
+\end_layout
+
+\begin_layout Itemize
+Select 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, the tuning factor, is done by CV.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Variance vs Bias
+\series default
+: As λ increases, the flexibility of the ridge regression fit decreases,
+ leading to decreased variance but increased bias.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Ridge regression is not robust to scale change (OLS is).
+ So you need to standardize them.
+\end_layout
+
+\begin_layout Itemize
+Works when p > n, where the OLS do not even have a unique solution, whereas
+ ridge regression can still perform well by trading off a small increase
+ in bias for a large decrease in variance.
+ Hence, ridge regression works best in situations where the least squares
+ estimates have high variance.
+\end_layout
+
+\begin_layout Subsection
+Lasso
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Just replace the shrinkage penalty with 
+\begin_inset Formula $\lambda\sum|\beta|$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+In statistical parlance, the lasso uses an ℓ1 (pronounced “ell 1”) penalty
+ instead of an ℓ2 penalty.
+\end_layout
+
+\begin_layout Itemize
+As with ridge regression, the lasso shrinks the coefficient estimates towards
+ zero.
+ However, in the case of the lasso, the ℓ1 penalty has the effect of forcing
+ some of the coefficient estimates to be exactly equal to zero when the
+ tuning parameter λ is sufficiently large.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Hence, much like best subset selection, the lasso performs variable selection.
+ 
+\end_layout
+
+\begin_layout Itemize
+As a result,models generated from the lasso are generally much easier to
+ interpret than those produced by ridge regression.
+ 
+\end_layout
+
+\begin_layout Itemize
+We say that the lasso yields sparse models—that is, sparse models that involve
+ only a subset of the variables.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Ridge vs Lasso
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/ridge.png
+	lyxscale 80
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Difference between Ridge and Lasso, and ℓ1 ℓ2 penalty visualization ISL
+ P233
+\end_layout
+
+\begin_layout Standard
+ESL P627
+\end_layout
+
+\begin_layout Standard
+Ridge penalty is a 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ penalty, and Lasso penalty is 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+If the true population coefficients of these trees arose from a Gaussian
+ distribution, then we know that in a Bayesian sense the best predictor
+ is ridge regression (Exercise 3.6).
+ That is, we should use an L2 rather than an L1 penalty when fitting the
+ coefficients.
+ 
+\end_layout
+
+\begin_layout Itemize
+On the other hand, if there are only a small number (e.g., 1000) coefficients
+ that are nonzero, the lasso (L1 penalty) will work better.
+ We think of this as a sparse scenario, while the first case (Gaussian coefficie
+nts) is dense.
+\end_layout
+
+\begin_layout Standard
+In other words, use of the L1 penalty follows what we call the 
+\series bold
+“bet on sparsity”
+\series default
+ principle for high-dimensional problems: 
+\end_layout
+
+\begin_layout Quotation
+Use a procedure that does well in 
+\series bold
+sparse problems
+\series default
+, since no procedure does well in dense problems (high dimention, and thus
+ curse of dimention).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+The notion of sparse versus dense is relative to the size of the training
+ data set and/or the noise-to-signal ratio 
+\series default
+(NSR).
+ Larger training sets allow us to estimate coefficients with smaller standard
+ errors.
+ Likewise in situations with small NSR, we can identify more nonzero coefficient
+s with a given sample size than in situations where the NSR is larger.
+\end_layout
+
+\begin_layout Standard
+See ESL P628: FIGURE 16.2.
+ Simulations that show the superiority of the L1 (lasso) penalty over L2
+ (ridge) in regression and classification.
+ Each run has 50 observations with 300 independent Gaussian predictors.
+\end_layout
+
+\begin_layout Section
+EM Algorithm: for Gaussin Mixture Model:
+\end_layout
+
+\begin_layout Itemize
+What is EM: Also refer to Intro_Information_Retireval p407
+\end_layout
+
+\begin_layout Itemize
+See Andrew Ng Lecture Notes 8 p2
+\end_layout
+
+\begin_layout Standard
+EM ＝ Expectation–Maximization
+\end_layout
+
+\begin_layout Standard
+In statistics, an expectation–maximization (EM) algorithm is an iterative
+ method for finding maximum likelihood or maximum a posterior
+\change_deleted 16419249 1468253372
+i
+\change_unchanged
+ (MAP) estimates of parameters in statistical models, 
+\series bold
+where the model depends on unobserved latent variables (like the latent
+ sub-group label in Mixture Model).
+\end_layout
+
+\begin_layout Itemize
+The EM iteration alternates between performing an expectation (E) step,
+ which creates a function for the expectation of the log-likelihood evaluated
+ using the current estimate for the parameters, 
+\end_layout
+
+\begin_layout Itemize
+and a maximization (M) step, which computes parameters maximizing the expected
+ log-likelihood foundon the E step.
+ 
+\end_layout
+
+\begin_layout Itemize
+These parameter-estimates are then used to determine the distribution of
+ the latent variables in the next 
+\begin_inset Formula $E$
+\end_inset
+
+ step.
+\end_layout
+
+\begin_layout Subsection
+Incentive
+\end_layout
+
+\begin_layout Standard
+See Andrew Ng Lecture Notes 8 p2
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x$
+\end_inset
+
+ is generated by latent random variables 
+\begin_inset Formula $z$
+\end_inset
+
+ and parameters
+\begin_inset Formula $\theta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To estimate 
+\begin_inset Formula $\theta$
+\end_inset
+
+ in the model with data 
+\begin_inset Formula $x$
+\end_inset
+
+, we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+l(\theta) & = & \sum_{i}^{M}\log P(x|\theta)\\
+ & = & \sum log\sum_{z}P(x^{i},z^{i}|\theta)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+But, explicitly finding the maximum likelihood estimates of the parameters
+ θ may be hard.
+ Here, the z(i)’s are the latent random variables; and it is often the case
+ that if the z(i)’s were observed, then maximum likelihood estimation would
+ be easy.
+\end_layout
+
+\begin_layout Standard
+That is where we need the EM algorithm,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/EM_Algorithm.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fact is EM is essentially Coordinate Assent: E-step is to update
+\change_inserted 16419249 1468253446
+ 
+\change_unchanged
+
+\begin_inset Formula $Q$
+\end_inset
+
+, and M-step is to update
+\change_inserted 16419249 1468253433
+ 
+\change_unchanged
+
+\begin_inset Formula $\theta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Application
+\end_layout
+
+\begin_layout Itemize
+Use to solve Mixture Model: The latent variable 
+\begin_inset Formula $z$
+\end_inset
+
+ could be sub-groups' labels of 
+\begin_inset Formula $x$
+\end_inset
+
+, where 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is the parameter for population.
+ Goal is to estimate 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+See Mixture Model Part.
+\end_layout
+
+\begin_layout Subsection
+Jensen’s inequality/ Covexity:
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $f$
+\end_inset
+
+ be a convex function
+\begin_inset Formula $f”>0$
+\end_inset
+
+, and Let
+\begin_inset Formula $x$
+\end_inset
+
+be a random variable
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(EX)\le E(f(x))
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For a concave function (
+\begin_inset Formula $\mbox{log}x$
+\end_inset
+
+), we have the opposite 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(EX)\ge E(f(x))
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+When 
+\begin_inset Formula $x$
+\end_inset
+
+ is fixed, then there is equality.
+\end_layout
+
+\begin_layout Subsection
+The Likelihood with Expectation inside it
+\end_layout
+
+\begin_layout Standard
+The eventual goal is 
+\begin_inset Formula $l(\theta)=max_{\theta}\sum_{i}logP(x^{i}|\theta)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You want to use the marginalization techinique to bring 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ into it
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+LogLikelihood & = & \sum_{i}logP(x^{i}|\theta)\label{eq:E_STEP-1}\\
+ & = & \sum log\sum_{z^{i}}P(x^{i},z^{i}|\theta)\\
+ & = & \sum log\sum_{z^{i}}Q_{i}(z^{i})\frac{P(x^{i},z^{i}|\theta)}{Q_{i}(z^{i})}\nonumber \\
+ & \ge & \sum_{i}E_{Q}\left[\mbox{log}\frac{P(x^{i},z^{i}|\theta)}{Q_{i}(z^{i})}\right]\mbox{ (use Jensen’s Inequality for Concave Functions log)}\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To ensure the in-equality also holds for equality (tighten the lower bound,
+ or max the 
+\begin_inset Formula $J(\theta,Q)$
+\end_inset
+
+ through
+\begin_inset Formula $Q$
+\end_inset
+
+ ), you can it: Note that in-equality will become into equality, only when
+ the random variable inside the concave function is constant:
+\end_layout
+
+\begin_layout Standard
+So choose 
+\begin_inset Formula $Q_{i}(z^{i})$
+\end_inset
+
+ so that
+\begin_inset Formula 
+\[
+\frac{P(x^{i},z^{i}|\theta)}{Q_{i}(z^{i})}=constant
+\]
+
+\end_inset
+
+for some constant c that does not depend on
+\begin_inset Formula $z^{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+So we choose popular 
+\begin_inset Formula $Q_{i}(z^{i})$
+\end_inset
+
+ choice is just the posterior 
+\begin_inset Formula $z^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+Q_{i}(z^{i}) & = & \frac{P(x^{i},z^{i}|\theta)}{\sum_{z^{i}}P(x^{i},z^{i}|\theta)}\\
+ & = & \frac{P(x^{i},z^{i}|\theta)}{P(x^{i}|\theta)}\\
+ & = & P(z^{i}|\theta,x^{i})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus we eliminate 
+\begin_inset Formula $z^{i}$
+\end_inset
+
+ as we have 
+\begin_inset Formula 
+\[
+\frac{P(x^{i},z^{i}|\theta)}{Q_{i}(z^{i})}=P(x^{i}|\theta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, we have equality as the loss function of EM
+\begin_inset Formula 
+\begin{eqnarray}
+L=\sum_{i}\mbox{log}P(x^{i}|\theta) & = & \sum E_{Q_{z^{i}}}\left[\mbox{log}\frac{P(x^{i},z^{i}|\theta)}{Q_{i}(z^{i})}\right]\label{eq:E_step_quality-1}\\
+ & = & \sum_{i}\sum_{z^{i}}P(z^{i}|x^{i},\theta)\times\mbox{log}P(x^{i}|z^{i},\theta)\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+E-Step: reassignment labels/clusters
+\end_layout
+
+\begin_layout Itemize
+To the minimize the 
+\begin_inset Formula $L$
+\end_inset
+
+ through 
+\begin_inset Formula $z^{i}$
+\end_inset
+
+, which means you will redo the hard assignment of the label for each observatio
+n 
+\end_layout
+
+\begin_layout Itemize
+Thus, the expectation step is nothing else but Bernoulli Naive Bayes classificat
+ion (including normalization, i.e.
+ dividing by the denominator, to get a probability distribution over clusters).
+\end_layout
+
+\begin_layout Subsection
+M-Step: max through prameters update parameters
+\end_layout
+
+\begin_layout Standard
+Note that the result of E-stepintegrate out random variable 
+\begin_inset Formula $z^{i}$
+\end_inset
+
+, and becomes a function of 
+\begin_inset Formula $\theta$
+\end_inset
+
+, thus we can do the max likelihood on
+\begin_inset Formula $\theta$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\theta,P(z^{i}|x^{i},\theta)=\mbox{arg}max_{\theta,P(z^{i}|x^{i},\theta)}\sum_{i}\sum_{z^{i}}E_{Q_{z^{i}}}\left[\mbox{log}P(x^{i}|z^{i},\theta)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Proof of Convergence: EM is a coordinate ascent on 
+\begin_inset Formula $J(\theta,Q)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How we we know if this algorithm will converge? Well, suppose θ(t) and θ(t+1
+ )are the parameters from two successive iterations of EM.
+ We will now prove that ℓ(θ(t)) ≤ ℓ(θ(t+1)), which shows EM always monotonically
+ improves the log-likelihood.
+\end_layout
+
+\begin_layout Standard
+See Andrew Ng Lecture Notes 8 p2
+\end_layout
+
+\begin_layout Standard
+The EM can also be viewed a coordinate ascent on J, in which the E-step
+ maximizes it with respect to Q (check this yourself), and the M-step maximizesi
+t with respect to θ.
+\end_layout
+
+\begin_layout Part
+Ensemble Learning
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Support Vector Machine (SVM)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Boosting: General
+\end_layout
+
+\begin_layout Standard
+The motivation for boosting was a procedure that combines the outputs of
+ many “weak” classifiers to produce a powerful “committee.” From this perspective
+ boosting bears a resemblance to bagging and other committee-based approaches
+ (Section 8.8).
+ However we shall see that the connection is at best superficial and that
+ boosting is fundamentally different.
+ 
+\end_layout
+
+\begin_layout Standard
+We begin by describing the most popular boosting algorithm due to Freund
+ and Schapire (1997) called “AdaBoost.M1.” 
+\end_layout
+
+\begin_layout Itemize
+Adaboost = Boosting
+\end_layout
+
+\begin_layout Itemize
+Gradient Boosting = Gradient Descent + Boosting
+\end_layout
+
+\begin_layout Standard
+Histroy of Bossting:
+\end_layout
+
+\begin_layout Enumerate
+Invent Adaboost, the frst successful boosting algorithm [Freund et al., 1996,
+ Freund and Schapire, 1997] 
+\end_layout
+
+\begin_layout Enumerate
+Formulate Adaboost as gradient descent with a special loss function[Breiman
+ et al., 1998, Breiman, 1999] 
+\end_layout
+
+\begin_layout Enumerate
+Generalize Adaboost to Gradient Boosting in order to handle a variety of
+ loss functions [Friedman et al., 2000, Friedman, 2001]
+\end_layout
+
+\begin_layout Subsection
+Adaboost vs Gradient Boosting
+\end_layout
+
+\begin_layout Standard
+Forward stagewise boosting (Algorithm 10.2) is also a very greedy strategy.
+\end_layout
+
+\begin_layout Itemize
+In Gradient Boosting, ‘shortcomings’ (of existing weak learners) are identified
+ by gradients, and base learner is to fit those gradients.
+\end_layout
+
+\begin_layout Itemize
+In Adaboost, ‘shortcomings’ are identified by high-weight data points, and
+ the base learner is to fit original 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ with those weights.
+\end_layout
+
+\begin_layout Standard
+The principal difference between them is that the tree components
+\begin_inset Formula $t_{m}={T(x_{1};Θ_{m}),...,T(x_{N};Θ_{m})}^{T}$
+\end_inset
+
+ are not independent in Adaboost.
+ They are constrained to be the predictions of a 
+\begin_inset Formula $J_{m}-terminal$
+\end_inset
+
+ node decision tree, whereas the negative gradient is the unconstrained
+ maximal descent direction.
+\end_layout
+
+\begin_layout Standard
+If minimizing loss on the training data (10.33) were the only goal, steepest
+ descent would be the preferred strategy.
+\end_layout
+
+\begin_layout Subsection
+Right-Sized Trees for Boosting
+\end_layout
+
+\begin_layout Standard
+ESL P379
+\end_layout
+
+\begin_layout Standard
+If the optimal size of each tree is estimated separately in the usual manner
+ when it is built, The result is that trees tend to be much too large, especiall
+y during the early iterations.
+ This substantially degrades performance and increases computation.
+\end_layout
+
+\begin_layout Standard
+The simplest strategy for avoiding this problem is to restrict all trees
+ to be the same size, 
+\begin_inset Formula $J_{m}=J\mbox{ }\forall m$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Although in many applications J = 2 will be insufficient, it is unlikely
+ that J > 10 will be required.
+ One can fine-tune the value for J by trying several different values and
+ choosing the one that produces the lowest risk on a validation sample.
+ However, this seldom provides significant improvement over using J ≃ 6.
+\end_layout
+
+\begin_layout Subsection
+Regularization
+\end_layout
+
+\begin_layout Standard
+ESL P380
+\end_layout
+
+\begin_layout Itemize
+Right time of iteration 
+\begin_inset Formula $M$
+\end_inset
+
+: A convenient way to estimate M∗ is to 
+\series bold
+monitor
+\series default
+ prediction risk as a function of 
+\begin_inset Formula $M^{*}$
+\end_inset
+
+ on a validation sample.
+\end_layout
+
+\begin_layout Itemize
+Shrinkage: add a smaller Shrinkage parater 
+\begin_inset Formula $v$
+\end_inset
+
+ for each iteration: 
+\begin_inset Formula $f_{m}(x)=f_{m-1}(x)+vh(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Empirically it has been found (Friedman, 2001) that smaller values of ν
+ favor better test error.
+ the best strategy appears to be to set ν to be very small (ν < 0.1) and
+ then choose M by early stopping.
+ This yields dramatic improvements (over no shrinkage ν = 1) for regression
+ and for probability estimation
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Sub-sampling: With stochastic gradient boosting (Friedman, 1999), at each
+ iteration we sample a fraction η of the training observations (without
+ replacement), and grow the next tree using that subsample.
+ The rest of the algorithm is identical.
+ A typical value for η can be 1 2, although for large N, η can be substantially
+ smaller than 1 2 .
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Not only does the sampling reduce the computing time by the same fraction
+ η, but in many cases it actually produces a more accurate model.
+\end_layout
+
+\begin_layout Itemize
+It appears here that subsampling without shrinkage does poorly.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+AdaBoost.M1.
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+AdaBoost.M1.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+See
+\end_layout
+
+\begin_layout Itemize
+https://en.wikipedia.org/wiki/AdaBoost
+\end_layout
+
+\begin_layout Itemize
+ref_Adaboost_cmu.pdf http://www.cs.cmu.edu/~epxing/Class/10701-08s/recitation/boosti
+ng.pdf
+\end_layout
+
+\begin_layout Enumerate
+The power of AdaBoost to dramatically increase the performance of even a
+ very weak classifier is illustrated in Figure 10.2.
+\end_layout
+
+\begin_layout Enumerate
+(essentially the motivation for boosting was a procedure that combines the
+ outputs of many “weak” classifiers to produce a powerful “committee.” From
+ this perspective boosting bears a resemblance to bagging andy this is a
+ basis function! see ESL P357.)
+\end_layout
+
+\begin_layout Enumerate
+In fact, Breiman (NIPS Workshop, 1996) referred to AdaBoost with trees as
+ the “best off-the-shelf classifier in the world” (see also Breiman (1998)).
+\end_layout
+
+\begin_layout Subsection
+Algorithm
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Overview
+\series default
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f_{m-1}(x_{i})$
+\end_inset
+
+ is the existing model after 
+\begin_inset Formula $m-1$
+\end_inset
+
+ iteration, with loss function as weight 
+\begin_inset Formula $w_{m}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $k_{m}(x_{i})$
+\end_inset
+
+ is the new model you want to add up in the new model, 
+\begin_inset Formula $\beta_{m}$
+\end_inset
+
+ is the weight you assign to new model.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $k_{m}(x_{i})$
+\end_inset
+
+ is to fit the original 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ with weight 
+\begin_inset Formula $w_{m}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Thus, the new prediction is 
+\begin_inset Formula $f_{m-1}(x_{i})+\beta k_{m}(x_{i})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+For 
+\begin_inset Formula $m=1$
+\end_inset
+
+ to 
+\begin_inset Formula $M$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The exponential loss is 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L(\beta_{m},k_{m})=\sum exp\left[-y(f_{m-1}(x_{i})+\beta k_{m}(x_{i}))\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Further derive the exponential loss 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+assume loss function of last iteration as weights
+\series default
+ : 
+\begin_inset Formula $exp\left[-y(f_{m-1}(x_{i})\right]=w_{i}^{m}$
+\end_inset
+
+, and then normalize them into sum as 1 (so the whole 
+\begin_inset Formula $L(\beta_{m},k_{m})$
+\end_inset
+
+ will be adjusted, )
+\end_layout
+
+\begin_layout Enumerate
+Split the sum into two subsets 
+\begin_inset Formula $y_{i}=k_{m}(x_{i})$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{i}\ne k_{m}(x_{i})$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+L & = & \sum exp\left[-y(f_{m-1}(x_{i})+\beta k_{m}(x_{i}))\right]\\
+ & = & \sum_{i}^{N}w_{i}^{m}exp(-y\beta k_{m}(x_{i}))\\
+ & = & e^{-\beta}\sum_{y_{i}=k_{m}(x_{i})}w_{i}^{m}+e^{\beta}\sum_{y_{i}\ne k_{m}(x_{i})}w_{i}^{m}\\
+OR & = & e^{-\beta}\sum_{1}^{N}w_{i}^{m}+(e^{\beta}-e^{-\beta})\sum_{1}^{N}w_{i}^{m}I(y_{i}\ne k_{m}(x_{i}))
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Minimizing above by solving the 
+\begin_inset Formula $\beta$
+\end_inset
+
+ and 
+\begin_inset Formula $k_{m}$
+\end_inset
+
+ for the 
+\begin_inset Formula $m$
+\end_inset
+
+'s step f
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Estimate new classifier 
+\begin_inset Formula $k_{m}$
+\end_inset
+
+ using weights 
+\begin_inset Formula $w_{i}^{m}$
+\end_inset
+
+ for each observation 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ 
+\series default
+(using Weighted Impurity, see Tree section)(to concentrate on those training
+ observations that are missed by previous ones in the sequence)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Note that the only parts related to 
+\begin_inset Formula $k_{m}$
+\end_inset
+
+ is 
+\begin_inset Formula $\sum_{1}^{N}w_{i}^{m}I(y_{i}\ne k_{m}(x_{i}))$
+\end_inset
+
+, so we need to 
+\series bold
+estimate 
+\begin_inset Formula $k_{m}$
+\end_inset
+
+ to minimize it, by fitting most of 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ correctly, especially those with higher weights.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Estimate 
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\beta_{m}=\frac{1}{2}log\left(\frac{\sum_{y_{i}=k_{m}(x_{i})}w_{i}^{(m)}}{\sum_{y_{i}\neq k_{m}(x_{i})}w_{i}^{(m)}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+As we know the error rate for the newly addid classifier 
+\begin_inset Formula $\epsilon_{m}=\sum_{y_{i}\neq k_{m}(x_{i})}w_{i}^{(m)}/\sum_{i=1}^{N}w_{i}^{(m)}$
+\end_inset
+
+, we can re-write the above 
+\begin_inset Formula $\beta_{m}=\frac{1}{2}\ln\left(\frac{1-\epsilon_{m}}{\epsilon_{m}}\right)$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+Gradient Boosting
+\end_layout
+
+\begin_layout Standard
+See: http://www.ccs.neu.edu/home/vip/teach/MLcourse/4_boosting/slides/gradient_boos
+ting.pdf
+\end_layout
+
+\begin_layout Standard
+ESL is not clear enough.
+\end_layout
+
+\begin_layout Standard
+The idea is to keep fitting new model 
+\begin_inset Formula $h(x_{i})$
+\end_inset
+
+ 
+\begin_inset Formula $i=1....N$
+\end_inset
+
+ such that 
+\begin_inset Formula $f(x_{i})+h(x_{i})$
+\end_inset
+
+ can better fit 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+, which essentially is the same to fit 
+\series bold
+residual
+\series default
+ 
+\begin_inset Formula $y_{i}-f(x_{i})$
+\end_inset
+
+ with 
+\begin_inset Formula $h(x_{i})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+How the Residuals can be related with Negative Gradient of Loss Function
+\end_layout
+
+\begin_layout Standard
+If we setp up the loss function as Loss function 
+\begin_inset Formula $L(y,F(x))=\frac{(y\text{−}F(x))^{2}}{2}$
+\end_inset
+
+: we can interpret residuals as negative gradients 
+\begin_inset Formula $-g(x_{i})$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-g(x_{i})=-\frac{\partial\sum L(y_{i},F(x_{i})}{\partial f(x_{i})}=y_{i}-F(x_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this way we get the relations 
+\end_layout
+
+\begin_layout Itemize
+residual ⇔ negative gradient
+\end_layout
+
+\begin_layout Itemize
+fit h to residual ⇔ fit h to negative gradient
+\end_layout
+
+\begin_layout Itemize
+update F based on residual ⇔ update F based on negative gradient
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+So we are actually updating our model using gradient descent!
+\end_layout
+
+\begin_layout Subsection
+Algorithm: Overview
+\end_layout
+
+\begin_layout Itemize
+Choose a forecasting model 
+\begin_inset Formula $F_{m}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Choose a Loss function 
+\begin_inset Formula $L(F_{m})$
+\end_inset
+
+ and thus its residuals.(pseudo response) 
+\begin_inset Formula $\tilde{y}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Choose a base model 
+\begin_inset Formula $h_{m}$
+\end_inset
+
+.
+ Base model does not need to be in th same class of forecasting model.
+\end_layout
+
+\begin_layout Enumerate
+Initial model 
+\begin_inset Formula $F_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Fit the base model with 
+\begin_inset Formula $h_{m}$
+\end_inset
+
+ to the residuals 
+\begin_inset Formula $\tilde{y}$
+\end_inset
+
+ and then choose its weight as 
+\begin_inset Formula $\rho_{m}$
+\end_inset
+
+.
+ Thus the new forecasting model is 
+\begin_inset Formula $F_{m}+\rho_{m}h_{m}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+For categorical variables we often estimate 
+\begin_inset Formula $\rho_{m}h_{m}$
+\end_inset
+
+ at the same time
+\end_layout
+
+\begin_layout Enumerate
+When 
+\begin_inset Formula $y$
+\end_inset
+
+ has 
+\begin_inset Formula $k$
+\end_inset
+
+ classes and 
+\begin_inset Formula $h_{m}$
+\end_inset
+
+ has 
+\begin_inset Formula $J$
+\end_inset
+
+ nodes, then we have 
+\begin_inset Formula $J$
+\end_inset
+
+ 
+\begin_inset Formula $\gamma_{jm}=\rho_{jm}h_{jm}$
+\end_inset
+
+s, which solved to be a ratio.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Algorithm: Squared Loss
+\end_layout
+
+\begin_layout Standard
+Input: training set 
+\begin_inset Formula $\{(x_{i},y_{i})\}_{i=1}^{n}$
+\end_inset
+
+, a differentiable loss function
+\begin_inset Formula $L(y,F(x))$
+\end_inset
+
+, number of iterations 
+\backslash
+! M.
+\end_layout
+
+\begin_layout Standard
+Algorithm: from https://en.wikipedia.org/wiki/Gradient_boosting
+\end_layout
+
+\begin_layout Standard
+Here we assume for each step you use a regression tree.
+\end_layout
+
+\begin_layout Itemize
+Loss function is the traditional squard loss
+\end_layout
+
+\begin_layout Enumerate
+Initialize model/tree with a constant value:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{0}(x)=\underset{\gamma}{\arg\min}\sum_{i=1}^{n}L(y_{i},\gamma)
+\]
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+For m = 1 to M:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Compute so-called pseudo-residuals / negative gradient:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+r_{im}=-\left[\frac{\partial L(y_{i},F(x_{i}))}{\partial F(x_{i})}\right]_{F(x)=F_{m-1}(x)}\quad\mbox{for }i=1,\ldots,n.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Fit a base learner 
+\begin_inset Formula $h_{m}(x)$
+\end_inset
+
+ to pseudo-residuals, i.e.
+ train it using the training set 
+\begin_inset Formula $\{(x_{i},r_{im})\}_{i=1}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Compute multiplier 
+\begin_inset Formula $\gamma_{m}$
+\end_inset
+
+ (weight for the new model) by solving the following one-dimensional optimizatio
+n problem:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma_{m}=\underset{\gamma}{\mbox{arg}min}\sum_{i=1}^{n}L\left(y_{i},F_{m-1}(x_{i})+\gamma h_{m}(x_{i})\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Update the model:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{m}(x)=F_{m-1}(x)+\gamma_{m}h_{m}(x).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Output F_M(x).
+\end_layout
+
+\begin_layout Subsection
+Algorithm: Tree for {-1,1} data
+\end_layout
+
+\begin_layout Standard
+[The starting model and base model 
+\begin_inset Formula $h_{m}$
+\end_inset
+
+ do not necessarily be the same class, here the starting model is logit,
+ but base model is tree]
+\end_layout
+
+\begin_layout Itemize
+Prediction Model 
+\begin_inset Formula $F=\frac{1}{2}\mbox{log}\left[\frac{P(y=1|x)}{P(y=-1|x)}\right]$
+\end_inset
+
+, thus if it is 
+\begin_inset Formula $F>\frac{1}{2}\mbox{log}(0.5)$
+\end_inset
+
+, then suggests 
+\begin_inset Formula $y=1$
+\end_inset
+
+, otherwise 
+\begin_inset Formula $y=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Base model 
+\begin_inset Formula $h$
+\end_inset
+
+ tree
+\end_layout
+
+\begin_layout Itemize
+Loss function: Negative Binomial log-likelihood FHT00: 
+\begin_inset Formula $L(y,F)=log(1+exp(-2yF))$
+\end_inset
+
+ where 
+\begin_inset Formula $y\in\{-1,1\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+starting model using logistic 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{0}(x)=\frac{1}{2}\mbox{log}\frac{1+\bar{y}}{1-\bar{y}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Initialize 
+\begin_inset Formula $F_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+We fit a Tree 
+\begin_inset Formula $h(x_{i},a_{m})$
+\end_inset
+
+ on pseudo-response 
+\begin_inset Formula $\tilde{y}=\frac{\partial L(u,F_{m-1})}{\partial F_{m-1}}$
+\end_inset
+
+ and then the line search problem becoms 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho_{m}=argmin_{\rho}\sum^{N}\mbox{log}\left\{ 1+exp\left[-2y_{i}(F_{m-1}(x_{i})+\rho h(x_{i},a_{m})\right]\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+We can re-write the problem using 
+\begin_inset Formula $\gamma_{j}=\rho h(a_{jm})$
+\end_inset
+
+ for the 
+\begin_inset Formula $j^{th}$
+\end_inset
+
+node of tree, and thus 
+\series bold
+for each node 
+\begin_inset Formula $j$
+\end_inset
+
+ 
+\series default
+at step 
+\begin_inset Formula $m$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma_{jm}=argmin_{\gamma}\sum_{x_{i}\in R_{jm}}\mbox{log}\left\{ 1+exp\left[-2y_{i}(F_{m-1}(x_{i})+\mbox{\gamma}\right]\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+As 
+\begin_inset Formula $h$
+\end_inset
+
+ will output categorical variables only {0,1}, by combining 
+\begin_inset Formula $\rho$
+\end_inset
+
+ and 
+\begin_inset Formula $h$
+\end_inset
+
+ into 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ will be a ratio and thus can be plugged into prediction model 
+\begin_inset Formula $F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+There is no closed form solution above.
+ Following FHT00, we approximate it with a singe Newton-Raphson step:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma_{jm}=\sum_{x_{i}\in R_{jm}}\tilde{y}_{i}/\sum_{x_{i}\in R_{jm}}|\tilde{y}_{i}|(2-|\tilde{y}_{i}|)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $F_{m}=F_{m-1}+\sum_{j=1}^{J}\gamma_{jm}1_{x\in R_{jm}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Algorithm: Multi-Class
+\end_layout
+
+\begin_layout Itemize
+Prediction Model: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $F_{k}=\mbox{log}p_{k}(x)-\frac{1}{K}\sum_{l=1}^{K}\mbox{log}p_{l}(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Equivalently, 
+\begin_inset Formula $p_{k}(x)=\mbox{exp}\left(F_{k}(x)\right)/\sum_{l=1}^{K}\mbox{exp}\left(F_{l}(x)\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Loss Function: 
+\begin_inset Formula $L\left(y_{k},F_{k}(x)\right)=-y_{k}\mbox{log}p_{k}(x)$
+\end_inset
+
+ for each class.
+ Or for the total data: 
+\begin_inset Formula $L=\sum_{k}^{K}L\left(y_{k},F_{k}(x)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Initial model 
+\begin_inset Formula $F_{k0}(x)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+We can fit on pseudo-response 
+\begin_inset Formula $\tilde{y}_{ik}=y_{ik}-p_{k,m-1}$
+\end_inset
+
+ for class 
+\begin_inset Formula $k$
+\end_inset
+
+: writing 
+\begin_inset Formula $\gamma=\rho h$
+\end_inset
+
+ (see last section), the line search becomes
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\{\gamma_{jkm}\}=argmin_{\gamma_{jk}}\sum_{i}^{N}\sum_{k=1}^{K}L\left(y_{ik},F_{k,m-1}(x_{i})+\sum_{j=1}^{J}\gamma_{jk}\mathbf{1}(x_{i}\in R_{jm})\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\gamma_{jkm}$
+\end_inset
+
+ means at 
+\begin_inset Formula $m^{th}$
+\end_inset
+
+ step, the 
+\begin_inset Formula $j^{th}$
+\end_inset
+
+ nodes output class label 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ So there are only 
+\begin_inset Formula $j$
+\end_inset
+
+ 
+\begin_inset Formula $\gamma_{jkm}$
+\end_inset
+
+s in step 
+\begin_inset Formula $m$
+\end_inset
+
+, not 
+\begin_inset Formula $j\times k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+No close solution, we approximate with a singe Newton-Raphson step, using
+ a diagonal Hessian Matrix:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma_{jkm}=\frac{K-1}{K}\frac{\sum_{x_{i}\in R_{jkm}}\tilde{y}_{ik}}{\sum_{x_{i}\in R_{jkm}}|\tilde{y}_{ik}|(1-|\tilde{y}_{ik}|)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Algorithm: with Huber Loss / Regression Tree
+\end_layout
+
+\begin_layout Standard
+ref_paprt_gradiantboosting: Greedy function approximation a gradient boosting
+ machine, Friedman.
+\end_layout
+
+\begin_layout Subsection
+Why Gradient, not using residual
+\end_layout
+
+\begin_layout Standard
+When Loss function is 
+\begin_inset Formula $L(y,F(x))=\frac{(y\text{−}F(x))^{2}}{2}$
+\end_inset
+
+, residuals equal to negative gradient.
+ But this is not always the case.
+ 
+\end_layout
+
+\begin_layout Itemize
+The benifit of formulating this algorithm using gradients is that it allows
+ us to consider other 
+\series bold
+loss functions
+\series default
+ and derive the corresponding algorithms in the same way.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For categorical problems, we need to consider other loss functions
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Negative gradient has the same direction as residuals but pays less attention
+ to outliers.
+\end_layout
+
+\begin_layout Subsection
+Gradients with Other Loss Function
+\end_layout
+
+\begin_layout Itemize
+Regression with Absolute Loss
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+-g(x_{i})=sign(y_{i}-f(x_{i}))
+\]
+
+\end_inset
+
+It is a sign rather than a number as the gradient only governs the direction,
+ here we set the learning rate as 
+\begin_inset Formula $\rho=1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Regression with
+\series bold
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Huber Loss
+\end_layout
+
+\end_inset
+
+ Huber Loss
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+-g(x_{i})=\begin{cases}
+y_{i}-f(x_{i}) & |y-F|\le\delta\\
+\delta sign(y_{i}-f(x_{i})) & |y-F|>\delta
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Deviance for K-class Classification
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $k^{th}$
+\end_inset
+
+ component:
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+-g(x_{i})=I(y_{i}=G_{k})-p_{k}(x_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+where 
+\begin_inset Formula $p_{k}=\frac{exp(f_{k}(x))}{\sum_{l=1}^{K}exp(f_{l}(x))}$
+\end_inset
+
+ is the probability that the model predicts, or 
+\begin_inset Formula $P(y_{i}=G_{k}|f(x_{i}))$
+\end_inset
+
+ (see Softmax Regression for derivation)
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+How to choose a proper learning rate for each gradient boosting algorithm.
+ 
+\end_layout
+
+\begin_layout Standard
+See [Friedman, 2001]
+\end_layout
+
+\begin_layout Subsection
+Prediction using Gradient Boosting ???
+\end_layout
+
+\begin_layout Standard
+ESL PDF 375
+\end_layout
+
+\begin_layout Standard
+For regression, it is straightforward, the final prediction function is
+ 
+\begin_inset Formula $f_{0}+\sum_{1}^{M}h_{m}(x)$
+\end_inset
+
+ where 
+\begin_inset Formula $m$
+\end_inset
+
+ means each iteration.
+\end_layout
+
+\begin_layout Standard
+For classification, the gradient (10.35) is defined only at the training
+ data points 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+, whereas the ultimate goal is to generalize 
+\begin_inset Formula $f_{M}(x)$
+\end_inset
+
+ to new data not represented in the training set.
+ 
+\end_layout
+
+\begin_layout Standard
+A possible resolution to this dilemma is to induce a tree 
+\begin_inset Formula $T(x;Θ_{m})$
+\end_inset
+
+ at the mth iteration whose predictions 
+\begin_inset Formula $t_{m}$
+\end_inset
+
+ are as close as possible to the negative gradient.
+ Using squared error to measure closeness, this leads us to
+\begin_inset Formula 
+\[
+\tilde{\Theta}_{m}=argmin_{\Theta}\sum_{i=1}^{N}(-g_{im}-T(x_{i};\Theta))^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That is, one fits the tree T to the negative gradient values (10.35) by least
+ squares.
+\end_layout
+
+\begin_layout Standard
+Thus we do the prediction, we can combine all the tress and see their majortiy
+ votes.
+\end_layout
+
+\begin_layout Subsection
+R
+\end_layout
+
+\begin_layout Standard
+The original implementation of this algorithm was called MART for “multiple
+ additive regression trees,” and was referred to in the first edition of
+ this book.
+ Many of the figures in this chapter were produced by MART.
+\end_layout
+
+\begin_layout Standard
+Gradient boosting as described here is implemented in the R gbm package
+ (Ridgeway, 1999, “Gradient Boosted Models”), and is freely available.
+ The gbm package is used in Section 10.14.2, and extensively in Chapters 16
+ and 15.
+ Another R implementation of boosting is mboost (Hothorn and B¨uhlmann,
+ 2006).
+\end_layout
+
+\begin_layout Section
+Ensemble Learning
+\end_layout
+
+\begin_layout Standard
+ESL P621.
+\end_layout
+
+\begin_layout Subsection
+What is Ensemble Learning
+\end_layout
+
+\begin_layout Standard
+The idea of ensemble learning is to build a prediction model by combining
+ the strengths of a collection of simpler base models.
+\end_layout
+
+\begin_layout Standard
+Bagging in Section 8.7 and random forests in Chapter 15 are ensemble methods
+ for classification, where a committee of trees each cast a vote for the
+ predicted class.
+ 
+\end_layout
+
+\begin_layout Standard
+Boosting in Chapter 10 was initially proposed as a committee method as well,
+ although unlike random forests, the committee of weak learners evolves
+ over time, and the members cast a weighted vote.
+\end_layout
+
+\begin_layout Standard
+Bayesian methods for nonparametric regression can also be viewed as ensemble
+ methods: a large number of candidate models are averaged with respect to
+ the posterior distribution of their parameter settings (e.g.
+ (Neal and Zhang, 2006)).
+\end_layout
+
+\begin_layout Subsection
+Steps
+\end_layout
+
+\begin_layout Standard
+Ensemble learning can be broken down into two tasks: developing a population
+ of base learners from the training data, and then combining them to form
+ the composite predictor.
+ 
+\end_layout
+
+\begin_layout Subsection
+Penalized Regression is an Ensemble Learning
+\end_layout
+
+\begin_layout Standard
+p623 ESL
+\end_layout
+
+\begin_layout Standard
+Example:
+\end_layout
+
+\begin_layout Standard
+Consider the dictionary of all possible J-terminal node regression trees
+ 
+\begin_inset Formula $T={T_{k}}$
+\end_inset
+
+ that could be realized on the training data as basis functions in 
+\begin_inset Formula $R^{P}$
+\end_inset
+
+.
+ The linear model is 
+\begin_inset Formula $f(x)=\sum_{k=1}^{K}a_{k}T_{k}(x)$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Standard
+Since the number of such trees is likely to be much larger than even the
+ largest training data sets, some form of regularization is required.
+ Let 
+\begin_inset Formula $\hat{\alpha}(λ)$
+\end_inset
+
+ solve
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+min_{\alpha}\left\{ \sum_{i=1}^{N}\left(y_{i}-\sum_{k=1}^{K}a_{k}T_{k}(x_{i})\right)^{2}+\lambda J(\alpha)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+J(α) is a function of the coefficients that generally penalizes larger values,
+ such as Lasso penalty
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J(\alpha)=\sum^{K}|\alpha_{k}|
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Owing to the very large number of basis functions 
+\begin_inset Formula $T_{k}$
+\end_inset
+
+, directly solving (16.2) with the lasso penalty (16.4) is not possible.
+\end_layout
+
+\begin_layout Standard
+However, a feasible forward stagewise strategy exists that closely approximates
+ the effect of the lasso, and is very similar to boosting and the forward
+ stagewise Algorithm 10.2.
+ Algorithm 16.1:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize 
+\begin_inset Formula $\alpha_{k}$
+\end_inset
+
+ = 0
+\series default
+, 
+\begin_inset Formula $k=1,...,K$
+\end_inset
+
+ (this is key, as Lasso eventually will also assign irrelevant paramters
+ as 0 ).
+ Set ε > 0 to some small constant, and M large.
+\end_layout
+
+\begin_layout Enumerate
+For 
+\begin_inset Formula $m=1$
+\end_inset
+
+ to M
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+(
+\begin_inset Formula $\beta^{*},$
+\end_inset
+
+
+\begin_inset Formula $k^{*}$
+\end_inset
+
+) = 
+\begin_inset Formula $argmin_{\beta,k}\sum_{i=1}^{N}\left(y_{i}-\sum_{k=1}^{K}a_{k}T_{k}(x_{i})-\beta T_{k}(x_{i})\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+At each successive step, the tree 
+\begin_inset Formula $T_{k^{*}}$
+\end_inset
+
+ from existing basis dictionary is selected that best fits the current residuals
+ in line 2(a).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $\hat{\alpha}_{k}:=\hat{\alpha}_{k}+\epsilon\times sign(\beta^{*})$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Then its corresponding coefficient for the selected tree 
+\begin_inset Formula $T_{k^{*}}$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{\alpha}_{k^{*}}$
+\end_inset
+
+, is then incremented or decremented by an infinitesimal amount in 2(b),
+ while all other coefficients 
+\begin_inset Formula $\hat{\alpha}_{k}$
+\end_inset
+
+, k ̸= k∗ are left unchanged.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Output 
+\begin_inset Formula $f_{M}(x)=\sum_{k=1}^{K}\hat{\alpha}_{k}T_{K}(x)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+After applying Algorithm 16.1 with M <∞ iterations, many of the coefficients
+ will be zero, namely, those that have yet to be incremented.
+ Therefore this M-iteration solution qualitatively resembles the lasso,
+ with M inversely related to λ.
+\end_layout
+
+\begin_layout Part
+Support Vector Machine (SVM)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Support Vector Machine (SVM)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lecture 6 second half.
+ Notes 3 p3.
+\end_layout
+
+\begin_layout Standard
+Assume training set is linearly separable.
+ Several different straigt lines may exist at the same time to separate
+ the set perfectly.
+\end_layout
+
+\begin_layout Standard
+http://blog.pluskid.org/?p=632
+\end_layout
+
+\begin_layout Section
+Basics
+\end_layout
+
+\begin_layout Subsection
+Classifier or Hyperplan
+\end_layout
+
+\begin_layout Itemize
+We have N-dimentional space, each point 
+\begin_inset Formula $x$
+\end_inset
+
+ is a N-dimentional vector.
+\end_layout
+
+\begin_layout Itemize
+The goal is the classify 
+\begin_inset Formula $y\in\{-1,+1\}$
+\end_inset
+
+ (Just chang the notation, does not matter that 
+\begin_inset Formula $y$
+\end_inset
+
+ originally is 
+\begin_inset Formula $\{1,0\}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+Define a function 
+\begin_inset Formula $g$
+\end_inset
+
+: 
+\begin_inset Formula $g(z)=1$
+\end_inset
+
+ if 
+\begin_inset Formula $z\geq0$
+\end_inset
+
+ or 
+\begin_inset Formula $g(z)=-1$
+\end_inset
+
+ otherwise.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h_{\theta}(x)=g(\theta^{T}x)=g(w^{T}x+b)\label{eq:Classifer-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An Hyperplan can be writen as 
+\begin_inset Formula $f(x)=wx+b=0$
+\end_inset
+
+ (a line in 2D world, or a plane in 3d world, or a 
+\begin_inset Formula $R^{N-1}$
+\end_inset
+
+ subspace in 
+\begin_inset Formula $R^{N}$
+\end_inset
+
+ world)), or just 
+\begin_inset Formula $(w,b)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $w$
+\end_inset
+
+ as avector is the set for slope, and 
+\begin_inset Formula $b$
+\end_inset
+
+ as a scaler is the intercept.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+应该放弃从几何意义上去想象hyperplan，因为高维中的hyperplan是极难想象的。实际上，hyperplan仅仅是代数上对
+\begin_inset Formula $N$
+\end_inset
+
+维空间点的
+\begin_inset Formula $DegreFreedom=N-1$
+\end_inset
+
+的限制关系而已。
+\end_layout
+
+\begin_layout Itemize
+any point 
+\begin_inset Formula $x$
+\end_inset
+
+ can lie on one side of the hyperplane, such as 
+\begin_inset Formula $f(x)=wx+b>0$
+\end_inset
+
+ or 
+\begin_inset Formula $f(x)=wx+b<0$
+\end_inset
+
+.
+ So the sign of 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ means classificattion
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $\gamma=y_{i}(\frac{w'}{||w||}x_{i}+b)$
+\end_inset
+
+: Distance between data point to the Hyperplan is called 
+\series bold
+Geometric Margin
+\series default
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Geometric Margin
+\end_layout
+
+\end_inset
+
+ (
+\begin_inset Formula $\frac{w}{||w||}$
+\end_inset
+
+ is the othogonal unit vector of hyperplane 
+\begin_inset Formula $(w,b)$
+\end_inset
+
+)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\hat{\gamma}_{i}=M=y_{i}(w^{'}x_{i}+b)$
+\end_inset
+
+ is the 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+functional margin
+\end_layout
+
+\end_inset
+
+
+\series bold
+functional margin
+\series default
+.
+ Functional margin is not good at measure the distance between point to
+ line, becuase its size depends on ||w||
+\end_layout
+
+\begin_layout Itemize
+We can regularize 
+\begin_inset Formula $||w||=1$
+\end_inset
+
+ (norm=1) to make 
+\begin_inset Formula $\gamma=\hat{\gamma}$
+\end_inset
+
+ (functional margin = geometric margin) (this is the normalization condition
+ to make the scale comparable between different possible estimates of 
+\begin_inset Formula $w$
+\end_inset
+
+) 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+(Euclidean) norm: 
+\begin_inset Formula $\left\Vert \boldsymbol{x}\right\Vert :=\sqrt{x_{1}^{2}+\cdots+x_{n}^{2}}.$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Maximal Margin Classifier
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Maximal Margin Classifier
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ISL p355.
+\end_layout
+
+\begin_layout Standard
+Our job is to predict 
+\begin_inset Formula $x$
+\end_inset
+
+ into the right side of the hyperplace, or predict the right sign of 
+\begin_inset Formula $f(x^{*})=wx+b$
+\end_inset
+
+.
+ Furthermore, If 
+\begin_inset Formula $f(x^{∗})$
+\end_inset
+
+ is far from zero, then this means that 
+\begin_inset Formula $x^{\text{∗}}$
+\end_inset
+
+ lies far from the hyperplane, and so we can be confident about our class
+ assignment for 
+\begin_inset Formula $x^{\text{∗}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+A natural choice is the maximal margin hyperplane (also known as the optimal
+ separating hyperplane), which is the separating hyperplane that is farthest
+ from the training observations.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Maximal Margin Classifier is based on the assumption that the sample is
+ perfectly linearly separable.
+ The generalization of the maximal margin classifier to the non-separable
+ case is known as the support vector classifier.
+\end_layout
+
+\begin_layout Standard
+Moreover, the fact that the maximal margin hyperplane is extremely sensitive
+ to a change in a single observation suggests that it may have overfit the
+ training data.
+\end_layout
+
+\begin_layout Subsection
+Suppor Vecotrs
+\end_layout
+
+\begin_layout Standard
+ISL p356.
+\end_layout
+
+\begin_layout Standard
+Suppot Vectors
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Suppot Vectors
+\end_layout
+
+\end_inset
+
+: points in both sides of the Classifier Hyperlan that are 
+\series bold
+closest
+\series default
+ to the hyperlan (has margin 
+\begin_inset Formula $M$
+\end_inset
+
+) are 
+\series bold
+Supprt Vectors
+\series default
+ of that Classifier Hyperlan.
+\end_layout
+
+\begin_layout Standard
+Therefore, for all other points, a pefect classifer would be 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{i}(\beta_{0}+\sum_{p}^{P}\beta_{p}x_{i,p})\ge M
+\]
+
+\end_inset
+
+where 
+\series bold
+
+\begin_inset Formula $M$
+\end_inset
+
+ is the margin, 
+\series default
+and
+\series bold
+ 
+\begin_inset Formula $y\in\{-1,+1\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+OR for non-linear 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{i}f(x_{i})\ge M
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That is why we call it 
+\series bold
+Supprt Vectors
+\end_layout
+
+\begin_layout Standard
+Interestingly, the maximal margin hyperplane depends directly on the support
+ vectors, but not on the other observations.
+ A movement to any of the other observations would not affect the separating
+ hyperplane (robustness), provided that the observation’s movement does
+ not cause it to cross the boundary set by the margin.
+\end_layout
+
+\begin_layout Standard
+The fact that the maximal margin hyperplane depends directly on only a small
+ subset of the observations is an important property that will arise later
+ in this chapter when we discuss the support vector classifier and support
+ vector machines.
+\end_layout
+
+\begin_layout Standard
+这样的特性在实际中有一个最直接的好处就在于存储和计算上的优越性，例如，如果使用 100 万个点求出一个最优的超平面，其中是 supporting
+ vector 的有 100 个，那么我只需要记住这 100 个点的信息即可，对于后续分类也只需要利用这 100 个点而不是全部 100 万个点来做计算。
+\end_layout
+
+\begin_layout Standard
+而对于其他的算法（如ols），如果有新的data 进入，若欲重新estimate model，则需要将所有已知的data 都带入estimation中.
+ whereas in SVM, as long as those new points are outside the boundary draw
+ by SV, you don't need to change the model at all.
+ 
+\end_layout
+
+\begin_layout Section
+Support Vector Classifiers
+\end_layout
+
+\begin_layout Standard
+Original problem: max margin 
+\begin_inset Formula $M$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Transform to primal problem as the primal problem is guaranteed to be convex:
+ min 
+\end_layout
+
+\begin_layout Subsection
+Support Vector Classifiers: Linear
+\end_layout
+
+\begin_layout Standard
+Support Vector Classifiersis a generalization of Maximal Margin Classifier,
+ but it is still a linear classifer.
+\end_layout
+
+\begin_layout Standard
+Not like Maximal Margin Classifier, it could be worthwhile to misclassify
+ a few training observations in order to do a better job in classifying
+ the remaining observations.
+ (The margin is 
+\series bold
+soft
+\series default
+ because it can be violated by some of the training observations.) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+max_{\beta,\beta_{0},\epsilon}\mbox{ }M
+\]
+
+\end_inset
+
+where 
+\series bold
+
+\begin_inset Formula $M$
+\end_inset
+
+ is the margin.
+\end_layout
+
+\begin_layout Standard
+subject to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+1\mbox{ normalization condtion}:\mbox{ }\sum^{P}\beta_{p}^{2}=1
+\]
+
+\end_inset
+
+Note that this constraint is only to control the scale of 
+\begin_inset Formula $\beta$
+\end_inset
+
+, otherwise 
+\begin_inset Formula $\beta$
+\end_inset
+
+ can be arbitraly large when maximizing 
+\begin_inset Formula $m$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+However, any NON-LINEAR equality constraint will make the problem non-convex.
+ (Linear Equality constraint is fine)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2\mbox{ definition of Margin}\mbox{: }y_{i}(\beta_{0}+\sum_{p}^{P}\beta_{p}x_{i,p})\ge M(1-\epsilon_{i})\mbox{ for each \ensuremath{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+3:\mbox{ }\epsilon_{i}\ge0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+4:\mbox{ }\sum^{n}\epsilon_{i}\le C\label{eq:Budget-1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\epsilon_{i}$
+\end_inset
+
+ is to allow wrong classification.
+ C is a nonnegative tuning parameter (budge of error).
+ 
+\end_layout
+
+\begin_layout Standard
+Maximal Margin Classifier has all 
+\begin_inset Formula $\epsilon_{i}=0$
+\end_inset
+
+.
+ (Of course, a maximal margin hyperplane exists only if the two classes
+ are separable.)
+\end_layout
+
+\begin_layout Standard
+From the constrain 2, we can see that points well inside their class boundary
+ do not play a big role in shaping the boundary.
+\end_layout
+
+\begin_layout Subsubsection
+Choice of 
+\begin_inset Formula $C$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that the 
+\begin_inset Formula $C$
+\end_inset
+
+ can be any constant; you have to first fix a 
+\begin_inset Formula $C$
+\end_inset
+
+, then try to max 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The role of the parameter C is clearer in an enlarged feature space, since
+ perfect separation is often achievable there.
+ 
+\end_layout
+
+\begin_layout Standard
+ISL P361
+\end_layout
+
+\begin_layout Itemize
+As the budget C increases, we become more tolerant of violations to the
+ margin, and so the margin will widen.
+\end_layout
+
+\begin_layout Itemize
+Conversely, as C decreases, we become less tolerant of violations to the
+ margin and so the margin narrows.
+ 
+\end_layout
+
+\begin_layout Standard
+In practice, C is treated as a tuning parameter that is generally chosen
+ via cross-validation.
+ As with the tuning parameters that we have seen through- out this book,
+ C controls the bias-variance trade-off of the statistical learn- ing technique.
+ 
+\end_layout
+
+\begin_layout Standard
+Note 
+\end_layout
+
+\begin_layout Itemize
+When C is small, we seek narrow margins that are rarely violated; this amounts
+ to a classifier that is highly fit to the data, which may have low bias
+ but high variance.
+\end_layout
+
+\begin_layout Itemize
+On the other hand, when C is larger, the margin is wider and we allow more
+ violations to it; this amounts to fitting the data less hard and obtaining
+ a classifier that is potentially more biased but may have lower variance.
+\end_layout
+
+\begin_layout Subsubsection
+Non-linear (Quardratic)
+\end_layout
+
+\begin_layout Standard
+A non-linear generalization of Support Vector Classifiers.
+ It replaces the first two constrains in Support Vector Classifiers by 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{j}^{P}\beta_{j,1}^{2}+\sum_{k=1}^{P}\beta_{k,2}^{2}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{i}(\beta_{0}+\sum_{p}^{P}\beta_{p,1}x_{i,p}+\sum_{p}^{P}\beta_{p,2}x_{i,p}^{2})\ge M(1-\epsilon_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Primal Problem (a re-write of the original problem)
+\end_layout
+
+\begin_layout Standard
+See ESL p439
+\end_layout
+
+\begin_layout Standard
+We want to re-write the original problem into a quadratic optimization with
+ 
+\series bold
+linear inequality constraints
+\series default
+, which is sufficiently a 
+\series bold
+convex
+\series default
+ optimization problem: so we can drop the norm constraint on 
+\begin_inset Formula $\beta$
+\end_inset
+
+ : we can fix 
+\begin_inset Formula $M$
+\end_inset
+
+ 
+\begin_inset Formula $M=1$
+\end_inset
+
+ (thus for all points on SV: 
+\begin_inset Formula $y_{i}f(x_{i})=M=1$
+\end_inset
+
+), and write (12.4)'s target function as 
+\begin_inset Formula $min||\beta||$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+min_{\beta,\beta_{0}}\frac{1}{2}||\beta^{2}||+C\sum^{N}\epsilon_{i}
+\]
+
+\end_inset
+
+subject to 
+\begin_inset Formula 
+\[
+\epsilon_{i}\ge0,
+\]
+
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+y_{i}\left(x_{i}^{T}\beta+\beta_{0}\right)-\left(1-\epsilon_{i}\right)\ge0
+\]
+
+\end_inset
+
+.
+ Note that now 
+\begin_inset Formula $C$
+\end_inset
+
+ is not the budget 
+\begin_inset Formula $C$
+\end_inset
+
+ anymore, it is the cost factor, or 
+\begin_inset Formula $C\sum^{N}\epsilon_{i}$
+\end_inset
+
+ is the punishment factor when you min 
+\begin_inset Formula $\frac{1}{2}||\beta^{2}||$
+\end_inset
+
+.
+ The choice of 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+ before is for ease of calculation 
+\begin_inset Formula $||\beta^{2}||$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Thus we can write the lagrangian as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+min_{\beta,\beta_{0},\epsilon_{i},\alpha_{i},\mu_{i}}L_{P}=\frac{1}{2}||\beta^{2}||+C\sum^{N}\epsilon_{i}-\sum^{N}\alpha_{i}\left[y_{i}\left(x_{i}^{T}\beta+\beta_{0}\right)-\left(1-\epsilon_{i}\right)\right]-\sum^{N}\mu_{i}\epsilon_{i}\label{eq:primal-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Setting the respective derivatives to zero, we get derivatives:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla_{\beta}L_{P}:\mbox{ }\beta=\sum\alpha_{i}y_{i}x_{i}\label{eq:pc_1-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla_{\beta_{0}}L_{P}:\mbox{}0=\sum^{N}\alpha_{i}y_{i}\label{eq:pc_2-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla_{\epsilon_{i}}L_{P}:\mbox{}\alpha_{i}=C-\mu_{i}\label{eq:pc_3-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+subject to 
+\begin_inset Formula $C,\mu_{i},\alpha_{i}\ge0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Computationaly: Sparseness of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+:Why non-SV points get 
+\begin_inset Formula $\alpha_{i}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Because
+\series bold
+ slackness condtion
+\series default
+:
+\change_inserted 16419249 1468258207
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1468258208
+\begin_inset Formula 
+\[
+LagrangeFactor\times ConditionEquation=0
+\]
+
+\end_inset
+
+
+\change_deleted 16419249 1468258207
+ 
+\change_unchanged
+
+\begin_inset Formula 
+\[
+\alpha_{i}\left[y_{i}\left(x_{i}^{T}\beta+\beta_{0}\right)-\left(1-\epsilon_{i}\right)\right]=0
+\]
+
+\end_inset
+
+, thus when 
+\begin_inset Formula $y_{i}\left(x_{i}^{T}\beta+\beta_{0}\right)\ge1$
+\end_inset
+
+ , then 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ has to be 0.
+\end_layout
+
+\begin_layout Standard
+In the SVM the sparseness was born out of the inequality constraints because
+ the complementary slackness conditions told us that either if the constraint
+ was inactive, then the multiplier 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ was zero.
+\end_layout
+
+\begin_layout Standard
+This is useful because when we test a new example, we only have to sum over
+ the support vectors which is much faster than summing over the entire training-
+set.
+\end_layout
+
+\begin_layout Subsection
+The Cost Parameter 
+\begin_inset Formula $C$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ESL P443.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Note that now 
+\begin_inset Formula $C$
+\end_inset
+
+ is not the budget 
+\begin_inset Formula $C$
+\end_inset
+
+ anymore, it is the cost factor, or 
+\begin_inset Formula $C\sum^{N}\epsilon_{i}$
+\end_inset
+
+ is the punishment factor when you min 
+\begin_inset Formula $\frac{1}{2}||\beta^{2}||$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+A large value of C will discourage 
+\begin_inset Formula $\epsilon_{i}$
+\end_inset
+
+, and lead to an overfit wiggly boundary in the original feature space.
+\end_layout
+
+\begin_layout Itemize
+a small value of C will encourage a small value of 
+\begin_inset Formula $||\beta||$
+\end_inset
+
+, which in turn causes f(x) and hence the boundary to be smoother.
+\end_layout
+
+\begin_layout Standard
+In practice, the reason that SVMs tend to be resistant to over-fitting,
+ even in cases where the number of attributes is greater than the number
+ of observations, is that it uses regularization.
+ They key to avoiding over-fitting lies in careful tuning of the regularization
+ parameter, C, and in the case of non-linear SVMs, careful choice of kernel
+ and tuning of the kernel parameters.
+\end_layout
+
+\begin_layout Subsection
+Dual Problem (A re-write of the Primal problem)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+之所以换成dual，是因为其classifer的最终形式可以很方便的写成inner product的形式 (p13 Ag's notes 第二段)。Thus
+ you can easily apply kernals.
+\end_layout
+
+\begin_layout Standard
+ESL P439: By substituting (12.10)–(12.12) (the derivatives 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pc_1"
+
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pc_2"
+
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pc_3"
+
+\end_inset
+
+) into Prima Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:primal"
+
+\end_inset
+
+, we obtain the Lagrangian (Wolfe) dual objective function
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+max_{\alpha_{i}}L_{D}=\sum^{N}\alpha_{i}-\frac{1}{2}\sum_{i=1}^{N}\sum_{i'=1}^{N}\alpha_{i}\alpha_{i'}y_{i}y_{i'}x_{i}^{T}x_{i'}\label{eq:Dual}
+\end{equation}
+
+\end_inset
+
+(注意
+\begin_inset Formula $\mbox{\epsilon}_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $C$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ 都是恰好被消去了), which gives a tightest lower bound on the objective function
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:primal"
+
+\end_inset
+
+ for any feasible point.
+ We 
+\series bold
+maximize
+\series default
+ 
+\begin_inset Formula $L_{D}$
+\end_inset
+
+ subject to 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+0\le\alpha_{i}\le C
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+0=\sum^{N}\alpha_{i}y_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+————————————————
+\end_layout
+
+\begin_layout Standard
+Also the KKT conditions include the constraints 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+slackness:\mbox{\ensuremath{}}\alpha_{i}[y_{i}(x_{i}^{T}\beta+\beta_{0})-(1-\epsilon_{i})]=0\label{eq:KKT_1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+slackness:\mbox{\ensuremath{}}u_{i}\epsilon_{i}=0\label{eq:KKT_2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and original constraint:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y_{i}(x_{i}^{T}\sum\alpha_{i}y_{i}x_{i}+\beta_{0})-(1-\epsilon_{i})\ge0\label{eq:KKT_3}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Together these equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pc_1"
+
+\end_inset
+
+ , 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pc_2"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pc_3"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:KKT_1"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:KKT_2"
+
+\end_inset
+
+ and
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:KKT_3"
+
+\end_inset
+
+uniquely characterize the solution to the primal and dual problem.
+\end_layout
+
+\begin_layout Subsection
+Solution of 
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Solution of 
+\begin_inset Formula $\beta$
+\end_inset
+
+ is 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pc_1"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+From 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:KKT_1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:KKT_3"
+
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{i}>0$
+\end_inset
+
+ only if codition
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:KKT_3"
+
+\end_inset
+
+ is satisfied exactly, which means 
+\begin_inset Formula $y_{i}(x_{i}^{T}\beta+\beta_{0})-(1-\epsilon_{i})=0$
+\end_inset
+
+.
+ Thus points can meet this condtion exactly are SV! For other obervations,
+ 
+\begin_inset Formula $\alpha_{i}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Therefore, from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pc_1"
+
+\end_inset
+
+, we can see 
+\begin_inset Formula $\beta$
+\end_inset
+
+ is only made up with SV points.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Solve for 
+\begin_inset Formula $\beta_{0}:$
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:KKT_1"
+
+\end_inset
+
+ is equal to 0 for SV, thus we can use those SV to solve 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+.
+ Or you can use the fact that SV in classifer 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ has the property that 
+\begin_inset Formula $y_{i}f(x_{i})=M=1$
+\end_inset
+
+ to solve for 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Solution of the classifier
+\end_layout
+
+\begin_layout Standard
+Plug 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pc_1"
+
+\end_inset
+
+ (
+\begin_inset Formula $\beta=\sum\alpha_{i}y_{i}x_{i}$
+\end_inset
+
+, where 
+\begin_inset Formula $\alpha_{i}=0$
+\end_inset
+
+ for non-SV points) into 
+\begin_inset Formula $f(x)=x^{T}\beta+\beta_{0}$
+\end_inset
+
+, we have 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f(x)=x^{'}\sum_{i\in S}\alpha_{i}y_{i}x_{i}+\beta_{0}\label{eq:classifer_solution}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this is the classifer for the observation of 
+\begin_inset Formula $x$
+\end_inset
+
+, but it involves all the other data points 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ 
+\begin_inset Formula $i=1,...N$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这里的形式的有趣之处在于，对于新点
+\begin_inset Formula $x$
+\end_inset
+
+的预测，只需要计算它与训练数据点的内积即可（这里
+\begin_inset Formula $⋅,⋅$
+\end_inset
+
+表示向量内积），这一点至关重要，是之后使用Kernel进行非线性推广的基本前提。
+\end_layout
+
+\begin_layout Section
+SVM and Kernals
+\end_layout
+
+\begin_layout Standard
+The support vector machine (SVM) is an extension of the support vector classifie
+r that results from enlarging the feature space in a specific way, 
+\series bold
+using kernels.
+\end_layout
+
+\begin_layout Subsection
+Kernals and Basis
+\end_layout
+
+\begin_layout Standard
+ESL: P 423
+\end_layout
+
+\begin_layout Standard
+As with other linear methods, we can make the procedure more flexible by
+ enlarging the feature space using basis expansions such as polynomials
+ or splines.
+\end_layout
+
+\begin_layout Standard
+Here we call the
+\end_layout
+
+\begin_layout Itemize
+raw variables, like 
+\begin_inset Formula $x^{1}$
+\end_inset
+
+: attributes
+\end_layout
+
+\begin_layout Itemize
+model variables 
+\begin_inset Formula $(x^{1})^{2}$
+\end_inset
+
+: feature
+\end_layout
+
+\begin_layout Standard
+Generally linear boundaries in the enlarged space achieve better training-class
+ separation, and translate to nonlinear boundaries in the original space.
+ Once the basis functions 
+\begin_inset Formula $h_{m}(x)$
+\end_inset
+
+, 
+\begin_inset Formula $m=1,...,M$
+\end_inset
+
+ are selected, the procedure is the same as before.
+ (See non-linear max SV classifer section.) (即在低维中无法线性可分的，在当attribute被投映到高维中，即可以线
+性可分了)
+\end_layout
+
+\begin_layout Standard
+We fit the SV classifier using input features 
+\begin_inset Formula $h(x_{i})=(h_{1}(x_{i}),h_{2}(x_{i}),...,h_{M}(x_{i}))$
+\end_inset
+
+, 
+\begin_inset Formula $i=1,...,N$
+\end_inset
+
+, and produce the (nonlinear) function
+\begin_inset Formula 
+\[
+f(x)=h(x)^{T}\beta+\beta_{0}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(x)=\beta_{0}+\sum_{i\in S}\alpha_{i}y_{i}<h(x),h(x_{i})>
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Computing the 
+\begin_inset Formula $<h(x),h(x_{i})>$
+\end_inset
+
+is expensive, as we need to first map to high dimention, then do inner product.
+ 
+\end_layout
+
+\begin_layout Itemize
+Kernal function will enable you calculate 
+\begin_inset Formula $<h(x),h(x_{i})>$
+\end_inset
+
+ easily: it first calculate inner product in low dimentions, then expand
+ to high dimention.
+\end_layout
+
+\begin_layout Standard
+For example, for quadratic features 
+\begin_inset Formula $h(x)$
+\end_inset
+
+ , we can write 
+\begin_inset Formula $K<x,x_{i}>=(c+<x,x_{i}>)^{2}$
+\end_inset
+
+ 来替代
+\begin_inset Formula $<h(x),h(x_{i})>$
+\end_inset
+
+.
+ 注意此处并非说
+\begin_inset Formula $K<>=<h,h>$
+\end_inset
+
+.
+ 只是在说 
+\begin_inset Formula $K<x,x_{i}>=(c+<x,x_{i}>)^{2}$
+\end_inset
+
+ 是 一种 generalized quadratic featrue，可有效代替特定的 
+\begin_inset Formula $h$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+最理想的情况下，我们希望知道数据的具体形状和分布，从而得到一个刚好可以将数据映射成线性可分的
+\begin_inset Formula $h$
+\end_inset
+
+ ，然后通过这个 
+\begin_inset Formula $h$
+\end_inset
+
+ 得出对应的 
+\begin_inset Formula $K$
+\end_inset
+
+ 进行内积计算。
+\end_layout
+
+\begin_layout Standard
+然而，第二步通常是非常困难甚至完全没法做的。不过，由于第一步也是几乎无法做到，因为对于任意的数据分析其形状找到合适的映射本身就不是什么容易的事情，所以，人们通常
+都是“胡乱”选择一个计算简单的映射的。所以，根本没有必要精确地找出对应于映射的那个核函数，而只需要“胡乱”选择一个核函数即可。
+\end_layout
+
+\begin_layout Standard
+并且，由于我们的计算只需要核函数即可，所以我们也并不关心也没有必要求出所对应的映射的具体形式 
+\begin_inset Formula $\psi$
+\end_inset
+
+。
+\begin_inset CommandInset href
+LatexCommand href
+name "freemind"
+target "http://blog.pluskid.org/?p=685"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+So above problem became
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(x)=\beta_{0}+\sum_{i\in S}\alpha_{i}y_{i}K(x_{i},x_{i}^{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+K(x,x_{i}')=<\psi(x),\psi(x_{i}')>\label{eq:kernal_and_basis}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Again, be careful that 
+\begin_inset Formula $x$
+\end_inset
+
+ is for the observation, and 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ is part of the classifier.
+ 
+\end_layout
+
+\begin_layout Standard
+The dual problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Dual"
+
+\end_inset
+
+ became
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+L_{D} & = & \sum^{N}\alpha_{i}-\frac{1}{2}\sum_{i=1}^{N}\sum_{i'=1}^{N}\alpha_{i}\alpha_{i'}y_{i}y_{i'}<\psi(x_{i}),\psi(x_{i}^{T})>\label{eq:Dual-1}\\
+ & = & \sum^{N}\alpha_{i}-\frac{1}{2}\sum_{i=1}^{N}\sum_{i'=1}^{N}\alpha_{i}\alpha_{i'}y_{i}y_{i'}K<x_{i},x_{i}^{i}>\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+For example: 
+\end_layout
+
+\begin_layout Standard
+Consider for example a feature space with two inputs 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ (sample size: 
+\begin_inset Formula $n=2$
+\end_inset
+
+, thus 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ is a 
+\begin_inset Formula $p\times1$
+\end_inset
+
+ vector.), and a polynomial kernel of degree 2.
+ Then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+K(x_{j},x_{i}') & = & \left(1+\sum<x_{j},x_{i}'>\right)^{2}\nonumber \\
+ & = & \left(1+x_{j}x_{1}'+x_{j}x_{2}'\right)^{2}\nonumber \\
+ & = & 1+2x_{j}x_{1}'+2x_{j}x_{2}'+(x_{j}x_{1}')^{2}+(x_{j}x_{2}')^{2}+2x_{j}x_{1}'x_{j}x_{2}'\label{eq:generic_feature}\\
+ & \text{＝} & c^{2}+\sum_{i}\sqrt{2c}x_{_{j}}\sqrt{2c}x_{i}+\sum_{a}\sum_{b}(x_{j}x_{a})(x_{j}x_{b})\nonumber \\
+ & = & c^{2}+\sum_{m=1}^{M}<\psi_{m}(x_{j}),\psi_{m}(x)>\nonumber \\
+ & = & <\psi(x_{j}),\psi(x_{i})>\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $c=1$
+\end_inset
+
+, 
+\begin_inset Formula $\psi_{m}(x_{j})$
+\end_inset
+
+ means 
+\begin_inset Formula $x$
+\end_inset
+
+ is fixed as obervation 
+\begin_inset Formula $x_{j}$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:generic_feature"
+
+\end_inset
+
+ is the inner product of generic feature space.
+\end_layout
+
+\begin_layout Standard
+找到
+\begin_inset Formula $K<x,x_{i}>=(c+<x,x_{i}>)^{2}$
+\end_inset
+
+ 就够了，根本不需要管
+\begin_inset Formula $\text{\psi}$
+\end_inset
+
+的具体形式：here M = 7, and elements of 
+\begin_inset Formula $\psi$
+\end_inset
+
+ are:
+\end_layout
+
+\begin_layout Standard
+1.
+ 
+\begin_inset Formula $\psi_{1}(x)=1$
+\end_inset
+
+, or 
+\begin_inset Formula $\psi_{1}(x)=c$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+2, 3, 
+\begin_inset Formula $\psi_{2,3}(x)=\sqrt{2cx_{1}}$
+\end_inset
+
+ , 
+\begin_inset Formula $a=1,..n$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4, 5, 6, 7: 
+\begin_inset Formula $\psi_{4,5,6,7}(x)=x_{a}x_{b}$
+\end_inset
+
+, 
+\begin_inset Formula $a,b=1..n$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus we can test 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kernal_and_basis"
+
+\end_inset
+
+ is true, and we transform the original 
+\begin_inset Formula $N$
+\end_inset
+
+ observations into just 
+\begin_inset Formula $M$
+\end_inset
+
+ observations.
+\end_layout
+
+\begin_layout Subsection
+Common Kernals
+\end_layout
+
+\begin_layout Standard
+See Graph at http://scikit-learn.org/stable/modules/svm.html
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $i$
+\end_inset
+
+ means row / oberservation.
+ 
+\begin_inset Formula $j$
+\end_inset
+
+ means attributes.
+\end_layout
+
+\begin_layout Standard
+Choice of kernal should consider the true shape of boundary of classes :
+ (P451 ESL) 
+\begin_inset Quotes eld
+\end_inset
+
+It is also very sensitive to the choice of kernel: the second degree polynomial
+ kernel (line 2) does best, since the true decision boundary is a second-degree
+ polynomial
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+As long as the kernal function first calculate inner product in low dimention,
+ then map to high dimentions, then it is a good Kernal 
+\end_layout
+
+\begin_layout Itemize
+Linear Kernal: 
+\begin_inset Formula $K(x_{i},x_{i}')=\sum_{j}^{p}x_{ij}x_{ij}^{'}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hige-degree Kernal: 
+\begin_inset Formula $K(x_{i},x_{i}')=(1+\sum_{j}^{p}x_{ij}x_{ij}^{'})^{d}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+RBF kernel/ Radial / Gaussian Kernal: 
+\begin_inset Formula $K(x_{i},x_{i}')=exp(-\gamma\sum(x_{ij}-x_{ij}^{'})^{2})$
+\end_inset
+
+ or 
+\begin_inset Formula ${\displaystyle K(\mathbf{x},\mathbf{x'})=\exp\left(-\frac{||\mathbf{x}-\mathbf{x'}||^{2}}{2\sigma^{2}}\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Since the value of the RBF kernel decreases with distance and ranges between
+ zero (in the limit) and one (when x = x'), it has a ready interpretation
+ as a similarity measure.[2] The feature space of the kernel is an iinfinite
+ dimensional Hilbert Space; for 
+\begin_inset Formula ${\displaystyle \sigma=1}$
+\end_inset
+
+ , its expansion is:[3]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula ${\displaystyle \exp\left(-{\frac{1}{2}}||\mathbf{x}-\mathbf{x'}||^{2}\right)=\sum_{j=0}^{\infty}{\frac{(\mathbf{x}^{\top}\mathbf{x'})^{j}}{j!}}\exp\left(-{\frac{1}{2}}||\mathbf{x}||^{2}\right)\exp\left(-{\frac{1}{2}}||\mathbf{x'}||^{2}\right)}$
+\end_inset
+
+= 
+\begin_inset Formula $<\Phi(x),\Phi(x_{i})>$
+\end_inset
+
+.
+ Whenever you see the inner product of two elements is the sum of infinite
+ tems but still converge, then that means that elements are in Hilbert Space.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Neural network: 
+\begin_inset Formula $K(x,x')=tanh(k_{1}<x,x'>+k_{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Kernels for Sequences
+\end_layout
+
+\begin_layout Itemize
+Words Sequence of characters followed by punctuation or space.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Strings (documents) are mapped into very high dimensional feature vectors,
+ where dimensionality of the feature space is equal to the number of words
+ in a corpus 
+\end_layout
+
+\begin_layout Itemize
+Each entry of the vector represents the occurence or non-occurence of a
+ word by a number.
+\end_layout
+
+\begin_layout Itemize
+最常用
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+n-grams Sequence of n consecutive characters 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Example:
+\series bold
+ support vector
+\series default
+ 3-grams = sup upp ppo por ort rt_ t_v _ve ect cto tor
+\end_layout
+
+\begin_layout Itemize
+The more subsequences two strings have in common, the more similar they
+ are considered.
+ 
+\end_layout
+
+\begin_layout Itemize
+Substrings can be non-contiguous, gaps are taken into account
+\end_layout
+
+\begin_layout Itemize
+Substrings are weighted according to the degree of contiguity in a string
+ by a decay factor λ
+\end_layout
+
+\begin_layout Itemize
+Example: DNA string
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Alphabet (formal languages) 
+\end_layout
+
+\begin_layout Itemize
+In formal language theory, a string 
+\begin_inset Formula $s$
+\end_inset
+
+ is defined as a finite sequence of members of an underlying base set; 
+\end_layout
+
+\begin_layout Itemize
+This set 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ is called the alphabet of a string or collection of strings.
+ 
+\end_layout
+
+\begin_layout Itemize
+Symbols: The members of the set are called symbols, and are typically thought
+ of as representing letters, characters, or digits.[1][2] 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Example
+\series default
+, a common alphabet is {0,1}, the binary alphabet, and a binary string is
+ a string drawn from the alphabet {0,1}.
+ An infinite sequence of letters may be constructed from elements of an
+ alphabet as well.
+\end_layout
+
+\begin_layout Itemize
+For example, if L is the set of all variable identifiers in the programming
+ language C, 
+\series bold
+L’s alphabet
+\series default
+ is the set { a, b, c, ..., x, y, z, A, B, C, ..., X, Y, Z, 0, 1, 2, ..., 7, 8, 9,
+ _ }.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Given an alphabet 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ , the set of all strings over the alphabet 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ of length 
+\begin_inset Formula $n$
+\end_inset
+
+ is indicated by 
+\begin_inset Formula $\Sigma^{n}$
+\end_inset
+
+ .
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The set {
+\begin_inset Formula ${\textstyle \bigcup_{i\in\mathbb{N}}\Sigma^{i}}$
+\end_inset
+
+} of all finite strings (regardless of their length) is indicated by the
+ Kleene star operator as {
+\begin_inset Formula ${\displaystyle \Sigma^{*}}$
+\end_inset
+
+} , and is also called the Kleene closure of 
+\begin_inset Formula ${\displaystyle \Sigma}$
+\end_inset
+
+ .
+ The notation 
+\begin_inset Formula ${\displaystyle \Sigma^{\omega}}$
+\end_inset
+
+ indicates the set of all infinite sequences over the alphabet 
+\begin_inset Formula ${\displaystyle \Sigma}$
+\end_inset
+
+ , and {
+\begin_inset Formula ${\displaystyle \Sigma^{\infty}}$
+\end_inset
+
+} indicates the set 
+\begin_inset Formula ${\displaystyle \Sigma^{\ast}\cup\Sigma^{\omega}}$
+\end_inset
+
+ of all finite or infinite sequences.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+String kernel 
+\end_layout
+
+\begin_layout Standard
+http://cms.brookes.ac.uk/research/visiongroup/talks/lodhi/sk_oxford.pdf
+\end_layout
+
+\begin_layout Standard
+If we choose the sublength of interest as 
+\begin_inset Formula $2$
+\end_inset
+
+, then we will write the following strings as continous 2 characters.
+\end_layout
+
+\begin_layout Standard
+Example:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="6">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+f-o
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+f-g
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+o-g
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+f-b
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+o-b
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\phi(fog)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lambda^{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\phi(fog)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lambda^{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ can be any number between 0 and 1: Substrings are weighted according to
+ the degree of contiguity in a string by a decay factor λ
+\end_layout
+
+\begin_layout Itemize
+Thus 
+\begin_inset Formula $K(fog,fog)=<(\lambda^{2},\lambda^{3},\lambda^{2}),(\lambda^{2},\lambda^{3},\lambda^{2})>=2\lambda^{2}+\lambda^{6}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $K(fog,fob)=\frac{K(fog,fob)}{\sqrt{K(fog,fog)K(fob,fob)}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From example you can see that 
+\begin_inset Formula $\phi(s)_{i}=\lambda^{l(i)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi(s)=\sum_{i:u=s[i]}\lambda^{l(i)}$
+\end_inset
+
+, where 
+\begin_inset Formula $l(i)=i_{n}−i_{i}+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+a string kernel is a kernel function that operates on strings, i.e.
+ finite sequences of symbols that need not be of the same length.
+ String kernels can be intuitively understood as functions measuring the
+ similarity of pairs of strings: the more similar two strings a and b are,
+ the higher the value of a string kernel K(a, b) will be.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A string kernel lets you have features that are character subsequences of
+ terms.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Mercer Theory
+\end_layout
+
+\begin_layout Standard
+See Ag notes ML_3: p18.
+\end_layout
+
+\begin_layout Standard
+As long as corresponding kernel matrix is symmetric positive semi-definite,
+ the kenal is valid.
+\end_layout
+
+\begin_layout Section
+SVM as Loss Function and Compare with Logistic
+\end_layout
+
+\begin_layout Standard
+P445 in ESL
+\end_layout
+
+\begin_layout Standard
+SVM is the same problem as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+min_{\beta_{0},\beta}\frac{\lambda}{2}||\beta||^{2}+\sum^{N}\left[1-y_{i}f(x_{i})\right]_{+}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda=1/C$
+\end_inset
+
+ and 
+\begin_inset Formula $1-y_{i}f(x_{i})$
+\end_inset
+
+ represents the error term or Loss Function, and 
+\begin_inset Formula $f(x_{i})=\mathbf{sign}\left(P(y=1|x)-\frac{1}{2}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $Y\in\{-1,1\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This function has solution same as Primal Problem (P442 ESL)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f(){}_{+}$
+\end_inset
+
+ means a hinge function, it has value 0 if 
+\begin_inset Formula $f()\le0$
+\end_inset
+
+, otherwise 
+\begin_inset Formula $f()_{+}=f()$
+\end_inset
+
+ if 
+\begin_inset Formula $f(\ge0)$
+\end_inset
+
+.
+ It is the loss function of SVM.
+\end_layout
+
+\begin_layout Standard
+The (negative) log-likelihood or binomial deviance has similar tails as
+ the SVM loss, 
+\series bold
+giving zero penalty to points well inside their margin, and a linear penalty
+ to points on the wrong side and far away
+\series default
+.
+ Squared-error, on the other hand gives a quadratic penalty, and points
+ well inside their own margin have a strong influence on the model as well.
+\end_layout
+
+\begin_layout Subsection
+Compare with Logistic
+\end_layout
+
+\begin_layout Itemize
+SVM can deal with non-linear-separable with Kernals
+\end_layout
+
+\begin_layout Itemize
+Logistic can give you probability, SVM can only give you pure separation
+\end_layout
+
+\begin_layout Itemize
+SVM and Logistic just used different loss functions, and also SVM uses regulariz
+ation.
+\end_layout
+
+\begin_layout Standard
+In logistic 
+\end_layout
+
+\begin_layout Standard
+we min 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+-L(\beta) & = & -\sum_{i}^{N}\mbox{log}P(y_{i}|\beta)\\
+ & = & -\sum log\mathbf{logit}(y_{i}x'\beta)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Application 
+\end_layout
+
+\begin_layout Standard
+The advantages of support vector machines are:
+\end_layout
+
+\begin_layout Itemize
+Effective in high dimensional spaces.
+\end_layout
+
+\begin_layout Itemize
+Still effective in cases where number of dimensions is greater than the
+ number of samples.
+\end_layout
+
+\begin_layout Itemize
+Uses a subset of training points in the decision function (called support
+ vectors), so it is also memory efficient.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Versatile
+\series default
+: different Kernel functions can be specified for the decision function.
+ Common kernels are provided, but it is also possible to specify custom
+ kernels.
+\end_layout
+
+\begin_layout Standard
+The disadvantages of support vector machines include:
+\end_layout
+
+\begin_layout Enumerate
+If the number of features is much greater than the number of samples, the
+ method is likely to give poor performances.
+\end_layout
+
+\begin_layout Enumerate
+SVMs do not directly provide probability estimates, these are calculated
+ using an expensive five-fold cross-validation (see Scores and probabilities,
+ below).
+\end_layout
+
+\begin_layout Subsection
+Curse of Dimensionality
+\end_layout
+
+\begin_layout Standard
+P450 ESL.
+ Be careful when including noise features into SVM, it will perform poorly.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+BRUTO and MARS adapt well: their performance does not deteriorate much in
+ the presence of noise.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+SVM in 
+\begin_inset Formula $K$
+\end_inset
+
+ class
+\end_layout
+
+\begin_layout Standard
+P370 ISL
+\end_layout
+
+\begin_layout Standard
+Two method: one vs one and one vs all.
+\end_layout
+
+\begin_layout Itemize
+One vs.
+ One: for each pair of the class, do a SVM.
+ Thus we 
+\begin_inset Formula $(\begin{array}{c}
+n\\
+2
+\end{array})$
+\end_inset
+
+ SVMs, the final prediction is done by majority rule.
+ 
+\end_layout
+
+\begin_layout Itemize
+One vs.
+ All: select a pivot class, and assign all of other classes as One class
+ called 
+\begin_inset Quotes eld
+\end_inset
+
+other
+\begin_inset Quotes erd
+\end_inset
+
+, do a SVM.
+ Repeat this process for each of the 
+\begin_inset Formula $K-1$
+\end_inset
+
+ classes.
+ The final prediction is done by majority rule.
+ A classifier is built for each pair of classes, and the final classifier
+ is the one that dominates the most (Kressel, 1999; Friedman, 1996; Hastie
+ and Tibshirani, 1998).
+ 
+\end_layout
+
+\begin_layout Itemize
+Alternatively, one could use the multinomial loss function along with a
+ suitable kernel, as in Section 12.3.3.
+ 
+\end_layout
+
+\begin_layout Standard
+SVMs have applications in many other supervised and unsupervised learning
+ problems.
+ At the time of this writing, empirical evidence suggests that it performs
+ well in many real learning problems.
+\end_layout
+
+\begin_layout Subsection
+SVM in Regression
+\end_layout
+
+\begin_layout Standard
+the 
+\begin_inset Formula $y$
+\end_inset
+
+ is a quantitative var rather than {1,0}.
+ Not quite useful.
+ See P453 ESL
+\end_layout
+
+\begin_layout Subsection
+Handwriting Reconition 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $10\times10$
+\end_inset
+
+ pixels means 100 feature vectors.
+\end_layout
+
+\begin_layout Itemize
+Either the polynomial kernal 
+\begin_inset Formula $K(x,y)=(X^{T}y)^{d}$
+\end_inset
+
+ or Gaussin Kernal.
+\end_layout
+
+\begin_layout Itemize
+The algorithm did not know pixel 1 is next to pixel 2.
+\end_layout
+
+\begin_layout Subsection
+Protein Sequence of amino acid(氨基酸)
+\end_layout
+
+\begin_layout Standard
+BAJTS 
+\end_layout
+
+\begin_layout Standard
+Protein Sequence may be in different length.
+\end_layout
+
+\begin_layout Standard
+Make a library of all possible smallest sequences.
+ See how the long proten sequence match the small sequences in the library
+ (match once means value 1, 2 means 2...)
+\end_layout
+
+\begin_layout Subsection
+
+\change_deleted 16419249 1468259980
+Advice of ML Application: MOVE TO TOP
+\end_layout
+
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+Try longer iteration for Gradient Asent, or using Newton Method.
+\end_layout
+
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+Overfitting vs underfitting: plot training sample size vs.
+ testing error
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+High Variance in high test error, and lower training error (overfitting)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+larger traning set, the more severe the overfitting problem will be, so
+ that larger gap between training and testing error.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+High Bias (underfitting): high training error
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+training set grows, but testing error level off
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+Compare SVM and Baysian
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+let the accuracy 
+\begin_inset Formula $\alpha=\sum1\{\hat{y}^{i}\ne y^{i}\}$
+\end_inset
+
+ an 
+\begin_inset Formula $J$
+\end_inset
+
+ is the maximum likehood
+\end_layout
+
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+When 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $\alpha_{SVM}>\alpha_{Bay}$
+\end_inset
+
+ but 
+\begin_inset Formula $J_{SVM}>J_{bay}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+As Bayeisan is designed to max the likelihood, that means your baysiean
+ 
+\series bold
+algorithm did not converge!
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+When 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $\alpha_{SVM}<\alpha_{Bay}$
+\end_inset
+
+ but 
+\begin_inset Formula $J_{SVM}>J_{bay}$
+\end_inset
+
+, that means the 
+\series bold
+target function
+\series default
+ of baysiean algorithm is wrong (optimizating your function did not help
+ fit the problem)!
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+Error Process
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+For a pipeline problem, you need to estimate pahse 1...3..
+\end_layout
+
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+Each phase would incure errors
+\end_layout
+
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+Adding each pahse as given, rather than to estimate, see how much accuracy
+ you increase
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+Ablative 消融的 Analysis
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+Backward of Error Analysis
+\end_layout
+
+\begin_layout Itemize
+
+\change_deleted 16419249 1468259980
+Adding each more feature of your algorithm, see how much accuracy you would
+ get.
+\change_unchanged
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Algorithm to Estimate
+\end_layout
+
+\begin_layout Subsection
+The SMO algorithm
+\end_layout
+
+\begin_layout Standard
+The SMO (sequential minimal optimization) algorithm, due to John Platt,
+ gives an efficient way of solving the dual problem arising from the derivation.
+\end_layout
+
+\begin_layout Standard
+The Ag's nots 3 p21 is pretty clear.
+ For classifications we use either square error or 
+\series bold
+cross-entropyS
+\change_inserted 16419249 1468259660
+
+\series default
+ 
+\change_unchanged
+SMO is just using Cordinate Asend algorithm to update 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ in the due problem below, but change 2 
+\begin_inset Formula $\alpha$
+\end_inset
+
+s at the same time.
+\begin_inset Formula 
+\[
+max_{\alpha_{i}}L_{D}=\sum^{N}\alpha_{i}-\frac{1}{2}\sum_{i=1}^{N}\sum_{i'=1}^{N}\alpha_{i}\alpha_{i'}y_{i}y_{i'}x_{i}^{T}x_{i'}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+subjects
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+0\le\alpha_{i}\le C
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+0=\sum^{N}\alpha_{i}y_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Why we need to update two 
+\begin_inset Formula $\alpha$
+\end_inset
+
+s at the same time?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+As in the constraints 
+\begin_inset Formula $a_{1}y_{1}=-\sum_{i=2}^{N}\alpha_{i}y_{i}$
+\end_inset
+
+ or 
+\begin_inset Formula $a_{1}=-y_{1}\sum_{i=2}^{N}\alpha_{i}y_{i}$
+\end_inset
+
+ (using the fact that 
+\begin_inset Formula $y_{i}=\{1,-1\}$
+\end_inset
+
+).
+ So it is impossible to update one 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and let 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ change.
+ Thus, if we want to update some subject of the αi’s, we must update at
+ least two of them simultaneously in order to keep satisfying the constraints.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Heuristic Method
+\end_layout
+
+\end_inset
+
+Heuristic Method: update 
+\begin_inset Formula $\alpha_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+ first
+\end_layout
+
+\begin_layout Standard
+Known constraints: 
+\begin_inset Formula $\sum\alpha_{i}y^{i}=0$
+\end_inset
+
+ and thus 
+\begin_inset Formula 
+\[
+\alpha_{1}y^{1}+\alpha_{2}y^{2}=-\sum_{2}\alpha_{i}y^{i}=\xi
+\]
+
+\end_inset
+
+ , this is called as Box Constraint
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Box Constraint
+\end_layout
+
+\end_inset
+
+ (that means 
+\begin_inset Formula $\alpha_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+ should lay in a 2-dimentional box)
+\end_layout
+
+\begin_layout Standard
+Graph See P24 of Lecture Notes 3
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/SMO.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then we can write 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha_{1}=(\xi-\alpha_{2}y^{2})y^{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus we can re-write the original 
+\begin_inset Formula $L_{D}$
+\end_inset
+
+ problem into 
+\begin_inset Formula $L_{D}(\alpha_{1},\alpha_{2}....a_{m})=L_{D}(\xi-\alpha_{2}y^{2})y^{1},a_{2},...a_{n})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Treating α3, .
+ .
+ .
+ , αm as constants, you should be able to verify that this is just some
+ quadratic function in 
+\begin_inset Formula $α^{2}$
+\end_inset
+
+.
+ If we ignore the “box” constraints (18) (or, equivalently, that 
+\begin_inset Formula $L≤α^{2}≤H$
+\end_inset
+
+), then we can easily.
+ If 
+\begin_inset Formula $\mbox{ }\alpha_{2}^{*}$
+\end_inset
+
+ is the unconstrainted solution, then the final 
+\begin_inset Formula $a_{2}$
+\end_inset
+
+ is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+a_{2}^{new}=\begin{cases}
+H & if\mbox{ }\alpha_{2}^{*}>H\\
+\alpha_{2}^{*} & if\mbox{ }L<\alpha_{2}^{*}<H\\
+L & if\mbox{ }\mbox{ }\alpha_{2}^{*}<L
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There’re a couple more details that are quite easy but that we’ll leave
+ you to read about yourself in Platt’s paper: One is the choice of the heuristic
+s used to select the next αi, αj to update; the other is how to update b
+ as the SMO algorithm is run.
+\end_layout
+
+\begin_layout Part
+Neural Network
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Newral Network
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+See text_The Elements of Statistical Learning.pdf Chapter 11.
+\end_layout
+
+\begin_layout Standard
+Neural Network is one of many non-linear classifer: Andrew Ng Lecture 6:
+ 30m.
+\end_layout
+
+\begin_layout Standard
+The boundairs to separate two groups are never a stright line anymore.
+\end_layout
+
+\begin_layout Standard
+The idea is use multiple linear classifer to biuld non-linear one.
+\end_layout
+
+\begin_layout Subsection*
+Idea
+\end_layout
+
+\begin_layout Standard
+Neural networks are similar to biological neural networks in performing
+ functions collectively and in parallel by the units.
+\end_layout
+
+\begin_layout Standard
+For example, a neural network for handwriting recognition is defined by
+ a set of input neurons which may be activated by the pixels of an input
+ image.
+ After being weighted and transformed by a function (determined by the network's
+ designer), the activations of these neurons are then passed on to other
+ neurons.
+ This process is repeated until finally, an output neuron is activated.
+ This determines which character was read.
+\end_layout
+
+\begin_layout Subsection*
+Set Up
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x$
+\end_inset
+
+ is a 
+\begin_inset Formula $P\times1$
+\end_inset
+
+ vector.
+ it feeds into the Hidden Layer first (transform 
+\begin_inset Formula $P$
+\end_inset
+
+ features to 
+\begin_inset Formula $M$
+\end_inset
+
+ features)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Hidden Layer(s) = Neuron
+\series default
+ (
+\begin_inset Formula $M$
+\end_inset
+
+ dimention).
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Data features 
+\begin_inset Formula $x=\{x_{0}...x_{K}\}$
+\end_inset
+
+ will come into different 
+\series bold
+Projection Pursuit Regression
+\series default
+:
+\begin_inset Formula $z_{m}=\sigma(\alpha_{m}^{T}x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\sigma$
+\end_inset
+
+ is 
+\series bold
+Activation function
+\series default
+.
+ Normally 
+\begin_inset Formula $z=\sigma(v)=\frac{1}{1+exp(-v)}$
+\end_inset
+
+ (sigmoid function, this is what R nnet uses).
+ This activation function will decide the weight of output from this layer
+ at the next layer.
+ Sometimes Gaussian radial basis functions (Chapter 6) are used for the
+ σ(v), producing what is known as a radial basis function network.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Output Layer
+\series default
+: Then the results from hidden layer 
+\begin_inset Formula $z_{m}$
+\end_inset
+
+ and go to fit the second layer 
+\begin_inset Formula $y=f_{\theta}(x)=g(\beta^{T}z)$
+\end_inset
+
+.
+ (use the 
+\begin_inset Formula $M$
+\end_inset
+
+ features to do prediction).
+ When we have multiple 
+\begin_inset Formula $y$
+\end_inset
+
+s to estimate, we get multiple 
+\begin_inset Formula $g$
+\end_inset
+
+ and sets of 
+\begin_inset Formula $\beta$
+\end_inset
+
+: 
+\begin_inset Formula $g_{k}(\beta_{k}^{T}z)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If it is a regression problem, then 
+\begin_inset Formula $g$
+\end_inset
+
+ is an identity function
+\end_layout
+
+\begin_layout Itemize
+If it is a 
+\begin_inset Formula $K$
+\end_inset
+
+ classification problem, then 
+\begin_inset Formula $g$
+\end_inset
+
+ 
+\begin_inset Formula $g(\beta^{T}z)$
+\end_inset
+
+ will become a softmax function,
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+OR 
+\begin_inset Formula $g_{k}(\beta_{k}^{T}z)$
+\end_inset
+
+ 
+\begin_inset Formula $k=1...K$
+\end_inset
+
+there are K units at the top, with the kth unit modeling the probability
+ of class k.
+ There are K target measurements Yk, k = 1, .
+ .
+ .,K, each being coded as a 0 − 1 variable for the kth class.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+In summary, we need to estimate 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $m$
+\end_inset
+
+ sets of parameters 
+\begin_inset Formula $\alpha_{m}$
+\end_inset
+
+in hidden layer
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $k$
+\end_inset
+
+ sets of parameters in the output layer 
+\begin_inset Formula $\beta_{k}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Those 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta$
+\end_inset
+
+ are to 
+\series bold
+map/weight
+\series default
+ features to the next layer or to final output, they are 
+\series bold
+connections (synapses) between Neurons.
+\end_layout
+
+\begin_layout Subsection
+Feedforward Neural Network vs Recurrent neural networks
+\end_layout
+
+\begin_layout Standard
+A feedforward neural network is where connections between the units do not
+ form a directed cycle.
+ This is different from recurrent neural networks.
+\end_layout
+
+\begin_layout Standard
+The feedforward neural network was the first and simplest type of artificial
+ neural network devised.
+ In this network, the information moves in only one direction, forward,
+ from the input nodes, through the hidden nodes (if any) and to the output
+ nodes.
+ There are no cycles or loops in the network.
+\end_layout
+
+\begin_layout Section
+Estiamte NN
+\end_layout
+
+\begin_layout Standard
+See ESL P413
+\end_layout
+
+\begin_layout Standard
+Essentially it uses a gradient descent to update the weights 
+\begin_inset Formula $\alpha,\beta$
+\end_inset
+
+ to minimize the errors.
+ 
+\end_layout
+
+\begin_layout Standard
+For regression, we use sum-of-squared errors:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R(\theta)=\sum_{k}^{K}\sum_{i}^{N}(y_{ik}-f_{k}(x_{i}))^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For classifications we use either square error or 
+\series bold
+cross-entropy
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R(\theta)=\sum_{i}^{N}\sum_{k}^{K}y_{ik}logf_{k}(x_{i})
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $f()$
+\end_inset
+
+ is the model,
+\begin_inset Formula $K$
+\end_inset
+
+ is the number of classes of different 
+\begin_inset Formula $y$
+\end_inset
+
+ we need to predict
+\end_layout
+
+\begin_layout Standard
+Below we use regression problem as the example:
+\end_layout
+
+\begin_layout Itemize
+Calculate the derivatives as the steepest decending direction, prepared
+ for Gradient Decend.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Derivative on output layer: a function of its input 
+\begin_inset Formula $z_{m}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{\partial R_{i}}{\partial\beta_{km}} & = & -2(y_{ik}-f_{k}(x_{i}))g_{k}^{'}(\beta_{k}^{T}z_{i})z_{mi}=\delta_{ki}z_{mi}\label{eq:NN_derivative-1}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+where 
+\begin_inset Formula $\delta_{ki}=-2(y_{ik}-f_{k}(x_{i}))g_{k}^{'}(\beta_{k}^{T}z_{i})$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Derivative on hidden layer: a function of its input 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial R_{i}}{\partial\alpha_{ml}}=-\sum_{k=1}^{K}2(y_{ik}-f_{k}(x_{i}))g_{k}^{'}(\beta_{k}^{T}z_{i})\beta_{km}\sigma^{'}(\alpha_{m}^{T}x_{i})x_{il}=s_{mi}x_{il}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $l$
+\end_inset
+
+ is one dimention of original data feature 
+\begin_inset Formula $l=1....P$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+We call 
+\begin_inset Formula $\delta_{ki}$
+\end_inset
+
+ and 
+\begin_inset Formula $s_{mi}$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+errors
+\begin_inset Quotes erd
+\end_inset
+
+ and find a back-propagation equations: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+s_{mi}=\sigma^{'}(\alpha_{m}^{T}x_{i})\sum_{k=1}^{K}\beta_{km}\delta_{ki}\label{eq:back_propagation_equations-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Two-Pass Algorithm / 
+\series bold
+back-propagatation
+\end_layout
+
+\begin_layout Enumerate
+In the forward pass, the current weights are fixed and the predicted values
+ 
+\begin_inset Formula $f_{k}(x_{i})$
+\end_inset
+
+ are computed.
+ 
+\end_layout
+
+\begin_layout Enumerate
+In the backward pass (From bottom layers to upper layers)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+the errors 
+\begin_inset Formula $\delta_{ki}$
+\end_inset
+
+ are computed from Equation
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:NN_derivative-1"
+
+\end_inset
+
+ , then 
+\series bold
+back-propagated
+\series default
+ via back-propagation equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:back_propagation_equations-1"
+
+\end_inset
+
+ to give the errors 
+\begin_inset Formula $s_{mi}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Both sets of errors are then used to compute the gradients for the updates
+ using the standard Gradient Descent
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\beta_{km}^{r+1}=\beta_{km}^{r}-\gamma_{r}\sum^{N}\frac{\partial R_{i}}{\partial\beta_{km}^{r}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha_{mL}^{r+1}=\alpha_{mL}^{r}-\gamma_{r}\sum^{N}\frac{\partial R_{i}}{\partial\alpha_{ml}^{r}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Use the updated 
+\begin_inset Formula $\beta$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ to re-run the NN, and go back to step 1 until convergence.
+\end_layout
+
+\begin_layout Itemize
+Localness and thus Parallable: local nature.
+ In the back propagation algorithm, each hidden unit passes and receives
+ information only to and from units that share a connection.
+ Hence it can be implemented efficiently on a parallel architecture computer.
+ 
+\end_layout
+
+\begin_layout Itemize
+implemented efficiently on a parallel architecture computer.
+ The updates in (11.13) are a kind of batch learning, with the parameter
+ updates being a sum over all of the training cases.
+ Learning can also be carried out online—processing each observation one
+ at a time (thus not using 
+\begin_inset Formula $\sum^{N}$
+\end_inset
+
+ in the Gradient Descent, just use the new obervation 
+\begin_inset Formula $i$
+\end_inset
+
+), updating the gradient after each training case, and cycling through the
+ training cases many times.
+ In this case, the sums in equations (11.13) are replaced by a single summand.
+ A training epoch refers to one sweep through the entire training set.
+ Online training allows the network to handle very large training sets,
+ and also to update the weights as new observations come in.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The learning rate γr for batch learning is usually taken to be a constant,
+ and can also be optimized by a line search that minimizes the error function
+ at each update.
+ With online learning 
+\begin_inset Formula $\gamma_{r}$
+\end_inset
+
+ should decrease to zero as the iteration r → ∞.
+ This learning is a form of stochastic approximation (Robbins and Munro,
+ 1951);
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Back Propagation
+\end_layout
+
+\begin_layout Standard
+https://www.zhihu.com/question/27239198?f3fb8ead20=8981a516d702997106e59d685b894c3
+8
+\end_layout
+
+\begin_layout Standard
+http://www.kdnuggets.com/2016/06/visual-explanation-backpropagation-algorithm-neur
+al-networks.html
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename H:/jpmDesk/Desktop/Personal/Research_personal/Lyx_Picture/BP1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename H:/jpmDesk/Desktop/Personal/Research_personal/Lyx_Picture/BP2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+作者：Evan Hoo 链接：https://www.zhihu.com/question/27239198/answer/89853077 来源：知乎
+ 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+\end_layout
+
+\begin_layout Standard
+链式法则在上图中的意义是什么呢？
+\end_layout
+
+\begin_layout Standard
+其实不难发现，
+\begin_inset Formula $\frac{\partial e}{\partial a}$
+\end_inset
+
+ 的值等于从a到e的路径上的偏导值的乘积，而
+\begin_inset Formula $\frac{\partial e}{\partial b}$
+\end_inset
+
+的值等于从b到e的路径1(b-c-e)上的偏导值的乘积加上路径2(b-d-e)上的偏导值的乘积。也就是说，对于上层节点 p 和下层节点 q，要求得
+ 
+\begin_inset Formula $\frac{\partial p}{\partial q}$
+\end_inset
+
+，需要找到从 q 节点到 p 节点的所有路径，并且对每条路径，求得该路径上的所有偏导数之乘积，然后将所有路径的 “乘积” 累加起来才能得到 
+\begin_inset Formula $\frac{\partial p}{\partial q}$
+\end_inset
+
+ 的值。
+\end_layout
+
+\begin_layout Standard
+大家也许已经注意到，这样做是十分冗余的，因为很多路径被重复访问了。比如上图中，a-c-e和b-c-e就都走了路径c-e。对于权值动则数万的深度模型中的神经网络，
+这样的冗余所导致的计算量是相当大的。
+\end_layout
+
+\begin_layout Standard
+同样是利用链式法则，BP算法则机智地避开了这种冗余，它对于每一个路径只访问一次就能求顶点对所有下层节点的偏导值。 正如反向传播(BP)算法的名字说的那样，BP算
+法是反向(自上往下)来寻找路径的。
+\end_layout
+
+\begin_layout Standard
+从最上层的节点e开始，初始值为1，以层为单位进行处理。对于e的下一层的所有子节点，将1乘以e到某个节点路径上的偏导值，并将结果“堆放”在该子节点中。等e所在的层
+按照这样传播完毕后，第二层的每一个节点都“堆放"些值，然后我们针对每个节点，把它里面所有“堆放”的值求和，就得到了顶点e对该节点的偏导。然后将这些第二层的节点各
+自作为起始顶点，初始值设为顶点e对它们的偏导值，以"层"为单位重复上述传播过程，即可求出顶点e对每一层节点的偏导数。
+\end_layout
+
+\begin_layout Standard
+以上图为例，节点c接受e发送的1*2并堆放起来，节点d接受e发送的1*3并堆放起来，至此第二层完毕，求出各节点总堆放量并继续向下一层发送。节点c向a发送2*1并
+对堆放起来，节点c向b发送2*1并堆放起来，节点d向b发送3*1并堆放起来，至此第三层完毕，节点a堆放起来的量为2，节点b堆放起来的量为2*1+3*1=5,
+ 即顶点e对b的偏导数为5.
+\end_layout
+
+\begin_layout Section
+Empirical Issues
+\end_layout
+
+\begin_layout Standard
+See ESL P316
+\end_layout
+
+\begin_layout Subsection
+you need to standardize the data!
+\end_layout
+
+\begin_layout Standard
+mean 0 and standard deviation 1, 
+\end_layout
+
+\begin_layout Subsection
+Starting Values: 
+\end_layout
+
+\begin_layout Standard
+Note that if the weights are near zero, then the corresponding part of the
+ sigmoid (Figure 11.3) is roughly linear, and hence the neural network collapses
+ into an approximately linear model (Exercise 11.2).
+ Usually starting values for weights are chosen to be random values near
+ zero.
+ Hence the model starts out nearly linear, and becomes nonlinear as the
+ weights increase.
+\end_layout
+
+\begin_layout Standard
+Often choose 
+\begin_inset Formula $-0.7-+0.7$
+\end_inset
+
+ to start from standardized data
+\end_layout
+
+\begin_layout Standard
+http://stats.stackexchange.com/questions/47590/what-are-good-initial-weights-in-a-
+neural-network
+\end_layout
+
+\begin_layout Standard
+The logistic function is close to flat for large positive or negative inputs.
+ The derivative at an input of 2 is about 1/10, but at 10 the derivative
+ is about 1/22000 .
+ This means that if the input of a logistic neuron is 10 then, for a given
+ training signal, the neuron will learn about 2200 times slower that if
+ the input was 2
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+If you want the neuron to learn quickly, you either need to produce a huge
+ training signal (such as with a cross-entropy loss function) or you want
+ the derivative to be large.
+ To make the derivative large, you set the initial weights so that you often
+ get inputs in the range [−4,4] .
+ 
+\end_layout
+
+\begin_layout Standard
+The initial weights you give might or might not work.
+ It depends on how the inputs are normalized.
+ If the inputs are normalized to have mean 0 and standard deviation 1, then
+ a random sum of d terms with weights uniform on (
+\begin_inset Formula $\frac{-1}{\sqrt{d}}$
+\end_inset
+
+,
+\begin_inset Formula $\frac{1}{\sqrt{d}}$
+\end_inset
+
+) will have mean 0 and variance 1/3, independent of d.
+ As varaince of uniform distribution [a,b] is 
+\begin_inset Formula $\frac{1}{12}(b-a)^{2}$
+\end_inset
+
+, thus 
+\begin_inset Formula $Var(f(x))=\sum_{i}^{d}(\frac{1}{12}(2/\sqrt{d})^{2})=\frac{1}{3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Thus The probability that you get a sum outside of [−4,4] is small.
+ That means as you increase d, you are not causing the neurons to start
+ out saturated so that they don't learn.
+ 
+\end_layout
+
+\begin_layout Subsection
+Overfitting
+\end_layout
+
+\begin_layout Standard
+You shall use simple linear/logit model as benchmark of fitting.
+\end_layout
+
+\begin_layout Itemize
+Stop early, not to reach global min
+\end_layout
+
+\begin_layout Itemize
+We add a penalty to the error function R(θ) + λJ(θ), where 
+\begin_inset Formula $J(\theta)=\sum_{km}\beta_{km}^{2}+\sum_{ml}\alpha_{ml}^{2}$
+\end_inset
+
+ or 
+\begin_inset Formula $J(\theta)=\sum_{km}\frac{\beta_{km}^{2}}{1+\beta_{km}^{2}}+\sum_{ml}\frac{1}{1+\alpha_{ml}^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+a fixed weight decay parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ of 0.0005 is representing a mild amount of regularization.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Choose Number of Layers and Neurons
+\end_layout
+
+\begin_layout Standard
+Typically the number of hidden units is somewhere in the range of 5 to 100,
+ with the number increasing with the number of inputs and number of training
+ cases.
+ It is most common to put down a reasonably large number of units and train
+ them with regularization.
+ Some researchers use cross-validation to estimate the optimal number, but
+ this seems unnecessary if cross-validation is used to estimate the regularizati
+on parameter
+\end_layout
+
+\begin_layout Standard
+http://stackoverflow.com/questions/10565868/what-is-the-criteria-for-choosing-num
+ber-of-hidden-layers-and-nodes-in-hidden-la:
+\end_layout
+
+\begin_layout Standard
+To start, one hidden layer with a number of nodes equal to the size of the
+ input layer.
+ The "ideal" size is more likely to be smaller (i.e, some number of nodes
+ between the number in the input layer and the number in the output layer)
+\end_layout
+
+\begin_layout Standard
+When generalization error (in testing data) has dipped and just before it
+ begins to increase again, the number of nodes at that point is my choice.
+ See figure below.
+\end_layout
+
+\begin_layout Subsection
+Multiple Minima
+\end_layout
+
+\begin_layout Standard
+The error function R(θ) is nonconvex, possessing many local minima.
+ One must at least try a number of random starting configurations, and choose
+ the solution giving lowest (penalized) error.
+ 
+\end_layout
+
+\begin_layout Section
+Neural Network in Handwriting Recognition
+\end_layout
+
+\begin_layout Standard
+See ESL P423
+\end_layout
+
+\begin_layout Standard
+Local Connectivity: this means that each hidden unit is connected to only
+ a small patch of units in the layer below.
+ In the first hidden layer (an 8×8 array), each unit takes inputs froma
+ 3×3 patch of the input layer, etc.
+ The weights for all other connections are set to zero.
+\end_layout
+
+\begin_layout Standard
+Local connectivity with shared weights.
+ All units in a local feature map perform the same operation on different
+ parts of the image, achieved by sharing the 
+\series bold
+same
+\series default
+ 
+\series bold
+weights
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The clever design of network Net-5 (Local connectivity with shared weights),
+ motivated by the fact that features of handwriting style should appear
+ in more than one part of a digit, was the result of many person years of
+ experimentation.
+ This and similar networks gave better performance on ZIP code problems
+ than any other learning method at that time (early 1990s).
+ This example also shows that neural networks are not a fully automatic
+ tool, as they are sometimes advertised.
+ As with all statistical models, subject matter knowledge can and should
+ be used to improve their performance.
+\end_layout
+
+\begin_layout Section
+R: nnet 
+\end_layout
+
+\begin_layout Subsection*
+Projection Pursuit Regression
+\end_layout
+
+\begin_layout Part
+Re-enforcement Learning
+\end_layout
+
+\begin_layout Standard
+Andrew Ng Notes 12
+\end_layout
+
+\begin_layout Standard
+http://www.karenkopecky.net/Teaching/eco613614/Notes_ValueFunctionIteration.pdf
+\end_layout
+
+\begin_layout Standard
+Hard to apply supervised learning, as little training data
+\end_layout
+
+\begin_layout Standard
+Instead, just give the helicopter a positive reward when helicopter files
+ well.
+\end_layout
+
+\begin_layout Standard
+It is like, training dog, often say dog 
+\begin_inset Quotes eld
+\end_inset
+
+good
+\begin_inset Quotes erd
+\end_inset
+
+ when it does good things.
+\end_layout
+
+\begin_layout Standard
+This is Sequential Descion.
+\end_layout
+
+\begin_layout Standard
+There is Credit Assignment Problem (when/which step to give postive/negative
+ reward signal)
+\end_layout
+
+\begin_layout Section
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Credit Assignment Problem
+\end_layout
+
+\end_inset
+
+Credit Assignment Problem, 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Markov Decesion Process (MDP)
+\end_layout
+
+\end_inset
+
+Markov Decesion Process (MDP)
+\end_layout
+
+\begin_layout Subsubsection
+Five tuples:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $S$
+\end_inset
+
+: set of states
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+S = current states
+\end_layout
+
+\begin_layout Enumerate
+S' = next states
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $A$
+\end_inset
+
+: set of actions we will make to next stage
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+A particular action will NOT definitely lead to a paticular state 
+\begin_inset Formula $S'$
+\end_inset
+
+, the next state would be random: 
+\begin_inset Formula $S'\sim P_{SA}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $P_{SA}$
+\end_inset
+
+: state transtion distributions.
+ 
+\begin_inset Formula $\sum_{s}P_{SA}(s')=1$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Fromtat: 
+\begin_inset Formula $P_{CurrentState,Action}(FutureState)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\gamma$
+\end_inset
+
+: discount factor 
+\begin_inset Formula $0\le\gamma\le1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $R$
+\end_inset
+
+: reward function, map from 
+\begin_inset Formula $S$
+\end_inset
+
+ to raw numbers 
+\begin_inset Formula $R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Example:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P_{SA}$
+\end_inset
+
+ of robots move from 
+\begin_inset Formula $(3,1)$
+\end_inset
+
+ to one North unit (to 
+\begin_inset Formula $(3,2)$
+\end_inset
+
+).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Suppose there is only 80% probability that move to the correct direction
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P_{(3,1),N}(3,2)=0.8$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{(3,1),N}(4,1)=P_{(3,1),N}(2,1)=0.1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Reward functions to each state.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $R(4,3)=+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R(4,2)=-1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R(S)==-002$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Dynamics
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+At state 
+\begin_inset Formula $S_{0}$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Itemize
+Choose 
+\begin_inset Formula $a_{0}$
+\end_inset
+
+, Get to 
+\begin_inset Formula $S_{1}\sim P_{S_{0}a_{0}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Choose 
+\begin_inset Formula $a_{1}$
+\end_inset
+
+, Get to 
+\begin_inset Formula $S_{2}\sim P_{S_{1}a_{1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Thus we will have a sequence of states 
+\begin_inset Formula $S_{0}$
+\end_inset
+
+ , 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+....
+\end_layout
+
+\begin_layout Itemize
+Then we apply the reward function to every state and get the discounted
+ sum
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+TR=\sum_{i=0}\gamma^{i-1}R(S_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Think about 
+\begin_inset Formula $R(S_{i})$
+\end_inset
+
+ is the dollar at day 
+\begin_inset Formula $i$
+\end_inset
+
+, and we prefer rewardin the near days than far future.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Goal: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For each stage 
+\begin_inset Formula $S_{0}$
+\end_inset
+
+, max 
+\begin_inset Formula $E(TR)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Compute a optimal policy at each stage (in each state, which action we suggest):
+ 
+\begin_inset Formula $\pi:S\rightarrow A$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Estiamte Optimal Policy
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+policy function
+\end_layout
+
+\end_inset
+
+policy function 
+\begin_inset Formula $\pi(S)$
+\end_inset
+
+, its value function
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+value function
+\end_layout
+
+\end_inset
+
+ is.
+ 
+\begin_inset Formula $V^{\pi}(S_{0})=E(TR_{S_{0}}|\pi,\mbox{\ensuremath{??}})$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Thus you can write Bellman Equation or Markov decision processes (MDP) 
+\begin_inset Formula 
+\[
+V^{\pi}(S)=R(S)+\gamma\sum P_{S,\pi(S)}(S')V^{\pi}(S')
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solve the Bellman Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V^{*}=max_{\pi}V^{\pi}(S)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Value Iteration to solve Bellman Equation
+\end_layout
+
+\begin_layout Standard
+Usable for large step numbers.
+\end_layout
+
+\begin_layout Enumerate
+Initialized 
+\begin_inset Formula $V(S)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+for every 
+\begin_inset Formula $S$
+\end_inset
+
+ updates, repeatly solve 
+\begin_inset Formula $\alpha$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V(S):=R(S)+max_{\alpha}\gamma\sum P_{S,\alpha}(S')V(S')
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+That means, find the optimal 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ that max the 
+\begin_inset Formula $\sum P_{S,\alpha}(S')V(S')$
+\end_inset
+
+ part, and thus get a new 
+\begin_inset Formula $V(S)$
+\end_inset
+
+, then go back to step 2
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Stop if the newly updated
+\begin_inset Formula $V(S)$
+\end_inset
+
+ is similar as that of last time for each 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Two methods of updating 
+\begin_inset Formula $V(S)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Synchronize or Squential (Asynchronous)Video 16, 52:00m
+\end_layout
+
+\begin_layout Itemize
+Synchronize: In the loop, you can first get updated 
+\begin_inset Formula $V'(s_{i})$
+\end_inset
+
+ for each 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+ using old 
+\begin_inset Formula $V(s_{i})$
+\end_inset
+
+ in calculation, and then update the 
+\begin_inset Formula $V$
+\end_inset
+
+ to 
+\begin_inset Formula $V'$
+\end_inset
+
+ for every 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+ at once, then go to next step.
+ That means, when you get a 
+\begin_inset Formula $V'$
+\end_inset
+
+ for one state, you did not use it, you wait all 
+\begin_inset Formula $V'$
+\end_inset
+
+ for all states available, then updated 
+\begin_inset Formula $V$
+\end_inset
+
+ at all once,
+\end_layout
+
+\begin_layout Itemize
+Asynchronous: in the loop, whenever you get a new 
+\begin_inset Formula $V'(s_{i})$
+\end_inset
+
+ for a 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+, then use that 
+\begin_inset Formula $V'$
+\end_inset
+
+ in the calculation for 
+\begin_inset Formula $V'$
+\end_inset
+
+ for the next state, That means, whenever you get a new 
+\begin_inset Formula $V'$
+\end_inset
+
+, you didn't wait at all and use it in the next calculation.
+\end_layout
+
+\begin_layout Subsection
+Policy iteration
+\end_layout
+
+\begin_layout Standard
+Another way, different from Value Iteration: only usable for small steps
+ (if there are millions of steps, this method means you need to solve millions
+ of equitions for each iteration)
+\end_layout
+
+\begin_layout Enumerate
+Initialize 
+\begin_inset Formula $\pi$
+\end_inset
+
+ randomly
+\end_layout
+
+\begin_layout Enumerate
+Repeat:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $V(S):=V^{\pi}(S)$
+\end_inset
+
+ for every S.
+\end_layout
+
+\begin_layout Enumerate
+Find 
+\begin_inset Formula $\pi(S)=argmax_{A}\sum P_{SA}(S')V(S')$
+\end_inset
+
+ for every S
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Stop when the updated 
+\begin_inset Formula $\pi(S)$
+\end_inset
+
+ for every 
+\begin_inset Formula $S$
+\end_inset
+
+ are the same as the last 
+\begin_inset Formula $\pi(S)$
+\end_inset
+
+ for every 
+\begin_inset Formula $S$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+What if you don't know 
+\begin_inset Formula $P_{S,A}(S')$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Just estimate 
+\begin_inset Formula $P_{S,A}(S')$
+\end_inset
+
+ from data.
+ 
+\end_layout
+
+\begin_layout Itemize
+As you know 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $A$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+In the test, you can try different 
+\begin_inset Formula $\pi$
+\end_inset
+
+ to get the data.
+\end_layout
+
+\begin_layout Itemize
+You choose 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ Normally you know or can design 
+\begin_inset Formula $R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+P_{S,a}(S')=\frac{\#action(a)\mbox{ and }State(S')\mbox{ from(S)}}{\#action(a)\mbox{ in }State(S)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If you never take 
+\begin_inset Formula $a$
+\end_inset
+
+ in 
+\begin_inset Formula $S$
+\end_inset
+
+, then just use uniform distribution.
+\end_layout
+
+\begin_layout Section
+Q-Learning
+\end_layout
+
+\begin_layout Standard
+ref_QLearning: http://uhaweb.hartford.edu/compsci/ccli/projects/QLearning.pdf
+\end_layout
+
+\begin_layout Standard
+Value Iteration and Policy Iteration work wonderfully for determining an
+ optimal policy, but they assume that our agent has a great deal of domain
+ knowledge.
+ Specifically, they assume that the agent accurately knows the transition
+ function and the reward for all states in the environment.
+ This is actually quite a bit of information; in many cases, our agent may
+ not have access to this.
+ 
+\end_layout
+
+\begin_layout Standard
+Fortunately, there is a way to learn this information.
+ In essence, we can trade learning time for a priori knowledge.
+ One way to do this is through a form of reinforcement learning known as
+ Q-learning.
+ Q-learning is a form of model-free learning, meaning that an agent does
+ not need to have any model of the environment; it only needs to knoe what
+ states exist and what actions are possible in each state.
+\end_layout
+
+\begin_layout Standard
+When we visit a state and receive a reward, we use this to update our estimate
+ of the value of that state.
+ (Since our rewards might be stochastic, we may need to visit a state many
+ times.)
+\end_layout
+
+\begin_layout Standard
+So, rather than use 
+\begin_inset Formula $V$
+\end_inset
+
+ to represent total expected value, we use 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+How should an agent choose which action to test
+\end_layout
+
+\begin_layout Standard
+How should an agent choose which action to test? We are assuming that the
+ agent is learing in an online fashion.
+ This means that it is interleaving learning and execution.
+\end_layout
+
+\begin_layout Standard
+This brings up a tradeoff: learning is costly; 
+\end_layout
+
+\begin_layout Itemize
+time that our agent spends making mistakes is time that cannot be spent
+ performing correct actions.
+ 
+\end_layout
+
+\begin_layout Itemize
+One the other hand, time is needed to learn, and some time spent making
+ errors early on can lead to improved overall performance
+\end_layout
+
+\begin_layout Standard
+Our intuition is as follows: In the early stages of execution, when little
+ is known about the world, it is important to explore and try unknown actions.
+ There is a great deal to be gained from learning, and the agent does not
+ have enough information to act well in any case.
+ Later in its life, the agent may want to almost always choose the action
+ that looks best; there is little information to be gained, and so the value
+ of learning is negligible.
+\end_layout
+
+\begin_layout Standard
+We will model this with a function that assigns a probability of being chosen
+ for each possible action in a given state.
+ This function should tend to choose actions with higher Q values, but should
+ sometimes select lower Q-value actions.
+ The probability of selecting the highest Q-value action should increase
+ over time.
+ We will use a distribution known as a Boltzmann distribution to do this.
+ 
+\end_layout
+
+\begin_layout Standard
+The Boltzmann distribution is as follows
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(a|S)=\frac{\mbox{exp}Q(s,a)/k}{\mbox{exp}_{j}Q(s,a_{j})/k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The k parameter (often referred to as temperature) controls the probability,
+ of selecting non-optimal actions.
+ If k is large, all actions will be selcted fairly uniformly.
+ If k is close to zero, the best action will always be chosen.
+ We begin with k large and gradually descrease it over time.
+\end_layout
+
+\begin_layout Section
+Continouse MDP
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Similar idea, so skip the details.
+ Details can be found in Video 17.
+ start from 19:33 
+\end_layout
+
+\begin_layout Standard
+Also see NOTES ML_11
+\end_layout
+
+\begin_layout Standard
+Example: states and actions are all continouse and infinite
+\end_layout
+
+\begin_layout Standard
+One Method: separate the continous space into numerous discrete ones (no
+ need to be uniform).
+\end_layout
+
+\begin_layout Standard
+Hard to apply it on higher dimentions.
+\end_layout
+
+\begin_layout Section
+Other MDPs 
+\end_layout
+
+\begin_layout Standard
+Lecture Video 18.
+\end_layout
+
+\begin_layout Subsection
+State-Action Reward
+\end_layout
+
+\begin_layout Standard
+Change the reward function 
+\begin_inset Formula $R:S\times A\rightarrow R$
+\end_inset
+
+, rather than just 
+\begin_inset Formula $R:S\rightarrow R$
+\end_inset
+
+.
+ So the reward not only depends on the state , but also the action to get
+ there.
+\end_layout
+
+\begin_layout Standard
+Now we have 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V^{*}(s)=max_{a}(s,a)+\gamma\sum_{s}P_{s',a}(s')V^{*}(S')
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\pi^{*}(s)=argmax_{a}R(s,a)+\sum...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Finite Horizon MDPs
+\end_layout
+
+\begin_layout Standard
+Just one more tutple 
+\begin_inset Formula $T=HorizonTime$
+\end_inset
+
+, which means only take a max of 
+\begin_inset Formula $T$
+\end_inset
+
+ steps, or 
+\begin_inset Formula $T$
+\end_inset
+
+ actions.
+\end_layout
+
+\begin_layout Standard
+So we want to max 
+\begin_inset Formula 
+\[
+R(s_{0},a_{0})+...+R(S_{T},a_{T})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That indicates that the action is non-stationary (optimal action depends
+ on which time left, originally it only depndens on state, but not time).
+ 
+\end_layout
+
+\begin_layout Standard
+Thus we also allow non-stationary state trainsition probability (the chance
+ which state you go to also depends on which time you are, originally it
+ only depndens on state, but not time))
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S_{t+1}\sim P_{S_{t},a_{t}}^{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We 
+\series bold
+may
+\series default
+ also futher let Reward function to be non-stationary
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R^{t}(S_{t},a_{t})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So if you start at state 
+\begin_inset Formula $S$
+\end_inset
+
+ and time 
+\begin_inset Formula $t$
+\end_inset
+
+, then the optimal value function is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{t}^{*}(s)=E\left[\sum_{t}^{T}R^{t}(S_{t},a_{t})\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{t}^{*}(S)=max_{a}R^{t}(S,a)+\sum_{s'}P_{s,a}^{t}(S')V(S')
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{T}^{*}(S)=max_{a}R^{T}(S,a)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+So you can use the backward recursion to start from 
+\begin_inset Formula $V_{T}^{*},V_{T-1}^{*}...V_{0}^{*}$
+\end_inset
+
+.
+ Then you can compute 
+\begin_inset Formula $\pi_{t}^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+You can add the dicounting factor also!
+\end_layout
+
+\begin_layout Standard
+For the normal MDP, you cannot use this method, you have to use value iteration.
+ OR you can see when 
+\begin_inset Formula $T$
+\end_inset
+
+ makes 
+\begin_inset Formula $\gamma^{T}=0.00001$
+\end_inset
+
+, so you just regard any 
+\begin_inset Formula $R$
+\end_inset
+
+ after 
+\begin_inset Formula $T$
+\end_inset
+
+ is 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ In that case you can use backward recursion to solve the normal MDP.
+\end_layout
+
+\begin_layout Subsection
+Linear Quardratic Regulation Control
+\end_layout
+
+\begin_layout Standard
+The next state is the linear combination of this state and action on this
+ state
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S_{t+1}=A_{t}\times S_{t}+B_{t}\times a_{t}+w_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $w_{t}$
+\end_inset
+
+ depdend on 
+\begin_inset Formula $t$
+\end_inset
+
+, so they are non-stationary.
+ 
+\begin_inset Formula $w_{t}$
+\end_inset
+
+ is just noise and not important: 
+\begin_inset Formula $w_{t}\sim N(0,\sum)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Association Rule
+\end_layout
+
+\begin_layout Standard
+The goal is to find joint values of the variables 
+\begin_inset Formula $X=(X_{1},X_{2},...,X_{p})$
+\end_inset
+
+ that appear most f requently in the data base.
+ This information can be quite useful for stocking shelves, cross-marketing
+ in sales promotions, catalog design, and consumer segmentation based on
+ buying patterns.
+ More generally, the basic goal of association rule.
+\end_layout
+
+\begin_layout Standard
+More specifically, the goal is to find a rule
+\end_layout
+
+\begin_layout Itemize
+Actionable Rules
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+contain high‐quality, actionable information
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Trivial Rules
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+information already well‐known by those familiar with the business
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Inexplicable Rules 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+no explanation and do not suggest action
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Trivial and Inexplicable Rules occur most often
+\end_layout
+
+\begin_layout Section
+Basics
+\end_layout
+
+\begin_layout Standard
+See wiki: https://en.wikipedia.org/wiki/Association_rule_learning
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $I=\{i_{1},i_{2},\ldots,i_{n}\}$
+\end_inset
+
+ be a set of n binary attributes called items.
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $D=\{t_{1},t_{2},\ldots,t_{m}\}$
+\end_inset
+
+ be a set of transactions called the database.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $T$
+\end_inset
+
+ a set of transactions of a given database.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Rule, 
+\series bold
+Antecedent and Consequent
+\end_layout
+
+\begin_layout Standard
+Following the original definition by Agrawal et al.[2] the problem of association
+ rule mining is defined as:
+\end_layout
+
+\begin_layout Standard
+Each transaction in 
+\begin_inset Formula $D$
+\end_inset
+
+ has a unique transaction ID and contains a subset of the items in 
+\begin_inset Formula $I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A rule is defined as an implication of the form:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X\Rightarrow Y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $X,Y\subseteq I$
+\end_inset
+
+ and 
+\begin_inset Formula $X\cap Y=\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Every rule is composed by two different set of items, also known as itemsets,
+ 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+, where 
+\begin_inset Formula $X$
+\end_inset
+
+ is called 
+\series bold
+antecedent
+\series default
+ or left-hand-side (LHS) and Y 
+\series bold
+consequent
+\series default
+ or right-hand-side (RHS).
+\end_layout
+
+\begin_layout Standard
+To illustrate the concepts, we use a small example from the supermarket
+ domain.
+ The set of items is 
+\begin_inset Formula $I=\{\mathrm{milk,bread,butter,beer,diapers}\}$
+\end_inset
+
+ and in the table is shown a small database containing the items, where,
+ in each entry, the value 1 means the presence of the item in the corresponding
+ transaction, and the value 0 represent the absence of an item in a that
+ transaction.
+\end_layout
+
+\begin_layout Standard
+An example rule for the supermarket could be 
+\begin_inset Formula $\{\mathrm{butter,bread}\}\Rightarrow\{\mathrm{milk}\}$
+\end_inset
+
+ meaning that if butter and bread are bought, customers also buy milk.
+\end_layout
+
+\begin_layout Subsection
+Support
+\end_layout
+
+\begin_layout Standard
+The support value of X with respect to T is defined as the proportion of
+ transactions in the database which contains the item-set X.
+ In formula:
+\begin_inset Formula 
+\[
+\mathrm{supp}(X)=P(X)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Confidence value of a Rule
+\end_layout
+
+\begin_layout Standard
+The confidence value of a rule, 
+\begin_inset Formula $X\Rightarrow Y$
+\end_inset
+
+ , with respect to a set of transactions 
+\begin_inset Formula $T$
+\end_inset
+
+, is the proportion of the transactions that contains 
+\begin_inset Formula $X$
+\end_inset
+
+ which also contains 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Confidence is defined as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathrm{conf}(X\Rightarrow Y)=\mathrm{supp}(X\cup Y)/\mathrm{supp}(X).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Lift
+\end_layout
+
+\begin_layout Standard
+The lift of a rule is defined as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathrm{lift}(X\Rightarrow Y)=\frac{\mathrm{supp}(X\cup Y)}{\mathrm{supp}(X)\times\mathrm{supp}(Y)}
+\]
+
+\end_inset
+
+or the ratio of the observed support to that ratio whrn X and Y were independent.
+\end_layout
+
+\begin_layout Subsection
+Conviction of a rule
+\end_layout
+
+\begin_layout Standard
+The conviction of a rule is defined as 
+\begin_inset Formula 
+\[
+\mathrm{conv}(X\Rightarrow Y)=\frac{1-\mathrm{supp}(Y)}{1-\mathrm{conf}(X\Rightarrow Y)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+can be interpreted as the ratio of the expected frequency that X occurs
+ without Y (that is to say, the frequency that the rule makes an incorrect
+ prediction) if X and Y were independent divided by the observed frequency
+ of incorrect predictions
+\end_layout
+
+\begin_layout Section
+Simplification
+\end_layout
+
+\begin_layout Standard
+See ESL P500
+\end_layout
+
+\begin_layout Standard
+Suppose 
+\begin_inset Formula $v_{l}$
+\end_inset
+
+ is a feature vector (may have smaller dimention than the full feature vector)
+ that has certain values.
+\end_layout
+
+\begin_layout Standard
+More generally, the basic goal of association rule analysis is to find a
+ 
+\series bold
+collection
+\series default
+ of prototype X-values 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+, .
+ .
+ .
+ , 
+\begin_inset Formula $v_{L}$
+\end_inset
+
+ (where 
+\begin_inset Formula $v_{l}=p\times1$
+\end_inset
+
+ if we have 
+\begin_inset Formula $p$
+\end_inset
+
+ variables) for the feature vector X, such that the probability density
+ 
+\begin_inset Formula $P(v_{l})$
+\end_inset
+
+ evaluated at each of those values is relatively large.
+ In this general framework, the problem can be viewed as “mode finding”
+ or “bump hunting.” 
+\end_layout
+
+\begin_layout Standard
+A natural estimator for each 
+\begin_inset Formula $Pr(v_{l})$
+\end_inset
+
+ is the fraction of observations for which 
+\begin_inset Formula $X=v_{l}$
+\end_inset
+
+.
+ For problems that involve more than a small number of variables, each of
+ which can assume more than a small number of values, the number of observations
+ for which X = 
+\begin_inset Formula $v_{l}$
+\end_inset
+
+ will nearly always be too small for reliable estimation.
+\end_layout
+
+\begin_layout Standard
+So we list following simplification rules
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Not values, but regions
+\end_layout
+
+\begin_layout Standard
+The first simplification modifies the goal.
+ Instead of seeking values x where Pr(x) is large, one seeks regions of
+ the X-space with high probability
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $S_{j}$
+\end_inset
+
+represent the set of all possible values of the jth variable (its support),
+ and let sj ⊆ Sj be a subset of these values.
+\end_layout
+
+\begin_layout Standard
+The goal is to find 
+\begin_inset Formula $s_{1},....s_{p}$
+\end_inset
+
+ such that the following probablity is Large:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\bigcap_{j}^{p}X_{j}\in s_{j})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For quantitative variables
+\series bold
+ the subsets 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ are continous intervals
+\series default
+ (thus not values, not regions); for categorical variables the subsets are
+ delineated explicitly.
+\end_layout
+
+\begin_layout Itemize
+If the 
+\begin_inset Formula $s_{j}=S_{j}$
+\end_inset
+
+ then that the 
+\begin_inset Formula $j^{th}$
+\end_inset
+
+ variable 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ can be deleted from the calculation above.
+\end_layout
+
+\begin_layout Subsection
+Further Simplification in Market Basket Analysis
+\end_layout
+
+\begin_layout Standard
+We would only consider those 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ that are either a single value 
+\begin_inset Formula $v_{0j}$
+\end_inset
+
+ (groups of categorical vars or 
+\series bold
+intervals of continous values are not allowed) or 
+\begin_inset Formula $s_{j}=S_{j}$
+\end_inset
+
+ (
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ is the total set of variable 
+\begin_inset Formula $j$
+\end_inset
+
+, it contains all possible values of variable 
+\begin_inset Formula $j$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Standard
+This simplifies the problem (14.2) to finding subsets of the integers J ⊂
+ {1, .
+ .
+ .
+ , p}, and corresponding values 
+\begin_inset Formula $v_{0j}$
+\end_inset
+
+, j ∈ J , such that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\bigcap_{j\in J}^{p}X_{j}=v_{0j})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If the 
+\begin_inset Formula $s_{j}=S_{j}$
+\end_inset
+
+ then that the 
+\begin_inset Formula $j^{th}$
+\end_inset
+
+ variable 
+\begin_inset Formula $X_{j}$
+\end_inset
+
+ can be deleted from the calculation above.
+\end_layout
+
+\begin_layout Standard
+When we only allow 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ to be a single value, or the total set which we can delete it the 
+\begin_inset Formula $j$
+\end_inset
+
+, we can further represent the data with only dummy variables 
+\begin_inset Formula $Z_{1}....Z_{K}$
+\end_inset
+
+, where 
+\begin_inset Formula $K=\sum^{p}|S_{j}|$
+\end_inset
+
+ and 
+\begin_inset Formula $|S_{j}|$
+\end_inset
+
+ is the number of unique values in variable 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ The process is like how R use model.frame to deal with categorical variables.
+ 
+\end_layout
+
+\begin_layout Standard
+Now the goal becomes find a subset of the integers K ⊂ {1, .
+ .
+ .,K} such that the following probability is large:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\bigcap_{K\in K}^{p}Z_{k}=1)=P(\prod_{k\in K}Z_{j}=1)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The goal of association rule is to find all 
+\begin_inset Formula $k$
+\end_inset
+
+ such that 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\{k|\mbox{supp(K)>T}\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $T$
+\end_inset
+
+ is just certain lower bound
+\end_layout
+
+\begin_layout Section
+Apriori Algorithm
+\end_layout
+
+\begin_layout Standard
+First See: http://www3.cs.stonybrook.edu/~cse634/lecture_notes/07apriori.pdf
+ .
+\end_layout
+
+\begin_layout Standard
+ESL p506 is not clear enough.
+\end_layout
+
+\begin_layout Standard
+TID List of Items 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I1, I2, I5
+\end_layout
+
+\begin_layout Itemize
+I2, I4 
+\end_layout
+
+\begin_layout Itemize
+I2, I3
+\end_layout
+
+\begin_layout Itemize
+I1, I2, I4
+\end_layout
+
+\begin_layout Itemize
+I1, I3
+\end_layout
+
+\begin_layout Itemize
+I2, I3
+\end_layout
+
+\begin_layout Itemize
+I1, I3 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I1, I2 ,I3, I5
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I1, I2, I3 
+\end_layout
+
+\begin_layout Subsection
+Step 1: Set up min support and confidence
+\end_layout
+
+\begin_layout Standard
+Suppose min.
+ support count required is 
+\begin_inset Formula $T=$
+\end_inset
+
+2 (i.e.
+ min_sup = 2/9 = 22 % ).
+ Let minimum confidence required is 70%.
+\end_layout
+
+\begin_layout Subsection
+Step 2: Search the Frequent Sets
+\end_layout
+
+\begin_layout Enumerate
+First search all possible 1-item sets that appeared : The set of frequent
+ 1-item sets, L1, consists of the candidate 1-itemsets satisfying minimum
+ support (at least appear twice if 
+\begin_inset Formula $T=2$
+\end_inset
+
+): {I1}, {I2}, {I3}, {I4}, {I5} 
+\end_layout
+
+\begin_layout Enumerate
+Among those frequent 1-item sets, search frequent (support 
+\begin_inset Formula $\ge2$
+\end_inset
+
+) 2-item set:{I1, I2}, {I1, I3}, {I1, I5},{I2, I3}, {I2, I4}, {I2, I5}
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+They must all be maade up be elements in the 1-item sets selected in the
+ first step
+\end_layout
+
+\begin_layout Enumerate
+They must all appears at least twice in the original data.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Among those frequent 2-items sets, we find frequent {{I1, I2, I3}, {I1,
+ I2, I5}} --(Just find the three-items sets that appears at least twice
+ in the data)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Why 
+\series default
+{I2, I3, I5} 
+\series bold
+is excluded? Apriori Property: Any subset of frequent itemset must be frequent
+\series default
+: {I2, I3, I5} which shows how the pruning is performed.
+ The 2-item subsets are {I2, I3}, {I2, I5} & {I3,I5}.
+ •BUT, {I3, I5} is not a member of L2 and hence it is not frequent violating
+ Apriori Property.
+ Thus We will have to remove {I2, I3, I5} from C3.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+The algorithm uses L3 Join L3 to generate a candidate set of 4-itemsets,
+ C4.
+ Although the join results in {{I1, I2, I3, I5}}, this itemset is pruned
+ since its subset {{I2, I3, I5}}is not frequent.
+\end_layout
+
+\begin_layout Enumerate
+Thus, C4 is empty, and algorithm terminates, having found all of the frequent
+ items.
+ This completes our Apriori Algorithm
+\end_layout
+
+\begin_layout Subsection
+Step 3: Generating Association Rules
+\end_layout
+
+\begin_layout Standard
+Procedure:
+\end_layout
+
+\begin_layout Enumerate
+•For each frequent itemset 
+\begin_inset Formula $I$
+\end_inset
+
+, generate all nonempty subsets of it, 
+\begin_inset Formula $s$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+therefore, all those frequent 1-item sets are not eligible to participate
+ in association rule, as they don't have non-empty subset!
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+For every nonempty subset 
+\begin_inset Formula $s$
+\end_inset
+
+ of 
+\begin_inset Formula $I$
+\end_inset
+
+, output the rule 
+\begin_inset Formula $s\rightarrow I_{-s}$
+\end_inset
+
+if support_count(l) / support_count(s) >= min_conf, where min_confis minimum
+ confidence threshold.
+\end_layout
+
+\begin_layout Standard
+For example, {I1,I2,I5}, Its all nonempty subsets are {I1,I2}, {I1,I5},
+ {I2,I5}, {I1}, {I2}, {I5}.
+\end_layout
+
+\begin_layout Standard
+Let minimum confidence thresholdis , say 70%.
+ 
+\end_layout
+
+\begin_layout Standard
+The resulting association rules are shown below, each listed with its confidence.
+ 
+\end_layout
+
+\begin_layout Standard
+–R1: I1 ^ I2 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+I5 •Confidence = sc{I1,I2,I5}/sc{I1,I2} = 2/4 = 50% •R1 is Rejected.
+ 
+\end_layout
+
+\begin_layout Standard
+–R2: I1 ^ I5 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+I2 •Confidence = sc{I1,I2,I5}/sc{I1,I5} = 2/2 = 100% •R2 is Selected.
+ 
+\end_layout
+
+\begin_layout Standard
+–R3: I2 ^ I5 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+I1 •Confidence = sc{I1,I2,I5}/sc{I2,I5} = 2/2 = 100% •R3 is Selected.
+\end_layout
+
+\begin_layout Standard
+etc
+\end_layout
+
+\begin_layout Subsection
+Methods to Improve Apriori’s Efficiency
+\end_layout
+
+\begin_layout Standard
+Bottlenecks of Apriori: candidate generation Generate huge candidate sets:
+ 
+\begin_inset Formula $10^{4}$
+\end_inset
+
+ frequent 1-itemset will generate 
+\begin_inset Formula $10^{7}$
+\end_inset
+
+ candidate 2-itemsets...
+\end_layout
+
+\begin_layout Itemize
+Transaction reduction: A transaction that does not contain any frequent
+ k-itemsetis useless in subsequent scans.
+ 
+\end_layout
+
+\begin_layout Itemize
+Partitioning: Any itemset that is potentially frequent in DB must be frequent
+ in at least one of the partitions of DB.
+\end_layout
+
+\begin_layout Itemize
+Sampling: mining on a subset of given data, lower support threshold + a
+ method to determine the completeness.
+\end_layout
+
+\begin_layout Subsection
+FP-tree
+\end_layout
+
+\begin_layout Standard
+See: Mining Frequent Patterns without Candidate Generation
+\end_layout
+
+\begin_layout Part
+Deep Learning
+\end_layout
+
+\begin_layout Itemize
+http://neuralnetworksanddeeplearning.com/index.html
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Neural Networks and Deep Learning is a free online book.
+ The book will teach you about:
+\end_layout
+
+\begin_layout Standard
+Neural networks, a beautiful biologically-inspired programming paradigm
+ which enables a computer to learn from observational data Deep learning,
+ a powerful set of techniques for learning in neural networks
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+深度学习入门资源索引
+\end_layout
+
+\begin_layout Standard
+深度学习（Deep Learning）属于非常前沿的学科，没有现成的的综合型教材，主要是通过阅读大量论文和代码练习来学习。值得读的经典论文很多，下面介绍的一些教
+程中多少都有提及，另外就是去google重要文献。代码方面推荐使用python为基础的theano框架，因为它比较偏底层，可以从细节掌握如何构建一个深度学习模块
+，而且方便结合python在数据领域的其它积累，例如numpy。当然到了生产环境你可以再考虑torch之类的框架。从代码角度切入学习的好处是，理解起来不会像理论
+切入那么枯燥，可以很快做起一个好玩的东西。当然，最后你还是得补充理论的。下面精选介绍一些本人在学习时遇到的好教程。
+\end_layout
+
+\begin_layout Standard
+1、入门首选：
+\end_layout
+
+\begin_layout Standard
+http://deeplearning.net/tutorial/
+\end_layout
+
+\begin_layout Standard
+该站提供了一系列的theano代码示范，通过研究模仿，就可以学会包括NN/DBN/CNN/RNN在内的大部分主流技术。其中也有很多文献连接以供参考。
+\end_layout
+
+\begin_layout Standard
+2、BP神经网络：
+\end_layout
+
+\begin_layout Standard
+http://neuralnetworksanddeeplearning.com/
+\end_layout
+
+\begin_layout Standard
+第1部分的教程中，神经网格的参数是theano自动求导的，如果想深入了解细节，还得手动推导加代码实现一遍。该教程对BP神经网络的理论细节讲的非常好。
+\end_layout
+
+\begin_layout Standard
+3、理论补充：
+\end_layout
+
+\begin_layout Standard
+http://goodfeli.github.io/dlbook/
+\end_layout
+
+\begin_layout Standard
+该书内容比较广泛，虽未最终完成，但已初见气象。用来完善理论知识是再好不过。
+\end_layout
+
+\begin_layout Standard
+4、图像处理中的卷积神经网络：
+\end_layout
+
+\begin_layout Standard
+http://vision.stanford.edu/teaching/cs231n/syllabus.html
+\end_layout
+
+\begin_layout Standard
+前面三部分相当于导论，比较宽泛一些，该教程则是专注于卷积神经网络在图像视觉领域的运用，CNN方面知识由此深入。
+\end_layout
+
+\begin_layout Standard
+5、自然语言处理中的深度学习：
+\end_layout
+
+\begin_layout Standard
+http://cs224d.stanford.edu/
+\end_layout
+
+\begin_layout Standard
+本教程则偏重于深度学习在自然语言处理领域的运用，词向量等方面知识由此深入。
+\end_layout
+
+\begin_layout Standard
+6、递归神经网络：
+\end_layout
+
+\begin_layout Standard
+http://www.wildml.com/
+\end_layout
+
+\begin_layout Standard
+该博客讲的RNN是非常棒的系列，不可不读。
+\end_layout
+
+\begin_layout Standard
+7、keras框架：
+\end_layout
+
+\begin_layout Standard
+http://keras.io/
+\end_layout
+
+\begin_layout Standard
+keras框架是基于theano的上层框架，容易快速出原型，网站中提供的大量实例也是非常难得的研究资料。
+\end_layout
+
+\begin_layout Standard
+8、深度学习和NLP
+\end_layout
+
+\begin_layout Standard
+https://github.com/nreimers/deeplearning4nlp-tutorial/tree/master/2015-10_Lecture
+\end_layout
+
+\begin_layout Standard
+该教程是第5部分的补充，理论讲的不多，theano和keras代码讲的很多，附带的代码笔记很有参考价值。
+\end_layout
+
+\begin_layout Standard
+9、机器学习教程
+\end_layout
+
+\begin_layout Standard
+https://www.cs.ox.ac.uk/people/nando.defreitas/machinelearning/
+\end_layout
+
+\begin_layout Standard
+牛津大学的机器学习课程，讲到了大量深度学习和强化学习的内容，适合于复习过一遍。
+\end_layout
+
+\begin_layout Standard
+10、搭建硬件平台
+\end_layout
+
+\begin_layout Standard
+http://xccds1977.blogspot.com/2015/10/blog-post.html
+\end_layout
+
+\begin_layout Standard
+到这里，你的理论和代码功力应该差不多入门了，可以组个GPU机器来大干一场了。可以参考笔者这个博客来攒个机器。
+\end_layout
+
+\begin_layout Standard
+11、去kaggle实战玩玩吧
+\end_layout
+
+\begin_layout Standard
+http://www.kaggle.com/
+\end_layout
+
+\begin_layout Standard
+12、最后补充一个比较新的资源，udacity上的一门深度学习公开课
+\end_layout
+
+\begin_layout Standard
+https://www.udacity.com/course/deep-learning--ud730
+\end_layout
+
+\end_body
+\end_document
