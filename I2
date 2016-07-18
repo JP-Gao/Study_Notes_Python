@@ -4,54 +4,102 @@
 \begin_header
 \textclass article
 \begin_preamble
-\usepackage{ifxetex}
-\usepackage{ifluatex}\usepackage{fixltx2e}% provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-\else
-    \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
-\fi
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
-\urlstyle{same}  % don't use monospace font for urls
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+%%%%%%%%%%%
+\usepackage{color}
+\usepackage{xcolor}
+% \definecolor{keywordcolor}{rgb}{0.8,0.1,0.5}
+\usepackage{listings}
+\lstset{breaklines}%这条命令可以让LaTeX自动将长的代码行换行排版
+\lstset{extendedchars=false}%这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题
+\lstset{language= R, %用于设置语言为C++
+  %背景框
+  framexleftmargin=10mm,
+  frame=none,
+  %背景色
+  %backgroundcolor=\color[rgb]{1,1,0.76},
+  backgroundcolor=\color[RGB]{245,245,244},
+  %样式
+  keywordstyle=\bf\color{blue},
+  identifierstyle=\bf,
+  numberstyle=\color[RGB]{0,192,192},
+  commentstyle=\it\color[RGB]{0,96,96},
+  stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},
+  %显示空格
+  showstringspaces=false,
+  xleftmargin=2em, %边距
+  xrightmargin=2em, 
+  aboveskip=1em
 }
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
+
+%%%%%%%%%%%%
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+%%%%%%%%%%%
+\usepackage{color}
+\usepackage{xcolor}
+% \definecolor{keywordcolor}{rgb}{0.8,0.1,0.5}
+\usepackage{listings}
+\lstset{breaklines}%这条命令可以让LaTeX自动将长的代码行换行排版
+\lstset{extendedchars=false}%这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题
+\lstset{language= R, %用于设置语言为C++
+  %背景框
+  framexleftmargin=10mm,
+  frame=none,
+  %背景色
+  %backgroundcolor=\color[rgb]{1,1,0.76},
+  backgroundcolor=\color[RGB]{245,245,244},
+  %样式
+  keywordstyle=\bf\color{blue},
+  identifierstyle=\bf,
+  numberstyle=\color[RGB]{0,192,192},
+  commentstyle=\it\color[RGB]{0,96,96},
+  stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},
+  %显示空格
+  showstringspaces=false,
+  xleftmargin=2em, %边距
+  xrightmargin=2em, 
+  aboveskip=1em
+}
+
+
+%%%%%%%%%%%%
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
 \end_preamble
-\use_default_options false
+\use_default_options true
 \maintain_unincluded_children false
 \language english
-\language_package none
-\inputencoding utf8
-\fontencoding T1
-\font_roman lmodern
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
 \font_sans default
-\font_typewriter lmodern
+\font_typewriter default
 \font_math auto
 \font_default_family default
 \use_non_tex_fonts true
@@ -60,31 +108,32 @@
 \font_sf_scale 100
 \font_tt_scale 100
 \graphics default
-\default_output_format default
+\default_output_format pdf4
 \output_sync 0
 \bibtex_command default
 \index_command default
 \paperfontsize default
 \spacing single
 \use_hyperref true
-\pdf_bookmarks false
-\pdf_bookmarksnumbered false
-\pdf_bookmarksopen false
-\pdf_bookmarksopenlevel 1
-\pdf_breaklinks true
-\pdf_pdfborder true
-\pdf_colorlinks false
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
 \pdf_backref section
-\pdf_pdfusetitle false
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
 \papersize default
-\use_geometry false
-\use_package amsmath 2
-\use_package amssymb 2
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
 \use_package cancel 0
 \use_package esint 1
-\use_package mathdots 0
+\use_package mathdots 1
 \use_package mathtools 0
-\use_package mhchem 0
+\use_package mhchem 1
 \use_package stackrel 0
 \use_package stmaryrd 0
 \use_package undertilde 0
@@ -94,14 +143,18 @@
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
-\suppress_date true
+\suppress_date false
 \justification true
-\use_refstyle 0
+\use_refstyle 1
 \index Index
 \shortcut idx
 \color #008000
 \end_index
-\secnumdepth 0
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
@@ -118,7 +171,547 @@
 
 \begin_body
 
+\begin_layout Part
+IV
+\end_layout
+
 \begin_layout Section
+T
+\end_layout
+
+\begin_layout Standard
+1.
+ Are you legally authorized to work in US?
+\end_layout
+
+\begin_layout Standard
+a.
+ Yes
+\end_layout
+
+\begin_layout Standard
+2.
+ Will you need visa sponsorship?
+\end_layout
+
+\begin_layout Standard
+a.
+ Yes
+\end_layout
+
+\begin_layout Standard
+3.
+ Current visa status and when expire?
+\end_layout
+
+\begin_layout Standard
+a.
+ I’m in H1B visa since Oct 2014.
+\end_layout
+
+\begin_layout Standard
+b.
+ H1B visa will last 6 years, so it will expire at Oct 2020.
+\end_layout
+
+\begin_layout Standard
+4.
+ Where do you live
+\end_layout
+
+\begin_layout Standard
+a.
+ 1136 Worth Ln, Claymont, Delaware 19703
+\end_layout
+
+\begin_layout Standard
+5.
+ Highest Education
+\end_layout
+
+\begin_layout Standard
+a.
+ Master at Duke University
+\end_layout
+
+\begin_layout Standard
+6.
+ Have you interviewed with Twitter before
+\end_layout
+
+\begin_layout Standard
+a.
+ No
+\end_layout
+
+\begin_layout Standard
+7.
+ Why Twitter:
+\end_layout
+
+\begin_layout Standard
+a.
+ First of all, as my girlfriend found a job in San Francisco, I have to
+ move there….
+\end_layout
+
+\begin_layout Standard
+b.
+ This Data Science position at Twitter is about extensive programming, hard-core
+ modelling and story-telling 
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Section
+F
+\end_layout
+
+\begin_layout Standard
+Thanh Nguyen <thanhn@fb.com>
+\end_layout
+
+\begin_layout Standard
+Data Scientist, Analytics (Menlo Park, CA) Facebook was built to help people
+ connect and share, and over the last decade our tools have played a critical
+ part in changing how people around the world communicate with one another.
+ With over a billion people using the service and more than fifty offices
+ around the globe, a career at Facebook offers countless ways to make an
+ impact in a fast growing organization.
+ We’re looking for data scientists to work on our core and business products
+ 
+\series bold
+(ex.
+ Instagram, Messaging, Growth, Engagement, Ads)
+\series default
+ to help shape the future of what we build at Facebook.
+ 
+\end_layout
+
+\begin_layout Standard
+Apply your expertise in quantitative analysis, data mining, and the presentation
+ of data to see beyond the numbers and understand how our users interact
+ with both our consumer and business products Partner with Product and Engineeri
+ng teams to solve problems and identify trends and opportunities Inform,
+ influence, support, and execute our product decisions and product launches
+ 
+\end_layout
+
+\begin_layout Standard
+The
+\series bold
+ Data Scientist Analytics 
+\series default
+role has work across the following four areas: 
+\end_layout
+
+\begin_layout Standard
+Product Operations 
+\end_layout
+
+\begin_layout Standard
+Forecasting and setting product team goals 
+\end_layout
+
+\begin_layout Standard
+Designing and evaluating experiments 
+\end_layout
+
+\begin_layout Standard
+Monitoring key product metrics, understanding root causes of changes in
+ metrics 
+\end_layout
+
+\begin_layout Standard
+Building and analyzing dashboards and reports 
+\end_layout
+
+\begin_layout Standard
+Building key data sets to empower operational and exploratory analysis 
+\end_layout
+
+\begin_layout Standard
+Evaluating and defining metrics 
+\end_layout
+
+\begin_layout Standard
+Exploratory Analysis Proposing what to build in the next roadmap Understanding
+ ecosystems, user behaviors, and long-term trends 
+\end_layout
+
+\begin_layout Standard
+Identifying new levers to help move key metrics 
+\end_layout
+
+\begin_layout Standard
+Building models of user behaviors for analysis or to power production systems
+ 
+\end_layout
+
+\begin_layout Standard
+Product Leadership Influencing product teams through presentation of data-based
+ recommendations Communicating state of business, experiment results, etc
+ to product teams 
+\end_layout
+
+\begin_layout Standard
+Spreading best practices to analytics and product teams Data Infrastructure
+ Working in Hadoop and Hive primarily, sometimes MySQL, Oracle, and Vertica
+ Automating analyses and authoring pipelines via SQL and python based ETL
+ framework Requirements
+\end_layout
+
+\begin_layout Standard
+2+ years experience doing quantitative analysis.
+ BA/BS in Computer Science, Math, Physics, Engineering, Statistics or other
+ technical field.
+ Advanced degrees preferred.
+ Experience in SQL or other programming languages.
+ Development experience in any scripting language (PHP, Python, Perl, etc.)
+ 
+\end_layout
+
+\begin_layout Standard
+Ability to initiate and drive projects to completion with minimal guidance.
+ Ability to communicate the results of analyses in a clear and effective
+ manner with product and leadership teams to influence the overall strategy
+ of the product.
+ 
+\end_layout
+
+\begin_layout Standard
+Basic understanding of statistics (e.g., hypothesis testing, regressions).
+ Experience manipulating large data sets through statistical software (ex.
+ R, SAS) or other methods.
+ Experience with distributed computing (Hive/Hadoop) a plus.
+\end_layout
+
+\begin_layout Section
+U
+\end_layout
+
+\begin_layout Subsection
+Why U
+\end_layout
+
+\begin_layout Standard
+First, my girlfirend just found a job in San F, so I have to move there.
+ Secondly, U is such a cool and fast growing c, I would be super proud if
+ I get a chance to work there,
+\end_layout
+
+\begin_layout Standard
+Also this role is called Data Scientist, Strategic Finance, which really
+ fits my background.
+ 
+\end_layout
+
+\begin_layout Standard
+First of all, I reallly want to do data science -- to do some hard-core
+ modelling, 
+\end_layout
+
+\begin_layout Standard
+but at the same time, I want to have something to do with economics and
+ finance, because I got a lot of experience from the finance sector.
+\end_layout
+
+\begin_layout Standard
+So this position is really a combination of data science and ecnomic modelling,
+ that why I think I would be a great fit for this role.
+\end_layout
+
+\begin_layout Subsection
+Strategic Finance Associate
+\end_layout
+
+\begin_layout Standard
+Application
+\end_layout
+
+\begin_layout Standard
+I applied through an employee referral.
+ I interviewed at Uber.
+\end_layout
+
+\begin_layout Standard
+Interview
+\end_layout
+
+\begin_layout Standard
+Phone screen (straight-forward to gauge interest with a few high level case
+ questions), 2hr Analytics Test (Very difficult, necessary to utilize all
+ the time allotted), Phone Interview w/ 2 Associates (almost no behavioral
+ questions, just high-level case questions)
+\end_layout
+
+\begin_layout Standard
+I had a great experience leading up to my 2nd of 2 phone interviews, which
+ was clearly the turning point in my overall interview experience.
+ The guy was a little arrogant and not prepared, asking the same questions
+ as the previous interviewer and mumbling/speaking in an unclear manner.
+ I did my best to recap his questions, which he rattled off in a jumbled
+ fashion, but apparently, I didn't respond well enough to make it to the
+ next round.Show Less
+\end_layout
+
+\begin_layout Standard
+Interview Questions
+\end_layout
+
+\begin_layout Standard
+Name 5 key metrics one would look at to gauge the ongoing success of Uber.
+ Answer Question When entering a new market, which is more important to
+ establish first: supply or demand? 
+\end_layout
+
+\begin_layout Subsection
+Senior Financial Analyst 
+\end_layout
+
+\begin_layout Standard
+Final round interview was a two-step Excel test at the office.
+ First, I was asked to create a dynamic pricing model for a hypothetical
+ expansion scenario with functionality to measure the effect on profit from
+ changing various input drivers.
+ Next we walked through an old expense forecasting model the company used
+ to use, and I was asked to simply talk about some of the ways the model
+ could be improved.
+ 
+\end_layout
+
+\begin_layout Subsection
+Global Business Analyst 
+\end_layout
+
+\begin_layout Standard
+What KPIs should Uber use to measure success in a new city.
+ KPIs related to driver optimization, etc.
+ 
+\end_layout
+
+\begin_layout Subsection
+Data Scientist, Strategic Finance
+\end_layout
+
+\begin_layout Standard
+The quantitative research team within Strategic Finance is looking for entry/mid
+ level data scientist in the field of econometrics, time series analysis
+ and machine learning to help with modeling work related to 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+rider/driver elasticity, 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+understanding supply-demand relationships and much more.
+ 
+\end_layout
+
+\begin_layout Standard
+You will be working with team of data scientists responsible for providing
+ insights to the finance leadership to make financial decisions.
+ This is a unique opportunity to apply your math skills in growing Uber
+ and having a direct impact on building an efficient transportation system.
+\end_layout
+
+\begin_layout Standard
+The perfect candidate for this role is someone with a highly analytical
+ background and at the same time has the ability to communicate the results
+ to folks in finance, operations, etc.
+ This role will be working very closely with company executives.
+ Prior experience or a desire to work with executives is a plus.
+ 
+\series bold
+[part of jobs is to transform the numbers into strories, and make up decks
+ to present to the management.]
+\end_layout
+
+\begin_layout Standard
+WHAT YOU’LL DO:
+\end_layout
+
+\begin_layout Standard
+Develop mathematical models related to 
+\series bold
+pricing optimization
+\series default
+ that will scale across major cities in which we operate Spend time researching
+ state of the art techniques and implementing them Collaborate across the
+ organization to iterate on forecasts and provide transparency for key business
+ decisions.
+\end_layout
+
+\begin_layout Standard
+Day to day activities involve
+\series bold
+ pulling data from warehouse, back-testing the model, comparing the model
+ performance and communicating the results
+\end_layout
+
+\begin_layout Standard
+WHAT WE’RE LOOKING FOR:
+\end_layout
+
+\begin_layout Standard
+PhD in Applied Maths, Operations Research, Computer Science, Engineering,
+ Computational Finance or Economics.
+ MS graduates with 3 years experience can also apply.
+\end_layout
+
+\begin_layout Standard
+Strong coding experience in one (or more) scientific programming languages
+ like Python/R.
+ 
+\end_layout
+
+\begin_layout Standard
+Knowledge of object-oriented programming paradigm is a plus.
+ If you have experience with major programming language [Java, C++], its
+ even better!
+\end_layout
+
+\begin_layout Standard
+Strong background in 
+\series bold
+stochastic modeling, regression, time series analysis and techniques like
+ PCA etc.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Experience developing scalable mathematical models and solving complex quantitat
+ive problems.
+\end_layout
+
+\begin_layout Standard
+Be able to translate the model into a story to major stakeholders.
+ As a data scientist, being able to explain your model to wide variety of
+ audience is a key.
+\end_layout
+
+\begin_layout Standard
+Experience with databases and data pulling tools (SQL, SQL Server, Vertica).
+\end_layout
+
+\begin_layout Standard
+Experience with Git (share your github, stackoverflow, statexchange pages!).
+\end_layout
+
+\begin_layout Standard
+Willingness to adapt in fast-paced work environment; is a strong team player
+\end_layout
+
+\begin_layout Subsection
+Senior Associate - Strategic Finance, Growth Finance
+\end_layout
+
+\begin_layout Standard
+The mission of the Growth Finance team is to optimize Uber’s growth by developin
+g innovative forecast models, real-time performance monitoring tools, and
+ profit-maximizing decision frameworks.
+ As the name implies, this team is focused 100% on helping Uber grow as
+ quickly and profitably as possible.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+In practice, this is achieved through three major types of responsibilities:
+ 1) partner closely with our Finance Data Science team (but literally, they’re
+ actual scientists) to develop new methods of forecasting Uber’s exponential
+ growth, 2) partner closely with the Performance Marketing team to optimize
+ and monitor Uber’s global marketing strategy, and 3) perform detailed ad
+ hoc analyses on a variety of growth related topics.
+\end_layout
+
+\begin_layout Standard
+So if you're ready to dive into a rewarding set of challenges and you've
+ got the proven financial skills, experience, passion, and strong team mentality
+ - read on and get in touch! The ideal candidate has an entrepreneurial
+ spirit, hustles hard, and can handle the ever-changing environment of a
+ start up with a charisma that is consistent with the Uber brand.
+\end_layout
+
+\begin_layout Standard
+WHAT YOU'LL DO:
+\end_layout
+
+\begin_layout Standard
+Sophisticated financial and operational modeling - 
+\series bold
+you’ll build models directly in Excel, but you’ll also help develop complex
+ model frameworks for the Finance Data Science team to ultimately code in
+ R 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Business partnering - work closely with Marketing leaders to develop financial
+ forecasts, execute on operational goals, and optimize our marketing spend
+\end_layout
+
+\begin_layout Standard
+Special projects / ad hoc analyses - new initiatives, products, risks and
+ opportunities are constantly arising.
+ You will help evaluate and drive these important initiatives Project manage
+ - as we operationalize our data-driven insights, you will need the ability
+ to own projects from start to finish, ensuring all teams involved are deliverin
+g high-quality results quickly and on time
+\end_layout
+
+\begin_layout Standard
+WHAT YOU'LL NEED:
+\end_layout
+
+\begin_layout Standard
+BS/BA in Finance, Accounting, Economics, or similar 4-6 years in Banking,
+ Management Consulting and/or Corporate finance / operational FP&A at either
+ a high-growth tech startup or a large, well-established company Exceptional
+ Excel / financial modeling skills.
+ 
+\end_layout
+
+\begin_layout Standard
+Best practices are second-nature, you can handle complexity but strive for
+ simplicity 
+\end_layout
+
+\begin_layout Standard
+Hustle - hustle and passion are the lifeblood of Uber.
+ We move fast and deliver results because of our hustle and passion Excellent
+ communication (written and verbal) and relationship building skills - numbers
+ are key, but a business is built with people.
+ You possess the ability to distill complex analyses and nuanced problems
+ into simple, logical frameworks with concrete action plans.
+ High emotional intelligence and adept communication are required in our
+ fast-moving environment Team player - this is a highly collaborative and
+ supportive team environment Entrepreneurial self-starter - we don't have
+ time or desire to micro-manage.
+ You will take initiative, be proactive and resourceful, set and drive toward
+ solutions / goals in a fast-paced, rapidly-evolving environment 
+\end_layout
+
+\begin_layout Standard
+Nice to have - SQL or R skills - the ability to self-serve, investigate
+ and produce the data we require is key 
+\end_layout
+
+\begin_layout Standard
+Nice to have - Systems - working knowledge of enterprise-level financial
+ planning systems
+\end_layout
+
+\begin_layout Part
 Method
 \end_layout
 
@@ -142,7 +735,7 @@ Growth pressure vs.
 
 \begin_layout Itemize
 Liberate vt.
- 解放；释放；放出 
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -218,18 +811,8 @@ Pleasing adj.
  令人喜爱的;使人愉快的;令人满意的 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Culture
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "culture"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
@@ -243,7 +826,7 @@ Doable + No one has done it.
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Model
 \end_layout
 
@@ -252,7 +835,7 @@ Model: simplicity, robustness, elegance, scalable.
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Code
 \end_layout
 
@@ -282,339 +865,7 @@ Exclamation Mark.
 省略号 suspension points
 \end_layout
 
-\begin_layout Section
-At JP Morgan Chase
-\end_layout
-
-\begin_layout Subsubsection
-Summary
-\end_layout
-
-\begin_layout Standard
-We use the loss forecasting model to simulate the credit card portfolio
- under different economics scenarios.
-\end_layout
-
-\begin_layout Standard
-We also built the risk appetite framework, which are the maximum Loss we
- are willing to suffer in the recession.
-\end_layout
-
-\begin_layout Subsubsection
-Background: TOO BIG TO FAIL
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-This exercise is required by
-\series default
- the Federal Reserve, our regulators.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-BECAUSE
-\series default
- in the good time, like now, banks 
-\series bold
-tend
-\series default
- to take higher risk, for example booking the low FICO customers,
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-with the idea
-\series default
- that if the crisis comes, they know the government will come to 
-\series bold
-SAVE
-\series default
- them,
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-because
-\series default
- they are deeply rooted into the economy system.
-\end_layout
-
-\begin_layout Standard
-That is how we call too big to fail, or in economic theory, moral hazard.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-IN DETAIL
-\end_layout
-
-\begin_layout Standard
-
-\emph on
-So every quarter Federal Reserve will give us 3 economic scenarios, baseline,
- adverse and severely adverse.
- 
-\end_layout
-
-\begin_layout Standard
-And we 
-\series bold
-plug in
-\series default
- those scenarios into our model to 
-\series bold
-test the sensitivity
-\series default
- of our portfolio to economic macro factors,
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-The goal is to insure that
-\series default
- if another financial crisis happens tomorrow 
-\series bold
-un-expectedly
-\series default
-, then we have enough capital to survive through it.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-SUMMARY
-\end_layout
-
-\begin_layout Standard
-So our job is to insure our portfolio is 
-\series bold
-health enough today
-\series default
- so that tomorrow when crisis happens when can survive by ourselves, 
-\series bold
-no need the taxpayer's money!
-\end_layout
-
-\begin_layout Subsubsection
-Concentration Limit
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "concentration-limit"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-To insure that the max loss in the recession is above the limit, what is
- the worst possible portfolio composition.
-\end_layout
-
-\begin_layout Standard
-Essentially we want to constrain on the stressed unprofitable segment -
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-/
-\end_layout
-
-\end_inset
-
--
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-/
-\end_layout
-
-\end_inset
-
-- we make a lot of money from that segment during the good time, but then
- in bad time they will incur us a loss.
-\end_layout
-
-\begin_layout Subsubsection
-The analytical part of the job 
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "the-analytical-part-of-the-job"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Sometime the management question the model results, especially when the
- model predicts higher loss, which means you have to build reserve and shrink
- marking.
-\end_layout
-
-\begin_layout Standard
-So we have to dig into the model and find what variable, in which step causes
- this anomaly.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-The hard part
-\series default
-: is the model is not single model, it is a system of models\SpecialChar \ldots{}
-\SpecialChar \ldots{}
-.
-\end_layout
-
-\begin_layout Standard
-Tricks:
-\end_layout
-
-\begin_layout Standard
-\begin_inset FormulaMacro
-\newcommand{\labelenumi}{\arabic{enumi}.}
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Enumerate
-we first decompose the NI into interest income, interchange, fees, loss.
- 
-\end_layout
-
-\begin_layout Enumerate
-Then first metric, we look at it in two perspectives: ratios and balances
- 
-\end_layout
-
-\begin_layout Subsubsection
-The Modelling part of the job
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "the-modelling-part-of-the-job"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We use a weekly initial unemployment insurance claim (weekly IUIC) as our
- macro input, and
-\end_layout
-
-\begin_layout Standard
-We saw it dropped from 350 thousand to 250 thousand.
-\end_layout
-
-\begin_layout Standard
-But our loss forecasting goes up.
-\end_layout
-
-\begin_layout Standard
-So I was assigned to this job to investigate why this counter-intuitive
- thing happens
-\end_layout
-
-\begin_layout Standard
-It turned out to be:
-\end_layout
-
-\begin_layout Standard
-In our model, we didn't use the IUIC itself, we use the change of IUIC.
-\end_layout
-
-\begin_layout Standard
-But so as the actual IUIC dropped from 350 to 250, but the baseline scenario
- that Fed gave us, is always stabilize at 270,
-\end_layout
-
-\begin_layout Standard
-So previously, we have a positive gap between actual and forecasting, thus
- a positive impact, now as the situation improves, we turned out to have
- a negative gap.
-\end_layout
-
-\begin_layout Standard
-The takeaway is: ???
-\end_layout
-
-\begin_layout Standard
-Probably the sensitivity between our portfolio to the change of IUIC is
- not constant, what I mean is the coefficient of the change of IUIC may
- be not constant.
-\end_layout
-
-\begin_layout Standard
-It may be dependent on the level of IUIC itself.
-\end_layout
-
-\begin_layout Standard
-When the IUIC level is low, the sensitivity is low.
-\end_layout
-
-\begin_layout Standard
-we probably want to incorporate the level of IUIC, rather than only the
- change of IUIC.
-\end_layout
-
-\begin_layout Subsubsection
-Team Composition
-\end_layout
-
-\begin_layout Standard
-We got 3 seniors, 2 juniors plus our boss.
- So 6 people.
-\end_layout
-
-\begin_layout Enumerate
-Normally whenever we want to transform the 
-\series bold
-raw model output
-\series default
- to 
-\series bold
-a full income statement
-\series default
-, I will do it.
- Because my background in Finance and I know those accounting rules, assumptions
-, tricks,how to build and release reserves.
- 
-\end_layout
-
-\begin_layout Enumerate
-Another case is whenever there is case that a project is super quant that
- Excel or SAS cannot handle, then it is my job to attack it solve it, because
- I love quant stuff and I love to coding in R.
- 
-\end_layout
-
-\begin_layout Section
+\begin_layout Part
 2
 \begin_inset script superscript
 
@@ -631,12 +882,12 @@ nd
 Summary
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 50% of time is to develop and maintain loss forecasting models for credit
  card and Personal loans.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 50% of time is to sell our models to customers (marketing / finance).
  That turns out an equally interesting part as building the model.
 \end_layout
@@ -767,9 +1018,9 @@ If my loss forecasting is too high, and their campaign can not pass the
 \end_layout
 
 \begin_layout Enumerate
-Be really 
+Be 
 \series bold
-patient
+Patient
 \series default
 , because they don't know your model at all.
  
@@ -786,10 +1037,22 @@ consistent
 \series default
 , so they can have a clear expectation of what offer will pass the profit
  hurdle, what will not.
- We don't want to give them a surprise.
  
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+So everytime before we run the forecasting, we have to talk to them and
+ really understand what they 
+\series bold
+expect.
+ 
+\series default
+We don't want to give them a surprise.
+ 
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 
 \series bold
@@ -843,16 +1106,6 @@ But by being more active, more consistent, and communicating more, we worked
 
 \begin_layout Subsubsection
 Business: Serve Customer of Model
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "business-serve-customer-of-model"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1182,32 +1435,48 @@ AUTO validation with historical data, AUTO -- Visualization\SpecialChar \ldots{}
  
 \end_layout
 
-\begin_layout Section
+\begin_layout Part
 1'st Year at First National Bank of Omaha
 \end_layout
 
-\begin_layout Subsubsection
-Team: Credit Card strategy team
+\begin_layout Itemize
+We design strategies for different 
+\series bold
+actions
+\series default
+ on credit card customers.
+ 
 \end_layout
 
-\begin_layout Standard
-Our team owns every kind of credit risk policy of credit card after we book
- them.
+\begin_deeper
+\begin_layout Itemize
+For example, we do CLI: which line increase, so when we see a customer is
+ really profitable, then we will give him more line to spend.
+ 
 \end_layout
 
-\begin_layout Standard
-We design strategies for different actions on customers.
- For example, when we give you an offer, line increase, line decrease, suspensio
-n, authorization of contain transactions, especially when those transactions
- are over limit.
+\begin_layout Itemize
+Also line decrease, authorization of contain transactions, especially when
+ those transactions are over limit, or believed to be fraud.
 \end_layout
 
-\begin_layout Standard
-Also we need to communicate with marketing, IT and customer service people,
- to insure they understand our strategy, and listen feedback from them,
- because eventually It is those colleagues who implement our strategies.
+\end_deeper
+\begin_layout Itemize
+Our strategy will normally have a Huge & Diret impact on customers, so we
+ have to spend a lot time cumminating with marking or customer serivces
+ 
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+listen to their ideas when we design the strategy
+\end_layout
+
+\begin_layout Itemize
+listen to their feedback when we implement this strategy.
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 
 \series bold
@@ -1220,29 +1489,40 @@ So you see this kind of job really helps you understand the business, understand
 Project: Marketing Campaign
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 We really focus on the risk side of the campaign,
 \end_layout
 
-\begin_layout Standard
+\begin_deeper
+\begin_layout Itemize
 Our campaign is not only about booking as many as customers, but also about
  bringing in high profit and low risk customer.
 \end_layout
 
-\begin_layout Standard
-BUT normally marketing only cares response rate, so they have strong interest
+\begin_layout Itemize
+BUT normally Marketing only cares response rate, so they have strong interest
  to go for the high risk customers and give them good offers.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 But our risk team is really responsible to control the risk exposure of
  our portfolio.
 \end_layout
 
-\begin_layout Standard
+\end_deeper
+\begin_layout Itemize
 So this is an OPTIMIZATION problem in which you have to really combine the
- response rate and profit per customer together, to maximize the overall
- profit.
+ 
+\series bold
+response rate 
+\series default
+and 
+\series bold
+profit per customer together
+\series default
+, t
+\series bold
+o maximize the overall profit.
 \end_layout
 
 \begin_layout Itemize
@@ -1265,16 +1545,6 @@ Adverse Selection.
 
 \begin_layout Subsubsection
 Project: Inactive Closure
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "project-inactive-closure"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
@@ -1381,7 +1651,66 @@ grey area between good customers and bad customers, even if they migrate,
  it is hard for them to migrate directly from ML to H.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
+Why First National Bank of Omaha
+\end_layout
+
+\begin_layout Enumerate
+My original goal is to apply Finance PhD.
+ So I applied the five or three of the top 20 schools, but it turned out
+ that the admission of Finance PhD is super competitive, and normally they
+ just enroll 2-3 people each year.
+ 
+\end_layout
+
+\begin_layout Enumerate
+So you see I was over-confident about my self at that time.
+ AND when it came to 2013 March, I got rejections from all of those schools.
+ 
+\end_layout
+
+\begin_layout Enumerate
+So I say if I cannot stay in academia, let's try Industry.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Why change from Policy to Risk 
+\end_layout
+
+\begin_layout Itemize
+Because one guy who worked on loss forecasting left, and the manager in
+ loss forecasting approached me to see why I like to move.
+ 
+\end_layout
+
+\begin_layout Itemize
+I say why not.
+
+\series bold
+ It is always good to try some new things and get challenged
+\series default
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+You know when you stay in one area too long, you become more and more comfortabl
+e with your work, and thus your learning curve gets flatter and flatter,
+ and you slowly loose your passion.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+I think the ideal situation is, you keep yourself being challenged, learning
+ and trying new things.
+ That's how you advance in your career.
+ 
+\end_layout
+
+\begin_layout Part
 R packages
 \end_layout
 
@@ -1389,13 +1718,23 @@ R packages
 Behavior: Why R package
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 When you got some ideas, or when you build some cool stuff, you really want
- to show off to people, and the best way to show off to people is to share
- it by contributing open-source projects.
+ to show off to people, 
 \end_layout
 
-\begin_layout Standard
+\begin_deeper
+\begin_layout Itemize
+and the best way to show off to people is to share it by contributing open-sourc
+e projects.
+\end_layout
+
+\begin_layout Itemize
+so that everyone can use it and change it and help you improve it.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
 And this sharing process also in turn force you to improve and refine your
  work.
  You want to really make it elegant, simple and user friendly.
@@ -1424,13 +1763,14 @@ random walk and thus not stationary.
 \end_layout
 
 \begin_layout Standard
-F(x_t1+
-\backslash
-tau,\SpecialChar \ldots{}
-.x_tk+
-\backslash
-tau) = F(x_t1,\SpecialChar \ldots{}
-.x_tk)
+\begin_inset Formula 
+\[
+F(x_{t}1+\tau,....x_{t}k+\tau)=F(x_{t}1,....x_{t}k)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1552,7 +1892,7 @@ A more complex case is: using a categorical variable: Categorical variables
 \end_layout
 
 \begin_layout Subsubsection
-Model: Intuition 
+Model: Intuition of linear.tools
 \end_layout
 
 \begin_layout Standard
@@ -1959,86 +2299,154 @@ Different risk groups have different level of systematic risks, or sensitivity
  to the down turn of economy.
 \end_layout
 
-\begin_layout Section
+\begin_layout Part
 Behavioral Questions
 \end_layout
 
 \begin_layout Subsubsection
-My Advantage
+Why came to America
 \end_layout
 
-\begin_layout Itemize
-Good at building cool model: simple, robust and cool 
+\begin_layout Standard
+In UIUC:
 \end_layout
 
-\begin_layout Itemize
-Good at selling my model 
-\end_layout
-
-\begin_layout Itemize
-Good working ethics: I will say what I do; I will do what I say.
- If what I do truly sucks, I will not hide it, I will admit it sucks and
- try my best to fix it 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Perseverance
-\series default
-: when you are trying to push a large project, involving different departments,
- you often encounter the situation that they don't want to change things,
- they don't want to dig into things.
- I'm not that kind of person who can easily to settle down in any middle
- point, I will try to be the mean person emailing them, calling them, pushing
- them.
+\begin_layout Enumerate
+Professors are nice, students are hard-working.
  
 \end_layout
 
-\begin_layout Itemize
-Good coworker: try my hard to help others, If some one's work is dependent
- on mine, and is waiting for me to start\SpecialChar \ldots{}
-\SpecialChar \ldots{}
-\SpecialChar \ldots{}
+\begin_layout Enumerate
+This is the country I want to study and live.
+ 
+\end_layout
+
+\begin_layout Enumerate
+So when I graduated, I got graduate school offers from Cambridge and Oxford,
+ but I also got the Duke offer.
+ So I think, if I do graduate school in UK, I will probably stay in UK forever.
+ So I decided, if I really want to come to America, this is time! 
+\end_layout
+
+\begin_layout Subsubsection
+Name of five your strengths
+\end_layout
+
+\begin_layout Enumerate
+Good at Managing complexity and ambiguity in the large project: when you
+ are trying to push a large project, involving different departments, 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+I have a lot experences in holding the meetings, managing the scheduals,
+ keeping every updated and informed, --------- Basically being the central
+ point of contact.
+\end_layout
+
+\begin_layout Enumerate
+I'm good at manage these 
+\series bold
+complex interactions and interdepdencies
+\series default
 .
- I will deliver for them 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Wish to get challenged.
+ (more and more comfortable with old work).
+ 
+\end_layout
+
+\begin_layout Enumerate
+Wish to change, and dare to change things.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+cannot live with broken process, or inefficient / manual way of doing thngs.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Eager to Learn
+\end_layout
+
+\begin_layout Enumerate
+Go into the deep detail, go to the root reason.
+ Always ask why
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+A lot of times my work is ac-hoc nature: we got data from other department,
+ then my job is to clean it, summarize it and analyze it.
+ 
+\end_layout
+
+\begin_layout Enumerate
+You can do them mechanically and never ask why.
+ 
+\end_layout
+
+\begin_layout Enumerate
+But I always want to know the underlying reason, why we do this, what's
+ the story we want to see from the analysis, 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+I have a unique combination of skill sets: Finance, consumer banking, data
+ scientist, and programming.
+ 
 \end_layout
 
 \begin_layout Subsubsection
 Eager to Learn
 \end_layout
 
-\begin_layout Quote
+\begin_layout Itemize
 I love to learn new things, and I'm pretty much self-motivated.
 \end_layout
 
-\begin_layout Quote
+\begin_layout Itemize
 You saw in my resume I'm proficient in Python and Machine Learning, to be
  honest I never touch Python in my school, and I knew nothing about machine
  learning back in that time.
 \end_layout
 
-\begin_layout Quote
-But now I can claim I master them, because in the past two years every night
- when I get off work, I spend some time, even half hour to read and learn
- those stuff..
+\begin_deeper
+\begin_layout Itemize
+But then in the past two years every night when I get off work, I spend
+ some time, even half hour a day to read and learn those stuff..
 \end_layout
 
-\begin_layout Quote
+\begin_layout Itemize
+Now I can claim I know those stuff pretty well.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
 When you first start it is really hard, because after work I got exhausted,
  hungry and sleepy.
 \end_layout
 
-\begin_layout Quote
+\begin_deeper
+\begin_layout Itemize
 So first you have to force yourself but then you get used to it, and then
  there is a momentum building up and it comes voluntary.
 \end_layout
 
-\begin_layout Quote
+\end_deeper
+\begin_layout Itemize
 So overall I'm trying to be a lifelong learner.
 \end_layout
 
-\begin_layout Quote
+\begin_layout Itemize
 Not only learn those technique skills but to learn any cool stuff.
  
 \end_layout
@@ -2047,13 +2455,13 @@ Not only learn those technique skills but to learn any cool stuff.
 Breaking Silos
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 What loss forecasting does is to design a model with inputs as pricing 
 \backslash
  fico and output as loss curves.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Pricing is decided by Finance (19 floor).
  Different offer types and targeting group is decided by Marketing, which
  is in 18 floor.
@@ -2075,7 +2483,23 @@ To optimize a product, to maximize the profit, the ideal way is to quantify
 Tell me about your weaknesses
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
+perfectionism.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+It is OK to be perfectionism for your self.
+ But when it involes with colleagues of other departments, you have to require
+ less.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+rebiuld the whole thing
+\end_layout
+
+\begin_layout Itemize
 English, no matter how hard you try, you still cannot fill the gap.
 \end_layout
 
@@ -2129,61 +2553,18 @@ My boss often does not support me to do this.
 
 \begin_layout Standard
 A of time I don't quite appreciate their points.
- I think they just emphasized too much on being robust and being consistent\SpecialChar \ldots{}
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+It is balance of innovation and being robust or consistent\SpecialChar \ldots{}
 
 \end_layout
 
 \begin_layout Standard
 Being not patient or tolerant about those things
-\end_layout
-
-\begin_layout Subsubsection
-Name of five your strengths
-\end_layout
-
-\begin_layout Enumerate
-Learning ability 
-\end_layout
-
-\begin_layout Enumerate
-Go into the deep detail, go to the root reason.
- 
-\end_layout
-
-\begin_layout Enumerate
-Wish to get challenged.
- (more and more comfortable with old work).
- 
-\end_layout
-
-\begin_layout Enumerate
-I have a unique combination of skill sets: Finance, consumer banking, data
- scientist, and programming.
- 
-\end_layout
-
-\begin_layout Enumerate
-Wish to change, and dare to change things.
- 
-\end_layout
-
-\begin_layout Itemize
-Go through your resume, by yourself.
- 
-\end_layout
-
-\begin_layout Itemize
-What are you doing everyday.
- 
-\end_layout
-
-\begin_layout Itemize
-What things in your work you don't like.
- 
-\end_layout
-
-\begin_layout Standard
-Silos
 \end_layout
 
 \begin_layout Subsubsection
@@ -2371,7 +2752,7 @@ Try different things/ Challenge: That challenges can create passion, d,
  
 \end_layout
 
-\begin_layout Section
+\begin_layout Part
 Q&A 
 \end_layout
 
@@ -2433,13 +2814,6 @@ When one team starts to develop models and build new procedures or prototype,
 \end_layout
 
 \begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 How would you describe the development status of the models or procedures
  managed by your team.
  Are they well-developed or developing.
@@ -2474,216 +2848,6 @@ Not because your model is not robust or sounded, just because they don't
 In my case, I'm doing loss forecasting for marketing.
  They question my model only when the loss forecasting is too high and kill
  their campaign.
-\end_layout
-
-\begin_layout Section
-Job: Union Bank 
-\end_layout
-
-\begin_layout Subsubsection
-Enterprise portfolio risk manager
-\end_layout
-
-\begin_layout Standard
-responsible for executing discreet projects within the overall Basel II
- ICAAP work stream, which is focused on a number of topics:
-\end_layout
-
-\begin_layout Itemize
-Regulatory Capital: Developing and maintaining risk methodologies for all
- risk types under Pillar 2, which are additional to the Pillar 1 risk types
- (Credit, Market and Operational), ensuring consistency and complete coverage
- while avoiding duplication.
- 
-\end_layout
-
-\begin_layout Itemize
-Economic Capital (EC): Developing and maintaining appropriate risk methodologies
- for all risk types.
- 
-\series bold
-Finance
-\series default
- owns EC in the sense of opining on the cost/benefits of enhancements proposed
- and being responsible for implementing them.
- 
-\series bold
-Risk Management
-\series default
-, however, provide the analytic expertise to review and refine the capital
- calculation methodologies.
- 
-\end_layout
-
-\begin_layout Itemize
-This is closely related to the 
-\series bold
-subsequent stress testing for each portfolio segment
-\series default
-.
- Model development involves significant interaction with business and modeling
- personnel within the various Bank business units.
- Communicating results includes presentations to all levels of management
- and the board, as well as regulators.
- 
-\end_layout
-
-\begin_layout Itemize
-Aggregating overall capital calculations.
- Conducting firm wide stress testing and capital adequacy analysis under
- ICAAP, 
-\series bold
-generating the inputs required by Financial Planning & Analysis for forecasting
-\series default
-.
- 
-\end_layout
-
-\begin_layout Itemize
-Generating and maintaining ICAAP related documentation for Basel II as well
- as other regulatory requirements as appropriate (e.g.
- SR 99-18, OCC 2000-16).
- 
-\end_layout
-
-\begin_layout --Separator--
-
-\end_layout
-
-\begin_layout Itemize
-Thought leader in discussions with senior management and be able to present
- to quantitative analyses intelligible to all audiences, including questions
- from the business, internal review and regulators - (10%).
- 
-\end_layout
-
-\begin_layout Itemize
-Risk Quantification - responsible for developing analytics for complete
- risk inventory for the bank, specifically developing risk models and setting
- up ongoing calculations for 
-\series bold
-all risk types beyond Pillar 1, e.g.
- business risk, strategic risk, pension fund risk, etc -
-\series default
- (40%).
- 
-\end_layout
-
-\begin_layout Itemize
-Economic Capital - developing and maintaining Economic Capital methodology,
- including parameter and methodology updates as well as risk aggregation
- - (10%).
- 
-\end_layout
-
-\begin_layout Itemize
-Portfolio Risk Management: Contribute to 
-\series bold
-development of credit risk portfolio analytics in collaboration
-\series default
- with the credit risk portfolio management team - (5%).
- 
-\end_layout
-
-\begin_layout Itemize
-Provide thorough, audit quality documentation and reports for ICAAP as required
- - (10%).
- 
-\end_layout
-
-\begin_layout Subsubsection
-Enterprise Portfolio Risk Consultant
-\end_layout
-
-\begin_layout Itemize
-2014 -- Present (1 year)San Francisco Bay Area 
-\end_layout
-
-\begin_layout Itemize
-Aggregating and reporting Economic Capital on top of the house level, and
- compare it to Regulatory Capital (Basel III standard and Advanced). Worked
- with Pre Provision Net Revenue (PPNR) Earth Quack scenario team on forecasting
- the effect of natural disaster on bank profitability, Analyzed and reported
- the effect of hurrican sandy on banking industry, as part of Regulatory
- Stress testing 
-\end_layout
-
-\begin_layout Section
-Personal Questions
-\end_layout
-
-\begin_layout Subsubsection
-Why came to America
-\end_layout
-
-\begin_layout Standard
-In UIUC:
-\end_layout
-
-\begin_layout Enumerate
-Professors are nice, students are hard-working.
- 
-\end_layout
-
-\begin_layout Enumerate
-This is the country I want to study and live.
- 
-\end_layout
-
-\begin_layout Enumerate
-So when I graduated, I got graduate school offers from Cambridge and Oxford,
- but I also got the Duke offer.
- So I think, if I do graduate school in UK, I will probably stay in UK forever.
- So I decided, if I really want to come to America, this is time! 
-\end_layout
-
-\begin_layout Subsubsection
-Why First National Bank of Omaha
-\end_layout
-
-\begin_layout Enumerate
-My original goal is to apply Finance PhD.
- So I applied the five or three of the top 20 schools, but it turned out
- that the admission of Finance PhD is super competitive, and normally they
- just enroll 2-3 people each year.
- 
-\end_layout
-
-\begin_layout Enumerate
-So you see I was over-confident about my self at that time.
- AND when it came to 2013 March, I got rejections from all of those schools.
- 
-\end_layout
-
-\begin_layout Enumerate
-So I say if I cannot stay in academia, let's try Industry.
- 
-\end_layout
-
-\begin_layout Subsubsection
-Why change from Policy to Risk 
-\end_layout
-
-\begin_layout Itemize
-Because one guy who worked on loss forecasting left, and the manager in
- loss forecasting approached me to see why I like to move.
- 
-\end_layout
-
-\begin_layout Itemize
-I say why not.
- It is always good to try some new things and get challenged.
- You know when you stay in one area too long, you become more and more comfortab
-le with your work, and thus your learning curve gets flatter and flatter,
- and you slowly loose your passion.
- 
-\end_layout
-
-\begin_layout Itemize
-I think the ideal situation is, you keep yourself being challenged, learning
- and trying new things.
- That's how you advance in your career.
- 
 \end_layout
 
 \end_body
