@@ -1,0 +1,2690 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{ifxetex}
+\usepackage{ifluatex}\usepackage{fixltx2e}% provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+\else
+    \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+
+\urlstyle{same}  % don't use monospace font for urls
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding T1
+\font_roman lmodern
+\font_sans default
+\font_typewriter lmodern
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks false
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref section
+\pdf_pdfusetitle false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 0
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Method
+\end_layout
+
+\begin_layout Itemize
+On-site is about damage-control, not standing out.
+ !!!!! 
+\end_layout
+
+\begin_layout Itemize
+I thought about this question.
+ I don't know the answer.
+ It is hard 
+\end_layout
+
+\begin_layout Itemize
+Growth pressure vs.
+ discipline vs.
+ risk appetite.
+ 
+\end_layout
+
+\begin_layout Itemize
+Liberate vt.
+ 解放；释放；放出 
+\end_layout
+
+\begin_layout Itemize
+Articulate 
+\end_layout
+
+\begin_layout Itemize
+Ask questions to your self, to your audience, to start presentation or cole-call
+ conversation 
+\end_layout
+
+\begin_layout Itemize
+Use inclusive language, not to formal 
+\end_layout
+
+\begin_layout Itemize
+Bureaucracy 
+\end_layout
+
+\begin_layout Itemize
+Complication 
+\end_layout
+
+\begin_layout Itemize
+front line 
+\end_layout
+
+\begin_layout Itemize
+niche 
+\end_layout
+
+\begin_layout Itemize
+compromised 
+\end_layout
+
+\begin_layout Itemize
+Idiosyncratic 
+\end_layout
+
+\begin_layout Itemize
+Conceptualize 
+\end_layout
+
+\begin_layout Itemize
+perseverance n.
+ 坚持不懈；不屈不挠 
+\end_layout
+
+\begin_layout Itemize
+Stifle; cripple vt 
+\end_layout
+
+\begin_layout Itemize
+Her family sympathized with her desire to be a lawyer.
+ 她全家都支持她当律师的愿望 
+\end_layout
+
+\begin_layout Itemize
+I do sympathize with you.
+ 我的确很同情你。 
+\end_layout
+
+\begin_layout Itemize
+articulate 
+\end_layout
+
+\begin_layout Itemize
+Escalation 
+\end_layout
+
+\begin_layout Itemize
+Pleasing adj.
+ 令人喜爱的;使人愉快的;令人满意的 
+\end_layout
+
+\begin_layout Subsubsection
+Culture
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "culture"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Pressure of not doing anything, don't touch this/that.
+ Compromise every decision.
+ 
+\end_layout
+
+\begin_layout Itemize
+Doable + No one has done it.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Model
+\end_layout
+
+\begin_layout Itemize
+Model: simplicity, robustness, elegance, scalable.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Code
+\end_layout
+
+\begin_layout Standard
+Period 句号
+\end_layout
+
+\begin_layout Standard
+Semicolon 分号
+\end_layout
+
+\begin_layout Standard
+Square brackets, []
+\end_layout
+
+\begin_layout Standard
+Parenthesis.
+ ()
+\end_layout
+
+\begin_layout Standard
+Exclamation Mark.
+ !
+\end_layout
+
+\begin_layout Standard
+省略号 suspension points
+\end_layout
+
+\begin_layout Section
+At JP Morgan Chase
+\end_layout
+
+\begin_layout Subsubsection
+Summary
+\end_layout
+
+\begin_layout Standard
+We use the loss forecasting model to simulate the credit card portfolio
+ under different economics scenarios.
+\end_layout
+
+\begin_layout Standard
+We also built the risk appetite framework, which are the maximum Loss we
+ are willing to suffer in the recession.
+\end_layout
+
+\begin_layout Subsubsection
+Background: TOO BIG TO FAIL
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+This exercise is required by
+\series default
+ the Federal Reserve, our regulators.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+BECAUSE
+\series default
+ in the good time, like now, banks 
+\series bold
+tend
+\series default
+ to take higher risk, for example booking the low FICO customers,
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+with the idea
+\series default
+ that if the crisis comes, they know the government will come to 
+\series bold
+SAVE
+\series default
+ them,
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+because
+\series default
+ they are deeply rooted into the economy system.
+\end_layout
+
+\begin_layout Standard
+That is how we call too big to fail, or in economic theory, moral hazard.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+IN DETAIL
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+So every quarter Federal Reserve will give us 3 economic scenarios, baseline,
+ adverse and severely adverse.
+ 
+\end_layout
+
+\begin_layout Standard
+And we 
+\series bold
+plug in
+\series default
+ those scenarios into our model to 
+\series bold
+test the sensitivity
+\series default
+ of our portfolio to economic macro factors,
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+The goal is to insure that
+\series default
+ if another financial crisis happens tomorrow 
+\series bold
+un-expectedly
+\series default
+, then we have enough capital to survive through it.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+SUMMARY
+\end_layout
+
+\begin_layout Standard
+So our job is to insure our portfolio is 
+\series bold
+health enough today
+\series default
+ so that tomorrow when crisis happens when can survive by ourselves, 
+\series bold
+no need the taxpayer's money!
+\end_layout
+
+\begin_layout Subsubsection
+Concentration Limit
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "concentration-limit"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To insure that the max loss in the recession is above the limit, what is
+ the worst possible portfolio composition.
+\end_layout
+
+\begin_layout Standard
+Essentially we want to constrain on the stressed unprofitable segment -
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+/
+\end_layout
+
+\end_inset
+
+-
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+/
+\end_layout
+
+\end_inset
+
+- we make a lot of money from that segment during the good time, but then
+ in bad time they will incur us a loss.
+\end_layout
+
+\begin_layout Subsubsection
+The analytical part of the job 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "the-analytical-part-of-the-job"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sometime the management question the model results, especially when the
+ model predicts higher loss, which means you have to build reserve and shrink
+ marking.
+\end_layout
+
+\begin_layout Standard
+So we have to dig into the model and find what variable, in which step causes
+ this anomaly.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+The hard part
+\series default
+: is the model is not single model, it is a system of models\SpecialChar \ldots{}
+\SpecialChar \ldots{}
+.
+\end_layout
+
+\begin_layout Standard
+Tricks:
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\labelenumi}{\arabic{enumi}.}
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+we first decompose the NI into interest income, interchange, fees, loss.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Then first metric, we look at it in two perspectives: ratios and balances
+ 
+\end_layout
+
+\begin_layout Subsubsection
+The Modelling part of the job
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "the-modelling-part-of-the-job"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We use a weekly initial unemployment insurance claim (weekly IUIC) as our
+ macro input, and
+\end_layout
+
+\begin_layout Standard
+We saw it dropped from 350 thousand to 250 thousand.
+\end_layout
+
+\begin_layout Standard
+But our loss forecasting goes up.
+\end_layout
+
+\begin_layout Standard
+So I was assigned to this job to investigate why this counter-intuitive
+ thing happens
+\end_layout
+
+\begin_layout Standard
+It turned out to be:
+\end_layout
+
+\begin_layout Standard
+In our model, we didn't use the IUIC itself, we use the change of IUIC.
+\end_layout
+
+\begin_layout Standard
+But so as the actual IUIC dropped from 350 to 250, but the baseline scenario
+ that Fed gave us, is always stabilize at 270,
+\end_layout
+
+\begin_layout Standard
+So previously, we have a positive gap between actual and forecasting, thus
+ a positive impact, now as the situation improves, we turned out to have
+ a negative gap.
+\end_layout
+
+\begin_layout Standard
+The takeaway is: ???
+\end_layout
+
+\begin_layout Standard
+Probably the sensitivity between our portfolio to the change of IUIC is
+ not constant, what I mean is the coefficient of the change of IUIC may
+ be not constant.
+\end_layout
+
+\begin_layout Standard
+It may be dependent on the level of IUIC itself.
+\end_layout
+
+\begin_layout Standard
+When the IUIC level is low, the sensitivity is low.
+\end_layout
+
+\begin_layout Standard
+we probably want to incorporate the level of IUIC, rather than only the
+ change of IUIC.
+\end_layout
+
+\begin_layout Subsubsection
+Team Composition
+\end_layout
+
+\begin_layout Standard
+We got 3 seniors, 2 juniors plus our boss.
+ So 6 people.
+\end_layout
+
+\begin_layout Enumerate
+Normally whenever we want to transform the 
+\series bold
+raw model output
+\series default
+ to 
+\series bold
+a full income statement
+\series default
+, I will do it.
+ Because my background in Finance and I know those accounting rules, assumptions
+, tricks,how to build and release reserves.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Another case is whenever there is case that a project is super quant that
+ Excel or SAS cannot handle, then it is my job to attack it solve it, because
+ I love quant stuff and I love to coding in R.
+ 
+\end_layout
+
+\begin_layout Section
+2
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+nd
+\end_layout
+
+\end_inset
+
+ year at First National Bank of Omaha
+\end_layout
+
+\begin_layout Subsubsection
+Summary
+\end_layout
+
+\begin_layout Standard
+50% of time is to develop and maintain loss forecasting models for credit
+ card and Personal loans.
+\end_layout
+
+\begin_layout Standard
+50% of time is to sell our models to customers (marketing / finance).
+ That turns out an equally interesting part as building the model.
+\end_layout
+
+\begin_layout Standard
+Our customers are
+\end_layout
+
+\begin_layout Itemize
+Largest customer is Marketing: when they need to design some new product,
+ or new campaign, they have to come to us to let us run the product through
+ our forecasting, to see whether they can make money.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+They have strong incentive to question our model accuracy, but only when
+ our forecasting loss is too high and kills their product.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Treasury: report them DEFAST.
+ 
+\end_layout
+
+\begin_layout Itemize
+Finance: loss reserve calculation 
+\end_layout
+
+\begin_layout Standard
+On the model developing part, I recently redeveloped the whole personal
+ consolidation loans.
+\end_layout
+
+\begin_layout Itemize
+It can take care both loss and revenue.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Normally a loss forecasting model can only forecast loss and has nothing
+ to do with revenue, which restrains the usage of the model.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Traditional model can only start from the very beginning of the loan, this
+ model can start from any mob.
+ 
+\end_layout
+
+\begin_layout Itemize
+Also this is the account level model, so you can group whatever way you
+ want.
+ 
+\end_layout
+
+\begin_layout Itemize
+The structure of the model is flexible enough to be adapted to Mortgage
+ and auto-loan.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Model: One Single Model for whole business
+\end_layout
+
+\begin_layout Standard
+So you see we have multiple customers: marketing, Treasury and Finance.
+ So we have to build the forecasting model that is 
+\series bold
+generic and flexible enough
+\series default
+ that can serve those customers' need at the same time.
+\end_layout
+
+\begin_layout Standard
+We don't want to build separate models just to serve separate customers
+ and different proposes, because essentially they have the same purposes:
+ measure the risk of a product under different scenarios.
+\end_layout
+
+\begin_layout Standard
+So what we are trying to do now, is to build one single loss forecasting
+ model for a product, and that model has enough 
+\series bold
+flexibility and scalability
+\series default
+ that can extent itself to model the loss at Campaign level, offer level,
+ then all the way up to the whole portfolio level, which can be used for
+ stress testing.
+\end_layout
+
+\begin_layout Standard
+Otherwise: have multiple models for that product: we have one model to decide
+ the potential loss of a campaign, we have another model for collection,
+ then we have another model for regulators, like stress testing
+\end_layout
+
+\begin_layout Standard
+AND to maintain those models turns out a huge 
+\series bold
+burden
+\series default
+ to a middle-size bank like us.
+\end_layout
+
+\begin_layout Subsubsection
+Behavior: Team work Experience: work with marketing
+\end_layout
+
+\begin_layout Standard
+An example to work with marketing
+\end_layout
+
+\begin_layout Standard
+In our bank we have a monthly meeting to decide to whether mail a campaign,
+ and I need to provide a loss forecasting for this campaign.
+\end_layout
+
+\begin_layout Standard
+If my loss forecasting is too high, and their campaign can not pass the
+ Profit hurdle and so they cannot mail the campaign, so often they first
+ come to us to argue the forecasting is way to high
+\end_layout
+
+\begin_layout Enumerate
+Be really 
+\series bold
+patient
+\series default
+, because they don't know your model at all.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+consistent
+\series default
+ : We also try our best to keep our loss forecasting 
+\series bold
+consistent
+\series default
+, so they can have a clear expectation of what offer will pass the profit
+ hurdle, what will not.
+ We don't want to give them a surprise.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Be Proactive:
+\series default
+ Whenever we made saw some differences in forecasting, I don't wait them
+ to come to me, I try to be active to, to talk to them first.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Go further: make the model accessible to everyone.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+This is a huge change of our role: originally we are so obsessed with the
+ modelling and just though out the output to our business partners, 
+\end_layout
+
+\begin_layout Enumerate
+Now we are trying to make the model as a 
+\series bold
+product
+\series default
+, 
+\series bold
+a product that is easy to be used by everyone
+\series default
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+So in this way, we build a very good working relationship.
+ We still have tensions, because Credit Risk and Marketing are naturally
+ having opposite interest: we want to control and they want to expand.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+But by being more active, more consistent, and communicating more, we worked
+ really well.
+\end_layout
+
+\begin_layout Subsubsection
+Business: Serve Customer of Model
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "business-serve-customer-of-model"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Originally, our model is coded in R, and every time Marketing sends us the
+ campaign they want to launch, we plug the characteristics of the campaign
+ into our model and give the output back to marketing.
+\end_layout
+
+\begin_layout Standard
+The problem is, only we know how to play the model,
+\end_layout
+
+\begin_layout Standard
+So to the marketing people, our model is a 
+\series bold
+black box
+\series default
+, or our whole risk department is a black box.
+\end_layout
+
+\begin_layout Itemize
+But they user and consumer of the model, don't even have access to the model.
+ 
+\end_layout
+
+\begin_layout Standard
+The efficacy /ˈefəkəsē/ of your model does not only depend on the model
+ itself, but on how the model users use the result your model.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+So what I did there, 
+\end_layout
+
+\begin_layout Itemize
+instead of using the model for each campaign at one time and using the model
+ only we know the campaign.
+ 
+\end_layout
+
+\begin_layout Itemize
+I summarized all the historical campaigns and find all possible combination,
+ for example, different combinations of APR, fees, channels etc.
+ In total there are hundreds of possible campaigns.
+ 
+\end_layout
+
+\begin_layout Itemize
+Output the model's result into a pivot table in excel, with some dynamic
+ graphs, where you can click the VBA button so that they can choose mix
+ of offers, channels and segmentation and automatically see the loss curve
+ and profit curve.
+ 
+\end_layout
+
+\begin_layout Quote
+So after this become a user tool, when marking design their offer, they
+ will see the profitability and loss vividly 
+\end_layout
+
+\begin_layout Subsubsection
+Business: Communicating with Marketing in loss curves
+\end_layout
+
+\begin_layout Standard
+Background:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+There is a natural conflict between any marketing person and a risk person.
+\end_layout
+
+\begin_layout Standard
+They have strong interests to question the accuracy of our loss curves,
+ but only when it is so high to let their campaign fail in P&L evaluation.
+\end_layout
+
+\begin_layout Standard
+They are non- technical people; they have no idea in 
+\series bold
+overfitting
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+EXAMPLE: sometimes you have to convince them one good performance campaign
+ cannot represent anything, what we want to see is a continues good performance
+ for all similar campaigns.
+\end_layout
+
+\begin_layout Standard
+You have to really show a large amount of historical data and show them
+ graph.
+\end_layout
+
+\begin_layout Enumerate
+Be active: talk to them before they talk to you.
+ To show you are a 
+\series bold
+\emph on
+responsible and responsive
+\emph default
+ person.
+
+\series default
+ 
+\end_layout
+
+\begin_layout Enumerate
+Be consistent on your result 
+\end_layout
+
+\begin_layout Enumerate
+Be Patient 
+\end_layout
+
+\begin_layout Subsubsection
+Model: UCL forecasting
+\end_layout
+
+\begin_layout Standard
+complications
+\end_layout
+
+\begin_layout Standard
+The ultimate goal is to build a model that can forecast loss curves.
+\end_layout
+
+\begin_layout Standard
+There are several features for this model
+\end_layout
+
+\begin_layout Standard
+1.
+ For each time, we just forecast one period ahead, then we plug in the predicted
+ result into the model again to forecast one period further.
+ First from to T to T+1, then based on predictions on T+1, we predict T+2.
+ So we keep doing this kind of thing recursively till T+N.
+\end_layout
+
+\begin_layout Standard
+There is a reason we design our model in this way.
+\end_layout
+
+\begin_layout Enumerate
+It is hard to find a closed form equation to generate a curve at once.
+ When you are talking a loss curve, that is the loss dollar rate for 60
+ months or even 72 months.
+ It is hard to use a single equation to describe the shape of the curve,
+ how high the peak is, when is the peak, what happens after the peak (should
+ it stay high, or sharply decrease or slowly decrease).
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Also accounts with different FICO or in different loan terms shall naturally
+ have different shapes of the curve.
+ When I mean different shapes I mean you cannot just adjust the curve proportion
+ally to fit different risk groups.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+2 Another feature of this model is, this model predicts every aspect of
+ an account behaviors, including charge-off, delinquent, early payment.
+\end_layout
+
+\begin_layout Standard
+The way we are doing this is, we create multiple equations and each equation
+ just described one single kind of behavior.
+ When we use them, we link them together.
+\end_layout
+
+\begin_layout Standard
+For example, the first LOGIT equation to predict charge-off, then we simulate
+ accounts through this equation,
+\end_layout
+
+\begin_layout Standard
+if the account is not predicted to be charged off, 
+\series bold
+then given that updated information
+\series default
+, we plug it in the second equation to predict delinquency.
+\end_layout
+
+\begin_layout Standard
+Then third one is, 
+\series bold
+given they are not delinquent,
+\series default
+ whether they will do early pay, the fourth one is given they will do early
+ pay, how much they will pay.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+So each time, we just focus on one kind of behavior, then predict it, then
+ given the updated information to predict another kind of behavior
+\end_layout
+
+\begin_layout Standard
+The reason is
+\end_layout
+
+\begin_layout Enumerate
+The dollar loss rate is determined by the probability of charge off, but
+ also determined by the charge off amount
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+So to predict PD is not enough, so you to predict balance, and to predict
+ balance, you have to predict the payment.
+ 
+\end_layout
+
+\begin_layout Enumerate
+PD and EAD are not separated things.
+ They are interactive with each other.
+ They shall be incorporated in the one forecasting system.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If you really want to forecast dollar loss rate correctly, you have to forecast
+ things beyond loss correctly.
+
+\series default
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+So in this way, we decompose the complexity of different customer behaviors
+ each single component, and by linking these different equations, we can
+ forecast the PD and EAD together, simultaneously.
+\end_layout
+
+\begin_layout Subsubsection
+Project: credit card model
+\end_layout
+
+\begin_layout Standard
+For credit card model, my job is to maintain it and improve it.
+\end_layout
+
+\begin_layout Itemize
+Originally it was purely excel-based and required a lot manual effort when
+ you want to use the model.
+ There are 
+\series bold
+v-loop up
+\series default
+, 
+\series bold
+update pivot table
+\series default
+, 
+\series bold
+VBA
+\series default
+ and 
+\series bold
+solver
+\series default
+\SpecialChar \ldots{}
+..
+ 
+\end_layout
+
+\begin_layout Itemize
+Excel is best for some simple and stable model, but when things become complex
+ and you keep adding new features into it, it is very easy to break down
+ and become un-maintainable.
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Itemize
+We have a 3-page long document to explain
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+what shall do, 
+\end_layout
+
+\begin_layout Itemize
+what you shall watch out, 
+\end_layout
+
+\begin_layout Itemize
+what you might be missing when you use model.
+ 
+\end_layout
+
+\begin_layout Itemize
+So it normally requires 30 minutes to generate one single curve 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+So after I took over the job I completely re-wrote the whole thing using
+ R.
+ So now it is super user-friendly, you just need to type the input of a
+ campaign (PA/ITA, DM/BRANCH, BT/PO\SpecialChar \ldots{}
+..)\SpecialChar \ldots{}
+ 
+\end_layout
+
+\begin_layout Itemize
+AUTO validation with historical data, AUTO -- Visualization\SpecialChar \ldots{}
+.
+ 
+\end_layout
+
+\begin_layout Section
+1'st Year at First National Bank of Omaha
+\end_layout
+
+\begin_layout Subsubsection
+Team: Credit Card strategy team
+\end_layout
+
+\begin_layout Standard
+Our team owns every kind of credit risk policy of credit card after we book
+ them.
+\end_layout
+
+\begin_layout Standard
+We design strategies for different actions on customers.
+ For example, when we give you an offer, line increase, line decrease, suspensio
+n, authorization of contain transactions, especially when those transactions
+ are over limit.
+\end_layout
+
+\begin_layout Standard
+Also we need to communicate with marketing, IT and customer service people,
+ to insure they understand our strategy, and listen feedback from them,
+ because eventually It is those colleagues who implement our strategies.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+So you see this kind of job really helps you understand the business, understand
+ the product, because everything you did defines the features of a product,
+ and would have a direct impact on customers.
+\end_layout
+
+\begin_layout Subsubsection
+Project: Marketing Campaign
+\end_layout
+
+\begin_layout Standard
+We really focus on the risk side of the campaign,
+\end_layout
+
+\begin_layout Standard
+Our campaign is not only about booking as many as customers, but also about
+ bringing in high profit and low risk customer.
+\end_layout
+
+\begin_layout Standard
+BUT normally marketing only cares response rate, so they have strong interest
+ to go for the high risk customers and give them good offers.
+\end_layout
+
+\begin_layout Standard
+But our risk team is really responsible to control the risk exposure of
+ our portfolio.
+\end_layout
+
+\begin_layout Standard
+So this is an OPTIMIZATION problem in which you have to really combine the
+ response rate and profit per customer together, to maximize the overall
+ profit.
+\end_layout
+
+\begin_layout Itemize
+So this is different from the online campaign for some Internet companies.
+ They only have one-step problem -- book as many as customers as they can
+ -We get a two-step problem.
+ 
+\end_layout
+
+\begin_layout Standard
+But we never achieve this global optimization, because different departments
+ are deeply siloed.
+ Instead, we just design some minimum risk criteria, and thus any campaign
+ passed that criteria, we can send out.
+\end_layout
+
+\begin_layout Subsubsection
+Adverse Selection.
+\end_layout
+
+\begin_layout Subsubsection
+Project: Inactive Closure
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "project-inactive-closure"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The longer the card stays inactive, the less probability it will be come
+ active.
+ 
+\end_layout
+
+\begin_layout Itemize
+And when it became active, it became more and more riskier.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We call them timing bomb, because if an economic crisis happens, those guys
+ might suddenly use our card and charge-off.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+But you don't want to close them too early, because if they become active,
+ you still have the chance of making money from them.
+\end_layout
+
+\begin_layout Standard
+So the optimal closure for an account is to evaluate marginal cost = marginal
+ benefit of maintaining them
+\end_layout
+
+\begin_layout Standard
+Marginal cost is maintaining an account one more month.
+\end_layout
+
+\begin_layout Standard
+Marginal benefit is all the expected profit when it becomes active multiply
+ the probability of becoming active next month.
+ Note that the profit might be negative even.
+\end_layout
+
+\begin_layout Standard
+And the dynamics of MC and MR changes as the account remains in inactive
+ longer and longer.
+\end_layout
+
+\begin_layout Standard
+So by applying this simple economic ideas to this problem, we find a way
+ to identify the optimal points of closing an account.
+\end_layout
+
+\begin_layout Standard
+Conclusion: we apply our method to different customers in different risk
+ groups, find different optimal closure points for them.
+\end_layout
+
+\begin_layout Subsubsection
+Product: Consistency of risk policy
+\end_layout
+
+\begin_layout Standard
+One big thing we did when I was there is,
+\end_layout
+
+\begin_layout Standard
+We group all of our actions into two groups: positive actions and negative
+ actions, and we re-design all of our strategies to make sure that a customer
+ who gets positive action from us will not receive a negative action within
+ three months.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+This idea is to insure consistency and clearness when you do actions on
+ customers.
+ 
+\end_layout
+
+\begin_layout Standard
+This idea may sound like simple and natural but we didn't realize until
+ 2012.
+ Example: Before that, one customer can get a marketing offer from us and
+ then suddenly get a line decrease, simply because these two strategies
+ did not talk to each other.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Sometimes I think, as analysts, we are too obsessed into building each individua
+l strategies along, but forget the big picture, which is different strategies
+ have to work together.
+\end_layout
+
+\begin_layout Standard
+So we decided to group customers to LOW, MEDIUM/LOW, MH, HIGH.
+ Positive actions only happen in LOW and ML, negative actions only happen
+ in HIGH.
+ For Medium High, we leave it as grey area and has no action on it, neither
+ positive or negative actions.
+ So that we create a 
+\series bold
+grey area between good customers and bad customers, even if they migrate,
+ it is hard for them to migrate directly from ML to H.
+\end_layout
+
+\begin_layout Section
+R packages
+\end_layout
+
+\begin_layout Subsubsection
+Behavior: Why R package
+\end_layout
+
+\begin_layout Standard
+When you got some ideas, or when you build some cool stuff, you really want
+ to show off to people, and the best way to show off to people is to share
+ it by contributing open-source projects.
+\end_layout
+
+\begin_layout Standard
+And this sharing process also in turn force you to improve and refine your
+ work.
+ You want to really make it elegant, simple and user friendly.
+\end_layout
+
+\begin_layout Standard
+I got emails from Singapore, Brazil and India.
+\end_layout
+
+\begin_layout Standard
+It is exciting that someone in the world is actually using your work to
+ do their own stuff.
+ So I think that's exactly why there are so many people want to contribute
+ their work to open source software's like R or Python.
+\end_layout
+
+\begin_layout Subsubsection
+Model: cointegration
+\end_layout
+
+\begin_layout Standard
+Generally stock prices are un-predictable because they are 
+\series bold
+random walk and thus not stationary.
+ 
+\end_layout
+
+\begin_layout Standard
+F(x_t1+
+\backslash
+tau,\SpecialChar \ldots{}
+.x_tk+
+\backslash
+tau) = F(x_t1,\SpecialChar \ldots{}
+.x_tk)
+\end_layout
+
+\begin_layout Standard
+But there is one professor called Granger: he found although each single
+ random walk along might be un-stationary and un-predictable, but when you
+ combine them, they may have a 
+\series bold
+stationary
+\series default
+ relationship between each other.
+\end_layout
+
+\begin_layout Standard
+For example, you may always find the UK market and US market move together.
+ That is a simple 2-dimentional stationary relationship between non- stationary
+ time series
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Speaking in mathematics
+\series default
+:
+\end_layout
+
+\begin_layout Itemize
+there might exist a stable linear combination of random walks.
+ 
+\end_layout
+
+\begin_layout Itemize
+If there are N random walks in your system, then at most there are N-1 such
+ linear combinations.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Common Trend
+\end_layout
+
+\begin_layout Itemize
+When there are N-1 linear combinations, we call it we only have one-degree
+ of freedom in the system, or in other words: there is only one stochastic
+ common trend that drives the whole different N random walks.
+ 
+\end_layout
+
+\begin_layout Itemize
+Also if there are N-2 linear combinations, then there are 2 common trend
+ driving the N random walks.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Common Trend
+\series default
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Economic meaning
+\end_layout
+
+\begin_layout Standard
+If there are one single common trend, that means the whole stock markets
+ in the world are driven by one single global risk factor.
+ That means the global stock market is fully integrated.
+\end_layout
+
+\begin_layout Subsubsection
+Getting Variables from a Formula
+\end_layout
+
+\begin_layout Standard
+This is a quite fundamental and infrastructure-like work, and it is not
+ super hard to do, and I'm surprised that no one has done it.
+\end_layout
+
+\begin_layout Standard
+A lot of times you want to extract THE variables you are using in a formula,
+ for example
+\end_layout
+
+\begin_layout Standard
+Y = X + X‸2
+\end_layout
+
+\begin_layout Standard
+Then depend on what's your background and the empirical context, there are
+ two answers:
+\end_layout
+
+\begin_layout Standard
+One: there is two variables there: X and X‸2
+\end_layout
+
+\begin_layout Standard
+Second: there is only one variable: X
+\end_layout
+
+\begin_layout Standard
+A lot of empirical economist tend to think there is only one variable there,
+ as they care about how to quantify the relations between X and Y, not the
+ particular coefficient of X‸2 itself.
+\end_layout
+
+\begin_layout Standard
+A more complex case is: using a categorical variable: Categorical variables
+ do not appear in the model as their original format.
+ R will think an K-class variable as K-1 variables using certain Contrast
+ Coding Systems.
+\end_layout
+
+\begin_layout Subsubsection
+Model: Intuition 
+\end_layout
+
+\begin_layout Standard
+A lot of times when we build parametric models, especially linear models,
+ we already have PRIOR KNOWLEDGE about how certain independent variables
+ may impact the dependent variables.
+\end_layout
+
+\begin_layout Standard
+For example, when we build models to forecast whether a customer will pay
+ us or not, when know the Unemployment rate will contribute to delinquent
+ rate.
+\end_layout
+
+\begin_layout Itemize
+Normally we use both the level form of U and the squared form of it.
+ So you want to insure that the 
+\series bold
+combination
+\series default
+ of U and squared U has a positive impact on delinquency rate.
+ 
+\end_layout
+
+\begin_layout Itemize
+Note that the 
+\series bold
+combined
+\series default
+ marginal impact here is not just coefficient of U + coefficient of squared
+ U.
+ You have to do 
+\series bold
+Partial Derivatives
+\series default
+ to get the true marginal impact.
+ 
+\end_layout
+
+\begin_layout Itemize
+A more complex case is, you may INTERACT this U with other variables, for
+ example, you expect the 
+\series bold
+recession
+\series default
+ may hit the Low FICO/Low Income harder, than HIGH FICO/high Income people
+ -
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+/
+\end_layout
+
+\end_inset
+
+- They are more robust to the economic downturn.
+ 
+\end_layout
+
+\begin_layout Standard
+So the first functionality of my package is to evaluate the marginal impact
+ assumptions, test the 
+\series bold
+Monotonicity
+\series default
+ (because you are using the squared unemployment, the when you visualize
+ it, it is a quadratic curve, which may peak at some where) and also visualize
+ it using ggplot2, ALL done in one function.
+\end_layout
+
+\begin_layout Standard
+Then when you build models, you really want to plug in that PRIOR KNOWLEDGE
+ into your standard machine learning process.
+\end_layout
+
+\begin_layout Standard
+For example, stepwise regression.
+ For each iteration they selection models according to AIC or BIC only,
+\end_layout
+
+\begin_layout Standard
+My package provides another function that you can specify the marginal effect
+ you want, so that in each iteration of stepwise regression, they will first
+ exclude all the models with wrong marginal effect.
+\end_layout
+
+\begin_layout Standard
+We call this marginal effect of one independent variable to the depend.
+\end_layout
+
+\begin_layout Itemize
+Direction of the impact / size of the impact 
+\end_layout
+
+\begin_layout Subsubsection
+Knowledge: Stochastic Finance
+\end_layout
+
+\begin_layout Standard
+Because stocks prices are random walk in discrete times, when you want to
+ apply the normal calculus on this kind of time series, it doesn't work
+ simplify the series is not smooth, actually it is pointy everywhere.
+\end_layout
+
+\begin_layout Standard
+The fundamental part of Stochastic Finance is to solve this problem: Ito
+ integral
+\end_layout
+
+\begin_layout Subsubsection
+SAS and R
+\end_layout
+
+\begin_layout Standard
+This is a question of personal tastes.
+\end_layout
+
+\begin_layout Standard
+After all they are just means of achieving some purposes, but they are not
+ purposes themselves.
+\end_layout
+
+\begin_layout Standard
+SAS Codes are assets of the company, it is an accumulation of hours of coding,
+ testing and frustratings.
+ If you delete their macros, they will cry.
+\end_layout
+
+\begin_layout Standard
+So to be a better team player, you have to respect this tradition.
+\end_layout
+
+\begin_layout Section
+Products: Consumer Banking
+\end_layout
+
+\begin_layout Subsubsection
+Top-down vs Bottom to Top
+\end_layout
+
+\begin_layout Standard
+Two ways of modelling, one is to do the segmentation and build models on
+ those segmentations.
+\end_layout
+
+\begin_layout Standard
+The other is to do model at account level.
+\end_layout
+
+\begin_layout Subsubsection
+Business: a credit card offers
+\end_layout
+
+\begin_layout Standard
+Three aspects
+\end_layout
+
+\begin_layout Enumerate
+Introductory offer: either BT / Purchasing / One--time reward
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+What is BT-fee, what is the duration of the introductory-offer 
+\end_layout
+
+\begin_layout Itemize
+The goal of the introductory offer is to seduce customers to respond to
+ your campaign (either direct mail / in-branch / email).
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Portfolio Offer: after acquisition, to maintain the customer or complete
+ in the WALLET SHARE 
+\end_layout
+
+\begin_layout Enumerate
+Transaction-level offer: which is mainly Reward
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+It is costly to the bank 
+\end_layout
+
+\begin_layout Itemize
+The purpose of reward is to seduce customers to use our card, and hopefully
+ they cannot fully payback in each cycle, and thus 
+\series bold
+turn them from translator to revolvers
+\series default
+.
+ Thus we can charge them high APR 
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Modeling: Pricing of Loans / Credit Card in Marketing Campaigns.
+\end_layout
+
+\begin_layout Standard
+Go-To rate.
+ This is the APR we talk about often.
+\end_layout
+
+\begin_layout Itemize
+I found customers are not very sensitive to go to rate, at least not as
+ sensitive to Intro-offers.
+ 
+\end_layout
+
+\begin_layout Itemize
+We measure sensitivity using 
+\series bold
+response rate\SpecialChar \ldots{}
+.
+
+\series default
+ 
+\end_layout
+
+\begin_layout Itemize
+So one tactic we use is to give Super good Intro-offer to seduce customers
+ open the card and build balance.
+ And then charge them high go-to APR.
+ 
+\end_layout
+
+\begin_layout Standard
+It is super hard to have a closed-form equation that can optimize every
+ aspect of pricing, because there are so many factors complicate things.
+\end_layout
+
+\begin_layout Enumerate
+Pricing is just not APR,
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+it has Intro / Reward \SpecialChar \ldots{}
+ It has BT/Purchasing \SpecialChar \ldots{}
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Pricing is 
+\series bold
+not an One Stage thing
+\series default
+, it 
+\series bold
+is not decided in the acquisition level
+\series default
+ 
+\series bold
+along
+\series default
+ and never change, because when you book the account, (booking is costly)
+ you have to maintain the account, (attached rather than detached)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+So you have to take care of pricing of any 
+\series bold
+portfolio management offer, rather than just acquisition level
+\series default
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Pricing cannot simply be based on risk.
+ Because through 
+\series bold
+Adverse Selection
+\series default
+, pricing on the other hand can affect the risk.
+ We cannot simply adjust the pricing proportionally according to FICO or
+ other risk factor.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Even if you found the perfect pricing where you can optimize your profit
+ on each single card member, this does not mean it is an optimization for
+ 
+\series bold
+overall profit
+\series default
+.
+ The overall profit = Profit for each responder MULTIPLY by number of responders.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+So you really want to 
+\series bold
+release some profit to customers by lowering the price to get more competitive
+ and get more responders.
+
+\series default
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Customers are never homogenous, there are translators /revolvers.
+ There are smart customers that shop different cards for rich intro-offers.
+ There are loyal customers who are so conservative and just use your card.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+So you want to design offers for each of the single type of the customer.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+If there is a possible way to attach this problem, you want to design a
+ model for each of the single aspect of the pricing, and link the model
+ together.
+ Then simulate the results through this 
+\series bold
+system of models to get the optimized pricing.
+\end_layout
+
+\begin_layout Subsubsection
+Modeling: Pricing and Adverse Selection
+\end_layout
+
+\begin_layout Standard
+See consumer banking model.lyx
+\end_layout
+
+\begin_layout Subsubsection
+Product: Risk in Consumer Banking
+\end_layout
+
+\begin_layout Standard
+The investment industry defines risk as variance, or uncertainty of profit.
+\end_layout
+
+\begin_layout Standard
+The consumer banking industry define risks as probability of loss.
+\end_layout
+
+\begin_layout Standard
+Why:
+\end_layout
+
+\begin_layout Standard
+When we buy stocks we take some 
+\series bold
+Idiosyncratic
+\series default
+ risk, because we only certain amount of stocks and we didn't diversity
+ enough.
+ So there is uncertainty there.
+\end_layout
+
+\begin_layout Standard
+But when we make loans, for each risk group we have hundreds of thousands
+ of customers, so by law of large number our return will converge to average
+ return of that risk group.
+\end_layout
+
+\begin_layout Standard
+So the only risk we are taking is systematic risk, the risk that caused
+ by the fluctuation of macro economy and will affect every single customer
+ at the same time.
+\end_layout
+
+\begin_layout Standard
+We are willing to take this risk because
+\end_layout
+
+\begin_layout Enumerate
+They are un-diversifiable 
+\end_layout
+
+\begin_layout Enumerate
+They are the only risk that can give you reward.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Idiosyncratic risk is the risk that gives you nothing, as they are diversifiable.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Different risk groups have different level of systematic risks, or sensitivity
+ to the down turn of economy.
+\end_layout
+
+\begin_layout Section
+Behavioral Questions
+\end_layout
+
+\begin_layout Subsubsection
+My Advantage
+\end_layout
+
+\begin_layout Itemize
+Good at building cool model: simple, robust and cool 
+\end_layout
+
+\begin_layout Itemize
+Good at selling my model 
+\end_layout
+
+\begin_layout Itemize
+Good working ethics: I will say what I do; I will do what I say.
+ If what I do truly sucks, I will not hide it, I will admit it sucks and
+ try my best to fix it 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Perseverance
+\series default
+: when you are trying to push a large project, involving different departments,
+ you often encounter the situation that they don't want to change things,
+ they don't want to dig into things.
+ I'm not that kind of person who can easily to settle down in any middle
+ point, I will try to be the mean person emailing them, calling them, pushing
+ them.
+ 
+\end_layout
+
+\begin_layout Itemize
+Good coworker: try my hard to help others, If some one's work is dependent
+ on mine, and is waiting for me to start\SpecialChar \ldots{}
+\SpecialChar \ldots{}
+\SpecialChar \ldots{}
+.
+ I will deliver for them 
+\end_layout
+
+\begin_layout Subsubsection
+Eager to Learn
+\end_layout
+
+\begin_layout Quote
+I love to learn new things, and I'm pretty much self-motivated.
+\end_layout
+
+\begin_layout Quote
+You saw in my resume I'm proficient in Python and Machine Learning, to be
+ honest I never touch Python in my school, and I knew nothing about machine
+ learning back in that time.
+\end_layout
+
+\begin_layout Quote
+But now I can claim I master them, because in the past two years every night
+ when I get off work, I spend some time, even half hour to read and learn
+ those stuff..
+\end_layout
+
+\begin_layout Quote
+When you first start it is really hard, because after work I got exhausted,
+ hungry and sleepy.
+\end_layout
+
+\begin_layout Quote
+So first you have to force yourself but then you get used to it, and then
+ there is a momentum building up and it comes voluntary.
+\end_layout
+
+\begin_layout Quote
+So overall I'm trying to be a lifelong learner.
+\end_layout
+
+\begin_layout Quote
+Not only learn those technique skills but to learn any cool stuff.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Breaking Silos
+\end_layout
+
+\begin_layout Standard
+What loss forecasting does is to design a model with inputs as pricing 
+\backslash
+ fico and output as loss curves.
+\end_layout
+
+\begin_layout Standard
+Pricing is decided by Finance (19 floor).
+ Different offer types and targeting group is decided by Marketing, which
+ is in 18 floor.
+\end_layout
+
+\begin_layout Standard
+So you see the three most important features of a product: risk, pricing,
+ and targeting (and thus response rate) are controlled by three different
+ department / floors.
+\end_layout
+
+\begin_layout Standard
+To optimize a product, to maximize the profit, the ideal way is to quantify
+ these three features simultaneously by one team, rather than to treat them
+ separately.
+\end_layout
+
+\begin_layout Subsubsection
+Tell me about your weaknesses
+\end_layout
+
+\begin_layout Standard
+English, no matter how hard you try, you still cannot fill the gap.
+\end_layout
+
+\begin_layout Subsubsection
+Re-biuld the whole thing?
+\end_layout
+
+\begin_layout Standard
+Often One process / model has fundamentally weakness that cannot be fixed
+ but can only be adapted.
+ For example, a non-parametric model that is not flexible enough to deal
+ with any new situation.
+\end_layout
+
+\begin_layout Standard
+When you build new features on the existing systems, often there is 
+\series bold
+no way to
+\series default
+ 
+\series bold
+get rid of
+\series default
+ the old weakness and your new features have to be 
+\series bold
+compromised
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+As time goes by and more and more new features adding into the existing
+ system, it becomes more and more 
+\series bold
+cumbersome
+\series default
+.
+ /ˈkəmbərsəm/
+\end_layout
+
+\begin_layout Standard
+So what I often want to do is re-write the whole thing, start from 0, build
+ a new process /model that are flexible and extendable that can deal with
+ every kind of new situation we can expect.
+\end_layout
+
+\begin_layout Standard
+My boss often does not support me to do this.
+ The management committee a lot of times is reluctant to this change.
+\end_layout
+
+\begin_layout Standard
+A of time I don't quite appreciate their points.
+ I think they just emphasized too much on being robust and being consistent\SpecialChar \ldots{}
+
+\end_layout
+
+\begin_layout Standard
+Being not patient or tolerant about those things
+\end_layout
+
+\begin_layout Subsubsection
+Name of five your strengths
+\end_layout
+
+\begin_layout Enumerate
+Learning ability 
+\end_layout
+
+\begin_layout Enumerate
+Go into the deep detail, go to the root reason.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Wish to get challenged.
+ (more and more comfortable with old work).
+ 
+\end_layout
+
+\begin_layout Enumerate
+I have a unique combination of skill sets: Finance, consumer banking, data
+ scientist, and programming.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Wish to change, and dare to change things.
+ 
+\end_layout
+
+\begin_layout Itemize
+Go through your resume, by yourself.
+ 
+\end_layout
+
+\begin_layout Itemize
+What are you doing everyday.
+ 
+\end_layout
+
+\begin_layout Itemize
+What things in your work you don't like.
+ 
+\end_layout
+
+\begin_layout Standard
+Silos
+\end_layout
+
+\begin_layout Subsubsection
+What things in your work you want to continue.
+\end_layout
+
+\begin_layout Standard
+New and exciting thins
+\end_layout
+
+\begin_layout Standard
+Quant in nature, but not pure quant,
+\end_layout
+
+\begin_layout Standard
+A lot of interaction with business, sell and implement the model in business,
+ where you can see the real impact.
+\end_layout
+
+\begin_layout Subsubsection
+Who is the person you admire most.
+\end_layout
+
+\begin_layout Standard
+Elon Must:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Thinks like physicist.
+ 
+\end_layout
+
+\begin_layout Standard
+Think things not starting from what they are now, but think about what they
+ should be, think from 0: if I want to re-build the whole thing, could we
+ design it in a much better way, 
+\series bold
+both fundamentally and structurally.
+\end_layout
+
+\begin_layout Standard
+Because a lot of things or systems they have fundamental weakness that cannot
+ be fixed but only adapted.
+\end_layout
+
+\begin_layout Standard
+Send people to Mars: crazy
+\end_layout
+
+\begin_layout Enumerate
+Explain it is not crazy at all, as 60 years ago people do think about seriously
+ 
+\end_layout
+
+\begin_layout Enumerate
+How to do it
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Lower the cost of rocket.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+How to lower the cost, why it is possible
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The space industry is controlled by government and has very low competition,
+ low efficiency, and low incentive to lower the cost.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Rocket Science did not advance too much in the last 50 years.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+The only way make the rocket re-usable.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Have a vision, decompose the vision into several concrete steps, 
+\series bold
+find the bottleneck, attack this bottleneck hardly in a different way.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Step-by step
+\end_layout
+
+\begin_layout Subsubsection
+Who is the person you credit your success.
+ What is most valuable feedback you got.
+\end_layout
+
+\begin_layout Standard
+My boss:
+\end_layout
+
+\begin_layout Standard
+Be patient!
+\end_layout
+
+\begin_layout Standard
+Selling models are equally important in building your models.
+\end_layout
+
+\begin_layout Subsubsection
+Tell me about a situation when your work was criticized.
+\end_layout
+
+\begin_layout Standard
+NO
+\end_layout
+
+\begin_layout Subsubsection
+Disagree with People
+\end_layout
+
+\begin_layout Standard
+见下
+\end_layout
+
+\begin_layout Subsubsection
+Career Goal
+\end_layout
+
+\begin_layout Itemize
+I want to try some new techniques in modelling.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Models in consumer banking are quite robust but simple, 
+\end_layout
+
+\begin_layout Itemize
+Nowadays you may hear about more big data, machine learning in Silicon Valley.
+ I think several years later, those new techniques will be adopted by banking
+ industry.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I want to be part of this new trend.
+
+\series default
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+I want to become a manger, enroll the smartest people and build a cool team.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Why this position/ what is your biggest advantage and weakness for this
+ job?
+\end_layout
+
+\begin_layout Itemize
+Fit me background.
+ I Qualify for it.
+\end_layout
+
+\begin_layout Itemize
+Try different things/ Challenge: That challenges can create passion, d,
+ then you will try your best to get your job done beautifully.
+ 
+\end_layout
+
+\begin_layout Section
+Q&A 
+\end_layout
+
+\begin_layout Subsubsection
+Product: Regulation Burden
+\end_layout
+
+\begin_layout Standard
+My question is about regulation burden.
+\end_layout
+
+\begin_layout Standard
+The only purpose of this team is to build models for regulators, and those
+ models will not be used elsewhere in the business, correct?
+\end_layout
+
+\begin_layout Standard
+So do you think, if regulators don't require us to do these kind modeling,
+ will we still do this modeling for ourselves.
+\end_layout
+
+\begin_layout Subsubsection
+Hierarchy 
+\end_layout
+
+\begin_layout Standard
+Young people, diversity.
+ Who you report to.
+\end_layout
+
+\begin_layout Subsubsection
+Silos
+\end_layout
+
+\begin_layout Subsubsection
+Big and exciting and new things
+\end_layout
+
+\begin_layout Standard
+The ultimate goal for any modeling team is to develop robust and flexible
+ models that can last long.
+ One the model was developed, the rest of part is just daily routine, is
+ just to maintain the model and use the model
+\end_layout
+
+\begin_layout Standard
+How many 
+\series bold
+percentage of time is for daily-routine
+\series default
+ work, and
+\end_layout
+
+\begin_layout Standard
+When one team starts to develop models and build new procedures or prototype,
+ everything is so really exciting.
+ But when you finished developing those things, everything will become so
+ mature and developed, and what left is just maintenance.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How would you describe the development status of the models or procedures
+ managed by your team.
+ Are they well-developed or developing.
+ 
+\begin_inset space ~
+\end_inset
+
+Or do you expect new things keep emerging and you always have something
+ new and exciting to do.
+\end_layout
+
+\begin_layout Subsubsection
+What is the coolest model or thing you have done in your work.
+\end_layout
+
+\begin_layout Standard
+That you think it is unique, it is cool, much beyond the expectation of
+ your boss.
+\end_layout
+
+\begin_layout Subsubsection
+How if someone did not buy your model
+\end_layout
+
+\begin_layout Standard
+Not because your model is not robust or sounded, just because they don't
+ like the result of your model, for example, your forecasting may suggest
+ a completely opposite story that the management committee believe.
+\end_layout
+
+\begin_layout Standard
+In my case, I'm doing loss forecasting for marketing.
+ They question my model only when the loss forecasting is too high and kill
+ their campaign.
+\end_layout
+
+\begin_layout Section
+Job: Union Bank 
+\end_layout
+
+\begin_layout Subsubsection
+Enterprise portfolio risk manager
+\end_layout
+
+\begin_layout Standard
+responsible for executing discreet projects within the overall Basel II
+ ICAAP work stream, which is focused on a number of topics:
+\end_layout
+
+\begin_layout Itemize
+Regulatory Capital: Developing and maintaining risk methodologies for all
+ risk types under Pillar 2, which are additional to the Pillar 1 risk types
+ (Credit, Market and Operational), ensuring consistency and complete coverage
+ while avoiding duplication.
+ 
+\end_layout
+
+\begin_layout Itemize
+Economic Capital (EC): Developing and maintaining appropriate risk methodologies
+ for all risk types.
+ 
+\series bold
+Finance
+\series default
+ owns EC in the sense of opining on the cost/benefits of enhancements proposed
+ and being responsible for implementing them.
+ 
+\series bold
+Risk Management
+\series default
+, however, provide the analytic expertise to review and refine the capital
+ calculation methodologies.
+ 
+\end_layout
+
+\begin_layout Itemize
+This is closely related to the 
+\series bold
+subsequent stress testing for each portfolio segment
+\series default
+.
+ Model development involves significant interaction with business and modeling
+ personnel within the various Bank business units.
+ Communicating results includes presentations to all levels of management
+ and the board, as well as regulators.
+ 
+\end_layout
+
+\begin_layout Itemize
+Aggregating overall capital calculations.
+ Conducting firm wide stress testing and capital adequacy analysis under
+ ICAAP, 
+\series bold
+generating the inputs required by Financial Planning & Analysis for forecasting
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Generating and maintaining ICAAP related documentation for Basel II as well
+ as other regulatory requirements as appropriate (e.g.
+ SR 99-18, OCC 2000-16).
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Itemize
+Thought leader in discussions with senior management and be able to present
+ to quantitative analyses intelligible to all audiences, including questions
+ from the business, internal review and regulators - (10%).
+ 
+\end_layout
+
+\begin_layout Itemize
+Risk Quantification - responsible for developing analytics for complete
+ risk inventory for the bank, specifically developing risk models and setting
+ up ongoing calculations for 
+\series bold
+all risk types beyond Pillar 1, e.g.
+ business risk, strategic risk, pension fund risk, etc -
+\series default
+ (40%).
+ 
+\end_layout
+
+\begin_layout Itemize
+Economic Capital - developing and maintaining Economic Capital methodology,
+ including parameter and methodology updates as well as risk aggregation
+ - (10%).
+ 
+\end_layout
+
+\begin_layout Itemize
+Portfolio Risk Management: Contribute to 
+\series bold
+development of credit risk portfolio analytics in collaboration
+\series default
+ with the credit risk portfolio management team - (5%).
+ 
+\end_layout
+
+\begin_layout Itemize
+Provide thorough, audit quality documentation and reports for ICAAP as required
+ - (10%).
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Enterprise Portfolio Risk Consultant
+\end_layout
+
+\begin_layout Itemize
+2014 -- Present (1 year)San Francisco Bay Area 
+\end_layout
+
+\begin_layout Itemize
+Aggregating and reporting Economic Capital on top of the house level, and
+ compare it to Regulatory Capital (Basel III standard and Advanced). Worked
+ with Pre Provision Net Revenue (PPNR) Earth Quack scenario team on forecasting
+ the effect of natural disaster on bank profitability, Analyzed and reported
+ the effect of hurrican sandy on banking industry, as part of Regulatory
+ Stress testing 
+\end_layout
+
+\begin_layout Section
+Personal Questions
+\end_layout
+
+\begin_layout Subsubsection
+Why came to America
+\end_layout
+
+\begin_layout Standard
+In UIUC:
+\end_layout
+
+\begin_layout Enumerate
+Professors are nice, students are hard-working.
+ 
+\end_layout
+
+\begin_layout Enumerate
+This is the country I want to study and live.
+ 
+\end_layout
+
+\begin_layout Enumerate
+So when I graduated, I got graduate school offers from Cambridge and Oxford,
+ but I also got the Duke offer.
+ So I think, if I do graduate school in UK, I will probably stay in UK forever.
+ So I decided, if I really want to come to America, this is time! 
+\end_layout
+
+\begin_layout Subsubsection
+Why First National Bank of Omaha
+\end_layout
+
+\begin_layout Enumerate
+My original goal is to apply Finance PhD.
+ So I applied the five or three of the top 20 schools, but it turned out
+ that the admission of Finance PhD is super competitive, and normally they
+ just enroll 2-3 people each year.
+ 
+\end_layout
+
+\begin_layout Enumerate
+So you see I was over-confident about my self at that time.
+ AND when it came to 2013 March, I got rejections from all of those schools.
+ 
+\end_layout
+
+\begin_layout Enumerate
+So I say if I cannot stay in academia, let's try Industry.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Why change from Policy to Risk 
+\end_layout
+
+\begin_layout Itemize
+Because one guy who worked on loss forecasting left, and the manager in
+ loss forecasting approached me to see why I like to move.
+ 
+\end_layout
+
+\begin_layout Itemize
+I say why not.
+ It is always good to try some new things and get challenged.
+ You know when you stay in one area too long, you become more and more comfortab
+le with your work, and thus your learning curve gets flatter and flatter,
+ and you slowly loose your passion.
+ 
+\end_layout
+
+\begin_layout Itemize
+I think the ideal situation is, you keep yourself being challenged, learning
+ and trying new things.
+ That's how you advance in your career.
+ 
+\end_layout
+
+\end_body
+\end_document
