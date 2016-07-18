@@ -85,7 +85,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -2902,6 +2902,49 @@ Loss can take months to realize, but at any given month we want to know
 
 \begin_layout Subsection
 
+\change_inserted 16419249 1468522496
+How to
+\change_unchanged
+: Use Machine Learning in a particular business.
+\end_layout
+
+\begin_layout Standard
+Self-Introduce is extremely important.
+\end_layout
+
+\begin_layout Itemize
+When you know, answer the key, answer in short
+\end_layout
+
+\begin_layout Standard
+When you not sure: 
+\end_layout
+
+\begin_layout Itemize
+describe your reasoning, answer in 1, 2, 3.
+ // first, second, all
+\end_layout
+
+\begin_layout Itemize
+If the machine learnign problem you gave didn't solve the problem, then
+ use business sense / Heuristics / Recursively way
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Example: how if unsupervised clustering didn't just give you two groups
+ you want -- good or bad, but give you
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+try to relate to the work you have done
+\change_inserted 16419249 1468522496
+
+\end_layout
+
+\begin_layout Subsection
+
 \change_inserted 16419249 1468339304
 Summary
 \end_layout
@@ -2932,8 +2975,29 @@ Version Control
 
 \begin_layout Subsection
 
-\change_inserted 16419249 1468356507
+\change_inserted 16419249 1468520330
 Supply and Demand
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1468520363
+I was give a coding question on patients arriving to hospital as a Poisson
+ distribution and doctor attending the patient as uniform distribution and
+ write code to display the average wait time of the patient and total number
+ of patients that are attended on a random day.
+ The second interview was deep dive into Machine Learning, about PCA, equations
+ on PCA, different features that could be given to a Uber driver to predict
+ if the driver accepts the request or not.
+ Multicollinearity, how to solve the problem.
+ Time series forecasting techniques.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1468520369
+Coding question on patients arriving at hospital and doctor attending the
+ patients 
 \end_layout
 
 \begin_layout Standard
@@ -3287,6 +3351,10 @@ adjust the hyper-parameter
 
 \end_deeper
 \begin_layout Enumerate
+Heristic Human Learning
+\end_layout
+
+\begin_layout Enumerate
 Decision:
 \end_layout
 
@@ -3298,6 +3366,95 @@ A common approach in such situations is to run a classifier first, and to
 \end_layout
 
 \end_deeper
+\begin_layout Section
+Heuristics Human Learning
+\end_layout
+
+\begin_layout Standard
+Machine learning is never a one step learning.
+ 
+\end_layout
+
+\begin_layout Standard
+You have to run the model, see the results, and get more idea about the
+ data, then go back to the feature enegineering and or adjust the algorithm.
+ 
+\end_layout
+
+\begin_layout Standard
+So there is a lot of back-and-force.
+ So in that sense, ost time each iteration will not give you to some hints
+ of stroy / pattern.
+\end_layout
+
+\begin_layout Standard
+By a heuristic, I mean a simple algorithm that makes intuitive sense, but
+ may only give an approximately correct answer.
+ Preliminary
+\end_layout
+
+\begin_layout Standard
+To label to unlabled the data, clustering can never give you the label,
+ it will only give you simiplified picture picture which can help you label
+ the data.
+ So machine learnign alogirithm will stop here, the next step is really
+ use human learning: to investigate each cluster and translate the statistical
+ similarity into similarity in terms of customer behavior.
+\end_layout
+
+\begin_layout Subsection
+Definiton
+\end_layout
+
+\begin_layout Standard
+A heuristic technique (/hjᵿˈrɪstᵻk/; Ancient Greek: εὑρίσκω, "find" or "discover
+"), often called simply a heuristic, is any approach to problem solving,
+ learning, or discovery that employs a practical method not guaranteed to
+ be optimal or perfect, but sufficient for the immediate goals.
+ Where finding an optimal solution is impossible or impractical, heuristic
+ methods can be used to speed up the process of finding a satisfactory solution.
+ Heuristics can be mental shortcuts that ease the cognitive load of making
+ a decision.
+ Examples of this method include using a rule of thumb, an educated guess,
+ an intuitive judgment, stereotyping, profiling, or common sense.
+\end_layout
+
+\begin_layout Standard
+Heuristics are strategies derived from experience with similar problems,
+ using readily accessible, though loosely applicable, information to control
+ problem solving in human beings, machines, and abstract issues.[1][2]
+\end_layout
+
+\begin_layout Standard
+The most fundamental heuristic is trial and error, which can be used in
+ everything from matching nuts and bolts to finding the values of variables
+ in algebra problems.
+\end_layout
+
+\begin_layout Standard
+Here are a few other commonly used heuristics, from George Pólya's 1945
+ book, How to Solve It:[3]
+\end_layout
+
+\begin_layout Standard
+If you are having difficulty understanding a problem, try drawing a picture.
+ If you can't find a solution, try assuming that you have a solution and
+ seeing what you can derive from that ("working backward").
+ If the problem is abstract, try examining a concrete example.
+ Try solving a more general problem first (the "inventor's paradox": the
+ more ambitious plan may have more chances of success).
+\end_layout
+
+\begin_layout Standard
+In psychology, heuristics are simple, efficient rules, learned or hard-coded
+ by evolutionary processes, that have been proposed to explain how people
+ make decisions, come to judgments, and solve problems typically when facing
+ complex problems or incomplete information.
+ Researchers test if people use those rules with various methods.
+ These rules work well under most circumstances, but in certain cases lead
+ to systematic errors or cognitive biases.
+\end_layout
+
 \begin_layout Section
 Words
 \end_layout
