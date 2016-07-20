@@ -1,0 +1,2481 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Unix Notes 
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\end_layout
+
+\begin_layout Date
+2015 June
+\end_layout
+
+\begin_layout Section
+Goal
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+熟悉Unix/Linux Shell和常见的命令行
+\end_layout
+
+\begin_layout Standard
+如果你用windows，至少学会用虚拟机里的linux， vmware player是免费的，装个Ubuntu吧
+\end_layout
+
+\begin_layout Standard
+一定要少用少用图形界面。
+\end_layout
+
+\begin_layout Itemize
+学会使用man来查看帮助
+\end_layout
+
+\begin_layout Itemize
+文件系统结构和基本操作 ls/chmod/chown/rm/find/ln/cat/mount/mkdir/tar/gzip \SpecialChar \ldots{}
+
+\end_layout
+
+\begin_layout Itemize
+学会使用一些文本操作命令 sed/awk/grep/tail/less/more \SpecialChar \ldots{}
+
+\end_layout
+
+\begin_layout Itemize
+学会使用一些管理命令 ps/top/lsof/netstat/kill/tcpdump/iptables/dd\SpecialChar \ldots{}
+
+\end_layout
+
+\begin_layout Itemize
+了解/etc目录下的各种配置文章，学会查看/var/log下的系统日志，以及/proc下的系统运行信息
+\end_layout
+
+\begin_layout Itemize
+了解正则表达式，使用正则表达式来查找文件。
+\end_layout
+
+\begin_layout Itemize
+\begin_inset space ~
+\end_inset
+
+ 
+\begin_inset space ~
+\end_inset
+
+ 
+\begin_inset space ~
+\end_inset
+
+ 
+\begin_inset space ~
+\end_inset
+
+ 对于程序员来说Unix/Linux比Windows简单多了。（参看我四年前CSDN的博文《其实Unix很简单》）学会使用Unix/Linux你会发现图形界面在
+某些时候实在是太难用了，相当地相当地降低工作效率。
+\end_layout
+
+\begin_layout Part
+pandoc
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+pandoc -s doc.docx -o -test.tex
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+pandoc -s Basels.tex -o -Basels.docx
+\end_layout
+
+\begin_layout Itemize
+-o output to a file
+\end_layout
+
+\begin_layout Itemize
+-s By default, pandoc produces a document fragment, not a standalone document
+ with a proper header and footer.
+ To produce 
+\series bold
+a standalone document
+\series default
+, use the -s or --standalone flag:
+\end_layout
+
+\begin_layout Itemize
+Input/Output: -f/-t The format of the input and output can be specified
+ explicitly using command-line options.
+ The input format can be specified using the -r/--read or -f/--from options,
+ the output format using the -w/--write or -t/--to options.
+ Thus, to convert hello.txt from Markdown to LaTeX, you could type:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+To convert hello.html from HTML to Markdown: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+pandoc -f html -t markdown hello.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If the input or output format is not specified explicitly, pandoc will attempt
+ to guess it from the extensions of the input and output filenames.
+ Thus, for example, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+pandoc -o hello.tex hello.txt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Part
+Unix
+\end_layout
+
+\begin_layout Section
+Shell / Terminal
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Quotes eld
+\end_inset
+
+shell
+\begin_inset Quotes erd
+\end_inset
+
+ is a program that takes your commands from the keyboard and gives them
+ to the operating system
+\end_layout
+
+\begin_layout Itemize
+On Linux the shell program is usually called bash (for Bourne Again Shell),
+ but there are others
+\end_layout
+
+\begin_layout Itemize
+Commands are just the names of programs
+\end_layout
+
+\begin_layout Itemize
+The shell recognizes some special characters and may modify arguments before
+ they are passed to the program
+\end_layout
+
+\begin_layout Standard
+The behavior of the command line interface will differ slightly depending
+ on the shell program that is being used.
+ 
+\end_layout
+
+\begin_layout Standard
+Depending on the shell used, some extra behaviors can be quite nifty.
+\end_layout
+
+\begin_layout Standard
+You can find out what shell you are using by the command:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+echo $SHELL
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+shell script
+\end_layout
+
+\begin_layout Standard
+Of course you can create a file with a list of shell commands and execute
+ it like a program to perform a task.
+ This is called a shell script.
+ This is in fact the primary purpose of most shells, not the interactive
+ command line behavior.
+ 
+\end_layout
+
+\begin_layout Subsection
+Promt
+\end_layout
+
+\begin_layout Standard
+You can change your prompt to anything:
+\end_layout
+
+\begin_layout Standard
+PS1="yangguodaxia$ "
+\end_layout
+
+\begin_layout Subsection
+filesystem
+\end_layout
+
+\begin_layout Itemize
+The top of the filesystem is called the 
+\begin_inset Quotes eld
+\end_inset
+
+root
+\begin_inset Quotes erd
+\end_inset
+
+ and is denoted by a single slash 
+\begin_inset Quotes eld
+\end_inset
+
+/
+\begin_inset Quotes eld
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+A path is a list of directories that lead to the location of a file (or
+ directory) 
+\end_layout
+
+\begin_layout Itemize
+A path can be absolute (starts with 
+\begin_inset Quotes eld
+\end_inset
+
+/
+\begin_inset Quotes eld
+\end_inset
+
+) or relative to the current directory
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The special names 
+\begin_inset Quotes eld
+\end_inset
+
+.
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+..
+\begin_inset Quotes erd
+\end_inset
+
+ are used to denote the current and parent directories respectively 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Examples
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+./eclipse!
+\end_layout
+
+\begin_layout Plain Layout
+
+/usr/bin/python
+\end_layout
+
+\begin_layout Plain Layout
+
+../bin/yes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+bash
+\end_layout
+
+\begin_layout Standard
+Bash is the way cool shell.
+ Bash will even complete the name of commands and environment variables.
+ And if there are multiple completions, if you hit TAB twice bash will show
+ you all the completions.
+ Bash is the default user shell for most Linux systems.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+exec bash 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+#to bash mode, more user-friendly than ps
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+exec bash
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+/card_nonhsm2/ccar/v660271
+\end_layout
+
+\begin_layout Section
+Code Structure
+\end_layout
+
+\begin_layout Standard
+The components of the command line are:
+\end_layout
+
+\begin_layout Enumerate
+the command; 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Command names must be between 2 and 9 characters in length 
+\end_layout
+
+\begin_layout Itemize
+Command names must be comprised of lowercase characters and digits 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+any options required by the command 
+\end_layout
+
+\begin_layout Enumerate
+the command's arguments (if required).
+ 
+\end_layout
+
+\begin_layout Standard
+For example, the general form of a UNIX command is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+command [-option(s)] [argument(s)]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+NOTE: Options MUST come after the command and before any command arguments.
+\end_layout
+
+\begin_layout Standard
+Options SHOULD NOT appear after 
+\series bold
+the main argument
+\series default
+(s).
+ However, some options can have their own arguments!
+\end_layout
+
+\begin_layout Subsection
+option (hyphen) 
+\end_layout
+
+\begin_layout Itemize
+All options are preceded by a hyphen (-) 
+\end_layout
+
+\begin_layout Itemize
+A double hyphen -
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+/
+\end_layout
+
+\end_inset
+
+- may be used to indicate the end of the option list 
+\end_layout
+
+\begin_layout Subsection
+Options:
+\end_layout
+
+\begin_layout Itemize
+Option names must be one character in length 
+\end_layout
+
+\begin_layout Itemize
+Options without arguments may be grouped after the hyphen 
+\end_layout
+
+\begin_layout Itemize
+Option arguments are not optional 
+\end_layout
+
+\begin_layout Itemize
+All options must precede other arguments on the command line 
+\end_layout
+
+\begin_layout Itemize
+The order of the options are order independent 
+\end_layout
+
+\begin_layout Subsection
+Arguments
+\end_layout
+
+\begin_layout Itemize
+The first option argument, following an option, must be preceded by white
+ space.
+ For example 
+\series bold
+-o sfile
+\series default
+ is valid but 
+\series bold
+-osfile
+\series default
+ is illegal.
+ 
+\end_layout
+
+\begin_layout Itemize
+If an option takes more than one argument then they must be separated by
+ commas with no spaces, or if spaces are used the string must be included
+ in double quotes (").
+ For example, both of the following are acceptable: 
+\end_layout
+
+\begin_layout Standard
+-f past,now,next and -f "past now next"
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+The order of arguments may be important
+\series default
+ 
+\end_layout
+
+\begin_layout Subsection
+Pipes:
+\end_layout
+
+\begin_layout Standard
+The pipe symbol "|" is used to direct the output of one command to the input
+ of another.
+\end_layout
+
+\begin_layout Standard
+For example:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ls -l | more 
+\end_layout
+
+\end_inset
+
+This commands takes the output of the long format directory list command
+ 
+\end_layout
+
+\begin_layout Standard
+"ls -l" and pipes it through the more command (also known as a filter).
+\end_layout
+
+\begin_layout Standard
+In this case a very long list of files can be viewed a page at a time.
+\end_layout
+
+\begin_layout Standard
+du -sc * | sort -n | tail 
+\end_layout
+
+\begin_layout Standard
+The command "du -sc" lists the sizes of all files and directories in the
+ 
+\end_layout
+
+\begin_layout Standard
+current working directory.
+ That is piped through "sort -n" which orders the 
+\end_layout
+
+\begin_layout Standard
+output from smallest to largest size.
+ Finally, that output is piped through "tail"
+\end_layout
+
+\begin_layout Standard
+which displays only the last few (which just happen to be the largest) results.
+\end_layout
+
+\begin_layout Section
+Jobs
+\end_layout
+
+\begin_layout Subsection
+kill process_id # kill a job 
+\end_layout
+
+\begin_layout Subsection
+timing of a job: 
+\end_layout
+
+\begin_layout Itemize
+when you see a sas job with timing as 0, it is probably still running.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+sas 20160104_Profitability_Pull_LM_D02.sas $ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+How to read output printed in console
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Output [2] #means there is an error
+\end_layout
+
+\begin_layout Plain Layout
+
+running
+\end_layout
+
+\begin_layout Itemize
+
+[v660271@discov2b]/card_nonhsm2/ccar/v660271$sas 20160104_Profitability_Pull_LM_
+D02.sas & 
+\end_layout
+
+\begin_layout Itemize
+
+[2] 28049620     
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+ps: to see whether the process has finished.
+ 
+\end_layout
+
+\begin_layout Standard
+Used after running long codes to check whether the code completes running.
+ nohub sas sas_script.sas: sending result to the text file: nohup.out
+\end_layout
+
+\begin_layout Subsection
+control+C OR control+z to stop the code running
+\end_layout
+
+\begin_layout Section
+view and print
+\end_layout
+
+\begin_layout Subsection
+vi : to see the log file
+\end_layout
+
+\begin_layout Subsection
+cat sas.log:m Print a text file
+\end_layout
+
+\begin_layout Standard
+vi print.lst: sas will print its dataset into lst files, in putty you can
+ view the file directly using
+\end_layout
+
+\begin_layout Section
+HTTP
+\end_layout
+
+\begin_layout Subsection
+hich process is listening on which port.
+\end_layout
+
+\begin_layout Standard
+Open your terminal and type as
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+lsof -i :8000
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+that command will list you the application used by that port with PID.
+\end_layout
+
+\begin_layout Standard
+you can use netstat to see which process is listening on which port.
+\end_layout
+
+\begin_layout Standard
+I use this command to have a full detail :
+\end_layout
+
+\begin_layout Standard
+sudo netstat -peanut
+\end_layout
+
+\begin_layout Standard
+if you need to know exactly which one is listening on port 8000 you can
+ use this :
+\end_layout
+
+\begin_layout Standard
+sudo netstat -peant | grep ":8000 "
+\end_layout
+
+\begin_layout Standard
+There is no process that can hide from netstat.
+\end_layout
+
+\begin_layout Section
+Copying and pasting text
+\end_layout
+
+\begin_layout Standard
+PuTTY's copy and paste works entirely with the mouse.
+ In order to copy text to the clipboard, you just click the left mouse button
+ in the terminal window, and drag to select text.
+ When you let go of the button, the text is 
+\emph on
+automatically
+\emph default
+ copied to the clipboard.
+ You do not need to press Ctrl-C or Ctrl-Ins; in fact, if you do press Ctrl-C,
+ PuTTY will send a Ctrl-C character down your session to the server where
+ it will probably cause a process to be interrupted.
+\end_layout
+
+\begin_layout Subsection
+Pasting
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Pasting is done using the right button
+\series default
+ (or the middle mouse button, if you have a three-button mouse and have
+ set it up; see 
+\begin_inset CommandInset href
+LatexCommand href
+name "section 4.10.3"
+target "http://the.earth.li/~sgtatham/putty/0.52/htmldoc/Chapter4.html#4.10.3"
+
+\end_inset
+
+).
+ When you click the right mouse button, PuTTY will read whatever is in the
+ Windows Clipboard and paste it into your session, 
+\emph on
+exactly
+\emph default
+ as if it had been typed at the keyboard.
+ (Therefore, be careful of pasting formatted text into an editor that does
+ automatic indenting; you may find that the spaces pasted from the clipboard
+ plus the spaces added by the editor add up to too many spaces and ruin
+ the formatting.
+ There is nothing PuTTY can do about this.)
+\end_layout
+
+\begin_layout Subsection
+select a whole word
+\end_layout
+
+\begin_layout Standard
+If you double-click the left mouse button, PuTTY will select a whole word.
+ If you double-click, hold down the second click, and drag the mouse, PuTTY
+ will select a sequence of whole words.
+ (You can adjust precisely what PuTTY considers to be part of a word; see
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "section 4.10.6"
+target "http://the.earth.li/~sgtatham/putty/0.52/htmldoc/Chapter4.html#4.10.6"
+
+\end_inset
+
+.) If you 
+\emph on
+triple
+\emph default
+-click, or triple-click and drag, then PuTTY will select a whole line or
+ sequence of lines.
+\end_layout
+
+\begin_layout Subsection
+select a rectangular region
+\end_layout
+
+\begin_layout Standard
+If you want to select a rectangular region instead of selecting to the end
+ of each line, you can do this by holding down 
+\series bold
+Alt
+\series default
+ when you make your selection.
+ (You can also configure rectangular selection to be the default, and then
+ holding down Alt gives the normal behaviour instead.
+ See 
+\begin_inset CommandInset href
+LatexCommand href
+name "section 4.10.5"
+target "http://the.earth.li/~sgtatham/putty/0.52/htmldoc/Chapter4.html#4.10.5"
+
+\end_inset
+
+for details.)
+\end_layout
+
+\begin_layout Standard
+If you have a middle mouse button, then you can use it to adjust an existing
+ selection if you selected something slightly wrong.
+ (If you have configured the middle mouse button to paste, then the right
+ mouse button does this instead.) Click the button on the screen, and you
+ can pick up the nearest end of the selection and drag it to somewhere else.
+\end_layout
+
+\begin_layout Section
+Directories
+\end_layout
+
+\begin_layout Subsection
+cd
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cd $STRMWORK
+\end_layout
+
+\end_inset
+
+ Change current directory to the directory defined by the environment variable
+ 'STRMWORK'.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cd ~bob
+\end_layout
+
+\end_inset
+
+ Change the current directory to the user bob's home directory (if you have
+ permission).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cd ..
+\end_layout
+
+\end_inset
+
+ Change current directory to the parent directory of the current directory.
+\end_layout
+
+\begin_layout Subsection
+path
+\end_layout
+
+\begin_layout Itemize
+~/ relative pathname
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The above example uses a 
+\series bold
+relative pathname
+\series default
+.
+ It assumes that 'papers' was an immediate subdirectory of the directory
+ you started out from, i.e.
+ in this example your home directory.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+cd ~/papers/syntax/swedish-word-order
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+would be more general since this will work independently of which directory
+ you're currently in.
+\end_layout
+
+\begin_layout Itemize
+You can also skip the ~/
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+cd papers/syntax/swedish-word-order
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+~ tilde: represent current directly
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The 
+\series bold
+tilda
+\series default
+ is an abbreviation of a complete pathname that mentions all the directories
+ above your home directory
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+absolute pathnames.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+cd /Users/yangguodaxia/Dropbox
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Pathnames like the above
+\series bold
+, which start with a / (for the root directory)
+\series default
+, are called 
+\series bold
+absolute pathnames
+\series default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Moving, renaming, and copying files:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cp file1 file2
+\end_layout
+
+\end_inset
+
+ copy a file
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+mv file1 newname 
+\end_layout
+
+\end_inset
+
+move or rename a file
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+mv file1 ~/AAA/
+\end_layout
+
+\end_inset
+
+ move file1 into sub-directory AAA in your home directory.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+rm file1 [file2 ...]
+\end_layout
+
+\end_inset
+
+ remove or delete a file
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+rm -r dir1 [dir2...] 
+\end_layout
+
+\end_inset
+
+recursivly remove a directory and its contents BE CAREFUL!
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+mkdir dir1 [dir2...]
+\end_layout
+
+\end_inset
+
+ create directories
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+mkdir -p dirpath 
+\end_layout
+
+\end_inset
+
+create the directory dirpath, including all implied directories in the path.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+rmdir dir1 [dir2...] 
+\end_layout
+
+\end_inset
+
+remove an empty directory
+\end_layout
+
+\begin_layout Subsection
+View and Edit files
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cat filename
+\end_layout
+
+\end_inset
+
+ Dump a file to the screen in ascii.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+more filename
+\end_layout
+
+\end_inset
+
+ Progressively dump a file to the screen: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+ENTER = one line down,
+\end_layout
+
+\begin_layout Itemize
+SPACEBAR = page down 
+\end_layout
+
+\begin_layout Itemize
+q=quit
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+less filename
+\end_layout
+
+\end_inset
+
+ Like more, but you can use Page-Up too.
+ Not on all systems.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+vi filename
+\end_layout
+
+\end_inset
+
+ Edit a file using the vi editor.
+ All UNIX systems will have vi in some form.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+emacs filename
+\end_layout
+
+\end_inset
+
+ Edit a file using the emacs editor.
+ Not all systems will have emacs.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+head filename 
+\end_layout
+
+\end_inset
+
+Show the first few lines of a file.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+head -n filename
+\end_layout
+
+\end_inset
+
+ Show the first n lines of a file.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+tail filename
+\end_layout
+
+\end_inset
+
+ Show the last few lines of a file.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+tail -n filename
+\end_layout
+
+\end_inset
+
+ Show the last n lines of a file.
+\end_layout
+
+\begin_layout Subsection
+mkdir dirname: make a new directory
+\end_layout
+
+\begin_layout Subsection
+ls 
+\emph on
+dirname
+\emph default
+: show all files in directly 
+\end_layout
+
+\begin_layout Standard
+instead of doing
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+cd papers/syntax/swedish-word-order
+\end_layout
+
+\begin_layout Plain Layout
+
+ls
+\end_layout
+
+\begin_layout Plain Layout
+
+cd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+you can say
+\end_layout
+
+\begin_layout Standard
+ls papers/syntax/swedish-word-order
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ls -l
+\series default
+ - lists your files in 'long format', which contains lots of useful information,
+ e.g.
+ the exact size of the file, who owns the file and who has the right to
+ look at it, and when it was last modified.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ls -a
+\series default
+ - lists all files, including the ones whose filenames begin in a dot, which
+ you do not always want to see.
+ 
+\end_layout
+
+\begin_layout Section
+Environment variables
+\end_layout
+
+\begin_layout Standard
+You can teach your shell to remember things for later using environment
+ variables.
+\end_layout
+
+\begin_layout Standard
+For example under the bash shell:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+export CASROOT=/usr/local/CAS3.0
+\end_layout
+
+\end_inset
+
+ Defines the variable CASROOT with the value /usr/local/CAS3.0.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+export LD_LIBRARY_PATH=$CASROOT/Linux/lib
+\end_layout
+
+\end_inset
+
+ Defines the variable LD_LIBRARY_PATH with the value of CASROOT with /Linux/lib
+ appended, or /usr/local/CAS3.0/Linux/lib 
+\end_layout
+
+\begin_layout Standard
+By prefixing 
+\series bold
+$
+\series default
+ to the variable name, you can evaluate it in any command:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cd $CASROOT 
+\end_layout
+
+\end_inset
+
+Changes your present working directory to the value of CASROOT
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+echo $CASROOT 
+\end_layout
+
+\end_inset
+
+Prints out the value of CASROOT, or /usr/local/CAS3.0
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+printenv CASROOT
+\end_layout
+
+\end_inset
+
+ Does the same thing in bash and some other shells.
+ 
+\end_layout
+
+\begin_layout Section
+Permissions
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+chmod 755 file
+\end_layout
+
+\end_inset
+
+ Changes the permissions of file to be rwx for the owner, and rx for the
+ group and the world.
+ (7 = rwx = 111 binary.
+ 5 = r-x = 101 binary)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+chgrp user file
+\end_layout
+
+\end_inset
+
+ Makes file belong to the group user.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+chown cliff file
+\end_layout
+
+\end_inset
+
+ Makes cliff the owner of file.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+chown -R cliff dir 
+\end_layout
+
+\end_inset
+
+Makes cliff the owner of dir and everything in its directory tree.
+ 
+\end_layout
+
+\begin_layout Subsection
+pwd :tells you where you currently are.
+\end_layout
+
+\begin_layout Section
+files
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+more 
+\emph on
+filename
+\series default
+\emph default
+ -shows the first part of a file, just as much as will fit on one screen.
+ Just hit the space bar to see more or 
+\series bold
+q
+\series default
+ to quit.
+ 
+\end_layout
+
+\begin_layout Itemize
+You can use 
+\series bold
+/
+\emph on
+pattern
+\series default
+\emph default
+ to search for a pattern.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+emacs 
+\emph on
+filename
+\series default
+\emph default
+ is an editor that lets you create and edit a file.
+ See the 
+\begin_inset CommandInset href
+LatexCommand href
+name "emph{emacs   page}"
+target "http://mally.stanford.edu/~sr/computing/emacs.html"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+mv 
+\emph on
+filename1 filename2
+\series default
+\emph default
+ moves a file (i.e.
+ gives it a different name, or moves it into a different directory (see
+ below) 
+\end_layout
+
+\begin_layout Itemize
+cp 
+\emph on
+filename1 filename2
+\emph default
+ copies a file 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+rm 
+\emph on
+filename
+\series default
+\emph default
+ removes a file.
+ It is wise to use the option rm -i, which will ask you for confirmation
+ before actually deleting anything.
+ You can make this your default by making an 
+\begin_inset CommandInset href
+LatexCommand href
+name "emph{alias}"
+target "http://mally.stanford.edu/~sr/computing/alias.html"
+
+\end_inset
+
+in your .cshrc file.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+diff 
+\emph on
+filename1 filename2
+\series default
+\emph default
+ -compares files, and shows where they differ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+wc 
+\emph on
+filename
+\series default
+\emph default
+ tells you how many lines, words, and characters there are in a file 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+chmod 
+\emph on
+options filename
+\series default
+\emph default
+lets you change the read, write, and execute permissions on your files.
+ The default is that only you can look at them and change them, but you
+ may sometimes want to change these permissions.
+ For example, 
+\series bold
+chmod o+r 
+\emph on
+filename
+\series default
+\emph default
+ will make the file readable for everyone, and 
+\series bold
+chmod o-r 
+\emph on
+filename
+\series default
+\emph default
+ will make it unreadable for others again.
+ Note that for someone to be able to actually look at the file the directories
+ it is in need to be at least executable.
+ See 
+\begin_inset CommandInset href
+LatexCommand href
+name "emph{help   protection}"
+target "http://www-csli.stanford.edu/Help/.help/intro-computer/protection"
+
+\end_inset
+
+for more details.
+ 
+\end_layout
+
+\begin_layout Itemize
+File Compression
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+gzip 
+\emph on
+filename
+\series default
+\emph default
+ compresses files, so that they take up much less space.
+ Usually text files compress to about half their original size, but it depends
+ very much on the size of the file and the nature of the contents.
+ There are other tools for this purpose, too (e.g.
+ 
+\series bold
+compress
+\series default
+), but gzip usually gives the highest compression rate.
+ Gzip produces files with the ending '.gz' appended to the original filename.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+gunzip 
+\emph on
+filename
+\series default
+\emph default
+ uncompresses files compressed by gzip.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+gzcat 
+\emph on
+filename
+\series default
+\emph default
+ lets you look at a gzipped file without actually having to gunzip it (same
+ as 
+\series bold
+gunzip -c
+\series default
+).
+ You can even print it directly, using 
+\series bold
+gzcat 
+\emph on
+filename
+\emph default
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbar
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+ lpr
+\series default
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Section
+printer
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+lpr 
+\emph on
+filename
+\series default
+\emph default
+ print.
+ Use the -P option to specify the printer name if you want to use a printer
+ other than your default printer.
+ For example, if you want to print double-sided, use 'lpr -Pvalkyr-d', or
+ if you're at CSLI, you may want to use 'lpr -Pcord115-d'.
+ See 'help printers' for more information about printers and their locations.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+lpq
+\series default
+ check out the printer queue, e.g.
+ to get the number needed for removal, or to see how many other files will
+ be printed before yours will come out 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+lprm 
+\emph on
+jobnumber
+\series default
+\emph default
+ remove something from the printer queue.
+ You can find the job number by using lpq.
+ Theoretically you also have to specify a printer name, but this isn't necessary
+ as long as you use your default printer in the department.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+genscript
+\series default
+ onverts plain text files into postscript for printing, and gives you some
+ options for formatting.
+ Consider making an alias like 
+\series bold
+alias ecop 'genscript -2 -r 
+\backslash
+!*lpr -h -Pvalkyr'
+\series default
+ to print two pages on one piece of paper.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+dvips 
+\emph on
+filename
+\series default
+\emph default
+ print 
+\series bold
+.dvi
+\series default
+ files (i.e.
+ files produced by Latex).
+ You can use 
+\series bold
+dviselect
+\series default
+ to print only selected pages.
+ See the for more information about how to save paper when printing drafts.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Part
+SSH
+\end_layout
+
+\begin_layout Subsection
+sfotware
+\end_layout
+
+\begin_layout Itemize
+Filezilla 
+\end_layout
+
+\begin_layout Itemize
+Winscp
+\end_layout
+
+\begin_layout Subsection
+X11-SSH
+\end_layout
+
+\begin_layout Standard
+ssh -X -Y 
+\end_layout
+
+\begin_layout Standard
+matsub yourfile.m yourfile.log * submit your matlab m file and generate a
+ log file
+\end_layout
+
+\begin_layout Standard
+statasub yourfile.do * submit your stata.do file and generate a log file automatic
+ally.
+\end_layout
+
+\begin_layout Standard
+matlab *调出matlab
+\end_layout
+
+\begin_layout Standard
+xstata-se * come out STATA
+\end_layout
+
+\begin_layout Standard
+qstat * show the status of SSH working, to see which task is running or
+ in the queue.
+\end_layout
+
+\begin_layout Subsection
+USING .sh
+\end_layout
+
+\begin_layout Standard
+#!/bin/sh
+\end_layout
+
+\begin_layout Standard
+#$ -S /bin/sh
+\end_layout
+
+\begin_layout Standard
+#$ -N "PS_5"
+\end_layout
+
+\begin_layout Standard
+#$ -cwd -j y
+\end_layout
+
+\begin_layout Standard
+#$ -V
+\end_layout
+
+\begin_layout Standard
+#$ -M FY21@duke.edu -m e
+\end_layout
+
+\begin_layout Standard
+/usr/local/bin/matlab -nodesktop -nodisplay -nosplash -nojvm PS_5.m PS_5.log
+\end_layout
+
+\begin_layout Enumerate
+Change directories to the folder where your m-file and function files reside.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Submit the m-file for batch computation using the matsub command, e.g.
+ matsub ps3main.m ps3main.log 
+\end_layout
+
+\begin_layout Enumerate
+NowdownloadtheexampleshellscriptfromSakai(Resources/Matlab2Materials/Examples/ex
+ample.sh) and copy it into the same folder where you did your matsub from.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Edit the example shell script to have a new name, a di↵erent email address,
+ and the same filenames as your matsub command.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Now submit your shell script with the command qsub -q all.q myshell.sh 
+\end_layout
+
+\begin_layout Part
+OSX
+\end_layout
+
+\begin_layout Subsubsection
+FINDER 显示隐藏文件
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+defaults write com.apple.finder AppleShowAllFiles -bool true
+\end_layout
+
+\begin_layout Plain Layout
+
+KillAll Finder
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Show Bash folder but not user folder
+\end_layout
+
+\begin_layout Standard
+If when you open terminal it shows
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+bash-3.2$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+instead of
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[MacBook-Air:~] yangguodaxia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+then just write
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+/bin/tcsh
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+to go back to your user folder
+\end_layout
+
+\begin_layout Subsection
+sudo to solve the Permission denied error
+\end_layout
+
+\begin_layout Standard
+But where on your computer does
+\begin_inset space ~
+\end_inset
+
+pip
+\begin_inset space ~
+\end_inset
+
+install the packages to? Here's what happens if I try to run
+\begin_inset space ~
+\end_inset
+
+pip install requests:
+\end_layout
+
+\begin_layout Standard
+$ pip install requests Downloading/unpacking requests Downloading requests-1.1.0.ta
+r.gz (337Kb): 337Kb downloaded Running setup.py egg_info 
+\series bold
+for
+\series default
+ package requests Installing collected packages: requests Running setup.py
+ install 
+\series bold
+for
+\series default
+ requests error: could not create '/Library/Python/2.7/site-packages/requests':
+ Permission denied
+\end_layout
+
+\begin_layout Standard
+Oops! It looks like
+\begin_inset space ~
+\end_inset
+
+pip
+\begin_inset space ~
+\end_inset
+
+is trying to install the package into/Library/Python/2.7/site-packages/requests.
+ This is a special directory that Python knows about.
+ Anything that's installed in
+\begin_inset space ~
+\end_inset
+
+site-packages
+\begin_inset space ~
+\end_inset
+
+can be imported by your programs.
+\end_layout
+
+\begin_layout Standard
+We're seeing the error because
+\begin_inset space ~
+\end_inset
+
+/Library/
+\begin_inset space ~
+\end_inset
+
+(on a Mac) is not usually writeable by "ordinary" users.
+ To fix the error, we can run
+\begin_inset space ~
+\end_inset
+
+sudo pip install requests
+\begin_inset space ~
+\end_inset
+
+(sudomeans "run this command as a superuser").
+ Then everything will work fine:
+\end_layout
+
+\begin_layout Section
+TextShop 
+\end_layout
+
+\begin_layout Subsection
+pdfsync
+\end_layout
+
+\begin_layout Standard
+TexShop has a feature called pdfsync: clicking on a spot in the preview
+ window activates the corresponding source window with the appropriate source
+ line selected.
+ This feature requires that files named "pdfsync.sty," "pdfsync.tex", and
+ "pdfsync4context.tex" be installed in Tex.
+ This is done automatically if you install from the Mac Tex install package.
+ Otherwise, 卸掉重装！since Tex is outdated now and it was transformed to TexLive.
+\end_layout
+
+\begin_layout Section
+Word in Mac
+\end_layout
+
+\begin_layout Subsection
+EndNote
+\end_layout
+
+\begin_layout Standard
+If micro word showed an error about endnote, then delete
+\end_layout
+
+\begin_layout Standard
+This happens when you have EndNote installed and are launching Word by opening
+ a document that is protected.
+ This is a known bug with EndNote X5
+\end_layout
+
+\begin_layout Standard
+Go into applications =Microsoft Office=Office=Startup= Word.
+ In that folder I found a file titled Endnote something or other...
+ 
+\begin_inset space ~
+\end_inset
+
+I deleted that file, rebooted, and it worked...
+ 
+\begin_inset space ~
+\end_inset
+
+Or at least it is working so far...
+\end_layout
+
+\begin_layout Standard
+After dealing with the protected document, restore that endnote file, since
+ it works fine for normal file.
+\end_layout
+
+\begin_layout Section
+Homebrew
+\end_layout
+
+\begin_layout Standard
+Homebrew is a free and open-source software package management system that
+ simplifies the installation of software on Apple's OS X operating system.
+ Originally written by Max Howell, the package manager has gained popularity
+ in the Ruby on Rails community and earned praise for its extensibility.[1]
+ Homebrew has been recommended for its ease of use[2] as well as its integration
+ into the command line.[3]
+\end_layout
+
+\begin_layout Itemize
+usr/local/bin/brew
+\end_layout
+
+\begin_layout Itemize
+/usr/local/Library/...
+\end_layout
+
+\begin_layout Itemize
+/usr/local/share/man/man1/brew.1
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+The following directories will be made group writable:
+\end_layout
+
+\begin_layout Itemize
+/usr/local/.
+\end_layout
+
+\begin_layout Itemize
+/usr/local/bin
+\end_layout
+
+\begin_layout Itemize
+/usr/local/include
+\end_layout
+
+\begin_layout Itemize
+/usr/local/lib
+\end_layout
+
+\begin_layout Itemize
+/usr/local/lib/pkgconfig
+\end_layout
+
+\begin_layout Itemize
+/usr/local/share
+\end_layout
+
+\begin_layout Itemize
+/usr/local/share/man
+\end_layout
+
+\begin_layout Itemize
+/usr/local/share/man/man1
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+the following directories will have their group set to 
+\emph on
+admin
+\series default
+\emph default
+:
+\end_layout
+
+\begin_layout Itemize
+/usr/local/.
+\end_layout
+
+\begin_layout Itemize
+/usr/local/bin
+\end_layout
+
+\begin_layout Itemize
+/usr/local/include
+\end_layout
+
+\begin_layout Itemize
+/usr/local/lib
+\end_layout
+
+\begin_layout Itemize
+/usr/local/lib/pkgconfig
+\end_layout
+
+\begin_layout Itemize
+/usr/local/share
+\end_layout
+
+\begin_layout Itemize
+/usr/local/share/man
+\end_layout
+
+\begin_layout Itemize
+/usr/local/share/man/man1
+\end_layout
+
+\begin_layout Part
+Environment Variable
+\end_layout
+
+\begin_layout Standard
+Environment variables are a set of dynamic named values that can affect
+ the way running processes will behave on a computer.
+\end_layout
+
+\begin_layout Standard
+They are part of the environment in which a process runs.
+ For example, a running process can query the value of the TEMP environment
+ variable to discover a suitable location to store temporary files, or the
+ HOME or USERPROFILE variable to find the directory structure owned by the
+ user running the process.
+\end_layout
+
+\begin_layout Standard
+In all Unix and Unix-like systems, each process has its own separate set
+ of environment variables.
+ By default, when a process is created, it inherits a duplicate environment
+ of its parent process, except for explicit changes made by the parent when
+ it creates the child.
+ At the API level, these changes must be done between running fork and exec.
+ Alternatively, from command shells such as bash, a user can change environment
+ variables for a particular command invocation by indirectly invoking it
+ via env or using the ENVIRONMENT_VARIABLE=VALUE <command> notation.
+ 
+\end_layout
+
+\begin_layout Standard
+Examples of environment variables include:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+PATH – a list of directory paths.
+ When the user types a command without providing the full path, this list
+ is checked to see whether it contains a path that leads to the command.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+HOME (Unix-like) and USERPROFILE (Microsoft Windows) – indicate where a
+ user's home directory is located in the file system.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+HOME/{.AppName} (Unix-like) and APPDATA
+\backslash
+{DeveloperName
+\backslash
+AppName} (Microsoft Windows) – for storing application settings.
+ Many applications incorrectly use USERPROFILE for application settings
+ in Windows – USERPROFILE should only be used in dialogs that allow user
+ to choose between paths like Documents/Pictures/Downloads/Music, for programmat
+ic purposes APPDATA (roaming), LOCALAPPDATA or PROGRAMDATA (shared between
+ users) is used.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+TERM (Unix-like) – specifies the type of computer terminal or terminal emulator
+ being used (e.g., vt100 or dumb).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+PS1 (Unix-like) – specifies how the prompt is displayed in the Bourne shell
+ and variants.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+MAIL (Unix-like) – used to indicate where a user's mail is to be found.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+TEMP – location where processes can store temporary files
+\end_layout
+
+\end_body
+\end_document
