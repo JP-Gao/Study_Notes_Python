@@ -1,0 +1,7387 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Math and Stats: 7/21
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First version: June 
+\begin_inset Formula $23{}^{th}$
+\end_inset
+
+, 2013
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Reference: text_LAA_Linear Algebra and Its Applications 4ed.
+ Gilbert Strang
+\end_layout
+
+\begin_layout Standard
+http://open.163.com/movie/2010/11/7/3/M6V0BQC4M_M6V29E773.html?recomend=2
+\end_layout
+
+\begin_layout Standard
+http://open.163.com/movie/2013/3/T/0/M8PTB0GHI_M8PTBUHT0.html 数学之旅 王维克
+\end_layout
+
+\begin_layout Part
+Algebra
+\end_layout
+
+\begin_layout Standard
+Geometric series
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Geometric series, 
+\series bold
+EQ
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+a+ar+ar^{2}+ar^{3}+\cdots+ar^{n-1}=\sum_{k=0}^{n-1}ar^{k}=a\,\frac{1-r^{n}}{1-r},\label{Geometric series}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Ball Picking
+\end_layout
+
+\begin_layout Standard
+REFERENCE https://www.probabilitycourse.com/chapter2/2_1_2_ordered_without_replace
+ment.php
+\end_layout
+
+\begin_layout Standard
+Consider an infinite repository containing balls of n different types.
+ Then the following table summarizes the number of distinct ways in which
+ k balls can be picked for four common definitions of "distinct." 
+\end_layout
+
+\begin_layout Subsection
+Factorial
+\end_layout
+
+\begin_layout Standard
+Grouop number = N, If each group has two options, then the total combinations
+ are 
+\begin_inset Formula $2^{N}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Permutations: 
+\end_layout
+
+\begin_layout Itemize
+the notion of 
+\series bold
+permutation
+\series default
+ relates to the act of arranging all the members of a set into some sequence
+ or order, or if the set is already ordered, rearranging (reordering) its
+ elements, a process called permuting.
+ 
+\end_layout
+
+\begin_layout Itemize
+The factorial n! gives the number of ways in which n objects can be permuted.
+ The number of 
+\series bold
+permutations
+\series default
+ on a set of 
+\begin_inset Formula $n$
+\end_inset
+
+ elements is given by 
+\begin_inset Formula $n!$
+\end_inset
+
+ (read: n 
+\series bold
+factorial).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For example, there are 2!=2·1=2 permutations of {1,2}, namely {1,2} and
+ {2,1}, and 3!=3·2·1=6 permutations of {1,2,3}, namely {1,2,3}, {1,3,2},
+ {2,1,3}, {2,3,1}, {3,1,2}, and {3,2,1}.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+The special case 0! is defined to have value 0!=1
+\end_layout
+
+\begin_layout Subsection
+ordered samples with replacement
+\end_layout
+
+\begin_layout Itemize
+order matters.
+\end_layout
+
+\begin_layout Itemize
+Repeation is allowed and possible
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n^{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Example and Reasoning: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $k$
+\end_inset
+
+ people's possible birthday combination (365 day a year).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+there are n=365 choices for the first person, n=365 choices for the second
+ person,...
+ n=365 choices for the kth person.
+ Thus there are 
+\begin_inset Formula $n^{k}$
+\end_inset
+
+ possibilities.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+ordered samples without replacement
+\end_layout
+
+\begin_layout Itemize
+Ordered subset means order within each subset matters: for example 
+\begin_inset Formula $\{AB\}$
+\end_inset
+
+ and 
+\begin_inset Formula $\{BA\}$
+\end_inset
+
+ are not the same.
+\end_layout
+
+\begin_layout Itemize
+Repetion is not possible as there is no replacement
+\end_layout
+
+\begin_layout Standard
+The number of ways of obtaining an 
+\series bold
+ordered
+\series default
+ subset of 
+\begin_inset Formula $k$
+\end_inset
+
+ elements from a set of n elements is given by 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A_{N}^{Y}=\frac{N!}{(N-Y)!}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Reasoning
+\series default
+: 
+\series bold
+Fill the Position:
+\series default
+ There are 
+\begin_inset Formula $n$
+\end_inset
+
+ options for the first position, 
+\begin_inset Formula $(n−1)$
+\end_inset
+
+ options for the second position (since one element has already been allocated
+ to the first position and cannot be chosen here), (n−2) options for the
+ third position, ...
+ (n−k+1) options for the kth position.
+\end_layout
+
+\begin_layout Subsection
+unordered samples without replacement / Combinations
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+A combination is a way of selecting unique combinations of items from a
+ collection, such that (unlike permutations) the order of selection does
+ not matter.
+ 
+\end_layout
+
+\begin_layout Standard
+For example 
+\begin_inset Formula $C_{4}^{2}$
+\end_inset
+
+ from a 4-people group
+\begin_inset Formula $\left\{ A,B,C,D\right\} $
+\end_inset
+
+ means there are 6 ways to choose 
+\begin_inset Formula $AB$
+\end_inset
+
+, 
+\begin_inset Formula $AC$
+\end_inset
+
+, 
+\begin_inset Formula $AD$
+\end_inset
+
+, 
+\begin_inset Formula $BC$
+\end_inset
+
+, 
+\begin_inset Formula $BD$
+\end_inset
+
+ and 
+\begin_inset Formula $CD$
+\end_inset
+
+, where 
+\end_layout
+
+\begin_layout Enumerate
+orders in each group does not matter (
+\begin_inset Formula $BC$
+\end_inset
+
+) and 
+\begin_inset Formula $CB$
+\end_inset
+
+ are the same) (divided by 
+\begin_inset Formula $Y!$
+\end_inset
+
+) and 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+C_{N}^{Y}=\left\{ \begin{array}{c}
+N\\
+Y
+\end{array}\right\}  & = & \frac{A_{N}^{Y}}{Y!}\\
+ & = & \frac{N!}{Y!(N-Y)!}\\
+ & = & \frac{\Gamma(N+1)}{\Gamma(Y+1)\Gamma(N-Y+1)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+unordered samples with replacement
+\end_layout
+
+\begin_layout Standard
+Example: Select 2 elements from {1,2,3}: unordered, with replacement
+\end_layout
+
+\begin_layout Standard
+We can replace the xi's by their equivalent vertical lines.
+ Thus, for example if we have x1+x2+x3+x4=3+0+2+1, we can equivalently write
+ |||++||+|.
+ Thus, we claim that for each solution to the Equation 2.3, we have unique
+ representation using vertical lines ('|') and plus signs ('+').
+ Indeed, each solution can be represented by k vertical lines (since the
+ xi sum to k) and n−1 plus signs.
+ Now, this is exactly the same as Example 2.7: how many distinct sequences
+ you can make using k vertical lines (|) and n−1 plus signs (+)? The answer
+ as we have seen is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{N+k-1}^{k}=C_{N+k-1}^{N-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That is, there are 
+\begin_inset Formula $N+K-1$
+\end_inset
+
+ positions, first select 
+\begin_inset Formula $K$
+\end_inset
+
+ positions to fill 
+\begin_inset Formula $|$
+\end_inset
+
+, the rest are just 
+\begin_inset Formula $+$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Q
+\end_layout
+
+\begin_layout Enumerate
+If k people are at a party, what is the probability that at least two of
+ them have the same birthday? Suppose that there are n=365 days in a year
+ and all days are equally likely to be the birthday of a specific person.
+\end_layout
+
+\begin_layout Enumerate
+Shuffle a deck of 52 cards.
+ How many outcomes are possible? (In other words, how many different ways
+ can you order 52 distinct cards? How many different permutations of 52
+ distinct cards exist?) 
+\end_layout
+
+\begin_layout Enumerate
+I choose 3 cards from the standard deck of cards.
+ What is the probability that these cards contain at least one ace?
+\end_layout
+
+\begin_layout Enumerate
+How many distinct sequences can we make using 3 letter "A"s and 5 letter
+ "B"s? (AAABBBBB, AABABBBB, etc.)
+\end_layout
+
+\begin_layout Enumerate
+Example: Ten passengers get on an airport shuttle at the airport.
+ The shuttle has a route that includes 5 hotels, and each passenger gets
+ off the shuttle at his/her hotel.
+ The driver records how many passengers leave the shuttle at each hotel.
+ How many different possibilities exist?
+\end_layout
+
+\begin_layout Enumerate
+An urn consists of 30 red balls and 70 green balls.
+ What is the probability of getting exactly k red balls in a sample of size
+ 20 if the sampling is done without replacement (repetition not allowed)?
+\end_layout
+
+\begin_layout Subsection
+A
+\end_layout
+
+\begin_layout Enumerate
+Again, the phrase "at least" suggests that it might be easier to find the
+ probability of the complement event, P(
+\begin_inset Formula $A^{c}$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Let A be the event that at least two people have the same birthday.
+ First note that if k>n, then P(A)=1;
+\end_layout
+
+\begin_layout Enumerate
+Otherwise: 
+\begin_inset Formula $P(A)=1−\frac{A_{n}^{k}}{n^{k}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+The answer is 52!.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $1−C_{48}^{3}/C_{52}^{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $C_{8}^{5}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $C_{14}^{4}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+10 passengers are idiosyncratic, but the problem is about the number of
+ passengers at each hotel, then we can treat those passengers homogeneous.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $C_{20}^{k}0.3^{k}0.7^{20-k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Thinking
+\end_layout
+
+\begin_layout Itemize
+If the elements are the same: they must be unordered.
+ Then think from the 
+\series bold
+filling posit
+\series default
+ion perspective.
+\end_layout
+
+\begin_layout Subsection
+On average, how many times must a 6-sided die be rolled until a 6 turns
+ up?
+\end_layout
+
+\begin_layout Standard
+When rolling a die, there is a 1/6 chance that a 6 will appear.
+ If a 6 doesn’t appear, then we’re in essence starting over.
+ That is to say, the number of times we expect to throw the die before a
+ 6 shows up is the same as the number of additional times we expect to throw
+ the die after throwing a non-6.
+ So we have a 1/6 chance of rolling a 6 (and stopping), and a 5/6 chance
+ of not rolling a six, after which the number of rolls we expect to throw
+ is the same as when we started.
+ We can formulate this as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E=\frac{1}{6}+\frac{5}{6}(E+1)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+E=6
+\end_layout
+
+\begin_layout Subsection
+On average, how many times must a 6-sided die be rolled until a 6 turns
+ up twice in a row?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E=6+\frac{1}{6}*1+\frac{5}{6}(E+1)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solving this, we find that E = 42.
+\end_layout
+
+\begin_layout Part
+Algorithm 
+\end_layout
+
+\begin_layout Subsection
+Big O notation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/big_O.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When we say 
+\begin_inset Formula $f(x)=O(g(x))\text{ as }x\to\infty$
+\end_inset
+
+, 如上图， 其大概意思是表示 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ is always bounded by 
+\begin_inset Formula $c\times g(x)$
+\end_inset
+
+ as 
+\begin_inset Formula $x\to\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Algorithm Complexity
+\end_layout
+
+\begin_layout Standard
+For example, when analyzing some algorithm, one might find that the time
+ (or the 2 number of steps) it takes to complete a problem of size 
+\begin_inset Formula $n$
+\end_inset
+
+ is given by 
+\begin_inset Formula $T(n)=4n^{2}-2n+2$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+If we ignore constants (which makes sense because those depend on the particular
+ hardware the program is run on) and slower growing terms, we could say
+ "
+\begin_inset Formula $T(n)$
+\end_inset
+
+ grows at the order of 
+\begin_inset Formula $n^{2}$
+\end_inset
+
+" and write: 
+\begin_inset Formula $T(n)=O(n^{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Fact: if a function f(n) is a sum of functions, one of which grows faster
+ than the others, then the faster growing one determines the order of f(n).
+\end_layout
+
+\begin_layout Subsubsection
+Error Term
+\end_layout
+
+\begin_layout Standard
+In mathematics, it is often important to get a handle on the error term
+ of an approximation .
+ For instance, people will write: for 
+\begin_inset Formula $x\rightarrow0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+e^{x}=1+x+x^{2}/2+O(x^{3})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+to express the fact that the error is smaller in absolute value than some
+ 
+\begin_inset Formula $C\times x^{3}$
+\end_inset
+
+ if x is close enough to 0.
+\end_layout
+
+\begin_layout Subsubsection
+Common growing functions 
+\end_layout
+
+\begin_layout Standard
+The slower growing functions are listed first.
+\end_layout
+
+\begin_layout Enumerate
+O(1)
+\end_layout
+
+\begin_layout Enumerate
+O(log(n))
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Note, too, that O(log(n)) is exactly the same as O(log(
+\begin_inset Formula $n^{c}$
+\end_inset
+
+)).
+ The logarithms differ only by a constant factor, and the big O notation
+ ignores that.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $O(log(n)^{n})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+O(n) : linear
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $O(n^{c})$
+\end_inset
+
+: polynomial
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $O(c^{n})$
+\end_inset
+
+: exponential
+\end_layout
+
+\begin_layout Part
+Statistics
+\end_layout
+
+\begin_layout Section
+Distributions
+\end_layout
+
+\begin_layout Subsection
+Chi Square
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Z\sim N(0,1)$
+\end_inset
+
+ then 
+\begin_inset Formula $Z^{2}\sim\chi^{2}(1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Chi square is addable: the sum of n squares of independent standard normals
+ is a chi-square with n degrees of freedom.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+if 
+\begin_inset Formula $X_{1},...,X_{n}$
+\end_inset
+
+ are i.i.d.
+ 
+\begin_inset Formula $N(μ,σ^{2})$
+\end_inset
+
+ random variables, then 
+\begin_inset Formula $\sum_{i=1}^{n}(X_{i}-\bar{X})^{2}\sim\sigma^{2}\chi_{n-1}^{2}$
+\end_inset
+
+ where 
+\begin_inset Formula $\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_{i}$
+\end_inset
+
+, and using the sample mean 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+ to replace the population mean 
+\begin_inset Formula $\mu$
+\end_inset
+
+ costs 1 df to get unbiadness.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Moments
+\end_layout
+
+\begin_layout Standard
+If the points represent probability density, then the zeroth moment is the
+ total probability (i.e.
+ one), the first moment is the mean, the second central moment is the variance,
+ the third moment is the skewness, and the fourth moment (with normalization
+ and shift) is the kurtosis.
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Check Distribution Form: Kolmogorov–Smirnov Test & Statistic (KS)
+\end_layout
+
+\begin_layout Standard
+The Kolmogorov–Smirnov statistic for a given cumulative distribution function
+ 
+\begin_inset Formula $F(x)$
+\end_inset
+
+ (see function 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Empirical_CDF_Scores"
+
+\end_inset
+
+) is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D_{n}=\sup_{x}|F_{n}(x)-F(x)|
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the sample size and 
+\begin_inset Formula $sup_{x}$
+\end_inset
+
+ is the supremum of the set of distances.
+ By the Glivenko–Cantelli theorem, if the sample comes from distribution
+ 
+\begin_inset Formula $F(x)$
+\end_inset
+
+, then 
+\begin_inset Formula $D_{n}$
+\end_inset
+
+ converges to 0 almost surely in the limit when 
+\begin_inset Formula $n$
+\end_inset
+
+ goes to infinity.
+\end_layout
+
+\begin_layout Standard
+To test whether two samples are from the same distribution, or whether the
+ estimated/predicted values are from the same distribution as the true value,
+ we use:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D_{{n,n'}}=\sup_{x}|F_{{1,n}}(x)-F_{{2,n'}}(x)|
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The null hypothesis, two samples are from the same distribution, is rejected
+ at level 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ if 
+\begin_inset Formula $D_{{n,n'}}>c(\alpha)\sqrt{\frac{n+n'}{nn'}}$
+\end_inset
+
+.
+ The value of 
+\begin_inset Formula $c(\alpha)$
+\end_inset
+
+ is given in the table.
+\end_layout
+
+\begin_layout Standard
+So for a model, the larger the KS statistic, the better.
+\end_layout
+
+\begin_layout Section
+Basics
+\end_layout
+
+\begin_layout Subsection
+Sample Variance vs.
+ Variance of Sample Mean
+\end_layout
+
+\begin_layout Standard
+Variance of Sample Mean in the following form is a biased but consistent
+ estimate of variance of population mean.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SE_{\bar{x}}=\frac{s}{\sqrt{n-1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $s$
+\end_inset
+
+ is the sample standard deviation (i.e., the sample-based estimate of the
+ standard deviation of the 
+\series bold
+population
+\series default
+ (just population, not population mean)): 
+\begin_inset Formula $s_{N}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_{i}-\overline{x})^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $n$
+\end_inset
+
+ is the size (number of observations) of the sample.
+\end_layout
+
+\begin_layout Subsection
+Type 1 and Type 2 (从右至左）
+\end_layout
+
+\begin_layout Standard
+A type I error occurs when one 
+\series bold
+rejects the null hypothesis 
+\series default
+(FP) 
+\series bold
+when it is true
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha$
+\end_inset
+
+: 
+\series bold
+The probability of a type I error
+\series default
+ is the level of significance of the test of hypothesis, and is denoted
+ by 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, the confidence level.
+ It is normally 0.5%~10%.
+\end_layout
+
+\begin_layout Itemize
+In many practical applications type I errors are more delicate than type
+ II errors.
+ In these cases, care is usually focused on minimizing the occurrence of
+ this statistical error.
+ So that is why normally we focus on 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+A type II error occurs when 
+\series bold
+one rejects the alternative hypothesis
+\series default
+ (fails to reject the null hypothesis) 
+\series bold
+when the alternative hypothesis is true
+\series default
+.
+
+\series bold
+ (FN).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\beta$
+\end_inset
+
+:
+\series bold
+ The probability of a type II error.
+
+\series default
+ One cannot evaluate the probability of a type II error when the alternative
+ hypothesis is of the form µ > 180.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $1-\beta$
+\end_inset
+
+: 
+\series bold
+The power of a test
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+power of a test
+\end_layout
+
+\end_inset
+
+
+\series default
+, the probability of choosing the alternative hypothesis when the alternative
+ hypothesis is correct.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename H:/jpmDesk/Desktop/Personal/Research_personal/Lyx_Picture/Type_of_Error.png
+	scale 40
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Power analysis and Sample Design
+\end_layout
+
+\begin_layout Standard
+Power analysis is an important aspect of experimental design.
+ 
+\end_layout
+
+\begin_layout Standard
+It allows us to determine the sample size required to detect an effect of
+ a given size with a given degree of confidence.
+ Conversely, it allows us to determine the probability of detecting an effect
+ of a given size with a given level of confidence, under sample size constraints.
+ If the probability is unacceptably low, we would be wise to alter or abandon
+ the experiment.
+ 
+\end_layout
+
+\begin_layout Standard
+The following four quantities have an intimate relationship: 
+\end_layout
+
+\begin_layout Enumerate
+sample size 
+\end_layout
+
+\begin_layout Enumerate
+effect size
+\end_layout
+
+\begin_layout Enumerate
+significance level = P(Type I error) = probability of finding an effect
+ that is not there 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is the threshold of 
+\begin_inset Formula $p-value$
+\end_inset
+
+, which measures how extreme the observation is.
+\end_layout
+
+\begin_layout Enumerate
+confidence level: 
+\begin_inset Formula $1-\alpha$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Enumerate
+single side 
+\begin_inset Formula $\alpha=0.05$
+\end_inset
+
+ --- z=1.645; single side 
+\begin_inset Formula $\alpha=0.01$
+\end_inset
+
+ --- z=2.33.
+ double side 
+\begin_inset Formula $\alpha=0.05$
+\end_inset
+
+, or single side 
+\begin_inset Formula $\alpha=0.025$
+\end_inset
+
+ -- z = 1.96 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+power = 1 - P(Type II error) = he probability that the test correctly rejects
+ the null hypothesis (H0) when the alternative hypothesis (H1) is true.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Given any three, we can determine the fourth.
+ Thus the first three factors can affect the power of test.
+\end_layout
+
+\begin_layout Subsubsection
+Effect size
+\end_layout
+
+\begin_layout Standard
+Effect size measures either measure the sizes of associations or the sizes
+ of differences.
+ 有不同的定义和解释，但大体思想一样。
+\end_layout
+
+\begin_layout Enumerate
+You already know the most common effect-size measure, as the correlation/regress
+ion coefficients r and R are actually measures of effect size.
+ Because r covers the whole range of relationship strengths, from no relationshi
+p whatsoever (zero) to a perfect relationship (1, or -1), it is telling
+ us exactly how large the relationship really is between the variables we've
+ studied -- and is independent of how many people were tested.
+ Cohen provided rules of thumb for interpreting these effect sizes, suggesting
+ that an r of |.1| represents a 'small' effect size, |.3| represents a 'medium'
+ effect size and |.5| represents a 'large' effect size.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Another common measure of effect size is 
+\begin_inset Formula $d$
+\end_inset
+
+, sometimes known as 
+\series bold
+Cohen's 
+\begin_inset Formula $d$
+\end_inset
+
+
+\series default
+.
+ This can be used when comparing two means, as when you might do a t-test,
+ and is simply the difference in the two groups' means divided by the average
+ of their standard deviations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+MagnituteEffect=\frac{\mu_{0}-\mu_{A}}{\sigma_{WholeSample}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Calculate power of test
+\end_layout
+
+\begin_layout Standard
+Example: We proceed by analyzing D as in a one-sided t-test.
+ The null hypothesis will be:
+\begin_inset Formula $\mathrm{E}[D]=0$
+\end_inset
+
+ (no effect), where 
+\begin_inset Formula $\mathrm{E}[]$
+\end_inset
+
+ denotes the expected value of a quantity.
+ In this case, the alternative is 
+\begin_inset Formula $\mathrm{E}[D]>0$
+\end_inset
+
+ (positive effect).
+ The test statistic is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T=\sqrt{n}\frac{\bar{D}}{\hat{\sigma}_{D}}$
+\end_inset
+
+.
+ where n is the sample size, 
+\begin_inset Formula $\bar{D}$
+\end_inset
+
+ is the sample average of the and 
+\begin_inset Formula $\hat{\sigma}_{D}^{2}$
+\end_inset
+
+ is the sample variance.
+ 
+\end_layout
+
+\begin_layout Standard
+Now suppose that the alternative hypothesis is true and 
+\begin_inset Formula $\mathrm{E}[D]=\tau$
+\end_inset
+
+.
+ Then the power is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{ccl}
+\pi(\tau) & = & P(\sqrt{n}\bar{D}/\hat{\sigma}_{D}>1.64|\tau)\\
+ & = & P\left(\sqrt{n}(\bar{D}-\tau+\tau)/\hat{\sigma}_{D}>1.64\right|\tau)\\
+ & = & P\left(\sqrt{n}(\bar{D}-\tau)/\hat{\sigma}_{D}>1.64-\sqrt{n}\tau/\hat{\sigma}_{D}\right|\tau)
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that the above the formula is given 
+\begin_inset Formula $\tau$
+\end_inset
+
+, thus 
+\begin_inset Formula $\sqrt{n}(\bar{D}-\tau)/\hat{\sigma}_{D}$
+\end_inset
+
+ follows 
+\begin_inset Formula $N(0,1)$
+\end_inset
+
+, therefore the power of test is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\pi(\tau)\approx1-\Phi(1.64-\tau\sqrt{n}/\hat{\sigma}_{D})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that the power of test depends on 
+\end_layout
+
+\begin_layout Enumerate
+Sample size 
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Effective Size 
+\begin_inset Formula $\sqrt{n}(\bar{D}-\tau)/\hat{\sigma}_{D}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Significance level 
+\begin_inset Formula $1.64$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Balance 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Three ways to increase the power of test.
+\end_layout
+
+\begin_layout Enumerate
+When increase 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, you increase Probability of Type 1 error (FP increases).
+ But you decrease 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+ Thus increase the power of test
+\end_layout
+
+\begin_layout Enumerate
+Magnitude of effect (effect size): the standardized difference between 
+\begin_inset Formula $\mu_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{A}$
+\end_inset
+
+.
+ The more difference between 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{A}$
+\end_inset
+
+, the better.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Sample size.
+\end_layout
+
+\begin_layout Section
+Measure of statistical dispersion
+\end_layout
+
+\begin_layout Subsubsection
+Gini Coefficient 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename H:/jpmDesk/Desktop/Personal/Research_personal/Lyx_Picture/Gini_coefficient.svg
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then Gini coefficient is 
+\begin_inset Formula 
+\[
+Gini=\frac{A}{A+B}=2A=1-2B
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $A+B=0.5$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Lorenz Curve
+\end_layout
+
+\begin_layout Standard
+is the actual CDF of people's income.
+ 
+\end_layout
+
+\begin_layout Standard
+If the Lorenz curve is represented by the function 
+\begin_inset Formula $Y=L(X)$
+\end_inset
+
+, where 
+\begin_inset Formula $X$
+\end_inset
+
+ is the rank of income in the population and 
+\begin_inset Formula $L(X)$
+\end_inset
+
+ is the percentage of income in total income of the population.
+ The area of B can be found with integration and: 
+\begin_inset Formula 
+\[
+B=\int_{0}^{1}L(X)dX
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In discrete case, 
+\begin_inset Formula 
+\begin{eqnarray*}
+G & = & \frac{0.5-\sum(X_{k}-X_{k-1})(\frac{Y_{k}+Y_{k-1}}{2})}{0.5}\\
+ & = & 1-\sum(X_{k}-X_{k-1})(Y_{k}+Y_{k-1})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Entropy
+\end_layout
+
+\begin_layout Standard
+/'entrəpɪ/ 
+\end_layout
+
+\begin_layout Standard
+High Entropy: histogram of frequency distributions is flat.
+\end_layout
+
+\begin_layout Standard
+Low Entropy: histogram of frequency distributions would have many highs
+ and lows.
+\end_layout
+
+\begin_layout Part
+Optimazation
+\end_layout
+
+\begin_layout Section
+Convexity （凸）
+\end_layout
+
+\begin_layout Standard
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+tex_Convex Optimization_Cambridge_Boyd_Vandenberghe
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/Convex_Set.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The convex hull of a set C, denoted 
+\series bold
+conv C
+\series default
+, is the set of all convex combinations of points in C:
+\end_layout
+
+\begin_layout Subsection
+Affine Functions Preserve Convexity
+\end_layout
+
+\begin_layout Description
+Affine_Functions: Same as Linear functions with intercept.
+ 
+\begin_inset Formula $f:$
+\end_inset
+
+
+\begin_inset Formula $R_{n}→R_{m}$
+\end_inset
+
+ is affine if it is a sum of a linear function and a constant, i.e., if it
+ has the form f(x) = Ax + b, where 
+\begin_inset Formula $A∈R_{m×n}$
+\end_inset
+
+ and 
+\begin_inset Formula $b∈R_{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Preserve_Convexity: if 
+\begin_inset Formula $x$
+\end_inset
+
+ is a convex set, and 
+\begin_inset Formula $f$
+\end_inset
+
+ is affine, then 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ is also a convex set
+\end_layout
+
+\begin_layout Subsection
+Sparating Hyperplane Theorem
+\end_layout
+
+\begin_layout Standard
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+tex_Convex Optimization_Cambridge_Boyd_Vandenberghe.
+ P60
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+放弃从几何去想象，尝试仅仅从代数上去理解。
+\end_layout
+
+\begin_layout Standard
+Suppose C and D are nonempty disjoint 
+\series bold
+convex
+\series default
+ sets, i.e., C ∩D = ∅.
+ Then there exist 
+\begin_inset Formula $a\ne0$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+a^{T}x\le b
+\]
+
+\end_inset
+
+ for all x ∈ C and 
+\begin_inset Formula 
+\[
+a^{T}x\ge b
+\]
+
+\end_inset
+
+ for all x ∈ D.
+ In other words, the affine function 
+\begin_inset Formula $a^{T}x-b$
+\end_inset
+
+ is nonpositive on C and nonnegative on D.
+ The hyperplane 
+\begin_inset Formula 
+\[
+{x|a^{T}x=b}
+\]
+
+\end_inset
+
+ is called a separating hyperplane.
+\end_layout
+
+\begin_layout Subsection
+Supporting Hyperplane Theorem
+\end_layout
+
+\begin_layout Standard
+For any nonempty convex set C, and any 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ ∈ 
+\series bold
+bd
+\series default
+C, there exists a supporting hyperplane 
+\begin_inset Formula 
+\[
+{x|a^{T}x=a^{T}x_{0}}
+\]
+
+\end_inset
+
+to C at 
+\series bold
+
+\begin_inset Formula $x_{0}$
+\end_inset
+
+
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Section
+Convex Function
+\end_layout
+
+\begin_layout Standard
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+tex_Convex Optimization_Cambridge_Boyd_Vandenberghe.
+ P84.
+ See the proof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f$
+\end_inset
+
+ is convex iff 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbf{dom}f$
+\end_inset
+
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+is a convex set.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f(\theta x+(1\text{−}\theta)y)\text{\ensuremath{\le}}\theta f(x)+(1\text{−}\theta)f(y)$
+\end_inset
+
+, where 
+\begin_inset Formula $\theta\in[0,1]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Lyx_Picture/Convex_Function.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+All Affine functions are at the same time convex and concave
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $x,y\in\mathbf{dom}f$
+\end_inset
+
+, then 
+\begin_inset Formula $(1-t)x+ty=x+t(x-y)\in\mathbf{dom}f$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+The above inequality is called 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Jensen’s inequality
+\end_layout
+
+\end_inset
+
+
+\series bold
+Jensen’s inequality.
+ 
+\series default
+Many other inequality can be derived by applying the convexity of funtion.
+ 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+tex_Convex Optimization....
+ P92.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Convex Function of multiple varaibles
+\end_layout
+
+\begin_layout Itemize
+Method 1: check the convexsity for each varaible, holding other variables
+ as constant.
+\end_layout
+
+\begin_layout Itemize
+If the function is twice differentiable and the Hessian is positive semidefinite
+ in the entire domain, then the function is convex.
+ Note that the domain must be assumed to be convex too.
+ If the Hessian has a negative eigenvalue at a point in the interior of
+ the domain, then the function is not convex.
+ 
+\end_layout
+
+\begin_layout Subsection
+First-order Conditions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f$
+\end_inset
+
+ is convex if and only if 
+\begin_inset Formula $\mathbf{dom}f$
+\end_inset
+
+ is a convex set and 
+\begin_inset Formula 
+\[
+f(y)\ge f(x)+∇f(x)T(y−x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That means the first-order Taylor approximation in the left is alwasy a
+ global under-estimator for the right function 
+\begin_inset Formula $f(y)$
+\end_inset
+
+.
+ (是
+\begin_inset Formula $f(y)$
+\end_inset
+
+ 的estimator，但永远比
+\begin_inset Formula $f(y)$
+\end_inset
+
+小) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/Convex_Function_First_Order_Condition.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Local minimizer is Gloabl minimizer in Convex Problems
+\end_layout
+
+\begin_layout Standard
+Accrording to First-order Conditions, if 
+\begin_inset Formula $\nabla f(x)=0$
+\end_inset
+
+, then for all 
+\begin_inset Formula $y\in\mathbf{dom}f$
+\end_inset
+
+, 
+\begin_inset Formula $f(y)>f(x)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Thus as long as we find 
+\begin_inset Formula $x$
+\end_inset
+
+ as a local minimizer for convex function 
+\begin_inset Formula $f$
+\end_inset
+
+, we know it is also for Global
+\end_layout
+
+\begin_layout Subsection
+Operations that preserve convexity
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Monnegative Weighted Sum
+\series default
+: Set of convex functions is itself a convex cone: a nonnegative weighted
+ sum of convex functions, 
+\begin_inset Formula 
+\[
+f=w_{1}f_{1}+···+w_{m}f_{m}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Pointwise Maximum
+\series default
+: If 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{2}$
+\end_inset
+
+ are convex functions then their pointwise maximum 
+\begin_inset Formula $f$
+\end_inset
+
+, defined by below, with dom
+\begin_inset Formula $f$
+\end_inset
+
+ = dom
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ ∩ dom
+\begin_inset Formula $f_{2}$
+\end_inset
+
+, is also convex.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(x)=max\{f_{1}(x),f_{2}(x)\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Supremum: function: 
+\series default
+Almost every convex function can be expressed as the pointwise supremum
+ of a family of affine functions.
+
+\series bold
+ 
+\series default
+For example, if f : Rn → R is convex, with 
+\series bold
+dom
+\series default
+f = Rn, then we have 
+\begin_inset Formula 
+\[
+f(x)=sup{g(x)|g\text{\in}affine\mbox{}\cup\mbox{}g(z)\le f(z)}
+\]
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In other words, 
+\begin_inset Formula $f$
+\end_inset
+
+ is the pointwise supremum of the set of all affine global underestimators
+ of it.
+ We give the proof of this result below.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Lagrange Multiplier: Intro
+\end_layout
+
+\begin_layout Subsection
+Derive: why Lagrange Equation takes this form
+\end_layout
+
+\begin_layout Standard
+Lagrange Multiplier 的公式不是正推出来的，而是凑巧凑出来的。
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Lyx_Picture/Lagrange.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Maximize 
+\begin_inset Formula $f(x,y)$
+\end_inset
+
+ subject to 
+\begin_inset Formula $g(x,y)=0$
+\end_inset
+
+ (the point (x,y) shall be on the hyperplane g() ) It must satisfies the
+ following equation
+\end_layout
+
+\begin_layout Itemize
+The maxima of 
+\begin_inset Formula $f$
+\end_inset
+
+ must be in a contour line, thus the 
+\begin_inset Formula $g$
+\end_inset
+
+ and 
+\begin_inset Formula $f$
+\end_inset
+
+ must be parallel at that maxima, thus their gradients, which are perpendiculr
+ to countour line, must also be parellel
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla_{x,y}f=-\lambda\nabla_{x,y}g\label{eq:Key_first_order}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Note that the above condition can take care if 
+\begin_inset Formula $f$
+\end_inset
+
+ gets its global maxima, which means: if 
+\begin_inset Formula $\nabla f=0$
+\end_inset
+
+, just set 
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+When there are un-equality constrainst, setting 
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+ also works if the maxima of the problem is not on, but within, those contrainst
+s.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+The constant λ is required because although the two gradient vectors are
+ parallel, the magnitudes of the gradient vectors are generally not equal.
+ (The negative coefficient is traditional, but 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ itself can be any value).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This constant is called the 
+\series bold
+Lagrange multiplier
+\series default
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+Thus the original problem is 
+\series bold
+Equivalent
+\series default
+ to maximize the 
+\series bold
+Lagrangian
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Lagrangian
+\end_layout
+
+\end_inset
+
+
+\series default
+ below
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Lambda(x,\lambda)=f(x)+\lambda g(x)\label{eq:Lagrange equation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and maximize it by doing derivatives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla_{x,\lambda}\Lambda(x,\lambda)=\vec{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that a gradient is a vector, so if an vector is 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ So the above 
+\begin_inset Formula $0$
+\end_inset
+
+ gradient means on each dimention of graident it must have 0 scaler:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\Lambda}{\partial x}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\Lambda}{\partial\lambda}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The two equations above are the 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Key_first_order"
+
+\end_inset
+
+.
+ So that is why we see the 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lagrange equation"
+
+\end_inset
+
+ is 
+\series bold
+Equivalent with the original problem
+\end_layout
+
+\begin_layout Subsection
+Max or Min? 
+\end_layout
+
+\begin_layout Itemize
+No matter whether it is a minimizing problem or maximizing problem, they
+ alwasy have to follow the key condition Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Key_first_order"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Later in KKT you will see it is better to transform all 
+\begin_inset Formula $maxf(x)$
+\end_inset
+
+ problem into 
+\begin_inset Formula $minf(x)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+But the Lagrange method itself cannot guarantee whether you get is maxima
+ or minima.
+ You have to plug into the extreme value into 
+\begin_inset Formula $f$
+\end_inset
+
+ to see it.
+\end_layout
+
+\begin_layout Section
+Karush–Kuhn–Tucker conditions (KKT) and 
+\series bold
+Slackness Conditions
+\end_layout
+
+\begin_layout Standard
+Maximize 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ subject to 
+\begin_inset Formula $g_{i}(x)\leq0$
+\end_inset
+
+ for , 
+\begin_inset Formula $h_{j}(x)=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+wiki:
+\end_layout
+
+\begin_layout Standard
+KKT conditions (also known as the Kuhn (Coon)–Tucker conditions) are first
+ order
+\series bold
+ necessary conditions
+\series default
+ for a solution in nonlinear programming to be 
+\series bold
+optimal
+\series default
+, provided that some regularity conditions are satisfied.
+\end_layout
+
+\begin_layout Subsubsection
+Application Issues
+\end_layout
+
+\begin_layout Itemize
+From KKT you may get several potential soultions of 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+, you have to plug them back to 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ to see whether they are truly an optimization.
+\end_layout
+
+\begin_layout Itemize
+KKT may not exist because certain regularity condition didnt match, but
+ the local optimal 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ may still exist.
+\end_layout
+
+\begin_layout Itemize
+Compared with simple Lagrangian: 
+\series bold
+KKT allowes inequality constraints
+\series default
+, the KKT approach to nonlinear programming generalizes the method of Lagrange
+ multipliers, which allows only equality constraints.
+ 
+\end_layout
+
+\begin_layout Itemize
+Numeric Soutlution: The system of equations corresponding to the KKT conditions
+ is usually not solved directly, except in the few special cases where a
+ closed-form solution can be derived analytically.
+ In general, many optimization algorithms can be interpreted as methods
+ for numerically solving the KKT system of equations
+\end_layout
+
+\begin_layout Subsubsection
+Regularity conditions
+\end_layout
+
+\begin_layout Standard
+KKT conditions exist only if those Regularity conditions are met.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ is local minimum of Primal problem
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $I=\{i|g(x_{i}^{*})=0\}$
+\end_inset
+
+ is not empty (即inequality中的condition至少有一个要满足equality)
+\end_layout
+
+\begin_layout Enumerate
+Constraint qualification condition (CQC): for each 
+\begin_inset Formula $i\in I$
+\end_inset
+
+, we have
+\begin_inset Formula $\nabla g_{i}(x)\perp\nabla h_{j}(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+if the problem is convex, then KKT is sufficient and necessary even without
+ CQC.
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+KKT condtions
+\end_layout
+
+\begin_layout Standard
+Then there are KKT condtions that are：
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Stationarity (first order derivativess)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+For maximizing f(x): 
+\begin_inset Formula $\nabla f(x^{*})=\sum_{i=1}^{m}\mu_{i}\nabla g_{i}(x^{*})+\sum_{j=1}^{l}\lambda_{j}\nabla h_{j}(x^{*})$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Lagrangian can be constructed as 
+\begin_inset Formula $max\mbox{ }f(x)-\sum u_{i}g(x)-\sum\lambda h_{j}(x^{*})$
+\end_inset
+
+ or transform it as minimizing a negative problem 
+\begin_inset Formula $min\mbox{ }-f(x)+\sum u_{i}g(x)+\sum\lambda h_{j}(x^{*})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+For minimizing f(x): 
+\begin_inset Formula $-\nabla f(x^{*})=\sum_{i=1}^{m}\mu_{i}\nabla g_{i}(x^{*})+\sum_{j=1}^{l}\lambda_{j}\nabla h_{j}(x^{*})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+此中的
+\begin_inset Formula $x$
+\end_inset
+
+并非只在
+\begin_inset Formula $f(x)$
+\end_inset
+
+中出现，是凡非 
+\begin_inset Formula $KKT$
+\end_inset
+
+ multiplier (
+\begin_inset Formula $\mu$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda$
+\end_inset
+
+) 的variable都应该归于
+\begin_inset Formula $x$
+\end_inset
+
+, and do first order derivatives.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Primal feasibility (the very original constraint)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $g_{i}(x^{*})\le0,\mbox{ for all }i=1,\ldots,m$
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+To let the 
+\series bold
+Stationarity (first order derivativess) be the form above, you have to first
+ transform all inequality constraints like 
+\begin_inset Formula $\ge$
+\end_inset
+
+ into 
+\begin_inset Formula $\le$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $h_{j}(x^{*})=0,\mbox{ for all }j=1,\ldots,l$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Dual feasibility (only for the inequality codition)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mu_{i}\ge0,\mbox{ for all }i=1,\ldots,m$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Complementary slackness (only for the inequality codition)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mu_{i}g_{i}(x^{*})=0,\mbox{for all}\mbox{ }i=1,\ldots,m.$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Inequality Condition / 
+\series bold
+Slackness Condition
+\series default
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+see test_MATH2640 Introduction to Optimisation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the Inequality Condition 
+\begin_inset Formula $g(x)\le b$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+If it is binding (maxima is exactly on 
+\begin_inset Formula $g(x)=b$
+\end_inset
+
+), then we have 
+\begin_inset Formula $\frac{\partial f}{\partial x}=-\lambda\frac{\partial g}{\partial x}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If not binding, then 
+\begin_inset Formula $g(x)$
+\end_inset
+
+ will not even show up in the maximizing conditions.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Complementary Slackness condition
+\series default
+ has the form to take care both situations above
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\lambda(g(x)-b)=0\label{eq:Complementary_Slackness_condition}
+\end{equation}
+
+\end_inset
+
+
+\series bold
+If binding, then 
+\begin_inset Formula $g(x)=b$
+\end_inset
+
+ and we let 
+\begin_inset Formula $\lambda\ne0$
+\end_inset
+
+.
+ Otherwise we make 
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sufficient Optimality Conditions 
+\end_layout
+
+\begin_layout Itemize
+The KKT conditions are sufficient for convex optimization problems.
+ 
+\end_layout
+
+\begin_layout Itemize
+The KKT conditions are necessary and sufficient for convex optimization
+ problems under CQC.
+\end_layout
+
+\begin_layout Standard
+Furthermore, if
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ feasible for P 
+\end_layout
+
+\begin_layout Enumerate
+Feasible set is P is convex 
+\end_layout
+
+\begin_layout Enumerate
+f(x) convex 
+\end_layout
+
+\begin_layout Enumerate
+There exist vectors (u, v), u ≥ 0:
+\end_layout
+
+\begin_layout Standard
+Then, 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ is a global minimum of P .
+\end_layout
+
+\begin_layout Subsection
+Bordered Hessian 
+\end_layout
+
+\begin_layout Standard
+To establish that these solutions really are maxima 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+NOT IN test_MATH2640 Introduction to Optimisation, this note just by pass
+ it
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Interpretation of the Lagrange multiplier
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L(x_{1},x_{2},\dots;\lambda_{1},\lambda_{2},\dots)=f(x_{1},x_{2},\dots)+\lambda_{1}(c_{1}-g_{1}(x_{1},x_{2},\dots))+\lambda_{2}(c_{2}-g_{2}(x_{1},x_{2},\dots))+\dots$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial L}{\partial{c_{k}}}=\lambda_{k}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+So, 
+\begin_inset Formula $λ_{k}$
+\end_inset
+
+ is the rate of change of the quantity being optimized as a function of
+ the constraint variable.
+\end_layout
+
+\begin_layout Standard
+From wiki: 
+\end_layout
+
+\begin_layout Standard
+a Lagrange multiplier has an interpretation as the marginal effect of the
+ corresponding constraint constant upon the optimal attainable value of
+ the original objective function.
+\end_layout
+
+\begin_layout Standard
+In economics the optimal profit to a player is calculated subject to a constrain
+ed space of actions, where a Lagrange multiplier is
+\series bold
+ the change in the optimal value of the objective function (profit) due
+ to the relaxation of a given constraint
+\series default
+ (e.g.
+ through a change in income); in such a context λ* is the marginal cost
+ of the constraint, and is referred to as the 
+\series bold
+shadow price.
+\end_layout
+
+\begin_layout Section
+Dual Problem
+\end_layout
+
+\begin_layout Standard
+In mathematical optimization theory, duality or the duality principle is
+ the principle that optimization problems may be viewed from either of two
+ perspectives, the primal problem or the dual problem.
+ The solution to the dual problem provides a lower bound to the solution
+ of the primal (minimization) problem.[1] 
+\end_layout
+
+\begin_layout Standard
+However in general the optimal values of the primal and dual problems need
+ not be equal.
+ Their difference is called the duality gap.
+ For convex optimization problems, the duality gap is zero under a constraint
+ qualification condition.
+\end_layout
+
+\begin_layout Subsection
+Idea
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\text{max}u=f(x)\text{\ensuremath{} subject to }C(x)\leq I\mbox{ and }h(x)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+text_CMU_optimization_lecture15.pdf
+\end_layout
+
+\begin_layout Itemize
+Primal: 在有限花销
+\begin_inset Formula $x$
+\end_inset
+
+下最大化效用
+\begin_inset Formula $u$
+\end_inset
+
+。
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+L_{P}=max{}_{x,\lambda,\beta}\Lambda(x,\lambda,\beta)=max{}_{x,\lambda,\beta}f(x)+\lambda(C(x)-I)+\beta h(x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+under constraint 
+\begin_inset Formula $\beta\ge0$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda\ge0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Generally, the constraint shall always be transformed into a form of less
+ or equal: 
+\begin_inset Formula $x\le c$
+\end_inset
+
+.
+ If the original constraint is 
+\begin_inset Formula $x\ge c$
+\end_inset
+
+, then just make it 
+\begin_inset Formula $x\le-c$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Dual: 在给定效用
+\begin_inset Formula $u$
+\end_inset
+
+时最小化花销
+\begin_inset Formula $x$
+\end_inset
+
+。
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+若将Primal 的maxima 
+\begin_inset Formula $u*$
+\end_inset
+
+ 带入Dual中作为限制
+\begin_inset Formula $u\ge u*$
+\end_inset
+
+, then minize 
+\begin_inset Formula $x$
+\end_inset
+
+, you will get the same 
+\begin_inset Formula $x*$
+\end_inset
+
+ as in Primal problem.
+ So 
+\series bold
+Primal = Dual.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Derive
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L_{p}\le max_{x\in R^{d},\lambda\in D}\Lambda(x,\lambda,\beta)=\Lambda(x^{*},\lambda,\beta)=\Lambda^{*}(\lambda,\beta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $max_{x\in R}\Lambda(x,\lambda,\beta)$
+\end_inset
+
+ means all 
+\begin_inset Formula $x$
+\end_inset
+
+ un-constrained, but 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta$
+\end_inset
+
+ are still constrained; we choose the best 
+\begin_inset Formula $x$
+\end_inset
+
+, thus 
+\begin_inset Formula $x$
+\end_inset
+
+ is fixed into 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+, and we can delete 
+\begin_inset Formula $x$
+\end_inset
+
+ from 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ and write 
+\begin_inset Formula $\Lambda(x^{*},\lambda,\beta)=\Lambda^{*}(\lambda,\beta)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+in text_CMU_optimization_lecture15.pdf, they have 
+\begin_inset Formula $L_{p}\le max_{x\in C,\lambda\in D}\Lambda(x,\lambda,\beta)\le max_{x\in R^{d},\lambda\in D}\Lambda(x,\lambda,\beta)$
+\end_inset
+
+, which i think putting 
+\begin_inset Formula $max_{x\in C,\lambda\in D}\Lambda(x,\lambda,\beta)$
+\end_inset
+
+ there is confusing and redudent.
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $\Lambda^{*}(\lambda,\beta)$
+\end_inset
+
+ is the higher bond of 
+\begin_inset Formula $L_{P}$
+\end_inset
+
+, we can get the 
+\series bold
+tightest bound
+\series default
+ by 
+\begin_inset Formula 
+\[
+L_{D}=min_{\lambda,\beta\in P}\Lambda^{*}
+\]
+
+\end_inset
+
+ (
+\begin_inset Formula $P$
+\end_inset
+
+ is the constraint in Primal).
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+This 
+\begin_inset Formula $L_{D}$
+\end_inset
+
+ is the Dual Problem
+\end_layout
+
+\begin_layout Subsection
+Formulate 
+\begin_inset Formula $L_{D}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+See Machine_Learning.lyx SVM section for detailed formulation.
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula $x$
+\end_inset
+
+ is the fixed value 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ in 
+\begin_inset Formula $\Lambda^{*}$
+\end_inset
+
+, we can get 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ by solving the primal problem.
+ This solution for 
+\begin_inset Formula $L_{P}$
+\end_inset
+
+ gives the primal variables 
+\begin_inset Formula $x$
+\end_inset
+
+ as functions of the Lagrange multipliers 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, 
+\begin_inset Formula $\beta$
+\end_inset
+
+, which are called 
+\series bold
+dual variables
+\series default
+ (note that the first derivatives may be not enoguth to get 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ directly, you need to acutally try to solve the 
+\begin_inset Formula $L_{P}$
+\end_inset
+
+ with all KKT condtions and get an exact form of 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ in 
+\begin_inset Formula $\lambda,\mu$
+\end_inset
+
+ ), so that the new problem is to maximize the objective function with respect
+ to the dual variables under the derived constraints on the dual variables
+ (including at least the
+\backslash
+ nonnegativity).
+\end_layout
+
+\begin_layout Standard
+当first order deriative 一下子把x消没了时，即there is even no quadratice form of 
+\begin_inset Formula $x$
+\end_inset
+
+ in 
+\begin_inset Formula $L_{P}$
+\end_inset
+
+, 参考text_CMU_optimization_lecture15.pdf p2来凑出
+\begin_inset Formula $L_{D}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Max or Min? Dual and Primal are refelective
+\end_layout
+
+\begin_layout Standard
+Dual's Dual is primal.
+ So if the primal 
+\begin_inset Formula $L_{P}$
+\end_inset
+
+ is a min problem, then 
+\begin_inset Formula $L_{D}$
+\end_inset
+
+ will be a max problem and the highest lower bound of 
+\begin_inset Formula $L_{P}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Weak / Strong Duality / Durity Gap
+\end_layout
+
+\begin_layout Standard
+The duality gap is the difference between the values of any primal solutions
+ and any dual solutions.
+ If 
+\begin_inset Formula ${\displaystyle d^{*}}$
+\end_inset
+
+ is the optimal dual value and 
+\begin_inset Formula ${\displaystyle p^{*}}$
+\end_inset
+
+ is the optimal primal value, then the duality gap is equal to 
+\begin_inset Formula ${\displaystyle p^{*}-d^{*}}$
+\end_inset
+
+.
+ This value is always greater than or equal to 0.
+ The duality gap is zero if and only if strong duality holds.
+ Otherwise the gap is strictly positive and weak duality holds.[5]
+\end_layout
+
+\begin_layout Itemize
+In linear programming, the dual function g is concave, even when the initial
+ problem is not convex, because it is a point-wise infimum/maximum of affine
+ functions.
+\end_layout
+
+\begin_layout Itemize
+Weak Duality: 
+\begin_inset Formula $L_{P}\le L_{D}$
+\end_inset
+
+: always hold even if the primal problem is non-convex
+\end_layout
+
+\begin_layout Itemize
+Strong Duality: However in general the optimal values of the primal and
+ dual problems need not be equal.
+ Their difference is called the 
+\series bold
+duality gap
+\series default
+.
+ For convex optimization problems, the duality gap is zero under a constraint
+ qualification condition
+\end_layout
+
+\begin_layout Section
+Equality Constraints in Lagrange
+\end_layout
+
+\begin_layout Standard
+From wiki:
+\end_layout
+
+\begin_layout Standard
+Note that every equality constraint 
+\begin_inset Formula ${\displaystyle h(x)=0}$
+\end_inset
+
+ can be equivalently replaced by a pair of inequality constraints 
+\begin_inset Formula ${\displaystyle h(x)\leq0}and−h(x)≤0{\displaystyle -h(x)\leq0}$
+\end_inset
+
+ .
+ Therefore, for theoretical purposes, equality constraints are redundant;
+ however, it can be beneficial to treat them specially in practice.
+\end_layout
+
+\begin_layout Standard
+Following from this fact, it is easy to understand why 
+\begin_inset Formula ${\displaystyle h_{i}(x)=0}$
+\end_inset
+
+ has to be affine as opposed to merely being convex.
+ If 
+\begin_inset Formula ${\displaystyle h_{i}(x)}$
+\end_inset
+
+ is convex, 
+\begin_inset Formula ${\displaystyle h_{i}(x)\leq0}$
+\end_inset
+
+ is convex, but 
+\begin_inset Formula ${\displaystyle -h_{i}(x)\leq0}$
+\end_inset
+
+ is concave.
+ Therefore, the only way for 
+\begin_inset Formula ${\displaystyle h_{i}(x)=0}$
+\end_inset
+
+ to be convex is for 
+\begin_inset Formula ${\displaystyle h_{i}(x)}$
+\end_inset
+
+to be affine.
+\end_layout
+
+\begin_layout Standard
+Antoher way to put it: 
+\end_layout
+
+\begin_layout Standard
+Equality constraints introduce a N−1 dimensional surface limitation into
+ the feasible region.
+ This is a line in a two dimensional problem, a plane in a three dimensional
+ problem and a hyperplane for higher dimensions.
+\end_layout
+
+\begin_layout Standard
+Then in the 
+\begin_inset Formula $R^{N-1}$
+\end_inset
+
+ world, the only way that the hyperplane can be Convex is to be affine /
+ linear.
+\end_layout
+
+\begin_layout Standard
+For example, a 
+\begin_inset Formula $R^{N-1}$
+\end_inset
+
+ space like 
+\begin_inset Formula $x^{2}-y^{2}=0$
+\end_inset
+
+, two points 
+\begin_inset Formula $a=(1,-1)$
+\end_inset
+
+ and 
+\begin_inset Formula $b=(2,2)$
+\end_inset
+
+ are one that space, but 
+\begin_inset Formula $0.5a+0.5b=(2.5,1.5)$
+\end_inset
+
+ is out of the space defined by 
+\begin_inset Formula $x^{2}-y^{2}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+So the only way that the equality-condition-defined space to be convex is
+ that the space has to be a Hyperplane, which means the equality condition
+ must be affine/linear
+\end_layout
+
+\begin_layout Part
+Calculus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L=x-a(x-2)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+1=a
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+a(x-2)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x\le2
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Gradient
+\end_layout
+
+\begin_layout Standard
+In the two-dimensional Cartesian coordinate system, this is given by 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla f=\frac{\partial f}{\partial\mathbf{X}}=\begin{bmatrix}\frac{\partial f}{\partial x_{1}} & ,\frac{\partial f}{\partial x_{2}}\end{bmatrix}=\frac{\partial f}{\partial x}\mathbf{i}+\frac{\partial f}{\partial y}\mathbf{j}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $X=[x_{1},x_{2}]$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+In mathematics, the gradient is a generalization of the usual concept of
+ derivative of a function in one dimension to a function in several dimensions.
+ 
+\end_layout
+
+\begin_layout Itemize
+Similarly to the usual derivative, the gradient represents the slope of
+ the tangent of the graph of the function.
+ (函数某一点处的走势，山峰的坡度)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Gradient represents the slope of the tangent of the graph of the function.
+ 
+\end_layout
+
+\begin_layout Itemize
+Gradient is perpendicular to the contour line of a function.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+在山坡的三维世界里，Gradient 本身是二维向量，而contour line of function 亦是二位的线。
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+More precisely, the gradient points in the direction of the greatest rate
+ of increase of the function and its magnitude is the slope of the graph
+ in that direction.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Matrix Calculus
+\end_layout
+
+\begin_layout Standard
+Matrix calculus is a specialized notation for doing multivariable calculus,
+ especially over spaces of matrices.
+\end_layout
+
+\begin_layout Subsection
+Basic
+\end_layout
+
+\begin_layout Subsubsection*
+Vector-by-scalar
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial Y}{\partial x}=[\frac{\partial y_{1}}{\partial x},...\frac{\partial y_{k}}{\partial x}]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Scalar by Vector
+\end_layout
+
+\begin_layout Standard
+One dimention to multiple dimention (same dimention of 
+\begin_inset Formula $X$
+\end_inset
+
+).
+ See the Gradient of a scaler function
+\end_layout
+
+\begin_layout Subsubsection*
+Vector-by-vector
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\mathbf{y}}{\partial\mathbf{x}}=\begin{bmatrix}\frac{\partial y_{1}}{\partial x_{1}} & \frac{\partial y_{1}}{\partial x_{2}} & \cdots & \frac{\partial y_{1}}{\partial x_{n}}\\
+\frac{\partial y_{2}}{\partial x_{1}} & \frac{\partial y_{2}}{\partial x_{2}} & \cdots & \frac{\partial y_{2}}{\partial x_{n}}\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac{\partial y_{m}}{\partial x_{1}} & \frac{\partial y_{m}}{\partial x_{2}} & \cdots & \frac{\partial y_{m}}{\partial x_{n}}
+\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Scalar-by-matrix
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial y}{\partial\mathbf{X}}=\begin{bmatrix}\frac{\partial y}{\partial x_{11}} & \frac{\partial y}{\partial x_{21}} & \cdots & \frac{\partial y}{\partial x_{p1}}\\
+\frac{\partial y}{\partial x_{12}} & \frac{\partial y}{\partial x_{22}} & \cdots & \frac{\partial y}{\partial x_{p2}}\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac{\partial y}{\partial x_{1q}} & \frac{\partial y}{\partial x_{2q}} & \cdots & \frac{\partial y}{\partial x_{pq}}
+\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+with Matrix Notation
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $y=Ax$
+\end_inset
+
+, then 
+\begin_inset Formula $\frac{\partial y}{\partial x}=A$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+where 
+\begin_inset Formula $y=m\times1$
+\end_inset
+
+, 
+\begin_inset Formula $x=n\times1$
+\end_inset
+
+ and 
+\begin_inset Formula $A=m\times n$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+As 
+\begin_inset Formula $y_{i}=\sum_{k}a_{ik}x_{k}$
+\end_inset
+
+, thus 
+\begin_inset Formula $\frac{\partial y_{i}}{\partial x_{j}}=A_{ij}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $y=Ax$
+\end_inset
+
+ and 
+\begin_inset Formula $x$
+\end_inset
+
+ is a function of 
+\begin_inset Formula $z$
+\end_inset
+
+, then 
+\begin_inset Formula $\frac{\partial y}{\partial z}=A\frac{\partial x}{\partial z}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\alpha=y^{T}Ax$
+\end_inset
+
+ then 
+\begin_inset Formula $\frac{\partial y}{\partial x}=y^{T}A$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\alpha=y^{T}Ax$
+\end_inset
+
+ then 
+\begin_inset Formula $\frac{\partial y}{\partial x}=y^{T}A$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\alpha=x^{T}Ax$
+\end_inset
+
+ then 
+\begin_inset Formula $\frac{\partial y}{\partial x}=x^{T}(A+A^{T})$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Note that 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is a scaler: 
+\begin_inset Formula $\alpha=\sum_{j}\sum_{i}a_{ij}x_{i}x_{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\frac{\partial\alpha}{\partial x_{k}}=\sum_{j}a_{kj}x_{j}+\sum_{i}a_{ik}x_{i}$
+\end_inset
+
+.
+ Thus we know 
+\begin_inset Formula $\frac{\partial\alpha}{\partial x}=x^{T}A^{T}+x^{T}A=Ax+x^{T}A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Note that when 
+\begin_inset Formula $A$
+\end_inset
+
+ is symetric thus 
+\begin_inset Formula $A^{T}=A$
+\end_inset
+
+, then 
+\begin_inset Formula $\frac{\partial\alpha}{\partial x}=2x^{T}A$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\alpha=y^{T}x$
+\end_inset
+
+.
+ Both 
+\begin_inset Formula $y$
+\end_inset
+
+ and 
+\begin_inset Formula $x$
+\end_inset
+
+ are functions of 
+\begin_inset Formula $z$
+\end_inset
+
+: 
+\begin_inset Formula $\frac{\partial\alpha}{\partial z}=x^{T}\frac{\partial y}{\partial z}+y^{T}\frac{\partial x}{\partial z}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+See 
+\begin_inset Formula $\alpha=x^{T}Ax$
+\end_inset
+
+ then 
+\begin_inset Formula $\frac{\partial y}{\partial x}=x^{T}(A+A^{T})$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Part
+Matrix I
+\end_layout
+
+\begin_layout Section
+Basics
+\end_layout
+
+\begin_layout Subsection
+Simplify the calculation for multiple functions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Ax=Y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Geometric meaning
+\end_layout
+
+\begin_layout Subsubsection
+Linear Transformation
+\end_layout
+
+\begin_layout Standard
+A point in a 
+\begin_inset Formula $N-dimention$
+\end_inset
+
+ linear space must be a 
+\begin_inset Formula $1\times N$
+\end_inset
+
+ vector
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A=N\times N$
+\end_inset
+
+ matrix is a linear transformation for the point in that space (See Math
+ 225 Notes)
+\end_layout
+
+\begin_layout Subsubsection
+Vector 
+\begin_inset Formula $V_{1,N}$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Enumerate
+An N-dimentional Vector means a point in an 
+\begin_inset Formula $N$
+\end_inset
+
+-dimentional space
+\end_layout
+
+\begin_layout Enumerate
+Can also be a vector in that space (starting from anywhere, no need to start
+ from origin)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Each position repreasents a direction
+\end_layout
+
+\begin_layout Itemize
+Values in those positions represent the length in the direction
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Vector
+\begin_inset Formula $\times$
+\end_inset
+
+Matrix:
+\begin_inset Formula $V_{1,N}\times M_{N,N}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Effect of applying various 2D affine transformation matrices on a unit square.
+ Note that the reflection matrices are special cases of the scaling matrix.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+第一列负责拉伸
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Graphics
+	filename Lyx_Picture/2D affine transformation matrix.jpg
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Determinant
+\end_layout
+
+\begin_layout Standard
+The absolute value of the determinant gives the scale factor by which
+\series bold
+ area or volume
+\series default
+ (or a higher-dimensional analogue) is multiplied under the associated linear
+ transformation.
+\end_layout
+
+\begin_layout Standard
+Suppose that 
+\begin_inset Formula $λ_{1}$
+\end_inset
+
+,…,
+\begin_inset Formula $λ_{n}$
+\end_inset
+
+ are the eigenvalues of A.
+ Then they are also the roots of the characteristic polynomial, i.e.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+det(A−λI)=p(λ)=(−1)^{n}(λ−λ_{1})(λ−λ_{2})⋯(λ−λ_{n})=(λ_{1}−λ)(λ_{2}−λ)⋯(λ_{n}−λ)
+\]
+
+\end_inset
+
+The first equality follows from the factorization of a polynomial given
+ its roots; the leading (highest degree) coefficient 
+\begin_inset Formula $(−1)^{n}$
+\end_inset
+
+ can be obtained by expanding the determinant along the diagonal.
+\end_layout
+
+\begin_layout Standard
+Now, by setting λ to zero (simply because it is a variable) we get on the
+ left side 
+\begin_inset Formula $det(A)$
+\end_inset
+
+, and on the right side 
+\begin_inset Formula $λ_{1}λ_{2}⋯λ_{n}$
+\end_inset
+
+, that is, we indeed obtain the desired result
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+det(A)=λ_{1}λ_{2}⋯λ_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So the determinant of the matrix is equal to the product of its eigenvalues.
+\end_layout
+
+\begin_layout Standard
+determinant seen geometrically
+\end_layout
+
+\begin_layout Standard
+The determinant of a matrix is the area of the parallelogram with the column
+ vectors and as two of its sides.
+ 
+\end_layout
+
+\begin_layout Subsection
+Trace
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A$
+\end_inset
+
+ is 
+\begin_inset Formula $n\times n$
+\end_inset
+
+, then 
+\begin_inset Formula $tr(A)=\sum_{1}^{n}A_{ii}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $trAB=trBA$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{A}trAB=B^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $H=X(X'X)^{-1}X$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H=H′$
+\end_inset
+
+ and 
+\begin_inset Formula $(I−H)′=(I−H)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H^{2}=H$
+\end_inset
+
+ and 
+\begin_inset Formula $(I−H)(I−H)=(I−H)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Rank
+\end_layout
+
+\begin_layout Standard
+The column rank of A is the dimension of the column space of A, while the
+ row rank of A is the dimension of the row space of A.
+\end_layout
+
+\begin_layout Standard
+A fundamental result in linear algebra is that the column rank and the row
+ rank are always equal.
+\end_layout
+
+\begin_layout Subsection
+rank–nullity theorem
+\end_layout
+
+\begin_layout Standard
+In mathematics, the rank–nullity theorem of linear algebra, in its simplest
+ form, states that the rank and the nullity of a matrix add up to the number
+ of columns of the matrix.
+ 
+\end_layout
+
+\begin_layout Itemize
+Specifically, if A is an m-by-n matrix (with m rows and n columns) over
+ some field, then[1]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+rk(A)+nul(A)=n.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+This applies to linear maps 
+\begin_inset Formula $L(V)=imageL=W$
+\end_inset
+
+ as well.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\dim(\ker L)+\dim(imL)=\dim(V)\text{.}\,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Calculation
+\end_layout
+
+\begin_layout Subsection
+multiplicaton
+\end_layout
+
+\begin_layout Standard
+Every time you are not sure about Matrix multiply or Matrix calculus, just
+ think them in the element level:
+\end_layout
+
+\begin_layout Standard
+row is 
+\begin_inset Formula $i$
+\end_inset
+
+; col is 
+\begin_inset Formula $j$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+z=Ax\rightarrow z_{i}=\sum_{j}a_{ij}x_{j}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+z_{j}=\sum_{i}a_{ij}y_{i}\rightarrow z=y^{T}A
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Dot product / Scalar product / Inner Product 
+\end_layout
+
+\begin_layout Subsubsection
+Algebraic
+\end_layout
+
+\begin_layout Standard
+内积是人为定义的，为运算方便而已！
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{A}\cdot\mathbf{B}=\sum_{i=1}^{n}A_{i}B_{i}=A_{1}B_{1}+A_{2}B_{2}+\cdots+A_{n}B_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Geometric
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{A}\cdot\mathbf{B}=\|\mathbf{A}\|\|\mathbf{B}\|\cos\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Scaler Projection: 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Scaler Projection: 
+\end_layout
+
+\end_inset
+
+
+\series default
+: The scalar projection (or scalar component) of a Euclidean vector A in
+ the direction of a Euclidean vector B is given by 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A_{B}=\|\mathbf{A}\|\cos\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Cross product: to get the area of the parallelogram that the vectors span.
+\end_layout
+
+\begin_layout Standard
+The cross product 
+\begin_inset Formula $a\times b$
+\end_inset
+
+is defined as a vector 
+\begin_inset Formula $c$
+\end_inset
+
+ that is perpendicular to both a and b, with a direction given by the right-hand
+ rule and a magnitude equal to the area of the parallelogram that the vectors
+ span.
+\end_layout
+
+\begin_layout Standard
+The cross product a × b of the vectors a and b is a vector that is perpendicular
+ to both and therefore normal to the plane containing them.
+ It has many applications in mathematics, physics, and engineering.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{a}\times\mathbf{b}=\left\Vert \mathbf{a}\right\Vert \left\Vert \mathbf{b}\right\Vert \sin\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Norm
+\end_layout
+
+\begin_layout Itemize
+Vector L2- Norm (Euclidean norm)
+\begin_inset Formula $\left\Vert \boldsymbol{x}\right\Vert :=\sqrt{x_{1}^{2}+\cdots+x_{n}^{2}}.$
+\end_inset
+
+'
+\end_layout
+
+\begin_layout Itemize
+Matrix norm: "Entrywise" norms 
+\begin_inset Formula $\Vert A\Vert_{2,1}=\sum_{j=1}^{n}\Vert a_{j}\Vert_{2}=\sum_{j=1}^{n}\left(\sum_{i=1}^{m}|a_{ij}|^{2}\right)^{1/2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Vector Space
+\end_layout
+
+\begin_layout Standard
+A vector space (also called a linear space) is a set of vectors together
+ with rules for vector addition and multiplication by real numbers.
+\end_layout
+
+\begin_layout Itemize
+We can add any two vectors, and we can multiply all vectors by scalars.
+ 
+\end_layout
+
+\begin_layout Itemize
+In other words, we can take linear combinations.
+\end_layout
+
+\begin_layout Standard
+Euclidean vectors are an example of a vector space.
+ They represent physical quantities such as forces: any two forces (of the
+ same type) can be added to yield a third, and the multiplication of a force
+ vector by a real multiplier is another force vector.
+ 
+\end_layout
+
+\begin_layout Subsection
+subpace
+\end_layout
+
+\begin_layout Standard
+Geometrically, think of the usual three-dimensional R3 and choose any plane
+ through the origin.
+ 
+\series bold
+That plane is a vector space in its own right.
+ it is a subspace of the original space R3.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Definition.
+ A subspace of a vector space is a nonempty subset that satisfies the requiremen
+ts for a vector space: Linear combinations stay in the subspace.
+\end_layout
+
+\begin_layout Subsection
+Span
+\end_layout
+
+\begin_layout Standard
+Span: 
+\begin_inset Formula 
+\begin{eqnarray*}
+S(x_{1},...,x_{k}) & = & \left\{ z\in E^{N}|z=\sum_{1}^{k}\beta_{i}x_{i},\mbox{ }\beta_{i}\in R\right\} \\
+ & = & \left\{ z\in E^{N}|z=x\beta,\mbox{ }x=\mbox{1\times p},\mbox{\ensuremath{}\beta=p\times1},\mbox{ }\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+ is the euclidean vector subspace spanned by x1, .
+ .
+ .
+ , xk, that is the set of all liner combinations of (x1, .
+ .
+ .
+ , xk).
+\end_layout
+
+\begin_layout Standard
+In other words, by denition, any point in 
+\begin_inset Formula $S(x)$
+\end_inset
+
+ can be expressed as 
+\begin_inset Formula $x\beta$
+\end_inset
+
+, 
+\begin_inset Formula $\beta\in R^{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Example:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x=\{1,0,0\}$
+\end_inset
+
+ 
+\begin_inset Formula $y=\{0,1,0\}$
+\end_inset
+
+.
+ Since U is only two vectors, it is clear that U is not a vector space.
+ For example, the 0-vector is not in U, nor is U closed under vector addition.
+ But we know that any two vector define a plane.
+ In this case, the vectors in U define the xy-plane in R 3 .
+ We can consider the xy-plane as the set of all vectors that arise as a
+ linear combination of the two vectors in U.
+ Call this set of all linear combinations the span of U:
+\end_layout
+
+\begin_layout Subsection
+Column Space of Matrix A
+\end_layout
+
+\begin_layout Standard
+The column space contains all linear combinations of the columns of A.
+\end_layout
+
+\begin_layout Standard
+Fundamental Theorem of Linear Algebra, Part I
+\end_layout
+
+\begin_layout Standard
+1.
+ C(A) = column space of A; dimension 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+2.
+ N(A) = nullspace of A; dimension 
+\begin_inset Formula $n-r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+3.
+ 
+\begin_inset Formula $C(A^{T})$
+\end_inset
+
+ = row space of A; dimension 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+4.
+ 
+\begin_inset Formula $N(A^{T})$
+\end_inset
+
+ = left nullspace of A; dimension 
+\begin_inset Formula $m-r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Kernal/nullspace of a matrix A
+\end_layout
+
+\begin_layout Standard
+The nullspace of a matrix consists of all vectors x such that Ax = 0.
+ It is denoted by N(A).
+ It is a subspace of Rn, just as the column space was a subspace of Rm.
+\end_layout
+
+\begin_layout Standard
+Then 
+\begin_inset Formula $x$
+\end_inset
+
+ is also called the Kernal of 
+\begin_inset Formula $A$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ are orthogonal vectors: 
+\end_layout
+
+\begin_layout Standard
+The inner product xTy is zero if and only if x and y are orthogonal vectors.
+\end_layout
+
+\begin_layout Subsection
+Orthogonal Subspaces
+\end_layout
+
+\begin_layout Standard
+Definition: Every vector in one subspace must be orthogonal to every vector
+ in the other subspace.
+\end_layout
+
+\begin_layout Itemize
+A line can be orthogonal to another line, or it can be orthogonal to a plane,
+ but a plane cannot be orthogonal to a plane.
+\end_layout
+
+\begin_layout Standard
+Example: 
+\end_layout
+
+\begin_layout Itemize
+Suppose V is the plane spanned by v1 = (1;0;0;0) and v2 = (1;1;0;0).
+ If W is the line spanned by w = (0;0;4;5), then w is orthogonal to both
+ v’s.
+ The line W will be orthogonal to the whole plane V.
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $Ax=0$
+\end_inset
+
+, (if regarding 
+\begin_inset Formula $A$
+\end_inset
+
+ as the mapping) the rows of A are orthogonal to the nullspace vector x
+\end_layout
+
+\begin_layout Section
+Projection
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $||b-a||^{2}=b^{2}+a^{2}-2||b||\times||a||\times cos\theta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $cos\theta=\frac{a^{T}b}{|a||b|}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+scaler projection (
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ are in the same dimention)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Definition
+\series default
+: Scalar projection of a onto b: = 
+\begin_inset Formula $a_{1}$
+\end_inset
+
+ (it is a scaler!) is just length of projected 
+\begin_inset Formula $a$
+\end_inset
+
+ onto 
+\begin_inset Formula $b$
+\end_inset
+
+'s direction.
+ 
+\begin_inset Formula 
+\[
+a_{1}=|\mathbf{a}|\cos\theta=\mathbf{a}\cdot\mathbf{\hat{b}}=\mathbf{a}\cdot\frac{\mathbf{b}}{|\mathbf{b}|}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\hat{b}$
+\end_inset
+
+ is the unit vector in the direction of 
+\begin_inset Formula $b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+When 90° < θ ≤ 180°, 
+\begin_inset Formula $a_{1}$
+\end_inset
+
+ has an opposite direction with respect to b.
+\end_layout
+
+\begin_layout Subsection
+vector projection (a and b are in the same dimention)
+\end_layout
+
+\begin_layout Standard
+The vector projection of 
+\begin_inset Formula $a$
+\end_inset
+
+ on 
+\begin_inset Formula $b$
+\end_inset
+
+ is a 
+\series bold
+vector
+\series default
+ whose magnitude is the scalar projection of a on b and whose angle against
+ b is either 0 or 180 degrees.
+ Namely, it is defined as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{a}_{1}=a_{1}\mathbf{\hat{b}}=(|\mathbf{a}|\cos\theta)\mathbf{\hat{b}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+vector rejection (a and b are in the same dimention)
+\end_layout
+
+\begin_layout Standard
+The vector component or vector resolute of a perpendicular to b, sometimes
+ also called the 
+\series bold
+vector rejection
+\series default
+ of a from b : (it is a vector: though the calculation below is vector -
+ scaler)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{a}_{2}=\mathbf{a}-\mathbf{a}_{1}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Vector Projection / Dimention Reduction (
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $V_{q}$
+\end_inset
+
+ are in DIFFERENT dimention)
+\end_layout
+
+\begin_layout Standard
+Here 
+\begin_inset Formula $X=n\times p$
+\end_inset
+
+, each row IS A a data observation, and 
+\begin_inset Formula $V_{q}$
+\end_inset
+
+ is in 
+\begin_inset Formula $p\times q$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $XV_{q}=n\times q$
+\end_inset
+
+ means to map data from dimention 
+\begin_inset Formula $p$
+\end_inset
+
+ to dimention 
+\begin_inset Formula $q$
+\end_inset
+
+.
+ (Mapping is 
+\begin_inset Formula $Data\times MappingAction$
+\end_inset
+
+) 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If 
+\begin_inset Formula $q$
+\end_inset
+
+ is less than 
+\begin_inset Formula $p$
+\end_inset
+
+, then that means dimention reduction, during which you lose information!!
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $XV_{q}V_{q}^{T}$
+\end_inset
+
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+To map the projected matrix 
+\begin_inset Formula $XV_{q}$
+\end_inset
+
+ back to 
+\begin_inset Formula $p$
+\end_inset
+
+ dimention, you need 
+\begin_inset Formula $XV_{q}V_{q}^{T}$
+\end_inset
+
+, but sill you cannot recover the lost information during dimention reduction.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $XV_{q}V_{q}^{T}$
+\end_inset
+
+ means all points are in the hyperplan of the 
+\begin_inset Formula $p$
+\end_inset
+
+ dimention.
+\end_layout
+
+\begin_layout Itemize
+So 
+\begin_inset Formula $X-XV_{q}V_{q}^{T}$
+\end_inset
+
+ means the vertical projection vector from 
+\begin_inset Formula $X$
+\end_inset
+
+ to its projected points of the hyerperplan.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Transformation
+\end_layout
+
+\begin_layout Subsection
+Linear Transformation 
+\begin_inset Formula $Ax$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x$
+\end_inset
+
+ is a collection of vectors in the vector space (may be a vector, or collaction
+ of vectors -- matrix)
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A=\left\{ \begin{array}{cc}
+c & 0\\
+0 & c
+\end{array}\right\} $
+\end_inset
+
+A multiple of the identity matrix, A=cI, 
+\series bold
+stretches
+\series default
+ every vector by the same factor c.
+ The whole space expands or contracts (or somehow goes through the origin
+ and out the opposite side, when c is negative).
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A=\left\{ \begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right\} $
+\end_inset
+
+A 
+\series bold
+rotation
+\series default
+ matrix turns the whole space around the origin.
+ This example turns all vectors through 90°, transforming every point (x;y)
+ to (-y;x).
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A=\left\{ \begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array}\right\} $
+\end_inset
+
+A 
+\series bold
+reflection
+\series default
+ matrix transforms every vector into its image on the opposite side of a
+ mirror.
+ In this example the mirror is the 45° line y=x, and a point like (2;2)
+ is unchanged
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A=\left\{ \begin{array}{cc}
+c & 0\\
+0 & 0
+\end{array}\right\} $
+\end_inset
+
+[not full rankm, or 
+\series bold
+ranctangular
+\series default
+ matrix A projection matrix takes the whole space onto a lowerdimensional
+ subspace (not invertible).
+\end_layout
+
+\begin_layout Subsection
+Transpose 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $(\mathbf{A}+\mathbf{B})^{\mathrm{T}}=\mathbf{A}^{\mathrm{T}}+\mathbf{B}^{\mathrm{T}}\,$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $(AB)^{T}=B^{T}A^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Inverse Matrix/ Nonsingular matrix
+\end_layout
+
+\begin_layout Standard
+A is Inversable only if 
+\begin_inset Formula $A$
+\end_inset
+
+ is a square matrix with full rank.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A^{-1}$
+\end_inset
+
+ is the inverse transformation of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Nonsingularity = Inversability.
+\end_layout
+
+\begin_layout Standard
+Singularity means a 
+\begin_inset Formula $N\times N$
+\end_inset
+
+ matrix has a least one row/column are colinear.
+ Thus this matrix cannot be regarded as a transformation in 
+\begin_inset Formula $N-dimentional$
+\end_inset
+
+ space.
+\end_layout
+
+\begin_layout Paragraph
+Properties
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $A=B^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\mathbf{AB}=\mathbf{BA}=\mathbf{I}_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A square matrix that is not invertible is called singular or degenerate.
+ A square matrix is singular if and only if its determinant is 0.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $(kA)^{−1}=k^{−1}A^{−1}$
+\end_inset
+
+for nonzero scalar k
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $(A^{T})^{−1}=(A^{−1})^{T}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C=AB$
+\end_inset
+
+ then 
+\begin_inset Formula $C^{-1}=B^{-1}A^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $det(A^{−1})=det(A)^{−1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $((X\text{′}X)^{\text{−}1})\text{′}=(X\text{′}X)^{\text{−}1}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $X^{2}=X'X$
+\end_inset
+
+, and 
+\begin_inset Formula $h(x_{0})=X(X^{T}X)^{-1}x_{0}$
+\end_inset
+
+ (
+\begin_inset Formula $h^{2}(x_{0})=x_{0}^{'}(X^{T}X)^{-1}x_{0}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Section
+Properties
+\end_layout
+
+\begin_layout Subsection
+square matrix
+\end_layout
+
+\begin_layout Standard
+In mathematics, a square matrix is a matrix with the same number of rows
+ and columns.
+ 
+\end_layout
+
+\begin_layout Subsection
+Symmetric
+\end_layout
+
+\begin_layout Standard
+Covarance matrix is always Symmetric
+\end_layout
+
+\begin_layout Subsection
+Unitary matrix
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U^{*}U=UU^{*}=I
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Idempotent: matrix 
+\end_layout
+
+\begin_layout Standard
+Idempotent matrix is a matrix which, when multiplied by itself, yields itself.
+\end_layout
+
+\begin_layout Standard
+Like the hat matrix 
+\begin_inset Formula $H=X(X'X)^{-1}X$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Diagonalization
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A$
+\end_inset
+
+ is diagnalizable when 
+\begin_inset Formula $A$
+\end_inset
+
+ is full-rank and square matrix
+\end_layout
+
+\begin_layout Standard
+Diagonalization often makes calculation much eaiser to play with with 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+than with 
+\begin_inset Formula $A$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+P281 LAA.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P^{-1}AP=\Lambda
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ is a diagnoal matrax with diagonal values as eigen values.
+\end_layout
+
+\begin_layout Itemize
+Diagonalizability of A depends on enough eigenvectors.
+ 
+\end_layout
+
+\begin_layout Itemize
+To have enough eigenvectors, 
+\begin_inset Formula $A$
+\end_inset
+
+ has to be full rank.
+\end_layout
+
+\begin_layout Itemize
+Invertibility of A depends on nonzero eigenvalues.
+\end_layout
+
+\begin_layout Itemize
+Writing P as a block matrix of its column vectors 
+\begin_inset Formula $\vec{\alpha}_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $P=\begin{pmatrix}\vec{\alpha}_{1} & \vec{\alpha}_{2} & \cdots & \vec{\alpha}_{n}\end{pmatrix}=n\times n$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $A\vec{\alpha}_{i}=\lambda_{i}\vec{\alpha}_{i}$
+\end_inset
+
+ where 
+\begin_inset Formula $(i=1,2,\cdots,n).$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+When the matrix A is a Hermitian matrix (resp.
+ symmetric matrix), eigenvectors of 
+\series bold
+A
+\series default
+ can be chosen to form an orthonormal basis of 
+\begin_inset Formula $C_{n}$
+\end_inset
+
+ (resp.
+ Rn).
+ Under such circumstance 
+\begin_inset Formula $P$
+\end_inset
+
+ will be a unitary matrix (resp.
+ orthogonal matrix) and
+\begin_inset Formula $P^{−1}$
+\end_inset
+
+ equals the conjugate transpose (resp.
+ transpose) of P.
+\end_layout
+
+\begin_layout Subsection
+Orthogonal Matrix
+\end_layout
+
+\begin_layout Standard
+In linear algebra, an orthogonal matrix is a matrix with real entries whose
+ columns and rows are orthogonal unit vectors (i.e., orthonormal vectors),
+ i.e.
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $Q$
+\end_inset
+
+ is a square matrix
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $Q^{\mathrm{T}}Q=QQ^{\mathrm{T}}=I,$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This leads to the equivalent characterization: a matrix Q is orthogonal
+ if its transpose is equal to its inverse:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Q^{\mathrm{T}}=Q^{-1}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If 
+\begin_inset Formula $Q=p\times q$
+\end_inset
+
+ where 
+\begin_inset Formula $p>q$
+\end_inset
+
+, then 
+\begin_inset Formula $Q^{T}Q=I$
+\end_inset
+
+, which is in 
+\begin_inset Formula $q\times q$
+\end_inset
+
+.
+ Whereas 
+\begin_inset Formula $QQ^{T}\ne I$
+\end_inset
+
+! 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+> test = as.matrix(data.frame('a' = c(0.2,0.5,0.2,0),
+\end_layout
+
+\begin_layout Plain Layout
+
++                             'b' = c(0,   0 , 0  , 1))
+\end_layout
+
+\begin_layout Plain Layout
+
++                  )
+\end_layout
+
+\begin_layout Plain Layout
+
+> 
+\end_layout
+
+\begin_layout Plain Layout
+
+> test[,1] = (test^2)[,1]/colSums(test^2)[1] # make it unit vector
+\end_layout
+
+\begin_layout Plain Layout
+
+> test[,2] = (test^2)[,2]/colSums(test^2)[2] # make it unit vector
+\end_layout
+
+\begin_layout Plain Layout
+
+> 
+\end_layout
+
+\begin_layout Plain Layout
+
+> colSums(test^2)
+\end_layout
+
+\begin_layout Plain Layout
+
+        a         b 
+\end_layout
+
+\begin_layout Plain Layout
+
+0.6033058 1.0000000 
+\end_layout
+
+\begin_layout Plain Layout
+
+> 
+\end_layout
+
+\begin_layout Plain Layout
+
+> test = test^0.5
+\end_layout
+
+\begin_layout Plain Layout
+
+> 
+\end_layout
+
+\begin_layout Plain Layout
+
+> test %*% t(test)
+\end_layout
+
+\begin_layout Plain Layout
+
+          [,1]      [,2]      [,3] [,4]
+\end_layout
+
+\begin_layout Plain Layout
+
+[1,] 0.1212121 0.3030303 0.1212121    0
+\end_layout
+
+\begin_layout Plain Layout
+
+[2,] 0.3030303 0.7575758 0.3030303    0
+\end_layout
+
+\begin_layout Plain Layout
+
+[3,] 0.1212121 0.3030303 0.1212121    0
+\end_layout
+
+\begin_layout Plain Layout
+
+[4,] 0.0000000 0.0000000 0.0000000    1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+> t(test) %*% test
+\end_layout
+
+\begin_layout Plain Layout
+
+  a b
+\end_layout
+
+\begin_layout Plain Layout
+
+a 1 0
+\end_layout
+
+\begin_layout Plain Layout
+
+b 0 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Matrix II
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $X^{2}=X^{T}X$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\frac{Y}{X}=X^{-1}Y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+When 
+\begin_inset Formula $x$
+\end_inset
+
+ is at the side: 
+\begin_inset Formula $x^{T}$
+\end_inset
+
+ is pivot
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\partial x^{T}a/\partial x=a$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\partial a^{T}x/\partial x=a$
+\end_inset
+
+ ---- first transpose 
+\begin_inset Formula $\partial x^{T}a/\partial x$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+When 
+\begin_inset Formula $x$
+\end_inset
+
+ is at the middle: 
+\begin_inset Formula $x$
+\end_inset
+
+ is the pivot
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\partial a^{T}xb/\partial x=a^{T}b$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Chain rule is left product!
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\partial(X\beta)^{2}/\partial\beta & =2 & \frac{\partial X\beta}{\partial\beta}X\beta\\
+ & = & 2X^{T}X\beta
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $\nabla_{W}|W|=|W|(W^{-1})^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\partial x^{T}Cx/\partial x=(C+C^{T})x$
+\end_inset
+
+ where 
+\begin_inset Formula $x$
+\end_inset
+
+ is a vector
+\end_layout
+
+\begin_layout Itemize
+Represent sum as matrix 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $X^{T}Y=\sum_{j}^{N}x_{i}(y_{i})^{T}$
+\end_inset
+
+ where 
+\begin_inset Formula $X=n\times p$
+\end_inset
+
+, 
+\begin_inset Formula $x_{i}=p\times1$
+\end_inset
+
+, 
+\begin_inset Formula $Y=n\times q$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{i}=q\times1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Cov Matrix for centralized data 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $C=\frac{1}{N}X^{T}X=\frac{1}{N}\sum_{1}^{N}x^{i}(x^{i})^{T}$
+\end_inset
+
+ where 
+\begin_inset Formula $x^{i}=p\times1$
+\end_inset
+
+ (one observation)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{ij}=\frac{1}{N}x[,i]x[,j]$
+\end_inset
+
+ = column i 
+\begin_inset Formula $\times$
+\end_inset
+
+ column j = 
+\begin_inset Formula $\frac{1}{N}\sum_{k}^{N}x_{ki}x_{kj}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Note that elements from diferent observations cannot be multiplied.
+ Elements in the same observation but from different features will be combined.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+X1 = matrix(runif(10)) %*% t(runif(4))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Cov_X1 = t(X1)%*%X1 / 10
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# C_ij = 1/N * x_i %*% x_j = 1/N *sum_k(X_K.i * X_i.K)
+\end_layout
+
+\begin_layout Plain Layout
+
+Cov_X1[2,3] * 10 - sum(X1[,2] * X1[,3])
+\end_layout
+
+\begin_layout Plain Layout
+
+Cov_X1[2,3] * 10- t(X1[,2]) %*% X1[,3]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# C = sum_i( x_i %*% x_i)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Cov_from_obsevector = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i in 1:10){
+\end_layout
+
+\begin_layout Plain Layout
+
+  # i = 1
+\end_layout
+
+\begin_layout Plain Layout
+
+  # i = 1 + i
+\end_layout
+
+\begin_layout Plain Layout
+
+  Cov_from_obsevector = X1[i,] %*% t(X1[i,]) + Cov_from_obsevector
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Cov_X1 - Cov_from_obsevector/10
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $x_{i}=p\times1$
+\end_inset
+
+, 
+\begin_inset Formula $v=p\times1$
+\end_inset
+
+, thus
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $xx^{T}v=(x\cdot v)x^{T}$
+\end_inset
+
+ (dot product) (
+\begin_inset Formula $x^{T}v=x\cdot v$
+\end_inset
+
+)
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Thecniques to 
+\begin_inset Formula $\partial x^{T}Cx/\partial x=(C+C^{T})x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The trick is, we know the result would first be 
+\begin_inset Formula $\left[\begin{array}{c}
+\partial x^{T}Cx/\partial x_{1}\\
+..\\
+\partial x^{T}Cx/\partial x_{k}\\
+..\\
+\partial x^{T}Cx/\partial x_{n}
+\end{array}\right]$
+\end_inset
+
+, with each 
+\begin_inset Formula $\partial x^{T}Cx/\partial x_{k}$
+\end_inset
+
+ as a vector or matrix.
+\end_layout
+
+\begin_layout Standard
+Proof: 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Key technique:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+write the matrix as sum
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+first focus on each row 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\partial x^{T}Cx/\partial x_{k} & = & \partial\sum_{i}x_{i}\left[\sum_{j}x_{j}C_{ij}\right]/\partial x_{k}\\
+ & = & \frac{\partial\left(x_{k}\left[\sum_{j}x_{j}C_{kj}\right]+\sum_{j\ne k}x_{i}\sum_{j}x_{j}C_{ij}\right)}{\partial x_{k}}\\
+ & = & \frac{\partial\left(x_{k}\left[\sum_{j\ne k}x_{j}C_{kj}\right]+x_{k}x_{k}C_{kk}+\sum_{j\ne k}x_{i}\sum_{j\ne k}x_{j}C_{ij}+\sum_{j\ne k}x_{i}x_{k}C_{ik}\right)}{\partial x_{k}}\\
+ & = & \sum_{j\ne k}x_{j}C_{kj}+2x_{k}C_{kk}+\sum_{j!=k}x_{i}C_{ik}\\
+ & = & \sum_{j}x_{j}C_{kj}+\sum_{i}x_{i}C_{ki}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Derivatives of Matrix
+\end_layout
+
+\begin_layout Standard
+https://en.wikipedia.org/wiki/Matrix_calculus#Other_matrix_derivatives
+\end_layout
+
+\begin_layout Itemize
+Vector 
+\begin_inset Formula $Y$
+\end_inset
+
+ (
+\begin_inset Formula $P\times1$
+\end_inset
+
+)-by-scalar 
+\begin_inset Formula $x$
+\end_inset
+
+: 
+\begin_inset Formula $\partial Y/\partial x=P\times1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Scaler 
+\begin_inset Formula $y$
+\end_inset
+
+ by vector 
+\begin_inset Formula $X$
+\end_inset
+
+ (
+\begin_inset Formula $P\times1$
+\end_inset
+
+): 
+\begin_inset Formula $\partial y/\partial X=1\times P$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vector 
+\begin_inset Formula $Y$
+\end_inset
+
+ (
+\begin_inset Formula $M\times1$
+\end_inset
+
+)-by-Vector
+\begin_inset Formula $X$
+\end_inset
+
+ (
+\begin_inset Formula $N\times1$
+\end_inset
+
+): 
+\begin_inset Formula $\partial Y/\partial X=M\times N$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\frac{\partial\mathbf{y}}{\partial\mathbf{x}}=\left[\begin{array}{c}
+\frac{\partial y}{\partial x_{1}}\\
+\frac{\partial y}{\partial x_{2}}\\
+..\\
+\frac{\partial y}{\partial x_{n}}
+\end{array}\right]=\left[\begin{array}{cccc}
+\frac{\partial y_{1}}{\partial x} & \frac{\partial y_{1}}{\partial x} & .. & \frac{\partial y_{m}}{\partial x}\end{array}\right]\begin{bmatrix}\frac{\partial y_{1}}{\partial x_{1}} & \frac{\partial y_{2}}{\partial x_{1}} & \cdots & \frac{\partial y_{m}}{\partial x_{1}}\\
+\frac{\partial y_{1}}{\partial x_{2}} & \frac{\partial y_{2}}{\partial x_{2}} & \cdots & \frac{\partial y_{m}}{\partial x_{2}}\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac{\partial y_{1}}{\partial x_{n}} & \frac{\partial y_{2}}{\partial x_{n}} & \cdots & \frac{\partial y_{m}}{\partial x_{n}}
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Matrix-by-scalar
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $Y=M\times N$
+\end_inset
+
+, 
+\begin_inset Formula $x$
+\end_inset
+
+ is a scaler
+\begin_inset Formula 
+\[
+\frac{\partial\mathbf{Y}}{\partial x}=\begin{bmatrix}\frac{\partial y_{11}}{\partial x} & \frac{\partial y_{12}}{\partial x} & \cdots & \frac{\partial y_{1n}}{\partial x}\\
+\frac{\partial y_{21}}{\partial x} & \frac{\partial y_{22}}{\partial x} & \cdots & \frac{\partial y_{2n}}{\partial x}\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac{\partial y_{m1}}{\partial x} & \frac{\partial y_{m2}}{\partial x} & \cdots & \frac{\partial y_{mn}}{\partial x}
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Scalar-by-matrix: The derivative of a scalar y function of a matrix 
+\begin_inset Formula $X=P\times Q$
+\end_inset
+
+ of independent variables, with respect to the matrix X, is given (in numerator
+ layout notation) by
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\frac{\partial y}{\partial\mathbf{X}}=\begin{bmatrix}\frac{\partial y}{\partial x_{11}} & \frac{\partial y}{\partial x_{21}} & \cdots & \frac{\partial y}{\partial x_{p1}}\\
+\frac{\partial y}{\partial x_{12}} & \frac{\partial y}{\partial x_{22}} & \cdots & \frac{\partial y}{\partial x_{p2}}\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac{\partial y}{\partial x_{1q}} & \frac{\partial y}{\partial x_{2q}} & \cdots & \frac{\partial y}{\partial x_{pq}}
+\end{bmatrix}=Q\times P
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Matrix 
+\begin_inset Formula $Y=N\times M$
+\end_inset
+
+ by Vetor 
+\begin_inset Formula $x=P\times1$
+\end_inset
+
+, is UNDECIDED EVEN IN WIKI.
+\end_layout
+
+\begin_layout Subsection
+Jacobian matrix and determinant
+\end_layout
+
+\begin_layout Standard
+In vector calculus, the Jacobian matrix (/dʒᵻˈkoʊbiən/, /jᵻˈkoʊbiən/) is
+ the matrix of all first-order partial derivatives of a vector-valued function.
+ When the matrix is a square matrix, both the matrix and its determinant
+ are referred to as the Jacobian in literature.[1]
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x$
+\end_inset
+
+ here must be a vector 
+\begin_inset Formula $n\times1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $f=m\times1$
+\end_inset
+
+, then 
+\begin_inset Formula $J=m\times n$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If m = n, the Jacobian matrix is a square matrix
+\end_layout
+
+\begin_layout Itemize
+If m = 1, f is a scalar field and the Jacobian matrix is reduced to a row
+ vector of partial derivatives of f—i.e.
+ the gradient of f.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{J}=\frac{d\mathbf{f}}{d\mathbf{x}}=\begin{bmatrix}\dfrac{\partial\mathbf{f}}{\partial x_{1}} & \cdots & \dfrac{\partial\mathbf{f}}{\partial x_{n}}\end{bmatrix}=\begin{bmatrix}\dfrac{\partial f_{1}}{\partial x_{1}} & \cdots & \dfrac{\partial f_{1}}{\partial x_{n}}\\
+\vdots & \ddots & \vdots\\
+\dfrac{\partial f_{m}}{\partial x_{1}} & \cdots & \dfrac{\partial f_{m}}{\partial x_{n}}
+\end{bmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or, component-wise:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{J}_{i}^{j}=\frac{\partial f_{i}}{\partial x_{j}}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Jacobian matrix is important because if the function f is differentiable
+ at a point 
+\begin_inset Formula $x$
+\end_inset
+
+ (this is a slightly stronger condition than merely requiring that all partial
+ derivatives exist there), then the Jacobian matrix defines a linear map
+\begin_inset Formula $R^{n}→R^{m}$
+\end_inset
+
+, which is the best linear approximation of the function f near the point
+ 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ This linear map is thus the generalization of the usual notion of derivative,
+ and is called the derivative or the differential of 
+\begin_inset Formula $f$
+\end_inset
+
+ at 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Chain Rule for Vector
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $z\text{=m\ensuremath{\times1}}$
+\end_inset
+
+ is a function of 
+\begin_inset Formula $y=r\times1$
+\end_inset
+
+, which is in turn a function of 
+\begin_inset Formula $x=n\times1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To get 
+\begin_inset Formula $\partial z/\partial x$
+\end_inset
+
+, first write 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\partial z/\partial x\right)^{T}=\begin{bmatrix}\frac{\partial z_{1}}{\partial x_{1}} & \frac{\partial z_{1}}{\partial x_{2}} & \cdots & \frac{\partial z_{1}}{\partial x_{n}}\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac{\partial z_{m}}{\partial x_{1}} & \frac{\partial z_{m}}{\partial x_{2}} & \cdots & \frac{\partial z_{m}}{\partial x_{n}}
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Each entry of this matrix can be expanded to 
+\begin_inset Formula $\partial z_{i}/\partial x_{j}=\sum^{r}\frac{\partial z_{i}}{\partial y_{q}}\frac{\partial y_{q}}{\partial x_{i}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(\partial z/\partial x\right)^{T} & = & \begin{bmatrix}\frac{\partial z_{1}}{\partial x_{1}} & \frac{\partial z_{1}}{\partial x_{2}} & \cdots & \frac{\partial z_{1}}{\partial x_{n}}\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac{\partial z_{m}}{\partial x_{1}} & \frac{\partial z_{m}}{\partial x_{2}} & \cdots & \frac{\partial z_{m}}{\partial x_{n}}
+\end{bmatrix}\\
+ & = & \begin{bmatrix}\frac{\partial z_{1}}{\partial y1} & \frac{\partial z_{1}}{\partial y_{2}} & \cdots & \frac{\partial z_{1}}{\partial y_{r}}\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac{\partial z_{m}}{\partial y_{1}} & \frac{\partial z_{m}}{\partial y_{r}} & \cdots & \frac{\partial z_{m}}{\partial y_{r}}
+\end{bmatrix}\begin{bmatrix}\frac{\partial y_{1}}{\partial x_{1}} & \frac{\partial y_{1}}{\partial x_{2}} & \cdots & \frac{\partial y_{1}}{\partial x_{n}}\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac{\partial y_{m}}{\partial x_{1}} & \frac{\partial y_{m}}{\partial x_{2}} & \cdots & \frac{\partial y_{m}}{\partial x_{n}}
+\end{bmatrix}\\
+ & = & (\frac{\partial z}{\partial y})^{T}(\frac{\partial y}{\partial x})^{T}=(\frac{\partial y}{\partial x}\frac{\partial z}{\partial y})^{T}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On transposing both sides, we finally obtain 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\partial z/\partial z=\frac{\partial y}{\partial x}\frac{\partial z}{\partial y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is the chain rule for vectors (different from the conventional chain
+ rule of calculus, the chain of matrices builds toward the left) 
+\end_layout
+
+\begin_layout Subsection
+Chain Rule for Matrix
+\end_layout
+
+\begin_layout Subsection
+Chain Rule Example
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\partial(X\beta)^{2}/\partial\beta & =2 & \frac{\partial X\beta}{\partial\beta}X\beta\\
+ & = & 2X^{T}X\beta
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Grandient
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Grandient
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset Formula $\theta:=\theta-\alpha\nabla_{\theta}J$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Hessian matrix/Second Derivative
+\end_layout
+
+\begin_layout Standard
+In mathematics, the Hessian matrix or Hessian is a square matrix of second-order
+ partial derivatives of a scalar-valued function, or scalar field.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H=\begin{bmatrix}\dfrac{\partial^{2}f}{\partial x_{1}^{2}} & \dfrac{\partial^{2}f}{\partial x_{1}\,\partial x_{2}} & \cdots & \dfrac{\partial^{2}f}{\partial x_{1}\,\partial x_{n}}\\[2.2ex]
+\dfrac{\partial^{2}f}{\partial x_{2}\,\partial x_{1}} & \dfrac{\partial^{2}f}{\partial x_{2}^{2}} & \cdots & \dfrac{\partial^{2}f}{\partial x_{2}\,\partial x_{n}}\\[2.2ex]
+\vdots & \vdots & \ddots & \vdots\\[2.2ex]
+\dfrac{\partial^{2}f}{\partial x_{n}\,\partial x_{1}} & \dfrac{\partial^{2}f}{\partial x_{n}\,\partial x_{2}} & \cdots & \dfrac{\partial^{2}f}{\partial x_{n}^{2}}
+\end{bmatrix}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or, component-wise:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H_{i,j}=\frac{\partial^{2}f}{\partial x_{i}\partial x_{j}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The determinant of the above matrix is also sometimes referred to as the
+ Hessian.
+\end_layout
+
+\begin_layout Section
+Positive-definite matrix
+\end_layout
+
+\begin_layout Standard
+In linear algebra, a symmetric n × n real matrix M is said to be positive
+ definite if the scalar 
+\begin_inset Formula $z^{\top}Mz$
+\end_inset
+
+ is positive for every non-zero column vector 
+\begin_inset Formula $z$
+\end_inset
+
+ of n real numbers.
+\end_layout
+
+\begin_layout Standard
+meaning??? see
+\end_layout
+
+\begin_layout Standard
+http://math.stackexchange.com/questions/313938/what-does-positive-definite-matrix-
+mean
+\end_layout
+
+\begin_layout Section
+Eigenvector
+\end_layout
+
+\begin_layout Standard
+In linear algebra, an eigenvector or characteristic vector of a linear transform
+ation T from a vector space V over a field F into itself is a non-zero vector
+ that does not change its direction when that linear transformation is applied
+ to it.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Ax=\lambda x
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $A$
+\end_inset
+
+ is the matrix, 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is the a scaler, which is eigenvalue, 
+\begin_inset Formula $x$
+\end_inset
+
+ is the eigen vector.
+\end_layout
+
+\begin_layout Standard
+As
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(A-\lambda I)x=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The vector x is in the nullspace of 
+\begin_inset Formula $(A-\lambda I)x$
+\end_inset
+
+.
+ The number l is chosen so that 
+\begin_inset Formula $(A-\lambda I)x$
+\end_inset
+
+ has a nullspace.
+ (we are interested only in those particular values 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ for which there is a nonzero eigenvector x.)
+\end_layout
+
+\begin_layout Itemize
+The eigenvalues are on the main diagonal when A is triangular (P274 LLA)
+\end_layout
+
+\begin_layout Itemize
+the product of the n eigenvalues equals the determinant of A.
+\end_layout
+
+\begin_layout Itemize
+sum of the n eigenvalues equals the trace of 
+\begin_inset Formula $A$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Geometric Meaning of eigen vector
+\end_layout
+
+\begin_layout Standard
+https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors#/media/File:Eigenvector
+s.gif
+\end_layout
+
+\begin_layout Standard
+The transformation matrix A = preserves the direction of vectors parallel
+ to eigenvector
+\begin_inset Formula $v=(1,−1)T$
+\end_inset
+
+ (in purple) and eigenvector
+\begin_inset Formula $w=(1,1)^{T}$
+\end_inset
+
+ (in blue).
+ The vectors in red are not parallel to either eigenvector, so, their directions
+ are changed by the transformation.
+ 
+\end_layout
+
+\begin_layout Standard
+So eigenvectors are the vectors that keep the same direction after applied
+ by transition 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+eigen value is the change of length of the eigen vector after applied transition
+ 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ (https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors#/media/File:Mona_Lisa
+_eigenvector_grid.png)
+\end_layout
+
+\begin_layout Standard
+Also see wiki page --application section
+\end_layout
+
+\begin_layout Standard
+https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors#Eigenvalues_of_geometri
+c_transformations
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+The biggest value of the eigen vector means it has biggest length in that
+ direction.
+\end_layout
+
+\begin_layout Subsection
+Sphere the data
+\end_layout
+
+\begin_layout Standard
+I was reading some notes and it says that PCA can "sphere the data".
+ What they define to me as "sphering the data" is dividing each dimension
+ by the square root of the corresponding eigenvalue.
+\end_layout
+
+\begin_layout Standard
+I am assuming that by "dimension" they mean each basis vector into which
+ we are projecting (i.e.
+ the eigenvectors we are projecting to).
+ Thus I guess they are doing:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mu_{i}^{'}=\frac{\mu_{i}}{\sqrt{eigenValue(u_{i})}}
+\]
+
+\end_inset
+
+where ui is one of the eigenvectors (i.e.
+ one of the principal components).
+ Then with that new vector, I am assuming they are projecting the raw data
+ we have, say x(i) to z(i).
+ So the projected points would now be:
+\end_layout
+
+\begin_layout Standard
+z′(i)=u′i⋅x(i) They claim that doing this ensures that all the features
+ have the same variance.
+\end_layout
+
+\begin_layout Subsection
+Eigen decomposition of a matrix
+\end_layout
+
+\begin_layout Standard
+Let A be a square (N×N) matrix with N linearly independent eigenvectors,
+ q i ( i = 1 , … , N ) .
+ {
+\backslash
+displaystyle q_{i}
+\backslash
+,
+\backslash
+,(i=1,
+\backslash
+dots ,N).} Then A can be factorized as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A=QΛQ^{−1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where Q is the square (N×N) matrix whose ith column is the eigenvector 
+\begin_inset Formula ${\displaystyle q_{i}}$
+\end_inset
+
+ of A and Λ is the diagonal matrix whose diagonal elements are the corresponding
+ eigenvalues, i.e., 
+\begin_inset Formula ${\displaystyle \Lambda_{ii}=\lambda_{i}}$
+\end_inset
+
+ .
+ Note that only diagonalizable matrices can be factorized in this way.
+ For example, the defective matrix 
+\begin_inset Formula ${\displaystyle \begin{pmatrix}1 & 1\\
+0 & 1
+\end{pmatrix}}$
+\end_inset
+
+ cannot be diagonalized.
+\end_layout
+
+\begin_layout Subsection
+Diagonalization of Covaraince Matrix
+\end_layout
+
+\begin_layout Standard
+For any matrix, if we want to solve 
+\begin_inset Formula $(WW^{T})^{-1/2}$
+\end_inset
+
+, we can use 
+\begin_inset Formula $WW^{T}=F\Lambda F^{T}$
+\end_inset
+
+ thus 
+\begin_inset Formula $(WW^{T})^{-1/2}=F\Lambda^{-1/2}F^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Powers and Products
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A^{2}x=A\lambda x=\lambda Ax=\lambda^{2}x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The same result comes from diagonalization, by squaring 
+\begin_inset Formula $S^{-1}AS=\Lambda$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Singular Value Decomposition
+\end_layout
+
+\begin_layout Standard
+the singular value decomposition of an m × n real or complex matrix M is
+ a factorization of the form 
+\begin_inset Formula 
+\[
+M=UΣV^{T}
+\]
+
+\end_inset
+
+, where 
+\end_layout
+
+\begin_layout Itemize
+U is an 
+\series bold
+m × m 
+\series default
+real or complex 
+\series bold
+unitary
+\series default
+ matrix, 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Unitary Matrix definition: 
+\begin_inset Formula $U^{*}U=UU^{*}=I,U\mathcircumflex*U=UU\mathcircumflex*=I,$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Σ is an 
+\series bold
+m × n
+\series default
+ rectangular 
+\series bold
+diagonal
+\series default
+ matrix with non-negative real numbers on the diagonal
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+with diagonal elements 
+\begin_inset Formula $d_{1}$
+\end_inset
+
+ ≥ 
+\begin_inset Formula $d_{2}$
+\end_inset
+
+ ≥ · · · ≥ 
+\begin_inset Formula $d_{p}$
+\end_inset
+
+ ≥ 0 known as the 
+\series bold
+singular values
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+The columns of UΣ are called the 
+\series bold
+principal components
+\series default
+ of X (see Section 3.5.1).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $V^{T}$
+\end_inset
+
+(the conjugate transpose of V, or simply the transpose of V if V is real)
+ is an
+\series bold
+ n × n 
+\series default
+real or complex 
+\series bold
+unitary
+\series default
+ matrix.
+ 
+\end_layout
+
+\begin_layout Itemize
+The diagonal entries Σi,i of Σ are known as the 
+\series bold
+singular values 
+\series default
+of M.
+ Singular values are the squared root of eigenvalues
+\end_layout
+
+\begin_layout Itemize
+The m columns of U and the n columns of V are called the 
+\series bold
+left-singular vectors 
+\series default
+and 
+\series bold
+right-singular vectors
+\series default
+ of M, respectively.
+\end_layout
+
+\begin_layout Subsection
+Low Rank Approximination
+\end_layout
+
+\begin_layout Standard
+It turns out that when you select the 
+\begin_inset Formula ${\displaystyle k}$
+\end_inset
+
+ largest singular values, and their corresponding singular vectors from
+ 
+\begin_inset Formula ${\displaystyle U}$
+\end_inset
+
+and 
+\begin_inset Formula ${\displaystyle V}$
+\end_inset
+
+, you get the rank 
+\begin_inset Formula ${\displaystyle k}$
+\end_inset
+
+ approximation to 
+\begin_inset Formula $X$
+\end_inset
+
+ with the smallest error (Frobenius norm).
+ This approximation has a minimal error.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X_{k}=U_{k}\Sigma_{k}V_{k}^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Geometry Explanation
+\end_layout
+
+\begin_layout Standard
+For the transformation 
+\begin_inset Formula $M$
+\end_inset
+
+, we can make this action into three parts: rotation 
+\begin_inset Formula $U$
+\end_inset
+
+, scaling 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ and rotation 
+\begin_inset Formula $V^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/Singular-Value-Decomposition.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Example
+\end_layout
+
+\begin_layout Standard
+Consider the 4 × 5 matrix
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{M}=\begin{bmatrix}1 & 0 & 0 & 0 & 2\\
+0 & 0 & 3 & 0 & 0\\
+0 & 0 & 0 & 0 & 0\\
+0 & 2 & 0 & 0 & 0
+\end{bmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A singular value decomposition of this matrix is given by UΣV∗
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\begin{align}\mathbf{U} & =\begin{bmatrix}0 & 0 & 1 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 0 & -1\\
+1 & 0 & 0 & 0
+\end{bmatrix}\\
+\boldsymbol{\Sigma} & =\begin{bmatrix}2 & 0 & 0 & 0 & 0\\
+0 & 3 & 0 & 0 & 0\\
+0 & 0 & \sqrt{5} & 0 & 0\\
+0 & 0 & 0 & 0 & 0
+\end{bmatrix}\\
+\mathbf{V}^{*} & =\begin{bmatrix}0 & 1 & 0 & 0 & 0\\
+0 & 0 & 1 & 0 & 0\\
+\sqrt{0.2} & 0 & 0 & 0 & \sqrt{0.8}\\
+0 & 0 & 0 & 1 & 0\\
+-\sqrt{0.8} & 0 & 0 & 0 & \sqrt{0.2}
+\end{bmatrix}
+\end{align}
+$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Relation to Eigenvalue decomposition
+\end_layout
+
+\begin_layout Standard
+The singular value decomposition is very general in the sense that it can
+ be applied to any m × n matrix whereas eigenvalue decomposition can only
+ be applied to certain classes of square matrices.
+ Nevertheless, the two decompositions are related.
+\end_layout
+
+\begin_layout Standard
+Given an SVD of M, as described above, the following two relations hold:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{align}\mathbf{M}^{*}\mathbf{M} & =\mathbf{V}\boldsymbol{\Sigma}^{*}\mathbf{U}^{*}\mathbf{U}\boldsymbol{\Sigma}\mathbf{V}^{*}=\mathbf{V}(\boldsymbol{\Sigma}^{*}\boldsymbol{\Sigma})\mathbf{V}^{*}\\
+\mathbf{M}\mathbf{M}^{*} & =\mathbf{U}\boldsymbol{\Sigma}\mathbf{V}^{*}\mathbf{V}\boldsymbol{\Sigma}^{*}\mathbf{U}^{*}=\mathbf{U}(\boldsymbol{\Sigma}\boldsymbol{\Sigma}^{*})\mathbf{U}^{*}
+\end{align}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+right-singular vectors:
+\series default
+ The columns of V () are eigenvectors of M∗M.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+left-singular vectors:
+\series default
+ The columns of U (left-singular vectors) are eigenvectors of MM∗.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+singular values:
+\series default
+ The non-zero elements of Σ (non-zero singular values) are the square roots
+ of the non-zero eigenvalues of M∗M or MM∗.Relation to Diagnoization
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $M$
+\end_inset
+
+ is a sysmetrical matrix, the SVD is Diagnoization.
+\end_layout
+
+\begin_layout Section
+sparse matrix
+\end_layout
+
+\begin_layout Standard
+In numerical analysis, a sparse matrix is a matrix in which most of the
+ elements are zero.
+ By contrast, if most of the elements are nonzero, then the matrix is considered
+ dense.
+ The fraction of non-zero elements over the total number of elements (i.e.,
+ that can fit into the matrix, say a matrix of dimension of m x n can accommodat
+e m x n total number of elements) in a matrix is called the sparsity (density).
+\end_layout
+
+\begin_layout Standard
+Conceptually, sparsity corresponds to systems which are loosely coupled.
+ Consider a line of balls connected by springs from one to the next: this
+ is a sparse system as only adjacent balls are coupled.
+ By contrast, if the same line of balls had springs connecting each ball
+ to all other balls, the system would correspond to a dense matrix.
+ The concept of sparsity is useful in combinatorics and application areas
+ such as network theory, which have a low density of significant data or
+ connections.
+\end_layout
+
+\begin_layout Standard
+Sparse data is by nature more easily compressed and thus require significantly
+ less storage.
+ Some very large sparse matrices are infeasible to manipulate using standard
+ dense-matrix algorithms.
+\end_layout
+
+\begin_layout Section
+Positive Definite
+\end_layout
+
+\begin_layout Standard
+In linear algebra, a symmetric n × n real matrix M {
+\backslash
+displaystyle M} is said to be positive definite if the scalar 
+\begin_inset Formula ${\displaystyle z^{\mathrm{T}}Mz}$
+\end_inset
+
+ is positive for every non-zero column vector z {
+\backslash
+displaystyle z} of n {
+\backslash
+displaystyle n} real numbers
+\end_layout
+
+\begin_layout Standard
+The negative definite, positive semi-definite, and negative semi-definite
+ matrices are defined in the same way, except that 0's are allowed,
+\end_layout
+
+\begin_layout Itemize
+The identity matrix 
+\begin_inset Formula ${\displaystyle I={\begin{bmatrix}1 & 0\\
+0 & 1
+\end{bmatrix}}}$
+\end_inset
+
+ is positive definite.
+ Seen as a real matrix, it is symmetric, and, for any non-zero column vector
+ z with real entries a and b, one has
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula ${\displaystyle z^{\mathrm{T}}Iz={\begin{bmatrix}a & b\end{bmatrix}}{\begin{bmatrix}1 & 0\\
+0 & 1
+\end{bmatrix}}{\begin{bmatrix}a\\
+b
+\end{bmatrix}}=a^{2}+b^{2}}$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Itemize
+Seen as a complex matrix, for any non-zero column vector z with complex
+ entries a and b one has 
+\begin_inset Formula ${\displaystyle z^{*}Iz={\begin{bmatrix}a^{*} & b^{*}\end{bmatrix}}{\begin{bmatrix}1 & 0\\
+0 & 1
+\end{bmatrix}}{\begin{bmatrix}a\\
+b
+\end{bmatrix}}=a^{*}a+b^{*}b=|a|^{2}+|b|^{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Either way, the result is positive since z is not the zero vector (that
+ is, at least one of a and b is not zero).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+The real symmetric matrix ] 
+\begin_inset Formula ${\displaystyle M={\begin{bmatrix}2 & -1 & 0\\
+-1 & 2 & -1\\
+0 & -1 & 2
+\end{bmatrix}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+is positive definite since for any non-zero column vector z with entries
+ a, b and c, we have 
+\begin_inset Formula ${\displaystyle {\begin{aligned}z^{\mathrm{T}}Mz=(z^{\mathrm{T}}M)z & ={\begin{bmatrix}(2a-b) & (-a+2b-c) & (-b+2c)\end{bmatrix}}{\begin{bmatrix}a\\
+b\\
+c
+\end{bmatrix}}\\
+ & =2{a}^{2}-2ab+2{b}^{2}-2bc+2{c}^{2}\\
+ & ={a}^{2}+(a-b)^{2}+(b-c)^{2}+{c}^{2}
+\end{aligned}
+}}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+This result is a sum of squares, and therefore non-negative; and is zero
+ only if a = b = c = 0, that is, when z is zero.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+For any real non-singular matrix A , the product A T A 
+\begin_inset Formula ${\displaystyle A^{\mathrm{T}}A}$
+\end_inset
+
+ is a positive definite matrix.
+ 
+\end_layout
+
+\begin_layout Standard
+The following properties are equivalent to M being positive definite:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+All its eigenvalues are positive
+\end_layout
+
+\begin_layout Part
+Complex numbers
+\end_layout
+
+\begin_layout Standard
+meaning:
+\end_layout
+
+\begin_layout Standard
+see 虚数的意义 - 阮一峰的网络日志 in 
+\begin_inset Quotes eld
+\end_inset
+
+math
+\begin_inset Quotes erd
+\end_inset
+
+ forder.
+\end_layout
+
+\begin_layout Itemize
+(+1) * (逆时针旋转90度) * (逆时针旋转90度) = (-1) 
+\end_layout
+
+\begin_layout Itemize
+将"逆时针旋转90度"记为 i ： 
+\begin_inset Formula $　i^{2}=(-1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+数学家用一种特殊的表示方法，表示这个二维坐标：用 + 号把横坐标和纵坐标连接起来。比如，把 ( 1 , i ) 表示成 1 + i 。这种表示方法就叫做复数（c
+omplex number），其中 1 称为实数部，i 称为虚数部。
+\end_layout
+
+\begin_layout Part
+Functional Space
+\end_layout
+
+\begin_layout Standard
+A space is defined as sets of objects 
+\begin_inset Formula $x$
+\end_inset
+
+ and rules of operation 
+\begin_inset Formula $\tau$
+\end_inset
+
+ for those objects: 
+\begin_inset Formula 
+\[
+S=(x,\tau)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Motivation: why we need to define 
+\begin_inset Quotes eld
+\end_inset
+
+distance
+\begin_inset Quotes erd
+\end_inset
+
+ in Euclidean Space
+\end_layout
+
+\begin_layout Standard
+In Calculus, to define continuity and limits: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\exists\epsilon>0,\text{ \exists\delta>0}\mbox{ such that:}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(|x-x_{0}|\le\delta)\Longrightarrow(|f(x)-f(x_{0})|<\epsilon))
+\]
+
+\end_inset
+
+, we need to first define the concept of 
+\begin_inset Quotes eld
+\end_inset
+
+distance
+\begin_inset Quotes erd
+\end_inset
+
+: 
+\begin_inset Formula $|x-x_{0}|$
+\end_inset
+
+ or 
+\begin_inset Formula $|f(x)-f(x_{0})|$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Motivation: Topology Space does not requre 
+\begin_inset Quotes eld
+\end_inset
+
+distance
+\begin_inset Quotes erd
+\end_inset
+
+ concept
+\end_layout
+
+\begin_layout Standard
+To define continuity in Topology Space, we only requires the concept of
+ open concept, no need to have distance:
+\end_layout
+
+\begin_layout Standard
+Define 
+\begin_inset Formula $O(x_{0},\delta)$
+\end_inset
+
+ is a open area that contains 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+, thus continuity in Topology Space is defined as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\exists\epsilon>0,\text{ \exists\delta>0}\mbox{ such that:}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(O(x_{0},\delta))\Longrightarrow O(f(x),\epsilon)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+所以说，拓扑用的是弱化的距离概念。
+\end_layout
+
+\begin_layout Subsection
+How to do the Abstraction to get an object
+\end_layout
+
+\begin_layout Standard
+When define an object (i.e.
+ distance) in math, we did not specify it directly, we only specify its
+ most generic characteristics (抽象化／Abstraction), and thus those having these
+ characters are belonging this object.
+ 
+\end_layout
+
+\begin_layout Subsection
+Distance
+\end_layout
+
+\begin_layout Standard
+Distance as a concept is formally defined as a real number that has certain
+ abstract characteristics / rules
+\end_layout
+
+\begin_layout Standard
+for set 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+, their distance 
+\begin_inset Formula $d(x,y)$
+\end_inset
+
+ is a real number that statisfies following rules:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $d(x,y)\ge0$
+\end_inset
+
+, 
+\begin_inset Formula $d(x,y)=0\Longleftrightarrow x=y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $d(x,y)=d(y,x)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $d(x,y)\le d(x,z)+d(z,y)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus distance concept can have different specific forms, and as long as
+ those specific forms meets the features above, we can say they are valid
+ distances.
+\end_layout
+
+\begin_layout Itemize
+Distances for vectors So those definitions of distances are all valid
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $d_{1}(x,y)=\sqrt{\sum(x_{i}-y_{i})^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $d_{2}(x,y)=max(|x_{1}-y_{1}|+...+|x_{p}-y_{p}|)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+...
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Distances can also defined with curves / functions
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $d_{1}(f,g)=\int_{a}^{b}\left(f(x)-g(x)\right)^{2}dx$
+\end_inset
+
+ (square (or any 
+\begin_inset Formula $2k$
+\end_inset
+
+ where
+\begin_inset Formula $k$
+\end_inset
+
+ is a positive integer ) is to make the distance positive, so the distance
+ is squared area)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $d_{2}(f,g)=max_{a\le x\le b}|f(x)-g(x)|$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+In Machine Learning, you can define distance according to your data, as
+ long as it meets the abstract characteristics defined above.
+\end_layout
+
+\begin_layout Subsection
+Norm （长度/范数）
+\end_layout
+
+\begin_layout Standard
+Norm concept is needed to be defined to arrive the concept of linear space.
+\end_layout
+
+\begin_layout Standard
+Norm 
+\begin_inset Formula $||x||$
+\end_inset
+
+: A more specific concept derived 
+\series bold
+from Distance
+\series default
+, Norm of an object 
+\begin_inset Formula $x$
+\end_inset
+
+, or 
+\begin_inset Formula $||x||$
+\end_inset
+
+ is defined as the distance between 
+\begin_inset Formula $x$
+\end_inset
+
+ and original point 
+\begin_inset Formula $0$
+\end_inset
+
+: 
+\begin_inset Formula $d(0,x)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Norm 热带水果。distance 水果。
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $||x||\ge0$
+\end_inset
+
+; 
+\begin_inset Formula $||x||=0\Longleftrightarrow x=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $||ax||=|a|\times||x||$
+\end_inset
+
+, for 
+\begin_inset Formula $a\in R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $||x+y||\le||x||+||y||$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Specifc definitions of Norm
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $||x||=\sqrt{\sum x_{i}^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $||x||=\sum||x_{i}||$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $||x||=max\left(|x_{1}|,...|x_{2}|\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Inner Product (角度)
+\end_layout
+
+\begin_layout Itemize
+Inner Product is derived from Norm
+\end_layout
+
+\begin_layout Standard
+Inner Productis needed to be defined to arrive the concept of Euclidean
+ space .
+\end_layout
+
+\begin_layout Standard
+A more specific concept derived from Norm, Inner Product 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ is defined as 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{<x,y>=<y,x>}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+对第一个元素线性； 
+\begin_inset Formula ${\displaystyle \forall a\in F,\ \forall x,y\in V,\ \langle ax,y\rangle=a\langle x,y\rangle,\quad\forall x,y,z\in V,\ \langle x+y,z\rangle=\langle x,z\rangle+\langle y,z\rangle.}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $<x,x>\ge0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Once we get Inner Product, we will automatically have the concept of Projection,
+ Orthogonal etc.
+\end_layout
+
+\begin_layout Standard
+Specific definitions that match those features above:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $<x,y>=\sum x_{i}y_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $<f,g>=\int f(x)g(x)dx$
+\end_inset
+
+ (small bins add up)
+\end_layout
+
+\begin_layout Section
+Spaces
+\end_layout
+
+\begin_layout Itemize
+Topology Space:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $X$
+\end_inset
+
+ is a set 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Measure space or Norm space: For sets that have features of distance and
+ norm.
+\end_layout
+
+\begin_layout Itemize
+Linear Measure space or Linear Norm space / Measure vector space or Norm
+ (赋范) vector space: For sets that have features of distance and norm and
+ is able to do linear operation.
+\end_layout
+
+\begin_layout Itemize
+Euclidean space / Inner Product: sets that have features of distance, norm
+ and inner product.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+这就是我们的日常空间
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+希尔伯特引入了无穷维和完备性 得到希尔伯特空间。
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula ${\displaystyle \exp\left(-{\frac{1}{2}}||\mathbf{x}-\mathbf{x'}||^{2}\right)=\sum_{j=0}^{\infty}{\frac{(\mathbf{x}^{\top}\mathbf{x'})^{j}}{j!}}\exp\left(-{\frac{1}{2}}||\mathbf{x}||^{2}\right)\exp\left(-{\frac{1}{2}}||\mathbf{x'}||^{2}\right)}$
+\end_inset
+
+= 
+\begin_inset Formula $<\Phi(x),\Phi(x_{i})>$
+\end_inset
+
+.
+ Whenever you see the inner product of two elements is the sum of infinite
+ tems but still converge, then that means that elements are in Hilbert Space.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Hibert Space
+\end_layout
+
+\begin_layout Standard
+A Hilbert space H is a real or complex inner product space that is also
+ a complete metric space with respect to the distance function induced by
+ the inner product.
+\end_layout
+
+\begin_layout Standard
+一个抽象的希尔伯特空间中的元素往往被称为向量。在实际应用中，它可能代表了一列复数或是一个函数。例如在量子力学中，一个物理系统可以表示为一个复希尔伯特空间，其中的
+向量是描述系统可能状态的波函数。
+\end_layout
+
+\begin_layout Subsection
+Completeness
+\end_layout
+
+\begin_layout Standard
+希尔伯特空间还是一个完备的空间，其上所有的柯西序列会收敛到此空间里的一点，从而微积分中的大部分概念都可以无障碍地推广到希尔伯特空间中.
+\end_layout
+
+\begin_layout Itemize
+有理数空间不是完备的，因为 
+\begin_inset Formula ${\displaystyle {\sqrt{2}}}$
+\end_inset
+
+ 的有限位小数表示是一个柯西序列，但是其极限 {
+\begin_inset Formula ${\displaystyle \sqrt{2}}$
+\end_inset
+
+} 不在有理数空间内。
+\end_layout
+
+\begin_layout Itemize
+实数空间是完备的
+\end_layout
+
+\begin_layout Standard
+直观上讲，一个空间完备就是指“没有孔”且“不缺皮”，两者都是某种“不缺点”。没有孔是指内部不缺点，不缺皮是指边界上不缺点。从这一点上讲，一个空间完备同一个集合的
+闭包是类似的。这一类似还体现在以下定理中：完备空间的闭子集是完备的。
+\end_layout
+
+\begin_layout Subsection
+Cauchy Series
+\end_layout
+
+\begin_layout Standard
+Formally, given a metric space (X, d), a sequence
+\end_layout
+
+\begin_layout Standard
+x1, x2, x3, ...
+ is Cauchy, if for every positive real number ε > 0 there is a positive
+ integer N such that for all positive integers m, n > N, the distance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $d(xm,xn)<ε.$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
