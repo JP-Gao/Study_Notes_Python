@@ -175,94 +175,170 @@
 IV
 \end_layout
 
+\begin_layout Standard
+https://www.quora.com/What-algorithms-and-data-structures-should-any-software-engi
+neer-know
+\end_layout
+
+\begin_layout Standard
+http://www.cricode.com/2001.html
+\end_layout
+
+\begin_layout Standard
+程序员必须知道的10大基础实用算法及其讲解 
+\end_layout
+
+\begin_layout Standard
+Dynamic Programming!
+\end_layout
+
 \begin_layout Section
 T
 \end_layout
 
-\begin_layout Standard
-1.
- Are you legally authorized to work in US?
+\begin_layout Itemize
+A/B test: Separation strategies for three pitfalls in A/B testing
+\end_layout
+
+\begin_layout Itemize
+Recommendation System
+\end_layout
+
+\begin_layout Itemize
+Graphs and Map/Reduce 
 \end_layout
 
 \begin_layout Standard
-a.
- Yes
+https://medium.com/@rchang/my-two-year-journey-as-a-data-scientist-at-twitter-f0c
+13298aee6#.5lwz7cr00
+\end_layout
+
+\begin_layout Subsection
+Data Scientist, Business Insights
 \end_layout
 
 \begin_layout Standard
-2.
- Will you need visa sponsorship?
+Who We Are: 
 \end_layout
 
 \begin_layout Standard
-a.
- Yes
+Twitter is looking for an exceptional data scientist to join a newly formed
+ Business Insights team.
+ This team is responsible for providing analytical support related to user
+ growth & content, performing market and competitive analyses, identifying
+ key market trends, and telling stories with data.
+ You should be passionate about finding insights in large datasets, synthesizing
+ and communicating results, and driving practical business impact.
+ This team will work cross-functionally with Product, Engineering, Global
+ Media, Corporate Development & Strategy, Marketing, Analytics, and Finance.
+ 
 \end_layout
 
 \begin_layout Standard
-3.
- Current visa status and when expire?
+What You’ll Do:
 \end_layout
 
 \begin_layout Standard
-a.
- I’m in H1B visa since Oct 2014.
+Driving business impact:
 \end_layout
 
 \begin_layout Standard
-b.
- H1B visa will last 6 years, so it will expire at Oct 2020.
+Collaborate and work closely with cross-functional business partners to
+ identify gaps and structure problems
 \end_layout
 
 \begin_layout Standard
-4.
- Where do you live
+You will create meaningful presentations and analyses that tell a “story”
+ focused on insights, not just data
 \end_layout
 
 \begin_layout Standard
-a.
- 1136 Worth Ln, Claymont, Delaware 19703
+Synthesize methodology and data into actionable business strategy, and communica
+te findings to product, engineering, and management teams
 \end_layout
 
 \begin_layout Standard
-5.
- Highest Education
+Getting your hands dirty:
 \end_layout
 
 \begin_layout Standard
-a.
- Master at Duke University
+Use statistical and econometric techniques on large datasets to: 
 \end_layout
 
 \begin_layout Standard
-6.
- Have you interviewed with Twitter before
+i) measure results and show key trends
 \end_layout
 
 \begin_layout Standard
-a.
- No
+ii) identify causal impact and attribution
 \end_layout
 
 \begin_layout Standard
-7.
- Why Twitter:
+iii) analyze experiments
 \end_layout
 
 \begin_layout Standard
-a.
- First of all, as my girlfriend found a job in San Francisco, I have to
- move there….
+iv) model and predict future performance of users or products
 \end_layout
 
 \begin_layout Standard
-b.
- This Data Science position at Twitter is about extensive programming, hard-core
- modelling and story-telling 
+Write and interpret complex SQL queries for standard as well as ad hoc data
+ analysis purposes
 \end_layout
 
 \begin_layout Standard
+You will be the go-to person for any data question
+\end_layout
 
+\begin_layout Standard
+Who you are:
+\end_layout
+
+\begin_layout Standard
+Ability to communicate results clearly and effectively
+\end_layout
+
+\begin_layout Standard
+Requirements: 
+\end_layout
+
+\begin_layout Standard
+2+ years of work experience involving quantitative data analysis to solve
+ problems
+\end_layout
+
+\begin_layout Standard
+Degree in Applied Math, Economics, Statistics, Engineering, Computer Science
+ or other quantitative field.
+ PhD or MS preferred.
+\end_layout
+
+\begin_layout Standard
+Expert in SQL and other programming languages
+\end_layout
+
+\begin_layout Standard
+Expert with statistical software (R/Stata/SAS/Matlab)
+\end_layout
+
+\begin_layout Standard
+Expert with Excel & PowerPoint/Keynote
+\end_layout
+
+\begin_layout Standard
+Pluses:
+\end_layout
+
+\begin_layout Standard
+Experience w Tableau
+\end_layout
+
+\begin_layout Standard
+Experience with Hadoop (Pig, Scalding)
+\end_layout
+
+\begin_layout Standard
+Strategy consulting experience
 \end_layout
 
 \begin_layout Section
@@ -271,6 +347,16 @@ F
 
 \begin_layout Standard
 Thanh Nguyen <thanhn@fb.com>
+\end_layout
+
+\begin_layout Standard
+"A Collection of Data Science Takehome challenges
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Data Scientist, Analytics 
 \end_layout
 
 \begin_layout Standard
@@ -293,16 +379,18 @@ Data Scientist, Analytics (Menlo Park, CA) Facebook was built to help people
 \begin_layout Standard
 Apply your expertise in quantitative analysis, data mining, and the presentation
  of data to see beyond the numbers and understand how our users interact
- with both our consumer and business products Partner with Product and Engineeri
-ng teams to solve problems and identify trends and opportunities Inform,
- influence, support, and execute our product decisions and product launches
- 
+ with both our consumer and business products Partner with 
+\series bold
+Product and Engineering 
+\series default
+teams to solve problems and identify trends and opportunities Inform, influence,
+ support, and execute our product decisions and product launches 
 \end_layout
 
 \begin_layout Standard
 The
 \series bold
- Data Scientist Analytics 
+ Data Scientist, Analytics 
 \series default
 role has work across the following four areas: 
 \end_layout
@@ -311,52 +399,58 @@ role has work across the following four areas:
 Product Operations 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Forecasting and setting product team goals 
 \end_layout
 
-\begin_layout Standard
-Designing and evaluating experiments 
+\begin_layout Itemize
+Designing and evaluating 
+\series bold
+experiments
+\series default
+ 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
+
+\series bold
 Monitoring key product metrics, understanding root causes of changes in
  metrics 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Building and analyzing dashboards and reports 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Building key data sets to empower operational and exploratory analysis 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Evaluating and defining metrics 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Exploratory Analysis Proposing what to build in the next roadmap Understanding
  ecosystems, user behaviors, and long-term trends 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Identifying new levers to help move key metrics 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Building models of user behaviors for analysis or to power production systems
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Product Leadership Influencing product teams through presentation of data-based
  recommendations Communicating state of business, experiment results, etc
  to product teams 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Spreading best practices to analytics and product teams Data Infrastructure
  Working in Hadoop and Hive primarily, sometimes MySQL, Oracle, and Vertica
  Automating analyses and authoring pipelines via SQL and python based ETL
@@ -388,6 +482,280 @@ Basic understanding of statistics (e.g., hypothesis testing, regressions).
  Experience with distributed computing (Hive/Hadoop) a plus.
 \end_layout
 
+\begin_layout Subsection
+Why F, 
+\series bold
+Data Scientist, Analytics 
+\end_layout
+
+\begin_layout Enumerate
+PERSONAL: First, my girlfirend just found a job in San F, so I have to move
+ there.
+ 
+\end_layout
+
+\begin_layout Enumerate
+COMPANY: Secondly, U is such a cool and fast growing c, AND it must be super
+ interesting to work as a Data Scientist there, 
+\series bold
+BECAUSE
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+You have 
+\series bold
+huge
+\series default
+ amount 
+\series bold
+interesting data you can play once,
+\series default
+ 
+\end_layout
+
+\begin_layout Enumerate
+and the 
+\series bold
+problems
+\series default
+ we are trying to 
+\series bold
+solve
+\series default
+ there, like quantifying customers certain behavior or optimizing certain
+ products., optimizing the price, are 
+\series bold
+Challenging and Exciting
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+FIT: Also this role really fits me very well, 
+\series bold
+BECAUSE
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+It requires Data Science, a lot of programming , which are exactly what
+ I learned in school and what I'm doing now.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Tracking and Reporting: Besides this, we have also done a lot tracking or
+ dashboard reportint on the key metrics of our portfolio.
+\end_layout
+
+\begin_layout Itemize
+Working with Finance, because a lot what we do is the Income Statement,
+ so we need to borrow a lot of accountin / finance assumptions from them.
+\end_layout
+
+\begin_layout Standard
+Question:
+\end_layout
+
+\begin_layout Standard
+Is this interview for a apticular role or a more generic data scientist
+ role
+\end_layout
+
+\begin_layout Standard
+I heared about that after you join F, you didn't join a particular group,
+ first go to a training camp to really assess skills and interests, then
+ depend on your skills and interests, you will be assigned to certain Paticular
+ groups.
+ OR this is not the case for everyone.
+\end_layout
+
+\begin_layout Subsection
+Q
+\end_layout
+
+\begin_layout Standard
+The interview has three parts:
+\end_layout
+
+\begin_layout Standard
+1.
+ Probability and Stats
+\end_layout
+
+\begin_layout Standard
+2.
+ SQL
+\end_layout
+
+\begin_layout Standard
+3.
+ Business
+\end_layout
+
+\begin_layout Itemize
+http://www.crazyforcode.com/probability/
+\end_layout
+
+\begin_layout Itemize
+There are 50 cards of 5 different colors.
+ It comprises of 10 Red cards, 10 blue cards, 10 orange cards, 10 green
+ cards and 10 yellow cards.
+ Each color will have the cards numbered between 1 to10.
+ You pick 2 cards at random.
+ What is the probability that they are not of same color and not of same
+ number.
+ 
+\end_layout
+
+\begin_layout Itemize
+What is the probability of drawing two cards (from the same deck of cards)
+ that have the same suite?
+\end_layout
+
+\begin_layout Itemize
+Find the expected revenue/loss of throwing two dices.
+ 
+\end_layout
+
+\begin_layout Itemize
+Very basic questions on treatment effects under various sampling schemes.
+\end_layout
+
+\begin_layout Itemize
+What is probability of pulling a different color or shape card from a shuttled
+ deck of 52 cards
+\end_layout
+
+\begin_layout Itemize
+What is probability of getting one pair of card from 52 deck of cards?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+3/51
+\end_layout
+
+\begin_layout Itemize
+choose(4, 2)*choose(13, 1)/choose(52,2) 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Pick up a coin C1 given C1+C2 with probability of trials p(h1)=.7, p(h2)=.6
+ and doing 10 trials.
+ And what is the probability that the given coin you picked is C1 given
+ you have 7 heads and 3 tails? 
+\end_layout
+
+\begin_layout Itemize
+Lets say the population on Facebook clicks ads with a click-through-rate
+ of P.
+ We select a sample of size N and examine the sample's conversion rate,
+ denoted by hat{P}, what is the minimum sample size N such that Probability(
+ ABS(hat{P} - P) &lt; DELTA ) = 95%.
+ In other words (this is my translation), find the minimum sample size N
+ such that our sample estimate hat{P} is within DELTA of the true click
+ through rate P, with 95% confidence.
+ 
+\end_layout
+
+\begin_layout Standard
+Product
+\end_layout
+
+\begin_layout Itemize
+1.
+ How to evaluate the success of a product? 2.
+ 
+\end_layout
+
+\begin_layout Itemize
+It will help to review some product manager interview questions.
+ 
+\end_layout
+
+\begin_layout Itemize
+What teams are you interested in at Facebook? 
+\end_layout
+
+\begin_layout Standard
+Coding
+\end_layout
+
+\begin_layout Itemize
+About how to generate all possible friendship given four tables with the
+ "request", "accept","reject", and "remove" information
+\end_layout
+
+\begin_layout Itemize
+1-Programming: Given data on Facebook members friending/defriending each
+ other on Facebook, find out whether a given pair of members are currently
+ friends.
+\end_layout
+
+\begin_layout Itemize
+Write an SQL query that makes recommendations using the pages that your
+ friends liked.
+ Assume you have two tables: a two-column table of users and their friends,
+ and a two-column table of users and the pages they liked.
+ It should not recommend pages you already like.
+ 
+\end_layout
+
+\begin_layout Itemize
+2- Statistics: -Research Design Question: How would you test whether having
+ more friends now 
+\end_layout
+
+\begin_layout Itemize
+order and unique in R
+\end_layout
+
+\begin_layout Itemize
+Given two tables
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Friend_request (requester_id, sent_to_id, time)
+\end_layout
+
+\begin_layout Itemize
+Request_accepted (acceptor_id, requestor_id, time)
+\end_layout
+
+\begin_layout Itemize
+Find the overall acceptance rate of requests
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Algorithm
+\end_layout
+
+\begin_layout Itemize
+Coding on whiteboard: solutions required using recursion and hash tables
+\end_layout
+
+\begin_layout Itemize
+Given two binary strings, write a function that adds them.
+ You are not allowed to use any built in string to int conversions or parsing
+ tools.
+ E.g.
+ Given "100" and "111" you should return "1011".
+ What is the time and space complexity of your algorithm? 
+\end_layout
+
+\begin_layout Standard
+Machine Learning
+\end_layout
+
+\begin_layout Itemize
+How would you compare the relative performance of two different back-end
+ engines for automated generation of Facebook "Friend" suggestions? 
+\end_layout
+
 \begin_layout Section
 U
 \end_layout
@@ -396,33 +764,61 @@ U
 Why U
 \end_layout
 
-\begin_layout Standard
-First, my girlfirend just found a job in San F, so I have to move there.
- Secondly, U is such a cool and fast growing c, I would be super proud if
- I get a chance to work there,
-\end_layout
-
-\begin_layout Standard
-Also this role is called Data Scientist, Strategic Finance, which really
- fits my background.
+\begin_layout Enumerate
+PERSONAL: First, my girlfirend just found a job in San F, so I have to move
+ there.
  
 \end_layout
 
-\begin_layout Standard
-First of all, I reallly want to do data science -- to do some hard-core
- modelling, 
+\begin_layout Enumerate
+COMPANY: Secondly, U is such a cool and fast growing c, AND it must be super
+ interesting to work as a Data Scientist there, 
+\series bold
+BECAUSE
 \end_layout
 
-\begin_layout Standard
-but at the same time, I want to have something to do with economics and
- finance, because I got a lot of experience from the finance sector.
+\begin_deeper
+\begin_layout Enumerate
+You have 
+\series bold
+huge
+\series default
+ amount 
+\series bold
+interesting data you can play once,
+\series default
+ 
 \end_layout
 
-\begin_layout Standard
-So this position is really a combination of data science and ecnomic modelling,
- that why I think I would be a great fit for this role.
+\begin_layout Enumerate
+and the 
+\series bold
+problems
+\series default
+ we re trying to 
+\series bold
+solve
+\series default
+ there, like balancing the demand and supply, optimizing the price, are
+ 
+\series bold
+Challenging and Exciting
 \end_layout
 
+\end_deeper
+\begin_layout Enumerate
+FIT: Also this role really fits me very well, 
+\series bold
+BECAUSE
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+It requires Data Science, a lot of programming and financial modelling,
+ which are exactly what I learned in school and what I'm doing now.
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Strategic Finance Associate
 \end_layout
@@ -493,7 +889,7 @@ What KPIs should Uber use to measure success in a new city.
 \end_layout
 
 \begin_layout Subsection
-Data Scientist, Strategic Finance
+Position: Data Scientist, Strategic Finance
 \end_layout
 
 \begin_layout Standard
@@ -711,13 +1107,143 @@ Nice to have - Systems - working knowledge of enterprise-level financial
  planning systems
 \end_layout
 
+\begin_layout Section
+FI
+\end_layout
+
+\begin_layout Standard
+Job description
+\end_layout
+
+\begin_layout Standard
+“Due to growth, our Analytic Consulting team is looking to bring on more
+ talented people like you.
+ In this role as Consultant, you will work on Analytic and Optimization
+ Professional Services client projects using Decision Optimizer (DO) and
+ Xpress optimization software.” Quote by Director Analytics Consulting
+\end_layout
+
+\begin_layout Standard
+In this role you will:
+\end_layout
+
+\begin_layout Standard
+• Be part of the technical development and delivery of Analytic and Optimization
+ Professional Services client projects using Decision Optimizer (DO) and
+ Xpress optimization software.
+\end_layout
+
+\begin_layout Standard
+• Design and develop state-of-the-art, data-driven exploratory analysis
+ as well as predictive and decision models to solve business problems across
+ different industries including auto, financial, retail and insurance.
+\end_layout
+
+\begin_layout Standard
+•Consult with clients around adoption and on-going use of DO / Xpress approaches
+, and identify Analytic and Optimization Professional Services opportunities
+ through client interactions.
+\end_layout
+
+\begin_layout Standard
+•Create high performance optimization models to meet client requirements.
+\end_layout
+
+\begin_layout Standard
+•Provide analytic consulting services to clients on a wide range of advanced
+ analytics-based services.
+\end_layout
+
+\begin_layout Standard
+•Further develop analytic processes and procedures, working across departments
+ to enhance FICO analytic & optimization tools, techniques and offerings.
+\end_layout
+
+\begin_layout Standard
+•Contribute to pricing, hours, budgeting, and contract review and delivery
+ methodology for DO / Xpress Professional Services offerings.
+\end_layout
+
+\begin_layout Standard
+Project Management: 
+\end_layout
+
+\begin_layout Standard
+• Work simultaneously on multiple projects of moderate size and complexity.
+\end_layout
+
+\begin_layout Standard
+• Plan effectively to set priorities and manage projects, identify roadblocks
+ and work to get them removed, and understand the importance of meeting
+ client/internal deadlines.
+\end_layout
+
+\begin_layout Standard
+• Review project variances against deliverables and possible changes
+\end_layout
+
+\begin_layout Standard
+• Implement changes at project level as needed; negotiate necessary changes
+ without committing to the impossible, and engage in direct dialogue with
+ client to achieve agreement on project outcomes.
+\end_layout
+
+\begin_layout Standard
+• Give priority to delivering superior customer service.
+\end_layout
+
+\begin_layout Standard
+Client Communications (internal and external): 
+\end_layout
+
+\begin_layout Standard
+• Handle communication with client as needed.
+\end_layout
+
+\begin_layout Standard
+• Determine appropriate model report format for communication with clients.
+\end_layout
+
+\begin_layout Standard
+• Travel as required to client sites.
+\end_layout
+
+\begin_layout Standard
+• May participate in pre-sales support and/or provide post-implementation
+ support.
+\end_layout
+
+\begin_layout Standard
+• May deliver formal presentations of work to clients.
+\end_layout
+
+\begin_layout Standard
+• Participate in authoring white papers, proposals and publications.
+\end_layout
+
 \begin_layout Part
 Method
 \end_layout
 
 \begin_layout Itemize
+本行业的工作，相关工作经历详细写， 非本行业的工作，工作经历略写，只往cool了写。
+\end_layout
+
+\begin_layout Itemize
+详细准备简历上的所有。
+\end_layout
+
+\begin_layout Itemize
+详细准备why that company
+\end_layout
+
+\begin_layout Itemize
 On-site is about damage-control, not standing out.
  !!!!! 
+\end_layout
+
+\begin_layout Subsection
+Words
 \end_layout
 
 \begin_layout Itemize
@@ -888,7 +1414,7 @@ Summary
 \end_layout
 
 \begin_layout Itemize
-50% of time is to sell our models to customers (marketing / finance).
+50% of time is to sell our models to Internal customers (marketing / finance).
  That turns out an equally interesting part as building the model.
 \end_layout
 
@@ -925,6 +1451,14 @@ On the model developing part, I recently redeveloped the whole personal
 \end_layout
 
 \begin_layout Itemize
+
+\series bold
+The structure of the model is flexible enough to be adapted to Mortgage
+ and auto-loan.
+ 
+\end_layout
+
+\begin_layout Itemize
 It can take care both loss and revenue.
 \end_layout
 
@@ -948,39 +1482,53 @@ Also this is the account level model, so you can group whatever way you
  
 \end_layout
 
-\begin_layout Itemize
-The structure of the model is flexible enough to be adapted to Mortgage
- and auto-loan.
- 
-\end_layout
-
-\begin_layout Subsubsection
-Model: One Single Model for whole business
+\begin_layout Subsection
+Model: One Single Model for Multi-Purposes
 \end_layout
 
 \begin_layout Standard
+Why one model
+\end_layout
+
+\begin_layout Itemize
 So you see we have multiple customers: marketing, Treasury and Finance.
  So we have to build the forecasting model that is 
 \series bold
-generic and flexible enough
+Generic and Flexible enough
 \series default
  that can serve those customers' need at the same time.
-\end_layout
-
-\begin_layout Standard
-We don't want to build separate models just to serve separate customers
+ We don't want to build separate models just to serve separate customers
  and different proposes, because essentially they have the same purposes:
  measure the risk of a product under different scenarios.
 \end_layout
 
+\begin_layout Itemize
+Also, Revenue and Loss shall naturally connected and modeled within one
+ framework.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Thy practice to biuld a model to forecast revenue and then biuld a model
+ to forecast loss separately is flawed and redudent.
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 So what we are trying to do now, is to build one single loss forecasting
  model for a product, and that model has enough 
 \series bold
 flexibility and scalability
 \series default
- that can extent itself to model the loss at Campaign level, offer level,
- then all the way up to the whole portfolio level, which can be used for
+ that can extent itself to model the loss at Campaign level, 
+\end_layout
+
+\begin_layout Enumerate
+offer level, 
+\end_layout
+
+\begin_layout Enumerate
+then all the way up to the whole portfolio level, which can be used for
  stress testing.
 \end_layout
 
@@ -998,7 +1546,7 @@ burden
  to a middle-size bank like us.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Behavior: Team work Experience: work with marketing
 \end_layout
 
@@ -1104,7 +1652,7 @@ But by being more active, more consistent, and communicating more, we worked
  really well.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Business: Serve Customer of Model
 \end_layout
 
@@ -1168,7 +1716,7 @@ So after this become a user tool, when marking design their offer, they
  will see the profitability and loss vividly 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Business: Communicating with Marketing in loss curves
 \end_layout
 
@@ -1227,7 +1775,7 @@ Be consistent on your result
 Be Patient 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Model: UCL forecasting
 \end_layout
 
@@ -1243,9 +1791,8 @@ The ultimate goal is to build a model that can forecast loss curves.
 There are several features for this model
 \end_layout
 
-\begin_layout Standard
-1.
- For each time, we just forecast one period ahead, then we plug in the predicted
+\begin_layout Itemize
+For each time, we just forecast one period ahead, then we plug in the predicted
  result into the model again to forecast one period further.
  First from to T to T+1, then based on predictions on T+1, we predict T+2.
  So we keep doing this kind of thing recursively till T+N.
@@ -1274,23 +1821,24 @@ ally to fit different risk groups.
 \end_layout
 
 \end_deeper
-\begin_layout Standard
-2 Another feature of this model is, this model predicts every aspect of
- an account behaviors, including charge-off, delinquent, early payment.
+\begin_layout Enumerate
+Another feature of this model is, this model predicts every aspect of an
+ account behaviors, including charge-off, delinquent, early payment.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 The way we are doing this is, we create multiple equations and each equation
  just described one single kind of behavior.
  When we use them, we link them together.
 \end_layout
 
-\begin_layout Standard
+\begin_deeper
+\begin_layout Itemize
 For example, the first LOGIT equation to predict charge-off, then we simulate
  accounts through this equation,
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 if the account is not predicted to be charged off, 
 \series bold
 then given that updated information
@@ -1298,7 +1846,7 @@ then given that updated information
 , we plug it in the second equation to predict delinquency.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Then third one is, 
 \series bold
 given they are not delinquent,
@@ -1307,11 +1855,12 @@ given they are not delinquent,
  pay, how much they will pay.
 \end_layout
 
-\begin_layout Standard
+\end_deeper
+\begin_layout Itemize
 
 \series bold
 So each time, we just focus on one kind of behavior, then predict it, then
- given the updated information to predict another kind of behavior
+ utilize the updated information to predict another kind of behavior
 \end_layout
 
 \begin_layout Standard
@@ -1354,7 +1903,7 @@ So in this way, we decompose the complexity of different customer behaviors
  forecast the PD and EAD together, simultaneously.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Project: credit card model
 \end_layout
 
@@ -1387,10 +1936,18 @@ solver
 \end_layout
 
 \begin_layout Itemize
-Excel is best for some simple and stable model, but when things become complex
- and you keep adding new features into it, it is very easy to break down
- and become un-maintainable.
- 
+Bascially it is to smooth the historical performance for each kind of offer.
+ Then acoording to the campaign request, we do a weighted average of different
+ curves of different offers to generate overall campaign curve.
+\end_layout
+
+\begin_layout Itemize
+Excel is 
+\series bold
+best for some simple and stable model
+\series default
+, but when things become complex and you keep adding new features into it,
+ it is very easy to break down and become un-maintainable.
 \end_layout
 
 \begin_layout --Separator--
@@ -1462,8 +2019,11 @@ Also line decrease, authorization of contain transactions, especially when
 
 \end_deeper
 \begin_layout Itemize
-Our strategy will normally have a Huge & Diret impact on customers, so we
- have to spend a lot time cumminating with marking or customer serivces
+Our strategy will normally have a 
+\series bold
+Diret impact on customers
+\series default
+, so we have to spend a lot time cumminating with marking or customer serivces
  
 \end_layout
 
@@ -1485,8 +2045,22 @@ So you see this kind of job really helps you understand the business, understand
  and would have a direct impact on customers.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Project: Marketing Campaign
+\end_layout
+
+\begin_layout Standard
+The question is: 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+how rich the offer should be
+\end_layout
+
+\begin_layout Enumerate
+What segment of customers you want to target.
 \end_layout
 
 \begin_layout Itemize
@@ -1539,11 +2113,25 @@ But we never achieve this global optimization, because different departments
  passed that criteria, we can send out.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Itemize
+But the hard part is, this is not a one-step game, because if book too many
+ customers this quarter, or this year, then next year naturally there are
+ less customers to book.
+\end_layout
+
+\begin_layout Subsection
+Project: Minimum Critera
+\end_layout
+
+\begin_layout Standard
+Minimum criteria for a campaign: ROE / ROI in good time and bad time
+\end_layout
+
+\begin_layout Subsection
 Adverse Selection.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Project: Inactive Closure
 \end_layout
 
@@ -1565,33 +2153,32 @@ We call them timing bomb, because if an economic crisis happens, those guys
 \end_layout
 
 \end_deeper
-\begin_layout Standard
+\begin_layout Itemize
 But you don't want to close them too early, because if they become active,
  you still have the chance of making money from them.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 So the optimal closure for an account is to evaluate marginal cost = marginal
  benefit of maintaining them
 \end_layout
 
-\begin_layout Standard
+\begin_deeper
+\begin_layout Itemize
 Marginal cost is maintaining an account one more month.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Marginal benefit is all the expected profit when it becomes active multiply
  the probability of becoming active next month.
  Note that the profit might be negative even.
 \end_layout
 
-\begin_layout Standard
+\end_deeper
+\begin_layout Itemize
 And the dynamics of MC and MR changes as the account remains in inactive
  longer and longer.
-\end_layout
-
-\begin_layout Standard
-So by applying this simple economic ideas to this problem, we find a way
+ So by applying this simple economic ideas to this problem, we find a way
  to identify the optimal points of closing an account.
 \end_layout
 
@@ -1600,7 +2187,7 @@ Conclusion: we apply our method to different customers in different risk
  groups, find different optimal closure points for them.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Product: Consistency of risk policy
 \end_layout
 
@@ -1615,7 +2202,7 @@ We group all of our actions into two groups: positive actions and negative
  three months.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 This idea is to insure consistency and clearness when you do actions on
@@ -1623,12 +2210,20 @@ This idea is to insure consistency and clearness when you do actions on
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 This idea may sound like simple and natural but we didn't realize until
  2012.
- Example: Before that, one customer can get a marketing offer from us and
- then suddenly get a line decrease, simply because these two strategies
- did not talk to each other.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Example
+\series default
+: Before that, one customer can get a marketing offer from us and then suddenly
+ get a line decrease, simply because these two strategies did not talk to
+ each other.
 \end_layout
 
 \begin_layout Standard
@@ -1639,7 +2234,7 @@ l strategies along, but forget the big picture, which is different strategies
  have to work together.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 So we decided to group customers to LOW, MEDIUM/LOW, MH, HIGH.
  Positive actions only happen in LOW and ML, negative actions only happen
  in HIGH.
@@ -1651,7 +2246,7 @@ grey area between good customers and bad customers, even if they migrate,
  it is hard for them to migrate directly from ML to H.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Why First National Bank of Omaha
 \end_layout
 
@@ -1674,7 +2269,7 @@ So I say if I cannot stay in academia, let's try Industry.
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Why change from Policy to Risk 
 \end_layout
 
@@ -1725,8 +2320,11 @@ When you got some ideas, or when you build some cool stuff, you really want
 
 \begin_deeper
 \begin_layout Itemize
-and the best way to show off to people is to share it by contributing open-sourc
-e projects.
+and the best way to show off to people is to 
+\series bold
+share it by contributing
+\series default
+ open-source projects.
 \end_layout
 
 \begin_layout Itemize
@@ -1735,9 +2333,23 @@ so that everyone can use it and change it and help you improve it.
 
 \end_deeper
 \begin_layout Itemize
-And this sharing process also in turn force you to improve and refine your
- work.
- You want to really make it elegant, simple and user friendly.
+And this sharing process also 
+\series bold
+in turn
+\series default
+ 
+\series bold
+force
+\series default
+ you to 
+\series bold
+improve and refine 
+\series default
+your work, as You want to really make it 
+\series bold
+elegant, simple and user friendly
+\series default
+.
 \end_layout
 
 \begin_layout Standard
@@ -2029,24 +2641,40 @@ SAS Codes are assets of the company, it is an accumulation of hours of coding,
 So to be a better team player, you have to respect this tradition.
 \end_layout
 
-\begin_layout Section
+\begin_layout Part
 Products: Consumer Banking
 \end_layout
 
-\begin_layout Subsubsection
-Top-down vs Bottom to Top
+\begin_layout Standard
+
+\series bold
+Always design your strategy with the flexibility of both good time and bad
+ time.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
+Modelling: Top-down vs Bottom to Top
+\end_layout
+
+\begin_layout Itemize
 Two ways of modelling, one is to do the segmentation and build models on
  those segmentations.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 The other is to do model at account level.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Standard
+Account level model has advantages: 
+\end_layout
+
+\begin_layout Enumerate
+A lot of times your model will be used for business purposes, and you may
+ want to segment your product into different ways.
+\end_layout
+
+\begin_layout Subsection
 Business: a credit card offers
 \end_layout
 
@@ -2086,7 +2714,11 @@ It is costly to the bank
 
 \begin_layout Itemize
 The purpose of reward is to seduce customers to use our card, and hopefully
- they cannot fully payback in each cycle, and thus 
+ they 
+\series bold
+cannot
+\series default
+ fully payback in each cycle, and thus 
 \series bold
 turn them from translator to revolvers
 \series default
@@ -2095,7 +2727,7 @@ turn them from translator to revolvers
 \end_layout
 
 \end_deeper
-\begin_layout Subsubsection
+\begin_layout Subsection
 Modeling: Pricing of Loans / Credit Card in Marketing Campaigns.
 \end_layout
 
@@ -2229,7 +2861,7 @@ If there is a possible way to attach this problem, you want to design a
 system of models to get the optimized pricing.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Modeling: Pricing and Adverse Selection
 \end_layout
 
@@ -2237,7 +2869,7 @@ Modeling: Pricing and Adverse Selection
 See consumer banking model.lyx
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Product: Risk in Consumer Banking
 \end_layout
 
@@ -2303,7 +2935,7 @@ Different risk groups have different level of systematic risks, or sensitivity
 Behavioral Questions
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Why came to America
 \end_layout
 
@@ -2328,16 +2960,23 @@ So when I graduated, I got graduate school offers from Cambridge and Oxford,
  So I decided, if I really want to come to America, this is time! 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Name of five your strengths
 \end_layout
 
 \begin_layout Enumerate
-Good at Managing complexity and ambiguity in the large project: when you
- are trying to push a large project, involving different departments, 
+Good at Managing complexity and am
+\series bold
+-bi
+\series default
+-guity 
 \end_layout
 
 \begin_deeper
+\begin_layout Enumerate
+especially in the large project involving different departments, 
+\end_layout
+
 \begin_layout Enumerate
 
 \series bold
@@ -2346,12 +2985,15 @@ I have a lot experences in holding the meetings, managing the scheduals,
  point of contact.
 \end_layout
 
+\end_deeper
 \begin_layout Enumerate
-I'm good at manage these 
-\series bold
-complex interactions and interdepdencies
-\series default
-.
+Not only good at biulding models, but Good at selling my model.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Because a lot of the model users are non-techniqal people.
+ So you really have the try to translate the statistics into English.
 \end_layout
 
 \end_deeper
@@ -2373,7 +3015,7 @@ cannot live with broken process, or inefficient / manual way of doing thngs.
 
 \end_deeper
 \begin_layout Enumerate
-Eager to Learn
+I love and eager to learn new things.
 \end_layout
 
 \begin_layout Enumerate
@@ -2391,6 +3033,10 @@ A lot of times my work is ac-hoc nature: we got data from other department,
 \begin_layout Enumerate
 You can do them mechanically and never ask why.
  
+\end_layout
+
+\begin_layout Enumerate
+Just quickly turnover or deliver
 \end_layout
 
 \begin_layout Enumerate
@@ -2438,7 +3084,7 @@ When you first start it is really hard, because after work I got exhausted,
 \begin_deeper
 \begin_layout Itemize
 So first you have to force yourself but then you get used to it, and then
- there is a momentum building up and it comes voluntary.
+ there is a momentum building up and it becomes voluntary.
 \end_layout
 
 \end_deeper
@@ -2451,7 +3097,7 @@ Not only learn those technique skills but to learn any cool stuff.
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Breaking Silos
 \end_layout
 
@@ -2474,12 +3120,14 @@ So you see the three most important features of a product: risk, pricing,
 \end_layout
 
 \begin_layout Standard
-To optimize a product, to maximize the profit, the ideal way is to quantify
- these three features simultaneously by one team, rather than to treat them
- separately.
+To optimize a product, to maximize the profit, the ideal way is to 
+\series bold
+quantify these three features simultaneously
+\series default
+ by one team, rather than to treat them separately.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Tell me about your weaknesses
 \end_layout
 
@@ -2503,18 +3151,27 @@ rebiuld the whole thing
 English, no matter how hard you try, you still cannot fill the gap.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Re-biuld the whole thing?
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Often One process / model has fundamentally weakness that cannot be fixed
- but can only be adapted.
- For example, a non-parametric model that is not flexible enough to deal
+ 
+\series bold
+but can only be adapted
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For example, a non-parametric model that is not flexible enough to deal
  with any new situation.
 \end_layout
 
-\begin_layout Standard
+\end_deeper
+\begin_layout Itemize
 When you build new features on the existing systems, often there is 
 \series bold
 no way to
@@ -2530,7 +3187,7 @@ compromised
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 As time goes by and more and more new features adding into the existing
  system, it becomes more and more 
 \series bold
@@ -2541,22 +3198,22 @@ cumbersome
 \end_layout
 
 \begin_layout Standard
-So what I often want to do is re-write the whole thing, start from 0, build
- a new process /model that are flexible and extendable that can deal with
- every kind of new situation we can expect.
+So what I often want to do is re-write the whole thing, start from 0, think
+ about what a model or procedure should be from 0.
 \end_layout
 
 \begin_layout Standard
 My boss often does not support me to do this.
- The management committee a lot of times is reluctant to this change.
+ .
 \end_layout
 
-\begin_layout Standard
-A of time I don't quite appreciate their points.
- 
+\begin_layout Itemize
+Changing will affect other busienss partners.
+ They may use our model in a daily basis or their business is partially
+ based on our models
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 It is balance of innovation and being robust or consistent\SpecialChar \ldots{}
@@ -2567,7 +3224,7 @@ It is balance of innovation and being robust or consistent\SpecialChar \ldots{}
 Being not patient or tolerant about those things
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 What things in your work you want to continue.
 \end_layout
 
@@ -2584,7 +3241,7 @@ A lot of interaction with business, sell and implement the model in business,
  where you can see the real impact.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Who is the person you admire most.
 \end_layout
 
@@ -2592,21 +3249,27 @@ Who is the person you admire most.
 Elon Must:
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 Thinks like physicist.
  
 \end_layout
 
-\begin_layout Standard
-Think things not starting from what they are now, but think about what they
- should be, think from 0: if I want to re-build the whole thing, could we
- design it in a much better way, 
+\begin_deeper
+\begin_layout Itemize
+Think things Not starting from what they are now, but think about what they
+ should be, think from 0: 
+\end_layout
+
+\begin_layout Itemize
+if I want to re-build the whole thing, could we design it in a much better
+ way, 
 \series bold
 both fundamentally and structurally.
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 Because a lot of things or systems they have fundamental weakness that cannot
  be fixed but only adapted.
@@ -2668,7 +3331,7 @@ find the bottleneck, attack this bottleneck hardly in a different way.
 Step-by step
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Who is the person you credit your success.
  What is most valuable feedback you got.
 \end_layout
@@ -2685,7 +3348,7 @@ Be patient!
 Selling models are equally important in building your models.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Tell me about a situation when your work was criticized.
 \end_layout
 
@@ -2693,7 +3356,7 @@ Tell me about a situation when your work was criticized.
 NO
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Disagree with People
 \end_layout
 
@@ -2701,7 +3364,7 @@ Disagree with People
 见下
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Career Goal
 \end_layout
 
@@ -2736,7 +3399,7 @@ I want to become a manger, enroll the smartest people and build a cool team.
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Why this position/ what is your biggest advantage and weakness for this
  job?
 \end_layout
