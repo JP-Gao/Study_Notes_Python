@@ -95,7 +95,7 @@
 \begin_body
 
 \begin_layout Title
-SQL 6/23/2016
+SQL 7/19/2016
 \end_layout
 
 \begin_layout Author
@@ -756,37 +756,43 @@ All other constraints: see page 203 in Advanced SAS.
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 proc sql;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 create table work.employees
 \end_layout
 
-\begin_layout Standard
-(ID char (5) 
-\series bold
-primary key
-\series default
-,
+\begin_layout Plain Layout
+
+(ID char (5) primary key,
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 Name char(10),
 \end_layout
 
-\begin_layout Standard
-Gender char(1) 
-\series bold
-not null
-\series default
- 
-\series bold
-check(gender in ('M','F')),
+\begin_layout Plain Layout
+
+Gender char(1) not null check(gender in ('M','F')),
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 HDate date label='Hire Date');
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -853,35 +859,53 @@ For certain constraint types, you can define a constraint for multiple columns
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 proc sql;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 create table work.discount3
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 (Destination char(3),
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 BeginDate num Format=date9.,
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 EndDate num format=date9.,
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 Discount num,
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 constraint ok_discount check (discount le .5),
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 constraint notnull_dest not null(destination));
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -933,15 +957,26 @@ not
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 Undo_Policy option
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 proc sql undo_policy=none;
 \end_layout
 
-\begin_layout Standard
-\SpecialChar \ldots{}
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -954,7 +989,7 @@ Even if the inserted row is not in compliance with constrants, it still
 Efficiency
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 CPU TIME
 \end_layout
 
@@ -964,7 +999,7 @@ The amount of time the central processing unit (CPU) uses to perform requested
  and iterative logic.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 REAL TIME
 \end_layout
 
@@ -993,7 +1028,7 @@ threaded processing
  that you track both CPU time and real time.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 I/O
 \end_layout
 
@@ -1004,21 +1039,22 @@ a measurement of the read and write operations that are performed as data
 \end_layout
 
 \begin_layout Subsection
-Technique
+Auto Optimization
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Derived table is efficient, at least below the first FROM.
  SQL will optimize from the whole SQL code, so it can consider the WHERE
  and other constraints at different level at the same time.
 \end_layout
 
-\begin_layout Standard
-It would be most efficient to write general restriction in WHERE statement
+\begin_layout Itemize
+in WHERE statement, it would be most efficient to write general restriction
  before exact restriction.
 \end_layout
 
-\begin_layout Standard
+\begin_deeper
+\begin_layout Itemize
 For example, WHERE MONTH=&VINTAGE and APPL_ID=\SpecialChar \ldots{}
 .
  Is much quicker thant just writing WHERE APPL_ID=\SpecialChar \ldots{}
@@ -1027,6 +1063,7 @@ For example, WHERE MONTH=&VINTAGE and APPL_ID=\SpecialChar \ldots{}
  the first one only needs to search APPL_ID within subsample of MONTH=&VINTAGE
 \end_layout
 
+\end_deeper
 \begin_layout Subsection
 How to Track efficiency
 \end_layout
@@ -1120,7 +1157,7 @@ NOSTATS.
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Control I/O Time
 \end_layout
 
@@ -1132,10 +1169,6 @@ When you create a SAS data set using a DATA step,
 
 \series bold
 1 
-\begin_inset space ~
-\end_inset
-
-
 \series default
 SAS copies the data from the input data set to a buffer in memory
 \end_layout
@@ -1144,10 +1177,6 @@ SAS copies the data from the input data set to a buffer in memory
 
 \series bold
 2 
-\begin_inset space ~
-\end_inset
-
-
 \series default
 one observation at a time is loaded into the program data vector
 \end_layout
@@ -1156,10 +1185,6 @@ one observation at a time is loaded into the program data vector
 
 \series bold
 3 
-\begin_inset space ~
-\end_inset
-
-
 \series default
 each observation is written to an output buffer when processing is complete
 \end_layout
@@ -1168,21 +1193,18 @@ each observation is written to an output buffer when processing is complete
 
 \series bold
 4 
-\begin_inset space ~
-\end_inset
-
-
 \series default
 the contents of the output buffer are written to the disk when the buffer
  is full.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 It is important to note that I/O processing is reduced only if there is
  sufficient real memory.
  If there is not sufficient real memory, the operating environment might
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 use virtual memory 
 \end_layout
@@ -1192,24 +1214,14 @@ use the default number of buffers.
  
 \end_layout
 
-\begin_layout Subsubsection
+\end_deeper
+\begin_layout Subsection
 Page Size
 \end_layout
 
 \begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image1.png
-	width 6in
-	height 0.90069in
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The amount of data that can be transferred to one buffer in a single I/O
- operation is referred to as 
+Definition: The amount of data that can be transferred to one buffer in
+ a single I/O operation is referred to as 
 \emph on
 page size
 \emph default
@@ -1231,47 +1243,69 @@ Report Page Size
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 proc contents data=company.order_fact;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 run;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 Control Page Size
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 BUFSIZE=0;
 \end_layout
 
-\begin_layout Standard
-is interpreted as a request for the default page/buffer size.
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+is interpreted as a request for the default page/buffer size:
+\end_layout
 
-\series bold
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 options bufsize=30720; 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 filename orders 'c:
 \backslash
 orders.dat';
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 data company.orders_fact;
 \end_layout
 
-\begin_layout Standard
-BUFSIZE= system option specifies a page size of 
-\emph on
-30720
-\emph default
- bytes.
+\begin_layout Plain Layout
+
+BUFSIZE= system option specifies a page size of 30720 bytes.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1281,18 +1315,31 @@ Rather than setting system option, set dataset option
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 data work.orders (bufsize=6144 bufno=2);
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 set retail.order_fact;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 run;
 \end_layout
 
-\begin_layout Subsubsection
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 SASFILE: hold multiple datasets into memory
 \end_layout
 
@@ -1372,59 +1419,67 @@ A SASFILE CLOSE statement frees the buffers and closes the file the program
 \begin_layout Standard
 
 \series bold
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 sasfile company.sales load;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 proc print data=company.sales;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 var Customer_Age_Group;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 run;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 proc tabulate data=company.sales;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 class Customer_Age_Group;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 var Customer_BirthDate;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 table Customer_Age_Group,Customer_BirthDate*(mean median);
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 run;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 
-\series bold
 sasfile company.sales close;
 \end_layout
-
-\begin_layout Subsubsection
-Control Storage
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "control-storage"
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Control Storage
 \end_layout
 
 \begin_layout Standard
@@ -2884,65 +2939,6 @@ SELECT 中的每一个variable前都要加 library.
 \end_layout
 
 \begin_layout Subsubsection
-NULL
-\end_layout
-
-\begin_layout Standard
-NULL is treated as negative infinity if variable is numeric.
-\end_layout
-
-\begin_layout Standard
-So
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-Where A<=10
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Will include all NULL values in A
-\end_layout
-
-\begin_layout Subsubsection
-OUTBOS=10: head in R: Display data (limited rows showed)
-\end_layout
-
-\begin_layout Standard
-Only show the first 10 observations in columns: flightnumber, date
-\end_layout
-
-\begin_layout Standard
-proc sql 
-\series bold
-outobs=10
-\series default
-;
-\end_layout
-
-\begin_layout Standard
-select flightnumber, date
-\end_layout
-
-\begin_layout Standard
-from sasuser.flightschedule;
-\end_layout
-
-\begin_layout Subsubsection
-INBOS=10: Only read first 10 columns, thus faster than OUTBOS
-\end_layout
-
-\begin_layout Subsubsection
 as: Specifying a Table Alias/change output variable name
 \end_layout
 
@@ -2992,6 +2988,37 @@ where s.empid=p.empid;
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+NULL
+\end_layout
+
+\begin_layout Standard
+NULL is treated as negative infinity if variable is numeric.
+\end_layout
+
+\begin_layout Standard
+So
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Where A<=10
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Will include all NULL values in A
 \end_layout
 
 \begin_layout Subsubsection
@@ -3214,7 +3241,45 @@ group by destination)
 order by average;
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
+Count
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+count ( *) # is wrong
+\end_layout
+
+\begin_layout Plain Layout
+
+count( *) # is correct
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The COUNT(column_name) function returns the number of values (NULL values
+ will not be counted) of the specified column:
+\end_layout
+
+\begin_layout Itemize
+The COUNT(DISTINCT column_name) function returns the number of distinct
+ values of the specified column:
+\end_layout
+
+\begin_layout Itemize
+The COUNT(*) function returns the number of records in a table:
+\end_layout
+
+\begin_layout Subsection
 Use of 
 \begin_inset Quotes eld
 \end_inset
@@ -3530,6 +3595,223 @@ Quit;
 
 \end_layout
 
+\begin_layout Subsection
+Identify duplicate rows 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select o.orgName, oc.dupeCount, o.id
+\end_layout
+
+\begin_layout Plain Layout
+
+from organizations o
+\end_layout
+
+\begin_layout Plain Layout
+
+inner join (
+\end_layout
+
+\begin_layout Plain Layout
+
+	SELECT orgName, COUNT(*) AS dupeCount
+\end_layout
+
+\begin_layout Plain Layout
+
+	FROM organizations
+\end_layout
+
+\begin_layout Plain Layout
+
+	GROUP BY orgName
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAVING COUNT(*)
+\end_layout
+
+\begin_layout Plain Layout
+
+	) 
+\end_layout
+
+\begin_layout Plain Layout
+
+oc on o.orgName = oc.orgName
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+proc sas: FEEDBACK option: Displaying All Column Names
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+proc sql feedback;
+\end_layout
+
+\begin_layout Plain Layout
+
+select *
+\end_layout
+
+\begin_layout Plain Layout
+
+from sasuser.staffchanges;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Describe the Table
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+proc sql;
+\end_layout
+
+\begin_layout Plain Layout
+
+describe table work.discount;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+ASCII
+\end_layout
+
+\begin_layout Standard
+/*Generate offer time,using ASCII.
+ A means Jan, B means Feb.....
+\end_layout
+
+\begin_layout Standard
+ASCII FUNCTION CAN ONLY WORK WITHIN DB2*/
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+proc sql;
+\end_layout
+
+\begin_layout Plain Layout
+
+CONNECT TO DB2(DATABaSE=fnndw4);
+\end_layout
+
+\begin_layout Plain Layout
+
+create table out.Offer_BT_2011_2013 as
+\end_layout
+
+\begin_layout Plain Layout
+
+select *
+\end_layout
+
+\begin_layout Plain Layout
+
+from connection to DB2(
+\end_layout
+
+\begin_layout Plain Layout
+
+	select substr(AFFINIUM_CELL_CODE,1,10) AS AFFINIUM_CELL_CODE,
+\end_layout
+
+\begin_layout Plain Layout
+
+	MAIN.*,
+\end_layout
+
+\begin_layout Plain Layout
+
+	CASE WHEN substr(Offer_Name,2,1) IN ('0','1','2','3','4','5','6','7' /*Welcome
+ to 2017*/) and (ASCII(substr(Offer_Name,3,1))-64)=12
+\end_layout
+
+\begin_layout Plain Layout
+
+		THEN (INTEGER(substr(Offer_Name,2,1))+2010)*100+ ASCII(substr(Offer_Name,3,1))
+-64
+\end_layout
+
+\begin_layout Plain Layout
+
+		else 204604
+\end_layout
+
+\begin_layout Plain Layout
+
+		end as offer_time
+\end_layout
+
+\begin_layout Plain Layout
+
+	from u338194.Offer_BT_2011_2013 AS MAIN
+\end_layout
+
+\begin_layout Plain Layout
+
+	WHERE AFFINIUM_CELL_CODE IS NOT NULL);
+\end_layout
+
+\begin_layout Plain Layout
+
+quit;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Update Table
+\end_layout
+
+\begin_layout Standard
+应避免使用。如须修改table，最好重新generate correct one， rather than update。应update代码冗长，不易于维护。
+\end_layout
+
 \begin_layout Section
 Duration/Calculation of time
 \end_layout
@@ -3544,6 +3826,50 @@ default variable / Special register
 
 \begin_layout Standard
 系统中中default variable，如调用当前系统时间 CURRENT------DATE。
+\end_layout
+
+\begin_layout Part
+My SQL
+\end_layout
+
+\begin_layout Standard
+Duplicated varaibles will all show up, not the first coversthe later ones
+\end_layout
+
+\begin_layout Standard
+cannot simply write *, has to write table.*
+\end_layout
+
+\begin_layout Part
+Proc SAS
+\end_layout
+
+\begin_layout Subsubsection
+OUTBOS=10: head in R: Display data (limited rows showed)
+\end_layout
+
+\begin_layout Standard
+Only show the first 10 observations in columns: flightnumber, date
+\end_layout
+
+\begin_layout Standard
+proc sql 
+\series bold
+outobs=10
+\series default
+;
+\end_layout
+
+\begin_layout Standard
+select flightnumber, date
+\end_layout
+
+\begin_layout Standard
+from sasuser.flightschedule;
+\end_layout
+
+\begin_layout Subsubsection
+INBOS=10: Only read first 10 columns, thus faster than OUTBOS
 \end_layout
 
 \begin_layout Part
@@ -3655,7 +3981,7 @@ select avg(salary)
 
 \begin_layout Quote
 
-￼from sasuser.payrollmaster); 
+from sasuser.payrollmaster); 
 \end_layout
 
 \end_inset
@@ -3664,7 +3990,7 @@ select avg(salary)
 \end_layout
 
 \begin_layout Standard
-￼
+
 \end_layout
 
 \begin_layout Itemize
@@ -3864,95 +4190,6 @@ quit;
 \end_inset
 
 
-\end_layout
-
-\begin_layout Part
-Bugs & Error
-\end_layout
-
-\begin_layout Subsubsection
-Ambiguous Columns
-\end_layout
-
-\begin_layout Subsubsection
-如下，若A 和B 都存在同一个名为VA的variable，则出现error: Ambiguous Columns.
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-Select VA
-\end_layout
-
-\begin_layout Plain Layout
-
-From ..
- as A
-\end_layout
-
-\begin_layout Plain Layout
-
-Left join .
- As B
-\end_layout
-
-\begin_layout Plain Layout
-
-On .
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-缺逗号
-\end_layout
-
-\begin_layout Standard
-下文中A后应有逗号，B后应无逗号。
-\end_layout
-
-\begin_layout Standard
-最常出现的error。Error不会告诉你错是啥，只是很复杂。
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-select A
-\end_layout
-
-\begin_layout Plain Layout
-
-B,
-\end_layout
-
-\begin_layout Plain Layout
-
-FROM。。。
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-JOIN 缺 ON
-\end_layout
-
-\begin_layout Standard
-同样：Error不会告诉你错是啥，只是很复杂。
 \end_layout
 
 \begin_layout Section
@@ -4174,25 +4411,44 @@ all
  of the values that are returned by the subquery.
 \end_layout
 
-\begin_layout Section
-Create/ Modify Table
+\begin_layout Part
+Bugs & Error
+\end_layout
+
+\begin_layout Subsubsection
+Ambiguous Columns
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "create-modify-table"
-
-\end_inset
-
-
+如下，若A 和B 都存在同一个名为VA的variable，则出现error: Ambiguous Columns.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image5.png
-	width 6in
-	height 3.20347in
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Select VA
+\end_layout
+
+\begin_layout Plain Layout
+
+From ..
+ as A
+\end_layout
+
+\begin_layout Plain Layout
+
+Left join .
+ As B
+\end_layout
+
+\begin_layout Plain Layout
+
+On .
+\end_layout
 
 \end_inset
 
@@ -4200,47 +4456,98 @@ name "create-modify-table"
 \end_layout
 
 \begin_layout Subsubsection
-Empty Table
+缺逗号
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "empty-table"
+下文中A后应有逗号，B后应无逗号。
+\end_layout
+
+\begin_layout Standard
+最常出现的error。Error不会告诉你错是啥，只是很复杂。
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select A
+\end_layout
+
+\begin_layout Plain Layout
+
+B,
+\end_layout
+
+\begin_layout Plain Layout
+
+FROM。。。
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Subsubsection
+JOIN 缺 ON
+\end_layout
+
 \begin_layout Standard
+同样：Error不会告诉你错是啥，只是很复杂。
+\end_layout
+
+\begin_layout Section
+Create/ Modify Table
+\end_layout
+
+\begin_layout Subsection
+Empty Table
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 proc sql;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 create table work.discount
 \end_layout
 
-\begin_layout Standard
-(Destination char(4), * the first column specification indicates a column
- width of 3 for the character column 
-\series bold
-Destination
-\series default
-:
+\begin_layout Plain Layout
+
+	(Destination char(4), * the first column specification indicates a column
+ width of 3 for the character column Destination:
 \end_layout
 
-\begin_layout Standard
-BeginDate ￼num format=date9.,
+\begin_layout Plain Layout
+
+	BeginDate num format=date9.,
 \end_layout
 
-\begin_layout Standard
-EndDate ￼ num format=date9.
+\begin_layout Plain Layout
+
+	EndDate  num format=date9.
  Label='End',
 \end_layout
 
-\begin_layout Standard
-Discount num);
+\begin_layout Plain Layout
+
+	Discount num);
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -4273,19 +4580,33 @@ Work.Flightdelays2
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 proc sql;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 create table work.flightdelays2
 \end_layout
 
-\begin_layout Standard
-(drop=delaycategory destinationtype)
+\begin_layout Plain Layout
+
+(drop = delaycategory destinationtype)
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 like sasuser.flightdelays;
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4294,64 +4615,53 @@ like sasuser.flightdelays;
 The drop option can drop unwanted columns
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Table from a Query 
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "table-from-a-query"
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+proc sql;
+\end_layout
+
+\begin_layout Plain Layout
+
+creat table work.ticketagents as
+\end_layout
+
+\begin_layout Plain Layout
+
+	select lastname, firstname,
+\end_layout
+
+\begin_layout Plain Layout
+
+	jobcode, salary
+\end_layout
+
+\begin_layout Plain Layout
+
+from sasuser.payrollmaster,
+\end_layout
+
+\begin_layout Plain Layout
+
+	sasuser.staffmaster
+\end_layout
+
+\begin_layout Plain Layout
+
+where payrollmaster.empid = staffmaster.empid and jobcode contains 'TA';
+\end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-proc sql;
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-creat
-\series default
- table work.ticketagents 
-\series bold
-as
-\end_layout
-
-\begin_layout Standard
-select lastname, firstname,
-\end_layout
-
-\begin_layout Standard
-jobcode, salary
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-from
-\series default
- sasuser.payrollmaster,
-\end_layout
-
-\begin_layout Standard
-sasuser.staffmaster
-\end_layout
-
-\begin_layout Standard
-where payrollmaster.empid
-\end_layout
-
-\begin_layout Standard
-= staffmaster.empid
-\end_layout
-
-\begin_layout Standard
-and jobcode contains 'TA';
 \end_layout
 
 \begin_layout Subsubsection
@@ -4359,180 +4669,58 @@ Copy table
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "copy-table"
+\begin_inset listings
+inline false
+status open
 
-\end_inset
+\begin_layout Plain Layout
 
-
-\end_layout
-
-\begin_layout Standard
 proc sql;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 create table work.supervisors2 as
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 select *
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 from sasuser.supervisors;
 \end_layout
 
-\begin_layout Standard
-(Drop)\SpecialChar \ldots{}
+\begin_layout Plain Layout
+
+(Drop)
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Subsubsection
-Dropping Tables
+Drop Tables
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "dropping-tables"
+\begin_inset listings
+inline false
+status open
 
-\end_inset
+\begin_layout Plain Layout
 
-
-\end_layout
-
-\begin_layout Standard
 proc sql;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 drop table work.payrollmaster4;
 \end_layout
-
-\begin_layout Subsection
-Scalar function
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "scalar-function"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-A build in Scalar function can be used directly in expression.
-\end_layout
-
-\begin_layout Standard
-Like DECIMAL, MONTH, YEAR\SpecialChar \ldots{}
-.
-\end_layout
-
-\begin_layout Standard
-CORRELATION(variable1, variable2)
-\end_layout
-
-\begin_layout Standard
-COVARIANCE(variable1, variable2)
-\end_layout
-
-\begin_layout Standard
-STDDEV
-\end_layout
-
-\begin_layout Standard
-RAND # Random numbers
-\end_layout
-
-\begin_layout Standard
-QUARTER(Date) # return which quarter of the date in a year.
-\end_layout
-
-\begin_layout Standard
-REGRESSION:
-\end_layout
-
-\begin_layout Standard
-REG_SLOPE(A, B), REG_R2(A, B)\SpecialChar \ldots{}
-.
-\end_layout
-
-\begin_layout Standard
-CAST(SALARY AS INTEGER)
-\end_layout
-
-\begin_layout Subsection
-Beautify Formats
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "beautify-formats"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image6.png
-	width 6in
-	height 1.08333in
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-proc sql outobs=15;
-\end_layout
-
-\begin_layout Standard
-title 'Current Bonus Information';
-\end_layout
-
-\begin_layout Standard
-title2 'Employees with Salaries 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-textgreater
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{}
-\end_layout
-
-\end_inset
-
- $75,000';
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image7.png
-	width 3.625in
-	height 1.41668in
 
 \end_inset
 
@@ -4540,35 +4728,52 @@ status collapsed
 \end_layout
 
 \begin_layout Section
-JOIN
+Scalar function
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "join"
+A build in Scalar function can be used directly in expression.
+\end_layout
 
-\end_inset
+\begin_layout Itemize
+DECIMAL, MONTH, YEAR\SpecialChar \ldots{}
+.
+\end_layout
 
+\begin_layout Itemize
+CORRELATION(variable1, variable2)
+\end_layout
 
+\begin_layout Itemize
+COVARIANCE(variable1, variable2)
+\end_layout
+
+\begin_layout Itemize
+STDDEV
+\end_layout
+
+\begin_layout Itemize
+RAND # Random numbers
+\end_layout
+
+\begin_layout Itemize
+QUARTER(Date) # return which quarter of the date in a year.
+\end_layout
+
+\begin_layout Part
+Join and Union and Modify
+\end_layout
+
+\begin_layout Section
+JOIN
 \end_layout
 
 \begin_layout Standard
 Join Table：Combine Tables Horizontally
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Left/Right Outer Join
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "leftright-outer-join"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -4595,8 +4800,10 @@ first
 Treat the table with all the rows you want all keep as the Left Table 
 \end_layout
 
-\begin_layout --Separator--
+\begin_layout Standard
 
+\series bold
+Strange Behavior
 \end_layout
 
 \begin_layout Itemize
@@ -4604,6 +4811,7 @@ Left Join 若左column X仅有K个row，而又有相对应的N row, （N为K的�
 次，成为N＊K个row。 
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 So, any join will change the original corresponding structure of key variables
  in left table, as those key variables will 重复N次，成为N＊K个row.
@@ -4611,6 +4819,7 @@ So, any join will change the original corresponding structure of key variables
  
 \end_layout
 
+\end_deeper
 \begin_layout Itemize
 For key variables, you have to choose ones in LEFT table, OR if there is
  full join, you have to choose key variables from the FULL JOIN TABLE.
@@ -4618,19 +4827,23 @@ For key variables, you have to choose ones in LEFT table, OR if there is
  
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
-Key variables in SELECTION must be key variables in GROUP and ORDER.
- Often we should treat key variables in left table as key variables in SELECTION.
+Key variables in SELECT must be key variables in GROUP and ORDER.
+ Often we should treat key variables in left table as key variables in SELECT.
  
 \end_layout
 
 \begin_layout Itemize
 For ON, you can only write right.key=left.key, you can not not write right.key=key_
 value, which means you cannot treat the ON as WHERE.
- Otherwise it is super SLOW.
+ 
+\series bold
+Otherwise it is super SLOW.
  
 \end_layout
 
+\end_deeper
 \begin_layout Itemize
 If you really want to put some restrictions on right table, put them in
  the final WHERE condition, it would be still quite fast.
@@ -4645,7 +4858,7 @@ LEFT JOIN (SELECT \SpecialChar \ldots{}
 
 \end_deeper
 \begin_layout Itemize
-Left Join中，right table若为left table 的subset, then if you put a RESTRICTION
+Left Join中，right table 若为 left table 的 subset, then if you put a RESTRICTION
  on WHERE for right table, then there might be no null in the variable of
  right table with restriction, which means you treat right table as the
  key table.
@@ -4692,8 +4905,15 @@ on one.x=two.x;
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Full join 
+\end_layout
+
+\begin_layout Standard
+The FULL OUTER JOIN keyword returns all rows from the left table (table1)
+ and from the right table (table2).
+ The FULL OUTER JOIN keyword combines the result of both LEFT and RIGHT
+ joins.
 \end_layout
 
 \begin_layout Standard
@@ -4736,7 +4956,7 @@ on one.x=two.x;
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Coalesce in Full Join
 \end_layout
 
@@ -5104,12 +5324,12 @@ Different Vertical Combination
 
 \end_layout
 
-\begin_layout Subsubsection
-EXCEPT
+\begin_layout Subsection
+EXCEPT only
 \end_layout
 
-\begin_layout Standard
-Displays the 
+\begin_layout Itemize
+rows: Displays the 
 \series bold
 \emph on
 unique
@@ -5132,39 +5352,63 @@ two
 .
 \end_layout
 
+\begin_layout Itemize
+columns: overlay columns based on their positions in SELECT, but not their
+ names
+\end_layout
+
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 proc sql;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 select *
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 from one
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 except
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 select *
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 from two;
 \end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image15.jpeg
-	width 2in
-	height 2in
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+EXCEPT
+\series bold
+ ALL
 \end_layout
 
 \begin_layout Standard
@@ -5196,47 +5440,78 @@ second
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 proc sql;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 select *
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 from one
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 except all
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 select *
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 from two;
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 
 \series bold
 EXCEPT
 \series default
-: To display both of the following, add the keyword 
+ Corr
+\end_layout
+
+\begin_layout Standard
+Add the keyword 
 \emph on
 CORR
 \emph default
  after the set operator
 \series bold
-.
-
+:
 \series default
- Only columns that have the 
+ 
+\end_layout
+
+\begin_layout Itemize
+Only columns that have the 
 \series bold
 \emph on
-same name 
+same name  
 \emph default
 all 
 \emph on
@@ -5261,107 +5536,114 @@ second
 .
 \end_layout
 
-\begin_layout Standard
-
-\series bold
-X
-\series default
- is the only column that has the same name in both tables, so 
-\series bold
-X
-\series default
- is the only column that PROC SQL examines and displays in the output.
+\begin_layout Itemize
+So if table A has column X and Y, and table B has X and Z, so the resulting
+ table will only have column A
 \end_layout
 
 \begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image16.jpeg
-	width 1.75in
-	height 1.75in
+\begin_inset listings
+inline false
+status open
 
-\end_inset
+\begin_layout Plain Layout
 
-
-\end_layout
-
-\begin_layout Standard
 proc sql;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 select *
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 from one
 \end_layout
 
-\begin_layout Standard
-except 
-\series bold
-corr
+\begin_layout Plain Layout
+
+except corr
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 select *
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 from two;
 \end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image17.jpeg
-	width 1.375in
-	height 1.375in
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 INTERSECT
 \end_layout
 
+\begin_layout Itemize
+rows: Displays the 
+\series bold
+\emph on
+unique
+\series default
+\emph default
+ rows in both table
+\series bold
+ one and table two
+\end_layout
+
+\begin_layout Itemize
+columns: overlay columns based on their positions in SELECT, but not their
+ names
+\end_layout
+
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 proc sql;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 select *
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 from one
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 intersect
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 select *
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 from two;
 \end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image18.jpeg
-	width 1.125in
-	height 1.125in
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsubsection
-OUTER UNION: OVERLAY 释义
+\begin_layout Subsection
+OUTER UNION
 \end_layout
 
 \begin_layout Itemize
@@ -5391,47 +5673,67 @@ without overlaying
  
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+If table 1 has X and Y, table 2 has X and Z, then the resulting table would
+ be X, Y, X, Z.
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 Allow duplication.
  
 \end_layout
 
 \begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image19.jpeg
-	width 1.875in
-	height 1.875in
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+proc sql;
+\end_layout
+
+\begin_layout Plain Layout
+
+select *
+\end_layout
+
+\begin_layout Plain Layout
+
+from one
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+outer union
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+select *
+\end_layout
+
+\begin_layout Plain Layout
+
+from two;
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-proc sql;
-\end_layout
-
-\begin_layout Standard
-select *
-\end_layout
-
-\begin_layout Standard
-from one
-\end_layout
-
-\begin_layout Standard
-outer union
-\end_layout
-
-\begin_layout Standard
-select *
-\end_layout
-
-\begin_layout Standard
-from two;
-\end_layout
-
-\begin_layout Standard
+\begin_layout Subsection
 
 \series bold
 CORR in OUTER UNION
@@ -5440,61 +5742,75 @@ CORR in OUTER UNION
 \begin_layout Standard
 
 \series bold
-Allow overlaying table, by variable names
+Difference from Outer Union: CORR in OUTER UNION Allow overlaying table,
+ by variable names
+\end_layout
+
+\begin_layout Itemize
+If table 1 has X and Y, table 2 has X and Z, then the resulting table would
+ be X, Y, Z.
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 proc sql;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 select *
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 from sasuser.mechanicslevel1
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 outer union corr
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 select *
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 from sasuser.mechanicslevel2
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 outer union corr
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 select *
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 from sasuser.mechanicslevel3;
 \end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image20.jpeg
-	width 1.5in
-	height 3.875in
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsubsection
-Key Word
+\begin_layout Subsection
+Key Word Summary
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 ALL:
@@ -5503,401 +5819,79 @@ ALL:
  ALL prevents this.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 CORR: by default we combine tables vertically by column position, now by
  column's name.
  If there is only 1 name matched, then output is also 1 column.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 CORR in OUTER UNION：Allow overlaying table, by variable names
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 UNION CORR can only be used beyond db2, which means you cannot write
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 From connection to db2 (select * ..)
 \end_layout
 
-\begin_layout Standard
-You can only write from
+\begin_layout Subsection
+以UNION ALL最常用
+\end_layout
+
+\begin_layout Itemize
+column: UNION ALL 要求从AA，BB同时选出数量、名称、type接一样的variables。
+\end_layout
+
+\begin_layout Itemize
+rows: combine all rows in AA and BB
 \end_layout
 
 \begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image21.png
-	width 6in
-	height 4.08333in
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select A，B
+\end_layout
+
+\begin_layout Plain Layout
+
+from AA
+\end_layout
+
+\begin_layout Plain Layout
+
+UNION ALL
+\end_layout
+
+\begin_layout Plain Layout
+
+select A，B
+\end_layout
+
+\begin_layout Plain Layout
+
+from BB
+\end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsubsection
-以UNION ALL最常用
-\end_layout
-
-\begin_layout Standard
-select A，B
-\end_layout
-
-\begin_layout Standard
-from AA
-\end_layout
-
-\begin_layout Standard
-UNION ALL
-\end_layout
-
-\begin_layout Standard
-select A，B
-\end_layout
-
-\begin_layout Standard
-from BB
-\end_layout
-
-\begin_layout Standard
-UNION ALL 要求从AA，BB同时选出数量、名称、type接一样的variables。
 \end_layout
 
 \begin_layout Section
 技巧
 \end_layout
 
-\begin_layout Subsubsection
-Identify duplicate rows 
-\end_layout
-
-\begin_layout Standard
-select o.orgName, oc.dupeCount, o.id
-\end_layout
-
-\begin_layout Standard
-from organizations o
-\end_layout
-
-\begin_layout Standard
-inner join (
-\end_layout
-
-\begin_layout Standard
-SELECT orgName, COUNT(*) AS dupeCount
-\end_layout
-
-\begin_layout Standard
-FROM organizations
-\end_layout
-
-\begin_layout Standard
-GROUP BY orgName
-\end_layout
-
-\begin_layout Standard
-HAVING COUNT(*) 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-textgreater
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{}
-\end_layout
-
-\end_inset
-
- 1
-\end_layout
-
-\begin_layout Standard
-) oc on o.orgName = oc.orgName
-\end_layout
-
-\begin_layout Subsubsection
-Querying Multiple Tables: NOT using Join
-\end_layout
-
-\begin_layout Standard
-proc sql;
-\end_layout
-
-\begin_layout Standard
-select salcomps.empid,lastname, 
-\series bold
-* lastname and newsalary are unique, only appearing in one table, so no
- need to specify the table name
-\end_layout
-
-\begin_layout Standard
-newsals.salary,newsalary 
-\series bold
-* Two tables both have variables empid and salary, you need to specify the
- table name before them, to identify which one you use.
-\end_layout
-
-\begin_layout Standard
-from sasuser.salcomps,sasuser.newsals 
-\series bold
-* From these two tables
-\end_layout
-
-\begin_layout Standard
-where salcomps.empid=newsals.empid * 
-\series bold
-WHERE clause selects only rows in which the value for EmpID in 
-\emph on
-Sasuser.Salcomps
-\emph default
- matches the value for EmpID in 
-\emph on
-Sasuser.Newsals
-\end_layout
-
-\begin_layout Standard
-order by lastname;
-\end_layout
-
-\begin_layout Subsubsection
-FEEDBACK option: Displaying All Column Names
-\end_layout
-
-\begin_layout Standard
-proc sql feedback;
-\end_layout
-
-\begin_layout Standard
-select *
-\end_layout
-
-\begin_layout Standard
-from sasuser.staffchanges;
-\end_layout
-
-\begin_layout Subsubsection
-Describe the Table
-\end_layout
-
-\begin_layout Standard
-proc sql;
-\end_layout
-
-\begin_layout Standard
-describe table work.discount;
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image22.png
-	width 5.125in
-	height 1.52623in
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-ASCII
-\end_layout
-
-\begin_layout Standard
-/*Generate offer time,using ASCII.
- A means Jan, B means Feb.....
-\end_layout
-
-\begin_layout Standard
-ASCII FUNCTION CAN ONLY WORK WITHIN DB2*/
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-proc
-\series default
- 
-\series bold
-sql
-\series default
-;
-\end_layout
-
-\begin_layout Standard
-CONNECT TO DB2(DATABaSE=fnndw4);
-\end_layout
-
-\begin_layout Standard
-create table out.Offer_BT_2011_2013 as
-\end_layout
-
-\begin_layout Standard
-select *
-\end_layout
-
-\begin_layout Standard
-from connection to DB2(
-\end_layout
-
-\begin_layout Standard
-select substr(AFFINIUM_CELL_CODE,
-\series bold
-1
-\series default
-,
-\series bold
-10
-\series default
-) AS AFFINIUM_CELL_CODE,
-\end_layout
-
-\begin_layout Standard
-MAIN.*,
-\end_layout
-
-\begin_layout Standard
-CASE WHEN substr(Offer_Name,
-\series bold
-2
-\series default
-,
-\series bold
-1
-\series default
-) IN ('0','1','2','3','4','5','6','7' /*Welcome to 2017*/) and (ASCII(substr(Off
-er_Name,
-\series bold
-3
-\series default
-,
-\series bold
-1
-\series default
-))-
-\series bold
-64
-\series default
-)
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-textless
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{}
-\end_layout
-
-\end_inset
-
-=
-\series bold
-12
-\end_layout
-
-\begin_layout Standard
-THEN (INTEGER(substr(Offer_Name,
-\series bold
-2
-\series default
-,
-\series bold
-1
-\series default
-))+
-\series bold
-2010
-\series default
-)*
-\series bold
-100
-\series default
-+ ASCII(substr(Offer_Name,
-\series bold
-3
-\series default
-,
-\series bold
-1
-\series default
-))-
-\series bold
-64
-\end_layout
-
-\begin_layout Standard
-else 
-\series bold
-204604
-\end_layout
-
-\begin_layout Standard
-end as offer_time
-\end_layout
-
-\begin_layout Standard
-from u338194.Offer_BT_2011_2013 AS MAIN
-\end_layout
-
-\begin_layout Standard
-WHERE AFFINIUM_CELL_CODE IS NOT NULL);
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-quit
-\series default
-;
-\end_layout
-
 \begin_layout Subsection
-Update Table
-\end_layout
-
-\begin_layout Standard
-应避免使用。如须修改table，最好重新generate correct one， rather than update。应update代码冗长，不易于维护。
-\end_layout
-
-\begin_layout Subsubsection
 Inserting Rows
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image23.png
-	width 5.99097in
-	height 3.70347in
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -5909,70 +5903,61 @@ all columns
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 insert into work.newtable
 \end_layout
 
-\begin_layout Standard
-values ('WI','FLUTE',6)
+\begin_layout Plain Layout
+
+	values ('WI','FLUTE',6)
 \end_layout
 
-\begin_layout Standard
-values ('ST','VIOLIN',3);
+\begin_layout Plain Layout
+
+	values ('ST','VIOLIN',3);
 \end_layout
 
-\begin_layout Subsubsection
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Updating Values in Existing Table Rows
 \end_layout
 
-\begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image24.png
-	width 5.99097in
-	height 2.58333in
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-Deleting Rows in a Table
+\begin_layout Subsection
+delete from table: Drop Rows in a Table
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 proc sql;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 delete from work.frequentflyers2
 \end_layout
 
-\begin_layout Standard
-where pointsearned-pointsused 
-\begin_inset ERT
-status collapsed
-
 \begin_layout Plain Layout
 
-
-\backslash
-textless
+where pointsearned-pointsused <= 0;
 \end_layout
 
 \end_inset
 
 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{}
-\end_layout
-
-\end_inset
-
-= 0;
 \end_layout
 
 \begin_layout Standard
@@ -5984,43 +5969,43 @@ all
  rows in the table will be deleted.
 \end_layout
 
-\begin_layout Subsubsection
-DROP clause: ALTER TABLE
+\begin_layout Subsection
+DROP Coulumn: ALTER TABLE
 \end_layout
 
 \begin_layout Standard
+Used same as SELECT column
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 proc sql;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 
-\series bold
-alter table
+alter table work.payrollmaster4
 \end_layout
 
-\begin_layout Standard
-work.payrollmaster4
-\end_layout
+\begin_layout Plain Layout
 
-\begin_layout Standard
-
-\series bold
 drop bonus, level;
 \end_layout
-
-\begin_layout Subsubsection
-Adding, Dropping, and Modifying Columns
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename H:/Pandoc/media/image25.png
-	width 6in
-	height 2.32431in
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Adding, Dropping, and Modifying Columns
 \end_layout
 
 \begin_layout Standard
