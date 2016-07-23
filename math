@@ -83,7 +83,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -168,7 +168,32 @@ a+ar+ar^{2}+ar^{3}+\cdots+ar^{n-1}=\sum_{k=0}^{n-1}ar^{k}=a\,\frac{1-r^{n}}{1-r}
 \end_layout
 
 \begin_layout Section
-Ball Picking
+Probability and Statistical Interviews
+\end_layout
+
+\begin_layout Standard
+This kind of interview may 
+\end_layout
+
+\begin_layout Itemize
+only require you to get the formula, not the numeric answer
+\end_layout
+
+\begin_layout Itemize
+May miss certain key conditions, which require you to ask to the interviewer.
+\end_layout
+
+\begin_layout Itemize
+For the 
+\begin_inset Formula $p$
+\end_inset
+
+-value questions on discrite distribution, like binomial or poisson, you
+ need to calculate cumulative of PDF to get 
+\begin_inset Formula $p<0.05$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -180,6 +205,22 @@ ment.php
 Consider an infinite repository containing balls of n different types.
  Then the following table summarizes the number of distinct ways in which
  k balls can be picked for four common definitions of "distinct." 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\begin{eqnarray*}
+P(X>Y) & = & \int_{-\infty}^{+\infty}\int_{[x>y]}f_{x}(x)f_{y}(y)dyd\\
+ & = & \int_{-\infty}^{+\infty}f_{x}(x)F_{Y}(x)dx
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Factorial and Choice Functions
 \end_layout
 
 \begin_layout Subsection
@@ -599,6 +640,131 @@ The answer is 52!.
 
 \end_layout
 
+\begin_layout Section
+Q: Binomial
+\end_layout
+
+\begin_layout Itemize
+经典的硬币fairness假设检验：For now, go back to the coin tossing experiment where
+ the null hypothesis is that the coin is fair (p=0.5) and the alternative
+ hypothesis is that the coin is biased in favor of heads (p>0.5).
+ Suppose the coin is tossed 10 times and 8 heads are observed.
+ Since the alternative hypothesis is p>0.5, more extreme values are numbers
+ of heads closer to 10.
+ So, to compute the p-value in this situation, you need only compute the
+ probability of 8 or more heads in 10 tosses assuming the coin is fair.
+ But, the number of heads in 10 tosses of a coin assuming that the coin
+ is fair has a binomial distribution with n=10 and p=0.5.
+ The p-value is P[8 heads] + P[9 heads] + P[10 heads].
+ From the binomial probability distribution, P[8 heads]=0.044, P[9 heads]=0.01,
+ and P[10 heads]=0.001.
+ Thus the p-value is 0.044+0.010+0.001=0.055.
+ 
+\end_layout
+
+\begin_layout Itemize
+In basket ball game for a player to win a game challenge 1) 2 out of 3 throw
+ 2) 5 out of 8 throws.
+ Should the player choose so that he might have better chance of winning
+ the game?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+win in the first situation.
+ binomial for P(2|3,p) + P(3|3,p), where 
+\begin_inset Formula $p$
+\end_inset
+
+ is the probability of throwing a single throw
+\end_layout
+
+\begin_layout Itemize
+win in the second situation.
+ binomial for P(5|8,p) + P(6|8) + ...
+ P(8|8), where 
+\begin_inset Formula $p$
+\end_inset
+
+ is the probability of throwing a single throw
+\end_layout
+
+\begin_layout Itemize
+then compare these two sum to say which one is bigger: eventually it depends
+ on 
+\begin_inset Formula $p$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Find the expectation value of number of times you need to pick numbers to
+ find a number smaller than the number you pick from a hat containing 1
+ to n.
+ case 1: if you replace case 2: if you don't replace Expectation values!
+ not probability
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Case 1: If you replace Let m be the number picked, then probability of choosing
+ a smaller number is m-1/n.
+ The expected value is therefore 1/(m-1)/n = n/(m-1) 
+\end_layout
+
+\begin_layout Itemize
+Case 2: if you don't replace Let m be the number picked, then probability
+ of choosing a smaller number is m-1/n-1.
+ The expected value is therefore 1/(m-1)/(n-1) = (n-1)/(m-1)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+On average, how many times must a 6-sided die be rolled until a 6 turns
+ up twice in a row?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+E = 6 + 1/6 + 5/6 (E + 1).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+On average, how many times must a 6-sided die be rolled until the sequence
+ 65 appears (i.e., a 6 followed by a 5)?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This appears to be quite similar to problem 2, but there is a difference.
+ In problem 2, once we roll a 6, there are only two possibilities: either
+ we roll a 6, or we start all over again
+\end_layout
+
+\begin_layout Itemize
+let E6 be the expected number of rolls until 65 when we start with a rolled
+ 6.
+ Then
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $E_{6}=1/6(E_{6}+1)+4/6(E+1)+5/6(E_{6}+1).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $E=\frac{1}{6}(E_{6}+1)+\frac{5}{6}(E+1)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Thinking
 \end_layout
@@ -610,6 +776,21 @@ If the elements are the same: they must be unordered.
 filling posit
 \series default
 ion perspective.
+\end_layout
+
+\begin_layout Subsection
+Sum of Binomial Variables
+\end_layout
+
+\begin_layout Standard
+Let X1 and X2 be independent binomial random variables where Xi has a Binomial(n
+i, p) distribution for i = 1, 2.
+ 
+\end_layout
+
+\begin_layout Standard
+Then X1 +X2 has a binomial distribution with n1+n2 trials and probability
+ of success p
 \end_layout
 
 \begin_layout Subsection
@@ -664,6 +845,535 @@ E=6+\frac{1}{6}*1+\frac{5}{6}(E+1)
 Solving this, we find that E = 42.
 \end_layout
 
+\begin_layout Section
+Q: Baysian
+\end_layout
+
+\begin_layout Itemize
+There are 2 companies making electronic chips: good and bad.
+ Good company is making good chips with probability 80 % and defective chips
+ with probability 20 %, and bad company is making good chips with probability
+ 20 % and defective chips with probability 80 %.
+ If you are getting just one chip, and the probability that it is coming
+ from either of companies is the same, what is the probability that it is
+ good chip?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+I didn't answer this one correctly, but the interviewer helped me.
+ So, if we know that probability to get good chip from good company is 0.8
+ and from bad company is 0.2, and first chip in the pack is good, it translates
+ to the probability of the second chip to be good 0.8*0.8=0.64 (if pack came
+ from the good company), and 0.2*0.2=0.04 (if pack came from the bad company).
+ And total probability that the second chip in the pack is good is a sum
+ of both probabilities: 0.8*0.8 + 0.2*0.2 = 0.64+0.04 = 0.68 , or 68%.
+\end_layout
+
+\begin_layout Itemize
+68% is correct but the solution is not.
+ The correct solution is: A - first chip is good; B - second chip is good.
+ What we have to find is a conditional probability p(B/A) which is p(B/A)=
+ p(AB) / p(A).
+ Let's designate: p1 - is probability to get a good chip from the first
+ vendor.
+ p2 - is probability to get a good chip from the second vendor.
+ p(AB) = 0.5*p1*p1 + 0.5*p2*p2 p(A) = 0.5*p1 + 0.5*p2 So p(B/A) = (p1*p1 + p2*p2)/(p
+1 + p2).
+\end_layout
+
+\begin_layout Itemize
+Example: p1 = 0.8; p2 = 0.2 p(B/A)=0.68
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Geometric
+\end_layout
+
+\begin_layout Subsection
+Geometric distribution 
+\end_layout
+
+\begin_layout Standard
+Geometric distribution is either of two discrete probability distributions:
+ 
+\end_layout
+
+\begin_layout Itemize
+The probability distribution of the number of 
+\begin_inset Formula $Y$
+\end_inset
+
+ Bernoulli trials needed to get one success, supported on the set { 1, 2,
+ 3, ...} 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Y number of tests
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(Y|\theta)=(1-\theta)^{Y-1}\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+with mean 
+\begin_inset Formula $\frac{1}{\theta}$
+\end_inset
+
+.
+ variance : 
+\begin_inset Formula $\frac{1-p}{p^{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Get the expectation 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(n)=\sum_{0}^{\infty}n(1-p)^{n-1}p
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\int E(n)=\int\sum_{0}^{\infty}n(1-p)^{n-1}p=\sum_{0}^{\infty}p(1-p)^{n}$
+\end_inset
+
+...
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+The probability distribution of the number 
+\begin_inset Formula $Y$
+\end_inset
+
+ (X also mean number of tests) of failures before the first success, supported
+ on the set { 0, 1, 2, 3, ...
+ }.
+ Thus we have Y+1 tests
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(Y|\theta)=(1-\theta)^{Y}\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with mean 
+\begin_inset Formula $\frac{1-\theta}{\theta}$
+\end_inset
+
+.
+ 
+\series bold
+variance : 
+\begin_inset Formula $\frac{1-p}{p^{2}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Q & A
+\end_layout
+
+\begin_layout Itemize
+Expected number to collect 12 different constellations gf
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+After you get 
+\begin_inset Formula $i$
+\end_inset
+
+ different constellations gf, to get a new gf that has different constellation
+ from all of those previous 
+\begin_inset Formula $i$
+\end_inset
+
+, are 
+\begin_inset Formula $\frac{12-i}{12}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+So the expected number to collect 12 different constellations gf
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula 
+\begin{eqnarray*}
+E(N) & = & \frac{1}{p}+1/(\frac{12-1}{12})+....+1/(\frac{12-11}{12})\\
+ & = & 37.2385
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+On average, how many times must a 6-sided die be rolled until a 6 turns
+ up?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Use Geometric Distribution's mean = 6
+\end_layout
+
+\begin_layout Itemize
+Use Induction method 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+E=\frac{1}{6}+\frac{5}{6}(E+1)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Draw without Replacement
+\end_layout
+
+\begin_layout Section
+Poisson
+\end_layout
+
+\begin_layout Subsection
+Poisson
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L(n|\theta)=\frac{\theta^{n}e^{-\theta}}{n!}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with 
+\begin_inset Formula $E(n|\theta)=V(n|\theta)=\theta$
+\end_inset
+
+ as itself.
+\end_layout
+
+\begin_layout Subsection
+Exponential
+\end_layout
+
+\begin_layout Standard
+It describes the time (y ) between events in a Poisson process, i.e.
+ a process in which events occur continuously and independently at a constant
+ average rate.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(y|\theta)=\theta e^{-\theta y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\theta y$
+\end_inset
+
+ means number of events happened across time period y .
+\end_layout
+
+\begin_layout Itemize
+with 
+\begin_inset Formula $E(y|\theta)=\theta^{-1}$
+\end_inset
+
+ , where 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is the number of events in the unit of time.
+ Variance is
+\begin_inset Formula $\theta^{-2}.F(y|\theta)=1-e^{-y\theta}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+CDF 
+\begin_inset Formula $P(x<z|\theta)=1\text{−}exp(−\theta z)$
+\end_inset
+
+ or 
+\begin_inset Formula $F(y>z|\theta)=e^{-z\theta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sum of Poisson
+\end_layout
+
+\begin_layout Standard
+Sum of Poisson Random Variables.
+ Let X1 and X2 be independent Poisson random variables where 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ has a Poisson (i) distribution for i = 1, 2.
+ 
+\end_layout
+
+\begin_layout Standard
+Y = X1 + X2 has a Poisson distribution with 
+\begin_inset Formula $\lambda_{1}+\lambda_{2}$
+\end_inset
+
+ (note that this is 
+\begin_inset Formula $P(\sum X)$
+\end_inset
+
+, which is different from 
+\begin_inset Formula $\prod P(X_{i})$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Subsection
+Sum of Exponential
+\end_layout
+
+\begin_layout Standard
+I have a sequence 
+\begin_inset Formula $T_{1}$
+\end_inset
+
+,
+\begin_inset Formula $T_{2}$
+\end_inset
+
+,… of independent exponential random variables with paramter 
+\begin_inset Formula $λ$
+\end_inset
+
+.
+ I take the sum 
+\begin_inset Formula $S=∑_{i=1}^{n}T_{i}$
+\end_inset
+
+ and now I would like to calculate the probability density function.
+\end_layout
+
+\begin_layout Standard
+The usual way to do this is to consider the moment generating function,
+ noting that if S=∑ni=1Xi is the sum of IID random variables Xi, each with
+ MGF MX(t), then the MGF of S is MS(t)=(MX(t))n.
+ Applied to the exponential distribution, we can get the 
+\series bold
+gamma distribution as a result.
+\end_layout
+
+\begin_layout Subsection
+Q
+\end_layout
+
+\begin_layout Itemize
+The number of insurance claims arriving electronically in a small insurance
+ office has been modelled as a Poisson Process with rate 5 per hour.
+ Given that the last claim arrived 15 seconds ago, what is the mean time
+ from now until the next claim arrives?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Poisson process's prior 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is linearly proportional to Volumn change!
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Poisson is memoryless
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+P(X>z+u|X>\mu)=\frac{P(X>z+u)}{P(X>u)}=\frac{exp(-\lambda(z+u))}{exp(-\lambda(u))}=exp(-\lambda z)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Answer: 12mins
+\end_layout
+
+\begin_layout Itemize
+What is the distribution of the number of claims which arrive in an eight
+ hour day? : The Poisson process remains Poisson with parameter 5×8=40.
+\end_layout
+
+\begin_layout Itemize
+What is the distribution of total time needed to get 10 claims --- Gamma
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+The Waiting Time Paradox.
+ Buses arrive at a bus stop at random times according to a Poisson process
+ with intensity .
+ I arrive at time t and ask how much time E(W) on average I will have to
+ wait for the next bus.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Time need to happen follows exponential distribution, with mean 
+\begin_inset Formula $1/\theta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+“The lack of the memory of the Poisson process implies that the distribution
+ of my waiting time should not depend on my arrival time.
+ In this case E(W) = 
+\begin_inset Formula $1/\theta$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Mean length of time between bus arrivals, where there are 
+\begin_inset Formula $\theta$
+\end_inset
+
+ buses arrive in 1 mins
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Also 
+\begin_inset Formula $1/\theta$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+People line up at a bus station according to a Poisson distribution with
+ 5 people / minute.
+ The next bus will arrive some time in the next 2 minutes, with "some time"
+ being a uniform distribution.
+ How many people will get onto the next bus? What is the standard deviation
+ of the number of people?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+As for 
+\begin_inset Formula $n_{1}\sim Pois(5)$
+\end_inset
+
+ when unit time is 1 mint, then 
+\begin_inset Formula $n_{2}\sim Pois(10)$
+\end_inset
+
+ when unit time is 2 mint,
+\end_layout
+
+\begin_layout Itemize
+Use Walk Theory 
+\begin_inset Formula $E(n_{2})=\int_{0}^{2}n_{i}Poission(n_{i}|i)\frac{1}{2-0}di$
+\end_inset
+
+ where 
+\begin_inset Formula $i$
+\end_inset
+
+ is the time length.
+ – where 1/2 is the probability that the bus will arrive at any time within
+ that 2 mins.
+\end_layout
+
+\begin_layout Itemize
+According to Wald Thery 
+\begin_inset Formula $E\left[\sum(X_{i}|i)\right]=E(i)E(X_{1})=1\times5=5$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Part
 Algorithm 
 \end_layout
@@ -1475,6 +2185,29 @@ Magnitude of effect (effect size): the standardized difference between
 
 \begin_layout Enumerate
 Sample size.
+\end_layout
+
+\begin_layout Subsection
+Wald Theory
+\end_layout
+
+\begin_layout Standard
+Let (Xn)n∈ℕ be a sequence of real-valued, independent and identically distribute
+d random variables and let N be a nonnegative integer-value random variable
+ that is independent of the sequence (Xn)n∈ℕ.
+ Suppose that N and the Xn have finite expectations.
+ Then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E\text{⁡}[X_{1}+\text{⋯}+X_{N}]=E\text{⁡}[N]E\text{⁡}[X_{1}]
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
