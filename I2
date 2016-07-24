@@ -570,8 +570,333 @@ I heared about that after you join F, you didn't join a particular group,
  OR this is not the case for everyone.
 \end_layout
 
+\begin_layout Section
+F Tips
+\end_layout
+
+\begin_layout Standard
+t was great speaking with you today.
+ Here’s the preparation email that I mentioned in our conversation.
+ I’m excited for you to speak with someone for the Data Scientist role.
+ 
+\end_layout
+
+\begin_layout Standard
+Do let me know if you have any questions in the mean time.
+\end_layout
+
+\begin_layout Standard
+Below are just some general tips on how to prepare for the initial interview.
+\end_layout
+
+\begin_layout Standard
+The interview will be 3 parts (for a total of 30-45 minutes): 
+\end_layout
+
+\begin_layout Itemize
+Analytical
+\end_layout
+
+\begin_layout Itemize
+Technical
+\end_layout
+
+\begin_layout Itemize
+Quantitative
+\end_layout
+
+\begin_layout Standard
+General tips: 
+\end_layout
+
+\begin_layout Standard
+During the video conference interview, you will need access to a computer.
+ You will log in to 
+\series bold
+www.coderpad.com
+\series default
+ - basically like a chat room, so the person on the other side can look
+ at your code.
+ (You will receive additional details about this when the interview is confirmed
+).
+ 
+\end_layout
+
+\begin_layout Standard
+It's important that you think out loud/ provide a narrative as you go through
+ the problem so the interviewer has insight into your thought process.
+ Before the interview, we strongly encourage you to have a full understanding
+ of being able to analyze data sets through a scripting language of your
+ choice (SQL, R, or Python).
+ 
+\end_layout
+
+\begin_layout Standard
+You can answer the questions in the language that you feel most comfortable
+ with, although choosing a language that is going to assist in getting to
+ an optimal solution in the most speedy and efficient manner is key.
+ Feel free to ask clarifying questions during the interview as well.
+ 
+\end_layout
+
+\begin_layout Standard
+Now, onto the interview.
+ Remember to Operationalize your answers!!!!
+\end_layout
+
 \begin_layout Subsection
-Q
+Product Sense
+\end_layout
+
+\begin_layout Standard
+Analytical - Per our conversation, questions to gauge your product sense
+ will come up.
+ 
+\end_layout
+
+\begin_layout Standard
+I recommend picking different fb "products" like photos, or messenger, or
+ instagram
+\end_layout
+
+\begin_layout Itemize
+Facebook Products: http://newsroom.fb.com/Products
+\end_layout
+
+\begin_layout Itemize
+Please continue to review product-specific features (i.e.
+ Comments, comment threads, push notification, friend suggestions, likes,
+ shares, posts, etc.) Think about what “metrics” you would look at to measure
+ the success of each product.
+ How do we measure user engagement?
+\end_layout
+
+\begin_layout Itemize
+Things you can consider may include # of users, click through rates, time
+ spent, frequency, etc.
+ 
+\end_layout
+
+\begin_layout Itemize
+We are looking for data scientists who can tell a compelling story with
+ the data and really drive data driven decisions and impact change (optimizing
+ products or even helping developing new products).
+ 
+\end_layout
+
+\begin_layout Standard
+and think about what 
+\series bold
+METRICS
+\series default
+ you need to determine the
+\end_layout
+
+\begin_layout Itemize
+health, 
+\end_layout
+
+\begin_layout Itemize
+growth, or 
+\end_layout
+
+\begin_layout Itemize
+engagement 
+\end_layout
+
+\begin_layout Itemize
+the product.
+\end_layout
+
+\begin_layout Standard
+For the analytical questions, the interviewer is trying to understand how
+ you solve business questions and problems, as well as how creative and
+ articulate you are at thinking through these problems while solving them.
+ It’s not about the correct answer, but also about what kind of metrics
+ you would want to consider when solving the problem.
+ I would also review anything AB testing related too.
+\end_layout
+
+\begin_layout Standard
+I strongly encourage you to use FB products at least a little bit before
+ coming in to the interview and think about
+\end_layout
+
+\begin_layout Itemize
+1) how would you measure the success of different parts of the product?
+ 
+\end_layout
+
+\begin_layout Itemize
+2) put yourself in the shoes of the product team who built the product /
+ feature – why do you think they made certain decisions about how it works?
+ What could be done to improve the product?
+\end_layout
+
+\begin_layout Standard
+Sample analysis questions:
+\end_layout
+
+\begin_layout Itemize
+1.Estimation : how many doctors are there in the US?
+\end_layout
+
+\begin_layout Itemize
+2.If newsfeed content dropped in a given week, what metrics would you look
+ at to understand why?
+\end_layout
+
+\begin_layout Itemize
+3.How would you measure the health of facebook newsfeed, versus the health
+ of facebook messenger?”
+\end_layout
+
+\begin_layout Standard
+they're going to want to see how you approach that - w
+\end_layout
+
+\begin_layout Itemize
+hat metrics will you look at?
+\end_layout
+
+\begin_layout Itemize
+what metrics might indicate growth or health for one but not the other?
+\end_layout
+
+\begin_layout Itemize
+will you set up an A/B test?
+\end_layout
+
+\begin_layout Subsection
+Coding
+\end_layout
+
+\begin_layout Standard
+Technical - You will be given 1-2 data processing questions during this
+ portion.
+ 
+\end_layout
+
+\begin_layout Standard
+This interview will be a hands-on technical investigation of data problems.
+ Note that we are looking not only for coding skills, but also for the ability
+ to design an operational approach to figure out a concrete answer to a
+ specific question using data.
+\end_layout
+
+\begin_layout Standard
+Sample Questions:
+\end_layout
+
+\begin_layout Itemize
+- Given timestamps of logins, figure out how many people on Facebook were
+ active all seven days of a week on a mobile phone.
+\end_layout
+
+\begin_layout Itemize
+- How do you determine what product in Facebook was used most by the non-employe
+e users for the last quarter? [Required parameters will be given]
+\end_layout
+
+\begin_layout Standard
+SQL tips: 
+\end_layout
+
+\begin_layout Standard
+http://www.sqlcourse2.com/
+\end_layout
+
+\begin_layout Standard
+http://www.programmerinterview.com/index.php/database-sql/practice-interview-questi
+on-1/
+\end_layout
+
+\begin_layout Itemize
+Performing skillful use of things like joins and subqueries.
+ 
+\end_layout
+
+\begin_layout Itemize
+Knowing aggregate functions.
+\end_layout
+
+\begin_layout Itemize
+Performing data processing with SQL.
+\end_layout
+
+\begin_layout Itemize
+Knowing the differences between joins (IE: left, inner, outer, etc.)
+\end_layout
+
+\begin_layout Itemize
+Performing analysis with SQL and then from there applying it.
+ 
+\end_layout
+
+\begin_layout Itemize
+Working with union and union all.
+ 
+\end_layout
+
+\begin_layout Itemize
+Completing data manipulation tasks.
+\end_layout
+
+\begin_layout Itemize
+Scheduling jobs, automation, transforming data.
+\end_layout
+
+\begin_layout Subsection
+Quantitative
+\end_layout
+
+\begin_layout Standard
+Quantitative — These questions are designed to be a conversation in the
+ language of numbers, and will include statistics and applied probability
+ as well.
+ 
+\end_layout
+
+\begin_layout Standard
+Reviewing the basics will be helpful (i.e.
+ Mean, median, mode, standard deviation, conditional probability etc.) and
+ also understanding distributions, regressions, and confidence intervals
+ may help as well depending on which question is asked.
+\end_layout
+
+\begin_layout Standard
+Below are some additional links that we encourage you to take a look at
+ as you prepare:
+\end_layout
+
+\begin_layout Standard
+Also, please prepare any questions you have before the interview and also
+ be prepared to answer why you are interested in Facebook.
+ The interviewers like to see people who know about our environment, projects,
+ challenges, etc.
+ 
+\end_layout
+
+\begin_layout Standard
+If there is time for questions at the end of the interview, please feel
+ free to ask questions focused on Facebook and analytics.
+ Interviewers would be more than happy to answer!
+\end_layout
+
+\begin_layout Standard
+Here is the link to the job description:
+\end_layout
+
+\begin_layout Standard
+Data Scientist, Analytics:
+\end_layout
+
+\begin_layout Standard
+https://www.facebook.com/careers/jobs/a0I1200000JIWQvEAP/
+\end_layout
+
+\begin_layout Section
+F Questions
 \end_layout
 
 \begin_layout Standard
@@ -591,6 +916,18 @@ The interview has three parts:
 \begin_layout Standard
 3.
  Business
+\end_layout
+
+\begin_layout Itemize
+Baseic Integration Differentiation!
+\end_layout
+
+\begin_layout Itemize
+AB test
+\end_layout
+
+\begin_layout Subsection
+Probability and Stats
 \end_layout
 
 \begin_layout Itemize
@@ -660,7 +997,7 @@ Lets say the population on Facebook clicks ads with a click-through-rate
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
 Product
 \end_layout
 
@@ -679,7 +1016,7 @@ It will help to review some product manager interview questions.
 What teams are you interested in at Facebook? 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
 Coding
 \end_layout
 
@@ -730,7 +1067,7 @@ Find the overall acceptance rate of requests
 \end_layout
 
 \end_deeper
-\begin_layout Standard
+\begin_layout Subsection
 Algorithm
 \end_layout
 
@@ -747,7 +1084,7 @@ Given two binary strings, write a function that adds them.
  What is the time and space complexity of your algorithm? 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
 Machine Learning
 \end_layout
 
@@ -1108,7 +1445,7 @@ Nice to have - Systems - working knowledge of enterprise-level financial
 \end_layout
 
 \begin_layout Section
-FI
+FIC
 \end_layout
 
 \begin_layout Standard
