@@ -1,0 +1,563 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+%%%%%%%%%%%
+\usepackage{color}
+\usepackage{xcolor}
+% \definecolor{keywordcolor}{rgb}{0.8,0.1,0.5}
+\usepackage{listings}
+\lstset{breaklines}%这条命令可以让LaTeX自动将长的代码行换行排版
+\lstset{extendedchars=false}%这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题
+\lstset{language= R, %用于设置语言为C++
+%背景框
+framexleftmargin=10mm,
+frame=none,
+%背景色
+%backgroundcolor=\color[rgb]{1,1,0.76},
+backgroundcolor=\color[RGB]{245,245,244},
+%样式
+keywordstyle=\bf\color{blue},
+identifierstyle=\bf,
+numberstyle=\color[RGB]{0,192,192},
+commentstyle=\it\color[RGB]{0,96,96},
+stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},
+%显示空格
+showstringspaces=false,
+xleftmargin=2em, %边距
+xrightmargin=2em,
+aboveskip=1em
+}
+
+
+%%%%%%%%%%%%
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Recommendation System
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\end_layout
+
+\begin_layout Date
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First version: July
+\begin_inset Formula $20{}^{th}$
+\end_inset
+
+, 2016
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Reference
+\end_layout
+
+\begin_layout Itemize
+Recommender System - an Introduction
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+DIETMAR JANNACH Technische Universit¨at Dortmund MARKUS ZANKER Alpen-Adria
+ Universit¨at Klagenfurt ALEXANDER FELFERNIG Technische Universit¨at Graz
+ GERHARD FRIEDRICH Alpen-Adria Universit¨at Klagenfurt
+\end_layout
+
+\end_deeper
+\begin_layout Part
+Collaborative Recommendation
+\end_layout
+
+\begin_layout Standard
+The main idea of collaborative recommendation approaches is to 
+\end_layout
+
+\begin_layout Enumerate
+exploit information about the past behavior or the opinions of an existing
+ user community 
+\end_layout
+
+\begin_layout Enumerate
+for predicting which items the current user of the system will most probably
+ like or be interested in.
+\end_layout
+
+\begin_layout Itemize
+Input of data: A user - item rating matrix
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+UserID / item rating 1 - 5
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+User1 	3 1 2 3 3
+\end_layout
+
+\begin_layout Plain Layout
+
+User2 	4 3 4 3 5
+\end_layout
+
+\begin_layout Plain Layout
+
+User3 	3 3 1 5 4
+\end_layout
+
+\begin_layout Plain Layout
+
+User4 	1 5 5 2 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We may also know the rating of Alice for item 1-4, but not knwo his rating
+ on 5 (this is the 
+\begin_inset Formula $y$
+\end_inset
+
+ to be forecasted)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Goal: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+a (numerical) prediction indicating to what degree the current user will
+ like or dislike a certain item
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Here in example, the goal is to predict the item 5 rating from 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+a list of n recommended items.
+ Such a top-N list should, of course, not contain items that the current
+ user has already bought
+\end_layout
+
+\end_deeper
+\begin_layout Section
+User-based nearest neighbor recommendation
+\end_layout
+
+\begin_layout Subsection
+Similarity Measure weighted rating
+\end_layout
+
+\begin_layout Standard
+The rating of item 5 for Alice is the weighted rating of item 5 from all
+ other users, weighted by imilarities between Alice with each of the users.
+\end_layout
+
+\begin_layout Standard
+Use the available ratings from item 1-4 for all users to calculate similarities
+ between Alice with each of the user
+\end_layout
+
+\begin_layout Itemize
+Similarity Measture between two users 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+: 
+\series bold
+Pearson’s correlation coefficient (from -1 to 1)
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+sim(a,b)=\frac{\sum_{p\in P}(r_{a,p}-\bar{a})(r_{b,p}-\bar{b})}{\sqrt{\sum_{p\in P}(r_{a,p}-\bar{a})^{2}}\sqrt{\sum_{p\in P}(r_{b,p}-\bar{b})^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Cosin Similarity
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+adjusted cosine similarity is eactly same as 
+\series bold
+Pearson’s correlation coefficient
+\end_layout
+
+\begin_layout Itemize
+20 to 50 neighbors seems reasonable
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Other metrics can be used as features
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+such as gender, age, education, interests, or other available information
+ that can help to classify the user
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Applications
+\end_layout
+
+\begin_layout Itemize
+Neighborhood selection to reduce sample size: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The common techniques for reducing the size of the neighborhood are to define
+ a specific minimum threshold of user similarity or to limit the size to
+ The common techniques for reducing the size of the neighborhood are to
+ define a specific minimum threshold of user similarity or to limit the
+ size to
+\end_layout
+
+\begin_layout Itemize
+a neighborhood of 20 to 50 neighbors seems reasonable”
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Implicit and explicit ratings
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+When a customer buys an item, for instance, many recommender systems interpret
+ this behavior as a positive rating.
+\end_layout
+
+\begin_layout Itemize
+The system could also monitor the user’s browsing behavior.
+ If the user retrieves a page with detailed item information and remains
+ at this page for a longer period of time, for example, a recommender could
+ interpret this behavior as a positive orientation toward the item.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+when there are relatively few ratings available
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+use other metrics like age
+\end_layout
+
+\begin_layout Itemize
+use implicit ratings
+\end_layout
+
+\begin_layout Itemize
+assign default values to items that only one of the two users has rated
+ (and possibly also to some additional items) to improve the prediction
+ quality of sparse rating databases
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Item-based nearest neighbor recommendation
+\end_layout
+
+\begin_layout Standard
+Definition: compute predictions using the similarity between items and not
+ the similarity between users.
+\end_layout
+
+\begin_layout Standard
+In the example, we see that the ratings for 
+\series bold
+Item5 (3, 5, 4, 1)
+\series default
+ are similar to the ratings of 
+\series bold
+Item1 (3, 4, 3, 1)
+\series default
+ and there is also a partial similarity 
+\series bold
+Item4 (3, 3, 5, 2).
+\end_layout
+
+\begin_layout Standard
+Formally, we can predict the rating for user 
+\begin_inset Formula $u$
+\end_inset
+
+ for a product 
+\begin_inset Formula $p$
+\end_inset
+
+ as follows: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+pred(\mu,p)=\frac{\sum_{i\in rateItems(\mu)}sim(i,p)\times r_{u,i}}{\sum_{i\in rateItems(\mu)}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Model-Based
+\end_layout
+
+\begin_layout Standard
+Collaborative recommendation techniques are often classified as being either
+ memory-based or model-based.
+ 
+\end_layout
+
+\begin_layout Standard
+The traditional user-based technique is said to be memory-based because
+ the original rating database is held in memory and used directly for generating
+ the recommendations.
+ 
+\end_layout
+
+\begin_layout Standard
+In model-based approaches, on the other hand, the raw data are first processed
+ offline, as described for itembased filtering or some dimensionality reduction
+ techniques.
+ At run time, only the precomputed or “learned” model is required to make
+ predictions.
+\end_layout
+
+\begin_layout Subsection
+LSI - SVD
+\end_layout
+
+\begin_layout Standard
+Use the SVD on the ItemRating-User (note that now User is the column and
+ item is the row ) matrix.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M=U\Sigma V^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $U=m\times m$
+\end_inset
+
+ represent the item and 
+\begin_inset Formula $V=n\times n$
+\end_inset
+
+ represent the users, and 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ is a 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ matrix, with 
+\begin_inset Formula $p$
+\end_inset
+
+ diagnoal values.
+\end_layout
+
+\begin_layout Standard
+Thus we can map Alice's profile point 
+\begin_inset Formula $A$
+\end_inset
+
+ to the 
+\begin_inset Formula $p$
+\end_inset
+
+ dimention world as 
+\begin_inset Formula $A_{2D}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A^{T}U\Sigma^{-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Content-based recommendation
+\end_layout
+
+\begin_layout Part
+Knowdge-based recommendation
+\end_layout
+
+\end_body
+\end_document
