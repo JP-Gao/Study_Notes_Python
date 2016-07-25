@@ -1,0 +1,3256 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+R: Model and Time
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\end_layout
+
+\begin_layout Date
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First version: Feb 
+\begin_inset Formula $10{}^{th}$
+\end_inset
+
+, 2014.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Code Preamble
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+###  Packages  -------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+# _______________________________________________________________________
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+n 
+\end_layout
+
+\begin_layout Plain Layout
+
+    Global Option Settings: 
+\backslash
+n
+\end_layout
+
+\begin_layout Plain Layout
+
+    Not transform string to factor when load data 
+\backslash
+n
+\end_layout
+
+\begin_layout Plain Layout
+
+    Not use NA in any calculation 
+\backslash
+n
+\end_layout
+
+\begin_layout Plain Layout
+
+    Only print 4 ts.
+ 
+\backslash
+n 
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    Print Warnings as they occure 
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+options(stringsAsFactors = FALSE, na.rm=T,warn=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Pakcages we will use:
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+list.of.packages <- 
+\end_layout
+
+\begin_layout Plain Layout
+
+  c(
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # visualization
+\end_layout
+
+\begin_layout Plain Layout
+
+    "ggplot2","scales",
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # regular expression
+\end_layout
+
+\begin_layout Plain Layout
+
+    "stringr", 
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # data maniputaltion
+\end_layout
+
+\begin_layout Plain Layout
+
+    "reshape","reshape2","data.table","plyr","dplyr","magrittr","DataCombine",
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # some functions in dplyr are duplicate in plyr, and we want to use
+ functions in dplyr 
+\end_layout
+
+\begin_layout Plain Layout
+
+    # so load plyr first and then let dplyr to mask it.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # panel and cross sectional data 
+\end_layout
+
+\begin_layout Plain Layout
+
+    "plm","AER","censReg",
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # machine learning and Bayesian
+\end_layout
+
+\begin_layout Plain Layout
+
+    # "nnet",
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # time series
+\end_layout
+
+\begin_layout Plain Layout
+
+    "lubridate", "zoo","tseries", 
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # statistics and regression
+\end_layout
+
+\begin_layout Plain Layout
+
+    "VGAM","MASS","Formula", 
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # excel files
+\end_layout
+
+\begin_layout Plain Layout
+
+    "readxl",
+\end_layout
+
+\begin_layout Plain Layout
+
+    # "XML","XLConnect",
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # literature programming & code style
+\end_layout
+
+\begin_layout Plain Layout
+
+    "knitr","formatR",'yaml', 'htmltools', 'caTools','rmarkdown',"xtable",
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # Computing on the Language
+\end_layout
+
+\begin_layout Plain Layout
+
+    "pryr", "gtools","lazyeval"
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+  )
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("Pakcages we will use : 
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+print(list.of.packages)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+n 
+\backslash
+n check new packages that this computer did not install before 
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Packag
+e"])]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+n 
+\backslash
+n download & install new packages 
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+if(length(new.packages)) install.packages(new.packages)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# _____________________________________________________________
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cat("
+\backslash
+n 
+\backslash
+n load packages to R 
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+for (Library in list.of.packages) library(Library,character.only = T)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# ggplot2 default font size
+\end_layout
+
+\begin_layout Plain Layout
+
+theme_set(theme_gray(base_size = 18))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Model
+\end_layout
+
+\begin_layout Section
+Model as a Call
+\end_layout
+
+\begin_layout Subsection
+Regression is essentially a call, a model call.
+\end_layout
+
+\begin_layout Subsection
+Categorical var: specify the reference level
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+set.seed(123)
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- rnorm(100)
+\end_layout
+
+\begin_layout Plain Layout
+
+DF <- data.frame(x = x,
+\end_layout
+
+\begin_layout Plain Layout
+
+				 y = 4 + (1.5*x) + rnorm(100, sd = 2),
+\end_layout
+
+\begin_layout Plain Layout
+
+				 b = gl(5, 20))
+\end_layout
+
+\begin_layout Plain Layout
+
+lm(y ~ x + b, data = DF)
+\end_layout
+
+\begin_layout Plain Layout
+
+DF <- within(DF, b <- relevel(b, ref = 3))
+\end_layout
+
+\begin_layout Plain Layout
+
+lm(y ~ x + b, data = DF)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Prediction & Fitted Values
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+predict(model,newdata)
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+newdata 
+\family default
+must be the data.frame with the same struture as the training dataset.
+\end_layout
+
+\begin_layout Subsection
+prediction interval
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+predict.lm(fit, new, interval=c("prediction"),level=0.95)##### 
+\end_layout
+
+\begin_layout Subsection
+data.matrix
+\end_layout
+
+\begin_layout Standard
+Return the matrix obtained by converting all the variables in a data frame
+ to numeric mode and then binding them together as the columns of a matrix.
+ Factors and ordered factors are replaced by their internal codes.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>=
+\end_layout
+
+\begin_layout Plain Layout
+
+DF <- data.frame(a = 1:3, b = letters[10:12],
+\end_layout
+
+\begin_layout Plain Layout
+
+c = seq(as.Date("2004-01-01"), by = "week", len = 3),
+\end_layout
+
+\begin_layout Plain Layout
+
+stringsAsFactors = TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+DF
+\end_layout
+
+\begin_layout Plain Layout
+
+data.matrix(DF)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+model.frame and model.matrix
+\end_layout
+
+\begin_layout Itemize
+model.frame is to get the original data needed for the formula
+\end_layout
+
+\begin_layout Itemize
+model.matrix is to get the “design matrix” 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+formual = log(price) ~ carat + cut + I(carat*depth)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+raw = model.frame(formual,ggplot2::diamonds) %>% head
+\end_layout
+
+\begin_layout Plain Layout
+
+raw
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+model.matrix(formual,ggplot2::diamonds) %>% head
+\end_layout
+
+\begin_layout Plain Layout
+
+design
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+coef(model): get coeff
+\end_layout
+
+\begin_layout Standard
+safer than lm.fit$coefficients
+\end_layout
+
+\begin_layout Section
+Formula
+\end_layout
+
+\begin_layout Subsection
+paste formula in one line as character
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Formula = deparse(formula(result),500)
+\end_layout
+
+\begin_layout Subsection
+I: AsIs: for calculated items
+\end_layout
+
+\begin_layout Standard
+In function formula.
+ There it is used to inhibit the interpretation of operators such as "+",
+ "-", "*" and "^" as formula operators, so they are used as arithmetical
+ operators.
+ This is interpreted as a symbol by terms.formula.
+ 
+\end_layout
+
+\begin_layout Standard
+For example, “*” in the formula means interaction; but when we use I(A*B),
+ it means we create a new variable with the value as the result of multiplying
+ of A and B.
+ Only numeric values can be used in I(A*B)
+\end_layout
+
+\begin_layout Subsection
+Polynomial Term in Regression 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# as both the I(scale(carat^2)) and poly all have the quartratic terms,
+ then that one in poly will be NA
+\end_layout
+
+\begin_layout Plain Layout
+
+glm(price~I(scale(carat^2))+poly(carat,2),data=diamonds)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Update and Re-fit a Model Call
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+quine.hi <- aov(log(Days + 2.5) ~ Eth+Sex+Age+Lrn, data=quine)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Delete the variable Lrn, and re-run the model call
+\end_layout
+
+\begin_layout Plain Layout
+
+quine.nxt <- update(quine.hi, .
+ ~ .
+ - Lrn)
+\end_layout
+
+\begin_layout Plain Layout
+
+quine.nxt
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Interaction
+\end_layout
+
+\begin_layout Standard
+Normally we use “:” or “*” to get interaction.
+ 
+\end_layout
+
+\begin_layout Standard
+It works with Factor and Character!
+\end_layout
+
+\begin_layout Itemize
+A + B main effects of A and B
+\end_layout
+
+\begin_layout Itemize
+A:B interaction of A with B
+\end_layout
+
+\begin_layout Itemize
+A*B main effects and interactions = A + B + A:B
+\end_layout
+
+\begin_layout Itemize
+A*B*C main effects and interactions A+B+C+A:B+A:C+B:C+A:B:C
+\end_layout
+
+\begin_layout Itemize
+(A+B+C)^2 A, B, and C crossed to level 2: A+B+C+A:B+A:C+B:C
+\end_layout
+
+\begin_layout Itemize
+A*B*C-A:B:C same as above: main effects plus 2-way interactions
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(effects)
+\end_layout
+
+\begin_layout Plain Layout
+
+head(Cowles)
+\end_layout
+
+\begin_layout Plain Layout
+
+class(Cowles$sex)
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(glm(volunteer ~ .^2,data=Cowles, family=binomial)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+lm(log(Days + 2.5) ~ Eth*Sex*Age, quine)
+\end_layout
+
+\begin_layout Plain Layout
+
+glm(volunteer ~ sex*extraversion,data=Cowles, family=binomial)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+contrast coding
+\end_layout
+
+\begin_layout Standard
+The contrasts() function returns the coding that R uses for the dummy variables.
+ 
+\end_layout
+
+\begin_layout Standard
+http://www.ats.ucla.edu/stat/r/library/contrast_coding.htm
+\end_layout
+
+\begin_layout Standard
+R Library: Contrast Coding Systems for categorical variables
+\end_layout
+
+\begin_layout Standard
+A categorical variable of K categories is usually entered in a regression
+ analysis as a sequence of K-1 variables, e.g.
+ as a sequence of K-1 dummy variables.
+ Subsequently, the regression coefficients of these K -1 variables correspond
+ to a set of linear hypotheses on the cell means.
+ When coding categorical variables, there are a variety of coding systems
+ we can choose for testing different set of linear hypotheses.
+ 
+\end_layout
+
+\begin_layout Standard
+On this page, we will cover some of the coding schemes for categorical variables.
+ We will show how these coding schemes are constructed and interpreted.
+\end_layout
+
+\begin_layout Standard
+In SPLUS and R there are four built-in contrasts (dummy, deviation, helmert,
+ orthogonal polynomial) which we will demonstrate.
+ We will also show how to create the coding schemes using a little bit of
+ matrix manipulation.
+ This page is done using R 2.11 and is updated in January, 2011.
+\end_layout
+
+\begin_layout Itemize
+Coding Scheme Comparisons made
+\end_layout
+
+\begin_layout Itemize
+Dummy Coding Compares each level to the reference level, intercept being
+ the cell mean of the reference group
+\end_layout
+
+\begin_layout Itemize
+Simple Coding Compares each level to the reference level, intercept being
+ the grand mean
+\end_layout
+
+\begin_layout Itemize
+Deviation Coding Compares each level to the grand mean
+\end_layout
+
+\begin_layout Itemize
+Orthogonal Polynomial Coding Orthogonal polynomial contrasts
+\end_layout
+
+\begin_layout Itemize
+Helmert Coding Compare levels of a variable with the mean of the subsequent
+ levels of the variable
+\end_layout
+
+\begin_layout Itemize
+Reverse Helmert Coding Compares levels of a variable with the mean of the
+ previous levels of the variable
+\end_layout
+
+\begin_layout Itemize
+Forward Difference Coding Compares adjacent levels of a variable (each level
+ minus the next level)
+\end_layout
+
+\begin_layout Itemize
+Backward Difference Coding Compares adjacent levels of a variable (each
+ level minus the prior level)
+\end_layout
+
+\begin_layout Itemize
+User-Defined Coding User-defined contrast
+\end_layout
+
+\begin_layout Subsection
+all.names(): All Names / Variables in an Expression/Formula
+\end_layout
+
+\begin_layout Standard
+Description
+\end_layout
+
+\begin_layout Standard
+Return a character vector containing all the names which occur in an expression
+ or call.
+\end_layout
+
+\begin_layout Standard
+Usage
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+all.names(expr, functions = TRUE, max.names = -1L, unique = FALSE)
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+all.vars(expr, functions = FALSE, max.names = -1L, unique = TRUE)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+all.names(expression(sin(x+y)))
+\end_layout
+
+\begin_layout Plain Layout
+
+all.names(quote(sin(x+y))) # or a call
+\end_layout
+
+\begin_layout Plain Layout
+
+all.vars(expression(sin(x+y)))
+\end_layout
+
+\begin_layout Plain Layout
+
+all.vars(price ~ I(carat^2) + cut*carat
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+No intercept: -1 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+fit=lm(lpsa~-1+lcavol+ lweight+age +lbph +svi+lcp +gleason +pgg45)
+\end_layout
+
+\begin_layout Part
+Homebrew Statistics
+\end_layout
+
+\begin_layout Section
+Statistics
+\end_layout
+
+\begin_layout Subsection
+r,d,p,q
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(q, p, d, r) * (beta, binom, cauchy, chisq, exp, f, gamma, geom, hyper,
+ lnorm, logis, multinom, nbinom, norm, pois, signrank, t, unif, weibull,
+ wilcox, birthday, tukey)
+\end_layout
+
+\begin_layout Description
+rnorm(100,parmeters..) # generate 1-- random variables
+\end_layout
+
+\begin_layout Description
+dnorm(1,parmeters..) # pdf(1) # d means density
+\end_layout
+
+\begin_layout Description
+pnorm(1,parmeters..) # cdf(1) # p means ONE-SIDE p-value/ probability
+\end_layout
+
+\begin_layout Description
+qnorm(0.1) # q means ONE-SIDE quantitle 即左侧为0.1 面积的点
+\end_layout
+
+\begin_layout Subsection
+Specific Distributions
+\end_layout
+
+\begin_layout Description
+Normal distribution
+\end_layout
+
+\begin_layout Description
+norm family in R uses sd as the second paremeter, rather than var.
+\end_layout
+
+\begin_layout Description
+gamma family in R: You have to specify dgamma(1,shape,rate=?), otherwise
+ R will think you tell him scale rather than rate.
+\end_layout
+
+\begin_layout Description
+sd in R calculates sd for sample (divide by 
+\begin_inset Formula $n-1$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Description
+mean(rbeta(100000,shape1=2,shape2=8)) is 0.2.
+ As its mean is shape1/(shape2+shape2) 
+\end_layout
+
+\begin_layout Subsection
+Seed in Random number
+\end_layout
+
+\begin_layout Standard
+set.seed is used to set the random number seed.
+ When we use functions ,say runif, to generate random number ,we almost
+ get different set of random number.
+ 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> runif(5) 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] 0.2096388 0.3427873 0.5455948 0.7694844 0.4287647 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> runif(5) 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] 0.6864617 0.5218690 0.7965364 0.9030520 0.4324572
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+But in some cases, we want the results reproducible.so we use set.seed before
+ generate the number.
+ 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+>set.seed(100) 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> runif(5) 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] 0.30776611 0.25767250 0.55232243 0.05638315 0.46854928 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> set.seed(100) 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> runif(5) 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] 0.30776611 0.25767250 0.55232243 0.05638315 0.46854928
+\end_layout
+
+\begin_layout Section
+Econometrics
+\end_layout
+
+\begin_layout Subsection
+Binomial Regression
+\end_layout
+
+\begin_layout Standard
+Default binomial regression is Logit.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+glm(formula, data=Data, family = binomial)
+\end_layout
+
+\begin_layout Subsection
+Model Selection & Stepwise Regression.
+\end_layout
+
+\begin_layout Enumerate
+Upper is the full model or the complete model; lower is the least model,
+\end_layout
+
+\begin_layout Enumerate
+quine.nxt is the starting point model.
+\end_layout
+
+\begin_layout Enumerate
+stepAIC is to search the next model (adding or deleting one variable) to
+ generate largest AIC.
+ Result is the searching process (if trace= T) and final model.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+library(MASS)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+quine.hi <- aov(log(Days + 2.5) ~ Eth+Sex+Age+Lrn, data=quine)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+quine.nxt <- update(quine.hi, .
+ ~ .
+ - Lrn)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+stepAIC(quine.nxt,scope = list(upper = ~ Eth+Sex+Age+Lrn, lower = ~1),trace
+ = T)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+White test for homoscedasticity.
+ 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+data = read.table("F:/meap00_01.raw", header=F, na.strings=".")
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+attach(data)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+fit=lm(V3~V5+V8+V9)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+y_estim=fit$fitted.value
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+resi=fit$residuals^2
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+y_esti_squ=y_estim^2
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+white=lm(resi~ y_estim+y_esti_squ)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+fit2=lm(log(resi)~ y_estim+y_esti_squ)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+hi=exp(fit2$fitted.values)^0.5
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+WV3=V3/hi
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+WV5=V5/hi
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+WV9=V9/hi
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+WV8=V8/hi
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+inter=1/hi
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+WLSfit=lm(WV3~inter+WV5+WV8+WV9-1)
+\end_layout
+
+\begin_layout Subsection
+Weighted Least Squared: see Econometrics
+\end_layout
+
+\begin_layout Subsection
+vif(model):: to calculate the variance inflation factor for multi-collinearity
+\end_layout
+
+\begin_layout Subsection
+Fixed Effect
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+data("Produc", package = "plm")
+\end_layout
+
+\begin_layout Plain Layout
+
+head(Produc)
+\end_layout
+
+\begin_layout Plain Layout
+
+zz <- plm(log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp, 
+\end_layout
+
+\begin_layout Plain Layout
+
+			data = Produc, index = c("state","year")) ＃to fix the effect of state
+ and year.
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+ANOVA
+\end_layout
+
+\begin_layout Subsection
+Nested ANOVA
+\end_layout
+
+\begin_layout Enumerate
+1 + state + state:county: 
+\series bold
+nested ANOVA
+\end_layout
+
+\begin_layout Enumerate
+1 + state + 
+\series bold
+county%in%state:
+\series default
+ nested ANOVA emphasizing county nested in state
+\end_layout
+
+\begin_layout Enumerate
+state / county nested ANOVA
+\end_layout
+
+\begin_layout Enumerate
+(1 / subject): fit random intercepts for subjects
+\end_layout
+
+\begin_layout Enumerate
+(1+time / subject) fit both random intercepts and random subject-specific
+ slopes
+\end_layout
+
+\begin_layout Subsection
+anova: single model
+\end_layout
+
+\begin_layout Standard
+用于模型中变量选择
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> anova(fit)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Response: dat$y
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Df Sum Sq Mean Sq F value Pr(>F) 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+dat$x1 1 1510.7 1510.7 536.07 < 2.2e-16 ***
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+dat$x2 1 279.3 279.3 99.10 2.097e-09 ***
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+xx 1 635.1 635.1 225.37 1.059e-12 ***
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+xx1 1 1067.6 1067.6 378.83 6.455e-15 ***
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+xx2 1 4909.7 4909.7 1742.24 < 2.2e-16 ***
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Residuals 21 59.2 2.8 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+---
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Signif.
+ codes: 0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+\end_layout
+
+\begin_layout Subsection
+anova: two model compare
+\end_layout
+
+\begin_layout Standard
+用于multiple linear regression中 null model 和full model 的test。适用于模型选择。
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> fit2=lm(y~v1+v2+v3+x)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> fit1=lm(y~x)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> anova(fit1,fit2)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Analysis of Variance Table
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Model 1: y ~ x
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Model 2: y ~ v1 + v2 + v3 + x
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Res.Df RSS Df Sum of Sq F Pr(>F) 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+1 8 42.743 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+2 6 16.000 2 26.743 5.0143 0.05245 .
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+---
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Signif.
+ codes: 0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+\end_layout
+
+\begin_layout Part
+Optimization and Numeric Analysis
+\end_layout
+
+\begin_layout Subsection
+choose
+\end_layout
+
+\begin_layout Description
+choose(n,k)
+\end_layout
+
+\begin_layout Description
+For k ≥ 1 it is defined as n(n-1)…(n-k+1) / k!, as 1 for k = 0 and as 0
+ for negative k.
+\end_layout
+
+\begin_layout Description
+> choose(3,1)
+\end_layout
+
+\begin_layout Description
+[1] 3
+\end_layout
+
+\begin_layout Description
+> choose(3,3)
+\end_layout
+
+\begin_layout Description
+[1] 1
+\end_layout
+
+\begin_layout Description
+> choose(4,2)
+\end_layout
+
+\begin_layout Description
+[1] 6
+\end_layout
+
+\begin_layout Subsection
+factorial
+\end_layout
+
+\begin_layout Standard
+factorial(x) (x! for non-negative integer x) is defined to be gamma(x+1)
+ and lfactorial to be lgamma(x+1).
+\end_layout
+
+\begin_layout Subsection
+Optimization (single input) 
+\end_layout
+
+\begin_layout Standard
+First variable should be a function with single input (can it have multiple
+ inputs?) with only a single value as return.
+ 
+\end_layout
+
+\begin_layout Standard
+optimise( DA.Logit, c(0,1), maximum=T) # c(0,1) is the range of that single
+ input.
+ ## if maximum is FALSE, then it will conduct minimization 
+\end_layout
+
+\begin_layout Standard
+$maximum
+\end_layout
+
+\begin_layout Standard
+[1] 0.4547948 ## best input
+\end_layout
+
+\begin_layout Standard
+$objective ## maximized return value
+\end_layout
+
+\begin_layout Standard
+[1] 0.81
+\end_layout
+
+\begin_layout Subsection
+Integration
+\end_layout
+
+\begin_layout Standard
+integrand <- function(x) {x*dnorm(x,OUTPUT$Paremeter_mu[1],OUTPUT$Paremeter_Cov[
+1])}
+\end_layout
+
+\begin_layout Standard
+A0=integrate(integrand, lower = -Inf, upper = 0)
+\end_layout
+
+\begin_layout Subsubsection
+Solve function: uniroot
+\end_layout
+
+\begin_layout Standard
+uniroot(f, interval)
+\end_layout
+
+\begin_layout Standard
+interval=c(low,high) is the possible values of X
+\end_layout
+
+\begin_layout Standard
+Solve root for f(x)=0
+\end_layout
+
+\begin_layout Standard
+> Implied_Volatility=function(S, K, TIME, r, divid,value){
+\end_layout
+
+\begin_layout Standard
++ B=function(sig){
+\end_layout
+
+\begin_layout Standard
++ exp(-TIME*divid)*S*pnorm((log(S/K) + (r -divid+ sig^2/2)*TIME) / (sig*sqrt(TIM
+E))) -
+\end_layout
+
+\begin_layout Standard
++ K*exp(-r*TIME)*pnorm((log(S/K) + (r -divid+ sig^2/2)*TIME) / (sig*sqrt(TIME))+
+ - sig*sqrt(TIME))-value
+\end_layout
+
+\begin_layout Standard
++ }
+\end_layout
+
+\begin_layout Standard
++ Solve=uniroot(B,interval = c(0,100) )
+\end_layout
+
+\begin_layout Standard
++ 
+\end_layout
+
+\begin_layout Standard
++ print(Solve$root)
+\end_layout
+
+\begin_layout Standard
++ }
+\end_layout
+
+\begin_layout Standard
+> 
+\end_layout
+
+\begin_layout Standard
+> Implied_Volatility(100,95,0.5,0.08,0.03,29.9857070)
+\end_layout
+
+\begin_layout Standard
+[1] 1.000001
+\end_layout
+
+\begin_layout Part
+Time Data
+\end_layout
+
+\begin_layout Standard
+Heavily based on lubridate.
+ 
+\end_layout
+
+\begin_layout Subsection
+POSIX time
+\end_layout
+
+\begin_layout Itemize
+POSIX (/ˈpɒzɪks/ poz-iks), an acronym for "Portable Operating System Interface",
+[1] is a family of standards specified by the IEEE for maintaining compatibility
+ between operating systems.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Unix time (aka POSIX time or Epoch time)
+\series default
+, is a system for describing instants in time, defined as the number of
+ seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC),
+ Thursday, 1 January 1970,[1][note 1] not counting leap seconds 
+\end_layout
+
+\begin_layout Description
+%a Abbreviated weekday name 
+\end_layout
+
+\begin_layout Description
+%A Full weekday name 
+\end_layout
+
+\begin_layout Description
+%b Abbreviated month name 
+\end_layout
+
+\begin_layout Description
+%B Full month name 
+\end_layout
+
+\begin_layout Description
+%c Date and time representation for your locale 
+\end_layout
+
+\begin_layout Description
+%d Day of month as a decimal number (01-31) 
+\end_layout
+
+\begin_layout Description
+%H Hour in 24-hour format (00-23) 
+\end_layout
+
+\begin_layout Description
+%I Hour in 12-hour format (01-12) 
+\end_layout
+
+\begin_layout Description
+%j Day of yeYar as decimal number (001-366) 
+\end_layout
+
+\begin_layout Description
+%m Month as decimal number (01-12) 
+\end_layout
+
+\begin_layout Description
+%M Minute as decimal number (00-59) 
+\end_layout
+
+\begin_layout Description
+%p Current locale’s A.M./P.M.
+ indicator for 12-hour clock 
+\end_layout
+
+\begin_layout Description
+%S Second as decimal number (00-59) 
+\end_layout
+
+\begin_layout Description
+%U Week of year as decimal number, Sunday as first day of week (00-51) 
+\end_layout
+
+\begin_layout Description
+%w Weekday as decimal number (0-6; Sunday is 0) 
+\end_layout
+
+\begin_layout Description
+%W Week of year as decimal number, Monday as first day of week (00-51) 
+\end_layout
+
+\begin_layout Description
+%x Date representation for current locale 
+\end_layout
+
+\begin_layout Description
+%X Time representation for current locale 
+\end_layout
+
+\begin_layout Description
+%y Year without century, as decimal number (00-99) 
+\end_layout
+
+\begin_layout Description
+%Y Year with century, as decimal number 
+\end_layout
+
+\begin_layout Description
+%z %Z Time-zone name or abbreviation, (no characters if time zone is unknown)
+ 
+\end_layout
+
+\begin_layout Description
+%% Percent sign 
+\end_layout
+
+\begin_layout Description
+Example: 
+\end_layout
+
+\begin_layout Description
+%d-%m-%y 11-04-09 
+\end_layout
+
+\begin_layout Description
+%b %#d, %Y - %a, %I:%M %p Apr 11, 2009 - Sat, 06:27 PM 
+\end_layout
+
+\begin_layout Description
+%x at %I:%M:%S 04/18/09 at 04:09:39
+\end_layout
+
+\begin_layout Subsection
+system reference
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# now (system time zone) 
+\end_layout
+
+\begin_layout Plain Layout
+
+now() 
+\end_layout
+
+\begin_layout Plain Layout
+
+# now (GMT) 
+\end_layout
+
+\begin_layout Plain Layout
+
+now("GMT") 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Origin (reference timing point in the system)
+\end_layout
+
+\begin_layout Plain Layout
+
+date = ymd(origin)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Parsing dates to POSIX: ymd or strptime
+\end_layout
+
+\begin_layout Description
+lubridate::ymd('2010-04-08') 
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(lubridate)
+\end_layout
+
+\begin_layout Plain Layout
+
+ymd("20110604")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+mdy("06-04-2011")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ymd('2010-04-08') %>% class
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+dmy("04/06/2011")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ymd("20110604")
+\end_layout
+
+\begin_layout Plain Layout
+
+ymd("2011-06-04")
+\end_layout
+
+\begin_layout Plain Layout
+
+ymd("2011-06-
+\end_layout
+
+\begin_layout Plain Layout
+
+    04")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ymd("2011-               06-04")
+\end_layout
+
+\begin_layout Plain Layout
+
+ymd("2011-  @!#ds             06/!@#!@$/04")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Parsing times to POSIX: ymd_hms
+\end_layout
+
+\begin_layout Standard
+If your date includes time information, add h, m, and/or s to the name of
+ the function.
+ ymd_hms is probably the most common date time format.
+ To read the dates in with a certain time zone, supply the official name
+ of that time zone in the 
+\series bold
+tz
+\series default
+ argument.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+ymd_hms("2011-06-04 12:00:00", tz = "Pacific/Auckland")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+time zone
+\end_layout
+
+\begin_layout Standard
+set, display, replace in certain time zone.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# see tz = argument in ymd function family.
+\end_layout
+
+\begin_layout Plain Layout
+
+ymd("20101010",tz = "Pacific/Auckland")
+\end_layout
+
+\begin_layout Plain Layout
+
+``
+\end_layout
+
+\begin_layout Plain Layout
+
+date = ymd(o`rigin)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# display date in new time zone 
+\end_layout
+
+\begin_layout Plain Layout
+
+with_tz(date, "EST") 
+\end_layout
+
+\begin_layout Plain Layout
+
+                                                            
+\end_layout
+
+\begin_layout Plain Layout
+
+# keep clock time, replace time zone 
+\end_layout
+
+\begin_layout Plain Layout
+
+force_tz(date, tz = "EST")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+see https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html
+\end_layout
+
+\begin_layout Subsection
+Setting and Extracting information
+\end_layout
+
+\begin_layout Standard
+lubridate:: Extract information from date times with the functions 
+\family typewriter
+second, minute, hour, day, wday, yday, week, month, year, and tz.
+
+\family default
+ You can also use each of these to set (i.e, change) the given information.
+ 
+\end_layout
+
+\begin_layout Subsection
+time intervals: class = int
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+arrive <- ymd_hms("2011-06-04 12:00:00", tz = "Pacific/Auckland")
+\end_layout
+
+\begin_layout Plain Layout
+
+arrive
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+## [1] "2011-06-04 12:00:00 NZST"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+leave <- ymd_hms("2011-08-10 14:00:00", tz = "Pacific/Auckland")
+\end_layout
+
+\begin_layout Plain Layout
+
+leave
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# method 1
+\end_layout
+
+\begin_layout Plain Layout
+
+auckland <- interval(arrive, leave) 
+\end_layout
+
+\begin_layout Plain Layout
+
+auckland
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# method 2
+\end_layout
+
+\begin_layout Plain Layout
+
+auckland <- arrive %--% leave
+\end_layout
+
+\begin_layout Plain Layout
+
+auckland
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+interval calculation
+\end_layout
+
+\begin_layout Itemize
+int_end(int) # end of interval
+\end_layout
+
+\begin_layout Itemize
+int_start(int) # start of interval
+\end_layout
+
+\begin_layout Itemize
+int_length
+\end_layout
+
+\begin_layout Itemize
+int_flip: Flip the direction of an interval
+\end_layout
+
+\begin_layout Standard
+length of interval
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# How long was my stay in Auckland?
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+auckland / ddays(1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+## [1] 67.08333
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+auckland / ddays(2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+## [1] 33.54167
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+auckland / dminutes(1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+## [1] 96600
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# days of difference
+\end_layout
+
+\begin_layout Plain Layout
+
+# method 3
+\end_layout
+
+\begin_layout Plain Layout
+
+start_2011 <- ymd_hms("2011-01-01 12:00:00") 
+\end_layout
+
+\begin_layout Plain Layout
+
+start_2010 <- ymd_hms("2010-01-01 12:00:00") 
+\end_layout
+
+\begin_layout Plain Layout
+
+span <- start_2011 - start_2010  #2010-01-01 12:00:00 - 2011-01-01 12:00:00
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+span
+\end_layout
+
+\begin_layout Plain Layout
+
+difftime(start_2011, start_2010)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And so on.
+ Alternatively, we can do modulo and integer division.
+ Sometimes this is more sensible than division - it is not obvious how to
+ express a remainder as a fraction of a month because the length of a month
+ constantly changes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+auckland %/% months(1)
+\end_layout
+
+\begin_layout Plain Layout
+
+auckland %% months(1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+time intervals: class: Durations and Periods
+\end_layout
+
+\begin_layout Standard
+https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html
+\end_layout
+
+\begin_layout Standard
+Intervals are specific time spans (because they are tied to specific dates),
+ but lubridate also supplies two general time span classes: Durations and
+ Periods.
+ 
+\end_layout
+
+\begin_layout Standard
+Intervals are specific time spans (because they are tied to specific dates),
+ but lubridate also supplies two general time span classes: Durations and
+ Periods.
+ Helper functions for creating periods are named after the units of time
+ (plural).
+ Helper functions for creating durations follow the same format but begin
+ with a “d” (for duration) or, if you prefer, and “e” (for exact).
+\end_layout
+
+\begin_layout Description
+Why two classes? Because the timeline is not as reliable as the number line.
+ The Duration class will always supply mathematically precise results.
+ A duration year will always equal 365 days.
+ Periods, on the other hand, fluctuate the same way the timeline does to
+ give intuitive results.
+ This makes them useful for modeling clock times.
+ For example, durations will be honest in the face of a leap year, but periods
+ may return what you want:
+\end_layout
+
+\begin_layout Subsection
+Time Difference: difftime
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+#   'arg' should be one of “auto”, “secs”, “mins”, “hours”, “days”, “weeks”
+\end_layout
+
+\begin_layout Plain Layout
+
+difftime(as.Date('1995-01-03'),as.Date('2012-6-03'), units='months')
+\end_layout
+
+\begin_layout Plain Layout
+
+difftime(as.Date('1995-01-03'),as.Date('2012-6-03'), units='days')
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Time Difference:
+\end_layout
+
+\begin_layout Standard
+days difference and DST
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+date = ymd(origin)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# x days since origin 
+\end_layout
+
+\begin_layout Plain Layout
+
+date + days(10) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+x = 280
+\end_layout
+
+\begin_layout Plain Layout
+
+# (day exactly 24 hours) 
+\end_layout
+
+\begin_layout Plain Layout
+
+date + ddays(x) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# (allowing for DST) 
+\end_layout
+
+\begin_layout Plain Layout
+
+date + days(x) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+leap year
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+ymd(20120101) + dyears(1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+## [1] "2012-12-31 UTC"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ymd(20120101) + years(1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+## [1] "2013-01-01 UTC"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sequence of difference
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+meeting <- ymd_hms("2011-07-01 09:00:00", tz = "Pacific/Auckland")
+\end_layout
+
+\begin_layout Plain Layout
+
+meeting
+\end_layout
+
+\begin_layout Plain Layout
+
+meeting + weeks(0:5)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Month difference and the max date possible in diferenct month.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+###########
+\end_layout
+
+\begin_layout Plain Layout
+
+jan31 <- ymd("2013-01-31")
+\end_layout
+
+\begin_layout Plain Layout
+
+jan31 + months(0:11) # simple adding up, as there is no 02-31, then it will
+ be NA
+\end_layout
+
+\begin_layout Plain Layout
+
+jan31 %m+% months(0:11) # use the last day of last month if 02-31 appears
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+##  [1] "2013-01-31 UTC" "2013-02-28 UTC" "2013-03-31 UTC" "2013-04-30 UTC"
+\end_layout
+
+\begin_layout Plain Layout
+
+##  [5] "2013-05-31 UTC" "2013-06-30 UTC" "2013-07-31 UTC" "2013-08-31 UTC"
+\end_layout
+
+\begin_layout Plain Layout
+
+##  [9] "2013-09-30 UTC" "2013-10-31 UTC" "2013-11-30 UTC" "2013-12-31 UTC"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Notice that this will only affect arithmetic with months (and arithmetic
+ with years if your start date it Feb 29).
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+rounding dates
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Section 6.
+ Rounding dates
+\end_layout
+
+\begin_layout Plain Layout
+
+april20 <- ymd_hms("2010-04-20 11:33:29") 
+\end_layout
+
+\begin_layout Plain Layout
+
+round_date(april20, "day")  #"2010-04-20 UTC" 
+\end_layout
+
+\begin_layout Plain Layout
+
+round_date(april20, "month")  #"2010-05-01 UTC" 
+\end_layout
+
+\begin_layout Plain Layout
+
+ceiling_date(april20, "month") - days(1)  #"2010-04-30 UTC
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Daylight savings time
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+dst_time <- ymd_hms("2010-03-14 01:59:59") 
+\end_layout
+
+\begin_layout Plain Layout
+
+dst_time <- force_tz(dst_time, "America/Chicago") #"2010-03-14 01:59:59
+ CST" 
+\end_layout
+
+\begin_layout Plain Layout
+
+dst_time + dseconds(1) #"2010-03-14 03:00:00 CDT"
+\end_layout
+
+\begin_layout Plain Layout
+
+dst_time + hours(2) #"2010-03-14 03:59:59 CDT" 
+\end_layout
+
+\begin_layout Plain Layout
+
+dst_time + dhours(2) #"2010-03-14 04:59:59 CDT" 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Parsing dates and times to POSIX: strptime
+\end_layout
+
+\begin_layout Description
+strptime(x, "%d%b%Y") # in base
+\end_layout
+
+\begin_layout Description
+like as.Date, 只不过转成标准 POSIX 格式（带时区）
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- c("1jan1960", "2jan1960", "31mar1960", "30jul1960")
+\end_layout
+
+\begin_layout Plain Layout
+
+strptime(x, "%d%b%Y")
+\end_layout
+
+\begin_layout Plain Layout
+
+as.Date(x, "%d%b%Y")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+"
+\end_layout
+
+\begin_layout Subsection
+Get/Change part of date
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+.leap.seconds
+\end_layout
+
+\begin_layout Plain Layout
+
+weekdays(.leap.seconds)
+\end_layout
+
+\begin_layout Plain Layout
+
+months(.leap.seconds)
+\end_layout
+
+\begin_layout Plain Layout
+
+quarters(.leap.seconds)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+express as decimal of year 
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+#  
+\end_layout
+
+\begin_layout Plain Layout
+
+decimal_date("2010-10-01")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+as.Date( character )
+\end_layout
+
+\begin_layout Description
+A character string.
+ If not specified, it will try "%Y-%m-%d" then "%Y/%m/%d" on the first non-NA
+ element, and give an error if neither works.
+\end_layout
+
+\begin_layout Description
+> as.Date('2010-04-08')
+\end_layout
+
+\begin_layout Description
+[1] "2010-04-08"
+\end_layout
+
+\begin_layout Description
+> as.Date('20100408',"%Y%m%d") 
+\end_layout
+
+\begin_layout Description
+[1] "2010-04-08"
+\end_layout
+
+\begin_layout Description
+> as.Date('20100408',"%y%m%d") # this is wrong, you have to use captial Y
+\end_layout
+
+\begin_layout Description
+[1] "2020-10-04"
+\end_layout
+
+\begin_layout Description
+> as.Date('2010-04-08',"%Y.%m.%d") # wrong
+\end_layout
+
+\begin_layout Description
+[1] NA
+\end_layout
+
+\begin_layout Description
+> as.Date('2010-04-08',"%Y-%m-%d") # correct
+\end_layout
+
+\begin_layout Description
+[1] "2010-04-08"
+\end_layout
+
+\begin_layout Description
+http://www.biostatistic.net/thread-2346-1-1.html
+\end_layout
+
+\begin_layout Section
+lubridate
+\end_layout
+
+\begin_layout Standard
+month('2010-04-08')
+\end_layout
+
+\begin_layout Standard
+year('2010-04-08')
+\end_layout
+
+\begin_layout Standard
+day('2010-04-08')
+\end_layout
+
+\begin_layout Standard
+month(ymd('2010-04-08'))
+\end_layout
+
+\begin_layout Standard
+year(ymd('2010-04-08') )
+\end_layout
+
+\begin_layout Standard
+day(ymd('2010-04-08'))
+\end_layout
+
+\end_body
+\end_document
