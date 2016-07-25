@@ -1,0 +1,2719 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 16419249 "v660271" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+R: Vectors
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\end_layout
+
+\begin_layout Date
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First version: Feb 
+\begin_inset Formula $10{}^{th}$
+\end_inset
+
+, 2014.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Numeric
+\end_layout
+
+\begin_layout Section
+Integer vs Fraction
+\end_layout
+
+\begin_layout Subsection
+Round to integers
+\end_layout
+
+\begin_layout Standard
+## First argument is the number you want to round，2nd argumentis the decimal
+ place
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> round(pi,2)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] 3.14
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> round(pi,1)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] 3.1
+\end_layout
+
+\begin_layout Subsection
+Fraction part of a number: %%
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+1.03%%1
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] 0.03
+\end_layout
+
+\begin_layout Subsection
+reminder
+\end_layout
+
+\begin_layout Description
+12%/%5
+\end_layout
+
+\begin_layout Description
+[1] 2
+\end_layout
+
+\begin_layout Subsection
+floor, ceiling
+\end_layout
+
+\begin_layout Standard
+be really careful about those functions, as they have a second argument,
+ digits.
+ Always put digits=0 there.
+ Otherwise there would be case like, floor of 1.8 is 1.000001001
+\end_layout
+
+\begin_layout Subsection
+Integer literal: for a numeric to be a integer
+\end_layout
+
+\begin_layout Standard
+an integer literal is an integer whose value is directly represented in
+ source code.
+ For example, in the assignment statement x = 1, the string 1 is an integer
+ literal indicating the value 1 in R
+\end_layout
+
+\begin_layout Description
+> class(5870)
+\end_layout
+
+\begin_layout Description
+[1] "numeric"
+\end_layout
+
+\begin_layout Description
+> class(5870L)
+\end_layout
+
+\begin_layout Description
+[1] "integer"
+\end_layout
+
+\begin_layout Section
+Digits
+\end_layout
+
+\begin_layout Subsection
+Print Digits of decimals 
+\end_layout
+
+\begin_layout Description
+A wrapper for the C function sprintf, that returns a character vector containing
+ a formatted combination of text and variable values.
+\end_layout
+
+\begin_layout Description
+> sprintf("%.3f",pi)
+\end_layout
+
+\begin_layout Description
+[1] "3.142"
+\end_layout
+
+\begin_layout Description
+> sprintf("%.10f",pi)
+\end_layout
+
+\begin_layout Description
+[1] "3.1415926536"
+\end_layout
+
+\begin_layout Subsection
+option: show digits
+\end_layout
+
+\begin_layout Description
+>options(scipen=7)
+\end_layout
+
+\begin_layout Description
+>temp=1e-07
+\end_layout
+
+\begin_layout Description
+> temp
+\end_layout
+
+\begin_layout Description
+[1] 0.0000001
+\end_layout
+
+\begin_layout Description
+> options(digits = 15)
+\end_layout
+
+\begin_layout Description
+> pi
+\end_layout
+
+\begin_layout Description
+[1] 3.14159265358979
+\end_layout
+
+\begin_layout Description
+> options(digits=7)
+\end_layout
+
+\begin_layout Description
+> pi
+\end_layout
+
+\begin_layout Description
+[1] 3.141593
+\end_layout
+
+\begin_layout Description
+> options(digits=1)
+\end_layout
+
+\begin_layout Description
+> pi
+\end_layout
+
+\begin_layout Description
+[1] 3
+\end_layout
+
+\begin_layout Part
+Matrix
+\end_layout
+
+\begin_layout Section
+Matrix Algebra
+\end_layout
+
+\begin_layout Subsection
+Multiply %*%
+\end_layout
+
+\begin_layout Standard
+Multiplies two matrices, if they are conformable.
+ 
+\end_layout
+
+\begin_layout Itemize
+If one argument is a vector, it will be promoted to either a row or column
+ matrix to make the two arguments conformable.
+ 
+\end_layout
+
+\begin_layout Itemize
+If both are vectors it will return the inner product (as a matrix).
+\end_layout
+
+\begin_layout Subsection
+Transform
+\end_layout
+
+\begin_layout Description
+> A= t(Xbind)%*%Xbind
+\end_layout
+
+\begin_layout Description
+> A
+\end_layout
+
+\begin_layout Description
+one X
+\end_layout
+
+\begin_layout Description
+one 12.0 36.8
+\end_layout
+
+\begin_layout Description
+X 36.8 140.4
+\end_layout
+
+\begin_layout Subsection
+Inverse
+\end_layout
+
+\begin_layout Description
+> B = solve(A)
+\end_layout
+
+\begin_layout Description
+> B
+\end_layout
+
+\begin_layout Description
+one X
+\end_layout
+
+\begin_layout Description
+one 0.4247338 -0.11132623
+\end_layout
+
+\begin_layout Description
+X -0.1113262 0.03630203
+\end_layout
+
+\begin_layout Subsection
+Diagonal of Matrix
+\end_layout
+
+\begin_layout Description
+> require(stats)
+\end_layout
+
+\begin_layout Description
+# Create diagonal matrix 
+\end_layout
+
+\begin_layout Description
+> diag(10, 3, 4) # guess what?
+\end_layout
+
+\begin_layout Description
+[,1] [,2] [,3] [,4]
+\end_layout
+
+\begin_layout Description
+[1,] 10 0 0 0
+\end_layout
+
+\begin_layout Description
+[2,] 0 10 0 0
+\end_layout
+
+\begin_layout Description
+[3,] 0 0 10 0
+\end_layout
+
+\begin_layout Description
+> 
+\end_layout
+
+\begin_layout Description
+> m <- matrix(0,3,3)
+\end_layout
+
+\begin_layout Description
+> m
+\end_layout
+
+\begin_layout Description
+[,1] [,2] [,3]
+\end_layout
+
+\begin_layout Description
+[1,] 0 0 0
+\end_layout
+
+\begin_layout Description
+[2,] 0 0 0
+\end_layout
+
+\begin_layout Description
+[3,] 0 0 0
+\end_layout
+
+\begin_layout Description
+# change the diagonal cells of the matrix
+\end_layout
+
+\begin_layout Description
+> diag(m) <- 1:3
+\end_layout
+
+\begin_layout Description
+> m
+\end_layout
+
+\begin_layout Description
+[,1] [,2] [,3]
+\end_layout
+
+\begin_layout Description
+[1,] 1 0 0
+\end_layout
+
+\begin_layout Description
+[2,] 0 2 0
+\end_layout
+
+\begin_layout Description
+[3,] 0 0 3
+\end_layout
+
+\begin_layout Description
+Get the Diagonal of matrix
+\end_layout
+
+\begin_layout Description
+> diag(m)
+\end_layout
+
+\begin_layout Description
+[1] 1 2 3
+\end_layout
+
+\begin_layout Section
+Combine, Add and Subset
+\end_layout
+
+\begin_layout Subsection
+Combine Matrix
+\end_layout
+
+\begin_layout Description
+> X = c(2, 1.5, 3, 1.1, 5, 4, 3.5, 2, 3, 4.5, 6, 1.2)
+\end_layout
+
+\begin_layout Description
+> one = c(rep(1, 12))
+\end_layout
+
+\begin_layout Description
+> Xbind = cbind(one, X)
+\end_layout
+
+\begin_layout Description
+> Xbind
+\end_layout
+
+\begin_layout Description
+one X
+\end_layout
+
+\begin_layout Description
+[1,] 1 2.0
+\end_layout
+
+\begin_layout Description
+[2,] 1 1.5
+\end_layout
+
+\begin_layout Description
+[3,] 1 3.0
+\end_layout
+
+\begin_layout Description
+...
+\end_layout
+
+\begin_layout Part
+Vector & Array
+\end_layout
+
+\begin_layout Section
+
+\change_deleted 16419249 1458917847
+change Class 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Section
+Coercion in vectorization 
+\end_layout
+
+\begin_layout Standard
+Numeric values in vector here will be coerced to character
+\end_layout
+
+\begin_layout Standard
+c("a", 1)
+\end_layout
+
+\begin_layout Standard
+[1] "a" "1"
+\end_layout
+
+\begin_layout Section
+Dimentions
+\end_layout
+
+\begin_layout Subsection
+dim() attribute
+\end_layout
+
+\begin_layout Standard
+Adding a dim() attribute to an atomic vector allows it to behave like a
+ multi-dimensional array.
+ A special case of the array is the matrix, which has two dimensions.
+\end_layout
+
+\begin_layout Subsection
+drop: Drop Redundant Extent/Dimension Information
+\end_layout
+
+\begin_layout Description
+> 1:3 %*% 2:4 
+\end_layout
+
+\begin_layout Description
+[,1]
+\end_layout
+
+\begin_layout Description
+[1,] 20
+\end_layout
+
+\begin_layout Description
+> drop(1:3 %*% 2:4) # scalar product
+\end_layout
+
+\begin_layout Description
+[1] 20
+\end_layout
+
+\begin_layout Description
+> 
+\end_layout
+
+\begin_layout Description
+> array(1:12, dim = c(2,3,1,2))
+\end_layout
+
+\begin_layout Description
+, , 1, 1
+\end_layout
+
+\begin_layout Description
+[,1] [,2] [,3]
+\end_layout
+
+\begin_layout Description
+[1,] 1 3 5
+\end_layout
+
+\begin_layout Description
+[2,] 2 4 6
+\end_layout
+
+\begin_layout Description
+, , 1, 2
+\end_layout
+
+\begin_layout Description
+[,1] [,2] [,3]
+\end_layout
+
+\begin_layout Description
+[1,] 7 9 11
+\end_layout
+
+\begin_layout Description
+[2,] 8 10 12
+\end_layout
+
+\begin_layout Description
+> array(1:12, dim = c(2,3,1,2)) %>% drop
+\end_layout
+
+\begin_layout Description
+, , 1
+\end_layout
+
+\begin_layout Description
+[,1] [,2] [,3]
+\end_layout
+
+\begin_layout Description
+[1,] 1 3 5
+\end_layout
+
+\begin_layout Description
+[2,] 2 4 6
+\end_layout
+
+\begin_layout Description
+, , 2
+\end_layout
+
+\begin_layout Description
+[,1] [,2] [,3]
+\end_layout
+
+\begin_layout Description
+[1,] 7 9 11
+\end_layout
+
+\begin_layout Description
+[2,] 8 10 12
+\end_layout
+
+\begin_layout Section
+Interval
+\end_layout
+
+\begin_layout Subsection
+findInterval : Interval of a numeric vector
+\end_layout
+
+\begin_layout Description
+# cut the balance_left variable by 9 cut offs 0.1, 0.2 ...
+ 0.9.
+ 
+\end_layout
+
+\begin_layout Description
+# So in total there will be 10 intervals ranging from 0 to 9
+\end_layout
+
+\begin_layout Description
+cut_off = c(1:9)/10
+\end_layout
+
+\begin_layout Description
+forecasting[,'balance_left_interval'] = findInterval(forecasting[,"balance_left"
+], cut_off)
+\end_layout
+
+\begin_layout Description
+> x <- 2:18
+\end_layout
+
+\begin_layout Description
+> v <- c(5, 10, 15) 
+\end_layout
+
+\begin_layout Description
+# # findInterval creates two bins [5,10) and [10,15) according to the second
+ argument “v”, then it returns the which bin each element of the argument
+ is in.
+\end_layout
+
+\begin_layout Description
+findInterval(x, v)
+\end_layout
+
+\begin_layout Description
+[1] 0 0 0 1 1 1 1 1 2 2 2 2 2 3 3 3 3
+\end_layout
+
+\begin_layout Description
+> cbind(x, findInterval(x, v)) 
+\end_layout
+
+\begin_layout Description
+x 
+\end_layout
+
+\begin_layout Description
+[1,] 2 0
+\end_layout
+
+\begin_layout Description
+[2,] 3 0
+\end_layout
+
+\begin_layout Description
+[3,] 4 0
+\end_layout
+
+\begin_layout Description
+[4,] 5 1
+\end_layout
+
+\begin_layout Description
+[5,] 6 1
+\end_layout
+
+\begin_layout Description
+[6,] 7 1
+\end_layout
+
+\begin_layout Description
+[7,] 8 1
+\end_layout
+
+\begin_layout Description
+[8,] 9 1
+\end_layout
+
+\begin_layout Description
+[9,] 10 2
+\end_layout
+
+\begin_layout Description
+[10,] 11 2
+\end_layout
+
+\begin_layout Description
+[11,] 12 2
+\end_layout
+
+\begin_layout Description
+[12,] 13 2
+\end_layout
+
+\begin_layout Description
+[13,] 14 2
+\end_layout
+
+\begin_layout Description
+[14,] 15 3
+\end_layout
+
+\begin_layout Description
+[15,] 16 3
+\end_layout
+
+\begin_layout Description
+[16,] 17 3
+\end_layout
+
+\begin_layout Description
+[17,] 18 3
+\end_layout
+
+\begin_layout Subsection
+Series with fixed gap
+\end_layout
+
+\begin_layout Description
+> 1:10*2 
+\end_layout
+
+\begin_layout Description
+[1] 2 4 6 8 10 12 14 16 18 20
+\end_layout
+
+\begin_layout Section
+Oders and Positions
+\end_layout
+
+\begin_layout Subsection
+Don't use which.
+ – Hadley
+\end_layout
+
+\begin_layout Standard
+Use positions of logic T or F to refer positions in subset, not using position
+ numbers.,
+\end_layout
+
+\begin_layout Standard
+If no element is matched in which, then it will return all FALSE.
+\end_layout
+
+\begin_layout Standard
+Subset using that will be integer(0).
+\end_layout
+
+\begin_layout Subsection
+Add elements to a vector: append
+\end_layout
+
+\begin_layout Description
+> append(1:5, 0:1, after = 3)
+\end_layout
+
+\begin_layout Description
+[1] 1 2 3 0 1 4 5
+\end_layout
+
+\begin_layout Subsection
+order 
+\end_layout
+
+\begin_layout Description
+show[order(show[,1]),]
+\end_layout
+
+\begin_layout Description
+> order(1:10,decreasing = 1)
+\end_layout
+
+\begin_layout Description
+[1] 10 9 8 7 6 5 4 3 2 1
+\end_layout
+
+\begin_layout Subsection
+rev: Reverse Elements
+\end_layout
+
+\begin_layout Description
+x <- c(1:5, 5:3)
+\end_layout
+
+\begin_layout Description
+rev(x)
+\end_layout
+
+\begin_layout Description
+[1] 3 4 5 5 4 3 2 1
+\end_layout
+
+\begin_layout Section
+Set, Match and Values
+\end_layout
+
+\begin_layout Subsection
+set calculation
+\end_layout
+
+\begin_layout Standard
+set is a mathematical concept, it has no order, no duplication.
+ 
+\end_layout
+
+\begin_layout Standard
+Performs set union, intersection, (asymmetric!) difference, equality and
+ membership on two vectors.
+\end_layout
+
+\begin_layout Standard
+• union(x, y)
+\end_layout
+
+\begin_layout Standard
+• intersect(x, y)
+\end_layout
+
+\begin_layout Standard
+• setdiff(x, y)
+\end_layout
+
+\begin_layout Standard
+• setequal(x, y)
+\end_layout
+
+\begin_layout Subsection
+match(x,y)
+\end_layout
+
+\begin_layout Standard
+Count the matching elements and return the counting number into the mathching
+ places.
+\end_layout
+
+\begin_layout Standard
+• Output is a numeric vector with the same length of the first argument
+\end_layout
+
+\begin_layout Standard
+• Positions of output is the position of the elements in the first argument
+\end_layout
+
+\begin_layout Standard
+• Values of output is the position of the matched element of second argument.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> match(c(1,1,2),c(2,2,3))
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] NA NA 1
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> match(c(1,1,2),c(3,2,2,3)) # for duplicated items in B, only match the
+ first one
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] NA NA 2
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+match(5:15, c(15,4,2))
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] NA NA NA NA NA NA NA NA NA NA 1
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+match(5:15, c(10,4,2))
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] NA NA NA NA NA 1 NA NA NA NA NA
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+match(5:15, c(10,6,8))
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] NA 2 NA 3 NA 1 NA NA NA NA NA
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+nomatch argument is to decide the returned value if not matching.
+ Default is to return NA.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> design = model.matrix(price ~ carat + cut,ggplot2::diamonds) %>% head
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> match("(Intercept3)", colnames(design), nomatch = 0L)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] 0
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> match("(Intercept3)", colnames(design))
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] NA
+\end_layout
+
+\begin_layout Subsection
+max/min.
+ which.max/which.min , pmax/pmin
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+which.min & which.max : 
+\family default
+to return the position of smallest 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+which.min(c(1:3))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+pmax(x,y): compare two vector x & y, return the largest term for each row
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pmax(c(1:10),c(11:20))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+[1] 
+\end_layout
+
+\begin_layout Description
+max(x): within a single vector, return the largest value
+\end_layout
+
+\begin_layout Subsection
+%in% : same as in of SQL
+\end_layout
+
+\begin_layout Standard
+Return whether the elements in the left vector is in the right vector
+\end_layout
+
+\begin_layout Description
+• Output is a numeric vector with values either T/F, and has the same length
+ of the first argument
+\end_layout
+
+\begin_layout Description
+• Positions of output is the position of the elements in the first argument
+\end_layout
+
+\begin_layout Description
+• Values of output is whether the element in that position can be found
+ in the right vector 
+\end_layout
+
+\begin_layout Description
+c(1,2,10) %in% c(5:1)
+\end_layout
+
+\begin_layout Description
+[1] TRUE TRUE FALSE
+\end_layout
+
+\begin_layout Subsection
+Identify run values (continuing duplicated values) :rle
+\end_layout
+
+\begin_layout Description
+> x <- rev(rep(6:10, 1:5))
+\end_layout
+
+\begin_layout Description
+> x
+\end_layout
+
+\begin_layout Description
+[1] 10 10 10 10 10 9 9 9 9 8 8 8 7 7 6
+\end_layout
+
+\begin_layout Description
+> rle(x)
+\end_layout
+
+\begin_layout Description
+Run Length Encoding
+\end_layout
+
+\begin_layout Description
+lengths: int [1:5] 5 4 3 2 1
+\end_layout
+
+\begin_layout Description
+values : int [1:5] 10 9 8 7 6
+\end_layout
+
+\begin_layout Section
+List
+\end_layout
+
+\begin_layout Subsection
+as.list vs.
+ list()
+\end_layout
+
+\begin_layout Description
+as.list(unique(Agent_Brand$qual_typ_nm)) # each element in object becomes
+ an element in list
+\end_layout
+
+\begin_layout Description
+[[1]]
+\end_layout
+
+\begin_layout Description
+[1] "ITA"
+\end_layout
+
+\begin_layout Description
+[[2]]
+\end_layout
+
+\begin_layout Description
+[1] "PA"
+\end_layout
+
+\begin_layout Description
+> list(unique(Agent_Brand$qual_typ_nm)) # whole object becomes one single
+ object in list.
+\end_layout
+
+\begin_layout Description
+[[1]]
+\end_layout
+
+\begin_layout Description
+[1] "ITA" "PA"
+\end_layout
+
+\begin_layout Description
+c(): combine list
+\end_layout
+
+\begin_layout Description
+> c(list(1, 2), c(3, 4))
+\end_layout
+
+\begin_layout Description
+[[1]]
+\end_layout
+
+\begin_layout Description
+[1] 1
+\end_layout
+
+\begin_layout Description
+[[2]]
+\end_layout
+
+\begin_layout Description
+[1] 2
+\end_layout
+
+\begin_layout Description
+[[3]]
+\end_layout
+
+\begin_layout Description
+[1] 3
+\end_layout
+
+\begin_layout Description
+[[4]]
+\end_layout
+
+\begin_layout Description
+[1] 4
+\end_layout
+
+\begin_layout Description
+The whole vector as one list
+\end_layout
+
+\begin_layout Description
+> list(list(1, 2), c(3, 4))
+\end_layout
+
+\begin_layout Description
+[[1]]
+\end_layout
+
+\begin_layout Description
+[[1]][[1]]
+\end_layout
+
+\begin_layout Description
+[1] 1
+\end_layout
+
+\begin_layout Description
+[[1]][[2]]
+\end_layout
+
+\begin_layout Description
+[1] 2
+\end_layout
+
+\begin_layout Description
+[[2]]
+\end_layout
+
+\begin_layout Description
+[1] 3 4
+\end_layout
+
+\begin_layout Subsection
+unlist {base}: Flatten Lists
+\end_layout
+
+\begin_layout Standard
+unclass() usually turns vector to list
+\end_layout
+
+\begin_layout Section
+array:Create multi- dimension vectors
+\end_layout
+
+\begin_layout Description
+> array(1:12, c(2, 3, 2)) # the second argument (a vector) means different
+ dimension
+\end_layout
+
+\begin_layout Description
+, , 1
+\end_layout
+
+\begin_layout Description
+[,1] [,2] [,3]
+\end_layout
+
+\begin_layout Description
+[1,] 1 3 5
+\end_layout
+
+\begin_layout Description
+[2,] 2 4 6
+\end_layout
+
+\begin_layout Description
+, , 2
+\end_layout
+
+\begin_layout Description
+[,1] [,2] [,3]
+\end_layout
+
+\begin_layout Description
+[1,] 7 9 11
+\end_layout
+
+\begin_layout Description
+[2,] 8 10 12
+\end_layout
+
+\begin_layout Part
+Factor
+\end_layout
+
+\begin_layout Standard
+Factors are 
+\series bold
+labeled integers
+\series default
+.
+ It can save memory space as R will think they are just integers.
+\end_layout
+
+\begin_layout Section
+Label and Levels 
+\end_layout
+
+\begin_layout Subsection
+create a factor with Label and Levels 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+x is the labels provided
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+levels are the universe of all labels.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> test_str = substring("statistics", 1:10, 1:10)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> test_str
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] "s" "t" "a" "t" "i" "s" "t" "i" "c" "s"
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> 
+\emph on
+ff <- 
+\series bold
+factor(x = test_str, levels = letters)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> ff
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] s t a t i s t i c s
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Levels: a b c d e f g h i j k l m n o p q r s t u v w x y z
+\end_layout
+
+\begin_layout Standard
+if x is not in the universe of labels (levels), then NA is returned
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> ff0 <- factor(1:10, levels = letters)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> ff0
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA>
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Levels: a b c d e f g h i j k l m n o p q r s t u v w x y z
+\end_layout
+
+\begin_layout Subsection
+Refer a Factor by Labels
+\end_layout
+
+\begin_layout Standard
+Levels are unique, and they have value as labels, which can be referred
+ to using exact character
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> x
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] a b b a
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Levels: a b
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> x=='a' # refer a factor by character label 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] TRUE FALSE FALSE TRUE
+\end_layout
+
+\begin_layout Standard
+If labels are numeric, you can refer by both its numeric values or character
+ values
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> b=gl(2, 4, 5)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> b
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] 1 1 1 1 2
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+Levels: 1 2
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> b==1
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] TRUE TRUE TRUE TRUE FALSE
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> b=="1"
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] TRUE TRUE TRUE TRUE FALSE
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> b==1
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] TRUE TRUE TRUE TRUE FALSE
+\end_layout
+
+\begin_layout Subsection
+Show Levels: levels(x)
+\end_layout
+
+\begin_layout Description
+# show possible values in the set, (no need to appear in the set)
+\end_layout
+
+\begin_layout Description
+> levels(ff)
+\end_layout
+
+\begin_layout Description
+[1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p"
+\end_layout
+
+\begin_layout Description
+[17] "q" "r" "s" "t" "u" "v" "w" "x" "y" "z" 
+\end_layout
+
+\begin_layout Subsection
+Number of Levels of a Factor: nlevel(x)
+\end_layout
+
+\begin_layout Subsection
+Generate/Assign Factor Levels
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+levels( DATA_Early_Pay_ind[,'early_pay_ind_next'] )
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] "0" "1" "2"
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> levels(DATA_Early_Pay_ind[,'early_pay_ind_next']) = c("min_pay", "early_pay","
+full_pay")
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+sex_char <- c("m", "m", "m")
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+sex_factor <- factor(sex_char, levels = c("m", "f"))
+\end_layout
+
+\begin_layout Description
+drop Redundant Levels : droplevels(x)
+\end_layout
+
+\begin_layout Subsection
+droplevels(x)
+\end_layout
+
+\begin_layout Description
+> # drops the levels that do not occur
+\end_layout
+
+\begin_layout Description
+> 
+\end_layout
+
+\begin_layout Description
+> (f.
+ <- factor(ff)) # drops the levels that do not occur
+\end_layout
+
+\begin_layout Description
+[1] s t a t i s t i c s
+\end_layout
+
+\begin_layout Description
+Levels: a c i s t
+\end_layout
+
+\begin_layout Description
+> f.
+\end_layout
+
+\begin_layout Description
+[1] s t a t i s t i c s
+\end_layout
+
+\begin_layout Description
+Levels: a c i s t
+\end_layout
+
+\begin_layout Description
+> f.
+ = ff[, drop = TRUE] # the same, more transparently
+\end_layout
+
+\begin_layout Description
+> f.
+\end_layout
+
+\begin_layout Description
+[1] s t a t i s t i c s
+\end_layout
+
+\begin_layout Description
+Levels: a c i s t
+\end_layout
+
+\begin_layout Section
+Factor vs Other Classes
+\end_layout
+
+\begin_layout Subsection
+not render string to factor: options(stringsAsFactors = FALSE)
+\end_layout
+
+\begin_layout Subsection
+factors are just integers internally
+\end_layout
+
+\begin_layout Standard
+to show factors are just integers in computer
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> as.integer(ff) # the internal codes
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] 19 20 1 20 9 19 20 9 3 19
+\end_layout
+
+\begin_layout Standard
+remove the class attributes 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> unclass_ff = unclass(ff)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+> class(unclass_ff)
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+[1] "integer"
+\end_layout
+
+\begin_layout Subsection
+defector: unclass()
+\end_layout
+
+\begin_layout Subsection
+see unclass()
+\end_layout
+
+\begin_layout Description
+Make Numeric Vector to Factor/interval: cut
+\end_layout
+
+\begin_layout Description
+cut(x, breaks, labels = NULL, include.lowest = FALSE, right = TRUE, dig.lab
+ = 3, ordered_result = FALSE, ...)
+\end_layout
+
+\begin_layout Description
+> table(cut(Z, breaks = -6:6))
+\end_layout
+
+\begin_layout Description
+(-6,-5] (-5,-4] (-4,-3] (-3,-2] (-2,-1] (-1,0] (0,1] (1,2] (2,3] (3,4] 
+\end_layout
+
+\begin_layout Description
+0 1 16 207 1349 3391 3413 1406 205 12 
+\end_layout
+
+\begin_layout Description
+(4,5] (5,6] 
+\end_layout
+
+\begin_layout Description
+0 0 
+\end_layout
+
+\begin_layout Part
+Data.Frame
+\end_layout
+
+\begin_layout Section
+Summary and Names
+\end_layout
+
+\begin_layout Subsection
+nrow() ncol(): number of cols/rows
+\end_layout
+
+\begin_layout Subsection
+colSums / rowMeans / rowVars: apply sum, mean, var for each rows or columns
+\end_layout
+
+\begin_layout Subsection
+(Cross) Frequency: table()
+\end_layout
+
+\begin_layout Subsection
+setnames : Rename column in place
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+Library(data.table)
+\end_layout
+
+\begin_layout Plain Layout
+
+DT = data.frame(a=1:2,b=3:4,c=5:6)
+\end_layout
+
+\begin_layout Plain Layout
+
+setnames(DT,"b","B") # by name; no match() needed
+\end_layout
+
+\begin_layout Plain Layout
+
+setnames(DT,3,"C") # by position
+\end_layout
+
+\begin_layout Plain Layout
+
+setnames(DT,2:3,c("D","E")) # multiple
+\end_layout
+
+\begin_layout Plain Layout
+
+setnames(DT,c("a","E"),c("A","F")) # multiple by name
+\end_layout
+
+\begin_layout Plain Layout
+
+setnames(DT,c("X","Y","Z")) # replace all
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Add/Combine
+\end_layout
+
+\begin_layout Subsection
+Generate another column: data.frame[, variable]
+\end_layout
+
+\begin_layout Standard
+if A is a data.frame, this code will automatically generate a new colum with
+ NA except the 5th row equal to 10
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+A[5,”new_colum”]=10
+\end_layout
+
+\begin_layout Standard
+use data[,”new”] rather than data[‘new’]
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+iloss["month_on_book2"]=iloss["month_on_book"]^2
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+class(iloss$month_on_book2)
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+[1] "matrix"
+\end_layout
+
+\begin_layout Standard
+So when you want to add a new variable into data.frame use data[,”new”] rather
+ than data[‘new’]
+\end_layout
+
+\begin_layout Subsection
+rbind/cbind: combine vertically/horizenntally
+\end_layout
+
+\begin_layout Subsection
+rbind.fill: combine even if data.frame not match.
+ 
+\end_layout
+
+\begin_layout Standard
+Leave NA for columns not matched
+\end_layout
+
+\begin_layout Subsection
+- : Delete Rows
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+A=data.frame(1:10,2:11)
+\end_layout
+
+\begin_layout Plain Layout
+
+A=A[-1,]
+\end_layout
+
+\begin_layout Plain Layout
+
+A
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Refer and Subset
+\end_layout
+
+\begin_layout Enumerate
+Refer by row/colnames
+\end_layout
+
+\begin_layout Enumerate
+refer by numeric position 
+\end_layout
+
+\begin_layout Enumerate
+refer by logic: T/F vector, that vector must be the same length as row/col
+\end_layout
+
+\begin_layout Subsection
+drop = T or F; [] or [[]] Coercion: Simplify & Preserve
+\end_layout
+
+\begin_layout Enumerate
+[[]] or 
+\series bold
+drop = T
+\series default
+ in [] is to simplify the type of object.
+ 
+\end_layout
+
+\begin_layout Enumerate
+[] or 
+\series bold
+drop =F 
+\series default
+, is to preserve the type of value
+\end_layout
+
+\begin_layout Standard
+Example
+\end_layout
+
+\begin_layout Enumerate
+list[1] will still be an one-element list; list[[1]] will the the element
+ itself.
+\end_layout
+
+\begin_layout Enumerate
+data.frame[,1] will be a vector; data.frame[,1, drop = F] will be a single
+ col data.frame
+\end_layout
+
+\begin_layout Subsection
+subset(data, condtion): Subset of a data.frame
+\end_layout
+
+\begin_layout Subsection
+subset using a matrix
+\end_layout
+
+\begin_layout Description
+> vals <- outer(1:5, 1:5, FUN = "paste", sep = ",")
+\end_layout
+
+\begin_layout Description
+> select <- matrix(ncol = 2, byrow = TRUE, c(
+\end_layout
+
+\begin_layout Description
++ 1, 1,
+\end_layout
+
+\begin_layout Description
++ 3, 1,
+\end_layout
+
+\begin_layout Description
++ 2, 4
+\end_layout
+
+\begin_layout Description
++ ))
+\end_layout
+
+\begin_layout Description
+# Each row means you want to select one value
+\end_layout
+
+\begin_layout Description
+# Each column means a dimention
+\end_layout
+
+\begin_layout Description
+> select
+\end_layout
+
+\begin_layout Description
+[,1] [,2]
+\end_layout
+
+\begin_layout Description
+[1,] 1 1
+\end_layout
+
+\begin_layout Description
+[2,] 3 1
+\end_layout
+
+\begin_layout Description
+[3,] 2 4
+\end_layout
+
+\begin_layout Description
+> vals
+\end_layout
+
+\begin_layout Description
+[,1] [,2] [,3] [,4] [,5] 
+\end_layout
+
+\begin_layout Description
+[1,] "1,1" "1,2" "1,3" "1,4" "1,5"
+\end_layout
+
+\begin_layout Description
+[2,] "2,1" "2,2" "2,3" "2,4" "2,5"
+\end_layout
+
+\begin_layout Description
+[3,] "3,1" "3,2" "3,3" "3,4" "3,5"
+\end_layout
+
+\begin_layout Description
+[4,] "4,1" "4,2" "4,3" "4,4" "4,5"
+\end_layout
+
+\begin_layout Description
+[5,] "5,1" "5,2" "5,3" "5,4" "5,5"
+\end_layout
+
+\begin_layout Description
+> vals[select]
+\end_layout
+
+\begin_layout Description
+[1] "1,1" "3,1" "2,4"
+\end_layout
+
+\begin_layout Subsection
+Tail & Head
+\end_layout
+
+\begin_layout Standard
+Last/First row/emelent of Data.frame/vector
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+tail(Pair_trade,n=1) 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+head(Pair_trade,n=1) 
+\end_layout
+
+\begin_layout Standard
+(default n is 1)
+\end_layout
+
+\begin_layout Subsection
+split/subset a data frame/vector into list by factors/elements
+\end_layout
+
+\begin_layout Standard
+unsplit will redo it
+\end_layout
+
+\begin_layout Description
+split( df , df$State )
+\end_layout
+
+\begin_layout Description
+$AL
+\end_layout
+
+\begin_layout Description
+ID Rate State
+\end_layout
+
+\begin_layout Description
+1 1 24 AL
+\end_layout
+
+\begin_layout Description
+4 4 34 AL
+\end_layout
+
+\begin_layout Description
+$FL
+\end_layout
+
+\begin_layout Description
+ID Rate State
+\end_layout
+
+\begin_layout Description
+3 3 46 FL
+\end_layout
+
+\begin_layout Description
+6 6 99 FL
+\end_layout
+
+\begin_layout Description
+$MN
+\end_layout
+
+\begin_layout Description
+ID Rate State
+\end_layout
+
+\begin_layout Description
+2 2 35 MN
+\end_layout
+
+\begin_layout Description
+5 5 78 MN
+\end_layout
+
+\begin_layout Section
+Panael Data
+\end_layout
+
+\begin_layout Subsection
+Join
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+plyr::join(x, y, by = NULL, type = "left", match = "all")
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+by
+\series default
+ character vector of variable names to join by.
+ If omitted, will match on all common variables.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+type
+\series default
+ type of join: left (default), right, inner or full.
+ See details for more information.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+match
+\series default
+ how should duplicate ids be matched? Either match just the "first" matching
+ row, or match "all" matching rows.
+ Defaults to"all" for compatibility with merge, but "first" is significantly
+ faster.
+\end_layout
+
+\begin_layout Standard
+# Default match will give you the same behavior as SQL join does
+\end_layout
+
+\begin_layout Subsection
+Lag and Lead: Slide()
+\end_layout
+
+\begin_layout Standard
+Slide: lag/lead variables
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+library(DataCombine)
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+can be applied to normal data.frame
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+DataSlid2 <- slide(Data2, Var = "B", GroupVar = "ID",
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+slideBy = 2)
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+head(DataSlid2)
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+## Year ID A B B2
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+## 1 1980 1 1 1 3
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+## 2 1981 1 2 2 4
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+## 3 1982 1 3 3 NA
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+## 4 1983 1 4 4 NA
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+## 5 1980 2 5 5 7
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+## 6 1981 2 6 6 8
+\end_layout
+
+\begin_layout Section
+Wide vs Long
+\end_layout
+
+\begin_layout Standard
+Always prefer long data!
+\end_layout
+
+\begin_layout Subsection
+melt(data, id, measure.vars): Wide to Long
+\end_layout
+
+\begin_layout Description
+library(reshape)
+\end_layout
+
+\begin_layout Description
+KResult[,1:3]
+\end_layout
+
+\begin_layout Description
+Born.Cohort White.Men Black.Men
+\end_layout
+
+\begin_layout Description
+1 1915 174.1959 173.2476
+\end_layout
+
+\begin_layout Description
+2 1920 174.7760 174.0518
+\end_layout
+
+\begin_layout Description
+3 1925 175.3734 173.5838
+\end_layout
+
+\begin_layout Description
+4 1930 176.7020 174.9340
+\end_layout
+
+\begin_layout Description
+5 1935 176.5847 175.6644
+\end_layout
+
+\begin_layout Description
+6 1940 176.2139 175.7884
+\end_layout
+
+\begin_layout Description
+melt( KResult[,1:3],id="Born.Cohort")
+\end_layout
+
+\begin_layout Description
+
+\emph on
+melt( KResult[,1:3],id="Born.Cohort", measure.vars=c(”White.Men”,”Black.Men”))
+\end_layout
+
+\begin_layout Description
+Born.Cohort variable value
+\end_layout
+
+\begin_layout Description
+1 1915 White.Men 174.1959
+\end_layout
+
+\begin_layout Description
+11 1965 White.Men 178.2870
+\end_layout
+
+\begin_layout Description
+14 1980 White.Men 179.0907
+\end_layout
+
+\begin_layout Description
+15 1915 Black.Men 173.2476
+\end_layout
+
+\begin_layout Description
+16 1920 Black.Men 174.0518
+\end_layout
+
+\begin_layout Description
+17 1925 Black.Men 173.5838
+\end_layout
+
+\begin_layout Subsection
+Long to Wide: cast(data, formula, value = '', fill = NA)
+\end_layout
+
+\begin_layout Description
+library(reshape)
+\end_layout
+
+\begin_layout Description
+? cast
+\end_layout
+
+\begin_layout Description
+cast can itself calculate the mean or apply other complicated formulas on
+ “values”, see http://stackoverflow.com/questions/7743898/how-to-use-cast-on-a-da
+ta-frame
+\end_layout
+
+\begin_layout Description
+Prediction_Both_Cate ## This is the original long data
+\end_layout
+
+\begin_layout Description
+survey_Y Birth_Cohort Height
+\end_layout
+
+\begin_layout Description
+1 2000 1950 177.9513
+\end_layout
+
+\begin_layout Description
+2 2000 1955 178.0353
+\end_layout
+
+\begin_layout Description
+3 2000 1960 178.7676
+\end_layout
+
+\begin_layout Description
+...
+\end_layout
+
+\begin_layout Description
+cast(Prediction_Both_Cate, Birth_Cohort ~survey_Y, value = 'Height', fill=0)
+\end_layout
+
+\begin_layout Description
+### survey_Y is the variable to make to be columns.
+\end_layout
+
+\begin_layout Description
+## Birth Cohort is a repeated valraible in the original long data, now make
+ it as row names.
+\end_layout
+
+\begin_layout Description
+## value=’Height’ is to make Height as the main variable of the wide table
+\end_layout
+
+\begin_layout Description
+## fill=0 means replace all NA values generated by long-wide as 0
+\end_layout
+
+\begin_layout Description
+Birth_Cohort 2000 2002 2004 2006 2008 2010
+\end_layout
+
+\begin_layout Description
+1 1950 177.9513 177.1749 175.9837 NA NA NA
+\end_layout
+
+\begin_layout Description
+2 1955 178.0353 176.7712 177.9553 177.0369 175.0325 NA
+\end_layout
+
+\begin_layout Description
+3 1960 178.7676 179.7223 178.9029 178.5172 178.4424 177.6229
+\end_layout
+
+\begin_layout Section
+Classes of Data.Frame
+\end_layout
+
+\begin_layout Subsection
+Not Coerce to factor in data.frame
+\end_layout
+
+\begin_layout Standard
+Character variables passed to data.frame are converted to factor columns
+ unless protected by 
+\family typewriter
+I
+\family default
+ or argument
+\family typewriter
+ stringsAsFactors
+\family default
+ is false.
+ 
+\end_layout
+
+\begin_layout Standard
+http://stat.ethz.ch/R-manual/R-patched/library/base/html/data.frame.html
+\end_layout
+
+\begin_layout Standard
+add this codition in data.frame to stop this converting.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+stringsAsFactors = FALSE )
+\end_layout
+
+\begin_layout Subsection
+use or not use Comma in referring columns by name
+\end_layout
+
+\begin_layout Description
+>library(plyr)
+\end_layout
+
+\begin_layout Description
+> head(mtcars)
+\end_layout
+
+\begin_layout Description
+mpg cyl disp hp drat wt qsec vs am gear carb
+\end_layout
+
+\begin_layout Description
+Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4
+\end_layout
+
+\begin_layout Description
+Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.02 0 1 4 4
+\end_layout
+
+\begin_layout Description
+Datsun 710 22.8 4 108 93 3.85 2.320 18.61 1 1 4 1
+\end_layout
+
+\begin_layout Description
+Hornet 4 Drive 21.4 6 258 110 3.08 3.215 19.44 1 0 3 1
+\end_layout
+
+\begin_layout Description
+Hornet Sportabout 18.7 8 360 175 3.15 3.440 17.02 0 0 3 2
+\end_layout
+
+\begin_layout Description
+Valiant 18.1 6 225 105 2.76 3.460 20.22 1 0 3 1
+\end_layout
+
+\begin_layout Description
+Two methods can be used, one is use comma in the middle, the other one is
+ not
+\end_layout
+
+\begin_layout Description
+We suggest to use the comma in the middle.
+\end_layout
+
+\begin_layout Description
+> class(mtcars[,c("mpg")])
+\end_layout
+
+\begin_layout Description
+[1] "numeric"
+\end_layout
+
+\begin_layout Description
+> class(mtcars[c("mpg")])
+\end_layout
+
+\begin_layout Description
+[1] "data.frame"
+\end_layout
+
+\begin_layout Subsection
+list as column
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+A=data.frame(x = 1:3, y = I(list(1:2, 1:3, 1:4)))
+\end_layout
+
+\begin_layout Plain Layout
+
+A
+\end_layout
+
+\begin_layout Plain Layout
+
+A[2,2]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+get All Combinations of Factors: expand.grid
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+expand.grid(height = seq(60, 80, 5), weight = seq(100, 300, 50), sex = c("Male","
+Female"))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Data.Frame as Enviorment
+\end_layout
+
+\begin_layout Subsection
+within(data.frame, exp = {}) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+set.seed(123)
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- rnorm(100)
+\end_layout
+
+\begin_layout Plain Layout
+
+DF <- data.frame(x = x,
+\end_layout
+
+\begin_layout Plain Layout
+
+	y = 4 + (1.5*x) + rnorm(100, sd = 2),
+\end_layout
+
+\begin_layout Plain Layout
+
+	b = gl(5, 20))
+\end_layout
+
+\begin_layout Plain Layout
+
+# add variables: z and k 
+\end_layout
+
+\begin_layout Plain Layout
+
+within(head(DF),expr = {
+\end_layout
+
+\begin_layout Plain Layout
+
+	# no need to say: z = NA first
+\end_layout
+
+\begin_layout Plain Layout
+
+	z = x[1] + 1
+\end_layout
+
+\begin_layout Plain Layout
+
+	k = z
+\end_layout
+
+\begin_layout Plain Layout
+
+})
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
