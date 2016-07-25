@@ -1,0 +1,2324 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 16419249 "v660271" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+R: apply, dplyr and pipe
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\end_layout
+
+\begin_layout Date
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First version: Feb 
+\begin_inset Formula $10{}^{th}$
+\end_inset
+
+, 2014.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Apply and Map
+\end_layout
+
+\begin_layout Itemize
+Essentially is a kind of functional programming（http://adv-r.had.co.nz/Functionals.h
+tml), which means they use function as an input
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Every functional programming language has three tools for this: Map(), Reduce(),
+ and Filter().
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+All apply functions need same input: either vector or list
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Can regard data.frame as input! (list or vector).
+ That would mean to apply function to each column vector.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Standard apply
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+apply(X, MARGIN, FUN, ...)
+\family default
+:: where margin=1 is row.
+ 2 is column.
+\end_layout
+
+\begin_layout Itemize
+lapply: return list
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+To output as data.frame, you must write the outputted list into each column
+ using the data.frame[] like
+\family typewriter
+: df[]<- lapply(df, fix_missing)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+sapply: return a vector (including list, vector arraymatrix).
+ It is a user-friendly version and wrapper of lapply.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+set.seed(1014)
+\end_layout
+
+\begin_layout Plain Layout
+
+df <- data.frame(replicate(6, sample(c(1:10, -99), 6, rep = TRUE)))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+fix_missing <- function(x) {
+\end_layout
+
+\begin_layout Plain Layout
+
+  x[x == -99] <- NA 
+\end_layout
+
+\begin_layout Plain Layout
+
+  x
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+sapply(df, fix_missing) %>% class
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+if simplify = "array", an array if appropriate
+\end_layout
+
+\begin_layout Itemize
+If the function returns results of different types or lengths, sapply()
+ will silently return a list, while 
+\family typewriter
+vapply()
+\family default
+ will throw an error.
+ 
+\end_layout
+
+\begin_layout Itemize
+sapply() is fine for interactive use because you’ll normally notice if something
+ goes wrong, but it’s dangerous when writing functions.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+tapply(data, group_index, length)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+apply to each subgroups
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Mode argument in apply
+\end_layout
+
+\begin_layout Standard
+more arguments should follow after the function
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+add <- function(x, y) x + y 
+\end_layout
+
+\begin_layout Plain Layout
+
+sapply(1:10, add, 3)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+data.frame[] in lapply to get named data.frame
+\end_layout
+
+\begin_layout Standard
+lapply: Apply a Function over a List or Vector
+\end_layout
+
+\begin_layout Standard
+Useful in data.frame: 
+\end_layout
+
+\begin_layout Standard
+1.
+ Output is normally list，
+\end_layout
+
+\begin_layout Standard
+2.
+ To output as data.frame, you must write the outputted list into each column
+ using the data.frame[] like below 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+df[]<- lapply(df, fix_missing)
+\end_layout
+
+\begin_layout Standard
+Example: replace 99 by NA (http://adv-r.had.co.nz/Functional-programming.html)
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+set.seed(1014)
+\end_layout
+
+\begin_layout Plain Layout
+
+df <- data.frame(replicate(6, sample(c(1:10, -99), 6, rep = TRUE)))
+\end_layout
+
+\begin_layout Plain Layout
+
+names(df) <- letters[1:6]
+\end_layout
+
+\begin_layout Plain Layout
+
+df
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+fix_missing <- function(x) {
+\end_layout
+
+\begin_layout Plain Layout
+
+x[x == -99] <- NA 
+\end_layout
+
+\begin_layout Plain Layout
+
+x
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+lapply(df, fix_missing)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Only write data.frame[] can let every $column accept output
+\end_layout
+
+\begin_layout Plain Layout
+
+df[]<- lapply(df, fix_missing)
+\end_layout
+
+\begin_layout Plain Layout
+
+df
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+tapply(data, group_index, length) apply to each subgroups
+\end_layout
+
+\begin_layout Standard
+imagine you’ve collected pulse rate data from a medical trial, and you want
+ to compare the two groups:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pulse <- round(rnorm(22, 70, 10 / 3)) + rep(c(0, 5), c(10, 12))
+\end_layout
+
+\begin_layout Plain Layout
+
+group <- rep(c("A", "B"), c(10, 12)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+pulse
+\end_layout
+
+\begin_layout Plain Layout
+
+group
+\end_layout
+
+\begin_layout Plain Layout
+
+> tapply(pulse, group, length) 
+\end_layout
+
+\begin_layout Plain Layout
+
+#> A B #> 10 12
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+plyr package
+\end_layout
+
+\begin_layout Standard
+This was one of the driving motivations behind the creation of the plyr
+ package.
+ It provides consistently named functions with consistently named arguments
+ and covers all combinations of input and output data structures:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+list
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+data.frame
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+array
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+list
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+llply
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ldply
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+laply
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+data.frame
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+dlply
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ddply
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+daply
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+array
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+alply
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+adply
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+aaply
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+map() and reduce()
+\end_layout
+
+\begin_layout Subsection
+loop through multiple indexes: map()
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+map(function, index1, index2)
+\end_layout
+
+\begin_layout Enumerate
+Indexes have to be the same length
+\end_layout
+
+\begin_layout Enumerate
+each element of index_i servers as an argument in the fucntion, and the
+ function will loop all the positions of indexes
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+xs <- replicate(5, runif(10), simplify = FALSE) # data
+\end_layout
+
+\begin_layout Plain Layout
+
+ws <- replicate(5, rpois(10, 5) + 1, simplify = FALSE) # weight of data
+\end_layout
+
+\begin_layout Plain Layout
+
+xs
+\end_layout
+
+\begin_layout Plain Layout
+
+ws
+\end_layout
+
+\begin_layout Plain Layout
+
+map(weighted.mean, xs, ws)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Recursive apply on index: reduce()
+\end_layout
+
+\begin_layout Standard
+It combines the first two elements with f, then combines the result of that
+ call with the third element, and so on.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+Reduce(`+`, 1:3) # -> ((1 + 2) + 3)
+\end_layout
+
+\begin_layout Plain Layout
+
+# [1] 6
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+Example: you have a list of numeric vectors, and you want to find the values
+ that occur in every element:
+\end_layout
+
+\begin_layout Standard
+….
+\end_layout
+
+\begin_layout Standard
+You could do that by intersecting each element in turn:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+l <- replicate(5, sample(1:10, 15, replace = T), simplify = FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+l
+\end_layout
+
+\begin_layout Plain Layout
+
+intersect(intersect(intersect(intersect(l[[1]], l[[2]]), l[[3]]), l[[4]]),
+ l[[5]]) #> [1] 8 6 5
+\end_layout
+
+\begin_layout Plain Layout
+
+# That’s hard to read.
+ With Reduce(), the equivalent is:
+\end_layout
+
+\begin_layout Plain Layout
+
+Reduce(intersect, l) #> [1] 8 6 5
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+magrittr Ceci n'est pas un pipe
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(babynames) # data package
+\end_layout
+
+\begin_layout Plain Layout
+
+library(dplyr)     # provides data manipulating functions.
+\end_layout
+
+\begin_layout Plain Layout
+
+library(magrittr)  # ceci n'est pas un pipe
+\end_layout
+
+\begin_layout Plain Layout
+
+library(ggplot2)   # for graphics
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Idea
+\end_layout
+
+\begin_layout Standard
+The order in which you’d think of these steps is the same as the order in
+ which they are written, and as the order in which they are executed.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+x %>% f, rather than f(x).
+ 
+\end_layout
+
+\begin_layout Standard
+To summarize the important features:
+\end_layout
+
+\begin_layout Enumerate
+Piping defaults to first-argument placement.
+\end_layout
+
+\begin_layout Enumerate
+Using a dot as placeholder allows you to use the LHS anywhere on the right-hand
+ side.
+\end_layout
+
+\begin_layout Enumerate
+You may omit parentheses when only the LHS is needed as argument.
+\end_layout
+
+\begin_layout Enumerate
+You can use anonymous functions.
+\end_layout
+
+\begin_layout Enumerate
+You can parenthesize the right-hand side if this itself evaluates to the
+ relevant call or function.
+\end_layout
+
+\begin_layout Section
+Syntax
+\end_layout
+
+\begin_layout Subsection
+turn the result to .
+ ，not the first argument
+\end_layout
+
+\begin_layout Standard
+%>% qplot(year, total, color = sex, data = ., geom = "line")
+\end_layout
+
+\begin_layout Subsection
+# no need to use () when there is a single argument needed.
+\end_layout
+
+\begin_layout Standard
+diamonds %>% head 
+\end_layout
+
+\begin_layout Section
+nested 
+\end_layout
+
+\begin_layout Subsection
+“equals” as alia of ==
+\end_layout
+
+\begin_layout Standard
+filter(name %>% substr(1, 3) %>% equals("Ste")) %>% 
+\end_layout
+
+\begin_layout Standard
+group_by(year, sex) %>% 
+\end_layout
+
+\begin_layout Standard
+summarize(total = sum(n)) %>%
+\end_layout
+
+\begin_layout Subsection
+“add” mean a literal + : used in gpplot
+\end_layout
+
+\begin_layout Standard
+add(ggtitle('Names starting with "Ste"')) %>% 
+\end_layout
+
+\begin_layout Part
+dplyr: SQL in R: a grammer of data manipulation
+\end_layout
+
+\begin_layout Standard
+Refernce: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://webcache.googleusercontent.com/search?q=cache:p7jXQ6fybyUJ:www.bqnw.me/post/d
+plyr-note+&cd=3&hl=en&ct=clnk&gl=us
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Idea
+\end_layout
+
+\begin_layout Subsection
+How dplyr works with Database: Laziness & Explain
+\end_layout
+
+\begin_layout Standard
+Laziness
+\end_layout
+
+\begin_layout Standard
+When working with databases, dplyr tries to be as lazy as possible.
+ It's lazy in two ways:
+\end_layout
+
+\begin_layout Standard
+• It never pulls data back to R unless you explicitly ask for it.
+\end_layout
+
+\begin_layout Standard
+• It delays doing any work until the last possible minute, collecting together
+ everything you want to do then sending that to the database in one step.
+\end_layout
+
+\begin_layout Subsection
+Code like SQL: connecting lines of code: %>%
+\end_layout
+
+\begin_layout Standard
+Write code in the same sequence as you think.
+ AND it runs faster actually.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+Batting2 <- tbl_df(Batting)
+\end_layout
+
+\begin_layout Plain Layout
+
+Batting2 %>% 
+\end_layout
+
+\begin_layout Plain Layout
+
+	group_by(playerID) %>% 
+\end_layout
+
+\begin_layout Plain Layout
+
+	summarise(total = sum(G)) %>% 
+\end_layout
+
+\begin_layout Plain Layout
+
+	arrange(desc(total)) %>% 
+\end_layout
+
+\begin_layout Plain Layout
+
+	head(5) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Translate R code into SQL: 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+c4$query 
+\series default
+OR
+\series bold
+ translate_sql(x) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+translate_sql(x == 1 && (y < 2 || z > 3)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+#> <SQL> "x" = 1.0 AND ("y" < 2.0 OR "z" > 3.0) 
+\end_layout
+
+\begin_layout Plain Layout
+
+translate_sql(x ^ 2 < 10) 
+\end_layout
+
+\begin_layout Plain Layout
+
+#> <SQL> POWER("x", 2.0) < 10.0 
+\end_layout
+
+\begin_layout Plain Layout
+
+translate_sql(x %% 2 == 10) 
+\end_layout
+
+\begin_layout Plain Layout
+
+#> <SQL> "x" % 2.0 = 10.0
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dplyr knows how to convert the following R functions to SQL:
+\end_layout
+
+\begin_layout Section
+Syntax
+\end_layout
+
+\begin_layout Subsection
+tbl_df: transfer to dplyr class
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+hflights_df <- tbl_df(hflights)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+• All derived data.frame all inherit that class。
+\end_layout
+
+\begin_layout Standard
+• Class is still data.frame，only changed the print() method 
+\end_layout
+
+\begin_layout Standard
+• Not suggest to use, as the output is not in class data.frame anymore
+\end_layout
+
+\begin_layout Subsection
+filter(): WHERE
+\end_layout
+
+\begin_layout Standard
+Like base::subset() 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+filter(hflights_df, Month == 1, DayofMonth == 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+# or
+\end_layout
+
+\begin_layout Plain Layout
+
+filter(hflights_df, Month == 1 | Month == 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+# You can do it in Base R
+\end_layout
+
+\begin_layout Plain Layout
+
+hflights[hflights$Month == 1 & hflights$DayofMonth == 1, ]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+arrange(): like ORDER BY
+\end_layout
+
+\begin_layout Standard
+same as plyr::arrange() 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+arrange(hflights_df, DayofMonth, Month, Year)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+desc()
+\family default
+ to reverse order
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+arrange(hflights_df, desc(ArrDelay))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+select()： SELECT
+\end_layout
+
+\begin_layout Subsection
+- in select：” –“ to exclude variables
+\end_layout
+
+\begin_layout Subsection
+choose all columns between two variables
+\end_layout
+
+\begin_layout Standard
+select the variables you want.
+ No need to add “”
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+select(hflights_df, Year, Month, DayOfWeek)
+\end_layout
+
+\begin_layout Plain Layout
+
+# : choose columns between Year and DayOfWeek
+\end_layout
+
+\begin_layout Plain Layout
+
+select(hflights_df, Year:DayOfWeek)
+\end_layout
+
+\begin_layout Plain Layout
+
+# - in select：” –“ to exclude variables
+\end_layout
+
+\begin_layout Plain Layout
+
+select(hflights_df, -(Year:DayOfWeek))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+mutate(): SELECT & CALCULATED variable
+\end_layout
+
+\begin_layout Standard
+Add calculated variables: Such as cumsum
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mutate(hflights_df, gain = ArrDelay - DepDelay, speed = Distance / AirTime
+ * 60) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Same as plyr::mutate() , similar as base::transform().
+\end_layout
+
+\begin_layout Itemize
+Here you can do calculation based on just calculated variable
+\end_layout
+
+\begin_layout Itemize
+If calculated variable has a name as an existing variable, then the existing
+ variable will be replaced by the newly calculated one.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mutate(hflights_df, gain = ArrDelay - DepDelay, gain_per_hour = gain / (AirTime
+ / 60) ) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# You cannot do this in transform
+\end_layout
+
+\begin_layout Plain Layout
+
+transform(hflights, gain = ArrDelay - DepDelay, gain_per_hour = gain / (AirTime
+ / 60) ) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+summarise()
+\end_layout
+
+\begin_layout Standard
+often used after group_by, especially when you need to use summary functions
+ like mean()
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+summarise(hflights_df, delay = mean(DepDelay, na.rm = TRUE)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Same as plyr::summarise()
+\end_layout
+
+\begin_layout Subsection
+group_by()+summarise()： GROUP BY 
+\end_layout
+
+\begin_layout Standard
+same as GROUP BY in SQL
+\end_layout
+
+\begin_layout Itemize
+Need two steps SQL： GROUP BY
+\end_layout
+
+\begin_layout Itemize
+GROUPPED VARIABLEs are automatically added in the output
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Generate data prepare for GROUP BY calculation later 
+\end_layout
+
+\begin_layout Plain Layout
+
+planes <- group_by(hflights_df, TailNum) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# GROUP BY calculation
+\end_layout
+
+\begin_layout Plain Layout
+
+delay <- summarise(planes, 
+\end_layout
+
+\begin_layout Plain Layout
+
+	count = n(), 
+\end_layout
+
+\begin_layout Plain Layout
+
+	dist = mean(Distance, na.rm = TRUE), 
+\end_layout
+
+\begin_layout Plain Layout
+
+	delay = mean(ArrDelay, na.rm = TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+delay
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Calculations in summarise() 
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+n()
+\family default
+.
+ number of rows
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+n_distinct()
+\family default
+: count number of distinct values 
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+first(x)
+\family default
+,
+\family typewriter
+ last(x)
+\family default
+ and 
+\family typewriter
+nth(x, n)
+\family default
+: these work similarly to x[1], x[length(x)], and x[n], but give you more
+ control of the result if the value isn't present.
+\end_layout
+
+\begin_layout Standard
+Even if you summarize using no groups, you still need to specify \SpecialChar \textcompwordmark{}
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+Agent_Small%>% summarise(n())
+\end_layout
+
+\begin_layout Plain Layout
+
+Agent_Small %>% group_by()%>% summarise(n())
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Join
+\end_layout
+
+\begin_layout Standard
+THIS FUNCTION IS NOT STABLE YET!!!
+\end_layout
+
+\begin_layout Enumerate
+inner_join(x, y, by = NULL, copy = FALSE, ...)
+\end_layout
+
+\begin_layout Enumerate
+left_join(x, y, by = NULL, copy = FALSE, ...)
+\end_layout
+
+\begin_layout Enumerate
+semi_join(x, y, by = NULL, copy = FALSE, ...)
+\end_layout
+
+\begin_layout Enumerate
+anti_join(x, y, by = NULL, copy = FALSE, ...)
+\end_layout
+
+\begin_layout Itemize
+by: a character vector of variables to join by.
+ If NULL, the default, join will do a natural join, using all variables
+ with common names across the two tables.
+ A message lists the variables so that you can check they’re right.
+\end_layout
+
+\begin_layout Itemize
+Copy: If x and y are not from the same data source, and copy is TRUE, then
+ y will be copied into the same src as x.
+ This allows you to join tables across srcs, but it is a potentially expensive
+ operation so you must opt into it.
+\end_layout
+
+\begin_layout Itemize
+semi_join: return all rows from x where there are matching values in y,
+ keeping just columns from x.
+\end_layout
+
+\begin_layout Itemize
+anti_join: return all rows from x where there are not matching values in
+ y, keeping just columns from x
+\end_layout
+
+\begin_layout Section
+Window Function 
+\end_layout
+
+\begin_layout Standard
+window function is a variation on an aggregation function.
+ Where an aggregation function, like sum()and mean(), takes n inputs and
+ return a single value, a window function returns n values..
+ 
+\end_layout
+
+\begin_layout Itemize
+Ranking and ordering functions: row_number(), min_rank (RANK in SQL), dense_rank
+(), cume_dist(), percent_rank(), and ntile().
+ These functions all take a vector to order by, and return various types
+ of ranks.
+\end_layout
+
+\begin_layout Itemize
+Offsets lead() and lag() allow you to access the previous and next values
+ in a vector, making it easy to compute differences and trends.
+\end_layout
+
+\begin_layout Itemize
+The other three families are variations on familiar aggregate functions:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Cumulative aggregates: cumsum(), cummin(), cummax() (from base R), and cumall(),
+ cumany(), and cummean() (from dplyr).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+NOT USE in summarise, but use in mutate or filter with group_by
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+batting <- select(tbl_df(Batting), playerID, yearID, teamID, G, AB:H) 
+\end_layout
+
+\begin_layout Plain Layout
+
+batting <- arrange(batting, playerID, yearID, teamID) 
+\end_layout
+
+\begin_layout Plain Layout
+
+players <- group_by(batting, playerID)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Rank 
+\end_layout
+
+\begin_layout Standard
+用于filter, mutate, group by 中
+\end_layout
+
+\begin_layout Enumerate
+row_number: equivalent to rank(ties.method = "first") 
+\end_layout
+
+\begin_layout Enumerate
+min_rank: equivalent to rank(ties.method = "min") 
+\end_layout
+
+\begin_layout Enumerate
+dense_rank: like min_rank, but with no gaps between ranks 
+\end_layout
+
+\begin_layout Enumerate
+percent_rank: a number between 0 and 1 computed by rescaling min_rank to
+ [0, 1] 
+\end_layout
+
+\begin_layout Enumerate
+cume_dist: a cumulative distribution function.
+ Proportion of all values less than or equal to the current rank.
+ 
+\end_layout
+
+\begin_layout Enumerate
+ntile: a rough rank, which breaks the input vector into n buckets.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- c(5, 1, 3, 2, 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+row_number(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+min_rank(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+dense_rank(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+dense_rank(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+percent_rank(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cume_dist(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ntile(x, 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+lead() and lag()
+\end_layout
+
+\begin_layout Itemize
+Compute differences or percent changes.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Compute the relative change in games played
+\family typewriter
+ mutate(players, G_delta = G - lag(G))
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Using lag() is more convenient than diff() because for n inputs diff() returns
+ n - 1outputs.
+\end_layout
+
+\begin_layout Itemize
+Find out when a value changes.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Find when a player changed teams filter(players, teamID != lag(teamID));
+ TRUE 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+lead() and lag() have an optional argument order_by.
+ If set, instead of using the row order to determine which value comes before
+ another, they will use another variable.
+ This important if you have not already sorted the data, or you want to
+ sort one way and lag another.
+\end_layout
+
+\begin_layout Subsection
+ntile(x,n) separate the var x into n groups in order
+\end_layout
+
+\begin_layout Standard
+x > median(x) is equivalent to ntile(x, 2) == 2; x > quantile(x, 75) is
+ equivalent to ntile(x, 100) > 75 or ntile(x, 4) > 3.
+\end_layout
+
+\begin_layout Subsection
+Cumulative aggregates:
+\end_layout
+
+\begin_layout Standard
+Cumulative aggregates: 
+\family typewriter
+cumsum()
+\family default
+, 
+\family typewriter
+cummin()
+\family default
+, 
+\family typewriter
+cummax()
+\family default
+ (from base R), and 
+\family typewriter
+cumall()
+\family default
+,
+\family typewriter
+cumany()
+\family default
+, and 
+\family typewriter
+cummean()
+\family default
+ (from 
+\family typewriter
+dplyr
+\family default
+).
+\end_layout
+
+\begin_layout Standard
+For example, we can use cumany() to find all records for a player after
+ they played a year with 150 games:
+\end_layout
+
+\begin_layout Subsection
+cumany() and cumall() 
+\end_layout
+
+\begin_layout Standard
+cumany() and cumall() are useful for selecting all rows up to, or all rows
+ after, a condition is true for the first (or last) time.
+ For example, we can use cumany() to find all records for a player after
+ they played a year with 150 games:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+filter(players, cumany(G > 150) & playerID=='aaronha01') # rows after 'aaronha01
+' first got 150G
+\end_layout
+
+\begin_layout Plain Layout
+
+filter(players, cumall(G <= 150) & playerID=='aaronha01' ) # rows before
+ 'aaronha01' got 150G
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+work with order_by
+\end_layout
+
+\begin_layout Standard
+Like lead and lag, you may want to control the order in which the accumulation
+ occurs.
+ None of the built in functions have an order_by argument so dplyr provides
+ a helper: order_by().
+ You give it the variable you want to order by, and then the call to the
+ window function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 1:10
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- 10:1
+\end_layout
+
+\begin_layout Plain Layout
+
+order_by(y, cumsum(x))
+\end_layout
+
+\begin_layout Plain Layout
+
+#>  [1] 55 54 52 49 45 40 34 27 19 10
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Non-standardevaluation in dplyr
+\end_layout
+
+\begin_layout Subsection
+Perfect ways: use_ and .dots = 
+\end_layout
+
+\begin_layout Standard
+Most of dplyr functions are using NSE.
+ But SE will help you do 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_deleted 16419249 1460476798
+
+<<>>=
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# SE on dplyr
+\end_layout
+
+\begin_layout Plain Layout
+
+mtcars %>% 
+\end_layout
+
+\begin_layout Plain Layout
+
+  group_by_(.dots = c('cyl','gear' )) %>%
+\end_layout
+
+\begin_layout Plain Layout
+
+  summarise_(.dots =c(mean_mpg = "mean(mpg)",n = "n()")  )
+\change_inserted 16419249 1460476767
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460476768
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460476786
+
+# IF let var = mpg, then you need
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460476806
+
+summarise_(.dots =c(mean_mpg = paste("mean(",mpg,)"),n = "n()")  )
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_deleted 16419249 1460476796
+
+@
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\family typewriter
+group_by_ (.dots = )
+\family default
+: Group by using string vector
+\end_layout
+
+\begin_layout Standard
+to know more: Non-standard evaluation: see https://cran.r-project.org/web/packages
+/dplyr/vignettes/nse.html
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+KEY=c("speed","dist")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# not work!
+\end_layout
+
+\begin_layout Plain Layout
+
+cars%>%
+\end_layout
+
+\begin_layout Plain Layout
+
+group_by_(c("speed","dist"))%>%
+\end_layout
+
+\begin_layout Plain Layout
+
+summarise(n())
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# works only when no using c(A,B), but A,B directly.
+\end_layout
+
+\begin_layout Plain Layout
+
+KEY="speed"
+\end_layout
+
+\begin_layout Plain Layout
+
+cars%>%
+\end_layout
+
+\begin_layout Plain Layout
+
+group_by_(KEY,"dist")%>%
+\end_layout
+
+\begin_layout Plain Layout
+
+summarise(n())
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Perfect Way!
+\end_layout
+
+\begin_layout Plain Layout
+
+cars%>%
+\end_layout
+
+\begin_layout Plain Layout
+
+group_by_((.dots c("speed","dist"))%>%
+\end_layout
+
+\begin_layout Plain Layout
+
+summarise(n())
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
