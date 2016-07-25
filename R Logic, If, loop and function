@@ -1,0 +1,3143 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 16419249 "v660271" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+R: Logic, If, loop and function
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\end_layout
+
+\begin_layout Date
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First version: Feb 
+\begin_inset Formula $10{}^{th}$
+\end_inset
+
+, 2014.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Logic and Assigment
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ <<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+if (TYPE=="Trend")
+\end_layout
+
+\begin_layout Plain Layout
+
+if (TYPE=="Trend" & TYPE=="Trend"  )
+\end_layout
+
+\begin_layout Plain Layout
+
+if (TYPE=="Trend" | TYPE=="Trend"  )
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+0 is False.
+ Any non-zero number is True
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> 5 & -9.99
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] TRUE
+\end_layout
+
+\begin_layout Plain Layout
+
+> 6 & 0
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] FALSE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus you can use length(object ) to deal with NULL, Character(0)……
+\end_layout
+
+\begin_layout Subsection
+= ...=...= assignment
+\end_layout
+
+\begin_layout Standard
+Creat three variables at the same time, and let them equal to NULL
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+THETA=SIGMA=Y.MISS=NULL
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+!: negative assert 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> head(Y)
+\end_layout
+
+\begin_layout Plain Layout
+
+glu bp skin bmi
+\end_layout
+
+\begin_layout Plain Layout
+
+1 86 68 28 30.2
+\end_layout
+
+\begin_layout Plain Layout
+
+2 195 70 33 NA
+\end_layout
+
+\begin_layout Plain Layout
+
+3 77 82 NA 35.8
+\end_layout
+
+\begin_layout Plain Layout
+
+4 NA 76 43 47.9
+\end_layout
+
+\begin_layout Plain Layout
+
+5 107 60 NA NA
+\end_layout
+
+\begin_layout Plain Layout
+
+6 97 76 27 NA
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+> head(!is.na(Y))
+\end_layout
+
+\begin_layout Plain Layout
+
+glu bp skin bmi
+\end_layout
+
+\begin_layout Plain Layout
+
+1 TRUE TRUE TRUE TRUE
+\end_layout
+
+\begin_layout Plain Layout
+
+2 TRUE TRUE TRUE FALSE
+\end_layout
+
+\begin_layout Plain Layout
+
+3 TRUE TRUE FALSE TRUE
+\end_layout
+
+\begin_layout Plain Layout
+
+4 FALSE TRUE TRUE TRUE
+\end_layout
+
+\begin_layout Plain Layout
+
+5 TRUE TRUE FALSE FALSE
+\end_layout
+
+\begin_layout Plain Layout
+
+6 TRUE TRUE TRUE FALSE
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+> O=1*(!is.na(Y))
+\end_layout
+
+\begin_layout Plain Layout
+
+> head(O)
+\end_layout
+
+\begin_layout Plain Layout
+
+glu bp skin bmi
+\end_layout
+
+\begin_layout Plain Layout
+
+1 1 1 1 1
+\end_layout
+
+\begin_layout Plain Layout
+
+2 1 1 1 0
+\end_layout
+
+\begin_layout Plain Layout
+
+3 1 1 0 1
+\end_layout
+
+\begin_layout Plain Layout
+
+4 0 1 1 1
+\end_layout
+
+\begin_layout Plain Layout
+
+5 1 1 0 0
+\end_layout
+
+\begin_layout Plain Layout
+
+6 1 1 1 0
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+all: are all values true?
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> all(1,0)
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] FALSE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+any: is any value true?
+\end_layout
+
+\begin_layout Subsection
+&& || short circuiting /'sɜːkɪt/ 
+\end_layout
+
+\begin_layout Standard
+&& (ampersand ) and || are what is called "short circuiting".
+ That means that they will not evaluate the second operand if the first
+ operand is enough to determine the value of the expression.
+\end_layout
+
+\begin_layout Standard
+For example if the first operand to && is false then there is no point in
+ evaluating the second operand, since it can't change the value of the expressio
+n (false && true and false && false are both false).
+ The same goes for || when the first operand is true.
+\end_layout
+
+\begin_layout Part
+
+\change_inserted 16419249 1461596973
+Debug
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1461596980
+Errors, Warnings, and Messages.
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 16419249 1461596980
+Fatal errors are raised by stop() and force all execution to terminate.
+ Errors are used when there is no way for a function to continue.
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 16419249 1461596980
+Warnings are generated by warning() and are used to display potential problems,
+ such as when some elements of a vectorised input are invalid, like log(-1:2).
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 16419249 1461596980
+Messages are generated by message() and are used to give informative output
+ in a way that can easily be suppressed by the user (?suppressMessages()).
+ I often use messages to let the user know what value the function has chosen
+ for an important missing argument.
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted 16419249 1461597007
+stop() & write your error message 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1461597018
+stop has printing behavior is like cat.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1461597019
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597019
+
+> Input_Class='character'
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597019
+
+> x=1
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597019
+
+> stop(
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597019
+
++   "
+\backslash
+n",
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597019
+
++   deparse(substitute(x))," is in ",class(x)," now", "
+\backslash
+n",
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597019
+
++   "is shall be in class ",Input_Class,"
+\backslash
+n"
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597019
+
++   )
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597019
+
+Error: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597019
+
+x is in numeric now
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597019
+
+is shall be in class character
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted 16419249 1461597031
+Automated test suites 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1461597045
+http://r-pkgs.had.co.nz/tests.html 
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted 16419249 1461597045
+Warnings
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1461597045
+http://en.wikibooks.org/wiki/R_Programming/Debugging
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1461597045
+After an error is raised, the traceback() function allows you to show the
+ call stack leading to the error.
+ For example, the function below calls myFun.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1461597045
+Warnings are always printed out at the end of loop, now make it print out
+ along the loop.
+ So you can see in which “i” warning is issued.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1461597067
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597067
+
+options(warn=1) # print warnings as they occur 
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597067
+
+options(warn=2) # treat warnings as errors
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted 16419249 1461597216
+tryCatch : catach the error/warning
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted 16419249 1461597218
+finally
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1461597125
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597125
+
+> library('Quandl')
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1461597119
+As RMTI never pay out dividends, so it returned error as no SEC filling
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1461597123
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597123
+
+> Quandl.search('RMTI',source = 'SEC',silent = T)
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597123
+
+Error in json$docs[[i]] : subscript out of bounds
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1461597114
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597114
+
+> A=tryCatch(
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597114
+
+   Quandl.search('RMTI',source = 'SEC',silent = T),
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597114
+
+   error =function(err){
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597114
+
+     print(err)
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597114
+
+     return(2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597114
+
+   },
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597114
+
+  warning = function(war){
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597114
+
+    print(war)
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597114
+
+    return(3)
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597114
+
+  },
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597114
+
+  finally = {
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597114
+
+    print('?')
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597114
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597114
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597180
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597180
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461597181
+
+<simpleError in json$docs[[i]]: subscript out of bounds> <?> > A [1] 2 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1461597190
+With ‘tryCatch’We can catch that error and ignore it and go on!
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 16419249 1461597187
+If error，then return error argument （errs is automatic variable contains
+ the error message), and A=2
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 16419249 1461597193
+if warning，then return warning argument （war is automatic variable contains
+ the warning message)，and A=3
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 16419249 1461597187
+If no warning error，then A= output of Quandl.search
+\end_layout
+
+\begin_layout Part
+NA & NULL
+\end_layout
+
+\begin_layout Subsection
+NA means missing; NULL means empty; 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> NA==1
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] NA
+\end_layout
+
+\begin_layout Plain Layout
+
+> NaN == NaN
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] NA
+\end_layout
+
+\begin_layout Plain Layout
+
+> NA == NA
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] NA
+\end_layout
+
+\begin_layout Plain Layout
+
+> NULL == NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+logical(0)
+\end_layout
+
+\begin_layout Plain Layout
+
+> NULL==1 
+\end_layout
+
+\begin_layout Plain Layout
+
+logical(0) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+BE CAREFULL: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> is.na(NULL)
+\end_layout
+
+\begin_layout Plain Layout
+
+logical(0)
+\end_layout
+
+\begin_layout Plain Layout
+
+Warning message:
+\end_layout
+
+\begin_layout Plain Layout
+
+In is.na(NULL) : is.na() applied to non-(list or vector) of type 'NULL'
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The safest way to decide an object is neither NA or NULL is
+\end_layout
+
+\begin_layout Standard
+First test null, then use a logical circuit and then test na
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+is.null(A) || is.na(B)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+is.na | is.null
+\end_layout
+
+\begin_layout Standard
+which term in a vector is NA?
+\end_layout
+
+\begin_layout Itemize
+is.na CANNOT work on NULL
+\end_layout
+
+\begin_layout Itemize
+is.null can work on NULL
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> is.null(NULL)
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] TRUE
+\end_layout
+
+\begin_layout Plain Layout
+
+> is.na(NULL)
+\end_layout
+
+\begin_layout Plain Layout
+
+logical(0)
+\end_layout
+
+\begin_layout Plain Layout
+
+Warning message:
+\end_layout
+
+\begin_layout Plain Layout
+
+In is.na(NULL) : is.na() applied to non-(list or vector) of type 'NULL'
+\end_layout
+
+\begin_layout Plain Layout
+
+> 
+\end_layout
+
+\begin_layout Plain Layout
+
+> 
+\end_layout
+
+\begin_layout Plain Layout
+
+> is.null(NA)
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] FALSE
+\end_layout
+
+\begin_layout Plain Layout
+
+> is.na(NaN)
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] TRUE
+\end_layout
+
+\begin_layout Plain Layout
+
+> is.na(NA)
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] TRUE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+NaN
+\end_layout
+
+\begin_layout Standard
+NaN means ‘Not a Number’.
+ (These apply to numeric values and real and imaginary parts of complex
+ values but not to values of integer vectors.) 
+\end_layout
+
+\begin_layout Subsection
+Identify “.” as NA: read.table
+\end_layout
+
+\begin_layout Standard
+R can only recognize NA as NA.
+ So for any format of NA in the original data, like “.”, you need to transform
+ them into “NA” 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+data1=read.table("E:/LAWSCH85.raw",header=F, na.strings=".") 
+\end_layout
+
+\begin_layout Plain Layout
+
+data2<-cbind(data1[,2],data1[,4],data1[,5],data1[,6],data1[,3],data1[,1])
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+na.omit
+\change_inserted 16419249 1460042825
+()
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+data=na.omit(data2) ##### to delete NAs in the vector, return a complete
+ vector
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+nr.rm
+\change_inserted 16419249 1460042831
+ = T
+\change_unchanged
+: NA (not) in calculation
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+sd(data[,22],na.rm=T) array
+\end_layout
+
+\begin_layout Plain Layout
+
+if length(Beyond_above)!=0 # to exclude the interger(0) problem
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+length(NULL, character(0)) ==F
+\end_layout
+
+\begin_layout Standard
+You can use length to get the generalized empty object
+\end_layout
+
+\begin_layout Subsection
+find rows without NA: complete.cases
+\end_layout
+
+\begin_layout Standard
+complete.cases(x)
+\end_layout
+
+\begin_layout Standard
+where x is a vector, a series of vector or a data.frame.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+x <- airquality[, -1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- airquality[, 1]
+\end_layout
+
+\begin_layout Plain Layout
+
+complete.cases(x,y)
+\end_layout
+
+\begin_layout Plain Layout
+
+complete.cases(airquality)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+approx.: Interplotation missing values
+\end_layout
+
+\begin_layout Standard
+In “approx” function, Use constant method or linear method.
+\end_layout
+
+\begin_layout Standard
+Constant method will replace NA by the most near following available non-NA
+ value.
+\end_layout
+
+\begin_layout Standard
+Linear method cannot estimate the NAs in the beginning.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> zz <- c(NA,9,3,NA,3,2)
+\end_layout
+
+\begin_layout Plain Layout
+
+> approx(zz,method="constant",n=6)
+\end_layout
+
+\begin_layout Plain Layout
+
+$x
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 2.0 2.8 3.6 4.4 5.2 6.0
+\end_layout
+
+\begin_layout Plain Layout
+
+$y
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 9 9 3 3 3 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+User-Defined: `%||%` default value if not NULL
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+`%||%` <- function(a, b) if (!is.null(a)) a else b 
+\end_layout
+
+\begin_layout Plain Layout
+
+function_that_might_return_null() %||% default value
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+NULL: Create a storage for storing results later in loop
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Theta = NULL
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This storage object can turned to be any class in the later.
+\end_layout
+
+\begin_layout Subsection
+subset with nothing [] : preserve the original object class and structure.
+ 
+\end_layout
+
+\begin_layout Subsection
+inf
+\end_layout
+
+\begin_layout Standard
+Inf and -Inf are positive and negative infinity 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> pi / 0 ## = Inf a non-zero number divided by zero creates infinity
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] Inf
+\end_layout
+
+\begin_layout Plain Layout
+
+> is.finite(pi/0)
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] FALSE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\change_inserted 16419249 1460042880
+class of NA
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted 16419249 1460042892
+NA_character_ and NA_real_
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1460042859
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042869
+
+> NA %>% class
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042869
+
+[1] "logical"
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042909
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042869
+
+> c(NA,1) %>% class
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042869
+
+[1] "numeric"
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042907
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042869
+
+> c(NA,'1') %>% class
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042869
+
+[1] "character"
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042869
+
+> NA_character_
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042869
+
+[1] NA
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042904
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042869
+
+> NA_character_ %>% class
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042869
+
+[1] "character"
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042899
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042899
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042869
+
+> NA_real_
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042869
+
+[1] NA
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042869
+
+> NA_real_ %>% class
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1460042869
+
+[1] "numeric"
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+If & Loop
+\end_layout
+
+\begin_layout Standard
+If
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+if (length(rownames(data))==0) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	l=length(data)
+\end_layout
+
+\begin_layout Plain Layout
+
+	x=seq(1,l,frequency)
+\end_layout
+
+\begin_layout Plain Layout
+
+	data[x]
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+else {
+\end_layout
+
+\begin_layout Plain Layout
+
+	l=length(data[,1])
+\end_layout
+
+\begin_layout Plain Layout
+
+	x=seq(1,l,frequency)
+\end_layout
+
+\begin_layout Plain Layout
+
+	data[x,]
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+ifelse(test, yes, no)
+\end_layout
+
+\begin_layout Standard
+Arguments
+\end_layout
+
+\begin_layout Description
+test an object which can be coerced to logical mode.
+\end_layout
+
+\begin_layout Description
+yes return values for true elements of test.
+\end_layout
+
+\begin_layout Description
+no return values for false elements of test.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> x <- c(6:-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+> sqrt(x) #- gives warning
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 2.449490 2.236068 2.000000 1.732051 1.414214 1.000000 0.000000 NaN NaN NaN
+ NaN
+\end_layout
+
+\begin_layout Plain Layout
+
+Warning message:
+\end_layout
+
+\begin_layout Plain Layout
+
+In sqrt(x) : NaNs produced
+\end_layout
+
+\begin_layout Plain Layout
+
+> ifelse(x >= 0, x, NA) # no warning
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 6 5 4 3 2 1 0 NA NA NA NA
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+> x = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+> 
+\end_layout
+
+\begin_layout Plain Layout
+
+> ifelse(x >= 0, 
+\end_layout
+
+\begin_layout Plain Layout
+
++        {y = x+1
+\end_layout
+
+\begin_layout Plain Layout
+
++        y+1},NA)
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+for
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+for (i in 1:length(x)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+annualized.effective.return = (x[i]/time/100 + 1)^time
+\end_layout
+
+\begin_layout Plain Layout
+
+r[i] = log(annualized.effective.return)/time2
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Looping patterns
+\end_layout
+
+\begin_layout Standard
+It’s useful to remember that there are three basic ways to loop over a vector:
+\end_layout
+
+\begin_layout Standard
+1.
+ loop over the elements: for (x in xs)
+\end_layout
+
+\begin_layout Standard
+2.
+ loop over the numeric indices: for (i in seq_along(xs))
+\end_layout
+
+\begin_layout Standard
+3.
+ loop over the names: for (nm in names(xs))
+\end_layout
+
+\begin_layout Subsection
+Next/break in loop
+\end_layout
+
+\begin_layout Itemize
+bext :Jump to the next element of the loop
+\end_layout
+
+\begin_layout Itemize
+break: break breaks out of a for, while or repeat loop; control is transferred
+ to the first statement outside the inner-most loop.
+\end_layout
+
+\begin_layout Standard
+Cannot be used in apply functions.
+\end_layout
+
+\begin_layout Standard
+Cannot be used in any functions where loop is inside the function, suggest
+ to use “while”
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+next
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+i <- 0
+\end_layout
+
+\begin_layout Plain Layout
+
+while(i < 5) {
+\end_layout
+
+\begin_layout Plain Layout
+
++ i <- i + 1
+\end_layout
+
+\begin_layout Plain Layout
+
++ if(i < 3) next
+\end_layout
+
+\begin_layout Plain Layout
+
++ print(i)
+\end_layout
+
+\begin_layout Plain Layout
+
++ }
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 3
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 4
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+break
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> for (i in 1:10){
+\end_layout
+
+\begin_layout Plain Layout
+
++ print(i)
+\end_layout
+
+\begin_layout Plain Layout
+
++ if (i==2) break
+\end_layout
+
+\begin_layout Plain Layout
+
++ }
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 1
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Break I multiple loops: it will only be effective in its own layer 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> for (i in 1:3){
+\end_layout
+
+\begin_layout Plain Layout
+
++ for (j in 11:15){
+\end_layout
+
+\begin_layout Plain Layout
+
++ cat("i:",i ,"j:",j,"
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
++ if (j == 13) break
+\end_layout
+
+\begin_layout Plain Layout
+
++ }
+\end_layout
+
+\begin_layout Plain Layout
+
++ }
+\end_layout
+
+\begin_layout Plain Layout
+
+i: 1 j: 11 
+\end_layout
+
+\begin_layout Plain Layout
+
+i: 1 j: 12 
+\end_layout
+
+\begin_layout Plain Layout
+
+i: 1 j: 13 
+\end_layout
+
+\begin_layout Plain Layout
+
+i: 2 j: 11 
+\end_layout
+
+\begin_layout Plain Layout
+
+i: 2 j: 12 
+\end_layout
+
+\begin_layout Plain Layout
+
+i: 2 j: 13 
+\end_layout
+
+\begin_layout Plain Layout
+
+i: 3 j: 11 
+\end_layout
+
+\begin_layout Plain Layout
+
+i: 3 j: 12 
+\end_layout
+
+\begin_layout Plain Layout
+
+i: 3 j: 13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Type the Keyboard
+\end_layout
+
+\begin_layout Standard
+The following line can be in loop or function to read what user type.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+cat ("
+\backslash
+n ....
+ Press [enter] to continue; Type [s] to stop ....") 
+\end_layout
+
+\begin_layout Plain Layout
+
+line <- readline()
+\end_layout
+
+\begin_layout Plain Layout
+
+if (line=='s' | line=='S') stop("Stop ! ")
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Function
+\end_layout
+
+\begin_layout Section
+Argument
+\end_layout
+
+\begin_layout Subsection
+show the argument of function lm 
+\end_layout
+
+\begin_layout Itemize
+args is only to print
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> args(lm)
+\end_layout
+
+\begin_layout Plain Layout
+
+function (formula, data, subset, weights, na.action, method = "qr", 
+\end_layout
+
+\begin_layout Plain Layout
+
+model = TRUE, x = FALSE, y = FALSE, qr = TRUE, singular.ok = TRUE, 
+\end_layout
+
+\begin_layout Plain Layout
+
+contrasts = NULL, offset, ...) 
+\end_layout
+
+\begin_layout Plain Layout
+
+NULL
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+formals is for programming
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> foo = function(a=2,b=3){
+\end_layout
+
+\begin_layout Plain Layout
+
++ a+b
+\end_layout
+
+\begin_layout Plain Layout
+
++ }
+\end_layout
+
+\begin_layout Plain Layout
+
+> formals(foo)
+\end_layout
+
+\begin_layout Plain Layout
+
+$a
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 2
+\end_layout
+
+\begin_layout Plain Layout
+
+$b
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Default and missing arguments
+\end_layout
+
+\begin_layout Standard
+Function arguments in R can have default values.
+\end_layout
+
+\begin_layout Standard
+Since arguments in R are evaluated lazily (more on that below), the default
+ value can be defined in terms of other arguments:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+g <- function(a = 1, b = a * 2) {...}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You can even set the argument default as another argument
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> rm(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+Warning in rm(x) : object 'x' not found
+\end_layout
+
+\begin_layout Plain Layout
+
+> rm(y)
+\end_layout
+
+\begin_layout Plain Layout
+
+Warning in rm(y) : object 'y' not found
+\end_layout
+
+\begin_layout Plain Layout
+
+> test = function(y, x = y){
+\end_layout
+
+\begin_layout Plain Layout
+
++ x+y}
+\end_layout
+
+\begin_layout Plain Layout
+
+> test(1)
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+match.arg(): default arguments within a range of values
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+match.arg(arg, choices, several.ok = FALSE)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+standard use: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+match the arg with choices, return the matched element in arg.
+ Can only be used for characters.
+\end_layout
+
+\begin_layout Enumerate
+Normally arg cannot be length one character, unless several.ok =T
+\end_layout
+
+\begin_layout Enumerate
+allow abbreviation when no ambiguity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> match.arg(c("gauss", "rect", "ep"),
+\end_layout
+
+\begin_layout Plain Layout
+
+	+ c("gaussian", "epanechnikov", "rectangular", "triangular"),
+\end_layout
+
+\begin_layout Plain Layout
+
+	+ several.ok = F)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Error in match.arg(c("gauss", "rect", "ep"), c("gaussian", "epanechnikov",
+ : 
+\end_layout
+
+\begin_layout Plain Layout
+
+'arg' must be of length 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+> 
+\end_layout
+
+\begin_layout Plain Layout
+
+> match.arg(c("gauss", "rect", "ep"), # allow ambiguity
+\end_layout
+
+\begin_layout Plain Layout
+
+	+ c("gaussian", "epanechnikov", "rectangular", "triangular"),
+\end_layout
+
+\begin_layout Plain Layout
+
+	+ several.ok = TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] "gaussian" "rectangular" "epanechnikov"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+most common use: use it in function, to 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If argument is specified, check whether the argument is within the default
+ ones.
+\end_layout
+
+\begin_layout Enumerate
+I f not specified, then return the first element of the default argument
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+choose the first argument 
+\end_layout
+
+\begin_layout Standard
+So we can write foo as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+foo <- function(x, members = c("CORE", "ALL")) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	## evaluate choices
+\end_layout
+
+\begin_layout Plain Layout
+
+	members <- match.arg(members)
+\end_layout
+
+\begin_layout Plain Layout
+
+	## do something
+\end_layout
+
+\begin_layout Plain Layout
+
+	print(members)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Which we use like this:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> foo()
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] "CORE"
+\end_layout
+
+\begin_layout Plain Layout
+
+> foo(members = "CORE")
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] "CORE"
+\end_layout
+
+\begin_layout Plain Layout
+
+> foo(members = "ALL")
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] "ALL"
+\end_layout
+
+\begin_layout Plain Layout
+
+> foo(members = "3rdRate")
+\end_layout
+
+\begin_layout Plain Layout
+
+Error in match.arg(members) : 'arg' should be one of “CORE”, “ALL”
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+promise
+\end_layout
+
+\begin_layout Standard
+function arguments are represented by a special type of object called a
+ promise.
+ A promise captures the expression needed to compute the value and the environme
+nt in which to compute it.
+ 
+\end_layout
+
+\begin_layout Standard
+See “promise” in lazy evaluation chapter for more details.
+\end_layout
+
+\begin_layout Subsection
+Detect Missing argument 
+\end_layout
+
+\begin_layout Standard
+missing() shall only be used inside when building function
+\end_layout
+
+\begin_layout Standard
+return a logical value to test whether the argument is missing or not
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> myplot <- function(x, y) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	+ if(missing(y)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	+ print("missing y")
+\end_layout
+
+\begin_layout Plain Layout
+
+	+ y <- x
+\end_layout
+
+\begin_layout Plain Layout
+
+	+ x <- 1:length(y)
+\end_layout
+
+\begin_layout Plain Layout
+
+	+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+	+ plot(x, y)
+\end_layout
+
+\begin_layout Plain Layout
+
++ }
+\end_layout
+
+\begin_layout Plain Layout
+
+> 
+\end_layout
+
+\begin_layout Plain Layout
+
+> myplot(x=1:10)
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] "missing y"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+missing in function will not check global object, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+myplot <- function(x, y) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(missing(y)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		stop("no y")
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	plot(x, y)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+y=2
+\end_layout
+
+\begin_layout Plain Layout
+
+myplot(1:10)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+… three dot argument
+\end_layout
+
+\begin_layout Standard
+The three-dots allows:
+\end_layout
+
+\begin_layout Itemize
+an arbitrary number and variety of arguments
+\end_layout
+
+\begin_layout Itemize
+passing arguments on to other functions
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> apply(myMat, 2, mean)
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] NA 0.1091856 0.1390755
+\end_layout
+
+\begin_layout Plain Layout
+
+> apply(myMat, 2, mean, na.rm=TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 0.3000754 0.1091856 0.1390755
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The na.rm does not match any arguments of apply, so it is put into the three-dots.
+ The function being applied — mean in this case — is called with the three-dots
+ included and hence mean is called with its na.rm argument set.
+\end_layout
+
+\begin_layout Standard
+Very often you pass it to a particular function that you want to be called
+ flexibly.
+ For example:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+function(inputs, col="red", ...)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	#stuff
+\end_layout
+
+\begin_layout Plain Layout
+
+	plot(modified.data, col=col, ...)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or you want to list() them to refer individual ones
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+function(inputs, ...)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	dots <- list(...)
+\end_layout
+
+\begin_layout Plain Layout
+
+	ndots <- length(dots)
+\end_layout
+
+\begin_layout Plain Layout
+
+	#stuff
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Control
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Run Code after Exit Function: on.exit(expr)
+\end_layout
+
+\begin_layout Standard
+Weird behavior when I use it….So be careful
+\end_layout
+
+\begin_layout Standard
+The on.exit function is used within other functions to specify a command
+ to be run when exiting the parent function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+x = 100
+\end_layout
+
+\begin_layout Plain Layout
+
+y = 100
+\end_layout
+
+\begin_layout Plain Layout
+
+test=function(x){
+\end_layout
+
+\begin_layout Plain Layout
+
+on.exit(print(x+1 + y)) # x will be local; as cannot find local y, then go
+ to find global y
+\end_layout
+
+\begin_layout Plain Layout
+
+invisible(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+test(1)
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 102
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you’re using multiple on.exit() calls within a function, make sure to
+ set add = TRUE.
+ Unfortunately, the default in on.exit() is add = FALSE, so that every time
+ you run it, it overwrites existing exit expressions.
+ B
+\end_layout
+
+\begin_layout Subsubsection
+return Invisible objects 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+> f1 <- function(x) x
+\end_layout
+
+\begin_layout Plain Layout
+
+> f2 <- function(x) invisible(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+> f1(1) # prints
+\end_layout
+
+\begin_layout Plain Layout
+
+[1] 1
+\end_layout
+
+\begin_layout Plain Layout
+
+> f2(1) # does not
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+early return/quit: return()
+\end_layout
+
+\begin_layout Standard
+Quite a function early : 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+f <- function(x, y) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (!x) return(y)
+\end_layout
+
+\begin_layout Plain Layout
+
+	# complicated processing to be skipped! 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Techs
+\end_layout
+
+\begin_layout Subsection
+create infix Function.
+ 插入词,中缀
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+`%+%` <- function(a, b) paste(a, b, sep = "") 
+\end_layout
+
+\begin_layout Plain Layout
+
+"new" %+% " string" 
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] "new string"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that when creating the function, you have to put the name in backticks
+ because its a special name.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+"new" %+% " string" # no need for quote
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] "new string"
+\end_layout
+
+\begin_layout Plain Layout
+
+`%+%`("new", " string") # need to quote
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] "new string"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+control+ click on function to show the source code
+\end_layout
+
+\begin_layout Section
+Function’s Enviornment
+\end_layout
+
+\begin_layout Subsection
+:: local variable in upper level function cannot enter into the next level
+ (Nested) Function 
+\end_layout
+
+\begin_layout Standard
+Variables created in functions are not global, it cannot be referred in
+ nested function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+x=1;z=2
+\end_layout
+
+\begin_layout Plain Layout
+
+function(x){ ## outside function
+\end_layout
+
+\begin_layout Plain Layout
+
+	y=1+x
+\end_layout
+
+\begin_layout Plain Layout
+
+	function(z){ ##inside function
+\end_layout
+
+\begin_layout Plain Layout
+
+		y+z
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1.
+ This is not right, as y is local and cannot go down to an another layer
+\end_layout
+
+\begin_layout Standard
+2.
+ You can define y outside, globally, but 
+\end_layout
+
+\begin_layout Standard
+So you would better to define y as an input of the second layer function.
+ Thus the local y in first layer can go into it:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+x=1;z=2
+\end_layout
+
+\begin_layout Plain Layout
+
+function(x){ ## first layer function
+\end_layout
+
+\begin_layout Plain Layout
+
+	y=1+x
+\end_layout
+
+\begin_layout Plain Layout
+
+	function(z,y){ ## second layer function
+\end_layout
+
+\begin_layout Plain Layout
+
+	y+z
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+:: external dependency & self-contained
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+f <- function() x 
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 15 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+f() 
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] 15 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 20 
+\end_layout
+
+\begin_layout Plain Layout
+
+f() 
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] 20
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You generally want to avoid this behavior because it means the function
+ is no longer self-contained.
+ 
+\end_layout
+
+\begin_layout Subsection
+Check external dependency
+\end_layout
+
+\begin_layout Standard
+This function lists all the external dependencies of a function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+f <- function() x + 1 
+\end_layout
+
+\begin_layout Plain Layout
+
+codetools::findGlobals(f)
+\end_layout
+
+\begin_layout Plain Layout
+
+#> [1] "+" "x"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+R relies on lexical scoping to find everything, even the + operator.
+ It’s never possible to make a function completely self-contained because
+ you must always rely on functions defined in base R or other packages.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+f <- function(x, y) { if (!x) return(y) # complicat
+\end_layout
+
+\end_inset
+
+ed processing here }
+\end_layout
+
+\end_body
+\end_document
