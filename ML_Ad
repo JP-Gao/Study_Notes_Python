@@ -133,7 +133,7 @@ knitr
 \begin_body
 
 \begin_layout Title
-Recommendation System
+Ads
 \end_layout
 
 \begin_layout Author
@@ -183,7 +183,148 @@ DIETMAR JANNACH Technische Universit¨at Dortmund MARKUS ZANKER Alpen-Adria
 
 \end_deeper
 \begin_layout Part
-Collaborative Recommendation
+ML
+\end_layout
+
+\begin_layout Enumerate
+The Dimensionality of feature space is high.
+ There are bunch of media features such as: exchange, publisher, app/website
+ placement features, time of day, day of week, ad size etc.
+ We also have several users features including: geo (city, state, country)
+ and system-based features such as: device, connection, browser, OS etc.
+ You can also grab extra user demographics from 3rd party data providers.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The well-known Rarity problem where there are a very few clicks and even
+ much less conversions.
+ To put this in perspective you might have a CTR around 0.08% to 0.11% in
+ the best case.
+ Now multiply this with another 10% conversion rate which give us a conversion
+ rate in the range of 0.008%!
+\end_layout
+
+\begin_layout Section
+Real-Time Bidding (RTB)
+\end_layout
+
+\begin_layout Standard
+The first area of mobile advertising which can be improved by machine learning
+ (ML) is Real-Time Bidding (RTB) traffic.
+ In an RTB environment, Demand-Side Platforms (DSPs) need to determine the
+ optimal amount to bid on every single specific impression.
+ Most RTB-enabled exchanges will only allow a maximum response latency of
+ 100 milliseconds, meaning that a data-driven assessment of the impression
+ has to be generated within an extremely short amount of time.
+\end_layout
+
+\begin_layout Standard
+In order to determine how much to bid, the algorithm needs to assess the
+ probability of the impression resulting in good performance metrics, such
+ as 
+\end_layout
+
+\begin_layout Enumerate
+Click-through rate (CTR), 
+\end_layout
+
+\begin_layout Enumerate
+Conversion/install rate (CR/IR),
+\end_layout
+
+\begin_layout Enumerate
+and even post-install events that enable to approximate Lifetime Value (LTV).
+\end_layout
+
+\begin_layout Standard
+This assessment is done programmatically, utilizing data provided with the
+ impression, either from the publisher or from a data management platform
+ (DMP), as well as first party data from the advertiser as input.
+\end_layout
+
+\begin_layout Subsection
+How
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Representation for solutions is the hardest:
+\end_layout
+
+\begin_layout Itemize
+Design the cost function / Revenue Function, which elements to be included,
+ how to quantify it.
+\end_layout
+
+\begin_layout Itemize
+More complicated case: There is diminishing return: Revenue Function per
+ account may decrease when quantity increases.
+\end_layout
+
+\begin_layout Subsection
+Clustering Customer / Targeting
+\end_layout
+
+\begin_layout Part
+Bid Price
+\end_layout
+
+\begin_layout Standard
+Don’t try for the cheapest clicks or impressions—You'll reach people that
+ are easier to reach, but don’t necessarily provide the value you expect.
+ 
+\end_layout
+
+\begin_layout Itemize
+CPM: Definition of 'Cost Per Thousand - CPM' The price of 1,000 advertisement
+ impressions on one webpage.
+ If a website publisher charges $2 CPM, that means an advertiser must pay
+ $2 for every 1,000 impressions of its ad.
+ The "M" in CPM represents the roman numeral for 1,000.
+\end_layout
+
+\begin_layout Itemize
+CPE (cost per engagement): 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+in CPE model, the impressions are free.
+ When you involve an advertiser in a Cost per Engagement model, the advertiser
+ will pay only when a user engages with an ad unit.
+ Engagemnt is something, which the advertisers and the publisher have to
+ sit together and decide on.
+ IN CPE model, it can be considered as engagement when,
+\end_layout
+
+\begin_layout Enumerate
+User hovers over the ad and the whole ad unit open up displaying the creative
+ 
+\end_layout
+
+\begin_layout Enumerate
+If the ad is in the form of a poll, engagement happens only when the user
+ takes the poll 
+\end_layout
+
+\begin_layout Enumerate
+Some CPE based ads might be in the form of a product tour, which if an user
+ takes, can be considered as engagement 
+\end_layout
+
+\begin_layout Enumerate
+Online games in the form of ad.
+\end_layout
+
+\end_deeper
+\begin_layout Part
+Recommendation
+\end_layout
+
+\begin_layout Section
+Recommendation
 \end_layout
 
 \begin_layout Standard
@@ -278,7 +419,7 @@ a list of n recommended items.
 
 \end_deeper
 \begin_layout Section
-User-based nearest neighbor recommendation
+User-based nearest neighbor 
 \end_layout
 
 \begin_layout Subsection
@@ -410,7 +551,7 @@ assign default values to items that only one of the two users has rated
 
 \end_deeper
 \begin_layout Section
-Item-based nearest neighbor recommendation
+Item-based nearest neighbor
 \end_layout
 
 \begin_layout Standard
@@ -551,12 +692,2399 @@ A^{T}U\Sigma^{-1}
 
 \end_layout
 
-\begin_layout Part
-Content-based recommendation
+\begin_layout Section
+Content-based 
+\end_layout
+
+\begin_layout Section
+Knowdge-based 
 \end_layout
 
 \begin_layout Part
-Knowdge-based recommendation
+Ad Basis
+\end_layout
+
+\begin_layout Description
+Budge: money that advertiers ready to spend -- Demand
+\end_layout
+
+\begin_layout Description
+Inventory: advertisement space that Facebook/Twitter is ready to sell to
+ advertisers -- Supply
+\end_layout
+
+\begin_layout Subsection
+Types of Apps
+\end_layout
+
+\begin_layout Itemize
+Apps that are a sales channel for a real-world product (Amazon, Booking.com,
+ Uber), in other words: “transactional apps”
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For transactional apps, key metrics such as Conversion Rate and Basket Value
+ are both widely established and well understood as they follow the same
+ e-commerce logic known from selling on websites.
+ 
+\end_layout
+
+\begin_layout Itemize
+Basket value is the definition of the total sum of the products purchased
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Apps where the app itself is the product (Facebook, WhatsApp, Twitter),
+ in other words “product apps”
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Product apps, however, often use a rather wild set of metrics:
+\series bold
+ Installs, User Base, Virality, Stickiness, Retention
+\series default
+ 
+\end_layout
+
+\begin_layout Itemize
+measured in any variety of ways to describe their app’s commercial traction.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Campaign Objective
+\end_layout
+
+\begin_layout Standard
+As a merchant (now the customers of Facebook/Google are merchants):
+\end_layout
+
+\begin_layout Itemize
+Increase people's awareness of your brand or business: For people didn't
+ know you
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Boost post / page /tweet
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Find potential customers for your business: For people already know you,
+ let them know you better or start to love you
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Promote your Facebook event to increase your attendance.
+ 
+\end_layout
+
+\begin_layout Itemize
+Promote videos that show behind-the-scenes footage, product launches or
+ customer stories to raise awareness about your brand.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Drive conversions or sales for your business: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Direct Response Marketing
+\series default
+ is a type of marketing designed to generate an immediate response from
+ consumers, where each consumer response and purchase can be measured, and
+ attributed to individual advertisements.
+\end_layout
+
+\begin_layout Itemize
+Buy
+\end_layout
+
+\begin_layout Itemize
+Register.
+\end_layout
+
+\begin_layout Itemize
+Claim the offer
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Measure of User Engagement
+\end_layout
+
+\begin_layout Itemize
+Usage 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+DAU - All unique users who have launched the App on that day
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Each App:Device pair is given a unique ID (generated by Apteligent) at the
+ time the end-user installs the app on their device and launches it for
+ the first time
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+MAU - All unique users who have launched the App at least once in that month
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Typically, metrics are measured by counting the number of unique users during
+ a specific measurement period, such as within the previous 30 days.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Visits & pageviews are susceptible to all sorts of external factors, like
+ SEO, SEM, press, seasonal traffic swings, etc
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Stickness: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+SessionsL Every time any user, not just a unique user, opens your app, that
+ counts as a session.
+\end_layout
+
+\begin_layout Itemize
+DAU / MAU is the standard
+\end_layout
+
+\begin_layout Itemize
+Time On Site and Pages/Visit are good, but will oscillate with design changes,
+ e.g.
+ paginating long text articles will increase Pages/Visit without being any
+ better for your site.
+ It may also mean that user may struggle to find what they need in your
+ web.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Retention: very long term stickness
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+like a negative log
+\end_layout
+
+\begin_layout Itemize
+churn rate: the annual percentage rate at which customers stop subscribing
+ to a service or employees leave a job.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Money: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Conversion Rate
+\end_layout
+
+\begin_layout Itemize
+ARPDAU: The Average Revenue Per Daily Active User, or ARPDAU,
+\end_layout
+
+\begin_layout Itemize
+ARPPU: Average Revenue Per Paying User (ARPPU) measures only the subset
+ of users who have completed a purchase in a game.
+ This metric can vary dramatically based on game genre.
+ Hardcore games tend to have higher monetization metrics like ARPPU, but
+ they also lack the mass appeal of more casual games.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Which one to choose: It depends on:
+\end_layout
+
+\begin_layout Enumerate
+Different stages of consumer engagement
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If you just want to raise awareness of a product, then number of views
+\end_layout
+
+\begin_layout Enumerate
+If you care about how to 
+\series bold
+transforming
+\series default
+ the views to revenues, then click per view
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+What's is the nature of the product
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+For a product like google: Visitor Recency.
+ Time On Site may be misleading
+\end_layout
+
+\begin_layout Enumerate
+For a product like facebook, Interaction-related measure.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Visitor Recency measure how frequently your visitors return to your site.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Specifically in Google Analytics, it looks at what percentage of your visitors
+ come back each day, every other day, each week, etc.
+ 
+\end_layout
+
+\begin_layout Itemize
+If someone comes back to your site regularly each week, or even better each
+ day, it means you're becoming a regular and important part of their life.
+ The problem with any other single metric is they can be the result of positive
+ or negatives changes to your product.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Danger of DAU
+\end_layout
+
+\begin_layout Standard
+Well, not necessarily.
+ You just launched, got a press bump, and got featured.
+ If all a user has to do is download your app and open it once, then your
+ “active users” are bound to go up as registrations increase—people are
+ curious and downloading an app is a low-friction transaction with zero
+ commitment.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Downloading an app is a low-friction transaction with zero commitment.
+\end_layout
+
+\begin_layout Standard
+The danger of defining your “active user” by a minimal metric like logins
+ is that you’re just seeing a reflection of press and hype.
+ It doesn’t measure real usage of your app.
+\end_layout
+
+\begin_layout Standard
+While your DAU is skyrocketing, the number of people playing songs is not.
+ People are downloading your app and logging in, but most of them aren’t
+ really using it the way it’s meant to be used.
+ If you’re only paying attention to your DAU, you’ll miss the fact that
+ real usage is dropping off—you won’t hear the canary in the coal mine of
+ your app.
+\end_layout
+
+\begin_layout Subsection
+Customer Lifetime Value (CLV / LTV)
+\end_layout
+
+\begin_layout Standard
+customer lifetime value (CLV or often CLTV), lifetime customer value (LCV),
+ or life-time value (LTV) 
+\end_layout
+
+\begin_layout Standard
+Lifetime value is typically used to judge the appropriateness of the costs
+ of acquisition of a customer.
+\end_layout
+
+\begin_layout Standard
+Simple method: 
+\begin_inset Formula 
+\[
+LTV=ARPU*lifetime
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bring 
+\begin_inset Formula $t$
+\end_inset
+
+ into ARPU 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+LTV=\sum_{t=0}^{\infty}ARPU(t)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+OR
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+LTV=\sum_{n}^{N}(retention_{n})\times ARPU
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How to calculate social LTV for those celebrities.
+\end_layout
+
+\begin_layout Subsection
+Deeper Analysis of Usage
+\end_layout
+
+\begin_layout Standard
+If you want to understand what’s going on in your app, you’ll do a full-scale
+ stickiness audit.
+ CLICK TO TWEET Find Out Where Most Usage Happens
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Identify Features That Lead To Retention
+\end_layout
+
+\begin_layout Standard
+At Facebook, Chamath ran the Growth team like a laboratory, constantly experimen
+ting and trying new things to see what worked.
+ What all their testing, experimenting and analyzing taught them, in the
+ end, was one simple fact: that if users added 7 friends in 10 days they
+ were retained with Facebook.
+\end_layout
+
+\begin_layout Standard
+From then on, the entire company was united around a single goal: 7 friends
+ in 10 days.
+ That was the sweet spot for the delivery of Facebook’s core value.
+\end_layout
+
+\begin_layout Subsection
+Measure of Interaction for a Social Network
+\end_layout
+
+\begin_layout Standard
+IPM (interactions per message): This basically tells you the average chance
+ of engagement per fan/follower.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+IPM=\sum_{-30d}^{now}\frac{likes_{t}+replies_{t}+shares_{t}}{message_{t}\times N_{fans}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So if we really want to measure engagement accurately then you only want
+ to take into account a couple of things: 
+\end_layout
+
+\begin_layout Enumerate
+How many unique people actually "engaged" or otherwise have taken an action
+ based on your content 
+\end_layout
+
+\begin_layout Enumerate
+How many unique people saw your content before engaging 
+\end_layout
+
+\begin_layout Standard
+And that's how we ended up with IPV (interactions per unique view) which
+ is measured on content level, but can easily be scaled up to a brand level
+ serving as an average of all underlying content.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+IPM=\sum_{-30d}^{now}\frac{likes_{t}+replies_{t}+shares_{t}}{views}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+publishing a message doesn't necessarily mean that all your fans end up
+ seeing it.
+ And the view rate helps you understand to how many people of your total
+ fan base saw your content in the end (and thus how well it performed in
+ Facebook's Edge Rank algorithm).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+VRc=\frac{views_{unique}}{fans_{t}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+A/B Test: Teminology
+\end_layout
+
+\begin_layout Standard
+https://www.optimizely.com/optimization-glossary/
+\end_layout
+
+\begin_layout Itemize
+Power.
+ The probability of correctly rejecting the null hypothesis, H0, when it
+ is false.
+ Power measures our ability to detect a difference when it indeed exists.
+ 
+\end_layout
+
+\begin_layout Itemize
+Conclusive -- same as Significance
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+A/A test
+\series default
+.
+ Sometimes called a 
+\series bold
+Null Test
+\series default
+ (Peterson 2004).
+ Instead of an A/B test, you exercise the experimentation system, assigning
+ users to one of two groups, but expose them to exactly the same experience.
+ An A/A test can be used to (i) collect data and assess its variability
+ for power calculations, and (ii) test the experimentation system (the Null
+ hypothesis should be rejected about 5% of the time when a 95% confidence
+ level is used).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A/A testing is the tactic of using A/B testing to test two identical versions
+ of a page against each other.
+ Typically, this is done to check that the tool being used to run the experiment
+ is statistically fair.
+ In an A/A test, the tool should report no difference in conversions between
+ the control and variation, if the test is implemented correctly.
+\end_layout
+
+\begin_layout Itemize
+THINGS TO KEEP IN MIND WITH A/A TESTING
+\end_layout
+
+\begin_layout Itemize
+When running an A/A test, it’s important to keep in mind that finding a
+ difference in conversion rate is always an identical test and control page
+ is a possibility.
+ This isn’t necessarily a poor reflection on the A/B testing platform, as
+ there is always an element of randomness when it comes to testing.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A/B/n Testing
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A/B/n testing is a type of website testing where multiple versions of a
+ web page are compared against each other to determine which has the highest
+ conversion rate.
+ 
+\end_layout
+
+\begin_layout Itemize
+In addition to helping which version of a page is most successful, A/B/n
+ testing also shows which version of a page performed the worst.
+ By analyzing these low performing pages, it is possible to come up with
+ hypotheses for why certain features convert better than others, and these
+ lessons can then be incorporated into new tests on other pages of the site.
+\end_layout
+
+\begin_layout Itemize
+pitfall: it doesn’t always mean those variables would work well combined.
+ Consider running multivariate tests to test all variations and make sure
+ that improvements to top level metrics carry all the way through the conversion
+ funnel.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Multivariate testing is more comprehensive than A/B/n testing and is used
+ to test changes to specific elements on a page whereas A/B/n testing can
+ be used to test completely different versions of a page against each other.
+\end_layout
+
+\begin_layout Itemize
+Effect.
+ The difference in OECs for the variants, i.e.
+ the mean of the Treatment minus the mean of the Control.
+ Larger differences are easier to detect, so great ideas will unlikely be
+ missed.
+ Conversely, Type II errors are more likely when the effects are small.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+HiPPO attack
+\end_layout
+
+\begin_layout Standard
+Linsky and Heifetz wrote that “People do not resist change, per se.
+ People resist loss” (Linsky & Heifetz, 2002).
+ Some people certainly viewed experimentation as a risk to their power and/or
+ prestige.
+\end_layout
+
+\begin_layout Standard
+What we found was that a great way to convince people that we are not good
+ at predicting the outcomes of experiment is to challenge them.
+ We created a survey with eight A/B tests, and offered a nice polo shirt
+ for anyone who could correctly guess 6 out of 8 (the options were: A is
+ statistically significantly better, B is statistically significantly better,
+ or there’s no statistically significant difference between them).
+ With over 200 responses, we didn’t have to hand out a single shirt! 6 out
+ of 200 had 5 answers correct; the average was 2.3 correct answers
+\end_layout
+
+\begin_layout Section
+Web Teminology
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Impression (online media) 
+\end_layout
+
+\begin_layout Standard
+An impression (in the context of online advertising) is when an ad is fetched
+ from its source, and is countable.
+ Whether the ad is clicked is not taken into account.[1] Each time an ad
+ is fetched it is counted as one impression.[2]
+\end_layout
+
+\begin_layout Standard
+Because of the possibility of click fraud, robotic activity is usually filtered
+ and excluded, and a more technical definition is given for accounting purposes
+ by the IAB, a standards and watchdog industry group: "Impression" is a
+ measurement of responses from a Web server to a page request from the user
+ browser, which is filtered from robotic activity and error codes, and is
+ recorded at a point as close as possible to opportunity to see the page
+ by the user.[3][4]
+\end_layout
+
+\begin_layout Subsection
+Cost per impression (CPI) vs Cost per click (CPC)
+\end_layout
+
+\begin_layout Standard
+Cost per impression (CPI), or "Cost per thousand impressions" (CPM)
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+sessio
+\series default
+n
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+sessio
+\series default
+n is defined as user activity that begins with a query and ends with 30
+ minutes of inactivity on the search engine/web page
+\end_layout
+
+\begin_layout Subsection
+Click-Through Rate (CTR rate)
+\end_layout
+
+\begin_layout Itemize
+Click-through rate (CTR) is the ratio of users who click on a specific link
+ to the number of total users who view a page, email, or advertisement.
+\end_layout
+
+\begin_layout Standard
+CTR is a metric that is used to analyze emails, webpages and online search
+ result pages (Google, Bing, Yahoo etc).
+ CTR is normally used to measure the success of marketing efforts.
+\end_layout
+
+\begin_layout Standard
+CTR EXAMPLES
+\end_layout
+
+\begin_layout Standard
+Some common examples of where CTR can be measured include:
+\end_layout
+
+\begin_layout Standard
+A call-to-action link in an email A hyperlink on a landing page .A PPC ad
+ on a Google search results page
+\end_layout
+
+\begin_layout Standard
+Click-through rate is calculated by the number of clicks on an element divided
+ by the number of people who have seen that element
+\end_layout
+
+\begin_layout Standard
+CTR should not be mistaken for conversion rate.
+ Conversion rate is the percentage of people who take a desired action.
+ CTR, on the other hand, is normally associated with an action leading up
+ to a conversion.
+\end_layout
+
+\begin_layout Standard
+CTR can be used to gain useful insights in A/B testing, as a secondary metric
+ alongside the primary conversion metric.
+ 
+\end_layout
+
+\begin_layout Subsection
+Ad Viewability
+\end_layout
+
+\begin_layout Standard
+WHAT IS AD VIEWABILITY?
+\end_layout
+
+\begin_layout Standard
+Ad viewability is the concept of how visible ads on a website or mobile
+ app are to users.
+ For an ad to be considered “viewed”, at least 50% of the banner or creative
+ must display on screen for more than one second, as defined by the Internet
+ Advertising Bureau’s standard for what consists a viewable impression.
+\end_layout
+
+\begin_layout Standard
+Ad viewability is a relatively new concept in digital advertising, but has
+ become a hot topic ever since a report from comScore showed that 54% of
+ display ads were not being seen, despite advertisers paying for them.
+\end_layout
+
+\begin_layout Standard
+Over time, however, advertisers began to question the practice of using
+ ads served as a proxy for ads viewed.
+ For example, it occurred to them that if an ad appeared 
+\series bold
+below the fold
+\series default
+ at the bottom of a webpage, but a user never scrolled down far enough to
+ see it, that impression should not be counted.
+\end_layout
+
+\begin_layout Standard
+Publishers can also make their sites mobile-friendly by using responsive
+ templates that resize according to the device where it is being viewed.
+ This guarantees a good user experience no matter the device (tablet, phone
+ or desktop).
+\end_layout
+
+\begin_layout Standard
+Ad viewability also improves through good design principles: a clear visual
+ hierarchy, symmetry and pleasing proportions, white space and clean design.
+\end_layout
+
+\begin_layout Standard
+Another key consideration for ad viewability is speed.
+ Sites that are laden with ads from multiple ad networks can typically take
+ a long time to load, which can result in a lower ad viewability as users
+ click away before the ads load.
+ Techniques for speeding up ad delivery can greatly improve ad viewability.
+\end_layout
+
+\begin_layout Subsection
+Search Engine Marketing (SEM / SEO)
+\end_layout
+
+\begin_layout Standard
+Search engine marketing is a form of Internet marketing that involved the
+ promotion of websites by increasing their visibility in search engine results
+ pages (SERPS) through optimization and advertising.” SEM includes SEO tactics,
+ as well as several other search marketing tactic
+\end_layout
+
+\begin_layout Subsection
+Headline Testing
+\end_layout
+
+\begin_layout Standard
+WHAT IS HEADLINE TESTING?
+\end_layout
+
+\begin_layout Standard
+“Headline testing” refers to the process of developing multiple title variations
+ for an article or piece of online media, which can then be tested on multiple
+ audience segments of to determine which one performs the best.
+\end_layout
+
+\begin_layout Subsection
+Landing page 
+\end_layout
+
+\begin_layout Standard
+In online marketing, a landing page, sometimes known as a "lead capture
+ page" or a "lander", is a single web page that appears in response to clicking
+ on a search engine optimized search result or an online advertisement.
+ The landing page will usually display directed sales copy that is a logical
+ extension of the advertisement, search result or link.
+\end_layout
+
+\begin_layout Standard
+Landing pages are often linked to from social media, email campaigns or
+ search engine marketing campaigns in order to enhance the effectiveness
+ of the advertisements.
+ 
+\end_layout
+
+\begin_layout Subsection
+Sales Funnel
+\end_layout
+
+\begin_layout Standard
+A sales funnel is a visual metaphor for the path taken by a potential customer
+ as he or she moves towards becoming a customer.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+below the fold / above the fold
+\end_layout
+
+\begin_layout Subsection
+Lifetime Value
+\end_layout
+
+\begin_layout Subsection
+Conversion (rate)
+\end_layout
+
+\begin_layout Standard
+A conversion occurs when a user completes some predetermined action on your
+ site.
+ Conversions do not have to be tied to monetary goals, and common examples
+ are when a user completes an order, clicks a button, submits a lead generation
+ form, reaches a specific page, or any other goal of interest.
+\end_layout
+
+\begin_layout Standard
+IDENTIFYING AREAS TO OPTIMIZE
+\end_layout
+
+\begin_layout Itemize
+Typically, you will want to begin optimizing the portion of your conversion
+ funnel that receives the greatest amount of traffic or generates the greatest
+ numbers of conversions.
+ By focusing on these pages you will be able to see the results of your
+ changes faster and have a larger impact on your business.
+\end_layout
+
+\begin_layout Itemize
+Other potential places to start include your 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+greatest amount of traffic/greatest numbers of conversions.
+\end_layout
+
+\begin_layout Enumerate
+highest value pages or
+\end_layout
+
+\begin_layout Enumerate
+pages that are underperforming compared to the rest of your site.
+\end_layout
+
+\begin_layout Itemize
+Again, improving these areas can have the greatest immediate impact on your
+ conversion goals.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+For example, a clothing retailer may find that their page for hats receives
+ a lot of traffic but has a conversion rate that is much lower than the
+ rest of the site.
+ By improving the conversion rate of that page, the retailer will be able
+ to see a big improvement in sales for their CRO efforts.
+\end_layout
+
+\begin_layout Subsection
+Call To Action
+\end_layout
+
+\begin_layout Itemize
+A call to action (CTA) is a prompt on a website that tells the user to take
+ some specified action.
+ A call to action is typically written as a command, such as ‘Sign Up’ or
+ ‘Buy Now’ and generally takes the form of a button or hyperlink.
+\end_layout
+
+\begin_layout Itemize
+For example, on a blog the CTAs might look like:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Read more articles
+\end_layout
+
+\begin_layout Itemize
+Sign-up for our newsletter
+\end_layout
+
+\begin_layout Itemize
+Support our sponsor
+\end_layout
+
+\begin_layout Itemize
+Share on social media
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Whereas on an ecommerce site, the CTAs may be more commercially focused:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Add to cart
+\end_layout
+
+\begin_layout Itemize
+Checkout
+\end_layout
+
+\begin_layout Itemize
+Buy now
+\end_layout
+
+\begin_layout Itemize
+Add to wishlist
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Marketers employ a number of strategies for creating CTAs.
+ Below is a list of some common ones:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Good Design: A colorful button that contrasts with the color of the page
+ is a good strategy to get the user’s attention.
+\end_layout
+
+\begin_layout Itemize
+High Visibility: Because the call to action should be the most noticeable
+ thing on the page, the font size should be large enough to command attention.
+\end_layout
+
+\begin_layout Itemize
+Clear Benefit: Stating a clear benefit that the user will get from completing
+ the transaction is an effective way to get them to click.
+\end_layout
+
+\begin_layout Itemize
+Actionable Text: A call to action written in the imperative mood gives a
+ clear and direct command of what to do.
+\end_layout
+
+\begin_layout Itemize
+Short in Length: A good call to action should be a short phrase, not a sentence.
+ Most are no longer than five words.
+\end_layout
+
+\begin_layout Itemize
+Guarantees That Reduce Perceived Risk: Any type of money-back guarantee
+ or short free trial period helps convince the user that there is little
+ risk in completing the transaction.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+OEC
+\end_layout
+
+\begin_layout Subsection
+OEC: Overall Evaluation Criteria
+\end_layout
+
+\begin_layout Subsection
+OEC with constraints
+\end_layout
+
+\begin_layout Standard
+From a search engine perspective, degraded algorithmic results (the main
+ search engine results shown to users, sometimes referred to as the 10 blue
+ links) force people to 
+\end_layout
+
+\begin_layout Itemize
+issue more queries (increasing queries per user) 
+\end_layout
+
+\begin_layout Itemize
+click more on ads (increasing revenues)
+\end_layout
+
+\begin_layout Standard
+So the OEC to insrease revenues cannot be used alone, it shall be comined
+ with better user experience, messured by 
+\end_layout
+
+\begin_layout Enumerate
+Less distinct queries per session
+\end_layout
+
+\begin_layout Enumerate
+Sessions / User
+\end_layout
+
+\begin_layout Standard
+This analysis is not just impacting search experiments, but also efforts
+ like SEM (Search Engine Marketing).
+ When deciding the bid amount for ads to a search engine, it is natural
+ to try and optimize for the number of queries in the session that started
+ with the ad click.
+ However, long sessions may indicate user frustration (e.g., driving users
+ to mediocre result pages).
+\end_layout
+
+\begin_layout Subsection
+compare ad revenue with the user experience.
+\end_layout
+
+\begin_layout Standard
+More ads in the front page will decrease the clicks in the second layer
+ page, which decreases the revenue.
+\end_layout
+
+\begin_layout Standard
+1.
+ Monetary value that the destination property assigned to a click from the
+ MSN home page.
+ These destination properties are other sites in the MSN network.
+ Such a click generates a visit to an MSN property (e.g., MSN Autos or MSN
+ Money), which results in multiple page views.
+ 
+\end_layout
+
+\begin_layout Standard
+2.
+ The cost paid to search engines for a click that brings a user to an MSNpropert
+y but not via the MSN home page (Search Engine Marketing).
+ If the home page is driving less traffic to the properties, what is the
+ cost of regenerating the “lost” traffic?
+\end_layout
+
+\begin_layout Subsection
+Short term versus long term effects: Delayed OEC
+\end_layout
+
+\begin_layout Standard
+Short term versus long term effects.
+ Controlled experiments measure the effect on the OEC during the experimentation
+ period, typically a few weeks.
+\end_layout
+
+\begin_layout Enumerate
+Long-term goals should be part of the OEC.
+ Let us take search ads as an example.
+ If your OEC is revenue, you might plaster ads over a page, but we know
+ that many ads hurt the user experience, so a good OEC should include a
+ penalty term of usage of real-estate for ads that are not clicked, and/or
+ should directly measure repeat visits and abandonment.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Likewise, it is wise to look at 
+\series bold
+Delayed conversion metrics
+\series default
+, where there is a lag from the time a user is exposed to something and
+ take action.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If you change the navigation on a web site, experienced users may be less
+ efficient until they get used to the new navigation, thus giving an inherent
+ advantage to the Control.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+These are sometimes called latent conversions (Miller 2006; Quarto-vonTivadar
+ 2006).
+ Coming up with good OECs is hard, but what is the alternative? The key
+ point here is to recognize this limitation, but avoid throwing the baby
+ out with the bathwater.
+\end_layout
+
+\begin_layout Subsection
+Primacy and Novelty effect 
+\end_layout
+
+\begin_layout Itemize
+Primacy effect occurs when you change the navigation on a web site, and
+ experienced users may be less efficient until they get used to the new
+ navigation, thus giving an inherent advantage to the Control.
+\end_layout
+
+\begin_layout Itemize
+Novelty effect: when a new design or feature is introduced, some users will
+ investigate the new feature, click everywhere, and thus introduce a “novelty”
+ bias that dies quickly if the feature is not truly useful.
+\end_layout
+
+\begin_layout Standard
+So be aware of any trend pattern by time, you need to wait longer time till
+ the trend stabalized and then evaluate.
+\end_layout
+
+\begin_layout Part
+A/B Test Math
+\end_layout
+
+\begin_layout Subsection
+T-test, used in A/B tests (single factor hypothesis tests):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+T=\frac{\bar{O}_{B}-\bar{O}_{A}}{\hat{\sigma}_{d}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\bar{O}_{B},\bar{O}_{A}$
+\end_inset
+
+ are the estimated OEC values (e.g., averages), σd is the estimated standard
+ deviation of the difference between the two OECs,
+\end_layout
+
+\begin_layout Standard
+The percent difference is calculated by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta\%=\frac{\bar{O}_{B}-\bar{O}_{A}}{\bar{O}_{A}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Confidence intervals for absolute and percent effect
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+CILimits=OB−OA±1.96\times\tilde{σ}_{d}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For many online metrics, the difference in the means is so small that percent
+ change has much more intuitive meaning than the absolute difference.
+\end_layout
+
+\begin_layout Itemize
+However, forming a confidence interval around the percent change is not
+ a straightforward extension of the confidence interval for the absolute
+ effect.
+ This is because we are now dividing by a random variable.
+ 
+\end_layout
+
+\begin_layout Itemize
+Note that if the denominator is stochastically close to zero one or both
+ endpoints will not exist.
+ In practice, you shouldn’t calculate this interval if the confidence interval
+ for the denominator contains zero.
+\end_layout
+
+\begin_layout Standard
+Define the coefficient of variation of the two groups to be 
+\begin_inset Formula $CV_{B}=\frac{\hat{\sigma}_{B}}{\bar{O}_{B}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+CI for Percent Effect = 
+\begin_inset Formula 
+\[
+(\Delta\%+1)\times\frac{1\pm1.96\times\sqrt{CV_{A}^{2}+CV_{B}^{2}-1.96^{2}\times CV_{A}^{2}\times CV_{B}^{2}}}{1-1.96\times CV_{A}^{2}}-1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+all, these confidence intervals are proportional to 
+\begin_inset Formula $1/\sqrt{N}$
+\end_inset
+
+ when 
+\begin_inset Formula $N$
+\end_inset
+
+ is the number of users, which is growing
+\end_layout
+
+\begin_layout Subsection
+Minimum sample size
+\end_layout
+
+\begin_layout Standard
+As the CI for two-sided (total significance level 
+\begin_inset Formula $\gamma_{\frac{1}{2}}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(\hat{p}-\gamma_{\frac{1}{2}}/2\sqrt{\sigma^{2}/n},\hat{p}+\gamma_{\frac{1}{2}}/2\sqrt{\sigma^{2}/n})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus the area of CI / Effective Difference between A and B 
+\begin_inset Formula 
+\[
+CI=\gamma_{\frac{1}{2}}\sqrt{\sigma^{2}/n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus to require Effective Difference between A and B at certain level 
+\begin_inset Formula $CI$
+\end_inset
+
+, you need sample size at least
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n=\frac{\gamma^{2}\sigma^{2}}{CI^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you only care about one side, then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+CI=2\gamma\sqrt{\sigma^{2}/n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n=\frac{4\gamma^{2}\sigma^{2}}{CI^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The coefficient of 
+\begin_inset Formula $\gamma^{2}=16$
+\end_inset
+
+ in the formula provides 80% power(10% in each side), i.e., it has an 80%
+ probability of rejecting the null hypothesis that there is no difference
+ between the Treatment and Control if the true mean is different than the
+ true Control by.
+ Even a rough estimate of standard deviation in Formula 2 can be helpful
+ in planning an experiment.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Replace the 16 by 21 in the formula above to increase the power to 90% (5%
+ in each side)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+The 
+\begin_inset Formula $\Delta=(\bar{O}_{B}-\bar{O}_{A})^{2}$
+\end_inset
+
+ is the sensitivity you want to detact, the samller it is, the larger data
+ needed,
+\end_layout
+
+\begin_layout Standard
+Basically, minimum sample size depends on 
+\end_layout
+
+\begin_layout Enumerate
+Variance
+\end_layout
+
+\begin_layout Enumerate
+Difference you want to detect: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+the more trivial the difference, the larger sample size you need.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Example: impact of lower-variability OEC on the sample size
+\end_layout
+
+\begin_layout Standard
+Suppose you have an e-commerce site and 5% of users who visit during the
+ experiment period end up purchasing.
+ Those purchasing spend about $75.
+ The average user therefore spends $3.75 (95% spend $0).
+ 
+\end_layout
+
+\begin_layout Standard
+We set the OEC = Average Spending = 
+\begin_inset Formula $E(S)$
+\end_inset
+
+, thus 
+\begin_inset Formula $\Delta=\Delta(E(S))$
+\end_inset
+
+ = desired change of it
+\end_layout
+
+\begin_layout Standard
+Assume the standard deviation is 
+\begin_inset Formula $\sigma(S)=\$30$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+If you are running an A/B test and want to detect a 5% change to revenue,
+ you will need over 409,000 users to achieve the desired 80% power, based
+ on the above formula: 
+\begin_inset Formula 
+\[
+16\times30^{2}/(3.75∗0.05)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If, however, you were only looking for a 5% change in conversion rate (not
+ revenue), a lower variability OEC based on point 3.b can be used.
+ Purchase, a conversion event, is modeled as a Bernoulli trial with p =
+ 0.05 being the probability of a purchase.
+ The standard deviation of a Bernoulli is 
+\begin_inset Formula $\sqrt{p(1\text{−}p)}$
+\end_inset
+
+ and thus you will need less than 
+\series bold
+
+\begin_inset Formula $122,000$
+\end_inset
+
+
+\series default
+ users to achieve the desired power based on 
+\begin_inset Formula $16\times(0.05·(1−0.05))/(0.05·0.05)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+The Key Difference here is OEC = Average Conversion Rate has much smaller
+ variance than OEC = Average Revenue
+\end_layout
+
+\begin_layout Subsection
+chi square tests
+\end_layout
+
+\begin_layout Standard
+n the chi square tests, the null hypothesis makes a statement concerning
+ how many cases are to be expected in each category if this hypothesis is
+ correct.
+ The chi square test is based on the diÆerence between the observed and
+ the expected values for each category.
+\end_layout
+
+\begin_layout Standard
+The chi square statistic is defined as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\chi^{2}=\sum_{i}\frac{(O_{i}-E_{i})^{2}}{E_{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where O i is the observed number of cases in category i , and E i is the
+ ex- pected number of cases in category i .
+ This chi square statistic is obtained by calculating the diÆerence between
+ the observed number of cases and the expected number of cases in each category.
+ This diÆerence is squared and divided by the expected number of cases in
+ that category.
+ These values are then added for all the categories, and the total is referred
+ to as the chi squared value.
+\end_layout
+
+\begin_layout Part
+ANOVA
+\end_layout
+
+\begin_layout Standard
+Here we do not focus on OLS, but focus on experiment design: different trails
+ on different groups and compare the result.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Analysis of variance (ANOVA):
+\series default
+ is a collection of statistical models used to analyze the differences between
+ group means and their associated procedures.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Design of experiments (DOE):
+\series default
+ or experimental design is the design of any information-gathering exercises
+ where variation is present, whether under the full control of the experimenter
+ or not.
+ 
+\end_layout
+
+\begin_layout Standard
+Example: find the most important factors to explain dogs' weight 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/Analysis_of_variance
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An attempt to explain the weight distribution by grouping dogs as (pet vs
+ working breed) and (less athletic vs more athletic) would probably be somewhat
+ more successful (fair fit).
+ If just use http://en.wikipedia.org/wiki/File:ANOVA_fair_fit.jpg
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/ANOVA_fair_fit.jpg
+	lyxscale 80
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An attempt to explain weight by breed is likely to produce a very good fit.
+ All Chihuahuas are light and all St Bernards are heavy.
+ The difference in weights between Setters and Pointers does not justify
+ separate breeds.
+ http://en.wikipedia.org/wiki/File:ANOVA_very_good_fit.jpg
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/ANOVA_very_good_fit.jpg
+	lyxscale 80
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Terminology
+\end_layout
+
+\begin_layout Itemize
+Treatment: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In an experiment, the factor (also called an independent variable) is an
+ explanatory variable manipulated by the experimenter.
+ 
+\end_layout
+
+\begin_layout Itemize
+Each factor has two or more levels, i.e., different values of the factor.
+ Combinations of factor levels are called treatments.
+ The table below shows independent variables, factors, levels, and treatments
+ for a hypothetical experiment.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Variations
+\end_layout
+
+\begin_layout Enumerate
+Explained = Between Group = Treatment
+\end_layout
+
+\begin_layout Enumerate
+Unexplained = Error = Within Group
+\end_layout
+
+\begin_layout Itemize
+Intuition: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We use different factors/treatments to separate different groups.
+ The only way to judge the explainability of those factors/treatments are
+ to look at whether those groups have different means.So that Explained SS
+ = Between Group SS = Treatment SS.
+\end_layout
+
+\begin_layout Itemize
+Within one group, as they are have the same factors/treatments, so that
+ we can not explain them.
+ Thus Unexplained = Error = Within Group.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Partitioning of Variations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SS_{total}=SS_{error}+SS_{explain}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+DF_{total}=DF_{error}+DF_{explain}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Within Group variation v.s.
+ Between Group variation.
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $SS_{explain}$
+\end_inset
+
+ is also called 
+\begin_inset Formula $SS_{treatment}$
+\end_inset
+
+ in experimental design.
+ Intuition: the effect of any treatment is estimated by taking the difference
+ between the mean of the observations which receive the treatment and the
+ general mean
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SS_{BetweenGroup}=\sum_{i}n_{i}(\bar{Y}{}_{i}-\bar{Y})^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with 
+\begin_inset Formula $DF_{BetweenGroup}=K-1$
+\end_inset
+
+ (number of groups minus 1).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SS_{withinGroup_{i}}=\sum_{j=1}^{n_{i}}(y_{i,j}-\bar{Y}_{i})^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $DF_{i}=n_{i}-1$
+\end_inset
+
+ (df of group 
+\begin_inset Formula $i$
+\end_inset
+
+ is its freq -1 ).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SS_{withinGroup}=\sum_{i}SS_{withGroup_{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $DF_{withinGroup}=\sum_{i}DF_{i}=N-K$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+RSS, RSE and 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We choose β0, β1, .
+ .
+ .
+ , βp to minimize the sum of squared residuals
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+RSS=\sum(y_{i}-y_{0})^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Recall from the model (3.5) that associated with each observation is an error
+ term ε.
+ Due to the presence of these error terms, even if we knew the true regression
+ line (i.e.
+ even if β0 and β1 were known), we would not be able to perfectly predict
+ Y from X.
+ RSE is the estimate of std of the error term
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+RSE=\sqrt{\frac{1}{N-p-1}RSS}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The RSE provides an absolute measure of lack of fit of the model (3.5) to
+ the data.
+ But since it is measured in the units of Y , it is not always clear what
+ constitutes a good RSE.
+ The R2 statistic provides an alternative measure of fit.
+ It takes the form of a proportion 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R^{2}=\frac{TSS-RSS}{TSS}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $TSS=\sum(y_{0}-\bar{y})^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Nested ANOVA
+\end_layout
+
+\begin_layout Standard
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+library(effects)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+glm(volunteer ~ sex:extraversion + extraversion + sex,data=Cowles, family=binomi
+al) 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+This model is Full ANOVA, as in this model we include cross-group variation
+ and within group variation for both variables 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+glm(volunteer ~ sex:extraversion + extraversion,data=Cowles, family=binomial)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+in this model, we restrict that extraversion is nested in sex, which means
+ extraversion is just a subgroup within each sex.
+ Thus the ANOVA table will also be different See details at
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.biostat.wisc.edu/~kbroman/teaching/labstat/fourth/notes11.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Multiple Group: F-test
+\end_layout
+
+\begin_layout Standard
+This is also called One-way ANOVA.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+F & = & \frac{ExplainedVariation}{UNexplainedVariation}=\frac{BetweenGroupVariation}{WithinGroupVariation}\\
+ & = & \frac{SS_{explianed}/DF_{explained}}{SS_{unexplianed}/DF_{unexplained}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Note that when there are only two groups for the one-way ANOVA F-test, F
+ test is same as 
+\begin_inset Formula $T$
+\end_inset
+
+ test, as in that case 
+\begin_inset Formula $F=t^{2}$
+\end_inset
+
+ where t is the Student's t statistic.
+\end_layout
+
+\begin_layout Subsubsection
+Assumptions and Robustness
+\end_layout
+
+\begin_layout Enumerate
+Normality – the distributions of the residuals are normal.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Equality (or "homogeneity") of variances, called homoscedasticity — the
+ variance of data in groups should be the same.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+http://en.wikipedia.org/wiki/F-test:
+\emph default
+ The general conclusion from these studies is that the consequences of such
+ violations are less severe than previously thought.
+ Although these conclusions should not entirely discourage anyone from being
+ concerned about the normality assumption, they have increased the overall
+ popularity of the distribution-dependent statistical tests in all areas
+ of research."[9] 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://www.statsoft.com/textbook/elementary-statistics-concepts/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+In Experimental Design:
+\end_layout
+
+\begin_layout Itemize
+The F-test in one-way analysis of variance is used to assess whether the
+ expected values of a quantitative variable within several pre-defined groups
+ differ from each other.
+ 
+\end_layout
+
+\begin_layout Itemize
+For example, suppose that a medical trial compares four treatments.
+ The ANOVA F-test can be used to assess whether any of the treatments is
+ on average superior, or inferior, to the others versus the null hypothesis
+ that all four treatments yield the same mean response.
+ 
+\end_layout
+
+\begin_layout Itemize
+The advantage of the ANOVA F-test is that we do not need to pre-specify
+ which treatments are to be compared, and we do not need to adjust for making
+ multiple comparisons.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+F-test in OLS
+\end_layout
+
+\begin_layout Standard
+Used to test differences between nested models, to see whether the full
+ model is better than simpler model.
+ 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+: all additional coefficients have 
+\begin_inset Formula $\beta=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Two Group: Welch's t-test 
+\end_layout
+
+\begin_layout Itemize
+Welch's t-test is a derivation of t-test.
+ It is used in the cases of unequal variance / unequal sample sizes.
+\end_layout
+
+\begin_layout Standard
+Note that when there are only two groups for the one-way ANOVA F-test, F=t2
+ where t is the Student's t statistic.
+\end_layout
+
+\begin_layout Standard
+Pooled standard deviation: (see p9 Text_How to Measure Quality of Credit
+ Scoring Models)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S_{pooled}^{2}=\frac{nS_{1}^{2}+mS_{2}^{2}}{n+m}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus the test statistics for difference between means is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D=\frac{M_{g}-M_{b}}{S_{pooled}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+ANOVA in comparing two OLS models (essentially F-test) can be found in ANOVA
+ section in GLM chapter.
+\end_layout
+
+\begin_layout Section
+Multivariate Testing
+\end_layout
+
+\begin_layout Standard
+An experiment that includes more than one factor is often called a MultiVariable
+ test (MVT) (Alt and Usborne 2005).
+ For example, consider testing five factors on theMSN homepage in a single
+ experiment.
+ we will consider the benefits and limitations of MVT versus one-factor-at-a-tim
+e, or A/B tests.
+ Then we will discuss three approaches to online MVTs and how each approach
+ takes advantage of the potential benefits and mitigates the limitations.
+\end_layout
+
+\begin_layout Subsection
+Advantage/ Limitations compared with AB test
+\end_layout
+
+\begin_layout Standard
+Advantage
+\end_layout
+
+\begin_layout Enumerate
+You can test many factors in a short period of time, accelerating improvement.
+\end_layout
+
+\begin_layout Enumerate
+You can estimate interactions between factors.
+ Two factors interact if their combined effect is different from the sumof
+ the two individual effects.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If the two factors work together to enhance the outcome the interaction
+ is synergistic.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If instead they work against each other to dampen the effect, the interaction
+ is antagonistic.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Limitations
+\end_layout
+
+\begin_layout Enumerate
+interaction is antagonistic.
+ /æn,tæɡə'nɪstɪk/
+\end_layout
+
+\begin_layout Enumerate
+Analysis and interpretation are more difficult.
+\end_layout
+
+\begin_layout Subsection
+full factorial experiment
+\end_layout
+
+\begin_layout Standard
+Grouop number = N, If each group has two options, then the total combinations
+ are 
+\begin_inset Formula $2^{N}$
+\end_inset
+
+.
+ Of course, with a full factorial you will be able to estimate any interaction
+ you want.
+\end_layout
+
+\begin_layout Subsection
+Interactions
+\end_layout
+
+\begin_layout Standard
+In the statistical field of Design of Experiments, a major research area
+ is to find designs that minimize the number of user groups needed for the
+ test while allowing you to estimate the main effects and interactions with
+ little or no confounding.
+\end_layout
+
+\begin_layout Subsection
+Overlapping experiments
+\end_layout
+
+\begin_layout Standard
+Traditional: each experiment turns on when the treatment is ready to go
+ rather than launching all factors of a factorial design at once.
+ 
+\end_layout
+
+\begin_layout Standard
+In an agile software development world, there are significant benefits to
+ running more tests frequently, as they are ready to be deployed.
+ This is the approach you should take if you want to maximize the speed
+ with which ideas are tested and you are not interested in or concerned
+ with interactions -- as Large interactions between factors are actually
+ rarer than most people believe, unless they are already known, such as
+ with the buy box example.
+\end_layout
+
+\begin_layout Standard
+With overlapping experiments you test the factors more quickly and, if there
+ is sufficient overlap in any two factors, you can estimate the interaction
+ between those factors.
+ If
+\end_layout
+
+\begin_layout Part
+Application
+\end_layout
+
+\begin_layout Enumerate
+Randomization Algorithm
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The algorithm may support 
+\series bold
+monotonic ramp-up
+\series default
+, meaning that the percentage of users who see a Treatment can be slowly
+ increased without changing the assignments of users who were previously
+ assigned to that Treatment.
+\end_layout
+
+\begin_layout Enumerate
+The algorithm may support external control, meaning that users can be manually
+ forced into and out of variants.
+ This property makes it easier to test the experimental site.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Assignment method, uses the output of the randomization algorithm to determine
+ the experience that each user will see on the website.
+\end_layout
+
+\begin_layout Enumerate
+Data path, captures raw observation data as the users interact with the
+ website, aggregates it, applies statistics, and prepares reports of the
+ experiment’s outcome.
+\end_layout
+
+\begin_layout Subsection
+Advices
+\end_layout
+
+\begin_layout Itemize
+The choice of OEC must be made in advance.
+ When running experiments, it is important to decide in advance on the OEC
+ (a planned comparison); otherwise, there is an increased risk of finding
+ what appear to be significant results by chance (familywise type I error)
+\end_layout
+
+\begin_layout Subsection
+Filtering users not impacted by the change 
+\end_layout
+
+\begin_layout Standard
+If you made a change to the checkout process, you should only analyze users
+ who started the checkout process (point 3.c), as others could not see any
+ difference and therefore just add noise
+\end_layout
+
+\begin_layout Subsection
+Effect of robots on experimental results
+\end_layout
+
+\begin_layout Standard
+For some websites robots are thought to provide up to half the pageviews
+ on the site (Kohavi et al.
+ 2004).
+ Since many robots have the same characteristics as human users it is difficult
+ to clearly delineate between the two.
+ Benign or simple robots can often be filtered by basic characteristics
+ (e.g.
+ user agent, IP address) but manymodern robots use sophisticated techniques
+ to escape detections and filtering (Tan and Kumar 2002).
+\end_layout
+
+\begin_layout Subsection
+Treatment ramp-up 
+\end_layout
+
+\begin_layout Standard
+An experiment can be initiated with a small percentage of users assigned
+ to the Treatment( s), and then that percentage can be gradually increased.
+ For example, if you plan to run an A/B test at 50%/50%, you might start
+ with a 99.9%/0.1% split, then rampup the Treatment from 0.1% to 0.5% to 2.5%
+ to 10% to 50%.
+ 
+\end_layout
+
+\begin_layout Standard
+Benifits
+\end_layout
+
+\begin_layout Enumerate
+At each step, which could run for, say, a couple of hours, you can analyze
+ the data to make sure there are no egregious problems with the Treatment
+ before exposing it to more users.
+ The square factor (
+\begin_inset Formula $\Delta^{2}$
+\end_inset
+
+) in the power formula implies that such errors could be caught quickly
+ on small populations and the experiment can be aborted before many users
+ are exposed to the bad Treatment.
+\end_layout
+
+\begin_layout Subsection
+Unequal Sample Size test
+\end_layout
+
+\begin_layout Itemize
+Many implementations of web sites use LRU (least-recently-used) caches throughou
+t the stack, so running unequal variants in an A/B test gives an inherent
+ speed advantage to the larger variant,
+\end_layout
+
+\begin_layout Itemize
+But We therefore strongly recommend equally-sized samples in online experimentat
+ion.
+ 
+\end_layout
+
+\begin_layout Subsection
+Machine Learning and Data Mining
+\end_layout
+
+\begin_layout Standard
+For example, an experiment showed no significant difference overall, but
+ a population of users with a specific browser version was significantly
+ worse for the Treatment.
+ The specific Treatment feature, which involved JavaScript, was buggy for
+ that browser version and users abandoned.
+ Excluding the population from the analysis showed positive results, and
+ once the bug was fixed, the feature was indeed retested and was positive
+\end_layout
+
+\begin_layout Subsection
+Assign 50% of users to treatment
+\end_layout
+
+\begin_layout Standard
+One common practice among novice experimenters is to run new variants for
+ only a small percentage of users.
+ The logic behind that decision is that in case of an error only few users
+ will see a bad Treatment, which is why we recommend Treatment ramp-up.
+ In order to maximize the power of an experiment and minimize the running
+ time, we recommend that 50% of users see each of the variants in an A/B
+ test.
+ 
+\end_layout
+
+\begin_layout Standard
+Assuming all factors are fixed, a good approximation for the multiplicative
+ increase in running time for an A/B test relative to 50%/50% is 
+\begin_inset Formula $1/(4p(1−p)$
+\end_inset
+
+ where the Treatment receives portion 
+\begin_inset Formula $p$
+\end_inset
+
+ of the traffic.
+ 
+\end_layout
+
+\begin_layout Standard
+For example, if an experiment is run at 99%/1%, then it will have to run
+ about 25 times longer than if it ran at 50%/50%.
+\end_layout
+
+\begin_layout Subsection
+Beware of day of week effects
+\end_layout
+
+\begin_layout Standard
+We would then recommend running it for a week to avoid day-of-week effects
+ and to increase the power over the minimum.
+ However, if the experiment were run at 95%/5%, the running time would have
+ to be increased by a factor of 5–25 days, in which case we would recommend
+ running it for four weeks.
+\end_layout
+
+\begin_layout Subsection
+Culture and business
+\end_layout
+
+\begin_layout Standard
+It is difficult to get a man to understand something when his salary depends
+ upon his not understanding it.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+“Do it Wrong Quickly”: test quickly, report quickly, decision quickly.
+\end_layout
+
+\begin_layout Subsection
+Internet Speed matters
+\end_layout
+
+\begin_layout Standard
+A Treatment might provide a worse user experience because of its performance.
+ Linden (2006b, p.
+ 15), wrote that experiments at Amazon showed a 1% sales decrease for an
+ additional 100msec, and that a specific experiment at Google, which increased
+ the time to display search results by 500 msecs reduced revenues by 20%
+ (based on a talk byMarissa Mayer atWeb 2.0).
+\end_layout
+
+\begin_layout Itemize
+So a fancy feature may be bad today, but better years later when internet
+ speed is higher.
+\end_layout
+
+\begin_layout Subsection
+Bucket System and Carryover Effects
+\end_layout
+
+\begin_layout Standard
+Some online experimentation platforms, including at Bing, Google, and Yahoo,
+ rely on the “bucket system” to assign users to experiments [3].
+ The bucket system randomizes users into different buckets and then assigns
+ buckets to experiments.
+\end_layout
+
+\begin_layout Itemize
+One big drawback with the “bucket system” is its vulnerability to carryover
+ effects, where the same users who were impacted by the first experiment
+ are being used for the follow-on experiment.
+ So the impact of the first test will be carried over to the second test.
+\end_layout
+
+\begin_layout Itemize
+This is known, and A/A tests can be run to check for carryover effects,
+ but when they fail, 
+\series bold
+we lose capacity until we re-randomize the bucket assignment.
+\end_layout
+
+\begin_layout Standard
+It is clear that there was a 
+\series bold
+carryover effect
+\series default
+ on users after the experiment finished.
+ The carryover effect seems to die out at about the third week after the
+ experiment.
+\end_layout
+
+\begin_layout Subsection
+Washout Period
+\end_layout
+
+\begin_layout Part
+Web Techs
+\end_layout
+
+\begin_layout Standard
+Some changes will affect the web beacon which increases the successes of
+ recording clicks, not the true number of clicks.
+\end_layout
+
+\begin_layout Standard
+In the video world, latency is the amount of time between the instant a
+ frame is captured and the instant that frame is displayed.
+ Low latency is a design goal for any system where there is real-time interactio
+n with the video content, such as video conferencing or drone piloting.
+ http://www.cast-inc.com/blog/white-paper-understanding-and-reducing-latency-in-vi
+deo-compression-systems
 \end_layout
 
 \end_body
