@@ -185,15 +185,153 @@ http://www.cricode.com/2001.html
 \end_layout
 
 \begin_layout Standard
-程序员必须知道的10大基础实用算法及其讲解 
-\end_layout
-
-\begin_layout Standard
 Dynamic Programming!
 \end_layout
 
 \begin_layout Section
-Twitter
+Q & A
+\end_layout
+
+\begin_layout Subsection
+How to cluster users in social media
+\end_layout
+
+\begin_layout Itemize
+Normally use two algorithms to do clustering: K-means & Gaussian Mixture
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+K-means is to assign a hard label
+\end_layout
+
+\begin_layout Itemize
+Gaussian Mixture is to assign a soft label, which give you a a probability
+ of being A or B
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+But the problem is, those models will give you mutually exclusive labels
+ : 
+\series bold
+IN REALITY
+\series default
+ one user may have multiple tags / labels at the same.
+ One user may love music and computer science at the same time
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+So there is no way to do clustering at just one time.
+ You need to first do clustering on whether a user likes music or not.
+ Then run another clustering to decide for the computer science label.
+\end_layout
+
+\begin_layout Itemize
+That means, for each time, you just model one label.
+ But you run the label multiple times to get all the labels you want.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Also even within the music label, there are further sublabels --- rock,
+ pop, rap etc.
+ So you have to run clustering in a hierarchical way.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+I means first decide all the pepople who like music, then within those people,
+ clustering into different groups
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Features used to cluster in social media
+\end_layout
+
+\begin_layout Itemize
+Facebook: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+based on their interests
+\end_layout
+
+\begin_layout Itemize
+Base on what they write on their wall
+\end_layout
+
+\begin_layout Itemize
+also interest of the people are following
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Twitter:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Based on what they tweet, y
+\series default
+ou can use data mining or natural lanaguage processing to extract certain
+ key toptics, key words 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Based on who they follow
+\series default
+: It's hard to directly do clustering on common users.
+ But it is relatively easy to cluster those celebrities, they are most likely
+ just has oen label --- either movie star, musician, or comupter scientist.
+ So their labels are more 
+\series bold
+pure 
+\series default
+that common users.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Then we go back to the common users, to see what types of celebrities they
+ follow
+\end_layout
+
+\begin_layout Itemize
+Or you can even bring the number of likes or retweets for each celebrities,
+ using this as a weight to mearue how 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Data can be constructed like this: It is a matrix with rows as users, columns
+ as celebrities.
+ value equal to 1 if a user follow a celebrity, equal to 0 if not.
+ OR the value is the total number of likes / retweets...
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Why an advertiser becomes inactive
+\end_layout
+
+\begin_layout Subsection
+Why an user becomes inactive
+\end_layout
+
+\begin_layout Subsection
+Understanding Ad engagement behavior of high net wotth user
+\end_layout
+
+\begin_layout Section
+T
 \end_layout
 
 \begin_layout Itemize
@@ -430,6 +568,184 @@ we are the fastest way to see that event,
 \end_layout
 
 \begin_layout Subsection
+Business Insight Team
+\end_layout
+
+\begin_layout Itemize
+Measure Causal MAU
+\end_layout
+
+\begin_layout Itemize
+Accurately determin user's location
+\end_layout
+
+\begin_layout Itemize
+Standardized measure of creator success.
+\end_layout
+
+\begin_layout Itemize
+User Lifetime Value
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+first do a segmentation
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Understanding Ad Engagement Behavior of High Net Revenue Uers.
+\end_layout
+
+\begin_layout Itemize
+New user retention and monetization -- Paid vs Organic
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Inactive and Active -- this is already labeled data --- so biuld a model
+ to link these to product features -- to see what they love and what they
+ don't love
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Insiders
+\end_layout
+
+\begin_layout Itemize
+How to grow advertisers
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+How to keep advertisers: they become inactive after first several time use.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+How to grow users
+\end_layout
+
+\begin_layout Itemize
+Clustering program:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+What's the difference between PCA and Gaussian Mixture.
+ (PCA cannot be used in cluster! it is to reduce the dimention!)
+\end_layout
+
+\begin_layout Itemize
+What feature to use when you cluster users
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Categories:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+promote brand (general awareness).
+ They want to target people who never heared of, of not familer with them
+\end_layout
+
+\begin_layout Itemize
+promote a paticular tweet/picture/video/follow you.
+ So in this case they want to target those who already know their business/produ
+ct.
+\end_layout
+
+\begin_layout Itemize
+Persuade people to do a specific action: purchase, download, regester.
+ Target local / super interest.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Recommendation Algorithm
+\end_layout
+
+\begin_layout Itemize
+Prediction: 0,1 (whether become inactive or not)
+\end_layout
+
+\begin_layout Itemize
+High value user / advertiser
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+A/B test
+\end_layout
+
+\begin_layout Itemize
+Why Advertisers Become Inactive
+\end_layout
+
+\begin_layout Section
+Twitter Products
+\end_layout
+
+\begin_layout Standard
+All of this falls under the line of two of the most important use cases
+ that we want to focus on, 
+\end_layout
+
+\begin_layout Enumerate
+News.
+ And we think Twitter is better at real-time news and live news than anyone
+ else on the platform – in the world, I should say.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Social commentary.
+ Anyone can comment about what's happening now and share their thoughts,
+ and sometimes those go into conversation
+\end_layout
+
+\begin_layout Standard
+So, that's what we want to make stronger and also easier.
+ So, four areas that we've been focused on there.
+ Number one is around on-boarding.
+ We've been applying a lot more machine learning and deep learning to our
+ on-boarding, so we can match people faster to their interests.
+ And we believe that that interest drive is really important to us and unique
+ to us.
+ Two, is the timeline where people spend the majority of their time.
+ We've made a number of refinements over the past few months to make sure
+ that we're showing what's most important and what really matters, and enabling
+ people to quickly get back to everything and to recency.
+\end_layout
+
+\begin_layout Standard
+Notifications is another area where we think we can do a much better job,
+ especially around breaking news.
+ And not that we just push you into a tweet that dead ends, but we can enable
+ you to further explore topics around that tweet and that interest.
+\end_layout
+
+\begin_layout Subsection
+Periscope
+\end_layout
+
+\begin_layout Subsection
+Interest of Users
+\end_layout
+
+\begin_layout Standard
+Those logged-in users explicitly express their interests, what they care
+ about, if they're a Red Sox fan, if they're a Jets fan, if they're Republican
+ or Democrat, based on who they're following.
+\end_layout
+
+\begin_layout Subsection
 Moments
 \end_layout
 
@@ -481,7 +797,7 @@ MAU,searches and Direct Messages
 \end_layout
 
 \begin_layout Subsection
-monetization 
+Monetization 
 \end_layout
 
 \begin_layout Standard
@@ -1451,10 +1767,6 @@ Partner Categories: Partner Categories are targeting options provided by
 \end_layout
 
 \begin_layout Section
-Facebook Prepare
-\end_layout
-
-\begin_layout Section
 Uber
 \end_layout
 
@@ -1952,9 +2264,48 @@ Think for a while before you answer non-math/stat questions.
 \end_layout
 
 \begin_layout Itemize
-Always use First, Second.
+When answer algorithms / features / models / techniques, never give short
+ answer!
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+Alwasy illustration what this algorithm give you, what's the assumption,
+ what's s good or bad for it, or compare it with others
+\end_layout
+
+\begin_layout Itemize
+also connect it with the real business questions.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+When you not sure: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+describe your reasoning, answer in 1, 2, 3.
+ // first, second, all
+\end_layout
+
+\begin_layout Itemize
+If the machine learnign problem you gave didn't solve the problem, then
+ use business sense / Heuristics / Recursively way
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Example: how if unsupervised clustering didn't just give you two groups
+ you want -- good or bad, but give you
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+try to relate to the work you have done
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 For too generic questions:
 \end_layout
