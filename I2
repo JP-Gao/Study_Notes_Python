@@ -193,7 +193,7 @@ Dynamic Programming!
 \end_layout
 
 \begin_layout Section
-T
+Twitter
 \end_layout
 
 \begin_layout Itemize
@@ -341,8 +341,241 @@ Experience with Hadoop (Pig, Scalding)
 Strategy consulting experience
 \end_layout
 
+\begin_layout Subsection
+Glassdoor: DS at T
+\end_layout
+
+\begin_layout Standard
+General
+\end_layout
+
+\begin_layout Itemize
+In the pre-data-science period, statistician interviewers were composed
+ of at least
+\series bold
+ half internal data customers from various domains.
+
+\series default
+ They wanted to know
+\series bold
+ how I can help them achieve their research or business goals with data.
+
+\series default
+ 
+\end_layout
+
+\begin_layout Itemize
+In contrast, all of my data scientist interviewers (not just at Twitter)
+ were younger and more computing savvy data analysts from quantitative backgroun
+d.
+ They wanted to know if I know how to do xyz, where xyz is something they
+ themselves have encountered.
+ This difference is important for candidate and employers of data scientist.
+\end_layout
+
+\begin_layout Standard
+Q
+\end_layout
+
+\begin_layout Itemize
+What features would you use to build recommendation algorithm for users.
+ 
+\end_layout
+
+\begin_layout Itemize
+He mainly asked domain specific question to see whether I would be a good
+ fit in his team.
+ 
+\end_layout
+
+\begin_layout Itemize
+experimentation
+\end_layout
+
+\begin_layout Itemize
+Algorithms: Find the median of a large dataset 
+\end_layout
+
+\begin_layout Itemize
+Product Product Product: What's your social networking activity like 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Business Case.
+ You need to know twitter inside out, if so, things get easier.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+http://collabedit.com/ for coding online
+\end_layout
+
+\begin_layout Subsection
+T as a product
+\end_layout
+
+\begin_layout Standard
+we think the easiest way to get what Twitter is, is really to show a live
+ event, show people the great accounts who are providing insights that you
+ can’t find anywhere else, you can’t find in your address, but you actually
+ meet on Twitter through that experience, to connect them through a follow
+ and also to encourage them in a conversation.
+ 
+\end_layout
+
+\begin_layout Standard
+we are the fastest way to see that event, 
+\end_layout
+
+\begin_layout Subsection
+Moments
+\end_layout
+
+\begin_layout Standard
+The real question is what value casual, lapsed, and non-users of Twitter
+ will find in Moments — and that’s much harder to answer.
+ 
+\end_layout
+
+\begin_layout Standard
+Their bias is toward tweets from the source: people who are on the scene,
+ or are directly involved in the news story.
+\end_layout
+
+\begin_layout Standard
+What we try to do is just immerse you in the content.
+\end_layout
+
+\begin_layout Standard
+If it sounds like Twitter is now running a media company inside a technology
+ company, that’s because it is
+\end_layout
+
+\begin_layout Standard
+One aspect of Moments I didn’t see coming: not every story captures a real-time
+ event.
+ The company is also packaging together evergreen stories ("Catch a wave,"
+ a collection of surfing pictures and videos) and offering them up to browse.
+ It's building moments to tell stories that take place over weeks or months
+ — a rookie's first month in the National Hockey League, for example, or
+ the story of the Los Angeles Dodgers' season.
+\end_layout
+
+\begin_layout Subsubsection
+MAU
+\end_layout
+
+\begin_layout Standard
+In terms of MAU growth, the primary drivers of the MAU growth in the quarter
+ were both seasonality and marketing initiatives
+\end_layout
+
+\begin_layout Subsection
+Measure of Engagement 
+\end_layout
+
+\begin_layout Standard
+MAU,searches and Direct Messages
+\end_layout
+
+\begin_layout Subsection
+monetization 
+\end_layout
+
+\begin_layout Standard
+Advertising inventory is the number of advertisements, or amount of ad space,
+ a publisher has available to sell to an advertiser.
+ Ad inventory is often calculated by the month.
+ The term can refer to ads in print or other traditional media but is increasing
+ly used to refer to online or mobile ads.
+\end_layout
+
+\begin_layout Standard
+Yes.
+ So, on the online budgets, these are a set of budgets that we don’t have
+ exposure to today, because they require a certain set of features that
+ we are working on right now.
+ These are features like demographic targeting and validation, GRP and TRP,
+ targeting and reporting.
+ So, it’s a function of putting these features in place.
+ We believe that we can tap into incremental video budgets when we put those
+ features in place.
+\end_layout
+
+\begin_layout Standard
+DoubleClick deal.
+ DCM as you mentioned, which is around measurement.
+ And DBM, which is around ad buying.
+ So let me start with the DCM piece measurement.
+ In the quarter, we expanded the beta over a dozen advertisers and we have
+ run hundreds of campaigns now through DCM.
+ We have seen two things.
+ 
+\end_layout
+
+\begin_layout Standard
+One, when measuring desktop impressions to desktop conversions, the data
+ looks accurate through DCM and the results for Twitter for these campaigns
+ looks strong.
+ So that’s good news.
+ When on the other edge – on the other side of the house, when you look
+ at mobile impressions that are measured through DCM that are measuring
+ desktop conversions, so this cross-device measurement, what we saw through
+ the measurement period is that something that the industry overall needs
+ to address which is that this type of cross-device measurement overall
+ need to work from an industry standpoint.
+ 
+\end_layout
+
+\begin_layout Standard
+This is something that we are working with Google together on.
+ It’s part of the reasons why we did the DoubleClick deal in the first place
+ is to help solve some of this cross-device measurement for the overall
+ industry.
+ 
+\end_layout
+
+\begin_layout Standard
+This hits us particularly in an acute way because 90% of our impressions,
+ our ad impressions are on mobile.
+ 
+\end_layout
+
+\begin_layout Standard
+So cross-device for us is really important part.
+ On the DBM side, Google engineers and Twitter engineers are working on
+ the buying piece for integration.
+ We believe it will be in beta in Q3.
+\end_layout
+
+\begin_layout Standard
+On the SMB side, we were up on a year-on-year basis overall in active advertiser
+s and it was driven by our SMB initiatives.
+ SMB for us is an exciting opportunity because we have identified close
+ to 9 million businesses who have setup shop on Twitter and are using it
+ organically.
+ Our goal is to move those 9 million businesses through the funnel to become
+ active advertisers on the platform.
+ 
+\end_layout
+
+\begin_layout Standard
+When we look at our top 10 vertical categories, QSR, quick serve restaurants,
+ as well as retail were two categories that performed decidedly lower than
+ the rest of the overall business, which are macro driven categories.
+\end_layout
+
+\begin_layout Standard
+We now are over 300 Amplify video partners, so this is premium video content
+ that partners are bringing on the platforms, sometimes exclusively on to
+ Twitter.
+ 
+\end_layout
+
 \begin_layout Section
-F
+Facebook
 \end_layout
 
 \begin_layout Standard
@@ -554,7 +787,7 @@ Working with Finance, because a lot what we do is the Income Statement,
 \end_layout
 
 \begin_layout Standard
-Question:
+Question to ask
 \end_layout
 
 \begin_layout Standard
@@ -570,15 +803,16 @@ I heared about that after you join F, you didn't join a particular group,
  OR this is not the case for everyone.
 \end_layout
 
-\begin_layout Section
-F Tips
+\begin_layout Subsection
+What group you want to work with 
 \end_layout
 
-\begin_layout Standard
-t was great speaking with you today.
- Here’s the preparation email that I mentioned in our conversation.
- I’m excited for you to speak with someone for the Data Scientist role.
- 
+\begin_layout Itemize
+specific product you want to work on
+\end_layout
+
+\begin_layout Section
+F Official Tips
 \end_layout
 
 \begin_layout Standard
@@ -896,7 +1130,7 @@ https://www.facebook.com/careers/jobs/a0I1200000JIWQvEAP/
 \end_layout
 
 \begin_layout Section
-F Questions
+F Questions from Glassfor
 \end_layout
 
 \begin_layout Standard
@@ -1020,6 +1254,10 @@ What teams are you interested in at Facebook?
 Coding
 \end_layout
 
+\begin_layout Standard
+Tips: Ask more about the data, like uniqueness.
+\end_layout
+
 \begin_layout Itemize
 About how to generate all possible friendship given four tables with the
  "request", "accept","reject", and "remove" information
@@ -1066,6 +1304,38 @@ Request_accepted (acceptor_id, requestor_id, time)
 Find the overall acceptance rate of requests
 \end_layout
 
+\begin_layout Itemize
+select round(100*count(case when b.requestor_id is null then 1 else 0 end)/count(
+a.requester_id),2) as acceptance_rate from Friend_requests as a left join
+ Request_accepted as b on a.sent_to_id = b.acceptor_id and a.requester_id =
+ b.requestor_id where date(a.time) < date_add(current_date(), "-7", "day")
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+you have a table where you have date, user_id, song_id and count.
+ It shows at the end of each day how many times in her history a user has
+ listened to a given song.
+ So count is cumulative sum.
+ You have to update this on a daily basis based on a second table that records
+ in real time when a user listens to a given song.
+ Basically, at the end of each day, you go to this second table and pull
+ a count of each user/song combination and then add this count to the first
+ table that has the lifetime count.
+ If it is the first time a user has listened to a given song, you won't
+ have this pair in the lifetime table, so you have to create the pair there
+ and then add the count of the last day.
+ Onsite: lots of ads related and machine learning questions.
+ How to build an ad model, how to test it, describe a model.
+ I didn't do well in some of these.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Outer Join / Union All 
+\end_layout
+
 \end_deeper
 \begin_layout Subsection
 Algorithm
@@ -1094,7 +1364,98 @@ How would you compare the relative performance of two different back-end
 \end_layout
 
 \begin_layout Section
-U
+Facebook Ads
+\end_layout
+
+\begin_layout Itemize
+Location: Reach your customers in the areas they live or where they do business
+ with you.
+ Target ads by country, state, zip code, or even the area around your business.
+\end_layout
+
+\begin_layout Itemize
+Demographics: The customers your business serves are on Facebook.
+ Choose the audiences that should see your ads by age, gender, interests—and
+ even the languages they speak.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Education
+\end_layout
+
+\begin_layout Itemize
+Age
+\end_layout
+
+\begin_layout Itemize
+Married Status / Household Size 
+\end_layout
+
+\begin_layout Itemize
+Own home / Own car (what type of car he/she owns)
+\end_layout
+
+\begin_layout Itemize
+Jon Title / Industry
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Interests: When people are interested in your business, they're more likely
+ to take action on your ad.
+ Choose from hundreds of categories like music, movies, sports, games, shopping,
+ and so much more to help you find just the right people.
+\end_layout
+
+\begin_layout Itemize
+Behaviors: You know your customers best, and you can find them based on
+ the things they do—like shopping behavior, the type of phone they use,
+ or if they're looking to buy a car or house.
+\end_layout
+
+\begin_layout Itemize
+Connections: Reach the people who like your Page or your app—and reach their
+ friends, too.
+ It's an easy way to find even more people who may be interested in your
+ business.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Page Likes
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Frequency of Activity / How they use Facebook
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Looking news / Getting new information --------- NGO
+\end_layout
+
+\begin_layout Itemize
+Connect with Friends / Social -------thus probabily food business want to
+ target them
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Partner Categories: Partner Categories are targeting options provided by
+ third-party data partners.
+ With Partner Categories you can reach people based on offline behaviors
+ people take outside of Facebook, such as owning a home, being in the market
+ for a new truck or being a loyal purchaser of a specific brand or product.
+\end_layout
+
+\begin_layout Section
+Facebook Prepare
+\end_layout
+
+\begin_layout Section
+Uber
 \end_layout
 
 \begin_layout Subsection
@@ -1571,14 +1932,54 @@ Method
 \end_layout
 
 \begin_layout Itemize
-详细准备why that company
+HR 面试 详细准备why that company，what's your current role.
+\end_layout
+
+\begin_layout Subsection
+Interview
+\end_layout
+
+\begin_layout Itemize
+If you are not sure whether your anwer is correct: 
+\series bold
+say you never encounter this type of problems below, and then describe how
+ you construct
+\end_layout
+
+\begin_layout Itemize
+Think for a while before you answer non-math/stat questions.
+ Think the structure of the answer.
+\end_layout
+
+\begin_layout Itemize
+Always use First, Second.
+\end_layout
+
+\begin_layout Itemize
+For too generic questions:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Could you give me context? Or describe the data?
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Onsite
 \end_layout
 
 \begin_layout Itemize
 On-site is about damage-control, not standing out.
- !!!!! 
+ !!!!!
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+Be humble! 尤其是你觉得问题很简单的时候！
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Words
 \end_layout
@@ -3270,6 +3671,22 @@ Different risk groups have different level of systematic risks, or sensitivity
 
 \begin_layout Part
 Behavioral Questions
+\end_layout
+
+\begin_layout Subsection
+Why A Company?
+\end_layout
+
+\begin_layout Standard
+Grow a lot here, and learn a lot here, both technically and professionally.
+\end_layout
+
+\begin_layout Standard
+Fit me, relatively new world to me, confident I can handle the work.
+\end_layout
+
+\begin_layout Standard
+Engineer and and Data Scientist are blurrerd.
 \end_layout
 
 \begin_layout Subsection
