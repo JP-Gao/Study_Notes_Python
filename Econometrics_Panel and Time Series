@@ -1,0 +1,4156 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Econometrics_Panel and Time Series 6/23/2016
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\end_layout
+
+\begin_layout Date
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First version: Nov 
+\begin_inset Formula $11{}^{th}$
+\end_inset
+
+, 2013.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part*
+Book Reference
+\end_layout
+
+\begin_layout Itemize
+ISL 
+\begin_inset CommandInset label
+LatexCommand label
+name "ISL"
+
+\end_inset
+
+: text_classical_An Introduction to Statistical Learning with Applications
+ in R.
+\end_layout
+
+\begin_layout Itemize
+http://en.wikipedia.org/wiki/Predictive_modelling
+\end_layout
+
+\begin_layout Itemize
+http://en.wikipedia.org/wiki/Kaggle
+\end_layout
+
+\begin_layout Itemize
+Probability and statistics EBook :
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://wiki.stat.ucla.edu/socr/index.php/Probability_and_statistics_EBook
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Part
+Pooling Cross Sectional & Pannel Data
+\end_layout
+
+\begin_layout Standard
+Early panel data literature assumed cross-sectionally independent errors.
+\end_layout
+
+\begin_layout Standard
+All time series techniques can be used in Pannel data
+\end_layout
+
+\begin_layout Section
+Assumptions in Panel Data
+\end_layout
+
+\begin_layout Enumerate
+Stationarity in panel data: See the chapter time series.
+\end_layout
+
+\begin_layout Enumerate
+Serial Correlation: see GLM 1
+\end_layout
+
+\begin_layout Section
+Fixed Effect
+\end_layout
+
+\begin_layout Standard
+本质同 Instrumental Variable 一样，都是处理 missing variable / unobserved effect 的一种方法
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{it}=\beta x_{it}+a_{i}+u_{it}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $i$
+\end_inset
+
+ means each person.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ referred to as 
+\series bold
+unobserved heterogeneity
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+unobserved heterogeneity
+\end_layout
+
+\end_inset
+
+ or
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+fixed effect 
+\end_layout
+
+\end_inset
+
+ fixed effect (as it is fixed across time).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ may be correlated with 
+\begin_inset Formula $x_{it}$
+\end_inset
+
+!
+\end_layout
+
+\begin_layout Subsection
+Estimate
+\end_layout
+
+\begin_layout Standard
+Remember that using fixed effects is the same as allowing a different intercept
+ for each observation, and we can estimate these intercepts by including
+ dummy variables or by (14.6).
+\end_layout
+
+\begin_layout Subsubsection*
+Method 1: First Differencing
+\end_layout
+
+\begin_layout Standard
+Wooldridge 12.4.
+ 将虽有 
+\begin_inset Formula $y$
+\end_inset
+
+ and 
+\begin_inset Formula $x$
+\end_inset
+
+ 做 first differencing 成为
+\begin_inset Formula $\Delta$
+\end_inset
+
+ 再作 regression.
+ In this way, 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ is deleted.
+\end_layout
+
+\begin_layout Standard
+Be careful with degree of freedom (see the Book)
+\end_layout
+
+\begin_layout Subsubsection*
+Method 2: Time De-meaning
+\end_layout
+
+\begin_layout Standard
+Transform all variables into 
+\begin_inset Formula $\ddot{y}=y-\bar{y}$
+\end_inset
+
+ and 
+\begin_inset Formula $\ddot{x}=x-\bar{x}$
+\end_inset
+
+ , thus removing 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Note that this method allows Non-Balanced pannel data, even if the attrition
+ of observations is correlated with 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ (Book p452)
+\end_layout
+
+\begin_layout Standard
+Be careful with degree of freedom (see the Book) and serial correlation
+ of error term.
+\end_layout
+
+\begin_layout Subsubsection*
+Method 3: Dummy Variables
+\end_layout
+
+\begin_layout Standard
+For each observation, add a specific dummy on it; that means each observation
+ has its own intercept.
+\end_layout
+
+\begin_layout Section
+Random Effect
+\end_layout
+
+\begin_layout Standard
+Based on the Fixed Effect model, 
+\series bold
+if we assume 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ is uncorrelated with 
+\begin_inset Formula $x_{it}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Cov(x_{it},a_{i})=0
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $i,t$
+\end_inset
+
+, then the model becomes 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Random Effect model
+\end_layout
+
+\end_inset
+
+ Random Effect model.
+\end_layout
+
+\begin_layout Subsection*
+Estimate: Quasi-Demean & Generalized Least Square
+\end_layout
+
+\begin_layout Standard
+Create a composite error term: 
+\begin_inset Formula $v_{it}=a_{i}+u_{it}$
+\end_inset
+
+, note that 
+\begin_inset Formula $Corr(v_{it},v_{is})=\frac{\sigma_{a}^{2}}{\sigma_{a}^{2}+\sigma_{u}^{2}}$
+\end_inset
+
+, so we can construct Quasi-Demean variables 
+\begin_inset Formula $y-\lambda\bar{y}$
+\end_inset
+
+ and 
+\begin_inset Formula $x$
+\end_inset
+
+...
+ to eliminate the serial correlation.
+ 
+\end_layout
+
+\begin_layout Standard
+See 书p454
+\end_layout
+
+\begin_layout Section
+Instrumental Variable
+\end_layout
+
+\begin_layout Itemize
+本质都是处理 missing variable / unobserved effect 的一种方法。并非去找missing variable,
+ 而是去承认missing variable的存在，此时如何能让 estimate unbiased 
+\end_layout
+
+\begin_layout Itemize
+Instrumental variable methods allow consistent estimation when 
+\begin_inset Formula $x$
+\end_inset
+
+ correlated with error terms 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+See Library ▸ Metrics ▸ OLS instrumental variable.pdf
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+(http://cameron.econ.ucdavis.edu/e240a/ch04iv.pdf)
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Nature of variables in Static Models
+\end_layout
+
+\begin_layout Standard
+Time series are Dynamic Models
+\end_layout
+
+\begin_layout Standard
+A factor can be classified as endogenous or exogenous only relative to a
+ specification of a model.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Endogenous variables: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A factor in a causal model or causal system whose value is determined by
+ the states of other variables (could be 
+\series bold
+Exogenous
+\series default
+ 
+\series bold
+variables
+\series default
+) in the system; 
+\end_layout
+
+\begin_layout Itemize
+In real causal systems, however, there can be a range of endogeneity.
+ Some factors are causally influenced by factors within the system but also
+ by factors not included in the model.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $y$
+\end_inset
+
+ is Endogenous
+\series bold
+ forever.
+ 
+\end_layout
+
+\begin_layout Itemize
+If an 
+\begin_inset Formula $x$
+\end_inset
+
+ is correlated with error 
+\begin_inset Formula $u$
+\end_inset
+
+, then that means it is affected by missing variables, then 
+\begin_inset Formula $x$
+\end_inset
+
+ must be Endogenous
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Exogenous variables:
+\series default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A factor in a causal model or causal system whose value is independent from
+ the states of other variables in the system; a factor whose value is determined
+ by factors or variables outside the causal system under study.
+ 
+\end_layout
+
+\begin_layout Itemize
+For example, rainfall is exogenous to the causal system constituting the
+ process of farming and crop output.
+\end_layout
+
+\begin_layout Itemize
+Often serve as IV when it does not correlate with missing variable.
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $E(u|x_{1}...x_{k})=0$
+\end_inset
+
+, then we say we have 
+\series bold
+exogenous explanatory variables 
+\begin_inset Formula $x_{1}...x_{k}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+在IV的环境下，貌似只要 uncorrelated with 
+\begin_inset Formula $u$
+\end_inset
+
+, then a variable is exogenous.
+ Otherwise it is endogenous.
+\end_layout
+
+\begin_layout Subsection
+Intuition 
+\end_layout
+
+\begin_layout Standard
+First we have the common OLS (called 
+\series bold
+Structural Equation
+\series default
+ in IV
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Structural Equation in IV
+\end_layout
+
+\end_inset
+
+ method)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y=\beta_{0}+\beta x+u
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Standard regression:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\begin{array}{ccc}
+x & \rightarrow & y\\
+ & \nearrow\\
+u
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $x$
+\end_inset
+
+ are endogenous, 
+\begin_inset Formula $u$
+\end_inset
+
+ is correlated with 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ As missing variable exits，we can write 
+\begin_inset Formula $u$
+\end_inset
+
+ as 
+\begin_inset Formula $u(x)$
+\end_inset
+
+, and 
+\begin_inset Formula $\frac{\partial y}{\partial x}=\beta+\frac{\partial u(x)}{\partial x}$
+\end_inset
+
+, thus
+\begin_inset Formula $\beta$
+\end_inset
+
+ is inconsistent and biased.
+ So we need another way to estimate correct 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\begin{array}{ccc}
+x & \rightarrow & y\\
+\uparrow & \nearrow\\
+u
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To solve this problem: you need to find 
+\begin_inset Formula $z$
+\end_inset
+
+, which strongly related with 
+\begin_inset Formula $x$
+\end_inset
+
+, but uncorrelated with 
+\begin_inset Formula $u$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\begin{array}{ccccc}
+z & \rightarrow & x & \rightarrow & y\\
+ &  & \uparrow & \nearrow\\
+ &  & u
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Idea: 
+\end_layout
+
+\begin_layout Standard
+Not estimate 
+\begin_inset Formula $\beta$
+\end_inset
+
+ for 
+\begin_inset Formula $x$
+\end_inset
+
+ directly, we want to find an 
+\series bold
+instrumental variable 
+\begin_inset Formula $z$
+\end_inset
+
+ (傀儡), which satisfies
+\end_layout
+
+\begin_layout Itemize
+Not Correlated with 
+\begin_inset Formula $u$
+\end_inset
+
+, thus 
+\begin_inset Formula $y\sim z$
+\end_inset
+
+ can get unbiased estimate.
+\end_layout
+
+\begin_layout Itemize
+But 
+\series bold
+STRONG
+\series default
+ correlated with 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Thus 
+\begin_inset Formula $z$
+\end_inset
+
+'s effect on 
+\begin_inset Formula $y$
+\end_inset
+
+ (
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $dy/dz$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+) can be divided into two independent parts: effect of 
+\begin_inset Formula $z$
+\end_inset
+
+ on 
+\begin_inset Formula $x$
+\end_inset
+
+: 
+\begin_inset Formula $\frac{dx}{dz}$
+\end_inset
+
+, and effect of 
+\begin_inset Formula $x$
+\end_inset
+
+ on 
+\begin_inset Formula $z$
+\end_inset
+
+
+\begin_inset Formula $\beta_{IV}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+dy/dz=dx/dz\times\beta_{IV}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Therefore, you can calculate 
+\begin_inset Formula $\beta_{IV}$
+\end_inset
+
+, which is the true 
+\begin_inset Formula $\beta$
+\end_inset
+
+ for structural equation.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Example: 
+\end_layout
+
+\begin_layout Standard
+Return to the earnings-schooling example.
+ Suppose a one unit change in the instrument z is associated with 0.2 more
+ years of schooling and with a $500 increase in annual earnings.
+ 
+\end_layout
+
+\begin_layout Standard
+This increase in earnings is a consequence of the indirect effect that increase
+ in 
+\begin_inset Formula $z$
+\end_inset
+
+, leading to increase in schooling which in turn increases income.
+ Then it follows that 0.2 years additional schooling are associated with
+ a $500 increase in earnings, so that a one year increase in schooling is
+ associated with a $500=0:2 = $2; 500 increase in earnings.
+ The causal estimate of # is therefore 2500.
+\end_layout
+
+\begin_layout Subsubsection*
+Why not include IV in the the structural equation?
+\end_layout
+
+\begin_layout Subsection
+IV Estimator & 2 Stage Least Squares
+\end_layout
+
+\begin_layout Standard
+Thus, 
+\begin_inset Formula 
+\[
+\frac{dx}{dz}\times\beta_{IV}=dy/dz
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Use 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+2 Stage Least Squares (2SLS)
+\end_layout
+
+\end_inset
+
+
+\series bold
+2 Stage Least Squares (2SLS) method:
+\end_layout
+
+\begin_layout Enumerate
+As 
+\begin_inset Formula $\frac{dx}{dz}$
+\end_inset
+
+ can come from OLS 
+\begin_inset Formula $x\sim z$
+\end_inset
+
+ (
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Reduced Form
+\end_layout
+
+\end_inset
+
+
+\series bold
+Reduced Form
+\series default
+ equation), note that you will also get 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Then get 
+\begin_inset Formula $\frac{dy}{dz}$
+\end_inset
+
+ by replacing 
+\begin_inset Formula $x$
+\end_inset
+
+ by 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ in the original structural equation.
+\end_layout
+
+\begin_layout Standard
+Thus we have :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\beta_{IV}=\frac{(z'z)^{-1}z'y}{(z'z)^{-1}z'x}=(z'x)^{-1}z'y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Multiple Regression
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{1}=\beta_{0}+\beta_{1}y_{2}+\beta_{1}z_{1}+...+\beta_{k-1}z_{k-1}+u
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Here 
+\begin_inset Formula $y$
+\end_inset
+
+ means endogenous and 
+\begin_inset Formula $z$
+\end_inset
+
+ means exogenous.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+An IV must be exogenous and not appear in the structural equation!
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $z_{1}...z_{k-1}$
+\end_inset
+
+ cannot be IV for 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+, but they serve its own IV.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $z_{k}$
+\end_inset
+
+ can be IV for 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+ if it meets all criteria.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Then Reduced Form equation shall include all explanatory variables other
+ than 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+ in structural equations.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{2}\sim\beta_{1}z_{1}+...+\beta_{k-1}z_{k-1}+\beta_{k}z_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As long as 
+\begin_inset Formula $\beta_{k}\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $z_{k}$
+\end_inset
+
+ is an IV for 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Then you can use 
+\begin_inset Formula $\hat{y}_{2}$
+\end_inset
+
+ from the Reduced Form equation and plug it into the original Structural
+ Equation to get 
+\begin_inset Formula $\beta_{IV}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Multiple IVs 
+\end_layout
+
+\begin_layout Standard
+Just let reduced form regression include those multiple IVs.
+ As long as F-test show at least one of them are significant, then we can
+ construct 
+\begin_inset Formula $\hat{y}_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Multiple Endogenous Variables
+\end_layout
+
+\begin_layout Standard
+Suppose both there are 
+\begin_inset Formula $y_{2}...y_{k}$
+\end_inset
+
+ that are in Structural Equation and correlated with 
+\begin_inset Formula $u$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Then you need 
+\end_layout
+
+\begin_layout Enumerate
+Same number of Reduced Form Equation to get 
+\begin_inset Formula $\hat{y}{}_{2}...\hat{y}{}_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+At least same number of 
+\series bold
+significant
+\series default
+ (means must be significant in Reduced Form Regressions) 
+\begin_inset Formula $z_{k}$
+\end_inset
+
+s to create 
+\begin_inset Formula $\hat{y}{}_{2}...\hat{y}{}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+That means 
+\begin_inset Formula $IVs\ge Engeos$
+\end_inset
+
+.
+ This is the Order Condition constraint
+\end_layout
+
+\begin_layout Subsection
+IV in Measurement-Error Problem
+\end_layout
+
+\begin_layout Standard
+Measurement-Error Problem: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x=\hat{x}+e
+\]
+
+\end_inset
+
+ where 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x$
+\end_inset
+
+ is what we observed.
+ 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ is true value.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $e$
+\end_inset
+
+ is measurement error
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x$
+\end_inset
+
+ is correlated with 
+\begin_inset Formula $e$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Find an IV for 
+\begin_inset Formula $x$
+\end_inset
+
+ can solve this problem 
+\end_layout
+
+\begin_layout Subsection
+IV in Reverse Causality Problem
+\end_layout
+
+\begin_layout Standard
+See the example section.
+\end_layout
+
+\begin_layout Subsection
+Testing for Endogeneity: Determine whether to use IV
+\end_layout
+
+\begin_layout Standard
+本质是test whether 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+ is correlated with 
+\begin_inset Formula $u$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The 2SLS estimator is less efficient than OLS when the explanatory variables
+ (
+\begin_inset Formula $y_{2}$
+\end_inset
+
+, the one that is supposed to be Endogenous and we find IV for) are Exogenous.
+ 
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+ is exogenous, then no need to look IV for it at all.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In that case, OLS and 2SLS get the similar result!
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Idea: compute OLS and 2SLS to see if the estimates are practically different.
+\end_layout
+
+\begin_layout Itemize
+Significance of the difference: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $v_{2}$
+\end_inset
+
+ is the error term from Reduced Form 
+\begin_inset Formula $y_{2}\sim z_{1}+..+z_{k}+v_{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+When 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+ is exogenous, then 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+ is uncorrelated with 
+\begin_inset Formula $u$
+\end_inset
+
+, the error term in Structural Equation.
+\end_layout
+
+\begin_layout Itemize
+Note that 
+\begin_inset Formula $z_{1}...z_{k}$
+\end_inset
+
+ are exogenous and thus uncorrelated with 
+\begin_inset Formula $u$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Error in Structural Equation 
+\begin_inset Formula $u_{1}=\delta_{1}v_{2}+e$
+\end_inset
+
+, 
+\begin_inset Formula $e$
+\end_inset
+
+ is pure error.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+y_{1}\sim OriginalEqation+\delta_{1}\hat{v}_{2}+e
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $\delta_{1}\ne0$
+\end_inset
+
+ significantly, then 
+\begin_inset Formula $v_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $u$
+\end_inset
+
+ are correlated (即
+\begin_inset Formula $v_{2}$
+\end_inset
+
+是
+\begin_inset Formula $u$
+\end_inset
+
+的重要组成部分).
+ 即
+\begin_inset Formula $v_{2}$
+\end_inset
+
+ is both in 
+\begin_inset Formula $u$
+\end_inset
+
+ and in 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+, thus 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+ is Endogenous.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Statistical Inference of IV estimator
+\end_layout
+
+\begin_layout Standard
+See Wooldridge book P469
+\end_layout
+
+\begin_layout Standard
+We you use 2SLS method to get the IV estimator, its variance is normally
+ much larger than the normal OLS one, because:
+\end_layout
+
+\begin_layout Enumerate
+Less variance in 
+\begin_inset Formula $\hat{y_{2}}$
+\end_inset
+
+ than in 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\hat{y_{2}}$
+\end_inset
+
+ might be more correlation with exogenous variables in Structural Equation
+ than 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+ does.
+\end_layout
+
+\begin_layout Standard
+Do not do 2SLS by hand, use software package, as dealing with Statistical
+ Inference is tedious (P481)
+\end_layout
+
+\begin_layout Subsection
+IV 的经济学例子
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Wage\sim Edu$
+\end_inset
+
+, as 
+\begin_inset Formula $ability$
+\end_inset
+
+ is missing, regression is biased.
+ Distance_to_school might be a good IV
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Dmand\sim Price$
+\end_inset
+
+.
+ We want to get the causality of 
+\begin_inset Formula $Price$
+\end_inset
+
+ on 
+\begin_inset Formula $Demand$
+\end_inset
+
+, but cannot separate the reverse causality: more demand, then higher price.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+So 
+\begin_inset Formula $Supply$
+\end_inset
+
+, correlated with price but does not directly effect quantity demanded,
+ might be a good IV for Price
+\end_layout
+
+\begin_layout Itemize
+Like if it is agriculture good, the favorable growing conditions (essentially
+ supply) is good IV
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Tobit Model
+\end_layout
+
+\begin_layout Part
+Time Series
+\end_layout
+
+\begin_layout Standard
+Delta
+\begin_inset Formula 
+\[
+\Delta y_{t}=y_{t}-y_{t-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Logged
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{y_{t}-y_{t-1}}{y_{t-1}}=\Delta y_{t}\approx log(y_{t})-log(y_{t-1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Gauss-Markov Theorem in Time Series
+\end_layout
+
+\begin_layout Enumerate
+Linear: same as GM-1
+\end_layout
+
+\begin_layout Enumerate
+Weak exogeneity: 
+\begin_inset Formula $E(u_{t}|...,x_{t},x_{t-1},x_{t-1})=0$
+\end_inset
+
+, which weak form of GM-3.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+no need be strong form: conditional on whole 
+\series bold
+
+\begin_inset Formula $X$
+\end_inset
+
+
+\series default
+ (which include future 
+\begin_inset Formula $x_{t+1}...$
+\end_inset
+
+ )
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+No perfect collinearity: same as GM-4
+\end_layout
+
+\begin_layout Enumerate
+Homoskedasticity: same as GM-4
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Heteroskedasticity-Robust Statistics in OLS can also be applied here.
+ (Wooldridge 12.6)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+No serial correlation.
+ 
+\begin_inset Formula $corr(u_{t},u_{s})=0\mbox{ }\forall t\ne s$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This assumption is introduced in lieu of the absence of random sampling
+ properties(GM-2) in time series data collection.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Note that we do not require an asymptotic analog to TS-6, which imposed
+ normality of 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ That is because assumptions ATS-1 through ATS-5 allow us to use central
+ limit theorems to show that the OLS estimators will converge to a normal
+ distribution in large samples.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Assumptions 1-3 (Linear + Random Sample + Weak Exogeneity) lead to consistency
+ & unbiadness
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Adding 4-5 will lead to asymptotically efficient and asymptotically normal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+(see page 8 of Regression_in_Time_Series.pdf in Metrics folder or
+\end_layout
+
+\begin_layout Plain Layout
+http://academic.reed.edu/economics/parker/s14/312/tschapters/S13_Ch_2.pdf for
+ proof)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Serial Correlation
+\end_layout
+
+\begin_layout Standard
+(Wooldridge chapter 12)
+\end_layout
+
+\begin_layout Standard
+Note that Serial Correlation does not mean it violates Weak exogeneity!
+ (See the graph below, mean of errors are still zero.)
+\end_layout
+
+\begin_layout Description
+
+\series bold
+Test
+\series default
+: (Wooldridge p383)
+\end_layout
+
+\begin_layout Itemize
+Just plot the residuals.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $corr(\epsilon_{t},\epsilon_{t-1})>0$
+\end_inset
+
+ (signs of errors stay the same.)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Graphics
+	filename Lyx_Picture/Autocorrelation_po.JPG
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $corr(\epsilon_{t},\epsilon_{t-1})>0$
+\end_inset
+
+ (negative at 
+\begin_inset Formula $t-1$
+\end_inset
+
+, then positive at 
+\begin_inset Formula $t$
+\end_inset
+
+, then negative at 
+\begin_inset Formula $t+1$
+\end_inset
+
+ again)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Graphics
+	filename Lyx_Picture/Autocorrelation_ne.JPG
+	lyxscale 50
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Breusch-Godfrey Lagrange multiplier test (No one use Durbin Watson due to
+ its deficiency).
+\end_layout
+
+\begin_layout Description
+Cause:
+\end_layout
+
+\begin_layout Itemize
+Inertia/Time to Adjust: This often occurs in macro time series data.
+ The US interest rate unexpectedly increases and so there is an associated
+ change in exchange rates with other countries.
+ Reaching a new equilibrium could take some time.
+ 
+\end_layout
+
+\begin_layout Itemize
+Prolonged Influences This is again a time series issue dealing with economic
+ shocks.
+ 
+\end_layout
+
+\begin_layout Itemize
+Data Smoothing/Manipulation Using functions to smooth data will bring autocorrel
+ation into the disturbance terms Misspecification 
+\end_layout
+
+\begin_layout Description
+
+\series bold
+Result: Serial Correlation will just lead inefficiency, still consistency
+ and unbiased.
+ 
+\end_layout
+
+\begin_layout Itemize
+With positive serial correlation, the OLS estimates of the standard errors
+ will be smaller than the true standard errors.
+ This will lead to the conclusion that the parameter estimates are more
+ precise than they really are.
+
+\series bold
+ 
+\end_layout
+
+\begin_layout Itemize
+Unlike with 
+\series bold
+positive
+\series default
+ serial correlation, the usual OLS standard errors may not greatly understate
+ the correct standard errors when the
+\series bold
+ errors are negatively correlated 
+\series default
+(see Wooldridge textbook Section 12.1 for proof).
+ Thus, the significance of the enterprise zone dummy variable will probably
+ not be affected.
+\end_layout
+
+\begin_layout Description
+
+\series bold
+Solve
+\end_layout
+
+\begin_layout Itemize
+You can solve the serial correlation by a more careful model specification
+ (but not guaranteed you can find the correct variable or correct specification).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For the two graphs about, the serial correlation may be caused by a missing
+ seasonal variable, which is unrelated with other 
+\begin_inset Formula $x$
+\end_inset
+
+ (thus the model is still unbiased.)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+You can also use serial correlation-robust standard errors (Wooldridge 12.5)
+\end_layout
+
+\begin_layout Itemize
+GLS (Generalized Least Square)-- quasi-differencing.
+ (Wooldridge 12)
+\end_layout
+
+\begin_layout Itemize
+First differencing all 
+\begin_inset Formula $y$
+\end_inset
+
+ and 
+\begin_inset Formula $x$
+\end_inset
+
+ (Wooldridge 12.4)
+\end_layout
+
+\begin_layout Section
+Stationary
+\end_layout
+
+\begin_layout Subsubsection
+Strong form
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{X}(x_{t_{1}+\tau},\ldots,x_{t_{k}+\tau})=F_{X}(x_{t_{1}},\ldots,x_{t_{k}}).
+\]
+
+\end_inset
+
+ Since 
+\begin_inset Formula $\tau$
+\end_inset
+
+ does not affect 
+\begin_inset Formula $F_{X}(\cdot)$
+\end_inset
+
+, 
+\begin_inset Formula $F_{X}$
+\end_inset
+
+ is not a function of time.
+\end_layout
+
+\begin_layout Subsubsection
+Weak form
+\end_layout
+
+\begin_layout Itemize
+Constant mean and variance.
+ 
+\end_layout
+
+\begin_layout Itemize
+The auto-covariance function only depends on the difference of time, but
+ not the absolute position of time point.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathbb{E}[(x(t_{1})-m_{x}(t_{1}))(x(t_{2})-m_{x}(t_{2}))] & = & C_{x}(t_{1},t_{2})\\
+ & = & C_{x}(t_{1}+(-t_{2}),t_{2}+(-t_{2}))\\
+ & = & C_{x}(t_{1}-t_{2},0)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+I(1) or Random Walk properties
+\end_layout
+
+\begin_layout Enumerate
+Shocks to a unit root process have 
+\series bold
+permanent effects
+\series default
+, which means the past noise is is always built into the future price, and
+ do not decay as they would if the process were stationary.
+\end_layout
+
+\begin_layout Enumerate
+A unit root process has a variance that depends on t, and diverges to infinity.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Empirical: structural break: Chow Test and QLR test
+\end_layout
+
+\begin_layout Itemize
+Time series with structural break is also unstationary.
+ 
+\end_layout
+
+\begin_layout Itemize
+Chow test to test the structural break.
+ (see the GLM Model Form check section)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Unknown break
+\end_layout
+
+\begin_layout Subsubsection
+Dickey–Fuller test 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y_{t}=\rho y_{t-1}+u_{t}$
+\end_inset
+
+ A unit root is present if 
+\begin_inset Formula $\rho=1$
+\end_inset
+
+.
+ The model would be non-stationary in this case.
+\end_layout
+
+\begin_layout Standard
+Minus 
+\begin_inset Formula $y_{t-1}$
+\end_inset
+
+from both sides, then the regression model can be written as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla y_{t}=(\rho-1)y_{t-1}+u_{t}=\delta y_{t-1}+u_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We will do T-test on 
+\begin_inset Formula $\beta=\rho-1$
+\end_inset
+
+.
+ 
+\begin_inset Formula $H_{0}:$
+\end_inset
+
+ 
+\begin_inset Formula $\beta=0$
+\end_inset
+
+, or unit root=1.
+ 
+\begin_inset Formula $H_{1}$
+\end_inset
+
+ stationary
+\end_layout
+
+\begin_layout Subsubsection
+Argumented DF:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta y_{t}=\alpha+\gamma y_{t-1}+\delta_{1}\Delta y_{t-1}+\cdots+\delta_{p-1}\Delta y_{t-p+1}+\varepsilon_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+所以 adding more lags can eliminate the potential serial correlations between
+ errors, such as correlations between e1 and e5
+\end_layout
+
+\begin_layout Standard
+Note that for k equals zero the standard Dickey-Fuller test is computed.
+ 
+\end_layout
+
+\begin_layout Itemize
+Lag chosen (see VAR)
+\end_layout
+
+\begin_layout Itemize
+Intercept, Trend and Exponential Growth: as
+\begin_inset Formula $\Delta y_{t}=\alpha+\gamma y_{t-1}$
+\end_inset
+
+, where 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ means the trend for 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ So no need to add any term with 
+\begin_inset Formula $t$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+If data is exponentially trending then you might need to take the log of
+ the data first before differencing it.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Empirical: I(1) In Model
+\end_layout
+
+\begin_layout Standard
+The basic rule is 
+\begin_inset Formula $y$
+\end_inset
+
+ and 
+\begin_inset Formula $x$
+\end_inset
+
+ shall be in the same order of integration.
+\end_layout
+
+\begin_layout Standard
+there are three variables that could be stationary or non-stationary: 
+\end_layout
+
+\begin_layout Enumerate
+the dependent variable y, 
+\end_layout
+
+\begin_layout Enumerate
+the regressor x, 
+\end_layout
+
+\begin_layout Enumerate
+the disturbance term u.
+\end_layout
+
+\begin_layout Standard
+Below are the rules when you build the model (Not necessary just in OLS
+ regression)
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $y\sim I(1)$
+\end_inset
+
+, there shall be at least one 
+\begin_inset Formula $x\sim I(1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If all 
+\begin_inset Formula $x\sim I(0)$
+\end_inset
+
+: we are trying to explain something that is non-stationary by a set of
+ explanatory variables that are not, which leads to 
+\begin_inset Formula $u\sim I(1)$
+\end_inset
+
+.
+ This is Inconsistent Regression.
+ Because the dependent variable has a time-varying mean, then the constant
+ term will not remain constant.
+ 
+\end_layout
+
+\begin_layout Itemize
+With more than one regressor and an integrated dependent variable, it is
+ possible to have a mixture of integrated and stationary regressors.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If there is 
+\begin_inset Formula $x\sim I(1)$
+\end_inset
+
+, 
+\begin_inset Formula $y$
+\end_inset
+
+ must be 
+\begin_inset Formula $I(1)$
+\end_inset
+
+.
+ As if 
+\begin_inset Formula $y\sim I(0)$
+\end_inset
+
+, then it cannot “follow” an integrated explanatory variable on its non-stationa
+ry wanderings, so the model must be misspecified, , which leads to 
+\begin_inset Formula $u\sim I(1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+A correct model shall have 
+\begin_inset Formula $u$
+\end_inset
+
+ as 
+\begin_inset Formula $I(0)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Capture Effect of Level form of Non-Stationary variable
+\end_layout
+
+\begin_layout Enumerate
+If the the level of the non-stationary variable is critical to dependent
+ variable, then the dependent variable must also be non-stationary.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Then you should try first difference, or cointegration.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Maybe the level of the non-stationary variable will not directly impact
+ the dependent, it may cointegrate with other independent variables, and
+ the Error Correction Term directly impact the variable.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Formula $y\sim$
+\end_inset
+
+a deterministic trend
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $y$
+\end_inset
+
+ has a component of a deterministic trend, then we shall include a time
+ trend 
+\begin_inset Formula $t$
+\end_inset
+
+ into the model! 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+see Week6_Stationary_Time_Series by Luke Samy
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Thus in 
+\begin_inset Formula $y\sim t+x$
+\end_inset
+
+, even 
+\begin_inset Formula $x$
+\end_inset
+
+ is a random walk, or it is a deterministic trend with white noise, the
+ model will tell you 
+\begin_inset Formula $x$
+\end_inset
+
+ is insignificant.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+# this code is a similar test done by Granger and Newbold (1974)
+\end_layout
+
+\begin_layout Plain Layout
+a=(1:100)+rnorm(100) 
+\end_layout
+
+\begin_layout Plain Layout
+b=cumsum(rnorm(100))
+\end_layout
+
+\begin_layout Plain Layout
+time=1:100
+\end_layout
+
+\begin_layout Plain Layout
+summary(lm(a~b+time)) 
+\end_layout
+
+\begin_layout Plain Layout
+#
+\end_layout
+
+\begin_layout Plain Layout
+# even if b also has a time trend 
+\end_layout
+
+\begin_layout Plain Layout
+a=(1:100)+rnorm(100) 
+\end_layout
+
+\begin_layout Plain Layout
+b=(1:100)+rnorm(100) 
+\end_layout
+
+\begin_layout Plain Layout
+time=1:100
+\end_layout
+
+\begin_layout Plain Layout
+summary(lm(a~b+time))
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Warning: R-square will generally be high when a model contains a time trend
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Is this a good thing? “We can always explain a trending variable with some
+ sort of trend, but this does not mean that we have uncovered any factors
+ that cause movements in y”(Wooldridge, p.350).
+ Thus we should adjust R-square to remove the effect of any time trend on
+ y.
+ To do this, regress y on t an obtain the residuals from this regression.
+ Then obtain the R-square from regressing these residuals using the regressors
+ (x1 and x2).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If by some reason we cannot include a trend (like you don't know the month
+ on book in UCL data), then if 
+\begin_inset Formula $x$
+\end_inset
+
+ is a random walk or has deterministic trend, 
+\series bold
+you are in the danger of Spurious regression!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+a=(1:100)+rnorm(100) 
+\end_layout
+
+\begin_layout Plain Layout
+b=(1:100)+rnorm(100) 
+\end_layout
+
+\begin_layout Plain Layout
+summary(lm(a~b))
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Spurious Regression
+\end_layout
+
+\begin_layout Standard
+Spurious Regression in time series has different meanings from that in panel
+ data
+\end_layout
+
+\begin_layout Standard
+In OLS, if both 
+\begin_inset Formula $y$
+\end_inset
+
+ and at least a 
+\begin_inset Formula $x$
+\end_inset
+
+ follow 
+\begin_inset Formula $I(1)$
+\end_inset
+
+, then you are in danger of spurious regression
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $y$
+\end_inset
+
+ and 
+\begin_inset Formula $x$
+\end_inset
+
+ are random walk: Granger and Newbold (1974) present strong evidence that
+ regressions involving random walks are spurious when performed on the levels,
+ but not on the differences.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+(Wooldridge P589) Proof: for model 
+\begin_inset Formula $y\sim\beta_{0}+\beta_{1}+\mu$
+\end_inset
+
+ where 
+\begin_inset Formula $y$
+\end_inset
+
+ and 
+\begin_inset Formula $x$
+\end_inset
+
+ are random work.
+ Then to test 
+\begin_inset Formula $H_{0}:\beta_{1}=0$
+\end_inset
+
+ means to test 
+\begin_inset Formula $H_{0}:y=\beta_{0}+\mu$
+\end_inset
+
+.
+ Thus if 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ is true, 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is a random walk.
+ This clearly violates even the asymptotic version of the Gauss-Markov assumptio
+ns from Chapter 11.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If 
+\begin_inset Formula $y$
+\end_inset
+
+ and 
+\begin_inset Formula $x$
+\end_inset
+
+ are just not random walk but trended series, then even if these two series
+ have no economic relation, but as they happen to share the same monotonous
+ trend, the regression is significant but it is spurious.
+ So even if you are pretty sure 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ are economically related, the model cannot prove that assumption.
+ As the model will show significance even if 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ are not economically related.
+ So this kind of model is WRONG!
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If 
+\begin_inset Formula $y$
+\end_inset
+
+ is a trended series but all 
+\begin_inset Formula $x$
+\end_inset
+
+ are 
+\begin_inset Formula $I(0)$
+\end_inset
+
+, then you can just include a timing variable as 
+\begin_inset Formula $x$
+\end_inset
+
+, thus you get a valid regression.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+To solve this problem:
+\end_layout
+
+\begin_layout Enumerate
+Do the first level of differencing for 
+\begin_inset Formula $I(1)$
+\end_inset
+
+ variables (could be either 
+\begin_inset Formula $y$
+\end_inset
+
+ or 
+\begin_inset Formula $x$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Enumerate
+Cointegration.
+\end_layout
+
+\begin_layout Standard
+The differences between these two methods can be found in Cointegration
+ section.
+\end_layout
+
+\begin_layout Subsection
+Stationarity in Panel data
+\end_layout
+
+\begin_layout Standard
+Then, Philips and Moon (see this 2000 paper of theirs for an accessible
+ exposition) showed that in a panel-data setting, the regression stops being
+ spurious, but it consistently estimates what actually is there -if there
+ is a relation, it will estimate the relation, if there is not a relation,
+ it will estimate zero.
+ But, this will happen under two-dimensional asymptotics, i.e.
+ as both n and T go to infinity.
+ After all, the intuition behind this result, is exactly the exploitation
+ of the two-dimensional information provided by a panel-data structure.
+\end_layout
+
+\begin_layout Standard
+But I would refrain from general assertions like "we don't have to worry
+ about non-stationary (and non-cointegrated) panels" - one should first
+ study and understand the theoretical results and under which conditions
+ (and for which kind of panels) do they hold.
+\end_layout
+
+\begin_layout Standard
+"Unlike the single time series spurious regression literature, the panel
+ data spurious regression estimates give a consistent estimate of the true
+ value of the parameter as both N and T tend to infinity.
+ This is because, the panel estimator averages across individuals and the
+ information in the independent cross-section data in the panel leads to
+ a stronger overall signal than the pure time series case." (from Baltagi's
+ Econometric Analysis of Panel Data).
+\end_layout
+
+\begin_layout Section
+Cointegration
+\end_layout
+
+\begin_layout Standard
+Give you long-run stationary relation for un-stationary series.
+\end_layout
+
+\begin_layout Subsection
+Difference between Cointegration and First Differencing in OLS
+\end_layout
+
+\begin_layout Standard
+Can we estimate a cointegrated model in differences using OLS? Yes.
+ But cointegration have richer economic meanings than differencing OLS,
+ as cointegration gives you the long-run stationary relation.
+\end_layout
+
+\begin_layout Standard
+However, differencing the regression loses information contained in the
+ stable long- run relationship between the series: 
+\end_layout
+
+\begin_layout Standard
+Suppose that P is the price of houses in Portland and B is the price of
+ houses in Beaverton.
+ The 
+\series bold
+long-run relationship 
+\series default
+between them is 
+\begin_inset Formula 
+\[
+B_{t}=0+0.9P_{t}+u_{t}
+\]
+
+\end_inset
+
+ where B and P are I(1) and 
+\begin_inset Formula $u$
+\end_inset
+
+ is I(0).
+ (The zero constant term is included just to show that there can be one.).
+ Because 
+\begin_inset Formula $u$
+\end_inset
+
+ is stationary, we know that this shock is going to dissipate over time
+ and that Beaverton’s house prices will eventually be expected to fall back
+ down to their long-run equilibrium relationship with Portland’s
+\end_layout
+
+\begin_layout Standard
+In contrast, the differenced equation is 
+\begin_inset Formula 
+\[
+∆B_{t}=0.9∆P_{t}+v_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That means we will predict that future changes in Beaverton’s price will
+ be 0.9 times the changes in Portland’s.
+ There is no information in differencing model to re-store the long-run
+ equilibrium relationship in (4.6).
+\end_layout
+
+\begin_layout Section
+AR and MA
+\end_layout
+
+\begin_layout Standard
+ITF p100
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X_{t}=c+\sum_{i=1}^{p}\phi_{i}X_{t-i}+w_{t}+\sum_{i=1}^{q}\theta_{i}w_{t-i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Or 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi(B)X_{t}=\theta(B)w_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+若 regression's error follows 
+\series bold
+AR(1) is what we normalled called serial correlation
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+AR(1) with 
+\begin_inset Formula $\varphi=1$
+\end_inset
+
+ is 
+\series bold
+random walk
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Thus, a MA model is conceptually 
+\series bold
+a linear regression 
+\series default
+of the current value of the series against current and previous (unobserved)
+ white noise error terms or Random Shocks.
+\end_layout
+
+\begin_layout Subsection
+Roots of 
+\begin_inset Formula $\phi(B)$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta(B)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Causality:
+\end_layout
+
+\begin_layout Standard
+If there exist constants {ψj } such that 
+\begin_inset Formula 
+\[
+X=\sum_{0}^{\infty}\psi_{j}w_{t-j}
+\]
+
+\end_inset
+
+ and 
+\begin_inset Formula $\sum_{0}^{\infty}\psi_{j}\le\infty$
+\end_inset
+
+where 
+\begin_inset Formula $\psi=\theta/\phi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If you solve 
+\begin_inset Formula $\phi(B)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ has absolute value larger than 1 (outside the unit circle), then the series
+ has Causality.
+\end_layout
+
+\begin_layout Subsubsection
+Invertibility:
+\end_layout
+
+\begin_layout Standard
+An ARMA(p, q) model, φ(B)xt = θ(B)wt, is said to be invertible, if the time
+ series can be written
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\pi(B)x_{t}=\sum_{j=0}^{\infty}\pi_{j}x_{t-j}=w_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\sum_{0}^{\infty}|\pi_{j}|\le\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If you solve 
+\begin_inset Formula $\theta(B)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ has absolute value larger than 1 (outside the unit circle), then the series
+ is invertable.
+\end_layout
+
+\begin_layout Subsubsection
+Parameter Redundancy
+\end_layout
+
+\begin_layout Standard
+See TSAA-R p108
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $\phi(B)$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta(B)$
+\end_inset
+
+has comment factors that can be canceled then there is Parameter Redundance,
+ yshoud cancel them.
+\end_layout
+
+\begin_layout Subsubsection
+Roots and cycle
+\end_layout
+
+\begin_layout Standard
+See TSAA-R p113 example 3.9/ 
+\end_layout
+
+\begin_layout Itemize
+Transform roots of 
+\begin_inset Formula $\phi$
+\end_inset
+
+ to 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Use roots of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ to get the cycle of data
+\end_layout
+
+\begin_layout Subsection
+AR
+\end_layout
+
+\begin_layout Standard
+Even the AR(1) as the error term 
+\begin_inset Formula $z_{t}$
+\end_inset
+
+ there
+\end_layout
+
+\begin_layout Standard
+What an AR(1) looks like
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+par(mfrow=c(2,1))
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(arima.sim(list(order=c(1,0,0), ar=.9), n=100),
+\end_layout
+
+\begin_layout Plain Layout
+
+       ylab="x",main=(expression("AR(1) "*phi*" = +.9")))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(arima.sim(list(order=c(1,0,0), ar=-.9), n=100),
+\end_layout
+
+\begin_layout Plain Layout
+
+       ylab="x",main=(expression("AR(1) "*phi*" = -.9")))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+AR(2) with 
+\begin_inset Formula $\phi=(-.9.-.9)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+par(mfrow=c(1,1))
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(arima.sim(list(order=c(2,0,0), ar=c(-0.9,-0.9)), n=100),
+\end_layout
+
+\begin_layout Plain Layout
+
+     ylab="x",main=(expression("AR(2) "*phi*" = c(-0.9,-0.9)")))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Economic meaning of auto-correlation/ series correlation
+\end_layout
+
+\begin_layout Itemize
+Even as we accumulate a large number of observations, the amount of new
+ information in those observations is limited by their correlation with
+ the earlier ones.
+ 
+\end_layout
+
+\begin_layout Itemize
+Intuitively, this means that the information in the sample does not grow
+ fast enough as the sample size increases to lead to asymptotic convergence
+ of estimators to the true parameter values.
+\end_layout
+
+\begin_layout Subsection
+ACF
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AR(p)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MA(q)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ARMA
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ACF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+tails off
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cut off >q
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+tails off
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PACF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cut off >p
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+tails off
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+tails off
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ACF : autocovariance function: 
+\begin_inset Formula $\gamma(h)=E(X_{t+h}X)=\sigma^{2}\sum_{0}^{\infty}\psi_{j}\psi_{j+|h|}$
+\end_inset
+
+, where 
+\begin_inset Formula $Z_{t}\sim WN(0,\sigma^{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+autocorrelation function = 
+\begin_inset Formula $\rho=\frac{\gamma(h)}{\gamma(0)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For MA(q): The ACVF of the MA(q) process thus has the distinctive feature
+ of vanishing at lags 
+\begin_inset Formula $>q$
+\end_inset
+
+.
+ Data for which the sample ACVF is small for lags greater than q therefore
+ suggest that an appropriate model might be a moving average of order q
+ (or less).
+ Recall from Proposition 2.1.1 that every zeromean stationary process with
+ correlations vanishing at lags greater than q can be represented as a moving-av
+erage process of order q or less.
+\end_layout
+
+\begin_layout Itemize
+For AR(p)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If all the roots are real, then ρ(h) dampens exponentially fast to zero
+ as h → ∞.
+ 
+\end_layout
+
+\begin_layout Itemize
+If some of the roots are complex, then they will be in conjugate pairs and
+ ρ(h) will dampen, in a sinusoidal fashion, exponentially fast to zero as
+ h→∞.
+ 
+\end_layout
+
+\begin_layout Itemize
+In the case of complex roots, the time series will appear to be cyclic in
+ nature.
+ This, of course, is also true for ARMA models in which the AR part has
+ complex roots.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+PACF
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha(1)=Cor(z_{t+1},z_{t})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha(k)=Cor(z_{t+k}-P_{t,k}(z_{t+k}),z_{t}-P_{t,k}(z_{t})),\text{ for }k\geq2,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $P_{t,k}(x)$
+\end_inset
+
+ denotes the projection of x onto the space spanned by 
+\begin_inset Formula $x_{t+1},\dots,x_{t+k-1}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $z_{t+k}-P_{t,k}(z_{t+k})$
+\end_inset
+
+ means the residuals from regression 
+\begin_inset Formula $z_{t+k}\sim z_{t+1}+....+z_{t+k-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Partial autocorrelation plots (Box and Jenkins, Chapter 3.2, 2008) are a
+ commonly used tool for identifying the order of an AR model.
+ The partial autocorrelation of an AR(p) process is zero at lag p + 1 and
+ greater.
+ If the sample autocorrelation plot indicates that an AR model may be appropriat
+e, then the sample partial autocorrelation plot is examined to help identify
+ the order.
+ One looks for the point on the plot where the partial autocorrelations
+ for all higher lags are essentially zero.
+\end_layout
+
+\begin_layout Standard
+Example: PACF and ACF for AR(2) model: 
+\begin_inset Formula $x_{t}=1.5x_{t-1}-0.75x_{t-1}+w_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+acf = ARMAacf(ar=c(1.5,-.75), ma=0, 24)
+\end_layout
+
+\begin_layout Plain Layout
+
+pacf = ARMAacf(ar=c(1.5,-.75), ma=0, 24, pacf=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+par(mfrow=c(1,2))
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(acf, type="h", xlab="lag")
+\end_layout
+
+\begin_layout Plain Layout
+
+abline(h=0)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(pacf, type="h", xlab="lag")
+\end_layout
+
+\begin_layout Plain Layout
+
+abline(h=0)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Estimate ARMA
+\end_layout
+
+\begin_layout Subsection
+Fitting AR: Yule-Walker Equation
+\end_layout
+
+\begin_layout Standard
+Pupose to get 
+\begin_inset Formula $\phi$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Gamma_{p}\mathbf{\phi}=\gamma_{p}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{w}^{2}=\gamma(0)-\phi'\gamma_{p}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\Gamma_{p}=\{\gamma(k-j)\}_{j,k=1}^{p}$
+\end_inset
+
+ is a 
+\begin_inset Formula $p\times p$
+\end_inset
+
+ matrix, 
+\begin_inset Formula $\mathbf{\phi=(\phi_{1},...\phi_{p})'}$
+\end_inset
+
+is a 
+\begin_inset Formula $p\times1$
+\end_inset
+
+ vector, and 
+\begin_inset Formula $\mathbf{\gamma_{p}=(\gamma_{1}....\gamma_{p})'}$
+\end_inset
+
+is a 
+\begin_inset Formula $p\times1$
+\end_inset
+
+ vector
+\end_layout
+
+\begin_layout Standard
+Thus you solve out 
+\begin_inset Formula 
+\[
+\phi=\Gamma^{-1}\gamma_{p}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma^{2}==\gamma(0)-\phi'\gamma_{p}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How to derive
+\end_layout
+
+\begin_layout Standard
+http://www-stat.wharton.upenn.edu/~steele/Courses/956/ResourceDetails/YWSourceFiles
+/YW-Eshel.pdf
+\end_layout
+
+\begin_layout Subsection
+Fitting ARMA using MLE
+\end_layout
+
+\begin_layout Standard
+See TSAA-R P137
+\end_layout
+
+\begin_layout Subsection
+Fitting ARMA using OLS
+\end_layout
+
+\begin_layout Standard
+Fitting the MA estimates is more complicated than with autoregressive models
+ (AR models) because the lagged error terms are not observable.
+ This means that iterative non-linear fitting procedures need to be used
+ in place of linear least squares.
+\end_layout
+
+\begin_layout Standard
+For example, to fit a AR(2)MA(1),
+\end_layout
+
+\begin_layout Enumerate
+initialize a regression 
+\begin_inset Formula $x_{t}\sim x_{t-1}+x_{t-2}$
+\end_inset
+
+ to get residual 
+\begin_inset Formula $w_{t}$
+\end_inset
+
+ and then lag it to get 
+\begin_inset Formula $w_{t-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+add 
+\begin_inset Formula $w_{t-1}$
+\end_inset
+
+into the OLS 
+\begin_inset Formula $x_{t}\sim x_{t-1}+x_{t-2}+w_{t-1}$
+\end_inset
+
+ ( for 
+\begin_inset Formula $t=0$
+\end_inset
+
+, let 
+\begin_inset Formula $w_{t-1}=0$
+\end_inset
+
+ , therefore you lost 1 df for estimates for 
+\begin_inset Formula $w_{t-1}$
+\end_inset
+
+), to update 
+\begin_inset Formula $w_{t}$
+\end_inset
+
+ and thus 
+\begin_inset Formula $w_{t-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+repeat step 2 until convergence
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+library(astsa)
+\end_layout
+
+\begin_layout Plain Layout
+
+data(rec)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#_______________  1 : direct estimate using arima() to get AR(2)MA(1)
+\end_layout
+
+\begin_layout Plain Layout
+
+fit_arma = arima(rec,order = c(2,0,1))
+\end_layout
+
+\begin_layout Plain Layout
+
+fit_arma
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#_______________  2 : Use OLS to estimate
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# prepare data
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+test = data.frame(x = rec %>% unclass,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  lag = lag(rec) %>% unclass,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  lag2 = lag(rec) %>% lag %>% unclass,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  resi_lag = 0 # initialize
+\end_layout
+
+\begin_layout Plain Layout
+
+                  # lag3 = lag(rec) %>% lag %>% lag %>% unclass
+\end_layout
+
+\begin_layout Plain Layout
+
+           )
+\end_layout
+
+\begin_layout Plain Layout
+
+test = test[complete.cases(test),]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+coeff_converge = NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i in 1:10){
+\end_layout
+
+\begin_layout Plain Layout
+
+  fit = lm(x ~ lag  + lag2 + resi_lag , test) 
+\end_layout
+
+\begin_layout Plain Layout
+
+  # the W_t will never show up in the R formula
+\end_layout
+
+\begin_layout Plain Layout
+
+  # w_t is the residual in lm()
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  # get w_{t-1} from just estimated w_t
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  # for the t = 1, there is no w_{t-1} in the formula, so set residuals
+ lag to be 0
+\end_layout
+
+\begin_layout Plain Layout
+
+  # that also means you lose 1 df when you estimate var for coeff of w_{t-1}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  test$resi_lag = c(0, fit$residuals[1:(length(fit$residuals)-1)])
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  coeff_converge = rbind(coeff_converge,data.frame(i,t(fit$coeff)))
+\end_layout
+
+\begin_layout Plain Layout
+
+  # redo the fit
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# see the convergence
+\end_layout
+
+\begin_layout Plain Layout
+
+coeff_converge
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Model Transitory Events
+\end_layout
+
+\begin_layout Standard
+This is invented by my self,....
+\end_layout
+
+\begin_layout Standard
+A permanent event would be a structural change, which should be modeled
+ as change of intercept.
+\end_layout
+
+\begin_layout Standard
+A Transitory Event is a shock at 
+\begin_inset Formula $t$
+\end_inset
+
+, then has a decreasing impacts (either positive or negative of the first
+ shock).
+ 
+\end_layout
+
+\begin_layout Standard
+Assume the transitory shocks have maximum effects that can possiblily last
+ 4 quarters, and you know the timing of the first shock.
+ Then this is essentially 
+\end_layout
+
+\begin_layout Subsection
+Fitting AR
+\end_layout
+
+\begin_layout Standard
+Just normal OLS is suffcient.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(astsa)
+\end_layout
+
+\begin_layout Plain Layout
+
+data(rec)
+\end_layout
+
+\begin_layout Plain Layout
+
+# rec = scan("/mydata/recruit.dat")
+\end_layout
+
+\begin_layout Plain Layout
+
+par(mfrow=c(2,1))
+\end_layout
+
+\begin_layout Plain Layout
+
+acf(rec, 48)
+\end_layout
+
+\begin_layout Plain Layout
+
+pacf(rec, 48)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# direct estimate using a special function
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+fit=ar.ols(rec, aic=F,order.max=2,demean=F,intercept=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+class(fit)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# same as normal OLS function
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+test = data.frame(x = rec %>% unclass,lag = lag(rec) %>% unclass,
+\end_layout
+
+\begin_layout Plain Layout
+
+           lag2 = lag(rec) %>% lag %>% unclass)
+\end_layout
+
+\begin_layout Plain Layout
+
+lm(x ~ lag + lag2, test)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Seasonality in ARIMA
+\end_layout
+
+\begin_layout Standard
+Reference: https://www.otexts.org/fpp/8/9
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ARIMA(p,d,q)(P,D,Q)_{m}$
+\end_inset
+
+ where 
+\begin_inset Formula $P,D,Q$
+\end_inset
+
+ represents the seasonal parts of the model, and 
+\begin_inset Formula $m$
+\end_inset
+
+ means the cycle frequency.
+\end_layout
+
+\begin_layout Standard
+For example 
+\begin_inset Formula $ARIMA(1,1,1)(1,1,1)_{4}$
+\end_inset
+
+ can be written as 
+\begin_inset Formula 
+\[
+(q-\phi B)(1-\Phi B^{4})(1-B)(1-B^{4})y_{y}=(1+\theta_{1}B)(1+\Theta_{1}B^{4})e_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $(1-B^{4})$
+\end_inset
+
+ represents the seasonal differenc, and 
+\begin_inset Formula $(1-\Phi B^{4})$
+\end_inset
+
+ represents the 
+\begin_inset Formula $AR_{1}$
+\end_inset
+
+ seasonaly difference.
+\end_layout
+
+\begin_layout Subsubsection
+ACF/PACF
+\end_layout
+
+\begin_layout Standard
+The seasonal part of an AR or MA model will be seen in the seasonal lags
+ of the PACF and ACF.
+ 
+\end_layout
+
+\begin_layout Standard
+For example, an ARIMA(0,0,0)(0,0,1)12 model will show:
+\end_layout
+
+\begin_layout Itemize
+a spike at lag 12 in the ACF but no other significant spikes.
+ 
+\end_layout
+
+\begin_layout Itemize
+The PACF will show exponential decay in the seasonal lags; that is, at lags
+ 12, 24, 36, ….
+\end_layout
+
+\begin_layout Standard
+Similarly, an ARIMA(0,0,0)(1,0,0)12 model will show:
+\end_layout
+
+\begin_layout Itemize
+exponential decay in the seasonal lags of the ACF 
+\end_layout
+
+\begin_layout Itemize
+a single significant spike at lag 12 in the PACF.
+ 
+\end_layout
+
+\begin_layout Subsection
+Long Memory ARMA
+\end_layout
+
+\begin_layout Standard
+See TSAA-R p284 for more detail.
+\end_layout
+
+\begin_layout Standard
+The conventional ARMA(p, q) process is often referred to as a short memory
+ process because the coefficients in the representation 
+\begin_inset Formula $x_{t}=\sum_{0}^{\infty}\psi_{j}w_{w-j}$
+\end_inset
+
+ are dominated by exponential decay.
+\end_layout
+
+\begin_layout Standard
+might represent an overdifferencing of the original process.
+ Long memory (or persistent) time series were considered in Hosking (1981)
+ and Granger and Joyeux (1980) as intermediate compromises between the short
+ memory ARMA type models and the fully integrated nonstationary processes
+ in the Box–Jenkins class.
+ The easiest way to generate a long memory series is to think of using the
+ difference operator (1 − B)d for fractional values of d, say, 0 < d < .5,
+ so a basic long memory series gets generated as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(1-B)^{d}x_{t}=w_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+ARMA in detecting outliers
+\end_layout
+
+\begin_layout Standard
+http://stats.stackexchange.com/questions/152644/what-algorithm-should-i-use-to-det
+ect-anomalies-on-time-series
+\end_layout
+
+\begin_layout Standard
+I think the key is "unexpected" qualifier in your graph.
+ In order to detect the unexpected you need to have an idea of what's expected.
+\end_layout
+
+\begin_layout Standard
+I would start with a simple time series model such as AR(p) or ARMA(p,q).
+ Fit it to data, add seasonality as appropriate.
+ For instance, your SAR(1)(24) model could be: yt=c+ϕyt−1+Φ24yt−24+Φ25yt−25+εt
+ , where t is time in hours.
+ So, you'd be predicting the graph for the next hour.
+ Whenever the prediction error et=yt−y^t
+\end_layout
+
+\begin_layout Standard
+is "too big" you throw an alert.
+\end_layout
+
+\begin_layout Standard
+When you estimate the model you'll get the variance σε of the error εt.
+ Depending on your distributional assumptions, such as normal, you can set
+ the threshold based on the probability, such as |et|<3σε for 99.7% or one-sided
+ et>3σε
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+The number of visitors is probably quite persistent, but super seasonal.
+ It might work better to try seasonal dummies instead of the multiplicative
+ seasonality, then you'd try ARMAX where X stands for exogenous variables,
+ which could be anything like holiday dummy, hour dummies, weekend dummies
+ etc.
+\end_layout
+
+\begin_layout Section
+GARCH: 
+\end_layout
+
+\begin_layout Standard
+Autoregressive conditional heteroskedasticity: They are used whenever there
+ is reason to believe that, at any point in a series, the error terms will
+ have a characteristic size or variance.
+ In particular ARCH models assume the variance of the current error term
+ or innovation to be a function of the actual sizes of the previous time
+ periods' error terms: often the variance is related to the squares of the
+ previous innovations.
+\end_layout
+
+\begin_layout Subsection
+ARCH
+\end_layout
+
+\begin_layout Enumerate
+Estimate the best fitting autoregressive model 
+\begin_inset Formula 
+\[
+AR(q)y_{t}=a_{0}+a_{1}y_{t-1}+\cdots+a_{q}y_{t-q}+\epsilon_{t}=a_{0}+\sum_{i=1}^{q}a_{i}y_{t-i}+\epsilon_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Obtain the squares of the error 
+\begin_inset Formula $\hat{\epsilon}^{2}$
+\end_inset
+
+ and regress them on a constant and q lagged values: 
+\begin_inset Formula $\hat{\epsilon}_{t}^{2}=\hat{\alpha}_{0}+\sum_{i=1}^{q}\hat{\alpha}_{i}\hat{\epsilon}_{t-i}^{2}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The null hypothesis is that, in the absence of ARCH components, we have
+\begin_inset Formula $\alpha_{i}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i=1,\cdots,q$
+\end_inset
+
+ .
+ The alternative hypothesis is that, in the presence of ARCH components,
+ at least one of the estimated 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ coefficients must be significant
+\end_layout
+
+\end_deeper
+\begin_layout Section
+VAR
+\end_layout
+
+\begin_layout Subsection
+Finite-distributed lag model
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y=\alpha+\sum_{i=0}^{p}\beta_{i}L^{i}x_{t}+\mu_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Economic Intuition: it may take time for one variable to fully affect another
+ variable (e.g.
+ policy response lag, effect lags etc.)
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ is the immediate impact in y due to a one-unit increase in 
+\begin_inset Formula $x$
+\end_inset
+
+ at time t –this is what we call the impact multiplier.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The long-run propensity (LRP) or long-run multiplier is the sum of the coefficie
+nts 
+\begin_inset Formula $\sum_{i=0}^{p}\beta_{i}$
+\end_inset
+
+ on current and lagged 
+\begin_inset Formula $x$
+\end_inset
+
+, .
+ The LRP is often of interest in FDL models.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+You can even plot the coefficients by 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{0}^{1}\beta_{t}$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{0}^{2}\beta_{t}$
+\end_inset
+
+...
+\begin_inset Formula $\sum_{0}^{n}\beta_{t}$
+\end_inset
+
+ against 
+\begin_inset Formula $1,2,3...$
+\end_inset
+
+ to see the dynamics of the effect of 
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+See paper: Gross and Souleles, 2001.
+ do liquidity constraints and interest rates matter for consumer behavior?
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Lag chosen: 
+\end_layout
+
+\begin_layout Itemize
+Default lag length of 
+\begin_inset Formula $trunc((length(x)-1)^{1/3}$
+\end_inset
+
+ corresponds to the suggested upper bound on the rate at which the number
+ of lags, k, should be made to grow with the sample size for the general
+ ARMA(p,q) setup.
+ 
+\end_layout
+
+\begin_layout Itemize
+Often the lag length is dictated by the frequency of the data (as well as
+ the sample size).
+ For annual data, one or two lags usually suffice.
+ For monthly data, we might include twelve lags.
+\end_layout
+
+\begin_layout Section
+Filter
+\end_layout
+
+\begin_layout Subsection
+Hodrick–Prescott filter
+\end_layout
+
+\begin_layout Standard
+Try to minimize
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\min_{\tau}\left(\sum_{t=1}^{T}(y_{t}-\tau_{t})^{2}+\lambda\sum_{t=2}^{T-1}[(\tau_{t+1}-\tau_{t})-(\tau_{t}-\tau_{t-1})]^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\tau$
+\end_inset
+
+ is the trend part, and it shall be not volatile at all, so we use 
+\begin_inset Formula $\lambda\sum_{t=2}^{T-1}[(\tau_{t+1}-\tau_{t})-(\tau_{t}-\tau_{t-1})]^{2}$
+\end_inset
+
+, which is the second derivative, to pubish the variation of the trend part.
+\end_layout
+
+\begin_layout Standard
+To better get the trend part, we want to cyclical part 
+\begin_inset Formula $y-\tau$
+\end_inset
+
+ (essentiall residuals) to be as small as possible, so we also use the first
+ term 
+\begin_inset Formula $\sum_{t=1}^{T}(y_{t}-\tau_{t})^{2}$
+\end_inset
+
+ to punish the size the residuals.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is the tunning factor, Hodrick and Prescott use 1600 to get a macro trend
+ in unemployment rate.
+\end_layout
+
+\begin_layout Subsubsection
+R function
+\end_layout
+
+\begin_layout Standard
+See package mFilter, hpfilter(series,lamda) where series has to be ts class.
+\end_layout
+
+\end_body
+\end_document
