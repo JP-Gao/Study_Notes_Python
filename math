@@ -83,11 +83,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 16419249 "v660271" 
 \end_header
 
 \begin_body
@@ -159,7 +160,7 @@ EQ
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-a+ar+ar^{2}+ar^{3}+\cdots+ar^{n-1}=\sum_{k=0}^{n-1}ar^{k}=a\,\frac{1-r^{n}}{1-r},\label{Geometric series}
+a+ar+ar^{2}+ar^{3}+\cdots+ar^{n-1}=\sum_{k=0}^{n-1}ar^{k}=a\frac{1-r^{n}}{1-r},\label{Geometric series}
 \end{equation}
 
 \end_inset
@@ -168,7 +169,7 @@ a+ar+ar^{2}+ar^{3}+\cdots+ar^{n-1}=\sum_{k=0}^{n-1}ar^{k}=a\,\frac{1-r^{n}}{1-r}
 \end_layout
 
 \begin_layout Section
-Probability and Statistical Interviews
+Probability and Statistical IV
 \end_layout
 
 \begin_layout Standard
@@ -176,9 +177,26 @@ This kind of interview may
 \end_layout
 
 \begin_layout Itemize
-only require you to get the formula, not the numeric answer
+You need to know the exact formula of Poission and Exponential.
+ 
 \end_layout
 
+\begin_layout Itemize
+only require you to get the formula, not the numeric answer.
+\change_inserted 16419249 1469726239
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_inserted 16419249 1469726258
+Especially for recursive and infinite problems.
+\change_unchanged
+
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 May miss certain key conditions, which require you to ask to the interviewer.
 \end_layout
@@ -189,19 +207,55 @@ For the
 \end_inset
 
 -value questions on discrite distribution, like binomial or poisson, you
- need to calculate cumulative of PDF to get 
+ need to calculate Cumulative of PDF to get 
 \begin_inset Formula $p<0.05$
 \end_inset
 
 
 \end_layout
 
+\begin_layout Itemize
+All questions in infinite site/stages without memory can be solved in an
+ Recursive Way
+\end_layout
+
+\begin_layout Itemize
+Choice 问题的大体思路
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+先弄清楚是否 order matters, whether replacement
+\end_layout
+
+\begin_layout Itemize
+可以分步走：select correct class, then select correct elements withn the correct
+ class
+\end_layout
+
+\begin_layout Itemize
+可以从占位问题角度思考：there are 
+\begin_inset Formula $n$
+\end_inset
+
+ places, select 
+\begin_inset Formula $k$
+\end_inset
+
+ elements to take 
+\begin_inset Formula $k$
+\end_inset
+
+ places first
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 REFERENCE https://www.probabilitycourse.com/chapter2/2_1_2_ordered_without_replace
 ment.php
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Consider an infinite repository containing balls of n different types.
  Then the following table summarizes the number of distinct ways in which
  k balls can be picked for four common definitions of "distinct." 
@@ -221,6 +275,11 @@ P(X>Y) & = & \int_{-\infty}^{+\infty}\int_{[x>y]}f_{x}(x)f_{y}(y)dyd\\
 
 \begin_layout Section
 Factorial and Choice Functions
+\end_layout
+
+\begin_layout Standard
+Here we assume elements within a category has no difference: there is no
+ difference in yellow socks or red balls.
 \end_layout
 
 \begin_layout Subsection
@@ -283,11 +342,32 @@ The special case 0! is defined to have value 0!=1
 \end_layout
 
 \begin_layout Subsection
-ordered samples with replacement
+Ordered samples with replacement
+\change_inserted 16419249 1469731182
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1469731383
+Here order does not just mean order of selection.
+ It also means uniqueness of elements --- select 
+\begin_inset Formula $k$
+\end_inset
+
+ people onto 
+\begin_inset Formula $k$
+\end_inset
+
+ chairs from 
+\begin_inset Formula $n$
+\end_inset
+
+ people, where each person is unique.
 \end_layout
 
 \begin_layout Itemize
-order matters.
+Order matters
 \end_layout
 
 \begin_layout Itemize
@@ -332,7 +412,16 @@ there are n=365 choices for the first person, n=365 choices for the second
 
 \end_deeper
 \begin_layout Subsection
-ordered samples without replacement
+Ordered samples without replacement
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1469724502
+Formal name: k-permutations of n / partial permutations or as sequences
+ without repetition
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
@@ -366,9 +455,33 @@ ordered
 \begin_layout Standard
 \begin_inset Formula 
 \[
-A_{N}^{Y}=\frac{N!}{(N-Y)!}
+P_{N}^{Y}=A_{N}^{Y}=\frac{N!}{(N-Y)!}
 \]
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Note that 
+\begin_inset Formula $A_{N}^{N}=N!/1=N!$
+\end_inset
+
+ (shulffe the 52 cards)
+\end_layout
+
+\begin_layout Itemize
+But 
+\begin_inset Formula $A_{N}^{1}=N$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+So 
+\begin_inset Formula $A_{N}^{Y}\ne A_{N}^{N-Y}$
 \end_inset
 
 
@@ -398,7 +511,17 @@ Fill the Position:
 \end_layout
 
 \begin_layout Subsection
-unordered samples without replacement / Combinations
+Unordered samples without replacement / Combinations
+\change_inserted 16419249 1469724508
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1469724674
+Formal name: Choice Function / Binomial Coefficient
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -479,7 +602,11 @@ Y
 \end_layout
 
 \begin_layout Subsection
-unordered samples with replacement
+Unordered samples with replacement
+\end_layout
+
+\begin_layout Standard
+这就是站位问题
 \end_layout
 
 \begin_layout Standard
@@ -490,9 +617,17 @@ Example: Select 2 elements from {1,2,3}: unordered, with replacement
 We can replace the xi's by their equivalent vertical lines.
  Thus, for example if we have x1+x2+x3+x4=3+0+2+1, we can equivalently write
  |||++||+|.
- Thus, we claim that for each solution to the Equation 2.3, we have unique
+ 
+\end_layout
+
+\begin_layout Standard
+Thus, we claim that for each solution to the Equation 2.3, we have unique
  representation using vertical lines ('|') and plus signs ('+').
- Indeed, each solution can be represented by k vertical lines (since the
+ 
+\end_layout
+
+\begin_layout Standard
+Indeed, each solution can be represented by k vertical lines (since the
  xi sum to k) and n−1 plus signs.
  Now, this is exactly the same as Example 2.7: how many distinct sequences
  you can make using k vertical lines (|) and n−1 plus signs (+)? The answer
@@ -535,46 +670,16 @@ Q
 \end_layout
 
 \begin_layout Enumerate
-If k people are at a party, what is the probability that at least two of
- them have the same birthday? Suppose that there are n=365 days in a year
- and all days are equally likely to be the birthday of a specific person.
+If 
+\begin_inset Formula $k$
+\end_inset
+
+ people are at a party, what is the probability that at least two of them
+ have the same birthday? Suppose that there are n=365 days in a year and
+ all days are equally likely to be the birthday of a specific person.
 \end_layout
 
-\begin_layout Enumerate
-Shuffle a deck of 52 cards.
- How many outcomes are possible? (In other words, how many different ways
- can you order 52 distinct cards? How many different permutations of 52
- distinct cards exist?) 
-\end_layout
-
-\begin_layout Enumerate
-I choose 3 cards from the standard deck of cards.
- What is the probability that these cards contain at least one ace?
-\end_layout
-
-\begin_layout Enumerate
-How many distinct sequences can we make using 3 letter "A"s and 5 letter
- "B"s? (AAABBBBB, AABABBBB, etc.)
-\end_layout
-
-\begin_layout Enumerate
-Example: Ten passengers get on an airport shuttle at the airport.
- The shuttle has a route that includes 5 hotels, and each passenger gets
- off the shuttle at his/her hotel.
- The driver records how many passengers leave the shuttle at each hotel.
- How many different possibilities exist?
-\end_layout
-
-\begin_layout Enumerate
-An urn consists of 30 red balls and 70 green balls.
- What is the probability of getting exactly k red balls in a sample of size
- 20 if the sampling is done without replacement (repetition not allowed)?
-\end_layout
-
-\begin_layout Subsection
-A
-\end_layout
-
+\begin_deeper
 \begin_layout Enumerate
 Again, the phrase "at least" suggests that it might be easier to find the
  probability of the complement event, P(
@@ -600,6 +705,59 @@ Otherwise:
 \end_layout
 
 \end_deeper
+\end_deeper
+\begin_layout Enumerate
+Shuffle a deck of 52 cards.
+ How many outcomes are possible? (In other words, how many different ways
+ can you order 52 distinct cards? How many different permutations of 52
+ distinct cards exist?) 
+\end_layout
+
+\begin_layout Enumerate
+I choose 3 cards from the standard deck of cards.
+ What is the probability that these cards contain at least one ace?
+\end_layout
+
+\begin_layout Enumerate
+How many distinct sequences can we make using 3 letter "A"s and 5 letter
+ "B"s? (AAABBBBB, AABABBBB, etc.)
+\end_layout
+
+\begin_layout Enumerate
+Example: Ten passengers get on an airport shuttle at the airport.
+ The shuttle has a route that includes 5 hotels, and each passenger gets
+ off the shuttle at his/her hotel.
+ The driver records how many passengers leave the shuttle at each hotel.
+ How many different possibilities exist?
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+占位问题
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+An urn consists of 30 red balls and 70 green balls.
+ What is the probability of getting exactly k red balls in a sample of size
+ 20 if the sampling is done without replacement (repetition not allowed)?
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+虽然说without replacement, 但可以想象成一次抽20.
+ 
+\end_layout
+
+\begin_layout Enumerate
+这是一道伪装成choice problem 的 binomial题
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+A
+\end_layout
+
 \begin_layout Enumerate
 The answer is 52!.
 \end_layout
@@ -663,8 +821,13 @@ Q: Binomial
 \end_layout
 
 \begin_layout Itemize
-In basket ball game for a player to win a game challenge 1) 2 out of 3 throw
- 2) 5 out of 8 throws.
+The probability of a success for a player is 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ In basket ball game for the player to win a game challenge 1) at least
+ 2 out of 3 throw 2) at least 5 out of 8 throws.
  Should the player choose so that he might have better chance of winning
  the game?
 \end_layout
@@ -701,10 +864,12 @@ then compare these two sum to say which one is bigger: eventually it depends
 \end_deeper
 \begin_layout Itemize
 Find the expectation value of number of times you need to pick numbers to
- find a number smaller than the number you pick from a hat containing 1
- to n.
- case 1: if you replace case 2: if you don't replace Expectation values!
- not probability
+ find a integer number from 1 to n smaller than the number 
+\begin_inset Formula $m\in\{1,n\}$
+\end_inset
+
+: if you replace case 2: if you don't replace Expectation values! not probabilit
+y
 \end_layout
 
 \begin_deeper
@@ -728,7 +893,11 @@ On average, how many times must a 6-sided die be rolled until a 6 turns
 
 \begin_deeper
 \begin_layout Itemize
-E = 6 + 1/6 + 5/6 (E + 1).
+E = 6 + 1/6 + 5/6 (E + 1)
+\end_layout
+
+\begin_layout Itemize
+Or another way E = 1/6 * 1/6 * 2 + 5/6 * (1+E) + 1/6 * 5/6 * (2+E)
 \end_layout
 
 \end_deeper
@@ -751,7 +920,7 @@ let E6 be the expected number of rolls until 65 when we start with a rolled
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $E_{6}=1/6(E_{6}+1)+4/6(E+1)+5/6(E_{6}+1).$
+\begin_inset Formula $E_{6}=1/6(E_{6}+1)+4/6(E+1)+1/6(1).$
 \end_inset
 
 
@@ -765,31 +934,189 @@ let E6 be the expected number of rolls until 65 when we start with a rolled
 \end_layout
 
 \end_deeper
-\begin_layout Subsection
-Thinking
+\begin_layout Itemize
+Question: You have 50 red marbles, 50 blue marbles and 2 jars.
+ One of the jars is chosen at random and then one marble will be chosen
+ from that jar at random.
+ How would you maximize the chance of drawing a red marble by first palcing
+ all marbles into the jars? What is the probability of doing so? All 100
+ marbles should be placed in the jars.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Answer: Seems tricky at first right? Given that the number of red and blue
+ marbles are the same, you would tend to think that the odds are 50-50.
+ You would try different combinations, such as 25 of each colored marble
+ in a jar or putting all red marbles in one jar and all the blue in the
+ other.
+ You would still end up with a chance of 50%.
 \end_layout
 
 \begin_layout Itemize
-If the elements are the same: they must be unordered.
- Then think from the 
-\series bold
-filling posit
-\series default
-ion perspective.
+So lets think of a better way to distribute the marbles.
+ What if you put a single red marble in one jar and the rest of the marbles
+ in the other jar? This way, you are guaranteed at least a 50% chance of
+ getting a red marble (since one marble picked at random, doesn’t leave
+ any room for choice).
+ Now that you have 49 red marbles left in the other jar, you have a nearly
+ even chance of picking a red marble (49 out of 99).
 \end_layout
 
+\begin_layout Itemize
+So let’s calculate the total probability.
+\end_layout
+
+\begin_layout Itemize
+P( red marble ) = P( Jar 1 ) * P( red marble in Jar 1 ) + P( Jar 2 ) * P(
+ red marble in Jar 2 ) P( red marble ) = 0.5 * 1 + 0.5 * 49/99 P( red marble
+ ) = 0.7474
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A person dies, and he arrives at the gate to heaven.
+ There are 3 doors in the heaven.
+ One of the door leads to heaven, second one leads to a 1-day stay at hell
+ and then back to the gate and the third one leads to a 2 day stay at hell
+ and then back to the gate.
+ Every time the person is back at the gate, the 3 doors are reshuffled.
+ How long will it take the person to reach heaven?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+According to probability 1/3 of the time, the door to heaven will be chosen,
+ so 1/3 of the time it will take 0 days.
+ 1/3 of the time, the 1-day door is chosen, of those, the right door will
+ be chosen the next day.
+ Similarly, 1/3 of the time, the 2 day door is chosen, of those, the right
+ door will be chosen after the 2 days.
+\end_layout
+
+\begin_layout Itemize
+So lets say it will take N days.
+ 1/3 of the cases are done in 0 days as before.
+ 1/3 of the cases are 1+N.
+ 1/3 are 2 + N.
+\end_layout
+
+\begin_layout Itemize
+N = 1/3 * 0 + 1/3 * (1 + N) + 1/3 * (2 + N) N = 1 + 2N/3 Therefore, N/3
+ = 1 ; N = 3.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Suppose you're on a game show, and you're given the choice of three doors:
+ Behind one door is a car; behind the others, goats.
+ You pick a door, say No.
+ 1, and the host, who knows what's behind the doors, opens another door,
+ say No.
+ 3, which has a goat.
+ He then says to you, "Do you want to pick door No.
+ 2?" Is it to your advantage to switch your choice?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Consider the events C1, C2 and C3 indicating the car is behind respectively
+ door 1, 2 or 3.
+ All these 3 events have probability 1 / 3.
+\end_layout
+
+\begin_layout Itemize
+The player initially choosing door 1 is described by the event X1.
+ As the first choice of the player is independent of the position of the
+ car, also the conditional probabilities are P(Ci|X1) = 1 / 3 .
+ The host opening door 3 is described by H3.
+ For this event it holds:
+\end_layout
+
+\begin_layout Itemize
+So there are three kinds of events: 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ is the car in 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ door, 
+\begin_inset Formula $H_{3}$
+\end_inset
+
+ is host opens 
+\begin_inset Formula $3rd$
+\end_inset
+
+ door, 
+\begin_inset Formula $X1$
+\end_inset
+
+ is you choose first doo
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula ${\displaystyle {\begin{aligned}P(H3|C1,X1) & ={\tfrac{1}{2}}\\
+P(H3|C2,X1) & =1\\
+P(H3|C3,X1) & =0
+\end{aligned}
+}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathbf{{\displaystyle {\begin{aligned}P(C2|H3,X1) & ={\frac{P(H3|C2,X1)P(C2\cap X1)}{P(H3\cap X1)}}\\
+ & ={\frac{P(H3|C2,X1)P(C2\cap X1)}{P(H3|C1,X1)P(C1\cap X1)+P(H3|C2,X1)P(C2\cap X1)+P(H3|C3,X1)P(C3\cap X1)}}\\
+ & ={\frac{P(H3|C2,X1)}{P(H3|C1,X1)+P(H3|C2,X1)+P(H3|C3,X1)}}\\
+ & ={\frac{1}{{\frac{1}{2}}+1+0}}={\frac{2}{3}}
+\end{aligned}
+}}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+
+\change_deleted 16419249 1469727044
+Amoeba Question: A population of amoebas starts with 1.
+ After 1 period that amoeba can divide into 1, 2, 3, or 0 (it can die) with
+ equal probability.
+ What is the probability that the entire population dies out eventually?
+\end_layout
+
+\begin_layout Itemize
+
+\change_deleted 16419249 1469727044
+This is not strictly recursive, this is 分型问题。
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_deleted 16419249 1469727044
+\begin_inset Formula $P=1/4+1/4P+1/4P^{2}+1/4P^{3}$
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Sum of Binomial Variables
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Let X1 and X2 be independent binomial random variables where Xi has a Binomial(n
 i, p) distribution for i = 1, 2.
- 
-\end_layout
-
-\begin_layout Standard
-Then X1 +X2 has a binomial distribution with n1+n2 trials and probability
+ Then X1 +X2 has a binomial distribution with n1+n2 trials and probability
  of success p
 \end_layout
 
@@ -823,14 +1150,20 @@ E=\frac{1}{6}+\frac{5}{6}(E+1)
 
 \begin_layout Standard
 E=6
+\change_deleted 16419249 1469727061
+
 \end_layout
 
 \begin_layout Subsection
+
+\change_deleted 16419249 1469727060
 On average, how many times must a 6-sided die be rolled until a 6 turns
  up twice in a row?
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 16419249 1469727060
 \begin_inset Formula 
 \[
 E=6+\frac{1}{6}*1+\frac{5}{6}(E+1)
@@ -842,9 +1175,45 @@ E=6+\frac{1}{6}*1+\frac{5}{6}(E+1)
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 16419249 1469727060
 Solving this, we find that E = 42.
+\change_unchanged
+
 \end_layout
 
+\begin_layout Section
+
+\change_inserted 16419249 1469727055
+分型问题
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 16419249 1469727055
+Amoeba Question: A population of amoebas starts with 1.
+ After 1 period that amoeba can divide into 1, 2, 3, or 0 (it can die) with
+ equal probability.
+ What is the probability that the entire population dies out eventually?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_inserted 16419249 1469727055
+This is not strictly recursive, this is 分型问题。
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 16419249 1469727055
+\begin_inset Formula $P=1/4+1/4P+1/4P^{2}+1/4P^{3}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Q: Baysian
 \end_layout
@@ -854,12 +1223,22 @@ There are 2 companies making electronic chips: good and bad.
  Good company is making good chips with probability 80 % and defective chips
  with probability 20 %, and bad company is making good chips with probability
  20 % and defective chips with probability 80 %.
- If you are getting just one chip, and the probability that it is coming
- from either of companies is the same, what is the probability that it is
- good chip?
+ 
+\end_layout
+
+\begin_layout Itemize
+You get two chips from the same company, and the probability that it is
+ coming from either of companies is the same.
+ First chip in the pack is good, what is the probability that the other
+ one is also good chip?
 \end_layout
 
 \begin_deeper
+\begin_layout Itemize
+此处如果你列式 P(B/A) = P(A/B)*P(B) / P(A) 则无法解开了，因为 you know P(B/A) = P(A/B),
+ 所以需要列式子 P(B/A) = P(AB) / P(A) 
+\end_layout
+
 \begin_layout Itemize
 I didn't answer this one correctly, but the interviewer helped me.
  So, if we know that probability to get good chip from good company is 0.8
@@ -878,8 +1257,8 @@ I didn't answer this one correctly, but the interviewer helped me.
  Let's designate: p1 - is probability to get a good chip from the first
  vendor.
  p2 - is probability to get a good chip from the second vendor.
- p(AB) = 0.5*p1*p1 + 0.5*p2*p2 p(A) = 0.5*p1 + 0.5*p2 So p(B/A) = (p1*p1 + p2*p2)/(p
-1 + p2).
+ p(AB) = 0.5*p1*p1 + 0.5*p2*p2, p(A) = 0.5*p1 + 0.5*p2 So p(B/A) = (p1*p1 +
+ p2*p2)/(p1 + p2).
 \end_layout
 
 \begin_layout Itemize
@@ -1077,6 +1456,19 @@ E=\frac{1}{6}+\frac{5}{6}(E+1)
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+in a country where everyone wants a boy, each family continues having babies
+ till they have a boy.
+ After some time, what is the proportion of boys to girls in the country?
+ (Assuming probability of having a boy or a girl is the same)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+answer: 1:1
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Draw without Replacement
 \end_layout
@@ -1133,7 +1525,11 @@ P(y|\theta)=\theta e^{-\theta y}
 \begin_inset Formula $\theta y$
 \end_inset
 
- means number of events happened across time period y .
+ means number of events happened across time period y
+\change_deleted 16419249 1469727718
+ 
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Itemize
@@ -1146,10 +1542,18 @@ with
 \end_inset
 
  is the number of events in the unit of time.
- Variance is
-\begin_inset Formula $\theta^{-2}.F(y|\theta)=1-e^{-y\theta}.$
+ Variance is 
+\begin_inset Formula $\theta^{-2}.$
 \end_inset
 
+
+\change_inserted 16419249 1469727724
+ and 
+\begin_inset Formula $F(y|\theta)=1-e^{-y\theta}$
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -1162,7 +1566,7 @@ CDF
 \begin_inset Formula $F(y>z|\theta)=e^{-z\theta}$
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Subsection
@@ -1284,8 +1688,11 @@ What is the distribution of total time needed to get 10 claims --- Gamma
 \end_deeper
 \begin_layout Itemize
 The Waiting Time Paradox.
- Buses arrive at a bus stop at random times according to a Poisson process
- with intensity .
+ Buses arrive at a bus stop at random times according to a Poisson(
+\begin_inset Formula $\theta$
+\end_inset
+
+) process with intensity.
  I arrive at time t and ask how much time E(W) on average I will have to
  wait for the next bus.
  
@@ -1297,7 +1704,7 @@ Time need to happen follows exponential distribution, with mean
 \begin_inset Formula $1/\theta$
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Itemize
@@ -1352,7 +1759,13 @@ As for
 \end_layout
 
 \begin_layout Itemize
-Use Walk Theory 
+Use Wal
+\change_deleted 16419249 1469728223
+k
+\change_inserted 16419249 1469728223
+d
+\change_unchanged
+ Theory 
 \begin_inset Formula $E(n_{2})=\int_{0}^{2}n_{i}Poission(n_{i}|i)\frac{1}{2-0}di$
 \end_inset
 
@@ -1371,6 +1784,80 @@ According to Wald Thery
 \end_inset
 
 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+伪Poisson 都直接没给theta: The probability of a car passing a certain intersection
+ in a 20 minute windows is 0.9.
+ What is the probability of a car passing the intersection in a 5 minute
+ window? (Assuming a constant probability throughout)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Answer: This is one of the basic probability question asked in a software
+ interview.
+ Let’s start by creating an equation.
+ Let x be the probability of a car passing the intersection in a 5 minute
+ window.
+\end_layout
+
+\begin_layout Itemize
+Probability of a car passing in a 20 minute window = 1 – (probability of
+ no car passing in a 20 minute window) Probability of a car passing in a
+ 20 minute window = 1 – (1 – probability of a car passing in a 5 minute
+ window)^4 0.9 = 1 – (1 – x)^4 (1 – x)^4 = 0.1 1 – x = 10^(-0.25) x = 1 – 10^(-0.25)
+ = 0.4377
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Or part a I think its just the poisson probability of 40 with rate = 48.
+ I'm stuck on b to d.
+ Cars pass checkpoint A in accordance with a Poisson process at an average
+ rate of 24 cars per hour.
+ All cars passing checkpoint A also pass checkpoint B which is located 10
+ miles down the road.
+ The speed (MPH) of any individual car between A & B is constant and uniformly
+ distributed on (40, 60).
+ The speeds of all cars are mutually independent.
+ Find:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+a) P(40 cars pass A between noon & 2PM)
+\end_layout
+
+\begin_layout Itemize
+b) P(between 3 & 6PM, 20 cars pass A at a speed exceeding 55 MPH)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+=P(20
+\change_inserted 16419249 1469730725
+ 
+\change_unchanged
+cars pass A in 3 hours)⋅P(Each car is traveling faster than 55 MPH)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+c) P(10 cars pass B between noon & 1 PM)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+All cars that pass A eventually pass B, so the average volume of cars of
+ any given speed passing both points is the same.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+d) the probability that 5 cars pass B between 1 PM & 1:10PM, given that
+ exactly 10 cars pass A between 12:30PM & 1 PM.
 \end_layout
 
 \end_deeper
@@ -1546,8 +2033,173 @@ O(n) : linear
 Statistics
 \end_layout
 
+\begin_layout Subsection
+Law of large numbers (LLN) 
+\end_layout
+
+\begin_layout Standard
+In probability theory, the law of large numbers (LLN) is a theorem that
+ describes the result of performing the same experiment a large number of
+ times.
+ According to the law, the average of the results obtained from a large
+ number of trials should be close to the expected value, and will tend to
+ become closer as more trials are performed.
+\end_layout
+
+\begin_layout Subsection
+Cnetral Limit Theory
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\sqrt{n}}{\bigg(}{\bigg(}{\frac{1}{n}}\sum_{i=1}^{n}X_{i}{\bigg)}-\mu{\bigg)}\ {\xrightarrow{d}}\ N(0,\;\sigma^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Degree of Freedom in Model
+\end_layout
+
+\begin_layout Standard
+维基百科上提纲挈领是这么说的：Degrees of freedom (statistics) In statistics, the number
+ of degrees of freedom is the number of 
+\series bold
+values
+\series default
+ in the final calculation of a statistic that are free to vary.
+\end_layout
+
+\begin_layout Standard
+首先, 更广义的讲, 有几个自由度的概念: 数据自由度, 模型自由度和error 的自由度。经常文章或书上直接说自由度, 而忽略该自由度指的什么。一般讲,
+ 数据自由度 等于 模型自由度加上 error 的自由度。举个例子, 如果N个数据做线性回归, 数据自由度是N, 模型自由度是p+1 (有截距),
+ error 自由度是N-p-1。一般大家说一个统计量的自由度往往是把这个统计量看成error 算自由度是一样的, 参考一楼的例子。这个在假设检验的时候更有用。
+\end_layout
+
+\begin_layout Itemize
+Geometrically
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+其实就是我们在观察的随机变量取值的向量空间的维度。比如说楼上的英文同学就说道，n个样本的自由度应该是n，但是把平均值去掉之后，这个n个样本组成的向量就满足了一个
+线性条件，也就是只能在一个维度是n-1的空间里取值，所以自由度变小了。
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Example:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+举个例子，设
+\begin_inset Formula $X\sim N(\mu,\sigma^{2})$
+\end_inset
+
+ 则显然有
+\begin_inset Formula $\sum_{i=1}^{n}(\frac{X_{i}-\mu}{\sigma})^{2}\sim\chi^{2}(n)$
+\end_inset
+
+比较与其类似的形式 
+\begin_inset Formula $\sum_{i=1}^{n}(\frac{X_{i}-\bar{X}}{\sigma})^{2}\sim\chi^{2}(n-1)$
+\end_inset
+
+ 为什么把参数
+\backslash
+mu换成样本均值 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+ 就会恰好少一个自由度?
+\end_layout
+
+\begin_layout Itemize
+因为 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+ 是一个与 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ 相关的随机变量，这里它们的相关性被抵消了，从而随机性下降了。
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Degree of Freedom in Distribution
+\end_layout
+
+\begin_layout Standard
+If Z1, ..., Zk are independent, standard normal random variables, then the
+ sum of their squares,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q=\sum_{i=1}^{k}Z_{i}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+卡方分布的来历是对几个服从标准正态分布N（0,1）【期望值为零，方差为一的正态分布】的变量的平方求和【先各自平方，再求和】。有几个这样的变量，卡方分布的自由度就
+是几。这是因为我们第一句话就说自由度是可以自由变动的量的个数。 
+\end_layout
+
+\begin_layout Itemize
+t分布是由一个标准正态分布和一个卡方分布组合的函数形式构成。它的自由度取决于那个卡方分布的自由度，因为正态分布没有自由度一说。
+\end_layout
+
+\begin_layout Itemize
+F分布是由两个卡方分布构成，因此有两个自由度。
+\end_layout
+
+\begin_layout Subsection
+Effective Degree of Freedom in Regularization
+\end_layout
+
+\begin_layout Standard
+在 ridge regression里，因为使用了regularization，估计出的系数会向0收缩(shrinkage)，导致的方差向0收缩，进一步导致估计
+出的的方差向0收缩。这种情况下如果要估计误差项的话，分母上就要使用比最小二乘法所使用的小的除数(即——只要它就小于) 。
+\end_layout
+
+\begin_layout Standard
+于是为了强调这种自由度跟无regularization情形自由度的不同，一般把这种情况下的自由度称作effective degree of freedom。
+\end_layout
+
+\begin_layout Standard
+直观地理解这个现象，可以认为虽然随机向量的样本空间的维度没有变，但是regularization(或者其他原因)导致变量震荡的幅度缩减，便认为自由度也随之缩减。
+研究这种shrinkage现象的时候一般都会：1)严格定义自由度；2)计算出自由度缩减的幅度。
+\end_layout
+
 \begin_layout Section
 Distributions
+\end_layout
+
+\begin_layout Subsection
+Normal Z-values
+\end_layout
+
+\begin_layout Standard
+One side 
+\end_layout
+
+\begin_layout Itemize
+Z(5%) = -1.64
+\end_layout
+
+\begin_layout Itemize
+Z(2.5%) = 1.95 
 \end_layout
 
 \begin_layout Subsection
@@ -1857,7 +2509,7 @@ power of a test
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename H:/jpmDesk/Desktop/Personal/Research_personal/Lyx_Picture/Type_of_Error.png
+	filename Lyx_Picture/Type_of_Error.png
 	scale 40
 	rotateOrigin center
 
@@ -2202,9 +2854,35 @@ d random variables and let N be a nonnegative integer-value random variable
 \begin_layout Standard
 \begin_inset Formula 
 \[
-E\text{⁡}[X_{1}+\text{⋯}+X_{N}]=E\text{⁡}[N]E\text{⁡}[X_{1}]
+E\text{⁡}[X_{1}+\text{⋯}+X_{N}]=\sum_{i}^{N}E(X_{i}|i)=E\text{⁡}[N]E\text{⁡}[X_{1}]
 \]
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Roll a six-sided die.
+ Take the number on the die (call it N) (which means first take a random
+ number from 1 to 6 to decide the which N you choose) and roll that number
+ of six-sided dice to get the numbers 
+\begin_inset Formula $X_{1}$
+\end_inset
+
+, .
+ .
+ .
+ , 
+\begin_inset Formula $X_{N}$
+\end_inset
+
+, and add up their values.
+ By Wald's equation, the resulting value on average is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E(N)E(X)=(1+2+3+4+5+6)/6*(1+2+3+\$+5+6)/6$
 \end_inset
 
 
@@ -2221,7 +2899,7 @@ Gini Coefficient
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename H:/jpmDesk/Desktop/Personal/Research_personal/Lyx_Picture/Gini_coefficient.svg
+	filename Lyx_Picture/Gini_coefficient.svg
 	scale 80
 
 \end_inset
@@ -7038,7 +7716,11 @@ For any matrix, if we want to solve
 \end_inset
 
  thus 
-\begin_inset Formula $(WW^{T})^{-1/2}=F\Lambda^{-1/2}F^{T}$
+\begin_inset Formula 
+\[
+(WW^{T})^{-1/2}=F\Lambda^{-1/2}F^{T}
+\]
+
 \end_inset
 
 
@@ -7371,7 +8053,7 @@ If
 \end_layout
 
 \begin_layout Section
-sparse matrix
+Sparse matrix
 \end_layout
 
 \begin_layout Standard
