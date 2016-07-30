@@ -171,6 +171,30 @@
 
 \begin_body
 
+\begin_layout Standard
+第一：数学题
+\end_layout
+
+\begin_layout Standard
+第二：recommendation 系统
+\end_layout
+
+\begin_layout Standard
+第三：写的q&a 过一遍
+\end_layout
+
+\begin_layout Standard
+第四：写的个人工作经历和model和r包过一遍
+\end_layout
+
+\begin_layout Standard
+第五：面试经验 套路！
+\end_layout
+
+\begin_layout Standard
+Cheet Sheet
+\end_layout
+
 \begin_layout Part
 IV
 \end_layout
@@ -197,7 +221,11 @@ How to cluster users in social media
 \end_layout
 
 \begin_layout Itemize
-Normally use two algorithms to do clustering: K-means & Gaussian Mixture
+
+\series bold
+Model
+\series default
+: Normally use two algorithms to do clustering: K-means & Gaussian Mixture
 \end_layout
 
 \begin_deeper
@@ -212,12 +240,20 @@ Gaussian Mixture is to assign a soft label, which give you a a probability
 
 \end_deeper
 \begin_layout Itemize
-But the problem is, those models will give you mutually exclusive labels
+
+\series bold
+Multiple Tags
+\series default
+: But the problem is, those models will give you mutually exclusive labels
  : 
 \series bold
 IN REALITY
 \series default
- one user may have multiple tags / labels at the same.
+ one user may have 
+\series bold
+multiple tags
+\series default
+ / labels at the same.
  One user may love music and computer science at the same time
 \end_layout
 
@@ -235,7 +271,11 @@ That means, for each time, you just model one label.
 
 \end_deeper
 \begin_layout Itemize
-Also even within the music label, there are further sublabels --- rock,
+
+\series bold
+Hierarchy
+\series default
+: Also even within the music label, there are further sublabels --- rock,
  pop, rap etc.
  So you have to run clustering in a hierarchical way.
 \end_layout
@@ -252,20 +292,18 @@ Features used to cluster in social media
 \end_layout
 
 \begin_layout Itemize
-Facebook: 
+Facebook: Two dimentions
 \end_layout
 
 \begin_deeper
-\begin_layout Itemize
-based on their interests
+\begin_layout Enumerate
+based on their interests / Base on what they write on their wall: You can
+ extract key words / topics
 \end_layout
 
-\begin_layout Itemize
-Base on what they write on their wall
-\end_layout
-
-\begin_layout Itemize
-also interest of the people are following
+\begin_layout Enumerate
+also interest of the people are following / What those followees write on
+ their wall.
 \end_layout
 
 \end_deeper
@@ -279,8 +317,10 @@ Twitter:
 \series bold
 Based on what they tweet, y
 \series default
-ou can use data mining or natural lanaguage processing to extract certain
- key toptics, key words 
+ou can use 
+\series bold
+extract certain key toptics, key words.
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -305,8 +345,11 @@ Then we go back to the common users, to see what types of celebrities they
 \end_layout
 
 \begin_layout Itemize
-Or you can even bring the number of likes or retweets for each celebrities,
- using this as a weight to mearue how 
+Or we can even bring the number of likes or retweets for each celebrities,
+ using this as a weight to mearue how strong / close this following relation
+ is.
+ So the following relation is no longer 0 or 1 anymore, it may be 0, 1,
+ 2, continous integers.
 \end_layout
 
 \end_deeper
@@ -314,7 +357,7 @@ Or you can even bring the number of likes or retweets for each celebrities,
 Data can be constructed like this: It is a matrix with rows as users, columns
  as celebrities.
  value equal to 1 if a user follow a celebrity, equal to 0 if not.
- OR the value is the total number of likes / retweets...
+ OR the value is the total ``
 \end_layout
 
 \end_deeper
@@ -322,16 +365,281 @@ Data can be constructed like this: It is a matrix with rows as users, columns
 Why an advertiser becomes inactive
 \end_layout
 
-\begin_layout Subsection
-Why an user becomes inactive
+\begin_layout Standard
+Model wise: 
+\end_layout
+
+\begin_layout Standard
+Feature: 
+\end_layout
+
+\begin_layout Enumerate
+industry: you want to indenify which industry likes do marketing on Twitter,
+ which not like.
+ Those are the markets we need to penetrate.
+\end_layout
+
+\begin_layout Enumerate
+Cost per click / view.
+ ---- to see whether the advertiser is really price sensitive.
+\end_layout
+
+\begin_layout Enumerate
+how many times they do campaign on twitter --- 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+new advertisers may have a high churn rate.
+ So you have to design retention strategies specificly for them
+\end_layout
+
+\begin_layout Enumerate
+old users tend to stay very long time, but once they become inactive, that
+ means something bad happends, we may want to call them to figure out why.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+How much money spend on Twitter in total.
+\end_layout
+
+\begin_layout Enumerate
+How much time the advertise spend on the campaign designing page ---- they
+ may feel frustration on figuring out how to design their campaign.
 \end_layout
 
 \begin_layout Subsection
-Understanding Ad engagement behavior of high net wotth user
+Why a User becomes inactive
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Logit
+\series default
+: Biulding model here is easy, logistic regression would work here.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Interpreation
+\series default
+: becasue the purpose of model is
+\series bold
+ not only prediction, but also interpreation
+\series default
+.
+ Because we want to understand which variable causes the inactivity.
+ So you really want to use some glassbox model rather than black box.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Probability
+\series default
+: Also when you want to classify 0,1, you want something can give you a
+ probability, rather than just give you 0 or 1
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Then you can use these probability to design some action
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Action Plan
+\series default
+: For example, if we forsee a high value customer will become inactive,
+ then you want to call him, or give him better offers.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Feature
+\series default
+: Finding out the exact correct features is the key.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Feature: interest they have, number of people they follow, number of people
+ that follows him, demographic etc.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Understanding Ad Engagement Behavior of High Net Worth user
+\end_layout
+
+\begin_layout Standard
+Give me a context of this problem, or what problems we are trying to solve
+ here
+\end_layout
+
+\begin_layout Standard
+Answer: I'm not sure the exact engagement pattern of those high net-value
+ people, But if I see the data, the data can reveal their pattern.
+\end_layout
+
+\begin_layout Itemize
+I want to use the data to test: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+What 
+\series bold
+kind of ads
+\series default
+ they are particular interest
+\end_layout
+
+\begin_layout Itemize
+In average, how they will 
+\series bold
+interact
+\series default
+ with the adds, whether he will spend some seconds to view it, or even reply
+ it and click into it
+\end_layout
+
+\begin_layout Itemize
+what is the 
+\series bold
+difference in conversion rat
+\series default
+e: They are probably esiser to do impusive purchases, especially for high
+ price stuff.
+ So if you target them with the purpose of conversion rate, they are probably
+ higher than normal people
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Standardized Measure of Creator's Success (creator tool)
+\end_layout
+
+\begin_layout Itemize
+Followers
+\end_layout
+
+\begin_layout Itemize
+Number of replies reweet, likes, saves.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Interaction / Measure how strong / close: 
+\series default
+Number of replies + retweet + likes / Followers.
+\end_layout
+
+\begin_layout Subsection
+Pagerank to measure importance/influence of user
+\end_layout
+
+\begin_layout Standard
+The idea is:
+\end_layout
+
+\begin_layout Itemize
+The importance of a user depends on how many people follow him, and also
+ depend on the importance of those followers themselves.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If an influential celebrity A follows B, then B must also has certain importance.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Pagerank algorithm is using this idea to measure how importance/influence
+ of a point in the network.
+\end_layout
+
+\begin_layout Standard
+The way it works is:
+\end_layout
+
+\begin_layout Enumerate
+Image you want to do a random work through all the social network, starting
+ from point A, as A is fowlling N people the probability that A travels
+ to each followees 1/B.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Then assume now we travel from A to B, then do a random walk to the people
+ that B follows.
+\end_layout
+
+\begin_layout Enumerate
+You keep doing q millions of time, and it turned out the probability/number
+ of times of getting to a certain point will converge to a steady value.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+That value is the score of the importance
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Path Find to measure importance of a user
+\end_layout
+
+\begin_layout Itemize
+You can think about this problem as a path finding problem: How to find
+ the shortest parth to travel from one user to another user.
+\end_layout
+
+\begin_layout Enumerate
+If you randomly select two points in the scoial network, both A and B have
+ no common firends in the real world, but they both follow one musician
+ in Twitter.
+\end_layout
+
+\begin_layout Enumerate
+You do this test millions times --- each time you randomly select two points
+ and calculating the clost path.
+ The more common trespassing / transiting points are those celebrities.
+\end_layout
+
+\begin_layout Subsection
+Recommend Tweet
+\end_layout
+
+\begin_layout Standard
+Logistic Function, which will give you 
+\end_layout
+
+\begin_layout Subsection
+Recommend Friend / Following
+\end_layout
+
+\begin_layout Subsection
+Measure Importance of a User
+\end_layout
+
+\begin_layout Standard
+See ML_Ad
 \end_layout
 
 \begin_layout Section
-T
+Twitter
 \end_layout
 
 \begin_layout Itemize
@@ -403,19 +711,19 @@ Getting your hands dirty:
 Use statistical and econometric techniques on large datasets to: 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 i) measure results and show key trends
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 ii) identify causal impact and attribution
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 iii) analyze experiments
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 iv) model and predict future performance of users or products
 \end_layout
 
@@ -2252,6 +2560,24 @@ Interview
 \end_layout
 
 \begin_layout Itemize
+Always answer questions like you know this industry / business a lot
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Never show that you are gussing, even if you are prepared and smart enough
+ to guess it right.
+\end_layout
+
+\begin_layout Itemize
+Never say you do, you can use....
+ always say 
+\series bold
+we use --- let people believe you are doing the same thing now!
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
 If you are not sure whether your anwer is correct: 
 \series bold
 say you never encounter this type of problems below, and then describe how
@@ -2272,6 +2598,10 @@ When answer algorithms / features / models / techniques, never give short
 \begin_layout Itemize
 Alwasy illustration what this algorithm give you, what's the assumption,
  what's s good or bad for it, or compare it with others
+\end_layout
+
+\begin_layout Itemize
+What the feature mean, positive or negative impact
 \end_layout
 
 \begin_layout Itemize
@@ -2316,6 +2646,31 @@ Could you give me context? Or describe the data?
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+If a question is about a fact, and you are not sure.
+ Then answer how you would use the data to reveal the knowlege
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Example: Understanding Ad engagement behavior of high net worth user
+\end_layout
+
+\begin_layout Itemize
+Answer: I'm not sure the exact engagement pattern of those high net-value
+ people, But if I see the data, the data can reveal their pattern.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Machine Learning Specific Questions
+\end_layout
+
+\begin_layout Standard
+When answer features, never just mention features, but also describe why/how
+ this feature is relevant or matter
+\end_layout
+
 \begin_layout Subsection
 Onsite
 \end_layout
@@ -3220,6 +3575,64 @@ Minimum criteria for a campaign: ROE / ROI in good time and bad time
 Adverse Selection.
 \end_layout
 
+\begin_layout Subsubsection*
+Risk Perspective: when the offer is bad
+\end_layout
+
+\begin_layout Itemize
+Observable Information: Accept inferior offers have inferior observable
+ characteristics; and the customers who accept inferior offers experience
+ more defaults.
+\end_layout
+
+\begin_layout Itemize
+Hidden Information: even controlling other risk factors
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The pool of consumers who accept an offer displays inferior characteristics
+ as compared to the pool of consumers who reject an offer, 
+\end_layout
+
+\begin_layout Itemize
+The pool of consumers who accept an inferior contract exhibits inferior
+ characteristics as compared to the pool of consumers who accept a better
+ offer.
+\end_layout
+
+\begin_layout Itemize
+These coefficients can be interpreted as saying that, even after controlling
+ for all information known to the card issuer at the time that the account
+ is opened, respondents to a solicitation with an introductory interest
+ rate 1 percent higher have a delinquency probability that is 1.2 percentage
+ points higher, while respondents to a solicitation with an introductory
+ offer which lasts 3 months longer have a delinquency probability that is
+ 1.7 percentage points lower.
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection*
+Marketing Perspective: when the offer is too good
+\end_layout
+
+\begin_layout Itemize
+Adverse Selection on gamers/shoppers (not necessarily risky customers):
+ since the data set continues to track customers after the end of the introducto
+ry period, it allows us to examine consumers who switch once are more likely
+ to switch a second time.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Then after controlling for all observable information, respondents to a
+ solicitation with an introductory interest rate that is 1% lower have an
+ activity probability that is 2.6% lower (i.e., an attrition probability that
+ is 2.6% higher).
+ 
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Project: Inactive Closure
 \end_layout
@@ -3398,7 +3811,7 @@ I think the ideal situation is, you keep yourself being challenged, learning
 R packages
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Behavior: Why R package
 \end_layout
 
@@ -3452,8 +3865,8 @@ It is exciting that someone in the world is actually using your work to
  their work to open source software's like R or Python.
 \end_layout
 
-\begin_layout Subsubsection
-Model: cointegration
+\begin_layout Subsection
+Model: Cointegration
 \end_layout
 
 \begin_layout Standard
@@ -3548,7 +3961,7 @@ If there are one single common trend, that means the whole stock markets
  That means the global stock market is fully integrated.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Getting Variables from a Formula
 \end_layout
 
@@ -3592,7 +4005,7 @@ A more complex case is: using a categorical variable: Categorical variables
  Coding Systems.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Model: Intuition of linear.tools
 \end_layout
 
@@ -3619,12 +4032,11 @@ combination
 \end_layout
 
 \begin_layout Itemize
-Note that the 
+Note that the
 \series bold
-combined
+ combined marginal impact 
 \series default
- marginal impact here is not just coefficient of U + coefficient of squared
- U.
+here is not just coefficient of U + coefficient of squared U.
  You have to do 
 \series bold
 Partial Derivatives
@@ -3657,7 +4069,7 @@ status collapsed
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
 So the first functionality of my package is to evaluate the marginal impact
  assumptions, test the 
 \series bold
@@ -3668,22 +4080,24 @@ Monotonicity
  it using ggplot2, ALL done in one function.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
 Then when you build models, you really want to plug in that PRIOR KNOWLEDGE
  into your standard machine learning process.
 \end_layout
 
-\begin_layout Standard
+\begin_deeper
+\begin_layout Enumerate
 For example, stepwise regression.
  For each iteration they selection models according to AIC or BIC only,
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
 My package provides another function that you can specify the marginal effect
  you want, so that in each iteration of stepwise regression, they will first
  exclude all the models with wrong marginal effect.
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 We call this marginal effect of one independent variable to the depend.
 \end_layout
@@ -3692,7 +4106,7 @@ We call this marginal effect of one independent variable to the depend.
 Direction of the impact / size of the impact 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Knowledge: Stochastic Finance
 \end_layout
 
@@ -3707,7 +4121,7 @@ The fundamental part of Stochastic Finance is to solve this problem: Ito
  integral
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 SAS and R
 \end_layout
 
