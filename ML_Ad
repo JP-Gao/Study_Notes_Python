@@ -320,11 +320,7 @@ Online games in the form of ad.
 
 \end_deeper
 \begin_layout Part
-Recommendation
-\end_layout
-
-\begin_layout Section
-Recommendation
+Recommendation: Collaborative Filtering
 \end_layout
 
 \begin_layout Standard
@@ -626,11 +622,17 @@ LSI - SVD
 \end_layout
 
 \begin_layout Standard
+Benifits: create a small matrix which is easility implemented online / poduction.
+ No need to remeber the whole large matrix.
+\end_layout
+
+\begin_layout Enumerate
 Use the SVD on the ItemRating-User (note that now User is the column and
  item is the row ) matrix.
 \end_layout
 
-\begin_layout Standard
+\begin_deeper
+\begin_layout Enumerate
 \begin_inset Formula 
 \[
 M=U\Sigma V^{T}
@@ -641,7 +643,7 @@ M=U\Sigma V^{T}
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
 where 
 \begin_inset Formula $U=m\times m$
 \end_inset
@@ -665,26 +667,32 @@ where
  diagnoal values.
 \end_layout
 
-\begin_layout Standard
+\end_deeper
+\begin_layout Enumerate
 Thus we can map Alice's profile point 
 \begin_inset Formula $A$
 \end_inset
 
- to the 
+ (
+\begin_inset Formula $q\times1$
+\end_inset
+
+ matrix with 
+\begin_inset Formula $q$
+\end_inset
+
+ items) to the 
 \begin_inset Formula $p$
 \end_inset
 
- dimention world as 
-\begin_inset Formula $A_{2D}$
-\end_inset
-
-
+ dimention world assess
 \end_layout
 
-\begin_layout Standard
+\begin_deeper
+\begin_layout Enumerate
 \begin_inset Formula 
 \[
-A^{T}U\Sigma^{-1}
+A_{P}=A^{T}U\Sigma^{-1}
 \]
 
 \end_inset
@@ -692,12 +700,246 @@ A^{T}U\Sigma^{-1}
 
 \end_layout
 
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Then you use Neighborhood of users/items in the 
+\begin_inset Formula $p$
+\end_inset
+
+ dimention to see which user is close to A
+\end_layout
+
+\begin_layout Part
+Recommendation: Content-based 
+\end_layout
+
 \begin_layout Section
-Content-based 
+LSI: Application to Recommend who to Follow
+\end_layout
+
+\begin_layout Standard
+See
+\series bold
+\emph on
+ Content-based Dimensionality Reduction for Recommender Systems Panagiotis
+ Symeonidis 
+\series default
+\emph default
+for clear reference
+\end_layout
+
+\begin_layout Standard
+Purpose is to recommend the user 
+\begin_inset Formula $A$
+\end_inset
+
+ who to follow.
+ You select 
+\begin_inset Formula $N$
+\end_inset
+
+ users as your training set.
+\end_layout
+
+\begin_layout Itemize
+Construct user's following behavior as matrix 
+\begin_inset Formula $M$
+\end_inset
+
+: all users as followers are in the row, all users as followees are in the
+ column.
+ If a follower in the row follows a user in the column, then the value is
+ 1, othervice it is 0.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Then you can use 
+\begin_inset Formula $SVD$
+\end_inset
+
+ to map these follower-followee relations from 
+\begin_inset Formula $p$
+\end_inset
+
+ dimention to 
+\begin_inset Formula $q$
+\end_inset
+
+ dimention, thus you get the lower rank of the representation
+\end_layout
+
+\begin_layout Enumerate
+Then use the dimention reduction mapping to map user 
+\begin_inset Formula $A$
+\end_inset
+
+ to the 
+\begin_inset Formula $q$
+\end_inset
+
+ dimention
+\end_layout
+
+\begin_layout Itemize
+To reduce the complexity of computation, you can trim 
+\begin_inset Formula $M$
+\end_inset
+
+ to only select long time users who follow at least 10 users all being followed
+ by at least 10 users.
+\end_layout
+
+\begin_layout Itemize
+But this method can only work if 
+\begin_inset Formula $A$
+\end_inset
+
+ already has a lot of followings
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Normally we already assign labels to our users, those labels could: professional
+ user / advertisers / opinion leader / democratic-republican / demographics
+ / celebrities / Like music / Like computer science.
+ Then you can construct a matrix with rows as users and columns as twitters,
+ and do the SVD/LSI and KNN.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This requires a lot of prework: you need to biuld a clustering model to
+ assign the labels.
+\end_layout
+
+\begin_layout Itemize
+That means you model 
+\series bold
+depend
+\series default
+ on other model, which is the labelling model.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Cold Start problem
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $A$
+\end_inset
+
+ is a new user: you need some cold start techniques.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+You have to let 
+\begin_inset Formula $A$
+\end_inset
+
+ to self identify his interest, 
+\end_layout
+
+\begin_layout Enumerate
+let him to choose who to follow at the very begining.
+\end_layout
+
+\begin_layout Enumerate
+Or just give him the most popular celebrities and let him to follow.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Probalistic method
+\end_layout
+
+\begin_layout Subsection
+Naiv Bayes
+\end_layout
+
+\begin_layout Standard
+To predict whether User 
+\begin_inset Formula $A$
+\end_inset
+
+ will like use 
+\begin_inset Formula $B$
+\end_inset
+
+, then the training data are all other 
+\begin_inset Formula $N$
+\end_inset
+
+ with 
+\begin_inset Formula $q$
+\end_inset
+
+ features (
+\begin_inset Formula $F$
+\end_inset
+
+) that either follow or not follow 
+\begin_inset Formula $B$
+\end_inset
+
+(0, or 1), then the likelihood of 
+\begin_inset Formula $A$
+\end_inset
+
+ like 
+\begin_inset Formula $B$
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(B=1|F_{A})\sim P(F_{A}|B=1)\times P(B=1)=\prod_{j}^{q}P(f_{j}|B=1)\times P(B=1)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $P(f_{j}|B=1)=\phi_{j}$
+\end_inset
+
+ can get from max likelihood of data
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\prod_{i}^{N}\left[\prod_{j}^{q}\phi_{j}^{i=1}(1-\phi_{j})^{i=1}P(i)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Logistic
 \end_layout
 
 \begin_layout Section
 Knowdge-based 
+\end_layout
+
+\begin_layout Section
+link prediction, which analyzes who your friends are friends with.
+ 
 \end_layout
 
 \begin_layout Part
@@ -751,6 +993,142 @@ Product apps, however, often use a rather wild set of metrics:
 
 \begin_layout Itemize
 measured in any variety of ways to describe their app’s commercial traction.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Creators
+\end_layout
+
+\begin_layout Standard
+The worry is that the "creators," that is the celebrities, journalists,
+ and video-makers who regularly post stuff on Twitter, might decide that
+ Twitter isn't the hotspot it once was, and could decamp to a different
+ online service for their daily musings and content postings.
+ 
+\end_layout
+
+\begin_layout Subsection
+Types of Users: the Goldn Rule
+\end_layout
+
+\begin_layout Itemize
+1 – number of followers the user has
+\end_layout
+
+\begin_layout Itemize
+2 – number of tweets they’ve made
+\end_layout
+
+\begin_layout Itemize
+3 – the number of people that user is following
+\end_layout
+
+\begin_layout Standard
+If 1 is greater than 3 (let’s call it a “positive ratio”), it could be worth
+ clicking through to that person’s profile.
+ If 1 is much greater than 3, they most certainly are at least worth looking
+ at.
+ If 3 is greater than 1 (the “negative ratio”) by a large margin, the likelihood
+ that they’re a spammer or marketer is pretty good 
+\end_layout
+
+\begin_layout Subsection
+Customer Enagament Behavior
+\end_layout
+
+\begin_layout Itemize
+Interest / like
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Independent Thinking: Unless you make an unique value proposition, they
+ won't believe in it.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Click, download, buy
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+more impulsive buying
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Customer Enagament Metrics
+\end_layout
+
+\begin_layout Standard
+We consider three types of engagement metrics, reflecting, 
+\series bold
+popularity, activity, and loyalty
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Popularity
+\series default
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+High popularity does not entail high activity (τ = 0.09).
+ Many site have many users spending little time on them; e.g.
+ a search site is one where users come, submit a query, get the result,
+ and if satisfied, leave the site.
+ This results in a low dwell time even though user expectations were entirely
+ met.
+ The same argument hold for a site on Q&A, or a weather site.
+ What matters for such sites is their popularity.
+ Finally, we observe a moderate correlation (τ = 0.49) between loyalty and
+ popularity metrics.
+ This is because popular sites are those to which users return regularly.
+ The same reasoning applies for the other metrics of these two groups.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Activity
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+ClickDepth Average number of page views per visit.
+ 
+\end_layout
+
+\begin_layout Enumerate
+DwellTimeA Average time per visit (dwell time).
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Loyalty
+\series default
+ 
+\series bold
+(for a given time frame)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+ActiveDays Number of days a user visited the site.
+ 
+\end_layout
+
+\begin_layout Enumerate
+ReturnRate Number of times a user visited the site.
  
 \end_layout
 
