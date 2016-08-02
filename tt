@@ -1,0 +1,509 @@
+---
+title: "T_promoted_trends"
+author: "Fan Yang"
+date: "August 2, 2016"
+output: html_document
+---
+
+```{r load_packages, include = F }
+
+### Load =================
+
+# Pakcages we will use:
+cat("\n")
+list.of.packages <-
+  c(
+    
+    # visualization
+    "ggplot2","scales",
+    
+    # regular expression
+    "stringr",
+    
+    # data maniputaltion
+    "reshape","reshape2","data.table","plyr","dplyr","magrittr","DataCombine",
+    
+    # some functions in dplyr are duplicate in plyr, and we want to use functions in dplyr
+    # so load plyr first and then let dplyr to mask it.
+    
+    # panel and cross sectional data
+    # "plm","AER","censReg",'MASS',
+    
+    # time series
+    "lubridate", "zoo","tseries",
+    
+    # literature programming & code style
+     "knitr","formatR",'rmarkdown'# 'yaml', 'htmltools', 'caTools',"xtable",
+    
+    # Computing on the Language
+    # "pryr", "gtools","lazyeval"
+    
+  )
+
+cat("Pakcages we will use : \n")
+print(list.of.packages)
+
+cat("\n \n check new packages that this computer did not install before \n")
+
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+
+
+if(length(new.packages)) {
+  cat("\n \n download & install new packages \n")
+  install.packages(new.packages)
+}
+
+
+cat("\n \n load packages to R \n")
+for (Library in list.of.packages) library(Library,character.only = T)
+
+
+opts_chunk$set(
+	cache=FALSE,
+	fig.width=7, 
+	fig.height=4.2,
+	message=F,
+	error=F,
+	warning=F
+)
+
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r load_clean_data,include = F}
+
+# setwd('/Users/yangguodaxia/Dropbox/Tech/Twitter_case_study')
+setwd('H:/jpmDesk/Desktop/Personal')
+
+data = read.csv('Case Study Raw Data_ Business Insights.csv')
+colnames(data) = str_to_lower(colnames(data))
+data[,'date'] = as.Date(data[,'date'],format = '%m/%d/%y')
+
+# add change of revenue
+for (i in c('iphone.revenue','android.revenue')){
+  data[,paste('delta',i,sep='_')] = c(0,diff(data[,i]))
+}
+```
+
+### Testing Stationary
+
+Dickey–Fuller test shows `revenue` itself is not stationary, but the `change of revenue` is.
+```{r DF}
+# revenue
+adf.test(x = data[,'iphone.revenue'],k=0)$p.value
+adf.test(x = data[,'android.revenue'],k=0)$p.value
+
+# change of revenue
+adf.test(x = diff(data[,'iphone.revenue']),k=0)$p.value
+adf.test(x = diff(data[,'android.revenue']),k=0)$p.value
+
+```
+
+A graph compairing both the revenue and change of revenue also supports the Dickey–Fuller test's result.
+
+```{r, echo = F}
+
+data_long = melt(data,id.vars = 'date')
+data_long[,'device'] = 'Android'
+data_long[str_detect(data_long[,'variable'],'iphone') ,'device'] = 'iPhone'
+
+data_long[,'revenue_form'] = 'revenue'
+data_long[str_detect(data_long[,'variable'],'delta') ,'revenue_form'] = 'Change of Revenue'
+
+ggplot(data_long) + geom_line(aes(x = date, y = value, color = device, linetype = revenue_form  )) + 
+  geom_point(aes(x = date, y = value, color = device,type = revenue_form),size = 0.3) +
+  scale_linetype_manual(values = c(2,1)) + 
+  labs(title = 'iPhone vs Android: \n revenue and change of revenue', y = '$')
+
+```
+
+# Relation between iPhone & Android: Before Feb 1st
+
+We biuld a simple model to explain relations between change of Android's revenue $Delta\mbox{Android}$ and change of iPhone's $Delta\mbox{iPhone}$: a single variable regression, without intercept.
+
+We exclude intercept as it s not statistically significant and does not make sense in business: there is no reason to believe that there is a constant gap between $Delta\mbox{Android}$ and $Delta\mbox{iPhone}$.
+
+```{r}
+# before Feb 1
+data_prior = subset(data, date < as.Date('2015-02-01'))
+data_prior = complete.cases(data_prior) %>% data_prior[.,]
+
+# after Feb 1
+data_post = subset(data, date >= as.Date('2015-02-01'))
+
+simple_OLS = lm(delta_android.revenue ~ -1 + delta_iphone.revenue,data_prior)
+
+```
+
+The model fits the traning data petty well:
+
+```{r}
+# significance
+summary(simple_OLS)$coeff
+# R square
+summary(simple_OLS)$r.squared
+```
+
+According to the model, if product version is the same for both iPhone and Android, every `1` dollar change of iPhone revenue is correlated with  $0.79$ dollar change of Android revenue , or: 
+
+\[
+\Delta\mbox{Andoid}=0.79\Delta\mbox{iPhone}
+\]
+
+
+# Incremental Revenue of Android
+
+### Android Revenue without Product Change
+
+If there is no product change on Feb 1st, we assume the relations between the $\Delta\mbox{Andoid}$ and $\Delta\mbox{iPhone}$ would keep the same as $\Delta\mbox{Andoid}=0.79\Delta\mbox{iPhone}$. Then the Andoid revenue given no product change at any time after Feb 1st would be:
+
+\[
+\widehat{\mbox{Android}}_{T}=\mbox{Andoid}_{\mbox{Jan}31}+0.79\times\sum_{t=\mbox{Feb}1}^{\mbox{T}}\Delta\mbox{iPhone}_{t}
+\]
+
+```{r}
+android_no_newproduct_post = tail(data_prior[,'android.revenue'],1) + cumsum(predict(simple_OLS,newdata = data_post))
+```
+
+### Incremental Revenue
+Thus the total incremental revenue thanks to the product change is
+
+\[
+\mbox{New Product Impact}_{Android}=\sum_{t=\mbox{Feb}1}^{\mbox{Feb10}}\left(\mbox{Android}-\widehat{\mbox{Android}}_{T}\right)
+\]
+
+which is calculated as 
+
+```{r}
+impact_android =  sum(data_post$android.revenue) - sum(android_no_newproduct_post)
+impact_android
+```
+
+
+# Incremental Revenue of iPhone
+
+To get the incremental revenue of iPhone, we assume the $\Delta\mbox{Andoid}=0.79\Delta\mbox{iPhone}$ relation will keep valid if both iPhone and Android have the same product change. Thus the expected iPhone revenue in iPhone after Feb 1st's product change would be 
+
+\[
+\widehat{\mbox{iPhone}}_{T}=\mbox{iPhone}_{\mbox{Jan}31}+\frac{1}{0.79}\times\sum_{t=\mbox{Feb}1}^{\mbox{T}}\Delta\mbox{Android}_{t}
+\]
+
+and the total  Incremental Revenue of iPhone due to the product change is
+
+\[
+\mbox{New Product Impact}_{iPhone}=\sum_{t=\mbox{Feb}1}^{\mbox{Feb10}}\left(\mbox{iPhone}-\widehat{\mbox{iPhone}}_{T}\right)
+\]
+
+which is calculated as 
+
+```{r}
+iphone_newproduct = 
+  tail(data_prior[,'iphone.revenue'],1) + 1/simple_OLS$coefficients * cumsum(data_post[,'delta_android.revenue'])
+
+impact_iphone = sum(iphone_newproduct) - sum(data_post$iphone.revenue)
+impact_iphone
+```
+
+
+# A visual representation:
+
+```{r,echo = F}
+
+revenue_adjusted = 
+  rbind(data.frame(value = iphone_newproduct, device = 'iPhone',ind_product_change = 'with product change'),
+        data.frame(value = android_no_newproduct_post, device = 'Android', ind_product_change = 'no product change')) %>%
+  cbind(.,
+        data.frame(date = data_post$date, revenue_form = 'revenue')
+        )
+      
+iphone_no_newproduct = data_long %>% subset(.,revenue_form == 'revenue' & device == 'iPhone') 
+iphone_no_newproduct[,'ind_product_change'] = 'no product change'
+
+
+android_newproduct =  
+  data_long %>% 
+  subset(.,date >= as.Date('2015-02-01') & revenue_form == 'revenue' & device == 'Android')  
+android_newproduct[,'ind_product_change'] = 'with product change'
+
+
+android_no_newproduct_prior =  
+  data_long %>% 
+  subset(.,date < as.Date('2015-02-01') & revenue_form == 'revenue' & device == 'Android')
+android_no_newproduct_prior[,'ind_product_change'] = 'no product change'
+
+
+
+revenue_compare = rbind.fill(android_newproduct,
+                             iphone_no_newproduct,
+                             android_no_newproduct_prior,
+                             revenue_adjusted
+                             )
+
+
+revenue_compare %>% subset(.,revenue_form == 'revenue') %>% 
+  ggplot(.) + geom_line(aes(x = date, y = value, linetype = ind_product_change, color =  device ), size = 0.7) + 
+    geom_point(aes(x = date, y = value, color =  device),size = 0.3)  + 
+    scale_linetype_manual(values = c(1,2)) + 
+    labs(title = 'Android revenue: \n new product vs. original product', y = '$')
+```
+
+
+
+
+# Alternative Method
+
+### Alternative method: Difference in Difference
+
+If we assume daily differences between Android and iPhone remain in constant $\bar{diff}$ before product change,
+
+\[
+\overline{\mbox{diff}}=\sum_{t=\mbox{Dec14}}^{\mbox{Jan31}}(\mbox{iPhone}-\mbox{Android})/T
+\]
+
+which is calculated as 
+
+```{r}
+diff_before_change = mean(data_prior$iphone.revenue - data_prior$android.revenue)
+diff_before_change
+```
+
+then the incremental impact of the product change on both iPhone and Android would be the change of the difference.
+
+\[
+\mbox{New Product Impact}=\sum_{t=\mbox{Feb}1}^{\mbox{Feb10}}(\bar{diff}-diff_{t})
+\]
+which is calculated as 
+```{r}
+diff_before_change * 10 - sum(data_post$iphone.revenue - data_post$android.revenue )
+```
+
+
+### Alternative method: Difference in Ratios
+
+If we assume daily ratios between Android and iPhone remain in constant $\bar{R}$ if they are in the same version of products,
+
+\[
+\bar{R}=\sum_{t=\mbox{Dec14}}^{\mbox{Jan31}}\frac{Android_{t}}{iPhone_{t}}
+\]
+which is calculated as 
+
+```{r}
+ratio_bar = mean(data_prior$android.revenue/data_prior$iphone.revenue)
+ratio_bar
+```
+
+Then set the ratio post Feb 1st as $\hat{R}$, then the product change impact on Android is
+
+
+
+\[
+\mbox{New Product Impact}_{Android}=\sum_{t=\mbox{Feb}1}^{\mbox{Feb10}}\left(\hat{R}-R\right)\times\mbox{iPhon\ensuremath{e_{t}}}
+\]
+
+and the product change impact on iPhone is
+
+\[
+\mbox{New Product Impact}_{iPhone}=\sum_{t=\mbox{Feb}1}^{\mbox{Feb10}}\frac{1}{\hat{R}}\times\mbox{Android}_{t}
+\]
+
+which are calculated as 
+
+```{r}
+ratio_post = mean(data_post$android.revenue / data_post$iphone.revenue) 
+impact_android= sum(( ratio_post - ratio_bar) * data_post$iphone.revenue)
+impact_iphone = sum(data_post$android.revenue / ratio_bar  - data_post$iphone.revenue)
+
+impact_android
+impact_iphone
+
+```
+
+
+### Load =================
+
+# Pakcages we will use:
+cat("\n")
+list.of.packages <-
+  c(
+    
+    # visualization
+    "ggplot2","scales",
+    
+    # regular expression
+    "stringr",
+    
+    # data maniputaltion
+    "reshape","reshape2","data.table","plyr","dplyr","magrittr","DataCombine",
+    
+    # some functions in dplyr are duplicate in plyr, and we want to use functions in dplyr
+    # so load plyr first and then let dplyr to mask it.
+    
+    # panel and cross sectional data
+    "plm","AER","censReg",'MASS','lars',
+    
+    # time series
+    "lubridate", "zoo","tseries",
+    
+    # literature programming & code style
+     "knitr","formatR",'yaml', 'htmltools', 'caTools','rmarkdown',"xtable",
+    
+    # Computing on the Language
+    "pryr", "gtools","lazyeval"
+    
+  )
+
+cat("Pakcages we will use : \n")
+print(list.of.packages)
+
+cat("\n \n check new packages that this computer did not install before \n")
+
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+
+
+if(length(new.packages)) {
+  cat("\n \n download & install new packages \n")
+  install.packages(new.packages)
+}
+
+
+cat("\n \n load packages to R \n")
+for (Library in list.of.packages) library(Library,character.only = T)
+
+
+
+#### =============== Explore  ======================
+
+setwd('/Users/yangguodaxia/Dropbox/Tech/Twitter_case_study')
+setwd('H:/jpmDesk/Desktop/Personal')
+
+
+data = read.csv('Case Study Raw Data_ Business Insights.csv')
+data[,'date'] = as.Date(data[,'date'],format = '%m/%d/%y')
+
+# add change of revenue
+for (i in c('iphone.revenue','android.revenue')){
+  data[,paste('delta',i,sep='_')] = c(0,diff(data[,i]))
+}
+
+
+data_long = melt(data,id.vars = 'date')
+data_long[,'device'] = 'android'
+data_long[str_detect(data_long[,'variable'],'iphone') ,'device'] = 'iphone'
+
+data_long[,'revenue_form'] = 'Revenue'
+data_long[str_detect(data_long[,'variable'],'delta') ,'revenue_form'] = 'Change of Revenue'
+
+
+setnames(data_long,'value','money')
+
+ggplot(data_long) + geom_line(aes(x = date, y = money, color = device, linetype = revenue_form  )) + 
+  geom_point(aes(x = date, y = money, color = device,type = revenue_form),size = 0.3) +
+  scale_linetype_manual(values = c(2,1)) + 
+  labs(title = 'iPhone vs Android: \n revenue and change of revenue', y = '$')
+
+
+##### ===================== OLS ===================
+
+data$trend = 1:nrow(data)
+
+data$weekdays = weekdays(data$date)
+data$weekends = data$weekdays %in% c('Sunday','Saturday')
+data[,'lag_delta_android.revenue'] = lag(data$delta_android.revenue)
+data[,'lag_delta_iphone.revenue'] = lag(data$delta_iphone.revenue)
+
+
+prior_data = subset(data, date < as.Date('2015-02-01'))
+prior_data = complete.cases(prior_data) %>% prior_data[.,]
+
+simple_OLS = lm(delta_android.revenue ~ -1 + delta_iphone.revenue,prior_data)
+
+install.packages('glmnet')
+library(glmnet)
+
+complex_OLS1 = 
+  step(simple_OLS,
+       scope = list( upper = . ~ 1 + delta_iphone.revenue + weekdays + weekends + 
+                        trend + I(trend^2) + lag_delta_android.revenue + lag_delta_iphone.revenue)
+       )
+
+complex_OLS2 = 
+  step(lm(delta_android.revenue ~ delta_iphone.revenue,prior_data),
+       scope = list( upper = . ~ 1 + delta_iphone.revenue + weekdays + weekends + 
+                       trend + I(trend^2) + lag_delta_android.revenue + lag_delta_iphone.revenue)
+  )
+
+
+summary(complex_OLS)
+
+plot(simple_OLS,1)
+
+data_post = subset(data, date >= as.Date('2015-02-01'))
+
+# total incremental revenue
+product_impact_android = sum(data_post$delta_android.revenue - predict(simple_OLS,newdata = data_post))
+product_impact_iphone = product_impact_android / simple_OLS$coefficients
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+data_resid = data.frame(date = data$date,residual = c(0,simple_OLS$residuals),
+                        revenue_form = 'revenue',
+                        device = 'iphone')
+
+cutoff_95 = quantile(data_resid$residual,probs = 0.95,na.rm=T)
+cutoff_05 = quantile(data_resid$residual,probs = 0.05,na.rm=T)
+
+
+data_resid[,'impact_ind'] = 0
+data_resid[
+  (data_resid$residual > cutoff_95 |  data_resid$residual < cutoff_05) & data_resid$date >= as.Date('2015-02-01'),
+  'impact_ind'] = 1
+
+
+data_iphone_adj = subset(data_long, revenue_form %in% 'revenue_delta' & device %in% 'iphone') 
+data_iphone_adj[,'money'] = data_iphone_adj[,'money'] + data_resid[,'residual'] * data_resid[,'impact_ind']
+data_iphone_adj[,'money'] = data[1,'iphone.revenue'] + cumsum(data_iphone_adj[,'money'])
+
+data_iphone_adj[,'revenue_form'] = 'revenue_adj'
+
+
+
+data_long_adj = rbind(data_long,data_iphone_adj)
+
+
+data_long_adj %>% 
+  subset(., revenue_form %in% c('revenue','revenue_adj')) %>%
+  ggplot(.) + 
+  geom_line(aes(x = date, y = money, color = device, linetype = revenue_form )) + 
+  geom_point(aes(x = date, y = money, color = device, type = revenue_form ),size = 0.3) + 
+  labs(title = 'Adjusted iPhone Promoted Trend')
+
+##### ===================== Cointegration ===================
+
+
+
+
+
+
+
+
+
