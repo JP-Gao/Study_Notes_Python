@@ -259,8 +259,16 @@ multiple tags
 
 \begin_deeper
 \begin_layout Itemize
-So there is no way to do clustering at just one time.
- You need to first do clustering on whether a user likes music or not.
+
+\series bold
+So there is no way to do clustering at just one time
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+You need to first choose music related featuresm, do clustering on whether
+ a user likes music or not.
  Then run another clustering to decide for the computer science label.
 \end_layout
 
@@ -540,7 +548,7 @@ Number of replies reweet, likes, saves.
 \begin_layout Itemize
 
 \series bold
-Interaction / Measure how strong / close: 
+Interaction / Measure how strong / Close: 
 \series default
 Number of replies + retweet + likes / Followers.
 \end_layout
@@ -554,8 +562,8 @@ The idea is:
 \end_layout
 
 \begin_layout Itemize
-The importance of a user depends on how many people follow him, and also
- depend on the importance of those followers themselves.
+The importance of a user depends on number of followers, and also depend
+ on the importance of those followers.
 \end_layout
 
 \begin_deeper
@@ -575,8 +583,8 @@ The way it works is:
 
 \begin_layout Enumerate
 Image you want to do a random work through all the social network, starting
- from point A, as A is fowlling N people the probability that A travels
- to each followees 1/B.
+ from point A, as A is following N people the probability that A travels
+ to each followees 1/N.
  
 \end_layout
 
@@ -586,7 +594,7 @@ Then assume now we travel from A to B, then do a random walk to the people
 \end_layout
 
 \begin_layout Enumerate
-You keep doing q millions of time, and it turned out the probability/number
+You keep doing one millions of time, and it turned out the probability/number
  of times of getting to a certain point will converge to a steady value.
  
 \end_layout
@@ -594,6 +602,12 @@ You keep doing q millions of time, and it turned out the probability/number
 \begin_deeper
 \begin_layout Enumerate
 That value is the score of the importance
+\end_layout
+
+\begin_layout Enumerate
+the idea is: if the more people follow a point A, then it is easier to get
+ their.
+ 
 \end_layout
 
 \end_deeper
@@ -628,6 +642,18 @@ Logistic Function, which will give you
 
 \begin_layout Subsection
 Recommend Friend / Following
+\end_layout
+
+\begin_layout Itemize
+K-means / Mixture Gaussian
+\end_layout
+
+\begin_layout Itemize
+Logistics
+\end_layout
+
+\begin_layout Itemize
+Link Prediction ???
 \end_layout
 
 \begin_layout Subsection
@@ -1284,7 +1310,8 @@ Building key data sets to empower operational and exploratory analysis
 \end_layout
 
 \begin_layout Itemize
-Evaluating and defining metrics 
+Evaluating and defining metrics.
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -1329,7 +1356,6 @@ Ability to initiate and drive projects to completion with minimal guidance.
  Ability to communicate the results of analyses in a clear and effective
  manner with product and leadership teams to influence the overall strategy
  of the product.
- 
 \end_layout
 
 \begin_layout Standard
@@ -1352,7 +1378,7 @@ PERSONAL: First, my girlfirend just found a job in San F, so I have to move
 \end_layout
 
 \begin_layout Enumerate
-COMPANY: Secondly, U is such a cool and fast growing c, AND it must be super
+COMPANY: Secondly, F is such a cool and fast growing c, AND it must be super
  interesting to work as a Data Scientist there, 
 \series bold
 BECAUSE
@@ -1395,8 +1421,9 @@ BECAUSE
 
 \begin_deeper
 \begin_layout Enumerate
-It requires Data Science, a lot of programming , which are exactly what
- I learned in school and what I'm doing now.
+It requires Data Science, a lot of programming, analytical mind and data
+ science knowledge which are exactly what I learned in school and what I'm
+ doing now.
 \end_layout
 
 \end_deeper
@@ -1929,10 +1956,61 @@ Find the overall acceptance rate of requests
 \end_layout
 
 \begin_layout Itemize
-select round(100*count(case when b.requestor_id is null then 1 else 0 end)/count(
-a.requester_id),2) as acceptance_rate from Friend_requests as a left join
- Request_accepted as b on a.sent_to_id = b.acceptor_id and a.requester_id =
- b.requestor_id where date(a.time) < date_add(current_date(), "-7", "day")
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select 
+\end_layout
+
+\begin_layout Plain Layout
+
+	round(100*count(case when b.requestor_id is null then 1 else 0 end)/count(a.reque
+ster_id),2) as acceptance_rate 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+from Friend_requests as a 
+\end_layout
+
+\begin_layout Plain Layout
+
+left join Request_accepted as b 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+on a.sent_to_id = b.acceptor_id and 
+\end_layout
+
+\begin_layout Plain Layout
+
+a.requester_id = b.requestor_id 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+where date(a.time) < date_add(current_date(), "-7", "day")
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -2590,8 +2668,9 @@ Think for a while before you answer non-math/stat questions.
 \end_layout
 
 \begin_layout Itemize
-When answer algorithms / features / models / techniques, never give short
- answer!
+When answer algorithms / features / models / techniques, 
+\series bold
+never give short answer!
 \end_layout
 
 \begin_deeper
@@ -2601,7 +2680,7 @@ Alwasy illustration what this algorithm give you, what's the assumption,
 \end_layout
 
 \begin_layout Itemize
-What the feature mean, positive or negative impact
+What the feature mean, positive or negative impact.
 \end_layout
 
 \begin_layout Itemize
@@ -2691,12 +2770,6 @@ Words
 \end_layout
 
 \begin_layout Itemize
-I thought about this question.
- I don't know the answer.
- It is hard 
-\end_layout
-
-\begin_layout Itemize
 Growth pressure vs.
  discipline vs.
  risk appetite.
@@ -2715,10 +2788,6 @@ Articulate
 \begin_layout Itemize
 Ask questions to your self, to your audience, to start presentation or cole-call
  conversation 
-\end_layout
-
-\begin_layout Itemize
-Use inclusive language, not to formal 
 \end_layout
 
 \begin_layout Itemize
@@ -2742,7 +2811,7 @@ compromised
 \end_layout
 
 \begin_layout Itemize
-Idiosyncratic 
+Idiosyn.cratic 
 \end_layout
 
 \begin_layout Itemize
@@ -2763,11 +2832,13 @@ Her family sympathized with her desire to be a lawyer.
  她全家都支持她当律师的愿望 
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 I do sympathize with you.
  我的确很同情你。 
 \end_layout
 
+\end_deeper
 \begin_layout Itemize
 articulate 
 \end_layout
@@ -3490,7 +3561,7 @@ So you see this kind of job really helps you understand the business, understand
 \end_layout
 
 \begin_layout Subsection
-Project: Marketing Campaign
+Project: Marketing Campaign::: WEI YANG
 \end_layout
 
 \begin_layout Standard
@@ -3508,20 +3579,26 @@ What segment of customers you want to target.
 \end_layout
 
 \begin_layout Itemize
-We really focus on the risk side of the campaign,
+
+\series bold
+Background
+\series default
+: everymonth we send out direct mails, emails to certain group of customers
+ to invite them to apply our credit cards.
+ We tested different colors of letters, different APR or fees etc
 \end_layout
 
-\begin_deeper
 \begin_layout Itemize
-Our campaign is not only about booking as many as customers, but also about
- bringing in high profit and low risk customer.
-\end_layout
-
-\begin_layout Itemize
-BUT normally Marketing only cares response rate, so they have strong interest
+The problem is: Makring department only cares about responds rate.
+ BUT normally Marketing only cares response rate, so they have strong interest
  to go for the high risk customers and give them good offers.
 \end_layout
 
+\begin_layout Itemize
+We, as risk department cares about the profitbility of the the campaign.
+\end_layout
+
+\begin_deeper
 \begin_layout Itemize
 But our risk team is really responsible to control the risk exposure of
  our portfolio.
@@ -3543,6 +3620,20 @@ profit per customer together
 o maximize the overall profit.
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+Response rate 
+\begin_inset Formula $\times$
+\end_inset
+
+ profit per responders.
+\end_layout
+
+\begin_layout Itemize
+You don't want to send out too rich offers, or send our 
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 So this is different from the online campaign for some Internet companies.
  They only have one-step problem -- book as many as customers as they can
@@ -4436,6 +4527,34 @@ Different risk groups have different level of systematic risks, or sensitivity
 
 \begin_layout Part
 Behavioral Questions
+\end_layout
+
+\begin_layout Subsection
+Q you need to prepare
+\end_layout
+
+\begin_layout Itemize
+Most Challenging 
+\end_layout
+
+\begin_layout Itemize
+What You Learned 
+\end_layout
+
+\begin_layout Itemize
+Most Interesting 
+\end_layout
+
+\begin_layout Itemize
+Hardest Bug
+\end_layout
+
+\begin_layout Itemize
+Enjoyed Most 
+\end_layout
+
+\begin_layout Itemize
+Conflicts with Teammates
 \end_layout
 
 \begin_layout Subsection
