@@ -83,12 +83,11 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 16419249 "v660271" 
 \end_header
 
 \begin_body
@@ -124,6 +123,17 @@ LatexCommand tableofcontents
 
 \end_layout
 
+\begin_layout Itemize
+题目：
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+https://www.glassdoor.com/Interview/statistics-interview-questions-SRCH_KT0,10_IP2.
+htm
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 Reference: text_LAA_Linear Algebra and Its Applications 4ed.
  Gilbert Strang
@@ -141,7 +151,7 @@ http://open.163.com/movie/2013/3/T/0/M8PTB0GHI_M8PTBUHT0.html 数学之旅 王�
 Algebra
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Geometric series
 \begin_inset Index idx
 status open
@@ -168,6 +178,27 @@ a+ar+ar^{2}+ar^{3}+\cdots+ar^{n-1}=\sum_{k=0}^{n-1}ar^{k}=a\frac{1-r^{n}}{1-r},\
 
 \end_layout
 
+\begin_layout Itemize
+Given "n" tosses, # of sets of subsequent "k" tosses.
+ OR given 
+\begin_inset Formula $n$
+\end_inset
+
+ continouse integers, numbers of 
+\begin_inset Formula $k$
+\end_inset
+
+ continouse integers from it is 
+\begin_inset Formula 
+\[
+(n-k+1)
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Probability and Statistical IV
 \end_layout
@@ -182,23 +213,22 @@ You need to know the exact formula of Poission and Exponential.
 \end_layout
 
 \begin_layout Itemize
-only require you to get the formula, not the numeric answer.
-\change_inserted 16419249 1469726239
-
+Only require you to get the formula, not the numeric answer.
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-
-\change_inserted 16419249 1469726258
 Especially for recursive and infinite problems.
-\change_unchanged
-
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
 May miss certain key conditions, which require you to ask to the interviewer.
+\end_layout
+
+\begin_layout Itemize
+All questions in infinite site/stages without memory cyou an be solved in
+ an Recursive Way
 \end_layout
 
 \begin_layout Itemize
@@ -212,11 +242,6 @@ For the
 \end_inset
 
 
-\end_layout
-
-\begin_layout Itemize
-All questions in infinite site/stages without memory can be solved in an
- Recursive Way
 \end_layout
 
 \begin_layout Itemize
@@ -342,14 +367,10 @@ The special case 0! is defined to have value 0!=1
 \end_layout
 
 \begin_layout Subsection
-Ordered samples with replacement
-\change_inserted 16419249 1469731182
-
+Ordered/Unique samples with replacement
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 16419249 1469731383
 Here order does not just mean order of selection.
  It also means uniqueness of elements --- select 
 \begin_inset Formula $k$
@@ -367,11 +388,23 @@ Here order does not just mean order of selection.
 \end_layout
 
 \begin_layout Itemize
-Order matters
+Order matters / 
+\begin_inset Formula $k$
+\end_inset
+
+ elements are unique (
+\begin_inset Formula $k$
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Itemize
-Repeation is allowed and possible
+Repeation is allowed and possible (
+\begin_inset Formula $n$
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Standard
@@ -416,12 +449,8 @@ Ordered samples without replacement
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 16419249 1469724502
 Formal name: k-permutations of n / partial permutations or as sequences
  without repetition
-\change_unchanged
-
 \end_layout
 
 \begin_layout Itemize
@@ -455,7 +484,7 @@ ordered
 \begin_layout Standard
 \begin_inset Formula 
 \[
-P_{N}^{Y}=A_{N}^{Y}=\frac{N!}{(N-Y)!}
+P_{N}^{Y}=A_{N}^{Y}=\frac{N!}{(N-Y)!}=\prod N\times(N-1)\times...(N-Y+1)
 \]
 
 \end_inset
@@ -512,25 +541,63 @@ Fill the Position:
 
 \begin_layout Subsection
 Unordered samples without replacement / Combinations
-\change_inserted 16419249 1469724508
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 16419249 1469724674
 Formal name: Choice Function / Binomial Coefficient
-\change_unchanged
-
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 A combination is a way of selecting unique combinations of items from a
  collection, such that (unlike permutations) the order of selection does
  not matter.
  
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Normally when all the elements are regarded the same (non unique)-- like
+ balls with same color---we use 
+\series bold
+Unordered
+\series default
+ 
+\end_layout
+
+\begin_layout Itemize
+If you choose a bunch of unqiue stuff in one time and the order inside them
+ didn't matter, then also use 
+\series bold
+Unordered
+\end_layout
+
+\begin_layout Itemize
+If the elements are people, they are unqiue and thus 
+\series bold
+Ordered
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+If you don't care about the choice of each single person, you only care
+ about the number of people that in one group/ choose certain thing, then
+ this is 
+\series bold
+Unordered
+\series default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Here items are NON-UNIQUE, that is why you need to divide by 
+\begin_inset Formula $Y!$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -601,6 +668,33 @@ Y
 
 \end_layout
 
+\begin_layout Itemize
+Common question, probability of getting a certain pattern:
+\end_layout
+
+\begin_layout Itemize
+Probability of getting an Ace when draw one card:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Not 
+\begin_inset Formula $13*4/C_{52}^{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+In numerator, you can only choose within the sample that matches the pattern:
+ 
+\begin_inset Formula $4/C_{52}^{1}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Unordered samples with replacement
 \end_layout
@@ -679,33 +773,6 @@ If
  all days are equally likely to be the birthday of a specific person.
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
-Again, the phrase "at least" suggests that it might be easier to find the
- probability of the complement event, P(
-\begin_inset Formula $A^{c}$
-\end_inset
-
-).
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Let A be the event that at least two people have the same birthday.
- First note that if k>n, then P(A)=1;
-\end_layout
-
-\begin_layout Enumerate
-Otherwise: 
-\begin_inset Formula $P(A)=1−\frac{A_{n}^{k}}{n^{k}}$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\end_deeper
 \begin_layout Enumerate
 Shuffle a deck of 52 cards.
  How many outcomes are possible? (In other words, how many different ways
@@ -713,16 +780,40 @@ Shuffle a deck of 52 cards.
  distinct cards exist?) 
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+Ordering the whole! This is the classicial problem of ordered with replacement
+ 
+\begin_inset Formula $A_{N}^{N}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 I choose 3 cards from the standard deck of cards.
  What is the probability that these cards contain at least one ace?
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+If you choose a bunch of unqiue stuff in one time and the order inside them
+ didn't matter, then also use Unordered
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 How many distinct sequences can we make using 3 letter "A"s and 5 letter
  "B"s? (AAABBBBB, AABABBBB, etc.)
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+Within the subgroup (As or Bs), orders don't matter.
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 Example: Ten passengers get on an airport shuttle at the airport.
  The shuttle has a route that includes 5 hotels, and each passenger gets
@@ -754,10 +845,91 @@ An urn consists of 30 red balls and 70 green balls.
 \end_layout
 
 \end_deeper
+\begin_layout Enumerate
+What is the probability of 5 people with different ages sitting in ascending
+ or descending order at a round table.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Unique in denomenator!
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+We toss a fair coin n times.
+ A k-streak of flips is said to occur starting at toss i, if the outcome
+ of all the k flips starting from i th flip is the same.
+ For example, for the sequence HTTTHH, there is a 2-streak occurring at
+ 2 nd toss, there is a 2-streak occurring at 3rd toss, and there is a 2-streak
+ occurring at 5th toss.
+ Here the total number of 2-streaks is 3 in the sequence HTTTHH.
+ What is the expected number of k-streaks which you will see in n tosses
+ of a fair coin ?
+\end_layout
+
+\begin_layout Enumerate
+You flip a coin 10 times.
+ What is the probability of only three heads occurring? What is the probability
+ of three heads occurring in a row (which means all others are T)? (Actual
+ interview question, J.P.
+ Morgan.)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+不要把 binomial 和 number of choices 混用！
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+A casino offers a simple card game.
+ There are 52 cards in a deck.
+ Each time the cards are thoroughly shuffied (so each card has equal probability
+ of being selected).
+ You pick up a card from the deck and the dealer picks another one without
+ replacement.
+ If you have a larger number, you win; if the numbers are equal or yours
+ is smaller, th~ house win as in all other casinos, the house always has
+ better odds of winning.
+ What is your probability of winning?
+\end_layout
+
+\begin_layout Enumerate
+We throw 3 dice one by one.
+ What is the probability that we obtain 3 points in strictly increasing
+ order?
+\end_layout
+
 \begin_layout Subsection
 A
 \end_layout
 
+\begin_layout Enumerate
+Again, the phrase "at least" suggests that it might be easier to find the
+ probability of the complement event, P(
+\begin_inset Formula $A^{c}$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Let A be the event that at least two people have the same birthday.
+ First note that if k>n, then P(A)=1;
+\end_layout
+
+\begin_layout Enumerate
+Otherwise: 
+\begin_inset Formula $P(A)=1−\frac{A_{n}^{k}}{n^{k}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 The answer is 52!.
 \end_layout
@@ -796,6 +968,166 @@ The answer is 52!.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Enumerate
+Imagine that each seat around the round table is numbered 1,2,..,5 Imagine
+ that each person is numbered 1,2,...,5 according to their age-rank.
+ There are 5 ways that the 5 people can be seated in ascending-age order.
+ There are 5 ways that the 5 people can be seated in descending-age order.
+ There are 5! different ways the people can be seated in general.
+ So, the probability of a successful arrangement is (5+5)/5! or 1/12
+\end_layout
+
+\begin_layout Enumerate
+Total tosses = n.
+ Given "k" tosses, probability that all "k" tosses have the same type of
+ toss (or be a "Streak") = probability of all heads in "k" tosses + probability
+ of all tails in "k" tosses = (1/2)^k + (1/2)^k = 2*(1/2)^k.
+ Given "n" tosses, # of sets of subsequent "k" tosses = (n-k+1) expected
+ number of k-streaks = number of subsequent "k" tosses * probability that
+ one set of "k" tosses is a streak = (n-k+1)*2*(1/2)^k.
+\end_layout
+
+\begin_layout Enumerate
+8/210.
+ ????
+\end_layout
+
+\begin_layout Enumerate
+choose(52,1) * choose(48,1) /2 / choose(52,2) *0.5 OR choose(13,2)*4*4/ choose(52
+,2) *0.5 OR 8/17 OR
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+先选两大小不同的张牌，再分给个人
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+(6^3 - 6*5*3 - 6) / factorial(3) / 6^3 OR choose(6,3) / 6^3
+\end_layout
+
+\begin_layout Subsection
+组内顺序不重要则除以factorial(group size)
+\end_layout
+
+\begin_layout Standard
+52 cards are randomly distributed to 4 players.
+ Each of them has 13 cards.
+ How many ways to distribute?
+\end_layout
+
+\begin_layout Itemize
+可以看成有52个位置，每13个一组，组内顺序不重要
+\end_layout
+
+\begin_layout Itemize
+N = 52!/13!/13!13!/13!
+\end_layout
+
+\begin_layout Standard
+What is the probability that each of them get an Ace
+\end_layout
+
+\begin_layout Itemize
+4! * 48! / 12! / 12! / 12! / 12! / N
+\end_layout
+
+\begin_layout Subsection
+Russian Roulette 
+\end_layout
+
+\begin_layout Itemize
+everytime you shoot, it will go to next chamber
+\end_layout
+
+\begin_layout Itemize
+everytime you spin, it will go to any random chamber
+\end_layout
+
+\begin_layout Standard
+Russian roulette series Let's play a traditional version of Russian roulette.
+ A single bullet is put into a 6- chamber revolver.
+ The barrel is randomly spWl so that each chamber is eq ually likely to
+ be under the hammer.
+ Two players take turns to pull the trigger- with the gun unfortunately
+ pointing at one's oWid1ead - without further spinnin~; until the gun goes
+ off and the _e_er~9!:!_ who gets killed loses.
+ If you, one"'fllle playt'rs, cnn cnoosc to go-first orsecond, .how wili
+ you-choose-? And what is your probability of loss?
+\end_layout
+
+\begin_layout Itemize
+Solution: Many people have the wrong impression that the first person has
+ higher probabi lity of loss.
+ After all, the first player has a J/6 chance of getting killed in the first
+ ~ound before the second player starts.
+ Unfortunately, this is one of the few times that Intu ition is wrong.
+ Once the barrel is spun, the position of the bullet is fixed.
+ If you go first, you lose if and only if the bullet is in chamber I, J
+ and 5.
+ So the probability that you lose is the same as the second player, 112.
+ In that sense, whether to go first or second does not matter.
+\end_layout
+
+\begin_layout Standard
+Now, Jet's change the rule slightly.
+ We ·w ill spin the barrel again after every trigger pull.
+ Will you choose to be the first or the second player? And what is your
+ probabjlity of loss?
+\end_layout
+
+\begin_layout Itemize
+Solution: The difference is that each run now becomes independent.
+ Assume that the first player's probability of losing is p.
+ then the second player's probabili ty of losing is 1- p.
+ Let's condition the probabil ity on the first person's fir~t trigger pull.
+ He has 1/6 pr:oba bility of losing in this run.
+ Otherwise, he essentially becomes the second player in the game with new
+ (conditional) probabili ty of losing I- p.
+ That happens with probability 5/6.
+ That gives us p = tx116+(l-p)xS/6 ~ p= 6111.
+ So you should choose to be the second player and have 5/ I 1 probability
+ of losing.
+\end_layout
+
+\begin_layout Standard
+lf instead of one bullet, two bullets are ~al}domly put in t~ chan1~r.
+ Your opponent played the first and he was alive a1ler the first trigger
+ pull.
+ You are given the option whether to spin the barrel.
+ Should you spin the barrel?
+\end_layout
+
+\begin_layout Itemize
+Solution: if you spin the barrel, the probability that you will lose in
+ this round is 2/6.
+ If y~u don't spin th_e_ barrel, there are only 5 chambers left and your
+ probability of losing Ln th1s round (cond1t10ned on that your opponent
+ survived) is 2/5.
+ So you should spin the barrel.
+\end_layout
+
+\begin_layout Standard
+What if the two bullets are randomly put in two consecutive positions? If
+ your opponent survived his first round, should you spin the barret?
+\end_layout
+
+\begin_layout Itemize
+Solution: Now ~e have _to condition our probability on the fact that the
+ position!> of the two bullets are consecutive.
+ As shown in Figure 4.3, let's label the empty chambers as I, 2.
+ 3 and 4; lab~l the o~e_s with bullets 5 and 6.
+ Since your opponent survived the first ro~md, the possible pos1t~on he
+ encountered is I, 2, 3 or 4 wi th equal probability.
+ With 11~_ch~?ce.
+ ~he next ?ne IS a _bullet (the position was 4).
+ So if you don't spin, the chance ~It s~l~vJva! J~ 3/4.
+ It you spm ~he barrel, each position has equal probability of being c lOsul,
+ and your chance of survtval is only 2/3.
+ So you should not spin the barrel.
 \end_layout
 
 \begin_layout Section
@@ -868,8 +1200,8 @@ Find the expectation value of number of times you need to pick numbers to
 \begin_inset Formula $m\in\{1,n\}$
 \end_inset
 
-: if you replace case 2: if you don't replace Expectation values! not probabilit
-y
+: Case 1 if you replace case 2: if you don't replace Expectation values!
+ not probability
 \end_layout
 
 \begin_deeper
@@ -880,130 +1212,7 @@ Case 1: If you replace Let m be the number picked, then probability of choosing
 \end_layout
 
 \begin_layout Itemize
-Case 2: if you don't replace Let m be the number picked, then probability
- of choosing a smaller number is m-1/n-1.
- The expected value is therefore 1/(m-1)/(n-1) = (n-1)/(m-1)
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-On average, how many times must a 6-sided die be rolled until a 6 turns
- up twice in a row?
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-E = 6 + 1/6 + 5/6 (E + 1)
-\end_layout
-
-\begin_layout Itemize
-Or another way E = 1/6 * 1/6 * 2 + 5/6 * (1+E) + 1/6 * 5/6 * (2+E)
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-On average, how many times must a 6-sided die be rolled until the sequence
- 65 appears (i.e., a 6 followed by a 5)?
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-This appears to be quite similar to problem 2, but there is a difference.
- In problem 2, once we roll a 6, there are only two possibilities: either
- we roll a 6, or we start all over again
-\end_layout
-
-\begin_layout Itemize
-let E6 be the expected number of rolls until 65 when we start with a rolled
- 6.
- Then
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $E_{6}=1/6(E_{6}+1)+4/6(E+1)+1/6(1).$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $E=\frac{1}{6}(E_{6}+1)+\frac{5}{6}(E+1)$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Question: You have 50 red marbles, 50 blue marbles and 2 jars.
- One of the jars is chosen at random and then one marble will be chosen
- from that jar at random.
- How would you maximize the chance of drawing a red marble by first palcing
- all marbles into the jars? What is the probability of doing so? All 100
- marbles should be placed in the jars.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Answer: Seems tricky at first right? Given that the number of red and blue
- marbles are the same, you would tend to think that the odds are 50-50.
- You would try different combinations, such as 25 of each colored marble
- in a jar or putting all red marbles in one jar and all the blue in the
- other.
- You would still end up with a chance of 50%.
-\end_layout
-
-\begin_layout Itemize
-So lets think of a better way to distribute the marbles.
- What if you put a single red marble in one jar and the rest of the marbles
- in the other jar? This way, you are guaranteed at least a 50% chance of
- getting a red marble (since one marble picked at random, doesn’t leave
- any room for choice).
- Now that you have 49 red marbles left in the other jar, you have a nearly
- even chance of picking a red marble (49 out of 99).
-\end_layout
-
-\begin_layout Itemize
-So let’s calculate the total probability.
-\end_layout
-
-\begin_layout Itemize
-P( red marble ) = P( Jar 1 ) * P( red marble in Jar 1 ) + P( Jar 2 ) * P(
- red marble in Jar 2 ) P( red marble ) = 0.5 * 1 + 0.5 * 49/99 P( red marble
- ) = 0.7474
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-A person dies, and he arrives at the gate to heaven.
- There are 3 doors in the heaven.
- One of the door leads to heaven, second one leads to a 1-day stay at hell
- and then back to the gate and the third one leads to a 2 day stay at hell
- and then back to the gate.
- Every time the person is back at the gate, the 3 doors are reshuffled.
- How long will it take the person to reach heaven?
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-According to probability 1/3 of the time, the door to heaven will be chosen,
- so 1/3 of the time it will take 0 days.
- 1/3 of the time, the 1-day door is chosen, of those, the right door will
- be chosen the next day.
- Similarly, 1/3 of the time, the 2 day door is chosen, of those, the right
- door will be chosen after the 2 days.
-\end_layout
-
-\begin_layout Itemize
-So lets say it will take N days.
- 1/3 of the cases are done in 0 days as before.
- 1/3 of the cases are 1+N.
- 1/3 are 2 + N.
-\end_layout
-
-\begin_layout Itemize
-N = 1/3 * 0 + 1/3 * (1 + N) + 1/3 * (2 + N) N = 1 + 2N/3 Therefore, N/3
- = 1 ; N = 3.
+Case 2: Step Solve! 列示子即可
 \end_layout
 
 \end_deeper
@@ -1081,30 +1290,39 @@ P(H3|C3,X1) & =0
 \end_layout
 
 \end_deeper
-\begin_layout Section
-
-\change_deleted 16419249 1469727044
-Amoeba Question: A population of amoebas starts with 1.
- After 1 period that amoeba can divide into 1, 2, 3, or 0 (it can die) with
- equal probability.
- What is the probability that the entire population dies out eventually?
-\end_layout
-
 \begin_layout Itemize
-
-\change_deleted 16419249 1469727044
-This is not strictly recursive, this is 分型问题。
+What are the probabilities of getting hands with four·of-a-kind (four of
+ the five cards with the same value)? Hands with a full house (three cards
+ of one value and two cards of another value)? Hands with two pairs?
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-
-\change_deleted 16419249 1469727044
-\begin_inset Formula $P=1/4+1/4P+1/4P^{2}+1/4P^{3}$
+分步问题每一步都是unqiue的，不必除以
+\begin_inset Formula $Y!$
 \end_inset
 
 
-\change_unchanged
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{13}^{1}48$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{13}^{2}C_{4}^{3}C_{4}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{13}^{2}C_{4}^{2}C_{4}^{2}\times44$
+\end_inset
+
 
 \end_layout
 
@@ -1150,70 +1368,8 @@ E=\frac{1}{6}+\frac{5}{6}(E+1)
 
 \begin_layout Standard
 E=6
-\change_deleted 16419249 1469727061
-
 \end_layout
 
-\begin_layout Subsection
-
-\change_deleted 16419249 1469727060
-On average, how many times must a 6-sided die be rolled until a 6 turns
- up twice in a row?
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 16419249 1469727060
-\begin_inset Formula 
-\[
-E=6+\frac{1}{6}*1+\frac{5}{6}(E+1)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 16419249 1469727060
-Solving this, we find that E = 42.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Section
-
-\change_inserted 16419249 1469727055
-分型问题
-\end_layout
-
-\begin_layout Itemize
-
-\change_inserted 16419249 1469727055
-Amoeba Question: A population of amoebas starts with 1.
- After 1 period that amoeba can divide into 1, 2, 3, or 0 (it can die) with
- equal probability.
- What is the probability that the entire population dies out eventually?
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\change_inserted 16419249 1469727055
-This is not strictly recursive, this is 分型问题。
-\end_layout
-
-\begin_layout Itemize
-
-\change_inserted 16419249 1469727055
-\begin_inset Formula $P=1/4+1/4P+1/4P^{2}+1/4P^{3}$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
 \begin_layout Section
 Q: Baysian
 \end_layout
@@ -1266,8 +1422,22 @@ Example: p1 = 0.8; p2 = 0.2 p(B/A)=0.68
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+You are given 1000 coin.
+ 1 coint has heads on both sides.
+ The other 999 coin tnormal coins.
+ You random pick one and toss 10 times and get 10 heads.
+ What is the probability that you get an unfair coin.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+1/1000 / (1/1000 + 999/1000*0.5^10)
+\end_layout
+
+\end_deeper
 \begin_layout Section
-Geometric
+Geometric (replacement)
 \end_layout
 
 \begin_layout Subsection
@@ -1419,7 +1589,7 @@ So the expected number to collect 12 different constellations gf
 \begin_layout Itemize
 \begin_inset Formula 
 \begin{eqnarray*}
-E(N) & = & \frac{1}{p}+1/(\frac{12-1}{12})+....+1/(\frac{12-11}{12})\\
+E(N) & = & \frac{1}{1}+1/(\frac{12-1}{12})+....+1/(\frac{12-11}{12})\\
  & = & 37.2385
 \end{eqnarray*}
 
@@ -1474,6 +1644,76 @@ Draw without Replacement
 \end_layout
 
 \begin_layout Section
+Insert Probelm
+\end_layout
+
+\begin_layout Standard
+What is the expected number of cards that need to be turned over in a regular
+ 52-card deck in order to see the first ace? (including the time when you
+ get Ace)
+\end_layout
+
+\begin_layout Standard
+There are 4 aces aod 48 other cards.
+ Let's label them as card 1, 2, ..
+ , 48.
+ 
+\end_layout
+
+\begin_layout Standard
+Let X == 1, if card i is turned over before 4 aces , and X == 0, otherwise.
+\end_layout
+
+\begin_layout Standard
+The total number of cards that need to be turned over in order to see the
+ first ace is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(X)=1+\sum_{i=1}^{48}(X_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As As shown in the following: each card i is equally likely to be in one
+ of the five regions separated by 4 aces:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+1A2A3A4A5
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So the probability that card i appears before all 4 aces is 1/5, and we
+ have E[X]= 1/5
+\end_layout
+
+\begin_layout Standard
+Therefore 
+\begin_inset Formula 
+\[
+E(X)=1+48/5
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Poisson
 \end_layout
 
@@ -1525,11 +1765,7 @@ P(y|\theta)=\theta e^{-\theta y}
 \begin_inset Formula $\theta y$
 \end_inset
 
- means number of events happened across time period y
-\change_deleted 16419249 1469727718
- 
-\change_unchanged
-.
+ means number of events happened across time period y.
 \end_layout
 
 \begin_layout Itemize
@@ -1546,14 +1782,10 @@ with
 \begin_inset Formula $\theta^{-2}.$
 \end_inset
 
-
-\change_inserted 16419249 1469727724
  and 
 \begin_inset Formula $F(y|\theta)=1-e^{-y\theta}$
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -1759,13 +1991,7 @@ As for
 \end_layout
 
 \begin_layout Itemize
-Use Wal
-\change_deleted 16419249 1469728223
-k
-\change_inserted 16419249 1469728223
-d
-\change_unchanged
- Theory 
+Use Wald Theory 
 \begin_inset Formula $E(n_{2})=\int_{0}^{2}n_{i}Poission(n_{i}|i)\frac{1}{2-0}di$
 \end_inset
 
@@ -1836,11 +2062,7 @@ b) P(between 3 & 6PM, 20 cars pass A at a speed exceeding 55 MPH)
 
 \begin_deeper
 \begin_layout Itemize
-=P(20
-\change_inserted 16419249 1469730725
- 
-\change_unchanged
-cars pass A in 3 hours)⋅P(Each car is traveling faster than 55 MPH)
+=P(20 cars pass A in 3 hours)⋅P(Each car is traveling faster than 55 MPH)
 \end_layout
 
 \end_deeper
@@ -1861,8 +2083,486 @@ d) the probability that 5 cars pass B between 1 PM & 1:10PM, given that
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+You're about to get on a plane to Seattle.
+ You want to know if you should bring an umbrella.
+ You call 3 random friends of yours who live there and ask each independently
+ if it's raining.
+ Each of your friends has a 2/3 chance of telling you the truth and a 1/3
+ chance of messing with you by lying.
+ All 3 friends tell you that "Yes" it is raining.
+ What is the probability that it's actually raining in Seattle? 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Bayesian stats: you should estimate the prior probability that it's raining
+ on any given day in Seattle.
+ If you mention this or ask the interviewer will tell you to use 25%.
+ Then it's straight-forward: P(raining | Yes,Yes,Yes) = Prior(raining) *
+ P(Yes,Yes,Yes | raining) / P(Yes, Yes, Yes) P(Yes,Yes,Yes) = P(raining)
+ * P(Yes,Yes,Yes | raining) + P(not-raining) * P(Yes,Yes,Yes | not-raining)
+ = 0.25*(2/3)^3 + 0.75*(1/3)^3 = 0.25*(8/27) + 0.75*(1/27) P(raining | Yes,Yes,Yes)
+ = 0.25*(8/27) / ( 0.25*8/27 + 0.75*1/27 ) **Bonus points if you notice that
+ you don't need a calculator since all the 27's cancel out and you can multiply
+ top and bottom by 4.
+ P(training | Yes,Yes,Yes) = 8 / ( 8 + 3 ) = 8/11 But honestly, you're going
+ to Seattle, so the answer should always be: "YES, I'm bringing an umbrella!"
+ (yeah yeah, unless your friends mess with you ALL the time ;)
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Others 构造
+\end_layout
+
+\begin_layout Itemize
+Given a normal dice and a dice with blank faces, fill in the blank dice
+ with numbers from 0-6, so that when you roll the two dice together, the
+ probability of each number (sum of the two dices) coming up is equal.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+I think the question was to get a uniform distribution between 1 to 12.
+ So mark 3 faces with 0 and the other 3 with 6.
+ Then each number from 1-12 has the same probability of 1/12.
+\end_layout
+
+\begin_layout Itemize
+Another answer, make all the faces of second dice as 0.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Input : 4 jars and 50 balls of different colors (Red, Green, Yellow, Blue)
+ where each jar can contain a maximum of 100 balls.
+ Problem : When a user draws a red ball he looses his money while if he
+ draws a ball of some other color his money is doubled.
+ Arrange the balls in such a way that the user has highest probability to
+ loose.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+r1; r1; r48g50; y50b50; P(red)=0.25+0.25+0.25*48/98=0.62
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Question: You have 50 red marbles, 50 blue marbles and 2 jars.
+ One of the jars is chosen at random and then one marble will be chosen
+ from that jar at random.
+ How would you maximize the chance of drawing a red marble by first palcing
+ all marbles into the jars? What is the probability of doing so? All 100
+ marbles should be placed in the jars.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Answer: Seems tricky at first right? Given that the number of red and blue
+ marbles are the same, you would tend to think that the odds are 50-50.
+ You would try different combinations, such as 25 of each colored marble
+ in a jar or putting all red marbles in one jar and all the blue in the
+ other.
+ You would still end up with a chance of 50%.
+\end_layout
+
+\begin_layout Itemize
+So lets think of a better way to distribute the marbles.
+ What if you put a single red marble in one jar and the rest of the marbles
+ in the other jar? This way, you are guaranteed at least a 50% chance of
+ getting a red marble (since one marble picked at random, doesn’t leave
+ any room for choice).
+ Now that you have 49 red marbles left in the other jar, you have a nearly
+ even chance of picking a red marble (49 out of 99).
+\end_layout
+
+\begin_layout Itemize
+So let’s calculate the total probability.
+\end_layout
+
+\begin_layout Itemize
+P( red marble ) = P( Jar 1 ) * P( red marble in Jar 1 ) + P( Jar 2 ) * P(
+ red marble in Jar 2 ) P( red marble ) = 0.5 * 1 + 0.5 * 49/99 P( red marble
+ ) = 0.7474
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+You play a dice rolling game, you have two choices: 1.
+ Roll the dice once and get rewarded the amount of $ equal to the outcome
+ number (e.g, $3 for number "3") and stop the game; 2.
+ You can reject the first reward according to its outcome and roll the dice
+ the second time and get rewarded in the same way and stop the game.
+ Which strategy should you choose to maximize your reward? (that is what
+ outcomes of the first roll should make you play the second game?) What
+ is the statistical expectation of reward if you choose that strategy?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Is there just one die? If so, the expected reward of a roll is $3.5.
+ So you should reject the first roll if it's less than that (if it's less
+ than or equal to 3).
+ The expected reward is: rewards from first roll + rewards from second roll.
+ First roll = 1/6 * 6 + 1/6 * 5 + 1/6 * 4 = 2.5.
+ Second roll = chance of getting that far * expected value of a roll = 1/2
+ * (3.5) = 1.75.
+ So the total expected value of this game is 4.25.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Simplification & Recursive
+\end_layout
+
+\begin_layout Standard
+The case to recursive question is to break down the question to each of
+ small step, and the unsolved part of that step will become question of
+ next simplier step.
+\end_layout
+
+\begin_layout Standard
+Think from a generic middle time 
+\begin_inset Formula $n$
+\end_inset
+
+, if thinking from 0 or the End does not work.
+\end_layout
+
+\begin_layout Itemize
+Airline: 100 passengers.
+ passenger x is assigned to seat x.
+ If passenger 1 is dunk and seat randomly at 
+\begin_inset Formula $y$
+\end_inset
+
+, then the 
+\begin_inset Formula $y^{th}$
+\end_inset
+
+person has to seat randomly also.
+ Q: probability that the 100th passenger seating on his own seat
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In case this over-simplified version of reasoning is not clear to you, consider
+ the following detailed explanation: If the drunk passenger takes# I by
+ chance, then it's clear all the rest of the passengers will have the correct
+ seals.
+ If he takes# I 00, then you will not get your seat.
+ The probabilities that he takes #I or #100 are equal.
+ Otherwise assume that he takes the n-th seal, where n is a number between
+ 2 and 99.
+ Everyone between 2 and (n-1) will get his own seat.
+ That means the n-th passenger essentially becomes the new "drunk." guy with
+ designated seat # l.
+ If he chooses # l, all the rest of the passengers will have the correct
+ seats.
+ If he takes #100, then you will not get your seat.
+ (TI1e probabilities that he takes #I or #100 are again equal.) Otherwise
+ he will just make another passenger down the line the new "drunk" guy with
+ designated seat # 1 and each new "drunk" guy has equal probability of taking
+ #I or # 100.
+ Since at all jump points there's an equal probability for the "drunk" guy
+ to choose seat #I or 100, by symmetry, the probability that you, as the
+ 1 OOth passenger, will seat in# IOO is 0.5.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+The next step question turned to be the same question, or slightly different
+ question.
+\end_layout
+
+\begin_layout Itemize
+On average, how many times must a 6-sided die be rolled until a 6 turns
+ up twice in a row?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+E = 6 + 1/6 + 5/6 (E + 1)
+\end_layout
+
+\begin_layout Itemize
+Or another way E = 1/6 * 1/6 * 2 + 5/6 * (1+E) + 1/6 * 5/6 * (2+E)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+On average, how many times must a 6-sided die be rolled until the sequence
+ 65 appears (i.e., a 6 followed by a 5)?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This appears to be quite similar to problem 2, but there is a difference.
+ In problem 2, once we roll a 6, there are only two possibilities: either
+ we roll a 6, or we start all over again
+\end_layout
+
+\begin_layout Itemize
+let E6 be the expected number of rolls until 65 when we start with a rolled
+ 6.
+ Then
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $E_{6}=1/6(E_{6}+1)+4/6(E+1)+1/6(1).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $E=\frac{1}{6}(E_{6}+1)+\frac{5}{6}(E+1)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A person dies, and he arrives at the gate to heaven.
+ There are 3 doors in the heaven.
+ One of the door leads to heaven, second one leads to a 1-day stay at hell
+ and then back to the gate and the third one leads to a 2 day stay at hell
+ and then back to the gate.
+ Every time the person is back at the gate, the 3 doors are reshuffled.
+ How long will it take the person to reach heaven?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+According to probability 1/3 of the time, the door to heaven will be chosen,
+ so 1/3 of the time it will take 0 days.
+ 1/3 of the time, the 1-day door is chosen, of those, the right door will
+ be chosen the next day.
+ Similarly, 1/3 of the time, the 2 day door is chosen, of those, the right
+ door will be chosen after the 2 days.
+\end_layout
+
+\begin_layout Itemize
+So lets say it will take N days.
+ 1/3 of the cases are done in 0 days as before.
+ 1/3 of the cases are 1+N.
+ 1/3 are 2 + N.
+\end_layout
+
+\begin_layout Itemize
+N = 1/3 * 0 + 1/3 * (1 + N) + 1/3 * (2 + N) N = 1 + 2N/3 Therefore, N/3
+ = 1 ; N = 3.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Amoeba Question: A population of amoebas starts with 1.
+ After 1 period that amoeba can divide into 1, 2, 3, or 0 (it can die) with
+ equal probability.
+ What is the probability that the entire population dies out eventually?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This is not strictly recursive, this is 分型问题。
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P=1/4+1/4P+1/4P^{2}+1/4P^{3}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Statistics
+\end_layout
+
+\begin_layout Subsection
+Independence
+\end_layout
+
+\begin_layout Itemize
+Two random variables 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+ are independent, if for all x1, x2 ∈ 
+\begin_inset Formula $R$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+P(R_{1}R_{2})=P(R_{1})P(R_{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For any two independent random variables, 
+\begin_inset Formula $X_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(X_{1}X_{2})=E(X_{1})E(X_{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(X_{1}^{2}X_{2}^{2})=E(X_{1}^{2})E(X_{2})^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Assume that 
+\begin_inset Formula $X_{1}$
+\end_inset
+
+ 
+\begin_inset Formula $X_{2}$
+\end_inset
+
+ .
+ .
+ .
+ and 
+\begin_inset Formula $X_{n}$
+\end_inset
+
+ are independent and identically-distributed (iid) random variable: uniform
+ distribution between 0 and l.
+ What is the probability
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X_{1}+X_{2}+...+X_{N}\le1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+n = 2, the probability that X1 +X 2 ~ I is just the area under 
+\begin_inset Formula $X_{1}$
+\end_inset
+
++ 
+\begin_inset Formula $X_{2}$
+\end_inset
+
+ in the square with side length 1 (a triangle).
+ So 
+\begin_inset Formula $P=1/2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+When n = 3, the probability becomes the tetrahedron A BCD under the pi ane
+ X1 +X 2 +X 1 ~I within the cube with side length 1.
+ The volume of tetrahedron ABCD is 1/6.
+\end_layout
+
+\begin_layout Itemize
+gul!ss that the solution is 1/ n!
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Expectation
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+E(\frac{1}{X})\ne\frac{1}{E(x)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Variance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Var(X)=E(X^{2})-E(X){}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(X^{2})=E(X){}^{2}-Var(X)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We know the answer for two independent variables: 
+\begin_inset Formula 
+\begin{eqnarray*}
+Var(XY) & = & E(X^{2}Y^{2})−(E(XY))^{2}\\
+ & = & Var(X)Var(Y)+Var(X)(E(Y))^{2}+Var(Y)(E(X))^{2}
+\end{eqnarray*}
+
+\end_inset
+
+ However, if we take the product of more than two variables, Var(X1X2⋯Xn)Var(X1X
+2⋯Xn), what would the answer be in terms of variances and expected values
+ of each variable?
+\end_layout
+
 \begin_layout Part
-Algorithm 
+Algorithm
 \end_layout
 
 \begin_layout Subsection
@@ -2038,12 +2738,18 @@ Law of large numbers (LLN)
 \end_layout
 
 \begin_layout Standard
-In probability theory, the law of large numbers (LLN) is a theorem that
- describes the result of performing the same experiment a large number of
- times.
- According to the law, the average of the results obtained from a large
- number of trials should be close to the expected value, and will tend to
- become closer as more trials are performed.
+Sample mean converges to Population Mean as sample size goes larger.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mbox{lim}_{n\rightarrow\infty}\sum_{1}^{n}x/n=E(x)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -3224,6 +3930,12 @@ is a convex set.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Enumerate
+A function is strictly convex if and only if the second derivative is positive
+ （即一介导一直都在上升）, equivalently if and only if the chord between two points
+ on the graph lies above the graph.
 \end_layout
 
 \begin_layout Standard
