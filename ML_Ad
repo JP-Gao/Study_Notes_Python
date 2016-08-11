@@ -870,11 +870,9 @@ This requires a lot of prework: you need to biuld a clustering model to
 \end_layout
 
 \begin_layout Itemize
-That means you model 
+
 \series bold
-depend
-\series default
- on other model, which is the labelling model.
+That means you model depend on other model, which is the labelling model.
 \end_layout
 
 \end_deeper
@@ -910,7 +908,7 @@ Or just give him the most popular celebrities and let him to follow.
 
 \end_deeper
 \begin_layout Section
-Probalistic method
+Probalistic Method
 \end_layout
 
 \begin_layout Subsection
@@ -997,64 +995,6 @@ link prediction, which analyzes who your friends are friends with.
 \end_layout
 
 \begin_layout Part
-Online Customer Behavior
-\end_layout
-
-\begin_layout Subsection
-Factors to use to differentiate a online shopper
-\end_layout
-
-\begin_layout Enumerate
-Revenue impact
-\end_layout
-
-\begin_layout Enumerate
-Engagement or action taken: whether to share a product
-\end_layout
-
-\begin_layout Enumerate
-Type of content consumed: watch video.
-\end_layout
-
-\begin_layout Enumerate
-Visitors with past conversions versus no conversions
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-segment converters and non-converters based on traffic sources, such as
- paid versus organic search, display advertising, specific referrals and
- so on.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Customer intent
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Researchers: Highly motivated, goal-driven shoppers who are looking to learn
- and become educated about a specific product.
- These customers tend to spend a lot of time exploring specific product
- pages, learning about features, prices, delivery terms, etc.
-\end_layout
-
-\begin_layout Enumerate
-Browsers
-\end_layout
-
-\begin_layout Enumerate
-Product-focused shoppers: Highly-focused, goal-driven shoppers who know
- exactly what they’re looking for.
-\end_layout
-
-\begin_layout Enumerate
-Bargain hunters
-\end_layout
-
-\end_deeper
-\begin_layout Part
 Ad Basis
 \end_layout
 
@@ -1109,8 +1049,12 @@ measured in any variety of ways to describe their app’s commercial traction.
 \end_layout
 
 \end_deeper
+\begin_layout Section
+Social Network
+\end_layout
+
 \begin_layout Subsection
-Creators
+Creators in Social Network
 \end_layout
 
 \begin_layout Standard
@@ -1144,454 +1088,6 @@ If 1 is greater than 3 (let’s call it a “positive ratio”), it could be wor
  at.
  If 3 is greater than 1 (the “negative ratio”) by a large margin, the likelihood
  that they’re a spammer or marketer is pretty good 
-\end_layout
-
-\begin_layout Subsection
-Customer Enagament Behavior
-\end_layout
-
-\begin_layout Itemize
-Interest / like
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Independent Thinking: Unless you make an unique value proposition, they
- won't believe in it.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Click, download, buy
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-more impulsive buying
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Customer Enagament Metrics
-\end_layout
-
-\begin_layout Standard
-We consider three types of engagement metrics, reflecting, 
-\series bold
-popularity, activity, and loyalty
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Popularity
-\series default
-: 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-High popularity does not entail high activity (τ = 0.09).
- Many site have many users spending little time on them; e.g.
- a search site is one where users come, submit a query, get the result,
- and if satisfied, leave the site.
- This results in a low dwell time even though user expectations were entirely
- met.
- The same argument hold for a site on Q&A, or a weather site.
- What matters for such sites is their popularity.
- Finally, we observe a moderate correlation (τ = 0.49) between loyalty and
- popularity metrics.
- This is because popular sites are those to which users return regularly.
- The same reasoning applies for the other metrics of these two groups.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-Activity
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-ClickDepth Average number of page views per visit.
- 
-\end_layout
-
-\begin_layout Enumerate
-DwellTimeA Average time per visit (dwell time).
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-Loyalty
-\series default
- 
-\series bold
-(for a given time frame)
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-ActiveDays Number of days a user visited the site.
- 
-\end_layout
-
-\begin_layout Enumerate
-ReturnRate Number of times a user visited the site.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Campaign Objective
-\end_layout
-
-\begin_layout Standard
-As a merchant (now the customers of Facebook/Google are merchants):
-\end_layout
-
-\begin_layout Itemize
-Increase people's awareness of your brand or business: For people didn't
- know you
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Boost post / page /tweet
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Find potential customers for your business: For people already know you,
- let them know you better or start to love you
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Promote your Facebook event to increase your attendance.
- 
-\end_layout
-
-\begin_layout Itemize
-Promote videos that show behind-the-scenes footage, product launches or
- customer stories to raise awareness about your brand.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Drive conversions or sales for your business: 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-Direct Response Marketing
-\series default
- is a type of marketing designed to generate an immediate response from
- consumers, where each consumer response and purchase can be measured, and
- attributed to individual advertisements.
-\end_layout
-
-\begin_layout Itemize
-Buy
-\end_layout
-
-\begin_layout Itemize
-Register.
-\end_layout
-
-\begin_layout Itemize
-Claim the offer
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Measure of User Engagement
-\end_layout
-
-\begin_layout Itemize
-Usage 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-DAU - All unique users who have launched the App on that day
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Each App:Device pair is given a unique ID (generated by Apteligent) at the
- time the end-user installs the app on their device and launches it for
- the first time
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-MAU - All unique users who have launched the App at least once in that month
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Typically, metrics are measured by counting the number of unique users during
- a specific measurement period, such as within the previous 30 days.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Visits & pageviews are susceptible to all sorts of external factors, like
- SEO, SEM, press, seasonal traffic swings, etc
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Stickness: 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-SessionsL Every time any user, not just a unique user, opens your app, that
- counts as a session.
-\end_layout
-
-\begin_layout Itemize
-DAU / MAU is the standard
-\end_layout
-
-\begin_layout Itemize
-Time On Site and Pages/Visit are good, but will oscillate with design changes,
- e.g.
- paginating long text articles will increase Pages/Visit without being any
- better for your site.
- It may also mean that user may struggle to find what they need in your
- web.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Retention: very long term stickness
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-like a negative log
-\end_layout
-
-\begin_layout Itemize
-churn rate: the annual percentage rate at which customers stop subscribing
- to a service or employees leave a job.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Money: 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Conversion Rate
-\end_layout
-
-\begin_layout Itemize
-ARPDAU: The Average Revenue Per Daily Active User, or ARPDAU,
-\end_layout
-
-\begin_layout Itemize
-ARPPU: Average Revenue Per Paying User (ARPPU) measures only the subset
- of users who have completed a purchase in a game.
- This metric can vary dramatically based on game genre.
- Hardcore games tend to have higher monetization metrics like ARPPU, but
- they also lack the mass appeal of more casual games.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Which one to choose: It depends on:
-\end_layout
-
-\begin_layout Enumerate
-Different stages of consumer engagement
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-If you just want to raise awareness of a product, then number of views
-\end_layout
-
-\begin_layout Enumerate
-If you care about how to 
-\series bold
-transforming
-\series default
- the views to revenues, then click per view
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-What's is the nature of the product
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-For a product like google: Visitor Recency.
- Time On Site may be misleading
-\end_layout
-
-\begin_layout Enumerate
-For a product like facebook, Interaction-related measure.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Visitor Recency measure how frequently your visitors return to your site.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Specifically in Google Analytics, it looks at what percentage of your visitors
- come back each day, every other day, each week, etc.
- 
-\end_layout
-
-\begin_layout Itemize
-If someone comes back to your site regularly each week, or even better each
- day, it means you're becoming a regular and important part of their life.
- The problem with any other single metric is they can be the result of positive
- or negatives changes to your product.
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Danger of DAU
-\end_layout
-
-\begin_layout Standard
-Well, not necessarily.
- You just launched, got a press bump, and got featured.
- If all a user has to do is download your app and open it once, then your
- “active users” are bound to go up as registrations increase—people are
- curious and downloading an app is a low-friction transaction with zero
- commitment.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Downloading an app is a low-friction transaction with zero commitment.
-\end_layout
-
-\begin_layout Standard
-The danger of defining your “active user” by a minimal metric like logins
- is that you’re just seeing a reflection of press and hype.
- It doesn’t measure real usage of your app.
-\end_layout
-
-\begin_layout Standard
-While your DAU is skyrocketing, the number of people playing songs is not.
- People are downloading your app and logging in, but most of them aren’t
- really using it the way it’s meant to be used.
- If you’re only paying attention to your DAU, you’ll miss the fact that
- real usage is dropping off—you won’t hear the canary in the coal mine of
- your app.
-\end_layout
-
-\begin_layout Subsection
-Customer Lifetime Value (CLV / LTV)
-\end_layout
-
-\begin_layout Standard
-customer lifetime value (CLV or often CLTV), lifetime customer value (LCV),
- or life-time value (LTV) 
-\end_layout
-
-\begin_layout Standard
-Lifetime value is typically used to judge the appropriateness of the costs
- of acquisition of a customer.
-\end_layout
-
-\begin_layout Standard
-Simple method: 
-\begin_inset Formula 
-\[
-LTV=ARPU*lifetime
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Bring 
-\begin_inset Formula $t$
-\end_inset
-
- into ARPU 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-LTV=\sum_{t=0}^{\infty}ARPU(t)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-OR
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-LTV=\sum_{n}^{N}(retention_{n})\times ARPU
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-How to calculate social LTV for those celebrities.
-\end_layout
-
-\begin_layout Subsection
-Deeper Analysis of Usage
-\end_layout
-
-\begin_layout Standard
-If you want to understand what’s going on in your app, you’ll do a full-scale
- stickiness audit.
- CLICK TO TWEET Find Out Where Most Usage Happens
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Identify Features That Lead To Retention
-\end_layout
-
-\begin_layout Standard
-At Facebook, Chamath ran the Growth team like a laboratory, constantly experimen
-ting and trying new things to see what worked.
- What all their testing, experimenting and analyzing taught them, in the
- end, was one simple fact: that if users added 7 friends in 10 days they
- were retained with Facebook.
-\end_layout
-
-\begin_layout Standard
-From then on, the entire company was united around a single goal: 7 friends
- in 10 days.
- That was the sweet spot for the delivery of Facebook’s core value.
 \end_layout
 
 \begin_layout Subsection
@@ -1666,137 +1162,437 @@ VRc=\frac{views_{unique}}{fans_{t}}
 
 \end_layout
 
+\begin_layout Subsection
+Clustering Social Networks
+\end_layout
+
 \begin_layout Section
-A/B Test: Teminology
-\end_layout
-
-\begin_layout Standard
-https://www.optimizely.com/optimization-glossary/
-\end_layout
-
-\begin_layout Itemize
-Power.
- The probability of correctly rejecting the null hypothesis, H0, when it
- is false.
- Power measures our ability to detect a difference when it indeed exists.
- 
-\end_layout
-
-\begin_layout Itemize
-Conclusive -- same as Significance
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-A/A test
-\series default
-.
- Sometimes called a 
-\series bold
-Null Test
-\series default
- (Peterson 2004).
- Instead of an A/B test, you exercise the experimentation system, assigning
- users to one of two groups, but expose them to exactly the same experience.
- An A/A test can be used to (i) collect data and assess its variability
- for power calculations, and (ii) test the experimentation system (the Null
- hypothesis should be rejected about 5% of the time when a 95% confidence
- level is used).
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-A/A testing is the tactic of using A/B testing to test two identical versions
- of a page against each other.
- Typically, this is done to check that the tool being used to run the experiment
- is statistically fair.
- In an A/A test, the tool should report no difference in conversions between
- the control and variation, if the test is implemented correctly.
-\end_layout
-
-\begin_layout Itemize
-THINGS TO KEEP IN MIND WITH A/A TESTING
-\end_layout
-
-\begin_layout Itemize
-When running an A/A test, it’s important to keep in mind that finding a
- difference in conversion rate is always an identical test and control page
- is a possibility.
- This isn’t necessarily a poor reflection on the A/B testing platform, as
- there is always an element of randomness when it comes to testing.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-A/B/n Testing
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-A/B/n testing is a type of website testing where multiple versions of a
- web page are compared against each other to determine which has the highest
- conversion rate.
- 
-\end_layout
-
-\begin_layout Itemize
-In addition to helping which version of a page is most successful, A/B/n
- testing also shows which version of a page performed the worst.
- By analyzing these low performing pages, it is possible to come up with
- hypotheses for why certain features convert better than others, and these
- lessons can then be incorporated into new tests on other pages of the site.
-\end_layout
-
-\begin_layout Itemize
-pitfall: it doesn’t always mean those variables would work well combined.
- Consider running multivariate tests to test all variations and make sure
- that improvements to top level metrics carry all the way through the conversion
- funnel.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Multivariate testing is more comprehensive than A/B/n testing and is used
- to test changes to specific elements on a page whereas A/B/n testing can
- be used to test completely different versions of a page against each other.
-\end_layout
-
-\begin_layout Itemize
-Effect.
- The difference in OECs for the variants, i.e.
- the mean of the Treatment minus the mean of the Control.
- Larger differences are easier to detect, so great ideas will unlikely be
- missed.
- Conversely, Type II errors are more likely when the effects are small.
+Online Shoping
 \end_layout
 
 \begin_layout Subsection
+Factors to use to differentiate an online shopper
+\end_layout
+
+\begin_layout Enumerate
+Revenue impact
+\end_layout
+
+\begin_layout Enumerate
+Engagement or action taken: whether to share a product
+\end_layout
+
+\begin_layout Enumerate
+Visitors with past conversions versus no conversions
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+segment converters and non-converters based on traffic sources, such as
+ paid versus organic search, display advertising, specific referrals and
+ so on.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Customer intent
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Researchers: Highly motivated, goal-driven shoppers who are looking to learn
+ and become educated about a specific product.
+ These customers tend to spend a lot of time exploring specific product
+ pages, learning about features, prices, delivery terms, etc.
+\end_layout
+
+\begin_layout Enumerate
+Browsers
+\end_layout
+
+\begin_layout Enumerate
+Product-focused shoppers: Highly-focused, goal-driven shoppers who know
+ exactly what they’re looking for.
+\end_layout
+
+\begin_layout Enumerate
+Bargain hunters
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Customer Enagament 
+\end_layout
+
+\begin_layout Subsection
+Measure of User Engagement
+\end_layout
+
+\begin_layout Itemize
+Usage / Popularity:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+DAU - All unique users who have launched the App on that day
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Each App:Device pair is given a unique ID (generated by Apteligent) at the
+ time the end-user installs the app on their device and launches it for
+ the first time
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+MAU - All unique users who have launched the App at least once in that month
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Typically, metrics are measured by counting the number of unique users during
+ a specific measurement period, such as within the previous 30 days.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Visits & pageviews are susceptible to all sorts of external factors, like
+ SEO, SEM, press, seasonal traffic swings, etc
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Stickness/Loyalty: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+SessionsL Every time any user, not just a unique user, opens your app, that
+ counts as a session.
+\end_layout
+
+\begin_layout Itemize
+DAU / MAU is the standard
+\end_layout
+
+\begin_layout Itemize
+Time On Site and Pages/Visit are good, but will oscillate with design changes,
+ e.g.
+ paginating long text articles will increase Pages/Visit without being any
+ better for your site.
+ It may also mean that user may struggle to find what they need in your
+ web.
+\end_layout
+
+\begin_layout Itemize
+Click Depth: Average number of page views per visit.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Interaction (for social media)
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+IPM=\sum_{-30d}^{now}\frac{likes_{t}+replies_{t}+shares_{t}}{message_{t}\times N_{fans}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Retention: very long term stickness
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+like a negative log
+\end_layout
+
+\begin_layout Itemize
+churn rate: the annual percentage rate at which customers stop subscribing
+ to a service or employees leave a job.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Money: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Conversion Rate
+\end_layout
+
+\begin_layout Itemize
+ARPDAU: The Average Revenue Per Daily Active User, or ARPDAU,
+\end_layout
+
+\begin_layout Itemize
+ARPPU: Average Revenue Per Paying User (ARPPU) measures only the subset
+ of users who have completed a purchase in a game.
+ This metric can vary dramatically based on game genre.
+ Hardcore games tend to have higher monetization metrics like ARPPU, but
+ they also lack the mass appeal of more casual games.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Growth:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Depending on which particular aspect you want to focus on, any metrics above
+ in their delta forms are good to measure growth.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
 
 \series bold
-HiPPO attack
+Which one to choose: It depends on:
+\end_layout
+
+\begin_layout Enumerate
+Different stages of consumer engagement
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If you just want to raise awareness of a product, then number of views
+\end_layout
+
+\begin_layout Enumerate
+If you care about how to 
+\series bold
+transforming
+\series default
+ the views to revenues, then click per view
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+What's is the nature of the product
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+For a product like google: Visitor Recency.
+ Time On Site may be misleading
+\end_layout
+
+\begin_layout Enumerate
+For a product like facebook, Interaction-related measure.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Campaign Objective
 \end_layout
 
 \begin_layout Standard
-Linsky and Heifetz wrote that “People do not resist change, per se.
- People resist loss” (Linsky & Heifetz, 2002).
- Some people certainly viewed experimentation as a risk to their power and/or
- prestige.
+As a merchant (now the customers of Facebook/Google are merchants):
+\end_layout
+
+\begin_layout Itemize
+Increase people's awareness of your brand or business: For people didn't
+ know you
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Boost post / page /tweet
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Find potential customers for your business: For people already know you,
+ let them know you better or start to love/engage with you
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Promote your Facebook event to increase your attendance.
+ 
+\end_layout
+
+\begin_layout Itemize
+Promote videos that show behind-the-scenes footage, product launches or
+ customer stories to raise awareness about your brand.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Drive conversions or sales for your business: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Direct Response Marketing
+\series default
+ is a type of marketing designed to generate an immediate response from
+ consumers, where each consumer response and purchase can be measured, and
+ attributed to individual advertisements.
+\end_layout
+
+\begin_layout Itemize
+Buy
+\end_layout
+
+\begin_layout Itemize
+Register.
+\end_layout
+
+\begin_layout Itemize
+Claim the offer
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Danger of DAU
 \end_layout
 
 \begin_layout Standard
-What we found was that a great way to convince people that we are not good
- at predicting the outcomes of experiment is to challenge them.
- We created a survey with eight A/B tests, and offered a nice polo shirt
- for anyone who could correctly guess 6 out of 8 (the options were: A is
- statistically significantly better, B is statistically significantly better,
- or there’s no statistically significant difference between them).
- With over 200 responses, we didn’t have to hand out a single shirt! 6 out
- of 200 had 5 answers correct; the average was 2.3 correct answers
+Well, not necessarily.
+ You just launched, got a press bump, and got featured.
+ If all a user has to do is download your app and open it once, then your
+ “active users” are bound to go up as registrations increase—people are
+ curious and downloading an app is a low-friction transaction with zero
+ commitment.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Downloading an app is a low-friction transaction with zero commitment.
+\end_layout
+
+\begin_layout Itemize
+It doesn’t measure real usage of your app: The danger of defining your “active
+ user” by a minimal metric like logins is that you’re just seeing a reflection
+ of press and hype.
+ 
+\end_layout
+
+\begin_layout Itemize
+Suffer volatility / Essentially short term: :While your DAU is skyrocketing,
+ the number of people playing songs is not.
+ People are downloading your app and logging in, but most of them aren’t
+ really using it the way it’s meant to be used.
+ If you’re only paying attention to your DAU, you’ll miss the fact that
+ real usage is dropping off—you won’t hear the canary in the coal mine of
+ your app.
+\end_layout
+
+\begin_layout Subsection
+Customer Lifetime Value (CLV / LTV)
+\end_layout
+
+\begin_layout Itemize
+customer lifetime value (CLV or often CLTV), lifetime customer value (LCV),
+ or life-time value (LTV) 
+\end_layout
+
+\begin_layout Standard
+Lifetime value is typically used to judge the appropriateness of the costs
+ of acquisition of a customer.
+\end_layout
+
+\begin_layout Standard
+Simple method: 
+\begin_inset Formula 
+\[
+LTV=ARPU*lifetime
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bring 
+\begin_inset Formula $t$
+\end_inset
+
+ into ARPU 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+LTV=\sum_{t=0}^{\infty}ARPU(t)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+OR
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+LTV=\sum_{n}^{N}(retention_{n})\times ARPU
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How to calculate social LTV for those celebrities.
+\end_layout
+
+\begin_layout Subsection
+Deeper Analysis of Usage
+\end_layout
+
+\begin_layout Standard
+If you want to understand what’s going on in your app, you’ll do a full-scale
+ stickiness audit:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Find Out Where/Which Part/Which Feature Most Usage Happens.
+ Identify Features That Lead To Retention
+\end_layout
+
+\begin_layout Standard
+At Facebook, Chamath ran the Growth team like a laboratory, constantly experimen
+ting and trying new things to see what worked.
+ What all their testing, experimenting and analyzing taught them, in the
+ end, was one simple fact: that if users added 7 friends in 10 days they
+ were retained with Facebook.
+\end_layout
+
+\begin_layout Standard
+From then on, the entire company was united around a single goal: 7 friends
+ in 10 days.
+ That was the sweet spot for the delivery of Facebook’s core value.
 \end_layout
 
 \begin_layout Section
-Web Teminology
+Web & Ad
 \end_layout
 
 \begin_layout Subsection
@@ -1833,7 +1629,7 @@ Cost per impression (CPI), or "Cost per thousand impressions" (CPM)
 \begin_layout Subsection
 
 \series bold
-sessio
+Sessio
 \series default
 n
 \end_layout
@@ -2002,11 +1798,7 @@ A sales funnel is a visual metaphor for the path taken by a potential customer
 \begin_layout Subsection
 
 \series bold
-below the fold / above the fold
-\end_layout
-
-\begin_layout Subsection
-Lifetime Value
+Below the fold / above the fold
 \end_layout
 
 \begin_layout Subsection
@@ -2157,147 +1949,20 @@ Guarantees That Reduce Perceived Risk: Any type of money-back guarantee
 \end_layout
 
 \end_deeper
-\begin_layout Section
-OEC
-\end_layout
-
 \begin_layout Subsection
-OEC: Overall Evaluation Criteria
-\end_layout
-
-\begin_layout Subsection
-OEC with constraints
+Effect of robots on experimental results
 \end_layout
 
 \begin_layout Standard
-From a search engine perspective, degraded algorithmic results (the main
- search engine results shown to users, sometimes referred to as the 10 blue
- links) force people to 
-\end_layout
-
-\begin_layout Itemize
-issue more queries (increasing queries per user) 
-\end_layout
-
-\begin_layout Itemize
-click more on ads (increasing revenues)
-\end_layout
-
-\begin_layout Standard
-So the OEC to insrease revenues cannot be used alone, it shall be comined
- with better user experience, messured by 
-\end_layout
-
-\begin_layout Enumerate
-Less distinct queries per session
-\end_layout
-
-\begin_layout Enumerate
-Sessions / User
-\end_layout
-
-\begin_layout Standard
-This analysis is not just impacting search experiments, but also efforts
- like SEM (Search Engine Marketing).
- When deciding the bid amount for ads to a search engine, it is natural
- to try and optimize for the number of queries in the session that started
- with the ad click.
- However, long sessions may indicate user frustration (e.g., driving users
- to mediocre result pages).
-\end_layout
-
-\begin_layout Subsection
-compare ad revenue with the user experience.
-\end_layout
-
-\begin_layout Standard
-More ads in the front page will decrease the clicks in the second layer
- page, which decreases the revenue.
-\end_layout
-
-\begin_layout Standard
-1.
- Monetary value that the destination property assigned to a click from the
- MSN home page.
- These destination properties are other sites in the MSN network.
- Such a click generates a visit to an MSN property (e.g., MSN Autos or MSN
- Money), which results in multiple page views.
- 
-\end_layout
-
-\begin_layout Standard
-2.
- The cost paid to search engines for a click that brings a user to an MSNpropert
-y but not via the MSN home page (Search Engine Marketing).
- If the home page is driving less traffic to the properties, what is the
- cost of regenerating the “lost” traffic?
-\end_layout
-
-\begin_layout Subsection
-Short term versus long term effects: Delayed OEC
-\end_layout
-
-\begin_layout Standard
-Short term versus long term effects.
- Controlled experiments measure the effect on the OEC during the experimentation
- period, typically a few weeks.
-\end_layout
-
-\begin_layout Enumerate
-Long-term goals should be part of the OEC.
- Let us take search ads as an example.
- If your OEC is revenue, you might plaster ads over a page, but we know
- that many ads hurt the user experience, so a good OEC should include a
- penalty term of usage of real-estate for ads that are not clicked, and/or
- should directly measure repeat visits and abandonment.
- 
-\end_layout
-
-\begin_layout Enumerate
-Likewise, it is wise to look at 
-\series bold
-Delayed conversion metrics
-\series default
-, where there is a lag from the time a user is exposed to something and
- take action.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-If you change the navigation on a web site, experienced users may be less
- efficient until they get used to the new navigation, thus giving an inherent
- advantage to the Control.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-These are sometimes called latent conversions (Miller 2006; Quarto-vonTivadar
- 2006).
- Coming up with good OECs is hard, but what is the alternative? The key
- point here is to recognize this limitation, but avoid throwing the baby
- out with the bathwater.
-\end_layout
-
-\begin_layout Subsection
-Primacy and Novelty effect 
-\end_layout
-
-\begin_layout Itemize
-Primacy effect occurs when you change the navigation on a web site, and
- experienced users may be less efficient until they get used to the new
- navigation, thus giving an inherent advantage to the Control.
-\end_layout
-
-\begin_layout Itemize
-Novelty effect: when a new design or feature is introduced, some users will
- investigate the new feature, click everywhere, and thus introduce a “novelty”
- bias that dies quickly if the feature is not truly useful.
-\end_layout
-
-\begin_layout Standard
-So be aware of any trend pattern by time, you need to wait longer time till
- the trend stabalized and then evaluate.
+For some websites robots are thought to provide up to half the pageviews
+ on the site (Kohavi et al.
+ 2004).
+ Since many robots have the same characteristics as human users it is difficult
+ to clearly delineate between the two.
+ Benign or simple robots can often be filtered by basic characteristics
+ (e.g.
+ user agent, IP address) but manymodern robots use sophisticated techniques
+ to escape detections and filtering (Tan and Kumar 2002).
 \end_layout
 
 \begin_layout Part
@@ -2348,6 +2013,10 @@ Significance: If the statistical test returns significant, then you conclude
 
 \begin_layout Part
 A/B Test Math
+\end_layout
+
+\begin_layout Section
+Tests
 \end_layout
 
 \begin_layout Subsection
@@ -2471,6 +2140,144 @@ all, these confidence intervals are proportional to
 \end_inset
 
  is the number of users, which is growing
+\end_layout
+
+\begin_layout Subsection
+Chi Square Tests
+\end_layout
+
+\begin_layout Itemize
+Pearson's chi-squared test (χ2) is a statistical test applied to sets of
+ categorical data to evaluate how likely it is that any observed difference
+ between the sets arose by chance.
+\end_layout
+
+\begin_layout Itemize
+There are multi-samples 
+\begin_inset Formula $n$
+\end_inset
+
+, each sample has observed number 
+\begin_inset Formula $N_{i}$
+\end_inset
+
+ with a feature certain, and it is expected to be 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+chi-squared test is to measure whether the feature is randomly distributed
+ accross different samples.
+\end_layout
+
+\begin_layout Standard
+The chi square statistic is defined as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\displaystyle \chi^{2}=\sum_{i=1}^{n}{\frac{(O_{i}-E_{i})^{2}}{E_{i}}}=N\sum_{i=1}^{n}{\frac{\left(O_{i}/N-p_{i}\right)^{2}}{p_{i}}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with degree of freedom: The degrees of freedom for a Chi-square grid are
+ equal to the number of rows minus one times the number of columns minus
+ one: that is, (R-1)*(C-1).
+\end_layout
+
+\begin_layout Standard
+where
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $O_{i}$
+\end_inset
+
+ is the observed number of cases in category i ,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ is the ex-pected number of cases in category 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $p_{i}=O_{i}/E_{i}$
+\end_inset
+
+ no need to be same accross diferent groups.
+\end_layout
+
+\begin_layout Standard
+This chi square statistic is obtained by calculating the difference between
+ the observed number of cases and the expected number of cases in each category.
+ This difference is squared and divided by the expected number of cases
+ in that category.
+ These values are then added for all the categories, and the total is referred
+ to as the chi squared value.
+\end_layout
+
+\begin_layout Subsection
+Chi Square Example 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/chisquare.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Thus the chi-squared statistic: ((903.3-933)^2/903.3 + (748.5-736)^2 /748.5+
+ (709.2-692)^2 /709.2+ (427.7-398)^2/427.7 + (367-354.5)^2/354.5 + (353-335.8)^2/335.8)
+ = 4.986582
+\end_layout
+
+\begin_layout Itemize
+The degrees of freedom for a Chi-square grid are equal to the number of
+ rows minus one times the number of columns minus one: that is, (R-1)*(C-1),
+ in this case, it is 1*2 = 2.
+\end_layout
+
+\begin_layout Standard
+What has learned
+\end_layout
+
+\begin_layout Itemize
+Each sample might be unqiue inself normally.
+ Though here the sample 1-3 are all the same group of males, but their 
+\begin_inset Formula $N_{i}$
+\end_inset
+
+ are (and can be) different: 
+\begin_inset Formula $N_{1}$
+\end_inset
+
+ is to measure the people in Cov party, 
+\begin_inset Formula $N_{2}$
+\end_inset
+
+ is for the people in Lab party, etc
+\end_layout
+
+\begin_layout Section
+Sample Size
 \end_layout
 
 \begin_layout Subsection
@@ -2677,140 +2484,6 @@ If, however, you were only looking for a 5% change in conversion rate (not
 \series bold
 The Key Difference here is OEC = Average Conversion Rate has much smaller
  variance than OEC = Average Revenue
-\end_layout
-
-\begin_layout Subsection
-Chi Square Tests
-\end_layout
-
-\begin_layout Itemize
-Pearson's chi-squared test (χ2) is a statistical test applied to sets of
- categorical data to evaluate how likely it is that any observed difference
- between the sets arose by chance.
-\end_layout
-
-\begin_layout Itemize
-There are multi-samples 
-\begin_inset Formula $n$
-\end_inset
-
-, each sample has observed number 
-\begin_inset Formula $N_{i}$
-\end_inset
-
- with a feature certain, and it is expected to be 
-\begin_inset Formula $E_{i}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-chi-squared test is to measure whether the feature is randomly distributed
- accross different samples.
-\end_layout
-
-\begin_layout Standard
-The chi square statistic is defined as
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-{\displaystyle \chi^{2}=\sum_{i=1}^{n}{\frac{(O_{i}-E_{i})^{2}}{E_{i}}}=N\sum_{i=1}^{n}{\frac{\left(O_{i}/N-p_{i}\right)^{2}}{p_{i}}}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-with degree of freedom: The degrees of freedom for a Chi-square grid are
- equal to the number of rows minus one times the number of columns minus
- one: that is, (R-1)*(C-1).
-\end_layout
-
-\begin_layout Standard
-where
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $O_{i}$
-\end_inset
-
- is the observed number of cases in category i ,
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $E_{i}$
-\end_inset
-
- is the ex-pected number of cases in category 
-\begin_inset Formula $i$
-\end_inset
-
-.
- Note that 
-\begin_inset Formula $p_{i}=O_{i}/E_{i}$
-\end_inset
-
- no need to be same accross diferent groups.
-\end_layout
-
-\begin_layout Standard
-This chi square statistic is obtained by calculating the difference between
- the observed number of cases and the expected number of cases in each category.
- This difference is squared and divided by the expected number of cases
- in that category.
- These values are then added for all the categories, and the total is referred
- to as the chi squared value.
-\end_layout
-
-\begin_layout Subsection
-Chi Square Example 1
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename Lyx_Picture/chisquare.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Thus the chi-squared statistic: ((903.3-933)^2/903.3 + (748.5-736)^2 /748.5+
- (709.2-692)^2 /709.2+ (427.7-398)^2/427.7 + (367-354.5)^2/354.5 + (353-335.8)^2/335.8)
- = 4.986582
-\end_layout
-
-\begin_layout Itemize
-The degrees of freedom for a Chi-square grid are equal to the number of
- rows minus one times the number of columns minus one: that is, (R-1)*(C-1),
- in this case, it is 1*2 = 2.
-\end_layout
-
-\begin_layout Standard
-What has learned
-\end_layout
-
-\begin_layout Itemize
-Each sample might be unqiue inself normally.
- Though here the sample 1-3 are all the same group of males, but their 
-\begin_inset Formula $N_{i}$
-\end_inset
-
- are (and can be) different: 
-\begin_inset Formula $N_{1}$
-\end_inset
-
- is to measure the people in Cov party, 
-\begin_inset Formula $N_{2}$
-\end_inset
-
- is for the people in Lab party, etc
 \end_layout
 
 \begin_layout Section
@@ -3138,8 +2811,12 @@ Magnitude of effect (effect size): the standardized difference between
 Sample size.
 \end_layout
 
+\begin_layout Section
+Bayesian vs Frequentist A/B Testing
+\end_layout
+
 \begin_layout Part
-A/B Test: Application
+A/B Test
 \end_layout
 
 \begin_layout Enumerate
@@ -3186,34 +2863,209 @@ The choice of OEC must be made in advance.
  what appear to be significant results by chance (familywise type I error)
 \end_layout
 
+\begin_layout Section
+Teminology
+\end_layout
+
+\begin_layout Standard
+https://www.optimizely.com/optimization-glossary/
+\end_layout
+
+\begin_layout Itemize
+Power.
+ The probability of correctly rejecting the null hypothesis, H0, when it
+ is false.
+ Power measures our ability to detect a difference when it indeed exists.
+ 
+\end_layout
+
+\begin_layout Itemize
+Conclusive -- same as Significance
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+A/A test
+\series default
+.
+ Sometimes called a 
+\series bold
+Null Test
+\series default
+ (Peterson 2004).
+ Instead of an A/B test, you exercise the experimentation system, assigning
+ users to one of two groups, but expose them to exactly the same experience.
+ An A/A test can be used to (i) collect data and assess its variability
+ for power calculations, and (ii) test the experimentation system (the Null
+ hypothesis should be rejected about 5% of the time when a 95% confidence
+ level is used).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A/A testing is the tactic of using A/B testing to test two identical versions
+ of a page against each other.
+ Typically, this is done to check that the tool being used to run the experiment
+ is statistically fair.
+ In an A/A test, the tool should report no difference in conversions between
+ the control and variation, if the test is implemented correctly.
+\end_layout
+
+\begin_layout Itemize
+THINGS TO KEEP IN MIND WITH A/A TESTING
+\end_layout
+
+\begin_layout Itemize
+When running an A/A test, it’s important to keep in mind that finding a
+ difference in conversion rate is always an identical test and control page
+ is a possibility.
+ This isn’t necessarily a poor reflection on the A/B testing platform, as
+ there is always an element of randomness when it comes to testing.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+A/B/n Testing
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A/B/n testing is a type of website testing where multiple versions of a
+ web page are compared against each other to determine which has the highest
+ conversion rate.
+ 
+\end_layout
+
+\begin_layout Itemize
+In addition to helping which version of a page is most successful, A/B/n
+ testing also shows which version of a page performed the worst.
+ By analyzing these low performing pages, it is possible to come up with
+ hypotheses for why certain features convert better than others, and these
+ lessons can then be incorporated into new tests on other pages of the site.
+\end_layout
+
+\begin_layout Itemize
+pitfall: it doesn’t always mean those variables would work well combined.
+ Consider running multivariate tests to test all variations and make sure
+ that improvements to top level metrics carry all the way through the conversion
+ funnel.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Multivariate testing
+\series default
+ is more comprehensive than A/B/n testing and is used to test changes to
+ specific elements on a page whereas A/B/n testing can be used to test completel
+y different versions of a page against each other.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Effect
+\series default
+.
+ The difference in OECs for the variants, i.e.
+ the mean of the Treatment minus the mean of the Control.
+ Larger differences are easier to detect, so great ideas will unlikely be
+ missed.
+ Conversely, Type II errors are more likely when the effects are small.
+\end_layout
+
+\begin_layout Section
+OEC: Overall Evaluation Criteria
+\end_layout
+
 \begin_layout Subsection
-Filtering users not impacted by the change 
+OEC with constraints
+\end_layout
+
+\begin_layout Standard
+From a search engine perspective, degraded algorithmic results (the main
+ search engine results shown to users, sometimes referred to as the 10 blue
+ links) force people to 
+\end_layout
+
+\begin_layout Itemize
+issue more queries (increasing queries per user) 
+\end_layout
+
+\begin_layout Itemize
+click more on ads (increasing revenues)
+\end_layout
+
+\begin_layout Standard
+So the OEC to insrease revenues cannot be used alone, it shall be comined
+ with better user experience, messured by 
+\end_layout
+
+\begin_layout Enumerate
+Less distinct queries per session
+\end_layout
+
+\begin_layout Enumerate
+Sessions / User
+\end_layout
+
+\begin_layout Standard
+This analysis is not just impacting search experiments, but also efforts
+ like SEM (Search Engine Marketing).
+ When deciding the bid amount for ads to a search engine, it is natural
+ to try and optimize for the number of queries in the session that started
+ with the ad click.
+ However, long sessions may indicate user frustration (e.g., driving users
+ to mediocre result pages).
+\end_layout
+
+\begin_layout Subsection
+Compare ad revenue with the user experience.
+\end_layout
+
+\begin_layout Standard
+More ads in the front page will decrease the clicks in the second layer
+ page, which decreases the revenue.
+\end_layout
+
+\begin_layout Standard
+1.
+ Monetary value that the destination property assigned to a click from the
+ MSN home page.
+ These destination properties are other sites in the MSN network.
+ Such a click generates a visit to an MSN property (e.g., MSN Autos or MSN
+ Money), which results in multiple page views.
+ 
+\end_layout
+
+\begin_layout Standard
+2.
+ The cost paid to search engines for a click that brings a user to an MSNpropert
+y but not via the MSN home page (Search Engine Marketing).
+ If the home page is driving less traffic to the properties, what is the
+ cost of regenerating the “lost” traffic?
+\end_layout
+
+\begin_layout Section
+Choose Samples
+\end_layout
+
+\begin_layout Subsection
+Filtering users not impacted by the change
 \end_layout
 
 \begin_layout Standard
 If you made a change to the checkout process, you should only analyze users
  who started the checkout process (point 3.c), as others could not see any
- difference and therefore just add noise
+ difference and therefore just add noise.
 \end_layout
 
 \begin_layout Subsection
-Effect of robots on experimental results
-\end_layout
-
-\begin_layout Standard
-For some websites robots are thought to provide up to half the pageviews
- on the site (Kohavi et al.
- 2004).
- Since many robots have the same characteristics as human users it is difficult
- to clearly delineate between the two.
- Benign or simple robots can often be filtered by basic characteristics
- (e.g.
- user agent, IP address) but manymodern robots use sophisticated techniques
- to escape detections and filtering (Tan and Kumar 2002).
-\end_layout
-
-\begin_layout Subsection
-Treatment ramp-up 
+Treatment ramp-up
 \end_layout
 
 \begin_layout Standard
@@ -3259,51 +3111,80 @@ ion.
 \end_layout
 
 \begin_layout Subsection
-Machine Learning and Data Mining
+Bucket System and Carryover Effects
 \end_layout
 
 \begin_layout Standard
-For example, an experiment showed no significant difference overall, but
- a population of users with a specific browser version was significantly
- worse for the Treatment.
- The specific Treatment feature, which involved JavaScript, was buggy for
- that browser version and users abandoned.
- Excluding the population from the analysis showed positive results, and
- once the bug was fixed, the feature was indeed retested and was positive
+Some online experimentation platforms, including at Bing, Google, and Yahoo,
+ rely on the “bucket system” to assign users to experiments [3].
+ The bucket system randomizes users into different buckets and then assigns
+ buckets to experiments.
+\end_layout
+
+\begin_layout Itemize
+One big drawback with the “bucket system” is its vulnerability to carryover
+ effects, where the same users who were impacted by the first experiment
+ are being used for the follow-on experiment.
+
+\series bold
+ So the impact of the first test will be carried over to the second test.
+\end_layout
+
+\begin_layout Itemize
+This is known, and A/A tests can be run to check for carryover effects,
+ but when they fail, 
+\series bold
+we lose capacity until we re-randomize the bucket assignment.
+\end_layout
+
+\begin_layout Standard
+It is clear that there was a 
+\series bold
+carryover effect
+\series default
+ on users after the experiment finished.
+ The carryover effect seems to die out at about the third week after the
+ experiment.
+\end_layout
+
+\begin_layout Itemize
+So you need a Washout Period
 \end_layout
 
 \begin_layout Subsection
-Assign 50% of users to treatment
+Ranom Sampling for Interaction Features in Soccial Network
 \end_layout
 
 \begin_layout Standard
-One common practice among novice experimenters is to run new variants for
- only a small percentage of users.
- The logic behind that decision is that in case of an error only few users
- will see a bad Treatment, which is why we recommend Treatment ramp-up.
- In order to maximize the power of an experiment and minimize the running
- time, we recommend that 50% of users see each of the variants in an A/B
- test.
+Suppose you want to test some interaction features in Messenger: they can
+ send stickers rather than pure text message.
+ How to choose two samples to run this test.
  
 \end_layout
 
 \begin_layout Standard
-Assuming all factors are fixed, a good approximation for the multiplicative
- increase in running time for an A/B test relative to 50%/50% is 
-\begin_inset Formula $1/(4p(1−p)$
-\end_inset
-
- where the Treatment receives portion 
-\begin_inset Formula $p$
-\end_inset
-
- of the traffic.
- 
+Note that as this is a scocial network and the sample A and B may have connectio
+ns, so enabling A to send stickers means they may send stickers to B, which
+ is not allowed for the new feature.
 \end_layout
 
 \begin_layout Standard
-For example, if an experiment is run at 99%/1%, then it will have to run
- about 25 times longer than if it ran at 50%/50%.
+
+\series bold
+How to solve this problem:
+\end_layout
+
+\begin_layout Standard
+Just firstr choose a random sample A who are allowed to send out stickers
+ and run the test for a week.
+\end_layout
+
+\begin_layout Standard
+After the week, look at historical data and 
+\end_layout
+
+\begin_layout Section
+Duration / Time of Test
 \end_layout
 
 \begin_layout Subsection
@@ -3319,6 +3200,91 @@ We would then recommend running it for a week to avoid day-of-week effects
 \end_layout
 
 \begin_layout Subsection
+Primacy and Novelty effect 
+\end_layout
+
+\begin_layout Itemize
+Primacy effect occurs when you change the navigation on a web site, and
+ experienced users may be less efficient until they get used to the new
+ navigation, thus giving an inherent advantage to the Control.
+\end_layout
+
+\begin_layout Itemize
+Novelty effect: when a new design or feature is introduced, some users will
+ investigate the new feature, click everywhere, and thus introduce a “novelty”
+ bias that dies quickly if the feature is not truly useful.
+\end_layout
+
+\begin_layout Standard
+So be aware of any trend pattern by time, you need to wait longer time till
+ the trend stabalized and then evaluate.
+\end_layout
+
+\begin_layout Subsection
+Short Term versus Long Term Effects: Delayed OEC
+\end_layout
+
+\begin_layout Standard
+Short term versus long term effects.
+ Controlled experiments measure the effect on the OEC during the experimentation
+ period, typically a few weeks.
+\end_layout
+
+\begin_layout Enumerate
+Long-term goals should be part of the OEC.
+ Let us take search ads as an example.
+ If your OEC is revenue, you might plaster ads over a page, but we know
+ that many ads hurt the user experience, so a good OEC should include a
+ penalty term of usage of real-estate for ads that are not clicked, and/or
+ should directly measure repeat visits and abandonment.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Likewise, it is wise to look at 
+\series bold
+Delayed conversion metrics
+\series default
+, where there is a lag from the time a user is exposed to something and
+ take action.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If you change the navigation on a web site, experienced users may be less
+ efficient until they get used to the new navigation, thus giving an inherent
+ advantage to the Control.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+These are sometimes called latent conversions (Miller 2006; Quarto-vonTivadar
+ 2006).
+ Coming up with good OECs is hard, but what is the alternative? The key
+ point here is to recognize this limitation, but avoid throwing the baby
+ out with the bathwater.
+\end_layout
+
+\begin_layout Section
+Effect Analysis
+\end_layout
+
+\begin_layout Subsection
+Machine Learning and Data Mining
+\end_layout
+
+\begin_layout Standard
+For example, an experiment showed no significant difference overall, but
+ a population of users with a specific browser version was significantly
+ worse for the Treatment.
+ The specific Treatment feature, which involved JavaScript, was buggy for
+ that browser version and users abandoned.
+ Excluding the population from the analysis showed positive results, and
+ once the bug was fixed, the feature was indeed retested and was positive
+\end_layout
+
+\begin_layout Section
 Culture and business
 \end_layout
 
@@ -3351,47 +3317,32 @@ So a fancy feature may be bad today, but better years later when internet
  speed is higher.
 \end_layout
 
+\begin_layout Subsection
+
+\series bold
+HiPPO attack
+\end_layout
+
+\begin_layout Standard
+Linsky and Heifetz wrote that “People do not resist change, per se.
+ People resist loss” (Linsky & Heifetz, 2002).
+ Some people certainly viewed experimentation as a risk to their power and/or
+ prestige.
+\end_layout
+
+\begin_layout Standard
+What we found was that a great way to convince people that we are not good
+ at predicting the outcomes of experiment is to challenge them.
+ We created a survey with eight A/B tests, and offered a nice polo shirt
+ for anyone who could correctly guess 6 out of 8 (the options were: A is
+ statistically significantly better, B is statistically significantly better,
+ or there’s no statistically significant difference between them).
+ With over 200 responses, we didn’t have to hand out a single shirt! 6 out
+ of 200 had 5 answers correct; the average was 2.3 correct answers
+\end_layout
+
 \begin_layout Section
-Carryover Effects
-\end_layout
-
-\begin_layout Subsection
-Bucket System and Carryover Effects
-\end_layout
-
-\begin_layout Standard
-Some online experimentation platforms, including at Bing, Google, and Yahoo,
- rely on the “bucket system” to assign users to experiments [3].
- The bucket system randomizes users into different buckets and then assigns
- buckets to experiments.
-\end_layout
-
-\begin_layout Itemize
-One big drawback with the “bucket system” is its vulnerability to carryover
- effects, where the same users who were impacted by the first experiment
- are being used for the follow-on experiment.
- So the impact of the first test will be carried over to the second test.
-\end_layout
-
-\begin_layout Itemize
-This is known, and A/A tests can be run to check for carryover effects,
- but when they fail, 
-\series bold
-we lose capacity until we re-randomize the bucket assignment.
-\end_layout
-
-\begin_layout Standard
-It is clear that there was a 
-\series bold
-carryover effect
-\series default
- on users after the experiment finished.
- The carryover effect seems to die out at about the third week after the
- experiment.
-\end_layout
-
-\begin_layout Subsection
-Washout Period
+Applications
 \end_layout
 
 \begin_layout Section
@@ -3501,33 +3452,6 @@ In the statistical field of Design of Experiments, a major research area
  little or no confounding.
 \end_layout
 
-\begin_layout Subsection
-Overlapping experiments
-\end_layout
-
-\begin_layout Standard
-Traditional: each experiment turns on when the treatment is ready to go
- rather than launching all factors of a factorial design at once.
- 
-\end_layout
-
-\begin_layout Standard
-In an agile software development world, there are significant benefits to
- running more tests frequently, as they are ready to be deployed.
- This is the approach you should take if you want to maximize the speed
- with which ideas are tested and you are not interested in or concerned
- with interactions -- as Large interactions between factors are actually
- rarer than most people believe, unless they are already known, such as
- with the buy box example.
-\end_layout
-
-\begin_layout Standard
-With overlapping experiments you test the factors more quickly and, if there
- is sufficient overlap in any two factors, you can estimate the interaction
- between those factors.
- If
-\end_layout
-
 \begin_layout Part
 Multi-Armed Bandit 
 \end_layout
@@ -3537,8 +3461,16 @@ http://conversionxl.com/bandit-tests/
 \end_layout
 
 \begin_layout Itemize
-A/B testing explores first then exploits (keeps only winner): http://conversionx
-l.com/wp-content/uploads/2015/09/Screen-Shot-2015-09-04-at-4.12.27-PM-1-568x405.jpg
+A/B testing explores first then exploits (keeps only winner): 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/abtest.jpg
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -3547,11 +3479,19 @@ Bandit testing tries to solve the explore-exploit problem in a different
  Instead of two distinct periods of pure exploration and pure exploitation,
  bandit tests are adaptive, and simultaneously include exploration and exploitat
 ion.
- http://conversionxl.com/wp-content/uploads/2015/09/Screen-Shot-2015-09-04-at-4.24.
-17-PM-1-568x424.jpg
+ 
 \end_layout
 
 \begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/bandit.jpg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
 
 \series bold
 Goal
@@ -3559,6 +3499,7 @@ Goal
 :
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 Choose the 
 \series bold
@@ -3577,20 +3518,85 @@ So, bandit algorithms try to minimize opportunity costs and minimize regret
  collected had you played the optimal (best) options at every opportunity.).
 \end_layout
 
-\begin_layout Standard
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Weakness / Trade - off
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+http://conversionxl.com/wp-content/uploads/2015/09/Screen-Shot-2015-09-09-at-3.49.4
+5-PM-1.jpg
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
 
 \series bold
 Intuition
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 Earning while learning
 \end_layout
 
-\begin_layout Standard
+\end_deeper
+\begin_layout Subsection
 
 \series bold
-Usage:
+Usage
+\end_layout
+
+\begin_layout Itemize
+Used for short Testing / News / Short term campaign.
+ Not enough time for AB test to collect data.
+\end_layout
+
+\begin_layout Itemize
+Used for on-going test: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Suppose you’re running a news site, and you want to determine the best order
+ to display the top 5 sports stories everyday.
+\end_layout
+
+\begin_layout Itemize
+A/B tests also fall short for ongoing tests – in particular, where the test
+ is constantly evolving.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+“Set it and forget it” (Automation for Scale)
+\end_layout
+
+\begin_layout Subsection
+When To Use Bandit Tests Instead of A/B/n Tests?
+\end_layout
+
+\begin_layout Standard
+There’s a high level answer, and then there are some specific circumstances
+ in which bandit works well.
+ For the high level answer, if you have a research question where you want
+ to understand the effect of a treatment and have some certainty around
+ your estimates, a standard a/b test experiment will be best.
+\end_layout
+
+\begin_layout Standard
+According to Matt Gershoff, “If on the other hand, you actually care about
+ optimization, rather than understanding, bandits are often the way to go.”
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Usage Example
 \end_layout
 
 \begin_layout Standard
@@ -3698,9 +3704,224 @@ Maybe you Should decrease exploration over time?
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+to ensure that the system doesn’t early converge to a sub-optimal solution.
+ 
+\end_layout
+
 \begin_layout Standard
 It gives potentially inferior the oppotunity to turn aound, as you may be
  wrong in the begining
+\end_layout
+
+\begin_layout Section
+Algorithm: Thompson sampling
+\end_layout
+
+\begin_layout Standard
+Consider a set of contexts X , a set of actions A , and rewards in R .
+ In each round, the player obtains a context x ∈ X , plays an action a ∈
+ A and receives a reward r ∈ R following a distribution that depends on
+ the context and the issued action.
+ The aim of the player is to play actions such as to maximize the cumulative
+ rewards.
+\end_layout
+
+\begin_layout Enumerate
+The elements of Thompson sampling are as follows:
+\end_layout
+
+\begin_layout Enumerate
+a likelihood function 
+\begin_inset Formula $P(r|\theta,a,x)$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+a set 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ of parameters θ 
+\begin_inset Formula $\theta$
+\end_inset
+
+ of the distribution of 
+\begin_inset Formula $r$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+a prior distribution 
+\begin_inset Formula $P(\theta)$
+\end_inset
+
+ on these parameters;
+\end_layout
+
+\begin_layout Enumerate
+past observations triplets D = { ( x ; a ; r ) } {
+\begin_inset Formula ${\displaystyle D=\{(x;a;r)\}}$
+\end_inset
+
+} {
+\backslash
+mathcal {D}}=
+\backslash
+{(x;a;r)
+\backslash
+};
+\end_layout
+
+\begin_layout Enumerate
+a posterior distribution 
+\begin_inset Formula ${\displaystyle P(\theta|\mathcal{D})\propto P(\mathcal{D}|\theta)P(\theta)}$
+\end_inset
+
+, where P ( D | θ ) is the likelihood function.
+\end_layout
+
+\begin_layout Standard
+Thompson sampling consists in playing the action {
+\begin_inset Formula ${\displaystyle a^{\ast}\in\mathcal{A}}$
+\end_inset
+
+} according to the probability that it maximizes the expected reward, i.e.
+\begin_inset Formula 
+\[
+{\displaystyle \int\mathbb{I}[\mathbb{E}(r|a,x,\theta)=\max_{a'}\mathbb{E}(r|a',x,\theta)]P(\theta|{\mathcal{D}})\,d\theta,}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\mathbb{I}$
+\end_inset
+
+ is the indicator function.
+\end_layout
+
+\begin_layout Standard
+In practice, the rule is implemented by sampling, in each round, a parameter
+ θ 
+\begin_inset Formula $\theta^{\ast}$
+\end_inset
+
+ from the posterior 
+\begin_inset Formula $P(\theta|\mathcal{D})$
+\end_inset
+
+, and choosing the action 
+\begin_inset Formula $a^{\ast}$
+\end_inset
+
+ that maximizes
+\begin_inset Formula ${\displaystyle \mathbb{E}[r|\theta^{\ast},a^{\ast},x]}$
+\end_inset
+
+ ], i.e.
+ the expected reward given the parameter, the action and the current context.
+ Conceptually, this means that the player instantiates his beliefs randomly
+ in each round, and then he acts optimally according to them.
+\end_layout
+
+\begin_layout Section
+Contextual Bandits
+\end_layout
+
+\begin_layout Standard
+http://hunch.net/?p=298
+\end_layout
+
+\begin_layout Standard
+A standard mathematical setting for this situation is “k-Armed Bandits”,
+ often with various relevant embellishments.
+ The k-Armed Bandit setting works on a round-by-round basis.
+ On each round:
+\end_layout
+
+\begin_layout Standard
+A policy chooses arm a from 1 of k arms (i.e.
+ 1 of k ads).
+\end_layout
+
+\begin_layout Standard
+The world reveals the reward ra of the chosen arm (i.e.
+ whether the ad is clicked on).
+\end_layout
+
+\begin_layout Standard
+As information is accumulated over multiple rounds, a good policy might
+ converge on a good choice of arm (i.e.
+ ad).
+\end_layout
+
+\begin_layout Standard
+This setting (and its variants) fails to capture a critical phenomenon:
+ each of these displayed ads are done in the context of a search or other
+ webpage.
+ To model this, we might think of a different setting where on each round:
+\end_layout
+
+\begin_layout Standard
+The world announces some context information x (think of this as a high
+ dimensional bit vector if that helps).
+\end_layout
+
+\begin_layout Standard
+A policy chooses arm a from 1 of k arms (i.e.
+ 1 of k ads).
+\end_layout
+
+\begin_layout Standard
+The world reveals the reward ra of the chosen arm (i.e.
+ whether the ad is clicked on).
+\end_layout
+
+\begin_layout Standard
+We can check that this is a critical distinction in 2 ways.
+ First, note that policies using x can encode much more rich decisions than
+ a policy not using x.
+ Just think about: “if a search has the word flowers display a flower advertisem
+ent”.
+ Second, we can try to reduce this setting to the k-Armed Bandit setting,
+ and note that it can not be done well.
+ There are two methods that I know of:
+\end_layout
+
+\begin_layout Standard
+Run a different k-Armed Bandit for every value of x.
+ The amount of information required to do well scales linearly in the number
+ of contexts.
+ In contrast, good supervised learning algorithms often require information
+ which is (essentially) independent of the number of contexts.
+\end_layout
+
+\begin_layout Standard
+Take some set of policies and treat every policy h(x) as a different arm.
+ This removes an explicit dependence on the number of contexts, but it creates
+ a linear dependence on the number of policies.
+ Via Occam’s razor/VC dimension/Margin bounds, we already know that supervised
+ learning requires experience much smaller than the number of policies.
+\end_layout
+
+\begin_layout Standard
+We know these are bad reductions by contrast to direct methods for solving
+ the problem.
+ The first algorithm for solving this problem is EXP4 (page 19 = 66) which
+ has a regret with respect to the best policy in a set of O( T0.5 (ln |H|)0.5)
+ where T is the number of rounds and |H| is the number of policies.
+ (Dividing by T gives error-rate like quantities.) This result is independent
+ of the number of contexts x and only weakly dependent (similar to supervised
+ learning) on the number of policies.
 \end_layout
 
 \begin_layout Part
