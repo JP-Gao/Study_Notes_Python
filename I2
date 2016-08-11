@@ -195,6 +195,38 @@
 Cheet Sheet
 \end_layout
 
+\begin_layout Standard
+Know how to apply them into real problems:
+\end_layout
+
+\begin_layout Itemize
+a/b test
+\end_layout
+
+\begin_layout Itemize
+cluster
+\end_layout
+
+\begin_layout Itemize
+recommendation
+\end_layout
+
+\begin_layout Standard
+SQL 加强 （如union）
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Operational Modelling
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+https://www.bis.org/bcbs/cp3/embfurkau.pdf
+\end_layout
+
 \begin_layout Part
 IV
 \end_layout
@@ -370,30 +402,48 @@ Data can be constructed like this: It is a matrix with rows as users, columns
 
 \end_deeper
 \begin_layout Subsection
-Why an advertiser becomes inactive
+
+\series bold
+Feature
+\series default
+: Why an advertiser becomes inactive
 \end_layout
 
 \begin_layout Standard
-Model wise: 
-\end_layout
 
-\begin_layout Standard
-Feature: 
+\series bold
+Feature
+\series default
+: 
 \end_layout
 
 \begin_layout Enumerate
-industry: you want to indenify which industry likes do marketing on Twitter,
- which not like.
+
+\series bold
+Industry
+\series default
+: you want to indenify which industry likes do marketing on Twitter, which
+ not like.
  Those are the markets we need to penetrate.
 \end_layout
 
 \begin_layout Enumerate
-Cost per click / view.
- ---- to see whether the advertiser is really price sensitive.
+
+\series bold
+Price
+\series default
+: Cost per click / view.
+ ---- to see whether the advertiser is really 
+\series bold
+price sensitive.
 \end_layout
 
 \begin_layout Enumerate
-how many times they do campaign on twitter --- 
+
+\series bold
+Month on Book: 
+\series default
+how many times they have done campaign on twitter --- 
 \end_layout
 
 \begin_deeper
@@ -413,12 +463,16 @@ How much money spend on Twitter in total.
 \end_layout
 
 \begin_layout Enumerate
-How much time the advertise spend on the campaign designing page ---- they
- may feel frustration on figuring out how to design their campaign.
+
+\series bold
+User Experience: How much time the advertise spend on the campaign designing
+ page 
+\series default
+---- they may feel frustration on figuring out how to design their campaign.
 \end_layout
 
 \begin_layout Subsection
-Why a User becomes inactive
+Model: Why a User becomes inactive
 \end_layout
 
 \begin_layout Itemize
@@ -445,6 +499,12 @@ Interpreation
  So you really want to use some glassbox model rather than black box.
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+You can pin down which exact factor is 
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 
 \series bold
@@ -459,6 +519,8 @@ Probability
 Then you can use these probability to design some action
 \end_layout
 
+\end_deeper
+\end_deeper
 \begin_layout Itemize
 
 \series bold
@@ -468,8 +530,6 @@ Action Plan
  then you want to call him, or give him better offers.
 \end_layout
 
-\end_deeper
-\end_deeper
 \begin_layout Itemize
 
 \series bold
@@ -2504,117 +2564,143 @@ Nice to have - Systems - working knowledge of enterprise-level financial
 \end_layout
 
 \begin_layout Section
-FIC
+B
 \end_layout
 
 \begin_layout Standard
-Job description
+ob Description Senior Quantitative Finance Analyst - 16031020 Description
+ 
 \end_layout
 
 \begin_layout Standard
-“Due to growth, our Analytic Consulting team is looking to bring on more
- talented people like you.
- In this role as Consultant, you will work on Analytic and Optimization
- Professional Services client projects using Decision Optimizer (DO) and
- Xpress optimization software.” Quote by Director Analytics Consulting
+Responsible for independently conducting quantitative analytics and complex
+ modeling projects.
+ Leads efforts in development of new models, analytic processes or system
+ approaches.
+ Creates documentation for all activities and may work with technology staff
+ in design of any system to run models developed.
+ Incumbents possess excellent quantitative/analytic skills and are able
+ to influence strategic direction, as well as develop tactical plans.
 \end_layout
 
 \begin_layout Standard
-In this role you will:
+General responsibilities include:
 \end_layout
 
 \begin_layout Standard
-• Be part of the technical development and delivery of Analytic and Optimization
- Professional Services client projects using Decision Optimizer (DO) and
- Xpress optimization software.
+- Reviewing conceptual soundness of models, mathematical specification,
+ underlying assumptions and limitations, variable selection, data.
 \end_layout
 
 \begin_layout Standard
-• Design and develop state-of-the-art, data-driven exploratory analysis
- as well as predictive and decision models to solve business problems across
- different industries including auto, financial, retail and insurance.
+- Assessing adequacy of model documentation.
 \end_layout
 
 \begin_layout Standard
-•Consult with clients around adoption and on-going use of DO / Xpress approaches
-, and identify Analytic and Optimization Professional Services opportunities
- through client interactions.
+- Reviewing empirical evidence.
 \end_layout
 
 \begin_layout Standard
-•Create high performance optimization models to meet client requirements.
+- Challenging model assumptions and approach as needed.
 \end_layout
 
 \begin_layout Standard
-•Provide analytic consulting services to clients on a wide range of advanced
- analytics-based services.
+- Developing code to replicate results and conduct independent testing.
 \end_layout
 
 \begin_layout Standard
-•Further develop analytic processes and procedures, working across departments
- to enhance FICO analytic & optimization tools, techniques and offerings.
+- Assessing quality of model outputs through back testing against realized
+ outcomes, benchmarking against alternative models, sensitivity tests around
+ assumptions and limitations, and other relevant tests.
 \end_layout
 
 \begin_layout Standard
-•Contribute to pricing, hours, budgeting, and contract review and delivery
- methodology for DO / Xpress Professional Services offerings.
+- Verifying model implementation.
 \end_layout
 
 \begin_layout Standard
-Project Management: 
+- Assessing model accuracy, conservatism and quantitative compliance with
+ regulations.
 \end_layout
 
 \begin_layout Standard
-• Work simultaneously on multiple projects of moderate size and complexity.
+- Conducting annual review and ongoing monitoring of existing models.
 \end_layout
 
 \begin_layout Standard
-• Plan effectively to set priorities and manage projects, identify roadblocks
- and work to get them removed, and understand the importance of meeting
- client/internal deadlines.
+- Writing thorough technical reports for distribution and presentation to
+ model developers, senior management, audit and bank regulators.
+ Qualifications 
 \end_layout
 
 \begin_layout Standard
-• Review project variances against deliverables and possible changes
+Required Skills
 \end_layout
 
 \begin_layout Standard
-• Implement changes at project level as needed; negotiate necessary changes
- without committing to the impossible, and engage in direct dialogue with
- client to achieve agreement on project outcomes.
+- Master's or PhD degree in statistics, mathematics, finance, engineering,
+ physics, economics or related field.
 \end_layout
 
 \begin_layout Standard
-• Give priority to delivering superior customer service.
+- Background and experience in one of the following:
 \end_layout
 
 \begin_layout Standard
-Client Communications (internal and external): 
+* 
+\series bold
+PD/EAD/LGD credit risk models for retail, wholesale and/or structured products
+ under the Advanced Approaches (A-IRB, SFA)
 \end_layout
 
 \begin_layout Standard
-• Handle communication with client as needed.
+* Market risk models for economic capital estimation
 \end_layout
 
 \begin_layout Standard
-• Determine appropriate model report format for communication with clients.
+- Knowledge of the 
+\series bold
+Basel
+\series default
+ regulatory framework, US Basel III Final Rule, BCC 13-5, 13-7, 14-1, 14-3
+ and other regulatory requirements, familiarity with OCC 2011-12 / SR 11-7.
 \end_layout
 
 \begin_layout Standard
-• Travel as required to client sites.
+- Expertise in econometrics, time series, classification, decision modeling,
+ statistical distributions, Monte-Carlo simulation.
 \end_layout
 
 \begin_layout Standard
-• May participate in pre-sales support and/or provide post-implementation
- support.
+- Strong knowledge of financial instruments and financial risk management
+ principles.
 \end_layout
 
 \begin_layout Standard
-• May deliver formal presentations of work to clients.
+- Deep understanding and knowledge of 
+\series bold
+model performance measures.
 \end_layout
 
 \begin_layout Standard
-• Participate in authoring white papers, proposals and publications.
+- Minimum 7 years of experience in financial risk modeling or validation,
+ computational, engineering or scientific research or other model development
+ roles using SAS, R, MATLAB, SQL or any other scientific/mathematical programmin
+g environment.
+\end_layout
+
+\begin_layout Standard
+- Experience in quantitative risk management in a financial institution,
+ vendor or regulator.
+\end_layout
+
+\begin_layout Standard
+- Ability to communicate clearly and effectively.
+\end_layout
+
+\begin_layout Standard
+- Ability to produce high quality technical documentation.
+ 
 \end_layout
 
 \begin_layout Part
@@ -2631,6 +2717,15 @@ Method
 
 \begin_layout Itemize
 HR 面试 详细准备why that company，what's your current role.
+\end_layout
+
+\begin_layout Subsection
+Behvaior Questions
+\end_layout
+
+\begin_layout Standard
+For behavior questions, when no need to discribe an example, use short sentences
+, 
 \end_layout
 
 \begin_layout Subsection
@@ -3050,7 +3145,7 @@ then all the way up to the whole portfolio level, which can be used for
 \begin_layout Standard
 Otherwise: have multiple models for that product: we have one model to decide
  the potential loss of a campaign, we have another model for collection,
- then we have another model for regulators, like stress testing
+ then we have another model for regulators, like stress testing.
 \end_layout
 
 \begin_layout Standard
@@ -3085,7 +3180,7 @@ Be
 \series bold
 Patient
 \series default
-, because they don't know your model at all.
+, because they don't know  modelling at all.
  
 \end_layout
 
@@ -3134,8 +3229,12 @@ Go further: make the model accessible to everyone.
 
 \begin_deeper
 \begin_layout Enumerate
-This is a huge change of our role: originally we are so obsessed with the
- modelling and just though out the output to our business partners, 
+This is a huge change of our role: originally we are so 
+\series bold
+obsessed
+\series default
+ with the modelling and just though out the output to our business partners,
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -3186,7 +3285,7 @@ So to the marketing people, our model is a
 \series bold
 black box
 \series default
-, or our whole risk department is a black box.
+, or our whole modelling department is a black box.
 \end_layout
 
 \begin_layout Itemize
@@ -3291,42 +3390,36 @@ Be Patient
 \end_layout
 
 \begin_layout Subsection
-Model: UCL forecasting
+Model: How to estimate the 6-year loss curve without enough late-life data?
 \end_layout
 
 \begin_layout Standard
-complications
-\end_layout
-
-\begin_layout Standard
-The ultimate goal is to build a model that can forecast loss curves.
-\end_layout
-
-\begin_layout Standard
-There are several features for this model
+Hard part of the problem
 \end_layout
 
 \begin_layout Itemize
-For each time, we just forecast one period ahead, then we plug in the predicted
- result into the model again to forecast one period further.
- First from to T to T+1, then based on predictions on T+1, we predict T+2.
- So we keep doing this kind of thing recursively till T+N.
-\end_layout
 
-\begin_layout Standard
-There is a reason we design our model in this way.
-\end_layout
-
-\begin_layout Enumerate
+\series bold
 It is hard to find a closed form equation to generate a curve at once.
- When you are talking a loss curve, that is the loss dollar rate for 60
- months or even 72 months.
+ 
+\series default
+When you are talking a loss curve, that is the loss dollar rate for 60 months
+ or even 72 months.
  It is hard to use a single equation to describe the shape of the curve,
  how high the peak is, when is the peak, what happens after the peak (should
  it stay high, or sharply decrease or slowly decrease).
 \end_layout
 
 \begin_deeper
+\begin_layout Enumerate
+Splines or moving average smooth lines doesn't work here because:
+\end_layout
+
+\begin_layout Enumerate
+Especially this product launched since 2013, so at that time we didn't have
+ long enough data to get a stable stable curve.
+\end_layout
+
 \begin_layout Enumerate
 Also accounts with different FICO or in different loan terms shall naturally
  have different shapes of the curve.
@@ -3336,40 +3429,90 @@ ally to fit different risk groups.
 \end_layout
 
 \end_deeper
-\begin_layout Enumerate
-Another feature of this model is, this model predicts every aspect of an
- account behaviors, including charge-off, delinquent, early payment.
+\begin_layout Standard
+The way we solve this problem is, we will not try forecast the whole life
+ of the product at once, instead, we biuld a model to forecast only one
+ month ahead.
+ 
 \end_layout
 
+\begin_layout Standard
+Once we got the forecasted next month status, we plug in this forecasted
+ result into our model again, to forecast the Next Next Month.
+\end_layout
+
+\begin_layout Standard
+So we do this recursively until we get the end of loan.
+\end_layout
+
+\begin_layout Subsection
+Model: Incorporate all dynamics of custormer behavior together.
+ 
+\end_layout
+
+\begin_layout Standard
+Another difficulty of we found is, although the purpose of this model is
+ to predict loss, but to get loss acurately, 
+\end_layout
+
+\begin_layout Enumerate
+The dollar loss rate is determined by the probability of charge off, but
+ also determined by the charge off amount (EAD)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+That's why you need to predict balance, which means you have to predict
+ the payment.
+ 
+\end_layout
+
+\begin_layout Enumerate
+PD and payment are not separated things.
+ They are interactive with each other.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If a customer keeps making the early payment, then his EAD is low, PD is
+ also low.
+ --- Thus PD, and Payment -- 
+\series bold
+They shall be incorporated in the one forecasting system.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Itemize
 The way we are doing this is, we create multiple equations and each equation
  just described one single kind of behavior.
+ We got one equation to forecast deliqnuency, another one to forecast early
+ payment.
  When we use them, we link them together.
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-For example, the first LOGIT equation to predict charge-off, then we simulate
- accounts through this equation,
+We first run all the accounts through the delinquency equation, 
 \end_layout
 
 \begin_layout Itemize
-if the account is not predicted to be charged off, 
+Then if the account is not predicted to be delinquent,
 \series bold
-then given that updated information
+ given that predicted information
 \series default
-, we plug it in the second equation to predict delinquency.
+, we plug it in the second equation to predict early payment.
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
-Then third one is, 
-\series bold
-given they are not delinquent,
-\series default
- whether they will do early pay, the fourth one is given they will do early
- pay, how much they will pay.
+Because you know the initial balance at time 0, now you also know their
+ payment at T, you can easily get the balance at T (which is your EAD)
 \end_layout
 
+\end_deeper
 \end_deeper
 \begin_layout Itemize
 
@@ -3378,41 +3521,14 @@ So each time, we just focus on one kind of behavior, then predict it, then
  utilize the updated information to predict another kind of behavior
 \end_layout
 
+\begin_layout Itemize
+After going through all thouse equations, we get full information for an
+ accoutn at T: then plug the result into these system again to predict T+1
+\end_layout
+
 \begin_layout Standard
-The reason is
-\end_layout
-
-\begin_layout Enumerate
-The dollar loss rate is determined by the probability of charge off, but
- also determined by the charge off amount
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-So to predict PD is not enough, so you to predict balance, and to predict
- balance, you have to predict the payment.
- 
-\end_layout
-
-\begin_layout Enumerate
-PD and EAD are not separated things.
- They are interactive with each other.
- They shall be incorporated in the one forecasting system.
- 
-\end_layout
-
-\begin_layout Enumerate
 
 \series bold
-If you really want to forecast dollar loss rate correctly, you have to forecast
- things beyond loss correctly.
-
-\series default
- 
-\end_layout
-
-\end_deeper
-\begin_layout Standard
 So in this way, we decompose the complexity of different customer behaviors
  each single component, and by linking these different equations, we can
  forecast the PD and EAD together, simultaneously.
@@ -3463,10 +3579,6 @@ best for some simple and stable model
 \series default
 , but when things become complex and you keep adding new features into it,
  it is very easy to break down and become un-maintainable.
-\end_layout
-
-\begin_layout --Separator--
-
 \end_layout
 
 \begin_layout Itemize
@@ -3561,21 +3673,15 @@ So you see this kind of job really helps you understand the business, understand
 \end_layout
 
 \begin_layout Subsection
-Project: Marketing Campaign::: WEI YANG
+Project: Marketing Campaign
 \end_layout
 
 \begin_layout Standard
 The question is: 
 \end_layout
 
-\begin_layout Enumerate
-
-\series bold
-how rich the offer should be
-\end_layout
-
-\begin_layout Enumerate
-What segment of customers you want to target.
+\begin_layout Standard
+We are supporting role 
 \end_layout
 
 \begin_layout Itemize
@@ -3585,13 +3691,61 @@ Background
 \series default
 : everymonth we send out direct mails, emails to certain group of customers
  to invite them to apply our credit cards.
- We tested different colors of letters, different APR or fees etc
+ 
+\end_layout
+
+\begin_layout Itemize
+The first goal of this campaign is the respons rate, (which is quite similar
+ with ).
+ But this is not the whole story, the metric we truely cares about how much
+ money we can make per customers.
+ 
+\end_layout
+
+\begin_layout Itemize
+So there are two dynamics there
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+What segment of customers you want to target.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+if you target the high risk customers, the response rate is high, but loss
+ is high also.
+\end_layout
+
+\begin_layout Enumerate
+So our goal is there is to tweak the offer to make it looks like good, but
+ actually not that good.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+how good the promotion should be.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+if the offer is too good, for example 30 thousand miles if you open the
+ card, 0 APR for 12m, etc.
+ profit margin will shrink.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+We tested different colors of letters, different APR or fees etc
 \end_layout
 
 \begin_layout Itemize
 The problem is: Makring department only cares about responds rate.
- BUT normally Marketing only cares response rate, so they have strong interest
- to go for the high risk customers and give them good offers.
+ they have strong interest to go for the high risk customers and give them
+ good offers.
 \end_layout
 
 \begin_layout Itemize
@@ -3660,6 +3814,124 @@ Project: Minimum Critera
 
 \begin_layout Standard
 Minimum criteria for a campaign: ROE / ROI in good time and bad time
+\end_layout
+
+\begin_layout Subsection
+A/B test
+\end_layout
+
+\begin_layout Standard
+So every month we send out credit card offers by direct mail or email, to
+ invite them to apply our cards.
+\end_layout
+
+\begin_layout Standard
+There are multiple factors of a campaign
+\end_layout
+
+\begin_layout Itemize
+Pricing: rewards, intro APR, go to APR, whether there is balance transfer
+ fee.
+\end_layout
+
+\begin_layout Itemize
+Channel: online, email.
+\end_layout
+
+\begin_layout Itemize
+Pre-approval or Invitation to Apply.
+\end_layout
+
+\begin_layout Standard
+So my job there is how to design the offer/criteria to boost the response
+ rate, For example, subprime customers really love the low intro-APR or
+ balance transfer-offers
+\end_layout
+
+\begin_layout Itemize
+but we don't want to make the offer too rich otherwise we will lose money,
+ 
+\end_layout
+
+\begin_layout Itemize
+also we dont want to target those super high risk customers
+\end_layout
+
+\begin_layout Itemize
+because we have some minmum investment hurdle we have to meet.
+\end_layout
+
+\begin_layout Standard
+For example, 
+\end_layout
+
+\begin_layout Standard
+So these are the tricks we found that we can make more money per customer
+ but not lose the response rate
+\end_layout
+
+\begin_layout Subsection
+A/B test: Tweak the Offer
+\end_layout
+
+\begin_layout Itemize
+So our goal is there is to tweak the offer to make it looks like good, but
+ actually not that good.
+\end_layout
+
+\begin_layout Itemize
+one thing we find there that the customers are not really sensitive the
+ go-to-APR, which means if you increase your go-to APR from 18% to 22%,
+ the response rate is didn't drop at all.
+ 
+\end_layout
+
+\begin_layout Itemize
+Also customers are not that customers are not that sensitive to the duration
+ of intro APR, which means if you shorten your intro-APR from 18m to 11m,
+ response rate didn't change much.
+\end_layout
+
+\begin_layout Subsection
+Optimization
+\end_layout
+
+\begin_layout Enumerate
+First step of the optimization is to find the right offer to the right custome,
+ which means we need to segment customers on their behavior and their risk.
+ So it is a two-dimention matrix.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A lot of debt: then we want to give them a balance transfer offer
+\end_layout
+
+\begin_layout Itemize
+Travel a lot: credit card with airline points.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Second step is find the best pricing for each group of the customer.
+ We just plug in different pricing shcedual into the model to simulate the
+ ROI under different pricing.
+ Then you choose 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+ROI model is combination of models: it contains response rate model, then
+ default probability model.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Then we run the simulation through our forecasting model to see how the
+ ROI moves with the pricing of the offer.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -4558,6 +4830,67 @@ Conflicts with Teammates
 \end_layout
 
 \begin_layout Subsection
+Coorporate with Other Departments
+\end_layout
+
+\begin_layout Itemize
+Empathy is the capacity to understand or feel what another person is experiencin
+g from within the other being's frame of reference, i.e., the capacity to
+ 
+\series bold
+place oneself in another's position.
+\end_layout
+
+\begin_layout Itemize
+Build your reputation of 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+responsible & responsive
+\end_layout
+
+\begin_layout Itemize
+proactive
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+How to set Priority in Work
+\end_layout
+
+\begin_layout Standard
+Depends on 
+\end_layout
+
+\begin_layout Itemize
+when is the deadline.
+\end_layout
+
+\begin_layout Itemize
+work overtime! 
+\end_layout
+
+\begin_layout Subsection
+How to Reject the additional work
+\end_layout
+
+\begin_layout Enumerate
+work overtime: if this thing is really important and I can finish between
+ 1am I'm OK with it.
+\end_layout
+
+\begin_layout Enumerate
+Reject it very politely.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+You dont want to leave a bad reputation.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
 Why A Company?
 \end_layout
 
@@ -4890,7 +5223,7 @@ Elon Must:
 \begin_layout Itemize
 
 \series bold
-Thinks like physicist.
+His Famouse quote: Thinks like physicist.
  
 \end_layout
 
