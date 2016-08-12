@@ -167,146 +167,6 @@ cluster
 recommendation
 \end_layout
 
-\begin_layout Section
-B
-\end_layout
-
-\begin_layout Standard
-Job Description Senior Quantitative Finance Analyst - 16031020 Description
- 
-\end_layout
-
-\begin_layout Standard
-Responsible for independently conducting quantitative analytics and complex
- modeling projects.
- Leads efforts in development of new models, analytic processes or system
- approaches.
- Creates documentation for all activities and may work with technology staff
- in design of any system to run models developed.
- Incumbents possess excellent quantitative/analytic skills and are able
- to influence strategic direction, as well as develop tactical plans.
-\end_layout
-
-\begin_layout Standard
-General responsibilities include:
-\end_layout
-
-\begin_layout Standard
-- Reviewing conceptual soundness of models, mathematical specification,
- underlying assumptions and limitations, variable selection, data.
-\end_layout
-
-\begin_layout Standard
-- Assessing adequacy of model documentation.
-\end_layout
-
-\begin_layout Standard
-- Reviewing empirical evidence.
-\end_layout
-
-\begin_layout Standard
-- Challenging model assumptions and approach as needed.
-\end_layout
-
-\begin_layout Standard
-- Developing code to replicate results and conduct independent testing.
-\end_layout
-
-\begin_layout Standard
-- Assessing quality of model outputs through back testing against realized
- outcomes, benchmarking against alternative models, sensitivity tests around
- assumptions and limitations, and other relevant tests.
-\end_layout
-
-\begin_layout Standard
-- Verifying model implementation.
-\end_layout
-
-\begin_layout Standard
-- Assessing model accuracy, conservatism and quantitative compliance with
- regulations.
-\end_layout
-
-\begin_layout Standard
-- Conducting annual review and ongoing monitoring of existing models.
-\end_layout
-
-\begin_layout Standard
-- Writing thorough technical reports for distribution and presentation to
- model developers, senior management, audit and bank regulators.
- Qualifications 
-\end_layout
-
-\begin_layout Standard
-Required Skills
-\end_layout
-
-\begin_layout Standard
-- Master's or PhD degree in statistics, mathematics, finance, engineering,
- physics, economics or related field.
-\end_layout
-
-\begin_layout Standard
-- Background and experience in one of the following:
-\end_layout
-
-\begin_layout Standard
-* 
-\series bold
-PD/EAD/LGD credit risk models for retail, wholesale and/or structured products
- under the Advanced Approaches (A-IRB, SFA)
-\end_layout
-
-\begin_layout Standard
-* Market risk models for economic capital estimation
-\end_layout
-
-\begin_layout Standard
-- Knowledge of the 
-\series bold
-Basel
-\series default
- regulatory framework, US Basel III Final Rule, BCC 13-5, 13-7, 14-1, 14-3
- and other regulatory requirements, familiarity with OCC 2011-12 / SR 11-7.
-\end_layout
-
-\begin_layout Standard
-- Expertise in econometrics, time series, classification, decision modeling,
- statistical distributions, Monte-Carlo simulation.
-\end_layout
-
-\begin_layout Standard
-- Strong knowledge of financial instruments and financial risk management
- principles.
-\end_layout
-
-\begin_layout Standard
-- Deep understanding and knowledge of 
-\series bold
-model performance measures.
-\end_layout
-
-\begin_layout Standard
-- Minimum 7 years of experience in financial risk modeling or validation,
- computational, engineering or scientific research or other model development
- roles using SAS, R, MATLAB, SQL or any other scientific/mathematical programmin
-g environment.
-\end_layout
-
-\begin_layout Standard
-- Experience in quantitative risk management in a financial institution,
- vendor or regulator.
-\end_layout
-
-\begin_layout Standard
-- Ability to communicate clearly and effectively.
-\end_layout
-
-\begin_layout Standard
-- Ability to produce high quality technical documentation.
- 
-\end_layout
-
 \begin_layout Part
 Algebra
 \end_layout
@@ -388,7 +248,9 @@ May miss certain key conditions, which require you to ask to the interviewer.
 
 \begin_layout Itemize
 All questions in infinite site/stages without memory cyou an be solved in
- an Recursive Way
+ an 
+\series bold
+Recursive Way
 \end_layout
 
 \begin_layout Itemize
@@ -730,7 +592,15 @@ Unordered
 If you choose a bunch of unqiue stuff in one time and the order inside them
  didn't matter, then also use 
 \series bold
-Unordered
+Unordered, or using the ordered way but divided 
+\begin_inset Formula $Y!$
+\end_inset
+
+ where 
+\begin_inset Formula $Y$
+\end_inset
+
+ is the sample size.
 \end_layout
 
 \begin_layout Itemize
@@ -959,7 +829,7 @@ I choose 3 cards from the standard deck of cards.
 \begin_deeper
 \begin_layout Itemize
 If you choose a bunch of unqiue stuff in one time and the order inside them
- didn't matter, then also use Unordered
+ didn't matter, then also use Unordered.
 \end_layout
 
 \end_deeper
@@ -1006,7 +876,7 @@ An urn consists of 30 red balls and 70 green balls.
 
 \end_deeper
 \begin_layout Enumerate
-What is the probability of 5 people with different ages sitting in ascending
+What is the probability of 5 people wi th different ages sitting in ascending
  or descending order at a round table.
 \end_layout
 
@@ -1017,7 +887,11 @@ Unique in denomenator!
 
 \end_deeper
 \begin_layout Enumerate
-We toss a fair coin n times.
+
+\series bold
+HARD:
+\series default
+ We toss a fair coin n times.
  A k-streak of flips is said to occur starting at toss i, if the outcome
  of all the k flips starting from i th flip is the same.
  For example, for the sequence HTTTHH, there is a 2-streak occurring at
@@ -1029,7 +903,11 @@ We toss a fair coin n times.
 \end_layout
 
 \begin_layout Enumerate
-You flip a coin 10 times.
+
+\series bold
+HARD:
+\series default
+ You flip a coin 10 times.
  What is the probability of only three heads occurring? What is the probability
  of three heads occurring in a row (which means all others are T)? (Actual
  interview question, J.P.
@@ -1050,7 +928,7 @@ A casino offers a simple card game.
  You pick up a card from the deck and the dealer picks another one without
  replacement.
  If you have a larger number, you win; if the numbers are equal or yours
- is smaller, th~ house win as in all other casinos, the house always has
+ is smaller, the house win as in all other casinos, the house always has
  better odds of winning.
  What is your probability of winning?
 \end_layout
@@ -1156,8 +1034,10 @@ Total tosses = n.
 \end_layout
 
 \begin_layout Enumerate
-8/210.
- ????
+\begin_inset Formula $C_{8}^{1}/2^{10}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -1176,11 +1056,42 @@ choose(52,1) * choose(48,1) /2 / choose(52,2) *0.5 OR choose(13,2)*4*4/ choose(5
 \end_layout
 
 \begin_layout Enumerate
-Hands with a four-of·a -kiod: 13x48 =624.
- Hands wit~ a Full House: 13x 4x 12x6= 3, 744.
+Hands with a four-of·a -kiod: 13x48 =624 (choose(13,1) * choose(12,1) *
+ 4 ) Hands wit~ a Full House: 13x 4x 12x6= 3, 744.
  Hands with Two Pairs· 78x6x6x44 = 123,552.
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+分步问题每一步都是unqiue的，不必除以
+\begin_inset Formula $Y!$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{13}^{1}48$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{13}^{2}C_{4}^{3}C_{4}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{13}^{2}C_{4}^{2}C_{4}^{2}\times44$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 组内顺序不重要则除以factorial(group size)
 \end_layout
@@ -1197,7 +1108,8 @@ Hands with a four-of·a -kiod: 13x48 =624.
 \end_layout
 
 \begin_layout Itemize
-N = 52!/13!/13!13!/13!
+N = 52!/13!/13!13!/13! OR choose(52,13) * choose(39,13) * choose(26,13)
+ 
 \end_layout
 
 \end_deeper
@@ -1210,9 +1122,13 @@ What is the probability that each of them get an Ace
 4! * 48! / 12! / 12! / 12! / 12! / N
 \end_layout
 
+\begin_layout Itemize
+OR: factorial(4) * lchoose(48,12) * choose(36,12) * choose(24,12) 
+\end_layout
+
 \end_deeper
 \begin_layout Subsection
-Inclusion–exclusion principle 
+Inclusion–exclusion principle
 \end_layout
 
 \begin_layout Itemize
@@ -1291,6 +1207,22 @@ If
 \end_inset
 
  happens.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\left|A_{i}\cap A_{j}\right|$
+\end_inset
+
+ means 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+ happen, the others we don't care at all.
+ so no need to worry other events.
 \end_layout
 
 \begin_layout Standard
@@ -1524,117 +1456,6 @@ Case 2: Step Solve! 列示子即可
 \end_layout
 
 \end_deeper
-\begin_layout Itemize
-Suppose you're on a game show, and you're given the choice of three doors:
- Behind one door is a car; behind the others, goats.
- You pick a door, say No.
- 1, and the host, who knows what's behind the doors, opens another door,
- say No.
- 3, which has a goat.
- He then says to you, "Do you want to pick door No.
- 2?" Is it to your advantage to switch your choice?
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Consider the events C1, C2 and C3 indicating the car is behind respectively
- door 1, 2 or 3.
- All these 3 events have probability 1 / 3.
-\end_layout
-
-\begin_layout Itemize
-The player initially choosing door 1 is described by the event X1.
- As the first choice of the player is independent of the position of the
- car, also the conditional probabilities are P(Ci|X1) = 1 / 3 .
- The host opening door 3 is described by H3.
- For this event it holds:
-\end_layout
-
-\begin_layout Itemize
-So there are three kinds of events: 
-\begin_inset Formula $C_{i}$
-\end_inset
-
- is the car in 
-\begin_inset Formula $i^{th}$
-\end_inset
-
- door, 
-\begin_inset Formula $H_{3}$
-\end_inset
-
- is host opens 
-\begin_inset Formula $3rd$
-\end_inset
-
- door, 
-\begin_inset Formula $X1$
-\end_inset
-
- is you choose first doo
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula ${\displaystyle {\begin{aligned}P(H3|C1,X1) & ={\tfrac{1}{2}}\\
-P(H3|C2,X1) & =1\\
-P(H3|C3,X1) & =0
-\end{aligned}
-}}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $\mathbf{{\displaystyle {\begin{aligned}P(C2|H3,X1) & ={\frac{P(H3|C2,X1)P(C2\cap X1)}{P(H3\cap X1)}}\\
- & ={\frac{P(H3|C2,X1)P(C2\cap X1)}{P(H3|C1,X1)P(C1\cap X1)+P(H3|C2,X1)P(C2\cap X1)+P(H3|C3,X1)P(C3\cap X1)}}\\
- & ={\frac{P(H3|C2,X1)}{P(H3|C1,X1)+P(H3|C2,X1)+P(H3|C3,X1)}}\\
- & ={\frac{1}{{\frac{1}{2}}+1+0}}={\frac{2}{3}}
-\end{aligned}
-}}}$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-What are the probabilities of getting hands with four·of-a-kind (four of
- the five cards with the same value)? Hands with a full house (three cards
- of one value and two cards of another value)? Hands with two pairs?
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-分步问题每一步都是unqiue的，不必除以
-\begin_inset Formula $Y!$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $C_{13}^{1}48$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $C_{13}^{2}C_{4}^{3}C_{4}^{2}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $C_{13}^{2}C_{4}^{2}C_{4}^{2}\times44$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
 \begin_layout Subsection
 Sum of Binomial Variables
 \end_layout
@@ -1704,16 +1525,6 @@ You get two chips from the same company, and the probability that it is
 \end_layout
 
 \begin_layout Itemize
-I didn't answer this one correctly, but the interviewer helped me.
- So, if we know that probability to get good chip from good company is 0.8
- and from bad company is 0.2, and first chip in the pack is good, it translates
- to the probability of the second chip to be good 0.8*0.8=0.64 (if pack came
- from the good company), and 0.2*0.2=0.04 (if pack came from the bad company).
- And total probability that the second chip in the pack is good is a sum
- of both probabilities: 0.8*0.8 + 0.2*0.2 = 0.64+0.04 = 0.68 , or 68%.
-\end_layout
-
-\begin_layout Itemize
 68% is correct but the solution is not.
  The correct solution is: A - first chip is good; B - second chip is good.
  What we have to find is a conditional probability p(B/A) which is p(B/A)=
@@ -1747,7 +1558,7 @@ You are given 1000 coin.
 \begin_layout Itemize
 You are taking out candies one by one from a jar that has 10 red candies,
  20 blue candies, and 30 green candies in it.
- What is the probability that th~re arc at least I blue candy and l green
+ What is the probability that in the end at least I blue candy and l green
  candy lefi in the jar when you have taken out all the red candies
 \end_layout
 
@@ -1757,15 +1568,124 @@ XINFENG ZHOU P40
 \end_layout
 
 \begin_layout Itemize
-This is a Bayesian problem, not combination problem.
+Let 
+\begin_inset Formula $T_{r}$
+\end_inset
+
+ be the order number of last red ball is taken out, similarly for 
+\begin_inset Formula $T_{h}$
+\end_inset
+
+ for blue and 
+\begin_inset Formula $T_{g}$
+\end_inset
+
+ for green.
+ This is a Bayesian problem, not combination problem.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P(T_{g}=60)=30/60$
+\end_inset
+
+ (Position chooses elements: there are 60 elements to choose.
+ there are 30 of them are green, then 
+\begin_inset Formula $P(T_{g}=60)=30/60$
+\end_inset
+
+).
+ Then given 
+\begin_inset Formula $T_{g}=60$
+\end_inset
+
+ or 
+\begin_inset Formula $60th=g$
+\end_inset
+
+, among the 30 red and blue candies each candy again equally likely to be
+ the last candy, then the blue becomes the last candy is 20/30.
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula 
 \[
-P(T_{r}<T_{h}\cap T_{r}<T_{g})=P(T_{r}<T_{g}<T_{h})+P(T_{r}<T_{h}<T_{g})=\frac{30}{60}\times\frac{20}{30}+\frac{20}{60}\times\frac{30}{40}=\frac{7}{12}
+P(T_{r}<T_{h}\cap T_{r}<T_{g})=P(T_{r}<T_{h}<T_{g})+P(T_{r}<T_{g}<T_{h})=\frac{30}{60}\times\frac{20}{30}+\frac{20}{60}\times\frac{30}{40}=\frac{7}{12}
 \]
 
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Suppose you're on a game show, and you're given the choice of three doors:
+ Behind one door is a car; behind the others, goats.
+ You pick a door, say No.
+ 1, and the host, who knows what's behind the doors, opens another door,
+ say No.
+ 3, which has a goat.
+ He then says to you, "Do you want to pick door No.
+ 2?" Is it to your advantage to switch your choice?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Consider the events C1, C2 and C3 indicating the car is behind respectively
+ door 1, 2 or 3.
+ All these 3 events have probability 1 / 3.
+\end_layout
+
+\begin_layout Itemize
+The player initially choosing door 1 is described by the event X1.
+ As the first choice of the player is independent of the position of the
+ car, also the conditional probabilities are P(Ci|X1) = 1 / 3 .
+ The host opening door 3 is described by H3.
+ For this event it holds:
+\end_layout
+
+\begin_layout Itemize
+So there are three kinds of events: 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ is the car in 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ door, 
+\begin_inset Formula $H_{3}$
+\end_inset
+
+ is host opens 
+\begin_inset Formula $3rd$
+\end_inset
+
+ door, 
+\begin_inset Formula $X1$
+\end_inset
+
+ is you choose first doo
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula ${\displaystyle {\begin{aligned}P(H3|C1,X1) & ={\tfrac{1}{2}}\\
+P(H3|C2,X1) & =1\\
+P(H3|C3,X1) & =0
+\end{aligned}
+}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathbf{{\displaystyle {\begin{aligned}P(C2|H3,X1) & ={\frac{P(H3|C2,X1)P(C2\cap X1)}{P(H3\cap X1)}}\\
+ & ={\frac{P(H3|C2,X1)P(C2\cap X1)}{P(H3|C1,X1)P(C1\cap X1)+P(H3|C2,X1)P(C2\cap X1)+P(H3|C3,X1)P(C3\cap X1)}}\\
+ & ={\frac{P(H3|C2,X1)}{P(H3|C1,X1)+P(H3|C2,X1)+P(H3|C3,X1)}}\\
+ & ={\frac{1}{{\frac{1}{2}}+1+0}}={\frac{2}{3}}
+\end{aligned}
+}}}$
 \end_inset
 
 
@@ -2008,7 +1928,7 @@ The total number of cards that need to be turned over in order to see the
 \begin_layout Standard
 \begin_inset Formula 
 \[
-E(X)=1+\sum_{i=1}^{48}(X_{i})
+E(X)=1+\sum_{i=1}^{48}E(X_{i})
 \]
 
 \end_inset
@@ -2599,6 +2519,20 @@ assume you are at the position
 You should be the 20th person in line.
 \end_layout
 
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Itemize
 A stick is cut twice randomly.
@@ -2888,6 +2822,8 @@ Two players A and B, an 'alternattvely toss a fair com, (A tosses the coin
 
 \begin_layout Itemize
 要想对称的情况！
+\series bold
+A's win is B's lost.
 \end_layout
 
 \begin_layout Itemize
@@ -4317,7 +4253,7 @@ Magnitude of effect (effect size): the standardized difference between
 Sample size.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Wald Theory
 \end_layout
 
@@ -4366,6 +4302,154 @@ Roll a six-sided die.
 
 \end_layout
 
+\begin_layout Section
+Inclusion–exclusion principle
+\end_layout
+
+\begin_layout Itemize
+The this rule states that it is hard to calculate 
+\begin_inset Quotes eld
+\end_inset
+
+within N events, at least one of them correctt
+\begin_inset Quotes erd
+\end_inset
+
+, but it relatively easy to calculate 
+\begin_inset Quotes eld
+\end_inset
+
+both of them are correct, without considering the correctness of other elements.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $|A\cup B|=|A|+|B|-|A\cap B|$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $|A\cup B\cup C|=|A|+|B|+|C|-|A\cap B|-|A\cap C|-|B\cap C|+|A\cap B\cap C|$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\biggl|\bigcup_{{i=1}}^{n}A_{i}\biggr|=\sum_{{i=1}}^{n}\left|A_{i}\right|-\sum_{1\leq i<j\leq n}\left|A_{i}\cap A_{j}\right|+\sum_{{1\leq i<j<k\leq n}}\left|A_{i}\cap A_{j}\cap A_{k}\right|-\ldots+\left(-1\right)^{{n-1}}\left|A_{1}\cap\cdots\cap A_{n}\right|.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+start from iniEnd at 
+\begin_inset Formula $n-1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+ means the 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+ card is in its correct position.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\biggl|\bigcup_{{i=1}}^{n}A_{i}\biggr|$
+\end_inset
+
+ means at least one of 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+ happens.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\left|A_{i}\cap A_{j}\right|$
+\end_inset
+
+ means 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+ happen, the others we don't care at all.
+ so no need to worry other events.
+\end_layout
+
+\begin_layout Standard
+Q
+\end_layout
+
+\begin_layout Itemize
+You're sending job applications to 5 firms: Morgan Stanley, Lehman Brothers,
+ UBS.
+ Goldman Sachs.
+ and Merrill Lynch.
+ You have 5 envelopes on the table neatly typed with names and addresses
+ of people at these 5 finns.
+ You even have 5 cover letters personalized to each of these firms.
+ Your 3-year-old tried to be helpful and stuffed each cover letter into
+ each of the envelopes for you.
+ Lnfortunately she randomly put letters into envelopes without realizing
+ that the letters are personalized.
+ What is the probability that all 5 cover letters are mailed to the wrong
+ firms?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+11/30 (p36 XINFENG ZHOU)
+\end_layout
+
+\begin_layout Itemize
+1-
+\begin_inset Formula $\biggl|\bigcup_{{i=1}}^{n}A_{i}\biggr|=1-\left(\sum\frac{1}{5}-C_{5}^{2}\frac{1}{5}\frac{1}{4}+C_{5}^{3}\frac{1}{5}\frac{1}{4}\frac{1}{3}-C_{5}^{4}\frac{1}{5!}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+1 - (1 - choose(5,2) / 20 + choose(5,3)/60 -   5 /factorial(5) + 1/factorial(5))
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Measure of statistical dispersion
 \end_layout
