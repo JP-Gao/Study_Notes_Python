@@ -1966,52 +1966,6 @@ For some websites robots are thought to provide up to half the pageviews
 \end_layout
 
 \begin_layout Part
-A/B Test: IV Questions
-\end_layout
-
-\begin_layout Itemize
-which metric to value a product success
-\end_layout
-
-\begin_layout Itemize
-how to measure stickness
-\end_layout
-
-\begin_layout Itemize
-Goal of AB test: Decide the statistical significance you need and also the
- magnitude of the difference, which is the economic difference.
-\end_layout
-
-\begin_layout Itemize
-After AB test: even 95% significance still means a type 1 error.
-\end_layout
-
-\begin_layout Itemize
-Not only define the significance level (for type 1 error), also predefine
- the power of test (for type 2 error)
-\end_layout
-
-\begin_layout Itemize
-multivariate testing: need more data!
-\end_layout
-
-\begin_layout Itemize
-A/B test didn't answer why/casuality.
-\end_layout
-
-\begin_layout Itemize
-After you get AB test result, check the time series result to see any annomelies.
- also check whetehr the profiles of two samples are identically distributed.
- e.
-\end_layout
-
-\begin_layout Standard
-Significance: If the statistical test returns significant, then you conclude
- that the effect is unlikely to arise from random chance alone.
- 
-\end_layout
-
-\begin_layout Part
 A/B Test Math
 \end_layout
 
@@ -2861,6 +2815,52 @@ The choice of OEC must be made in advance.
  When running experiments, it is important to decide in advance on the OEC
  (a planned comparison); otherwise, there is an increased risk of finding
  what appear to be significant results by chance (familywise type I error)
+\end_layout
+
+\begin_layout Section
+A/B Test: IV Questions
+\end_layout
+
+\begin_layout Itemize
+which metric to value a product success
+\end_layout
+
+\begin_layout Itemize
+how to measure stickness
+\end_layout
+
+\begin_layout Itemize
+Goal of AB test: Decide the statistical significance you need and also the
+ magnitude of the difference, which is the economic difference.
+\end_layout
+
+\begin_layout Itemize
+After AB test: even 95% significance still means a type 1 error.
+\end_layout
+
+\begin_layout Itemize
+Not only define the significance level (for type 1 error), also predefine
+ the power of test (for type 2 error)
+\end_layout
+
+\begin_layout Itemize
+multivariate testing: need more data!
+\end_layout
+
+\begin_layout Itemize
+A/B test didn't answer why/casuality.
+\end_layout
+
+\begin_layout Itemize
+After you get AB test result, check the time series result to see any annomelies.
+ also check whetehr the profiles of two samples are identically distributed.
+ e.
+\end_layout
+
+\begin_layout Standard
+Significance: If the statistical test returns significant, then you conclude
+ that the effect is unlikely to arise from random chance alone.
+ 
 \end_layout
 
 \begin_layout Section
