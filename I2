@@ -3415,6 +3415,11 @@ When you are talking a loss curve, that is the loss dollar rate for 60 months
 Splines or moving average smooth lines doesn't work here because:
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+They may fit the traning data faily well, but suffers overfitting problem.
+\end_layout
+
 \begin_layout Enumerate
 Especially this product launched since 2013, so at that time we didn't have
  long enough data to get a stable stable curve.
@@ -3429,10 +3434,13 @@ ally to fit different risk groups.
 \end_layout
 
 \end_deeper
+\end_deeper
 \begin_layout Standard
-The way we solve this problem is, we will not try forecast the whole life
- of the product at once, instead, we biuld a model to forecast only one
- month ahead.
+The way we solve this problem is, we will not 
+\series bold
+try forecast the whole life of the product at once
+\series default
+, instead, we biuld a model to forecast only one month ahead.
  
 \end_layout
 
@@ -3463,7 +3471,7 @@ The dollar loss rate is determined by the probability of charge off, but
 \begin_deeper
 \begin_layout Enumerate
 That's why you need to predict balance, which means you have to predict
- the payment.
+ the payment..
  
 \end_layout
 
@@ -3673,6 +3681,29 @@ So you see this kind of job really helps you understand the business, understand
 \end_layout
 
 \begin_layout Subsection
+CLI Optimization
+\end_layout
+
+\begin_layout Standard
+We first do the segmentation of customers based on their behavior and risk.
+ 
+\end_layout
+
+\begin_layout Itemize
+For example, if a customer just uses our card for gas and grocery and restaurant
+, and payback in full every month, then he didn't need the line increase.
+\end_layout
+
+\begin_layout Itemize
+But if the customer keeps 90% balance in our card all the time, that means
+ an incremental increase of his limit will
+\series bold
+ induce
+\series default
+ him to carry on more balances on us, so incrementally, we make more money.
+\end_layout
+
+\begin_layout Subsection
 Project: Marketing Campaign
 \end_layout
 
@@ -3689,37 +3720,50 @@ We are supporting role
 \series bold
 Background
 \series default
-: everymonth we send out direct mails, emails to certain group of customers
- to invite them to apply our credit cards.
+: everymonth we send out direct mails, emails to certain group of potential
+ customers to invite them to apply our credit cards.
  
 \end_layout
 
 \begin_layout Itemize
-The first goal of this campaign is the respons rate, (which is quite similar
- with ).
- But this is not the whole story, the metric we truely cares about how much
- money we can make per customers.
+The first goal of this campaign is the 
+\series bold
+respons rate,
+\series default
+ (which is quite similar with ).
+ But 
+\series bold
+for us this is not the whole story
+\series default
+, the metric we truely cares about how much money we can make per customers.
  
 \end_layout
 
 \begin_layout Itemize
-So there are two dynamics there
+So there are two 
+\series bold
+dynamics / trade offs 
+\series default
+there
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-What segment of customers you want to target.
+What 
+\series bold
+risk segment 
+\series default
+of customers you want to target.
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-if you target the high risk customers, the response rate is high, but loss
- is high also.
-\end_layout
-
-\begin_layout Enumerate
-So our goal is there is to tweak the offer to make it looks like good, but
- actually not that good.
+if you target the high risk customers, like 
+\series bold
+low FICO & low Inocme
+\series default
+, the response rate is high, but loss is high also, because they need the
+ liquidity.
 \end_layout
 
 \end_deeper
@@ -3731,83 +3775,51 @@ how good the promotion should be.
 
 \begin_deeper
 \begin_layout Enumerate
-if the offer is too good, for example 30 thousand miles if you open the
- card, 0 APR for 12m, etc.
+if the offer is too good, for example Huge Reward if you open the card,
+ 0 APR for 12m, etc.
  profit margin will shrink.
 \end_layout
 
 \end_deeper
-\end_deeper
 \begin_layout Itemize
-We tested different colors of letters, different APR or fees etc
+So we have to balance the 
+\series bold
+overall response rate and profitability of each responders.
 \end_layout
 
 \begin_layout Itemize
-The problem is: Makring department only cares about responds rate.
- they have strong interest to go for the high risk customers and give them
- good offers.
-\end_layout
-
-\begin_layout Itemize
-We, as risk department cares about the profitbility of the the campaign.
+So our job there is 
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-But our risk team is really responsible to control the risk exposure of
- our portfolio.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-So this is an OPTIMIZATION problem in which you have to really combine the
- 
+carefully evaluate the risk dimention of customers, define how deep we want
+ to go to the 
 \series bold
-response rate 
+subprime marke
 \series default
-and 
-\series bold
-profit per customer together
-\series default
-, t
-\series bold
-o maximize the overall profit.
+t, ----- RA ROI
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Response rate 
-\begin_inset Formula $\times$
-\end_inset
-
- profit per responders.
+Define good time ROI using the recent data
 \end_layout
 
 \begin_layout Itemize
-You don't want to send out too rich offers, or send our 
+Bad time ROI using the crisis historical data.
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-So this is different from the online campaign for some Internet companies.
- They only have one-step problem -- book as many as customers as they can
- -We get a two-step problem.
- 
+and also to design the offer keep thr reponse rate same, and at the same
+ time keep our profit margin high.
+ ------- either by boosting the response rate or boosting the profitbility,
+ but you can never get both.
 \end_layout
 
-\begin_layout Standard
-But we never achieve this global optimization, because different departments
- are deeply siloed.
- Instead, we just design some minimum risk criteria, and thus any campaign
- passed that criteria, we can send out.
-\end_layout
-
-\begin_layout Itemize
-But the hard part is, this is not a one-step game, because if book too many
- customers this quarter, or this year, then next year naturally there are
- less customers to book.
-\end_layout
-
+\end_deeper
+\end_deeper
 \begin_layout Subsection
 Project: Minimum Critera
 \end_layout
@@ -3874,6 +3886,18 @@ So these are the tricks we found that we can make more money per customer
 A/B test: Tweak the Offer
 \end_layout
 
+\begin_layout Standard
+For example, if offer / pricing schedual can increase our profit margin
+ 5 percent, but drop the response rate by 1 percent, then this offer is
+ good for us.
+ 
+\end_layout
+
+\begin_layout Standard
+So we need catrefully measure the elasticity to the profitability and elasticity
+ to response rate at the same time.
+\end_layout
+
 \begin_layout Itemize
 So our goal is there is to tweak the offer to make it looks like good, but
  actually not that good.
@@ -3882,7 +3906,7 @@ So our goal is there is to tweak the offer to make it looks like good, but
 \begin_layout Itemize
 one thing we find there that the customers are not really sensitive the
  go-to-APR, which means if you increase your go-to APR from 18% to 22%,
- the response rate is didn't drop at all.
+ the response rate didn't drop too much.
  
 \end_layout
 
@@ -3894,6 +3918,14 @@ Also customers are not that customers are not that sensitive to the duration
 
 \begin_layout Subsection
 Optimization
+\end_layout
+
+\begin_layout Itemize
+Response rate 
+\begin_inset Formula $\times$
+\end_inset
+
+ profit per responders.
 \end_layout
 
 \begin_layout Enumerate
@@ -3935,7 +3967,7 @@ Then we run the simulation through our forecasting model to see how the
 \end_layout
 
 \begin_layout Subsection
-Adverse Selection.
+Adverse Selection
 \end_layout
 
 \begin_layout Subsubsection*
@@ -5390,6 +5422,10 @@ Try different things/ Challenge: That challenges can create passion, d,
 Q&A 
 \end_layout
 
+\begin_layout Section
+Banking
+\end_layout
+
 \begin_layout Subsubsection
 Product: Regulation Burden
 \end_layout
@@ -5482,6 +5518,20 @@ Not because your model is not robust or sounded, just because they don't
 In my case, I'm doing loss forecasting for marketing.
  They question my model only when the loss forecasting is too high and kill
  their campaign.
+\end_layout
+
+\begin_layout Section
+DS
+\end_layout
+
+\begin_layout Itemize
+How you interact with Engineer? Do you biuld protatype models and ship them
+ to Engineer and they code them in a scalable way into the system
+\end_layout
+
+\begin_layout Itemize
+For this particular role, how do you see the difference between a data scientist
+ and data analyst.
 \end_layout
 
 \end_body
