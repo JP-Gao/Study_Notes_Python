@@ -171,24 +171,43 @@ signup? (i.e., for any month, what percentage of signups went on to complete a
          trip within 30 days of their signup date?)
 
 */
-
-create table Q5 as
 select 
-    sum(u.userid = t.client_id) / count(distinct u.userid) as conv_rate
+u.month_signup,
+sum(case when 
+      u.usersid = t.client_id and 
+      t.request_at between u.creationtime and u.creationtime + interval '30 days'
+    then 1 else 0 end)::float / count(distinct u.usersid)::float as conv_rate,
     
-from trips as t
+count(distinct u.usersid) as n_signup_users,
+count(distinct t.client_id) as n_complete_users,
+sum(case when 
+      u.usersid = t.client_id and 
+      t.request_at between u.creationtime and u.creationtime + interval '30 days'
+    then 1 else 0 end) as active_in_30
+
+from (
+  select 
+    t.client_id,
+    min(t.request_at) as request_at
+  from trips  as t
+  where t.status = 'completed'
+  group by client_id
+  ) as t
+  
 full join (
   select 
-  usersid, 
-  extract(month from min(creationtime)) as month_signup , 
-  min(creationtime) as creationtime
+    usersid, 
+    extract(month from min(creationtime)) as month_signup, /*min() to prevent dirty data*/
+    min(creationtime) as creationtime
   from users
-  group by userid  /*insure uniqueness of users*/
   where role = 'client'
+  group by usersid  /*insure uniqueness of users*/
 ) as u
-where t.status = 'completed' and 
-t.request_at between u.creationtime and u.creationtime + interval '30 days'
-group by month_signup;
+
+on t.client_id = u.usersid
+group by u.month_signup
+
+;
 
 
 
