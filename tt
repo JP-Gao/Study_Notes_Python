@@ -27,38 +27,41 @@ group by request_device;
 
 create table Q2_1 as
 select 
-count(distinct t.client_id) as trips_per_client
+count(distinct t.client_id) as total_client
 
 from trips as t
 /*inner join*/
 inner join (
   select usersid, sum(1) as freq_reg
   from users
-  group by userid 
-  where role = 'client' and banned = FALSE /*insure uniqueness of users*/
+  where role = 'client' and banned = FALSE 
+  group by usersid /*insure uniqueness of users*/
+
 ) as u
 
 on t.client_id = u.usersid 
-where t.status = 'completed' and t.city = 8
+where t.status = 'completed' and t.city_id = 8 and
 		extract(month from request_at) = 10 and 
 		extract(year from request_at) = 2014;
 
 
-
 create table Q2_2 as
 select 
-t.client_id
-count(distinct t.id) as trips_per_client,
+t.client_id,
+count(distinct t.id) as trips_per_client
 
 from trips as t
+/*inner join*/
 inner join (
   select usersid, sum(1) as freq_reg
   from users
-  group by userid /*insure uniqueness of users*/
-  where role = 'client' and banned = FALSE
+  where role = 'client' and banned = FALSE 
+  group by usersid /*insure uniqueness of users*/
+
 ) as u
 
-where t.status = 'completed' and t.city = 8
+on t.client_id = u.usersid 
+where t.status = 'completed' and t.city_id = 8 and
 		extract(month from request_at) = 10 and 
 		extract(year from request_at) = 2014
 group by t.client_id;
@@ -98,7 +101,7 @@ on u.usersid = d.driver_id
 where t.status = 'completed' and 
 	  request_at between timestamp '9/10/2014 0:00:00'  and
 						  timestamp '9/20/2014 23:59:59' 
-	   t.city = 8;
+	   t.city_id = 8;
 
 /*==========================================================================================*/
 /*
@@ -183,3 +186,53 @@ t.request_at between u.creationtime and u.creationtime + interval '30 days'
 group by month_signup;
 
 
+
+/*==========================================================================================*/
+/*Extra Credit: Add to your statement in 2) to exclude Uber admins. Uber admins have
+an email address from @uber.com (example: ‘jsmith@uber.com’).
+*/
+
+create table extra_1
+select 
+
+count(distinct t.client_id) as total_client
+
+from trips as t
+/*inner join*/
+inner join (
+  select usersid,sum(1) as freq_reg
+  from users
+  where role = 'client' and banned = FALSE and email !~ '@uber\.com$'
+  group by usersid  /*insure uniqueness of users*/
+
+) as u
+
+on t.client_id = u.usersid 
+where t.status = 'completed' and t.city_id = 8 and
+		extract(month from request_at) = 10 and 
+		extract(year from request_at) = 2014;
+        
+        
+        
+create table extra_2
+select 
+
+t.client_id,
+count(distinct t.id) as trips_per_client
+
+from trips as t
+/*inner join*/
+inner join (
+  select usersid,sum(1) as freq_reg
+  from users
+  where role = 'client' and banned = FALSE and email !~ '@uber\.com$'
+  group by usersid  /*insure uniqueness of users*/
+
+) as u
+
+on t.client_id = u.usersid 
+where t.status = 'completed' and t.city_id = 8 and
+		extract(month from request_at) = 10 and 
+		extract(year from request_at) = 2014
+        
+group by t.client_id;
