@@ -1,85 +1,76 @@
-
-
-install.packages("rjson")
-  
-library("rjson")
-
-json_file <- "/Users/yangguodaxia/Dropbox/Tech/Ube_case_study/logins.json"
-json_data <- fromJSON(paste(readLines(json_file), collapse=""))
-
-
-head(json_data)
-class(json_data)
-
-
-
-
-
+/*==========================================================================================*/
+/*
 1. Between 12/1/2014 10:00:00 PST & 12/8/2014 17:00:00 PST, how many completed
 trips were requested on iphones in City #5? On android phones? (Hint: look at
 the trips.status column)
+*/
 
-on city 5
+/*City #5: for both iphone and Android*/
 
+create table Q1 as
 select 
-count(distinct id)
+	request_device,
+	count(distinct id) as completed_trips
 from trips as t
-where status = 'completed' and city_id = 5
-request_at between ('12/1/2014 10:00:00 PST','12/8/2014 17:00:00 PST')
-
-on Android 
-
-select 
-count(distinct id)
-from trips as t
-where status = 'completed' and request_device = 'android' and 
-request_at between ('12/1/2014 10:00:00 PST','12/8/2014 17:00:00 PST')
+where 	status = 'completed' and city_id = 5 and 
+		request_device in ('android','iphone') and  
+		request_at between timestamp '12/1/2014 10:00:00' + interval '8 hours' and  
+						   timestamp '12/8/2014 17:00:00' + interval '8 hours'
+group by request_device;
 
 
 
-
-
-2. In City #8, how many unique, currently unbanned clients completed a trip in October
+/*==========================================================================================*/
+/*2. In City #8, how many unique, currently unbanned clients completed a trip in October
 2014? Of these, how many trips did each client take?
+*/
 
-
+create table Q2_1 as
 select 
 count(distinct t.client_id) as trips_per_client
 
 from trips as t
+/*inner join*/
 inner join (
   select usersid, sum(1) as freq_reg
   from users
-  group by userid # insure uniqueness of users
-  where role = 'client' and banned = 0
+  group by userid 
+  where role = 'client' and banned = FALSE /*insure uniqueness of users*/
 ) as u
 
 on t.client_id = u.usersid 
-where t.status = 'completed' and request_at = 'October 2014' and t.city = 8;
+where t.status = 'completed' and t.city = 8
+		extract(month from request_at) = 10 and 
+		extract(year from request_at) = 2014;
 
+
+
+create table Q2_2 as
 select 
 t.client_id
-count(*) as trips_per_client,
+count(distinct t.id) as trips_per_client,
 
 from trips as t
 inner join (
   select usersid, sum(1) as freq_reg
   from users
-  group by userid # insure uniqueness of users
-  where role = 'client' and banned = 0
+  group by userid /*insure uniqueness of users*/
+  where role = 'client' and banned = FALSE
 ) as u
 
-on t.client_id = u.usersid 
-where t.status = 'completed' and request_at = 'October 2014' and t.city = 8;
+where t.status = 'completed' and t.city = 8
+		extract(month from request_at) = 10 and 
+		extract(year from request_at) = 2014
 group by t.client_id;
 
 
-
-
-3. In City #8, how many unique, currently unbanned clients completed a trip between
+/*==========================================================================================*/
+/*3. In City #8, how many unique, currently unbanned clients completed a trip between
 9/10/2014 and 9/20/2014 with drivers who started between 9/1/2014 and
-9/10/2014 and are currently banned?
+9/10/2014 and are currently banned?*/
 
+
+create table Q3_1 as
 select 
 count(distinct t.client_id) as trips_per_client
 
@@ -87,8 +78,8 @@ from trips as t
 inner join (
   select usersid, sum(1) as freq_reg
   from users
-  group by userid # insure uniqueness of users
-  where role = 'client' and banned = 0
+  group by userid /*insure uniqueness of users*/
+  where role = 'client' and banned = FALSE
 ) as u
 
 on u.usersid = t.client_id
@@ -96,86 +87,99 @@ on u.usersid = t.client_id
 inner join (
   select usersid, sum(1) as freq_reg
   from users
-  group by userid # insure uniqueness of users
-  where role = 'driver'  and banned = 1 and 
-  creationtime between '9/1/2014' and '9/10/2014'
+  group by userid /*insure uniqueness of users*/
+  where role = 'driver'  and banned = TRUE and 
+  		creationtime between timestamp '9/1/2014 0:00:00'  and 
+						  	  timestamp '9/10/2014 23:59:59'
 ) as d
 
 on u.usersid = d.driver_id
 
 where t.status = 'completed' and 
-request_at between '9/10/2014' and '9/20/2014' and
-t.city = 8;
+	  request_at between timestamp '9/10/2014 0:00:00'  and
+						  timestamp '9/20/2014 23:59:59' 
+	   t.city = 8;
 
-
-
+/*==========================================================================================*/
+/*
 4. For clients that signed up in November 2014:
-  a) How many trips from this group were requested from each of the possible
+a) How many trips from this group were requested from each of the possible
 device types (Hint: look at the trips.request_device column)?
 b) How many clients from this group have not completed a trip yet?
 
+*/
 
+create table Q4_A as
 select 
 request_device
 count(distinct t.id) as trips_per_device
-
 from trips as t
+/*use inner join here*/
 inner join (
   select usersid, sum(1) as freq_reg
   from users
-  group by userid # insure uniqueness of users
-  where role = 'client' and creationtime in 'Nov 2014'
+  where role = 'client' and 		
+		extract(month from creationtime) = 11 and 
+		extract(year from creationtime) = 2014
+  group by userid /*insure uniqueness of users*/
 ) as u
 on u.usersid = t.client_id
 where t.status = 'completed'
 group by t.request_device;
 
+/*b*/
 
-b
-
+create table Q4_B as
 select 
-count(distinct u.usersid) as client_no_trip
+count(distinct u.userid) as client_no_trip
 
-from trips as t
-full join (
-  select usersid, sum(1) as freq_reg
+from ( 
+  select usersid, sum(1) as freq_reg /*insure uniqueness of users*/
   from users
-  group by userid # insure uniqueness of users
-  where role = 'client' and creationtime in 'Nov 2014'
+  group by userid 
+  where role = 'client' and 		
+		extract(month from request_at) = 11 and 
+		extract(year from request_at) = 2014
 ) as u
-on u.usersid = t.client_id
-where u.user_id is NULL;
 
+left join (
+	select  
+		id,
+		client_id,
+		sum(1) as ntrips /*insure uniqueness of trips*/
+	from trips as t
+	group by id, client_id
+	where t.status = 'completed'
+	)
+as t 
+on u.usersid = t.client_id
+/*this is the key*/
+where t.client_id is NULL;
+
+/*==========================================================================================*/
+/*
 5. What is the 30-day rate of conversion from client signup to active rider by month of
 signup? (i.e., for any month, what percentage of signups went on to complete a
          trip within 30 days of their signup date?)
 
+*/
 
+create table Q5 as
 select 
-    sum(u.userid = t.client_id) / 
-      count(distinct u.userid) as conv_rate
+    sum(u.userid = t.client_id) / count(distinct u.userid) as conv_rate
     
 from trips as t
 full join (
-  select usersid, 
-  min(creationtime) as creationtime ,
-  sum(1) as freq_reg
+  select 
+  usersid, 
+  extract(month from min(creationtime)) as month_signup , 
+  min(creationtime) as creationtime
   from users
-  group by userid # insure uniqueness of users
+  group by userid  /*insure uniqueness of users*/
   where role = 'client'
 ) as u
 where t.status = 'completed' and 
-request_at between u.creationtime and u.creationtime + 30;
-
-
-Extra Credit: Add to your statement in 2) to exclude Uber admins. Uber admins have
-an email address from @uber.com (example: ‘jsmith@uber.com’).
-
-
-
-
-
-
-
+t.request_at between u.creationtime and u.creationtime + interval '30 days'
+group by month_signup;
 
 
