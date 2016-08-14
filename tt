@@ -27,7 +27,7 @@ group by request_device;
 
 create table Q2_1 as
 select 
-count(distinct t.client_id) as total_client
+count(distinct t.client_id) as total_client 
 
 from trips as t
 /*inner join*/
@@ -48,7 +48,7 @@ where t.status = 'completed' and t.city_id = 8 and
 create table Q2_2 as
 select 
 t.client_id,
-count(distinct t.id) as trips_per_client
+count(distinct t.id) as trips_per_client /* to prevent dirty data: t.id may not be unique?*/
 
 from trips as t
 /*inner join*/
@@ -75,14 +75,16 @@ group by t.client_id;
 
 create table Q3_1 as
 select 
-count(distinct t.client_id) as trips_per_client
+/*t.*
+*/
+count(distinct t.client_id) as n_clients
 
 from trips as t
 inner join (
   select usersid, sum(1) as freq_reg
   from users
-  group by userid /*insure uniqueness of users*/
   where role = 'client' and banned = FALSE
+  group by usersid /*insure uniqueness of users*/
 ) as u
 
 on u.usersid = t.client_id
@@ -90,18 +92,18 @@ on u.usersid = t.client_id
 inner join (
   select usersid, sum(1) as freq_reg
   from users
-  group by userid /*insure uniqueness of users*/
   where role = 'driver'  and banned = TRUE and 
-  		creationtime between timestamp '9/1/2014 0:00:00'  and 
-						  	  timestamp '9/10/2014 23:59:59'
+  		creationtime between timestamp '9/1/2014 0:00:00' and timestamp '9/10/2014 23:59:59'
+  group by usersid /*insure uniqueness of users*/
 ) as d
 
-on u.usersid = d.driver_id
+on d.usersid = t.driver_id
 
 where t.status = 'completed' and 
 	  request_at between timestamp '9/10/2014 0:00:00'  and
-						  timestamp '9/20/2014 23:59:59' 
+						  timestamp '9/20/2014 23:59:59'  and
 	   t.city_id = 8;
+
 
 /*==========================================================================================*/
 /*
@@ -114,17 +116,18 @@ b) How many clients from this group have not completed a trip yet?
 
 create table Q4_A as
 select 
-request_device
+request_device,
 count(distinct t.id) as trips_per_device
 from trips as t
 /*use inner join here*/
 inner join (
-  select usersid, sum(1) as freq_reg
+  select  usersid, 
+          sum(1) as freq_reg
   from users
   where role = 'client' and 		
 		extract(month from creationtime) = 11 and 
 		extract(year from creationtime) = 2014
-  group by userid /*insure uniqueness of users*/
+  group by usersid /*insure uniqueness of users*/
 ) as u
 on u.usersid = t.client_id
 where t.status = 'completed'
@@ -134,15 +137,16 @@ group by t.request_device;
 
 create table Q4_B as
 select 
-count(distinct u.userid) as client_no_trip
+/* * */
+count(distinct u.usersid) as client_no_trip
 
 from ( 
   select usersid, sum(1) as freq_reg /*insure uniqueness of users*/
   from users
-  group by userid 
   where role = 'client' and 		
-		extract(month from request_at) = 11 and 
-		extract(year from request_at) = 2014
+		extract(month from creationtime) = 11 and 
+		extract(year from creationtime) = 2014
+  group by usersid 
 ) as u
 
 left join (
@@ -151,13 +155,14 @@ left join (
 		client_id,
 		sum(1) as ntrips /*insure uniqueness of trips*/
 	from trips as t
-	group by id, client_id
 	where t.status = 'completed'
+  	group by id, client_id
 	)
 as t 
 on u.usersid = t.client_id
-/*this is the key*/
+/*this is the key: a NULL client_id mean UN0completed, or not appear in the trips data at all */
 where t.client_id is NULL;
+
 
 /*==========================================================================================*/
 /*
