@@ -1,725 +1,228 @@
----
-title: "Uber Data Science Case Study"
-author: "Fan Yang"
-date: "August 15, 2016"
-output: 
-  pdf_document:
-    number_sections: yes
-
----
-
-
-\tableofcontents{}
-
-
-
-```{r load_packages, include = F }
-
-## Load =================
-
-# Pakcages we will use:
-cat("\n")
-list.of.packages <-
-  c(
-    
-    # visualization
-    "ggplot2","scales",
-    
-    # regular expression
-    "stringr",
-    
-    # data maniputaltion
-    "reshape","reshape2","data.table","plyr","dplyr","magrittr","DataCombine","rjson",
-    
-    # some functions in dplyr are duplicate in plyr, and we want to use functions in dplyr
-    # so load plyr first and then let dplyr to mask it.
-    
-    # panel and cross sectional data
-    # "plm","AER","censReg",'MASS',
-    
-    # model 
-    'linear.tools',
-    # time series
-    "lubridate", "zoo","tseries",
-    
-    # literature programming & code style
-    "knitr","formatR",'rmarkdown'# 'yaml', 'htmltools', 'caTools',"xtable",
-    
-    # Computing on the Language
-    # "pryr", "gtools","lazyeval"
-    
-  )
-
-cat("Pakcages we will use : \n")
-print(list.of.packages)
-
-cat("\n \n check new packages that this computer did not install before \n")
-
-new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-
-
-if(length(new.packages)) {
-  cat("\n \n download & install new packages \n")
-  install.packages(new.packages)
-}
-
-
-cat("\n \n load packages to R \n")
-for (Library in list.of.packages) library(Library,character.only = T)
-
-
-opts_chunk$set(
-	cache=FALSE,
-	fig.width=7, 
-	fig.height=4.2,
-	message=F,
-	error=F,
-	warning=F,
-	tidy.opts = F,
-	tidy = F
-)
-
-```
-
-# Load, Clean and Explore the Data
-
-Load and clean data. Also add the delta of revenues for both iPhone and Android as new variables.
-```{r load_clean_data}
-setwd('/Users/yangguodaxia/Dropbox/Tech/Twitter_case_study')
-
-
-file <- "/Users/yangguodaxia/Dropbox/Tech/Ube_case_study/logins.json"
-file <- "H:/jpmDesk/Desktop/Personal/U/logins.json"
-data <- fromJSON(paste(readLines(file), collapse=""))
-
-```
-
-### Add New Features
-
-
-
-# Q1: hourly login behavior
-
-
-```{r}
-ggplot(data_day_hour) + geom_line(aes(x = time_by_hour, y = freq)) + 
-  labs(title = 'hourly login', x = 'date and hour', y = 'sum of freq')
-
-data_day_hour %>% group_by(hour,weekday) %>% summarise(freq= sum(freq)) %>% 
-  ggplot(.) + geom_line(aes(x = hour, y = freq, color = weekday )) + 
-  geom_point(aes(x = hour, y = freq, color = weekday )) +
-  labs(y = 'sum of freq', x = 'hours in a day', title = 'sun of login, by hours + weekdays')
-
-```
-
-
-# Q2: Modelling - using Fourier Series in Possion Regression
-
-### Concepts:
-
-We assume count data follows Poission distribution, thus Possion Regression is chosen (using `log(freq)` as `y`).
-
-Also, we use Fourier Series to represent the hourly seasonality and weekday seasonal seasonality.
-
-
-
-```{r}
-interact_featuer = function(f1,f2, f1_include = T){
-  
-  feasure_set = 
-    expand.grid(f1,f2)
-  result = paste(feasure_set[,1],feasure_set[,2],sep = ":")
-  if (f1_include){
-    result = c(f1,result)
-  }
-  result
-}
-
-feature_Fourier_c = c("cos(2*pi*hour/24)","cos(2*pi*hour/24*2)","cos(2*pi*hour/24*3)","cos(2*pi*hour/24*4)")
-feature_Fourier_s = c("sin(2*pi*hour/24)","sin(2*pi*hour/24*2)","sin(2*pi*hour/24*3)","sin(2*pi*hour/24*4)")
-feature_Fourier_hour = c(feature_Fourier_s,feature_Fourier_c)
-
-
-
-feature_weekday = c("Sun","Fri","Sat")
-```
-
-### Feature Set
-
-We will list all possible feature sets below, and later throw into a variable selection algorithm (stepwise) to trim it down.
-
-
-
-
-```{r}
-data_day_hour$weekday_n = match(data_day_hour$weekday,weekdays(1:7,T))
-data_day_hour$week_cycle =(data_day_hour$weekday_n-1)*24 + data_day_hour$hour
-
-data_day_hour$week_cycle %>% unique %>% max
-
-24*7
-
-feature_trend = 'trend + I(trend)^2'
-
-feature_Fourier_week = c("sin(2*pi*week_cycle/24/7)","cos(2*pi*week_cycle/24/7)") # a week_cycle is c(0:167) hours (a week has 168 hours)
-
-feature_Fourier_hour = c("cos(2*pi*hour/24)","cos(2*pi*hour/24*2)","cos(2*pi*hour/24*3)","cos(2*pi*hour/24*4)",
-                         "sin(2*pi*hour/24)","sin(2*pi*hour/24*2)","sin(2*pi*hour/24*3)","sin(2*pi*hour/24*4)")
-
-# hourly seasonality interacted with weekday
-feature_Fourier_hour_interact =
-  interact_featuer(c(feature_Fourier,feature_Fourier_s),c("Sun","Fri","Sat"),f1_include = F)
-feature_Fourier_hour_interact
-
-
-
-
-full_formula = paste("log(freq) ~" ,
-                     paste(feature_trend,collapse = "+"),
-                     paste(feature_Fourier_week,collapse = "+"),
-                     paste(feature_Fourier_hour,collapse = "+"),
-                     paste(feature_Fourier_hour_interact,collapse = "+"),
-                     sep ="+" ,collapse = '') %>% as.formula
-
-
-
-```
-
-
-### Estimate the Model
-
-We start from Naive model, a one-term Fourier series on hours, and use stepwise to include more features from the feature set. To further prevent overfitting, we use K-fold (that means run the stepwise K times) the choose the best model.
-
-```{r}
-naive_model = lm(log(freq) ~ cos(2*pi*hour/24) + sin(2*pi*hour/24),data_day_hour)
-
-model_select = 
-  step(naive_model,scope = list(upper = full_formula))
-
-summary(model_select)
-
-```
-
-
-
-# Q3 Forecast the Next Two Weeks
-
-
-# Q4 Model Performance & Model Comparision
-
-### Model Performance
-
-### Other Models which You would have Thought of.
-
-
-# Q5 Trends or Deviations
-
-
-# Extra Credit
-
-Repeat this analysis by graphing client logins by week and/or by hour of
-day. What do you notice about client behavior?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-install.packages("rjson")
-
-library("rjson")
-
-file <- "/Users/yangguodaxia/Dropbox/Tech/Ube_case_study/logins.json"
-file <- "H:/jpmDesk/Desktop/Personal/U/logins.json"
-data <- fromJSON(paste(readLines(file), collapse=""))
-
-
-
-# Pakcages we will use:
-cat("\n")
-list.of.packages <-
-  c(
-    
-    # visualization
-    "ggplot2","scales",
-    
-    # regular expression
-    "stringr",
-    
-    # data maniputaltion
-    "reshape","reshape2","data.table","plyr","dplyr","magrittr","DataCombine","rjson",
-    
-    # some functions in dplyr are duplicate in plyr, and we want to use functions in dplyr
-    # so load plyr first and then let dplyr to mask it.
-    
-    # panel and cross sectional data
-    # "plm","AER","censReg",'MASS',
-    
-    # model 
-    'linear.tools',
-    # time series
-    "lubridate", "zoo","tseries",
-    
-    # literature programming & code style
-    "knitr","formatR",'rmarkdown'# 'yaml', 'htmltools', 'caTools',"xtable",
-    
-    # Computing on the Language
-    # "pryr", "gtools","lazyeval"
-    
-  )
-
-
-
-cat("Pakcages we will use : \n")
-print(list.of.packages)
-
-cat("\n \n check new packages that this computer did not install before \n")
-
-new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-
-
-if(length(new.packages)) {
-  cat("\n \n download & install new packages \n")
-  install.packages(new.packages)
-}
-
-
-cat("\n \n load packages to R \n")
-for (Library in list.of.packages) library(Library,character.only = T)
-
-opts_chunk$set(
-  cache=FALSE,
-  fig.width=7, 
-  fig.height=4.2,
-  message=F,
-  error=F,
-  warning=F,
-  tidy.opts = F,
-  tidy = F
-)
-
-data_ts = ymd_hms(data) %>% data.frame
-colnames(data_ts) = 'time'
-
-data_ts[,'hour'] = lubridate::hour(data_ts$time)
-data_ts[,'date'] = as.Date(data_ts$time)
-data_ts[,'month'] = month(data_ts[,'date'])
-
-data_ts[,'hour_cummu'] = interval(data_ts[1,'date'],data_ts$time) %/% hours(1)
-data_ts[,'weeks_cummu'] = interval(data_ts[1,'date'],data_ts[,'date'] ) %/% weeks(1)
-data_ts[,'day_trend'] = interval(data_ts[1,'date'],data_ts[,'date'] ) %/% days(1)
-
-data_ts[,'weekday'] = weekdays(data_ts[,'date'],abbreviate = T)
-data_ts[,'weekend_ind'] = data_ts[,'weekday'] %in% c('Sat','Sun')
-
-# people may hangout more during weekend night
-
-data_ts[,'weekend_night'] = 
-  (data_ts[,'weekday'] %in% c('Sat') & data_ts[,'hour'] %in% c(0:5,21:24)) |
-  (data_ts[,'weekday'] %in% c('Fri') & data_ts[,'hour'] %in% c(21:24)) |
-  (data_ts[,'weekday'] %in% c('Sun') & data_ts[,'hour'] %in% c(0:5))
-
-
-head(data_ts)
-
-data_ts$time %>% class
-data_ts$time_by_hour %>% class
-
-# main freq data
-
-data_day_hour = data_ts %>% 
-  group_by(weeks_cummu,weekday, date,day_trend, hour,weekend_ind, weekend_night) %>% 
-  summarise(freq = n()) %>% data.frame
-# for plot
-data_day_hour[,'time_by_hour'] = as.POSIXct(data_day_hour$date)
-hour(data_day_hour$time_by_hour) = data_day_hour$hour
-
-# for model: more weekday features
-matrix_weekday = model.matrix(freq~weekday-1,data_day_hour) %>% data.frame
-colnames(matrix_weekday) = str_replace_all(colnames(matrix_weekday),'weekday','')
-data_day_hour = cbind(data_day_hour,matrix_weekday)
-data_day_hour$Mon_to_Wed = data_day_hour$weekday %in% c('Mon','Tue','Wed')
-data_day_hour$Thu_to_Fri = data_day_hour$weekday %in% c('Thu','Fri')
-
-matrix_weekday = model.matrix(freq~weekday-1,data_day_hour) %>% data.frame
-
-
-data_day_hour$hour_cum = data_day_hour$hour +  24 * (data_day_hour$day_trend-1)
-
-
-
-unique(data_day_hour$day_trend)
-
-## Plot 
-
-ggplot(data_ts) + geom_bar(aes(x = hour)) + 
-  labs(y = 'number of logins', x = 'hours in a day', title = 'login times across a day')
-
-ggplot(data_day_hour) + geom_bar(aes(x = time_by_hour, y = freq,fill = weekend_night), stat = 'identity') + 
-  labs(y = 'number of logins\nby days and hours', x = 'days and hours',
-       title = 'login times across a day and hours') + 
-  scale_fill_manual(values = c('grey60','red'))
-
-
-# by week
-ggplot(data_ts) + geom_bar(aes(x = weeks_cummu)) + 
-  labs(y = 'number of logins', x = 'hours in a day', title = 'login times across a day')
-
-
-
-
-
-head(data_day_hour[,c('hour','hour_cum','date')],100)
-
-
-ggplot(data_day_hour) + geom_boxplot(aes(x = factor(hour), y = freq, color = weekend_ind )) + 
-  labs(y = 'number of logins', x = 'hours in a day', title = 'login times across a day')
-
-data_day_hour %>% group_by(hour,weekday) %>% summarise(freq= sum(freq)) %>% 
-  ggplot(.) + geom_line(aes(x = hour, y = freq, color = weekday )) + 
-  labs(y = 'number of logins', x = 'hours in a day', title = 'login times across a day')
-
-# data_day_hour
-
-
-data_day_hour$weekday_n = match(data_day_hour$weekday,weekdays(1:7,T))
-data_day_hour$week_cycle =(data_day_hour$weekday_n-1)*24 + data_day_hour$hour
-
-
-# Using Fourier series for a "msts" object
-
-test = fourier(taylor, K = c(3, 3))
-
-length(taylor)
-head(test)
-nrow(test)
-
-taylor.lm <- tslm(taylor ~ fourier(taylor, K = c(3, 3)))
-taylor.fcast <- forecast(taylor.lm,
-                         data.frame(fourier(taylor, K = c(3, 3), h = 270)))
-plot(taylor.fcast)
-
-
-interact_featuer = function(f1,f2, f1_include = T){
-  
-  feasure_set = 
-    expand.grid(f1,f2)
-  result = paste(feasure_set[,1],feasure_set[,2],sep = ":")
-  if (f1_include){
-    result = c(f1,result)
-  }
-  result
-}
-
-feature_Fourier_c = c("cos(2*pi*hour/24)","cos(2*pi*hour/24*2)","cos(2*pi*hour/24*3)","cos(2*pi*hour/24*4)")
-feature_Fourier_s = c("sin(2*pi*hour/24)","sin(2*pi*hour/24*2)","sin(2*pi*hour/24*3)","sin(2*pi*hour/24*4)")
-
-feature_weekday = c("Sun","Fri","Sat")
-
-
-
-full_formula = paste("log(freq) ~" ,
-                     'hour_cum + I(hour_cum)^2',
-                     paste(interact_featuer(c(feature_Fourier,feature_Fourier_s),feature_weekday),collapse = "+"),
-                     paste(feature_weekday,collapse = "+"),
-                     sep ="+" ,collapse = '') %>% as.formula
-  
-
-  
-model_select = 
-  step(lm(log(freq) ~ cos(2*pi*hour/24) + sin(2*pi*hour/24),data_day_hour),
-     scope = list(upper = full_formula))
-
-
-summary(model_select)
-
-data_day_hour$residual = test$residuals
-
-data_day_hour %>% group_by(hour,weekday) %>% summarise(residual= sum(residual)) %>%
-  subset(.,weekday %in% c('Thu','Tue','Wed','Mon')) %>%
-  ggplot(.) + geom_line(aes(x = hour, y = residual, color = weekday)) + 
-    labs(y = 'number of logins', x = 'hours in a day', title = 'login times across a day')
-
-
-data_day_hour %>% group_by(hour,weekday) %>% summarise(residual= sum(residual)) %>%
-  subset(.,weekday %in% c('Fri','Sat','Sun')) %>%
-  ggplot(.) + geom_line(aes(x = hour, y = residual, color = weekday)) + 
-  labs(y = 'number of logins', x = 'hours in a day', title = 'login times across a day')
-
-
-
-
-
-
-
-data_day_hour_hat = data_day_hour
-data_day_hour_hat$freq = predict(model_select) %>% exp
-data_day_hour_hat = 
-  rbind(data.frame(data_day_hour,type = 'actual'),
-        data.frame(data_day_hour_hat,type = 'estimate')
-        )
-
-# hour cum
-data_day_hour_hat  %>% data.frame %>% 
-  ggplot(.) + geom_line(aes(x = hour_cum, y = freq, color = type, linetype = type)) + 
-  labs(y = 'number of logins', x = 'hours in a day', title = 'login times across a day')
-
-
-
-data_day_hour_hat = data_day_hour_hat %>% group_by(hour,weekday,type) %>% summarise(freq= sum(freq))
-
-data_day_hour_hat %>% subset(.,weekday %in% c('Wed','Mon')) %>% data.frame %>% 
-  ggplot(.) + geom_line(aes(x = hour, y = freq, color = weekday, linetype = type)) + 
-  labs(y = 'number of logins', x = 'hours in a day', title = 'login times across a day')
-
-
-data_day_hour_hat %>% subset(.,weekday %in% c('Sat','Sun','Fri')) %>% data.frame %>% 
-  ggplot(.) + geom_line(aes(x = hour, y = freq, color = weekday, linetype = type)) + 
-  labs(y = 'number of logins', x = 'hours in a day', title = 'login times across a day')
-
-
-
-
-
-
-
-PROC SQL;
-
 /*==========================================================================================*/
-/*
-1. Between 12/1/2014 10:00:00 PST & 12/8/2014 17:00:00 PST, how many completed
+  /*
+  1. Between 12/1/2014 10:00:00 PST & 12/8/2014 17:00:00 PST, how many completed
 trips were requested on iphones in City #5? On android phones? (Hint: look at
 the trips.status column)
 */
-
-/*City #5: for both iphone and Android*/
+  
+  /*City #5: for both iphone and Android*/
 
 create table Q1 as
 select 
-	request_device,
-	count(distinct id) as completed_trips /*be careful with dirty data*/
-from trips as t
+request_device,
+count(distinct id) as completed_trips /*be careful with dirty data*/
+  from trips as t
 where 	status = 'completed' and city_id = 5 and 
-		request_device in ('android','iphone') and  
-		/*timezone adjust: UTC-PST*/
-		request_at between timestamp '12/1/2014 10:00:00' + interval '8 hours' and  
-						   timestamp '12/8/2014 17:00:00' + interval '8 hours'
+request_device in ('android','iphone') and  
+/*timezone adjust: UTC-PST*/
+  request_at between timestamp '12/1/2014 10:00:00' + interval '8 hours' and  
+timestamp '12/8/2014 17:00:00' + interval '8 hours'
 group by request_device;
 
 
 
 /*==========================================================================================*/
-/*2. In City #8, how many unique, currently unbanned clients completed a trip in October
+  /*2. In City #8, how many unique, currently unbanned clients completed a trip in October
 2014? Of these, how many trips did each client take?
 */
-
-create table Q2_1 as
+  
+  create table Q2_1 as
 select 
 count(distinct t.client_id) as total_client 
 
 from trips as t
 /*inner join*/
-inner join (
-  select usersid, sum(1) as freq_reg
-  from users
-  where role = 'client' and banned = FALSE 
-  group by usersid /*insure uniqueness of users*/
-
-) as u
+  inner join (
+    select usersid, sum(1) as freq_reg
+    from users
+    where role = 'client' and banned = FALSE 
+    group by usersid /*insure uniqueness of users*/
+      
+  ) as u
 
 on t.client_id = u.usersid 
 where t.status = 'completed' and t.city_id = 8 and
-		extract(month from request_at) = 10 and 
-		extract(year from request_at) = 2014;
+extract(month from request_at) = 10 and 
+extract(year from request_at) = 2014;
 
 
 create table Q2_2 as
 select 
 t.client_id,
 count(distinct t.id) as trips_per_client /* to prevent dirty data: t.id may not be unique?*/
-
-from trips as t
+  
+  from trips as t
 /*inner join*/
-inner join (
-  select usersid, sum(1) as freq_reg
-  from users
-  where role = 'client' and banned = FALSE 
-  group by usersid /*insure uniqueness of users*/
-
-) as u
+  inner join (
+    select usersid, sum(1) as freq_reg
+    from users
+    where role = 'client' and banned = FALSE 
+    group by usersid /*insure uniqueness of users*/
+      
+  ) as u
 
 on t.client_id = u.usersid 
 where t.status = 'completed' and t.city_id = 8 and
-		extract(month from request_at) = 10 and 
-		extract(year from request_at) = 2014
+extract(month from request_at) = 10 and 
+extract(year from request_at) = 2014
 group by t.client_id;
 
 /*just add 
-	where email !~ '@uber\.com$'
- in the usersid table, to exclude @uber.com
+where email !~ '@uber\.com$'
+in the usersid table, to exclude @uber.com
 */
-
-
-/*==========================================================================================*/
-/*3. In City #8, how many unique, currently unbanned clients completed a trip between
+  
+  
+  /*==========================================================================================*/
+  /*3. In City #8, how many unique, currently unbanned clients completed a trip between
 9/10/2014 and 9/20/2014 with drivers who started between 9/1/2014 and
 9/10/2014 and are currently banned?*/
-
-
-create table Q3_1 as
+  
+  
+  create table Q3_1 as
 select 
 /*t.*
-*/
-count(distinct t.client_id) as n_clients 
+  */
+  count(distinct t.client_id) as n_clients 
 
 from trips as t
 
 /*Clients*/
-inner join (
-  select usersid, 
-		 sum(1) as freq_client_reg
-  from users
-  where role = 'client' and banned = FALSE
-  group by usersid /*insure uniqueness of users*/
-) as u
+  inner join (
+    select usersid, 
+    sum(1) as freq_client_reg
+    from users
+    where role = 'client' and banned = FALSE
+    group by usersid /*insure uniqueness of users*/
+  ) as u
 
 on u.usersid = t.client_id
 
 /*Dlients*/
-inner join (
-  select usersid, 
-		 sum(1) as freq_driver_reg
-  from users
-  where role = 'driver'  and banned = TRUE and 
-  		creationtime between timestamp '9/1/2014 0:00:00' and timestamp '9/10/2014 23:59:59'
-  group by usersid /*insure uniqueness of drivers*/
-) as d
+  inner join (
+    select usersid, 
+    sum(1) as freq_driver_reg
+    from users
+    where role = 'driver'  and banned = TRUE and 
+    creationtime between timestamp '9/1/2014 0:00:00' and timestamp '9/10/2014 23:59:59'
+    group by usersid /*insure uniqueness of drivers*/
+  ) as d
 
 on d.usersid = t.driver_id
 
 where t.status = 'completed' and 
-	  request_at between timestamp '9/10/2014 0:00:00'  and
-						  timestamp '9/20/2014 23:59:59'  and
-	   t.city_id = 8;
+request_at between timestamp '9/10/2014 0:00:00'  and
+timestamp '9/20/2014 23:59:59'  and
+t.city_id = 8;
 
 
 /*==========================================================================================*/
-/*
-4. For clients that signed up in November 2014:
-a) How many trips from this group were requested from each of the possible
+  /*
+  4. For clients that signed up in November 2014:
+  a) How many trips from this group were requested from each of the possible
 device types (Hint: look at the trips.request_device column)?
 b) How many clients from this group have not completed a trip yet?
 
 */
-
-create table Q4_A as
+  
+  create table Q4_A as
 select 
 request_device,
 count(distinct t.id) as trips_per_device /*be careful with dirty data*/
-from trips as t
+  from trips as t
 /*use inner join here*/
-inner join (
-  select  usersid, 
-          sum(1) as freq_reg
-  from users
-  where role = 'client' and 		
-		extract(month from creationtime) = 11 and 
-		extract(year from creationtime) = 2014
-  group by usersid /*insure uniqueness of users*/
-) as u
+  inner join (
+    select  usersid, 
+    sum(1) as freq_reg
+    from users
+    where role = 'client' and 		
+    extract(month from creationtime) = 11 and 
+    extract(year from creationtime) = 2014
+    group by usersid /*insure uniqueness of users*/
+  ) as u
 on u.usersid = t.client_id
 /*just requested, may not be completed*/
-/*where t.status = 'completed'*/
-group by t.request_device;
+  /*where t.status = 'completed'*/
+  group by t.request_device;
 
 /*b:How many clients from this group have not completed a trip yet?*/
-
-create table Q4_B as
+  
+  create table Q4_B as
 select 
 /* * */
-count(distinct u.usersid) as client_no_trip
+  count(distinct u.usersid) as client_no_trip
 
 from ( 
   select usersid, sum(1) as freq_reg /*insure uniqueness of users*/
-  from users
+    from users
   where role = 'client' and 		
-		extract(month from creationtime) = 11 and 
-		extract(year from creationtime) = 2014
+  extract(month from creationtime) = 11 and 
+  extract(year from creationtime) = 2014
   group by usersid 
 ) as u
 
 left join (
-	select  
-		id,
-		client_id,
-		sum(1) as ntrips /*insure uniqueness of trips*/
-	from trips as t
-	where t.status = 'completed'
-  	group by id, client_id
-	)
+  select  
+  id,
+  client_id,
+  sum(1) as ntrips /*insure uniqueness of trips*/
+    from trips as t
+  where t.status = 'completed'
+  group by id, client_id
+)
 as t 
 on u.usersid = t.client_id
 /*this is the key: a NULL t.client_id from completed trip table means UNcompleted, or not appear in the trips data at all */
-where t.client_id is NULL;
+  where t.client_id is NULL;
 
 
 /*==========================================================================================*/
-/*
-5. What is the 30-day rate of conversion from client signup to active rider by month of
+  /*
+  5. What is the 30-day rate of conversion from client signup to active rider by month of
 signup? (i.e., for any month, what percentage of signups went on to complete a
          trip within 30 days of their signup date?)
 
 */
-create table Q5 as
+  create table Q5 as
 select 
 u.month_signup,
 
 
 sum(case when 
-      u.usersid = t.client_id and 
-      t.request_at between u.creationtime and u.creationtime + interval '30 days'
-    	then 1 else 0 end)::float /  /* Numerator: use folat to prevent the ratio becoming integer*/
- count(distinct u.usersid)::float  /* Denomenator: total users*/
-	as conv_rate,
+    u.usersid = t.client_id and 
+    t.request_at between u.creationtime and u.creationtime + interval '30 days'
+    then 1 else 0 end)::float /  /* Numerator: use folat to prevent the ratio becoming integer*/
+  count(distinct u.usersid)::float  /* Denomenator: total users*/
+  as conv_rate,
 
 count(distinct u.usersid) as n_signup_users,
 count(distinct t.client_id) as n_complete_users,
 
 sum(case when 
-      u.usersid = t.client_id and 
-      t.request_at between u.creationtime and u.creationtime + interval '30 days'
+    u.usersid = t.client_id and 
+    t.request_at between u.creationtime and u.creationtime + interval '30 days'
     then 1 else 0 end) as active_in_30
 
 /*completed trips*/
-from (
-  select 
+  from (
+    select 
     t.client_id,
     min(t.request_at) as request_at
-  from trips  as t
-  where t.status = 'completed'
-  group by client_id
+    from trips  as t
+    where t.status = 'completed'
+    group by client_id
   ) as t
 
 /*clients*/
-full join (
-  select 
+  full join (
+    select 
     usersid, 
     extract(month from min(creationtime)) as month_signup, /*min() to prevent dirty data*/
-    min(creationtime) as creationtime
-  from users
-  where role = 'client'
-  group by usersid  /*insure uniqueness of users*/
-) as u
+      min(creationtime) as creationtime
+    from users
+    where role = 'client'
+    group by usersid  /*insure uniqueness of users*/
+  ) as u
 
 on t.client_id = u.usersid
 group by u.month_signup
@@ -729,36 +232,36 @@ group by u.month_signup
 
 
 /*==========================================================================================*/
-/*Extra Credit: Add to your statement in 2) to exclude Uber admins. Uber admins have
+  /*Extra Credit: Add to your statement in 2) to exclude Uber admins. Uber admins have
 an email address from @uber.com (example: ‘jsmith@uber.com’).
 */
-
-
-/*use regular expression: cannot end with uber.com$*/
-
-create table extra_1
+  
+  
+  /*use regular expression: cannot end with uber.com$*/
+  
+create table extra_1 as
 select 
 
 count(distinct t.client_id) as total_client
 
 from trips as t
 /*inner join*/
-inner join (
-  select usersid,sum(1) as freq_reg
-  from users
-  where role = 'client' and banned = FALSE and email !~ '@uber\.com$'
-  group by usersid  /*insure uniqueness of users*/
-
-) as u
+  inner join (
+    select usersid,sum(1) as freq_reg
+    from users
+    where role = 'client' and banned = FALSE and email !~ '@uber\.com$'
+    group by usersid  /*insure uniqueness of users*/
+      
+  ) as u
 
 on t.client_id = u.usersid 
 where t.status = 'completed' and t.city_id = 8 and
-		extract(month from request_at) = 10 and 
-		extract(year from request_at) = 2014;
-        
-        
-        
-create table extra_2
+extract(month from request_at) = 10 and 
+extract(year from request_at) = 2014;
+
+
+
+create table extra_2 as
 select 
 
 t.client_id,
@@ -766,23 +269,17 @@ count(distinct t.id) as trips_per_client
 
 from trips as t
 /*inner join*/
-inner join (
-  select usersid,sum(1) as freq_reg
-  from users
-  where role = 'client' and banned = FALSE and email !~ '@uber\.com$'
-  group by usersid  /*insure uniqueness of users*/
-
-) as u
+  inner join (
+    select usersid,sum(1) as freq_reg
+    from users
+    where role = 'client' and banned = FALSE and email !~ '@uber\.com$'
+    group by usersid  /*insure uniqueness of users*/
+      
+  ) as u
 
 on t.client_id = u.usersid 
 where t.status = 'completed' and t.city_id = 8 and
-		extract(month from request_at) = 10 and 
-		extract(year from request_at) = 2014
-        
+extract(month from request_at) = 10 and 
+extract(year from request_at) = 2014
+
 group by t.client_id;
-
-
-
-
-
-
