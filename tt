@@ -1,285 +1,415 @@
-/*==========================================================================================*/
-  /*
-  1. Between 12/1/2014 10:00:00 PST & 12/8/2014 17:00:00 PST, how many completed
-trips were requested on iphones in City #5? On android phones? (Hint: look at
-the trips.status column)
-*/
-  
-  /*City #5: for both iphone and Android*/
+---
+title: "Uber's Login Behavior: a Fourier Analysis"
+author: "Fan Yang"
+date: "August 15, 2016"
+output: 
+  pdf_document:
+    number_sections: yes
 
-create table Q1 as
-select 
-request_device,
-count(distinct id) as completed_trips /*be careful with dirty data*/
-  from trips as t
-where 	status = 'completed' and city_id = 5 and 
-request_device in ('android','iphone') and  
-/*timezone adjust: UTC-PST*/
-  request_at between timestamp '12/1/2014 10:00:00' + interval '8 hours' and  
-timestamp '12/8/2014 17:00:00' + interval '8 hours'
-group by request_device;
+---
 
 
+\begin{abstract}
 
-/*==========================================================================================*/
-  /*2. In City #8, how many unique, currently unbanned clients completed a trip in October
-2014? Of these, how many trips did each client take?
-*/
-  
-  create table Q2_1 as
-select 
-count(distinct t.client_id) as total_client 
+We build a linear Poisson regression model on Uber's hourly login frequency data, where
+hourly and weekly Fourier series are used to capture the dynamics of login behaviors across a day and a week.
 
-from trips as t
-/*inner join*/
-  inner join (
-    select usersid, sum(1) as freq_reg
-    from users
-    where role = 'client' and banned = FALSE 
-    group by usersid /*insure uniqueness of users*/
-      
-  ) as u
+\end{abstract}
 
-on t.client_id = u.usersid 
-where t.status = 'completed' and t.city_id = 8 and
-extract(month from request_at) = 10 and 
-extract(year from request_at) = 2014;
+\tableofcontents{}
 
 
-create table Q2_2 as
-select 
-t.client_id,
-count(distinct t.id) as trips_per_client /* to prevent dirty data: t.id may not be unique?*/
-  
-  from trips as t
-/*inner join*/
-  inner join (
-    select usersid, sum(1) as freq_reg
-    from users
-    where role = 'client' and banned = FALSE 
-    group by usersid /*insure uniqueness of users*/
-      
-  ) as u
-
-on t.client_id = u.usersid 
-where t.status = 'completed' and t.city_id = 8 and
-extract(month from request_at) = 10 and 
-extract(year from request_at) = 2014
-group by t.client_id;
-
-/*just add 
-where email !~ '@uber\.com$'
-in the usersid table, to exclude @uber.com
-*/
-  
-  
-  /*==========================================================================================*/
-  /*3. In City #8, how many unique, currently unbanned clients completed a trip between
-9/10/2014 and 9/20/2014 with drivers who started between 9/1/2014 and
-9/10/2014 and are currently banned?*/
-  
-  
-  create table Q3_1 as
-select 
-/*t.*
-  */
-  count(distinct t.client_id) as n_clients 
-
-from trips as t
-
-/*Clients*/
-  inner join (
-    select usersid, 
-    sum(1) as freq_client_reg
-    from users
-    where role = 'client' and banned = FALSE
-    group by usersid /*insure uniqueness of users*/
-  ) as u
-
-on u.usersid = t.client_id
-
-/*Dlients*/
-  inner join (
-    select usersid, 
-    sum(1) as freq_driver_reg
-    from users
-    where role = 'driver'  and banned = TRUE and 
-    creationtime between timestamp '9/1/2014 0:00:00' and timestamp '9/10/2014 23:59:59'
-    group by usersid /*insure uniqueness of drivers*/
-  ) as d
-
-on d.usersid = t.driver_id
-
-where t.status = 'completed' and 
-request_at between timestamp '9/10/2014 0:00:00'  and
-timestamp '9/20/2014 23:59:59'  and
-t.city_id = 8;
+\newpage{}
 
 
-/*==========================================================================================*/
-  /*
-  4. For clients that signed up in November 2014:
-  a) How many trips from this group were requested from each of the possible
-device types (Hint: look at the trips.request_device column)?
-b) How many clients from this group have not completed a trip yet?
+```{r load_packages, include = F }
 
-*/
-  
-  create table Q4_A as
-select 
-request_device,
-count(distinct t.id) as trips_per_device /*be careful with dirty data*/
-  from trips as t
-/*use inner join here*/
-  inner join (
-    select  usersid, 
-    sum(1) as freq_reg
-    from users
-    where role = 'client' and 		
-    extract(month from creationtime) = 11 and 
-    extract(year from creationtime) = 2014
-    group by usersid /*insure uniqueness of users*/
-  ) as u
-on u.usersid = t.client_id
-/*just requested, may not be completed*/
-  /*where t.status = 'completed'*/
-  group by t.request_device;
+# Pakcages we will use:
+cat("\n")
+list.of.packages <-
+  c(
+    
+    # visualization
+    "ggplot2","scales",
+    
+    # regular expression
+    "stringr",
+    
+    # foriegn data
+    "rjson",
+    
+    # data maniputaltion
+    "reshape","reshape2","data.table","plyr","dplyr","magrittr","DataCombine",
+    
+    # some functions in dplyr are duplicate in plyr, and we want to use functions in dplyr
+    # so load plyr first and then let dplyr to mask it.
+    
+    # panel and cross sectional data
+    # "plm","AER","censReg",'MASS',
+    
+    # model 
+    'linear.tools',"MASS","glmnet","gbm","mboost",
+    # time series
+    "lubridate", "zoo","tseries",
+    
+    # literature programming & code style
+    "knitr","formatR",'rmarkdown'# 'yaml', 'htmltools', 'caTools',"xtable",
+    
+    # Computing on the Language
+    # "pryr", "gtools","lazyeval"
+    
+  )
 
-/*b:How many clients from this group have not completed a trip yet?*/
-  
-  create table Q4_B as
-select 
-/* * */
-  count(distinct u.usersid) as client_no_trip
+cat("Pakcages we will use : \n")
+print(list.of.packages)
 
-from ( 
-  select usersid, sum(1) as freq_reg /*insure uniqueness of users*/
-    from users
-  where role = 'client' and 		
-  extract(month from creationtime) = 11 and 
-  extract(year from creationtime) = 2014
-  group by usersid 
-) as u
+cat("\n \n check new packages that this computer did not install before \n")
 
-left join (
-  select  
-  id,
-  client_id,
-  sum(1) as ntrips /*insure uniqueness of trips*/
-    from trips as t
-  where t.status = 'completed'
-  group by id, client_id
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+
+
+if(length(new.packages)) {
+  cat("\n \n download & install new packages \n")
+  install.packages(new.packages)
+}
+
+
+cat("\n \n load packages to R \n")
+for (Library in list.of.packages) library(Library,character.only = T)
+
+
+opts_chunk$set(
+	cache=FALSE,
+	fig.width=6.8, 
+	fig.height=4,
+	fig.align='center',
+	message=F,
+	error=F,
+	warning=F,
+	tidy.opts = F,
+	tidy = F
 )
-as t 
-on u.usersid = t.client_id
-/*this is the key: a NULL t.client_id from completed trip table means UNcompleted, or not appear in the trips data at all */
-  where t.client_id is NULL;
+
+```
+
+# Clean Data
+
+Load and clean data. Also adjust the time zone from UTC to EST.
+
+```{r load_clean_data}
+setwd('/Users/yangguodaxia/Dropbox/Tech/Uber_case_study')
+# setwd('H:/jpmDesk/Desktop/Personal/U')
+file <- "logins.json"
+data_raw <- fromJSON(paste(readLines(file), collapse=""))
+# adjust the time zone from UTC to EST.
+data_raw = ymd_hms(data_raw) - hours(5)
+
+```
 
 
-/*==========================================================================================*/
-  /*
-  5. What is the 30-day rate of conversion from client signup to active rider by month of
-signup? (i.e., for any month, what percentage of signups went on to complete a
-         trip within 30 days of their signup date?)
-
-*/
-  create table Q5 as
-select 
-u.month_signup,
-
-
-sum(case when 
-    u.usersid = t.client_id and 
-    t.request_at between u.creationtime and u.creationtime + interval '30 days'
-    then 1 else 0 end)::float /  /* Numerator: use folat to prevent the ratio becoming integer*/
-  count(distinct u.usersid)::float  /* Denomenator: total users*/
-  as conv_rate,
-
-count(distinct u.usersid) as n_signup_users,
-count(distinct t.client_id) as n_complete_users,
-
-sum(case when 
-    u.usersid = t.client_id and 
-    t.request_at between u.creationtime and u.creationtime + interval '30 days'
-    then 1 else 0 end) as active_in_30
-
-/*completed trips*/
-  from (
-    select 
-    t.client_id,
-    min(t.request_at) as request_at
-    from trips  as t
-    where t.status = 'completed'
-    group by client_id
-  ) as t
-
-/*clients*/
-  full join (
-    select 
-    usersid, 
-    extract(month from min(creationtime)) as month_signup, /*min() to prevent dirty data*/
-      min(creationtime) as creationtime
-    from users
-    where role = 'client'
-    group by usersid  /*insure uniqueness of users*/
-  ) as u
-
-on t.client_id = u.usersid
-group by u.month_signup
-
-;
-
-
-
-/*==========================================================================================*/
-  /*Extra Credit: Add to your statement in 2) to exclude Uber admins. Uber admins have
-an email address from @uber.com (example: ‘jsmith@uber.com’).
-*/
+We group the data by hour + date, and sum up the login times as `freq`. The cleaned data looks like below
+```{r expand_features, echo = F}
+initial_time = min(data_raw)
+expand_features = function(data_input,initial_time = min(data_raw) ){
+  data = ymd_hms(data_input)
+  data = data[order(data)] %>% data.frame
   
+  colnames(data) = 'time'
+
+  data[,'hour'] = lubridate::hour(data$time)
+  data[,'date'] = as.Date(data$time)
   
-  /*use regular expression: cannot end with uber.com$*/
+  data = data %>% 
+    group_by(date, hour) %>% 
+    summarise(freq = n()) %>% data.frame
   
-create table extra_1 as
-select 
+  data[,'month'] = month(data[,'date'])
+  # for plot
+  data[,'time_by_hour'] = ymd_h(paste(data$date,'T',data$hour))
+  
+  data[,'weekday'] = weekdays(data[,'date'],abbreviate = T)
 
-count(distinct t.client_id) as total_client
+  # for model: more weekday features
+  matrix_weekday = model.matrix(freq~weekday-1,data) %>% data.frame
+  colnames(matrix_weekday) = str_replace_all(colnames(matrix_weekday),'weekday','')
+  
+  data = cbind(data,matrix_weekday)
+  
+  data$Mon_to_Thu = data$weekday %in% c('Mon','Tue','Wed','Thu') * 1
+  data$Mon_to_Fri = data$weekday %in% c('Mon','Tue','Wed','Thu','Fri') * 1
+  
+  data$weekend_night = 
+    (data$weekday %in% c('Fri','Sat') * data$hour %in% c(19:23) * 1) + 
+    (data$weekday %in% c('Sun','Sat') * data$hour %in% c(0:2) * 1)
+    
+  # week cycle
+  weekday_n = match(data$weekday,weekdays(1:7,T))
+  data$week_cycle =(weekday_n-1)*24 + data$hour
+  data$week_cycle %>% unique %>% max
 
-from trips as t
-/*inner join*/
-  inner join (
-    select usersid,sum(1) as freq_reg
-    from users
-    where role = 'client' and banned = FALSE and email !~ '@uber\.com$'
-    group by usersid  /*insure uniqueness of users*/
-      
-  ) as u
+  data = data[with(data,order(date,hour)),]
+  data[,'trend'] = interval(initial_time,data$time_by_hour) %/% hours(1)
+  if (min(data[,'trend'])<0){
+    data[,'trend'] = data[,'trend'] - min(data[,'trend']) # to insure min > 00
+  }
+  data
+  
+}
+data = expand_features(data_raw,initial_time = initial_time)
 
-on t.client_id = u.usersid 
-where t.status = 'completed' and t.city_id = 8 and
-extract(month from request_at) = 10 and 
-extract(year from request_at) = 2014;
+# head(data[,c('date','hour','freq','time_by_hour','weekday','trend')],100)
+```
 
 
+```{r show_data}
+head(data)
+```
 
-create table extra_2 as
-select 
+where
 
-t.client_id,
-count(distinct t.id) as trips_per_client
+  * `freq`: sum of login frequencies in an hour.
+  * `hour`: hour in a day, from 0 to 23.
+  * `trend`: from hour 0 as starting point to hour `r (interval(min(data_raw),max(data_raw)) %/% hours(1))` (number of data points).
+  * `week_cycle`: an hourly cycle of a week; it is from hour 0 to hour 167 (one week has 168 hours).
 
-from trips as t
-/*inner join*/
-  inner join (
-    select usersid,sum(1) as freq_reg
-    from users
-    where role = 'client' and banned = FALSE and email !~ '@uber\.com$'
-    group by usersid  /*insure uniqueness of users*/
-      
-  ) as u
 
-on t.client_id = u.usersid 
-where t.status = 'completed' and t.city_id = 8 and
-extract(month from request_at) = 10 and 
-extract(year from request_at) = 2014
+# Q1: Hourly Login Behavior
 
-group by t.client_id;
+
+The first graph shows hourly login frequencies for the whole time series, where you can see clear seasonal patterns. Also we see an increasing trend of acitivities throughout the time, though not that obvious.
+
+```{r long_graph, echo = F, fig.width = 6.5}
+ggplot(data) + geom_line(aes(x = time_by_hour, y = freq)) + 
+  labs(title = 'Hourly login\n from Mar 01 to May 01', x = 'date and hour', y = 'sum of freq')
+```
+
+Thw weekly graph also shows a clear increasing pattern.
+
+```{r weekly_plot, echo = F}
+week_n = interval(as.Date(min(data_raw)),data_raw) %/% weeks(1)
+data_plot = data.frame(tiem = data_raw, week_n)
+ggplot(data_plot) + geom_bar(aes(x = week_n)) + 
+  labs(y = 'sum of freq', x = 'weeks', title = 'Sum of login freq, by weeks')
+```
+
+To further investigate the seasonal patterns above, we plot a box plot by hour as below, where we see that there is a clear hourly pattern during a day: the login number starts to rise from morning (around 5:00) then peaked at evening (20:00-21:00), before it sharply drops till next day's morning.
+
+```{r pure_hour_graph, echo = F, fig.width = 6.5}
+ggplot(data) + geom_boxplot(aes(x = factor(hour), y = freq )) + 
+  labs(y = 'number of logins', x = 'hours in a day', title = 'login time distributions across a day')
+```
+
+The box plot also shows there are a lot of outliers during the evening and night time. We suspect it is caused by the weekend effect -- people hangout more during the weekend night. So we further make a plot grouping the number of logins by hour + weekday. 
+
+Now we see more activities starting from Friday night and from Saturday night, and both of them have much higher peaks than other weekdays.
+
+```{r wide_graph, echo = F}
+data %>% group_by(hour,weekday) %>% summarise(freq= sum(freq)) %>% 
+  ggplot(.) + geom_line(aes(x = hour, y = freq, color = weekday )) + 
+  geom_point(aes(x = hour, y = freq, color = weekday )) +
+  labs(y = 'sum of freq', x = 'hours in a day', title = 'sum of login, by hours + weekdays')
+```
+
+## Summary
+
+From the four graphs below we find that 
+
+  1. Hourly seasonal pattern: every day the login number starts to rise from morning (around 5:00) then peaked around 20:00-22:00, before it sharply drops.
+  2. Weekday pattern: Friday and Saturday have higher peaks during their nights.
+  3. Time trend: though not clear, it seems that the average login number does have an increasing trend from Mar 01 to May 01.
+
+
+# Q2: Modelling - using Fourier Series in Poisson Regression
+
+## Modelling Concepts:
+
+* As the login frequency is count data and follows Poisson distribution, thus Poisson regression is used here (using `log(freq)` as `y`).
+* Also, we use Fourier Series to represent the hourly seasonality and weekday seasonality.
+
+## Feature Set
+
+```{r interact_feature, echo = F}
+interact_feature = function(f1,f2, f1_include = F){
+  
+  feasure_set = 
+    expand.grid(f1,f2)
+  result = paste(feasure_set[,1],feasure_set[,2],sep = ":")
+  if (f1_include){
+    result = c(f1,result)
+  }
+  result
+}
+```
+
+We list all possible feature sets below, and later throw them into a variable selection algorithm (Lasso) to trim them down.
+
+  * Fourier series for hours. We will test at most 4 basis functions. 
+  * Fourier series for weekdays. A week cycle is from hour 0 to hour 167 (one week has 168 hours). We will test at most 1 basis functions. 
+  
+```{r feature_Fourier_hour,}
+feature_Fourier_hour = 
+  c("cos(2*pi*hour/24)","cos(2*pi*hour/24*2)","cos(2*pi*hour/24*3)","cos(2*pi*hour/24*4)",
+    "sin(2*pi*hour/24)","sin(2*pi*hour/24*2)","sin(2*pi*hour/24*3)","sin(2*pi*hour/24*4)")
+# a week_cycle is c(0:167) hours (a week has 168 hours)
+feature_Fourier_week = c("sin(2*pi*week_cycle/24/7)","cos(2*pi*week_cycle/24/7)") 
+```
+  
+  * Weekday indicators, such `Sun`,`Fri` and `Sat` etc. We also have a indicator for weekend night, which equals to `1` during Friday's and Saturday's 19:00-24:00 and next days' 0:00-2:00.
+  * Time trend (also allow quadratic trend): from hour 0 as starting point to hour `r (interval(min(data_raw),max(data_raw)) %/% hours(1))` (total number of data points).
+  
+```{r weekday_trend}
+feature_weekday = c("Sun","Fri","Sat","Thu",'Wed','Tue',"Mon_to_Thu","Mon_to_Fri",'weekend_night')
+feature_trend = 'trend + I(trend^2)'
+```
+  
+  * Interaction between hourly Fourier series and weekday indicators. This is to capture the different hourly patterns across weekdays.
+
+```{r feature_Fourier_hour_interact,}
+# hourly seasonality interacted with weekday
+feature_Fourier_hour_interact =
+  interact_feature(c(feature_Fourier_hour),feature_weekday)
+
+# number of interaction terms
+length(feature_Fourier_hour_interact)
+
+# first 6 examples
+head(feature_Fourier_hour_interact)
+```
+
+## Estimate the Model: Lasso
+
+Our feature set is large, especially the interaction part; thus we use Lasso regression to trim it down. 10-Fold cross validation is used to choose the best model.
+
+```{r}
+
+# create a full formula
+full_formula = paste("log(freq) ~" ,
+                     paste(feature_trend,collapse = "+"),"+",
+                     paste(feature_Fourier_week,collapse = "+"),"+",
+                     paste(feature_Fourier_hour,collapse = "+"),"+",
+                     paste(feature_weekday,collapse = "+"),"+",
+                     paste(feature_Fourier_hour_interact,collapse = "+"),
+                     sep ="",collapse = '') %>% as.formula
+
+X = model.matrix(full_formula,data = data) 
+
+set.seed(413)
+# Lasso with CV 
+cvfit <- cv.glmnet(x = X,y = log(data$freq),nfolds = 10,lambda = c(1:10)/10^5*2)
+fitted = predict(cvfit,newx = X)
+```
+
+## The Final Model
+
+The final linear model has coefficients as below, where you can see the model takes a lot of efforts to fit the dynamics in the weekend, as it includes those interaction terms with `Fri`, `Sat`  and `Sun`.
+
+```{r,echo = F}
+coeff_lasso = coef(cvfit)
+coeff_lasso = coeff_lasso[,1]
+coeff_lasso = coeff_lasso[coeff_lasso>0]
+coeff_lasso = data.frame(coeff_lasso)
+coeff_lasso
+```
+
+
+# Q3 Forecast the Next Two Weeks
+
+An output data set is generated for the predicted result, named as `predict_next2week.csv`.
+
+```{r,echo = F,fi}
+next2week_raw = paste(as.Date(c("2012-05-1")),"T00",sep='') %>% ymd_h  + hours(0:(24*14-1)) 
+next2week = expand_features(data_input = next2week_raw, initial_time = min(data_raw))
+
+X_new = model.matrix(full_formula,data = next2week) 
+next2week$freq = predict(cvfit,newx = X_new) %>% exp
+next2week$type = 'predicted'
+
+write.csv(next2week,'predict_next2week.csv')
+
+next2week = rbind(data.frame(data,type = 'actual'),next2week)
+
+subset(next2week, date >= as.Date('2012-04-10')) %>% 
+  ggplot(.) + geom_line(aes(x = time_by_hour, y = freq, color = type)) + 
+    labs(title = 'prediction of next 2 weeks', x = 'date and hour', y = 'sum of freq')
+
+```
+
+
+# Q4 Model Performance & Model Comparision
+
+## Model Performance
+
+The model fits the training data pretty well, as it should be. 
+Cross-validation training error is
+
+```{r}
+mean(cvfit$cvm^2)^0.5
+```
+
+
+R-square is
+```{r}
+1 - sum((log(data$freq) - fitted)^2) / sum((log(data$freq) - mean(log(data$freq)))^2)
+```
+
+Visualize the in-sample performance
+
+```{r performance_draw, echo = F}
+data_hat = data
+data_hat$freq = predict(cvfit,newx = model.matrix(full_formula,data = data_hat) ) %>% exp
+#data_hat$freq = predict(model_best,data) %>% exp
+data_hat = rbind(data.frame(data,type = 'actual'),
+                          data.frame(data_hat,type = 'estimated'))  %>% data.frame
+
+ggplot(data_hat) + 
+  geom_line(aes(x = time_by_hour, y = freq, color = type,linetype = type,size = type)) + 
+  labs(title = 'actual vs estimated\nhourly login', x = 'date and hour', y = 'sum of freq') + 
+  scale_size_manual(values = c(0.2,0.5))
+
+
+```
+
+
+```{r,echo = F}
+data_hat %>% group_by(hour,weekday,type) %>% summarise(freq= sum(freq)) %>%  data.frame %>% 
+  subset(.) %>% 
+    ggplot(.) + geom_line(aes(x = hour, y = freq, color = weekday,linetype = type,size = type)) + 
+    labs(y = 'sum of logins', x = 'hours in a day',
+         title = 'actual vs estimated\nhourly login grouped by hour + weekday ') +
+    scale_size_manual(values = c(0.3,0.6)) + 
+    scale_x_continuous(breaks = c(0:24))
+
+```
+
+## Other Models which You would have Thought of.
+
+Instead of using Fourier series as features to describe the hour dynamics, we did try to purely use hour indicators, such as defining `hour_7_ind = 1` when `hour ==7` or `late_nigh_ind` as hour from 22:00 - 5:00. This method does work but certainly is not elegant as the one with Fourier series.
+
+During the variable selection, we tried stepwise, which is too slow, and ridge, which is inferior to Lasso in our case.
+
+
+# Q5 Trends or Deviations
+
+From the two graphs in the beginning we find that 
+
+  1. Hourly seasonal pattern: everyday the login number starts to rise from morning (around 5:00) then peaked at 20:00, before it sharply drops.
+  2. Weekday pattern: Friday and Saturday have higher peaks.
+  3. Time trend: though not clear, it seems that the average login number does have an increasing trend from Mar 01 to May 01.
+
+# Extra Credit
+Question: Repeat this analysis by graphing client logins by week and/or by hour of day. What do you notice about client behavior?
+
+See the four graphs in Q1 and their comments.
+
+
+
+
+
+
+
+
+
+
+
+
+
