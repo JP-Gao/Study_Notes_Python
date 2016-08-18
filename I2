@@ -2763,6 +2763,22 @@ Think for a while before you answer non-math/stat questions.
 \end_layout
 
 \begin_layout Itemize
+For case / open-end question: 
+\series bold
+ZONG FEN ZONG
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+List what your prepare to talk
+\end_layout
+
+\begin_layout Itemize
+Wrapped up response with those key points, and a clear, succinct conclusion
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
 When answer algorithms / features / models / techniques, 
 \series bold
 never give short answer!
@@ -4540,7 +4556,7 @@ So to be a better team player, you have to respect this tradition.
 \end_layout
 
 \begin_layout Part
-Products: Consumer Banking
+Consumer Banking
 \end_layout
 
 \begin_layout Standard
@@ -4548,6 +4564,32 @@ Products: Consumer Banking
 \series bold
 Always design your strategy with the flexibility of both good time and bad
  time.
+\end_layout
+
+\begin_layout Subsection
+Dcoumentation
+\end_layout
+
+\begin_layout Itemize
+Creatative part: A way to to refine your thinking, re-look at things in
+ a more structured - organized way
+\end_layout
+
+\begin_layout Itemize
+Routine part: copy & paste result etc.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Use techniques to minimize the pain of this part
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Literate Programming
 \end_layout
 
 \begin_layout Subsection
@@ -5023,6 +5065,79 @@ Conflicts with Teammates
 \end_layout
 
 \begin_layout Subsection
+Conflicts
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Attitude
+\end_layout
+
+\begin_layout Itemize
+Engage it, don't be afraid to it.
+ Having you own oppion means sometime disagree with other people.
+ 
+\end_layout
+
+\begin_layout Itemize
+View it in a positive way, use this get closer to your colleagues, and let
+ them know you better.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This is a chance to earn respects from people by letting people know how
+ you think, how you solve a prolem
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+Solve
+\end_layout
+
+\begin_layout Itemize
+A lot of time confilcts are caused by mis-information, or asymmetric information
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+then clear communication is the key, share what you know and listen what
+ they know
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Or you two have different emphasis on different perspectives of one thing:
+ there are bo right or wrong
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Like Marketing vs Risk
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+Case
+\end_layout
+
+\begin_layout Standard
+Lower the limit or pull back.
+\end_layout
+
+\begin_layout Standard
+My manager stands at higher level and look at things in holistic way, balance
+ different business needs.
+\end_layout
+
+\begin_layout Subsection
 Coorporate with Other Departments
 \end_layout
 
@@ -5092,10 +5207,20 @@ work overtime: if this thing is really important and I can finish between
 
 \begin_layout Enumerate
 Otherwise, reject it.
- You have to clearly know you capability.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+You have to clearly know you capability.
  What you can do what you cannot.
 \end_layout
 
+\begin_layout Enumerate
+Reject politely, clearly articulate the reasons, people will understand.
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Standard
 The hard part is when something is not urgent at all, and not even in priority,
