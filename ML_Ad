@@ -190,6 +190,58 @@ AB test
 https://www.dynamicyield.com/2014/08/ab-testing-case-studies/
 \end_layout
 
+\begin_layout Standard
+Q1: how to measure the sharing feature: know to how to say the key characteristi
+cs
+\end_layout
+
+\begin_layout Standard
+Q2: Given a metric number , whether it is sufficient to say whether it can
+ measure the overall performance of feature.
+\end_layout
+
+\begin_layout Standard
+Q3: If roll out from this 1% testing sample to 100% population, waht consequence
+s you would expect
+\end_layout
+
+\begin_layout Itemize
+how to measure a product/feature success:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+itself, whether it is populat
+\end_layout
+
+\begin_layout Itemize
+beyond itselt, whether it bring overall acitivity/revenue higher 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Given a metric and its performance, whether it makes senses.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+It may be not caused by this feature.
+ USE A/B TEST!!!!
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+When roll out, what problem.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Slowly row out, with sample percentage 
+\series bold
+RAMP UP!
+\end_layout
+
+\end_deeper
 \begin_layout Part
 ML
 \end_layout
@@ -995,6 +1047,423 @@ link prediction, which analyzes who your friends are friends with.
 \end_layout
 
 \begin_layout Part
+Product Management
+\end_layout
+
+\begin_layout Standard
+Many engineers are comfortable in the world of analytical thinking.
+ As an engineer, it’s better to prove things through data than charisma.
+ /kə'rɪzmə/ As a product manager, you need to master both
+\end_layout
+
+\begin_layout Subsection
+Prioritization
+\end_layout
+
+\begin_layout Standard
+Prioritization is one of the product manager’s most important functions
+ at this point; 
+\end_layout
+
+\begin_layout Subsubsection
+Bug-free & New Featues vs Ship in Time
+\end_layout
+
+\begin_layout Standard
+if the team were to fix every bug and build every new feature idea, the
+ product would never launch.
+ The PM needs to consider all of the new requests and decide if they should
+ be prioritized for the current release or punted to a later time
+\end_layout
+
+\begin_layout Subsubsection
+Unimportant Work
+\end_layout
+
+\begin_layout Standard
+Don’t let your team do unimportant work.
+ Sometimes big companies lose track of all the projects going on, and you
+ might be assigned as the only PM for a team that’s really not delivering
+ much value for the company.
+ Ideally, you’d redirect the team to work on something more important.
+ If that’s not possible, consider suggesting to your manager that the team
+ be shut down (make sure you do your research and can support this) or consider
+ switching to another team.
+ It will be hard to get promoted launching a product that doesn’t matter.
+\end_layout
+
+\begin_layout Subsection
+Early Stage Products
+\end_layout
+
+\begin_layout Standard
+Early Stage Products With newer products, such as those about to launch
+ or recently launched, the team is often focused on shipping a 
+\series bold
+minimum viable product (MVP).
+ 
+\end_layout
+
+\begin_layout Standard
+This is not the time to tackle all challenges, since you don’t even know
+ if the product is a good fit in the market and for customers.
+ Instead, you want to answer questions and prove your values as quickly
+ as possible.
+\end_layout
+
+\begin_layout Standard
+BE HUMBLE to the Uncertainity of the Market.
+\end_layout
+
+\begin_layout Subsection
+Shipped Product
+\end_layout
+
+\begin_layout Standard
+As a result, shipped-software teams tend to have longer timelines, and the
+ products require more project management and coordination between teams.
+ Specs are more important because features are more formal and need to serve
+ more audiences.
+ User research and internal dogfooding (using early builds of the software)
+ are also very important since you need to know if the product is good before
+ it’s released.
+ PMs who are good at project management and have good communication skills
+ do well working on shipped software.
+ Shipped software can also be great for people who want a good work/life
+ balance, since there aren’t usually urgent issues that need to be fixed
+ within hours.
+\end_layout
+
+\begin_layout Itemize
+Shipped software is unique because it’s hard to update after launching.
+ With shipped software, it’s important to get it right the first time.
+\end_layout
+
+\begin_layout Itemize
+With a web app, you can always release a new feature and quickly roll it
+ back if there are issues.
+ 
+\end_layout
+
+\begin_layout Section
+I: Designing a Product
+\end_layout
+
+\begin_layout Itemize
+Narrow down the market / which particualr group they target on.
+\end_layout
+
+\begin_layout Itemize
+Which features do they need.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Explain each feature in detail
+\end_layout
+
+\begin_layout Itemize
+For current product, what they fail in those features
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Wrap up those features
+\end_layout
+
+\begin_layout Subsection
+Potential strategies for decisions could include: 
+\end_layout
+
+\begin_layout Enumerate
+Syndicate Effect 
+\end_layout
+
+\begin_layout Enumerate
+Diversifying revenue sources.
+\end_layout
+
+\begin_layout Enumerate
+Biulding Barriers to Entry
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Futher secure a position: be the one-stop shop for buying the content
+\end_layout
+
+\begin_layout Enumerate
+Being a low cost leader
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Reduce reliance of a supplier and buyer
+\end_layout
+
+\begin_layout Enumerate
+Testing a new market.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+First biuld a product suitable for a particualr nich of a market: Biulding
+ brand, Learn cusotmers
+\end_layout
+
+\begin_layout Enumerate
+Then a more mature product will come later.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Acquisition Strategy
+\end_layout
+
+\begin_layout Enumerate
+Talent acuisition: not for the small team
+\end_layout
+
+\begin_layout Enumerate
+acqure the users
+\end_layout
+
+\begin_layout Enumerate
+acquare the product
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+How the product is good itself
+\end_layout
+
+\begin_layout Enumerate
+If acquared: What impact will this product bring to Facebook's family of
+ product.
+\end_layout
+
+\begin_layout Enumerate
+If not acquared, let it grow, or acquare by other company: what negative
+ thing it will bring.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Kill the competition! Facebook probably felt they couldn’t afford to risk
+ those areas or even allow another major player there.
+\end_layout
+
+\begin_layout Subsection
+I: Strategy Questions
+\end_layout
+
+\begin_layout Standard
+Strategy questions include asking what a company’s strategy is or how to
+ design a strategy.
+ 
+\end_layout
+
+\begin_layout Standard
+It’s important to think about a product’s strategy at two levels: 
+\end_layout
+
+\begin_layout Itemize
+Micro: What is the business model for the product? What steps is the company
+ pursuing to succeed on that model? Will customers want it? 
+\end_layout
+
+\begin_layout Itemize
+Macro: How does this product fit into the greater vision of the company?
+ Will it open up new opportunities? Does it secure an existing market?
+\end_layout
+
+\begin_layout Section
+I: How to Market /position a Thing
+\end_layout
+
+\begin_layout Standard
+Marketing questions are about product positioning, customers, and handling
+ competition.
+ The Marketing Mix (4 Ps) is particularly useful here in offering an idea
+ of the elements you might discuss.
+ Aspects of SWOT, the 5 Cs, and the Customer Purchase Decision Making Process
+ also come in.
+\end_layout
+
+\begin_layout Itemize
+Understand your product: weekness and strong / selling point
+\end_layout
+
+\begin_layout Enumerate
+Describe the situation: What is your market, 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Given your strength, which nich of the market you target on
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Know your cusotomers: what they need
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+How your competitors do for those needs
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Given strength of your product, needs of customers, and competition, design
+ your strategy
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Market in the right channel, emphasize the right strength, 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+How Jobs marketed for NexT
+\end_layout
+
+\begin_layout Enumerate
+Descibe the market.
+ who are in these A market.
+\end_layout
+
+\begin_layout Enumerate
+Opportunities:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Identify there is a particulat nich of the market ---- those customers are
+ not satisfied with current avaiable product in A.
+\end_layout
+
+\begin_layout Enumerate
+New customers from B may be brought into this market A ---- those customers
+ from world B are not current with with current avaiable product in B.
+\end_layout
+
+\begin_layout Itemize
+Exact needs of customers
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Why NexT can fit the needs + why other products failed.
+\end_layout
+
+\begin_layout Subsection
+4 Ps Four Cs Definition
+\end_layout
+
+\begin_layout Itemize
+Product / Consumer wants and needs
+\end_layout
+
+\begin_layout Itemize
+Price / Cost
+\end_layout
+
+\begin_layout Itemize
+Promotion / Communication
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+While promotion is "manipulative" and from the seller, communication is
+ "cooperative" and from the buyer[7] with the aim to create a dialogue with
+ the potential customers based on their needs and lifestyles.[11] It represents
+ a broader focus.
+ Communications can include advertising, public relations, personal selling,
+ viral advertising, and any form of communication between the organization
+ and the consumer[citation needed].
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Place / Convenience
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+guarantee convenience to buy
+\end_layout
+
+\end_deeper
+\begin_layout Section
+I: Launching Questions
+\end_layout
+
+\begin_layout Standard
+Your launch implementation discussion should cover the following aspects,
+ possibly for each phase of launch: 
+\end_layout
+
+\begin_layout Itemize
+Target Market: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Will you initially launch for just a particular city or a particular school?
+ What is your initial target market? 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+User Types / Components: If there are multiple types of users (e.g., drivers
+ and riders), we may launch to these users separately: at different times
+ and in different ways.
+ 
+\end_layout
+
+\begin_layout Itemize
+MVP or Full Product: Will you launch an early minimum-viable product (MVP),
+ or will you wait until the product is fairly full featured? 
+\end_layout
+
+\begin_layout Itemize
+Distribution: What stores and sales channels will carry your product? What
+ platforms will you launch on?
+\end_layout
+
+\begin_layout Itemize
+Rollout: When will it launch to different types of users? Are you going
+ to start with a private beta? Will invitations be required? 
+\end_layout
+
+\begin_layout Itemize
+Buzz: How will you build buzz around your product (or will you)? Who will
+ you reach out to? How will you get them on board? What do you want them
+ to say about your product? 
+\end_layout
+
+\begin_layout Itemize
+Partnerships: Are there any partnerships that will help you to achieve your
+ vision?
+\end_layout
+
+\begin_layout Standard
+McDowell, Gayle Laakmann; Bavaro, Jackie.
+ Cracking the PM Interview: How to Land a Product Manager Job in Technology
+ (p.
+ 262).
+ CareerCup.
+ Kindle Edition.
+ 
+\end_layout
+
+\begin_layout Section
+I: Pricing Questions
+\end_layout
+
+\begin_layout Part
 Ad Basis
 \end_layout
 
@@ -1221,7 +1690,175 @@ Bargain hunters
 
 \end_deeper
 \begin_layout Section
-Customer Enagament 
+Product Metrics
+\end_layout
+
+\begin_layout Subsection
+Q: What type of Metrics to Use
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Depend on purpose of the measurement
+\end_layout
+
+\begin_layout Enumerate
+If this feature is part of the product:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Populatity of this feature itself
+\end_layout
+
+\begin_layout Enumerate
+Overall impact to the product
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Depend on the lifecycle of customer
+\end_layout
+
+\begin_layout Subsection
+Q: Given a Metric and its Performance Number, whether it is enough to make
+ a decision based on that?
+\end_layout
+
+\begin_layout Standard
+If just one number and background information is less, then ask to provide
+ more details or background
+\end_layout
+
+\begin_layout Itemize
+Example: This is too vague or too generic to me, it is better to know under
+ how long time this data is collected, and which group of these metric are
+ collected.
+ --- bascially know more set-up details of A/B test
+\end_layout
+
+\begin_layout Subsection
+Customer Lifecycle
+\end_layout
+
+\begin_layout Standard
+Steps to Success 
+\end_layout
+
+\begin_layout Enumerate
+Acquisition: users come to the site from various channels 
+\end_layout
+
+\begin_layout Enumerate
+Activation: users enjoy 1st visit: "happy" user experience 
+\end_layout
+
+\begin_layout Enumerate
+Retention: users come back, visit site multiple times
+\end_layout
+
+\begin_layout Enumerate
+Referral: users like product enough to refer others
+\end_layout
+
+\begin_layout Enumerate
+Revenue: users conduct some monetization behavior
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Metrics of eahc stage
+\end_layout
+
+\begin_layout Enumerate
+User Acquisition
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Channel of customers acquisition
+\end_layout
+
+\begin_layout Enumerate
+Cost per booking
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Activity 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+How many users are using feature X? 
+\end_layout
+
+\begin_layout Enumerate
+What percent have completed a particular workflow?
+\end_layout
+
+\begin_layout Enumerate
+What are people saying about the product? 
+\end_layout
+
+\begin_layout Enumerate
+Do they love it? Can you measure that?
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+McDowell, Gayle Laakmann; Bavaro, Jackie (2014-03-04).
+ Cracking the PM Interview: How to Land a Product Manager Job in Technology
+ (p.
+ 253).
+ CareerCup.
+ Kindle Edition.
+ 
+\end_layout
+
+\begin_layout Enumerate
+McDowell, Gayle Laakmann; Bavaro, Jackie (2014-03-04).
+ Cracking the PM Interview: How to Land a Product Manager Job in Technology
+ (p.
+ 252).
+ CareerCup.
+ Kindle Edition.
+ 
+\end_layout
+
+\begin_layout Subsection
+Measure Method 
+\end_layout
+
+\begin_layout Standard
+Customer Feedback: Feedback can come in from social networks, customer support
+ pages, or surveys.
+ Like usability testing, this will generally be more powerful in offer context
+ to understand metrics than in gathering numbers.
+ 
+\end_layout
+
+\begin_layout Standard
+Traffic Analysis: Tools such as Google Analytics can help companies understand
+ how users are interacting with the website.
+ 
+\end_layout
+
+\begin_layout Standard
+Internal Logs: Logging information directly can help a company understand
+ user behavior at a deeper level than simple traffic analysis.
+ 
+\end_layout
+
+\begin_layout Standard
+A/B Testing: A/B Testing can help a company understand the impact of a particula
+r change by comparing the behavior of users who have a feature to those
+ who don’t.
+ While it is an incredibly useful tool, it can also be misapplied.
+ For example, rolling out a new chat feature to only a small percentage
+ of users might give you misleading data about usage patterns.
 \end_layout
 
 \begin_layout Subsection
