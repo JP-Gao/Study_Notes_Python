@@ -2228,6 +2228,63 @@ From then on, the entire company was united around a single goal: 7 friends
  That was the sweet spot for the delivery of Facebook’s core value.
 \end_layout
 
+\begin_layout Subsection
+Measure Relevancy of Search Result 
+\end_layout
+
+\begin_layout Standard
+https://www.quora.com/How-do-you-measure-and-evaluate-the-quality-of-recommendatio
+n-engines
+\end_layout
+
+\begin_layout Standard
+on this).
+ To summarize, in order to evaluate a Recommender System in the lab, you
+ need to understand what are the dimensions you are interested in evaluating.
+ Accuracy might only be one of the important dimensions, but what about
+ diversity or novelty? Once you have determined that, you will end up with
+ a set of metrics that you need to make tradeoffs on.
+ The key issue is to understand how those tradeoffs are going to affect
+ your users once you are ready to do the final online evaluation through
+ an A/B test.
+ And, yes, as a rule of thumb I agree error-based metrics such as RMSE are
+ poor indicators.
+ However, ranking metrics such as NDCG or Fraction of Concordant Pairs,
+ if correctly implemented are much, much better.
+\end_layout
+
+\begin_layout Subsection
+Measure Search Relevancy in T
+\end_layout
+
+\begin_layout Standard
+http://blog.echen.me/2013/01/08/improving-twitter-search-with-real-time-human-comp
+utation/
+\end_layout
+
+\begin_layout Standard
+When each of these events happened, people instantly came to Twitter – and,
+ in particular, Twitter search – to discover what was happening.
+\end_layout
+
+\begin_layout Standard
+From a search and advertising perspective, however, these sudden events
+ pose several challenges:
+\end_layout
+
+\begin_layout Standard
+The queries people perform have never before been seen, so it’s impossible
+ to know beforehand what they mean.
+ How would you know that #bindersfullofwomen refers to politics, and not
+ office accessories, or that people searching for “Horses and Bayonets”
+ are interested in the debates?
+\end_layout
+
+\begin_layout Standard
+Since these spikes in search queries are so short-lived, there’s only a
+ short window of opportunity to learn what they mean.
+\end_layout
+
 \begin_layout Section
 Web & Ad
 \end_layout
@@ -2738,9 +2795,13 @@ Chi Square Tests
 \end_layout
 
 \begin_layout Itemize
-Pearson's chi-squared test (χ2) is a statistical test applied to sets of
- categorical data to evaluate how likely it is that any observed difference
- between the sets arose by chance.
+Pearson's chi-squared test (χ2) is a statistical test applied to 
+\series bold
+sets of categorical data
+\series default
+ to evaluate how likely it is that any
+\series bold
+ observed difference between the sets arose by chance.
 \end_layout
 
 \begin_layout Itemize
@@ -2752,7 +2813,7 @@ There are multi-samples
 \begin_inset Formula $N_{i}$
 \end_inset
 
- with a feature certain, and it is expected to be 
+ with a certain feature , and it is expected to be 
 \begin_inset Formula $E_{i}$
 \end_inset
 
@@ -2817,7 +2878,7 @@ This chi square statistic is obtained by calculating the difference between
  the observed number of cases and the expected number of cases in each category.
  This difference is squared and divided by the expected number of cases
  in that category.
- These values are then added for all the categories, and the total is referred
+ These values are then 2 for all the categories, and the total is referred
  to as the chi squared value.
 \end_layout
 
@@ -3620,6 +3681,16 @@ OEC: Overall Evaluation Criteria
 \end_layout
 
 \begin_layout Subsection
+You have to Pre-define the OEC
+\end_layout
+
+\begin_layout Standard
+It suspicious or even dangerous to define the OEC you want after you get
+ the result, because people may choose whatever siginificant metric that
+ support their belief.
+\end_layout
+
+\begin_layout Subsection
 OEC with constraints
 \end_layout
 
@@ -3661,7 +3732,7 @@ This analysis is not just impacting search experiments, but also efforts
 \end_layout
 
 \begin_layout Subsection
-Compare ad revenue with the user experience.
+Balance Ad revenue with the user experience.
 \end_layout
 
 \begin_layout Standard
@@ -3699,6 +3770,10 @@ Filtering users not impacted by the change
 If you made a change to the checkout process, you should only analyze users
  who started the checkout process (point 3.c), as others could not see any
  difference and therefore just add noise.
+\end_layout
+
+\begin_layout Subsection
+Stratefied Sampling
 \end_layout
 
 \begin_layout Subsection
@@ -3789,7 +3864,7 @@ So you need a Washout Period
 \end_layout
 
 \begin_layout Subsection
-Ranom Sampling for Interaction Features in Soccial Network
+Leaks Effect: Ranom Sampling for Interaction Features in Soccial Network
 \end_layout
 
 \begin_layout Standard
@@ -3799,10 +3874,27 @@ Suppose you want to test some interaction features in Messenger: they can
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
+If users are assigned randomly to A and B, interactions will cross from
+ A to B, so the treatment "leaks" into the control group.
+ 
+\end_layout
+
+\begin_layout Itemize
 Note that as this is a scocial network and the sample A and B may have connectio
 ns, so enabling A to send stickers means they may send stickers to B, which
  is not allowed for the new feature.
+\end_layout
+
+\begin_layout Itemize
+For example, maybe you want to add a commenting feature to your social network
+ -- but how would you A/B test this? It doesn't make sense for you to be
+ in an A/B test with this feature, but your friends not to be.
+ To take a less obvious example, maybe a new UI design causes you to write
+ more posts when your friends aren't exposed to the design, but since they'll
+ write more posts when they're also exposed to the design, you'll then spend
+ more time reading and less time writing.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3811,13 +3903,74 @@ ns, so enabling A to send stickers means they may send stickers to B, which
 How to solve this problem:
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
+There may bo no way to entirely isolate a community, but you can find a
+ relatively isolate community: Facebook occasionally runs initial A/B tests
+ in isolated communities in New Zealand
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Evaluate each point of user graph, and calculate its relative exposure to
+ the network.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
 Just firstr choose a random sample A who are allowed to send out stickers
  and run the test for a week.
+ After the week, look at historical data and choose the people within A
+ that are only interact with those are also in A.
+\end_layout
+
+\begin_layout Subsection
+Be Careful with Biased rollouts
 \end_layout
 
 \begin_layout Standard
-After the week, look at historical data and 
+Biased rollouts.
+ You of course shouldn't trust your A/B tests when they're not actually
+ random.
+ This should be obvious, but when I was at Twitter and we launched the Twitter
+ 2.0 redesign, we actually allowed users to opt in to the redesign, which
+ meant we couldn't trust our A/B test results at all! I've also seen this
+ happen at Google, where new features or algorithms were non-randomly rolled
+ out to the users we thought would be most engaged with them.
+\end_layout
+
+\begin_layout Subsection
+Cannibalization and Crossover
+\end_layout
+
+\begin_layout Standard
+Basic idea: you test group A enjoys certain advantage only when an inferior
+ group B exist (people compare prices of A and B and choose B), when you
+ roll out, the differences/comparision/ price picking behavior disapprear,
+ so the result after rll out is poor.
+ 
+\end_layout
+
+\begin_layout Standard
+Suppose you're a marketplace like Airbnb, eBay, or Etsy.
+ You want to make it easier for marketplace sellers (people renting out
+ their homes or selling items) to price their items, so you launch an A/B
+ test where 50% of sellers see an algorithmic price suggestion and 50% of
+ sellers don't.
+ (Note that you can't really run the A/B test against users, since you don't
+ want different users to see different prices for the same listings, which
+ is why your A/B test is split on sellers instead.)
+\end_layout
+
+\begin_layout Standard
+For example, without your A/B test, a user may have happily rented a room
+ or bought an item from a seller in your control group, but now that your
+ A/B test is showing better prices in your test group, he ends up purchasing
+ from a test seller instead.
+ This difference will disappear once all sellers get your pricing algorithm,
+ but in the meantime, your test group is effectively stealing from your
+ control: not only are test metrics going up when this cannibalization happens,
+ but it also makes control metric go down.
+ Your metrics, as a result, are overcounting.
 \end_layout
 
 \begin_layout Section
@@ -3825,7 +3978,43 @@ Duration / Time of Test
 \end_layout
 
 \begin_layout Subsection
-Beware of day of week effects
+Pre-define the Duation, not end when you reach Significance
+\end_layout
+
+\begin_layout Standard
+The authors suggest an incorrect procedure for ending experiments: "Once
+ the test reaches statistical significance, you'll have your answer" and
+ "When the test has reached a statistically significant conclusion , the
+ tester sends a follow-up with results and the key takeaways." This procedure
+ will have more false positives than expected.
+ The correct procedure is to determine the duration in advance (e.g., a full
+ week or two), then check for stat-sig at that point.
+\end_layout
+
+\begin_layout Standard
+Reason
+\end_layout
+
+\begin_layout Itemize
+If you end early, the result may be temporaly significance, you can draw
+ the significance over time graph, to see how significance more up and down
+ from your predefined 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ level.
+\end_layout
+
+\begin_layout Subsection
+Beware of 
+\begin_inset Quotes eld
+\end_inset
+
+Day of Week
+\begin_inset Quotes erd
+\end_inset
+
+ effects / Holidays
 \end_layout
 
 \begin_layout Standard
@@ -3908,7 +4097,7 @@ Effect Analysis
 \end_layout
 
 \begin_layout Subsection
-Machine Learning and Data Mining
+get the Causality: Machine Learning and Data Mining
 \end_layout
 
 \begin_layout Standard
@@ -3918,9 +4107,75 @@ For example, an experiment showed no significant difference overall, but
  The specific Treatment feature, which involved JavaScript, was buggy for
  that browser version and users abandoned.
  Excluding the population from the analysis showed positive results, and
- once the bug was fixed, the feature was indeed retested and was positive
+ once the bug was fixed, the feature was indeed retested and was positive.
 \end_layout
 
+\begin_layout Subsection
+Incorrectly computing confidence intervals for percent change.
+ 
+\end_layout
+
+\begin_layout Standard
+Most experimenters want to see the impact in percent, not absolute numbers,
+ yet translating the standard confidence intervals to percentages is inaccurate.
+ One has to use an old theorem from Fieller (1940) to compute these correctly.
+\end_layout
+
+\begin_layout Section
+Post A/B test: Roll Out
+\end_layout
+
+\begin_layout Subsection
+Even 99% confidence means you are wrong in 1% time
+\end_layout
+
+\begin_layout Subsection
+How to choose population of roll out ?
+\end_layout
+
+\begin_layout Itemize
+Roll out in one geographic area, especially if your AB test only focus on
+ one area.
+\end_layout
+
+\begin_layout Itemize
+Ramp-Up + Hold-back + keep monitoring the data
+\end_layout
+
+\begin_layout Subsection
+Ramp-Up and Hold-back: be less optimistic
+\end_layout
+
+\begin_layout Standard
+Always be careful, to minimize the impact of bugs in your new feature, or
+ wrong analysis in A/B test
+\end_layout
+
+\begin_layout Itemize
+use Ramp-Up -- roll out slowly, 
+\end_layout
+
+\begin_layout Itemize
+Leave a 5% holdback group.
+\end_layout
+
+\begin_layout Subsection
+Chances of Personalization
+\end_layout
+
+\begin_layout Itemize
+Just look at hte overall metric: say 3% significance is not enough, if your
+ sample size is larger enough, then you should go a more granular level
+ to see performance of each segment of the customer
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Maybe the performance varies across different geography + demographic groups
+ 
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Culture and business
 \end_layout
