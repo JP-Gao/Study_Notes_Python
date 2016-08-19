@@ -1518,6 +1518,53 @@ measured in any variety of ways to describe their app’s commercial traction.
 \end_layout
 
 \end_deeper
+\begin_layout Subsection
+Conversion Rate Discussion
+\end_layout
+
+\begin_layout Itemize
+Conversion Rate per sesson: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+When your focus is on a particular call-to-action button on a landing page:
+ A short term conversion / quickie
+\series default
+: Clicking on a 
+\series bold
+call-to-action button on a landing page.
+
+\series default
+ In that case, you should measure the conversion rate against sessions.
+\end_layout
+
+\begin_layout Itemize
+Amazon is known to measure it by session, as they consider every visit an
+ opportunity to convert.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A long term conversion / relationship: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Converting from per unique customers.
+ If a coversion of a customer often needs multiple visits, like a Mercedes
+ car dealer although this presents other issues with cookie deletionalthough
+ this presents other issues with cookie deletionwebsite.
+\end_layout
+
+\begin_layout Itemize
+although this presents other issues with cookie deletion
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Social Network
 \end_layout
@@ -2229,60 +2276,30 @@ From then on, the entire company was united around a single goal: 7 friends
 \end_layout
 
 \begin_layout Subsection
-Measure Relevancy of Search Result 
+Search Releancy
 \end_layout
 
 \begin_layout Standard
-https://www.quora.com/How-do-you-measure-and-evaluate-the-quality-of-recommendatio
-n-engines
+Use A/B test to get
 \end_layout
 
-\begin_layout Standard
-on this).
- To summarize, in order to evaluate a Recommender System in the lab, you
- need to understand what are the dimensions you are interested in evaluating.
- Accuracy might only be one of the important dimensions, but what about
- diversity or novelty? Once you have determined that, you will end up with
- a set of metrics that you need to make tradeoffs on.
- The key issue is to understand how those tradeoffs are going to affect
- your users once you are ready to do the final online evaluation through
- an A/B test.
- And, yes, as a rule of thumb I agree error-based metrics such as RMSE are
- poor indicators.
- However, ranking metrics such as NDCG or Fraction of Concordant Pairs,
- if correctly implemented are much, much better.
+\begin_layout Enumerate
+click the higher rank iterms
 \end_layout
 
-\begin_layout Subsection
-Measure Search Relevancy in T
+\begin_layout Enumerate
+Number of user sessions: You want users to your search engine more, so you
+ want this to go up.
+ 
 \end_layout
 
-\begin_layout Standard
-http://blog.echen.me/2013/01/08/improving-twitter-search-with-real-time-human-comp
-utation/
+\begin_layout Enumerate
+Queries per session: You want the users to get to what they are looking
+ for faster, so ideally you want this to go down
 \end_layout
 
-\begin_layout Standard
-When each of these events happened, people instantly came to Twitter – and,
- in particular, Twitter search – to discover what was happening.
-\end_layout
-
-\begin_layout Standard
-From a search and advertising perspective, however, these sudden events
- pose several challenges:
-\end_layout
-
-\begin_layout Standard
-The queries people perform have never before been seen, so it’s impossible
- to know beforehand what they mean.
- How would you know that #bindersfullofwomen refers to politics, and not
- office accessories, or that people searching for “Horses and Bayonets”
- are interested in the debates?
-\end_layout
-
-\begin_layout Standard
-Since these spikes in search queries are so short-lived, there’s only a
- short window of opportunity to learn what they mean.
+\begin_layout Enumerate
+Average time to success: Same as above, you want this to go down.
 \end_layout
 
 \begin_layout Section
@@ -3677,6 +3694,14 @@ Effect
 \end_layout
 
 \begin_layout Section
+Biuld Hypothesis
+\end_layout
+
+\begin_layout Standard
+Reasoning & Causaility, as AB test is just to show you the correlation
+\end_layout
+
+\begin_layout Section
 OEC: Overall Evaluation Criteria
 \end_layout
 
@@ -3978,10 +4003,15 @@ Duration / Time of Test
 \end_layout
 
 \begin_layout Subsection
-Pre-define the Duation, not end when you reach Significance
+Early Stop
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
+General Principle: Pre-define the Duation, not end when you reach Significance
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
 The authors suggest an incorrect procedure for ending experiments: "Once
  the test reaches statistical significance, you'll have your answer" and
  "When the test has reached a statistically significant conclusion , the
@@ -3991,20 +4021,33 @@ The authors suggest an incorrect procedure for ending experiments: "Once
  week or two), then check for stat-sig at that point.
 \end_layout
 
-\begin_layout Standard
-Reason
-\end_layout
-
 \begin_layout Itemize
-If you end early, the result may be temporaly significance, you can draw
- the significance over time graph, to see how significance more up and down
- from your predefined 
+Reason: If you end early, the result may be temporaly significance, you
+ can draw the significance over time graph, to see how significance more
+ up and down from your predefined 
 \begin_inset Formula $\alpha$
 \end_inset
 
  level.
 \end_layout
 
+\end_deeper
+\begin_layout Itemize
+If there is a cost: like poor customer experience in the inferior group,
+ or patients received by placebo, then you can stop early when
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $|y|>\Phi^{-1}(\frac{n}{k+2n})\sqrt[]{n}$
+\end_inset
+
+ Where y is the difference between results of A and B, k is the expected
+ number of future users who will be exposed to a result, and n is the number
+ of users who are exposed to the test so far.
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Beware of 
 \begin_inset Quotes eld
@@ -4097,7 +4140,7 @@ Effect Analysis
 \end_layout
 
 \begin_layout Subsection
-get the Causality: Machine Learning and Data Mining
+get the Causality: use a Prametric Model
 \end_layout
 
 \begin_layout Standard
@@ -4148,7 +4191,7 @@ Ramp-Up and Hold-back: be less optimistic
 
 \begin_layout Standard
 Always be careful, to minimize the impact of bugs in your new feature, or
- wrong analysis in A/B test
+ fallacy n A/B test
 \end_layout
 
 \begin_layout Itemize
@@ -4173,6 +4216,114 @@ Just look at hte overall metric: say 3% significance is not enough, if your
 \begin_layout Itemize
 Maybe the performance varies across different geography + demographic groups
  
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Doucmentation
+\end_layout
+
+\begin_layout Standard
+All experimenters are required to document their experiments.
+ What are you changing? What do you expect the outcomes to be? What’s the
+ expected “audience size” (fraction of people who will see the feature)?
+ Collecting this data not only ensures that the experimenter considered
+ these questions, but also allows us to build up a corpus of institutional
+ learning — a formal record of what’s been tried, and what the outcomes
+ were, including negative outcomes.
+ We can use this to inform future experiments.
+\end_layout
+
+\begin_layout Section
+What to be Test & cannot be Tested
+\end_layout
+
+\begin_layout Itemize
+Tested
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A/B testing is a way to make sure good ideas don’t die young, and are given
+ the opportunity to develop fully.
+ When we really believe in an idea, and initial experiment results don’t
+ fulfill our expectations, we can make further changes to the product, and
+ continue improving things until they are ready to be shipped to the hundreds
+ of millions of people.
+ The alternative is that you create something that feels good, you ship
+ it, move on to some new idea, and a year later someone realizes no one
+ is using the feature, and it gets sunset quietly.
+\end_layout
+
+\begin_layout Itemize
+Quickly iterating and measuring the effects of proposed changes lets our
+ teams incorporate implicit user feedback into the product early on, as
+ we work through various prototypes.
+ We are able to ship a change, look at what’s working and what isn’t, create
+ a hypothesis for what further changes would improve the product, ship those,
+ and keep going until we have something that’s ready to launch widely.
+\end_layout
+
+\begin_layout Itemize
+Some may look at incremental changes as insufficient.
+ Certainly, shipping a “big idea” sounds far better than a small improvement.
+ Consider, however, that small changes add up, and have a compounding effect.
+ Shying away from incremental changes that materially improve the product
+ is simply not a good policy.
+ A good financial portfolio balances safe bets that give predictable, albeit
+ less than astronomical, return, and some higher-risk, higher-reward bets.
+ Product portfolio management is not very different in that regard.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+cannot be Tested
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+That said, there are lots of things we cannot, or perhaps should not, test.
+ Some changes are designed to result in network effects which user-bucketed
+ A/B testing won’t capture (although other techniques do exist to quantify
+ such effects).
+ Some features do not work when given only to a random percentage of people.
+ For example, Group DMs are not a feature to use in a plain A/B test, because
+ chances are the lucky people who get the feature would want to message
+ those who don’t have it, which makes the feature essentially useless.
+ Others might just be totally orthogonal — e.g., rolling out a new app like
+ Periscope is not a Twitter application experiment.
+ But once it’s out, A/B testing becomes an important way to drive measurable
+ incremental and not-so-incremental changes within that app.
+\end_layout
+
+\begin_layout Itemize
+For an example that perhaps illustrates the idea more clearly, suppose we
+ want to understand the effect of income on mental health.
+ We can't force some people to become poor or rich, and a correlational
+ study is clearly flawed.
+ This NY Times article describes a natural experiment when a group of Cherokee
+ Indians distributed casino profits to its members, thereby "randomly" lifting
+ some of them out of poverty.
+ Another example, assuming there's nothing special about the period in which
+ hack week occurs, is the use of hack week as an instrument that quasi-randomly
+ "prevents" the sales team from doing their job, as in the scenario I described
+ above
+\end_layout
+
+\begin_layout Itemize
+Yet another class of changes is major new features that are tested in internal
+ builds and via user research, but released in a big-bang moment to all
+ the customers in a given market for strategic reasons.
+ Such a decision is made when, as an organization, we believe it’s the right
+ thing to do for the product and the customer.
+ We believe there are greater gains to be had from a large release than
+ there are from incremental changes that lead, perhaps, to a better initial
+ release that might get more customers trying it and using it.
+ It’s a trade-off the product leadership chooses to make.
+ And are we going to A/B test incremental changes to such a new features
+ after they launch? You bet! As ideas mature, we guide their evolution using
+ well-established scientific principles — and experimentation is a key part
+ of the process.
 \end_layout
 
 \end_deeper
@@ -4342,6 +4493,49 @@ In the statistical field of Design of Experiments, a major research area
  is to find designs that minimize the number of user groups needed for the
  test while allowing you to estimate the main effects and interactions with
  little or no confounding.
+\end_layout
+
+\begin_layout Part
+Causal Inference
+\end_layout
+
+\begin_layout Subsection
+Multi-Variable Regression: Ceteris Paribus 
+\end_layout
+
+\begin_layout Subsection
+Nature Inference
+\end_layout
+
+\begin_layout Standard
+One approach is to use a natural experiment (a scenario in which the universe
+ itself somehow generates a random-like assignment) to study this effect.
+ Here's the idea.
+\end_layout
+
+\begin_layout Itemize
+How like a particular channel in Youtube will increase the overall activity:
+ As always, an A/B test would be ideal, but it's impossible in this case
+ to run: we can't force users to fall in love with a channel (we can recommend
+ them channels, but there's no guarantee they'll actually like them), and
+ we can't forcibly block them from certain channels either.
+\end_layout
+
+\begin_layout Standard
+A Nature Expirment:
+\end_layout
+
+\begin_layout Itemize
+Consider a user who uploads a new video every Wednesday.
+ One month, he lets his subscribers know that he won’t be uploading any
+ new videos for a few weeks, while he goes on vacation.
+\end_layout
+
+\begin_layout Itemize
+How do his subscribers respond? Do they stop watching YouTube on Wednesdays,
+ since his channel was the sole reason for their visits? Or is their activity
+ relatively unaffected, since they only watch his content when it appears
+ on the front page?
 \end_layout
 
 \begin_layout Part
