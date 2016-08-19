@@ -172,46 +172,22 @@
 \begin_body
 
 \begin_layout Standard
-第一：数学题
-\end_layout
-
-\begin_layout Standard
-第二：recommendation 系统
-\end_layout
-
-\begin_layout Standard
-第三：写的q&a 过一遍
-\end_layout
-
-\begin_layout Standard
-第四：写的个人工作经历和model和r包过一遍
-\end_layout
-
-\begin_layout Standard
-第五：面试经验 套路！
-\end_layout
-
-\begin_layout Standard
-Cheet Sheet
-\end_layout
-
-\begin_layout Standard
-Know how to apply them into real problems:
+以quoro为主
 \end_layout
 
 \begin_layout Itemize
-a/b test
+a/b test 实践
 \end_layout
 
 \begin_layout Itemize
-cluster
+cluster 实践
 \end_layout
 
 \begin_layout Itemize
-recommendation
+recommendation 实践
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 SQL 加强 （如union）
 \end_layout
 
@@ -775,18 +751,23 @@ Driving business impact:
 \end_layout
 
 \begin_layout Standard
-Collaborate and work closely with cross-functional business partners to
- identify gaps and structure problems
+Collaborate and work closely with 
+\series bold
+cross-functional business partners to identify gaps and structure problems：
+ Corporation
 \end_layout
 
 \begin_layout Standard
-You will create meaningful presentations and analyses that tell a “story”
- focused on insights, not just data
+You will create meaningful presentations and analyses that 
+\series bold
+tell a “story” focused on insights, not just data: Story-Telling
 \end_layout
 
 \begin_layout Standard
 Synthesize methodology and data into actionable business strategy, and communica
-te findings to product, engineering, and management teams
+te findings to product, engineering, and management teams: 
+\series bold
+Actional Strategy
 \end_layout
 
 \begin_layout Standard
@@ -798,24 +779,32 @@ Use statistical and econometric techniques on large datasets to:
 \end_layout
 
 \begin_layout Itemize
-i) measure results and show key trends
+i) measure results and show key trends: 
 \end_layout
 
 \begin_layout Itemize
-ii) identify causal impact and attribution
+ii) identify causal impact and attribution: 
+\series bold
+Casual Inference
 \end_layout
 
 \begin_layout Itemize
-iii) analyze experiments
+iii) analyze experiments: 
+\series bold
+AB TEST
 \end_layout
 
 \begin_layout Itemize
-iv) model and predict future performance of users or products
+iv) model and predict future performance of users or products: 
+\series bold
+Forecasting Time Series
 \end_layout
 
 \begin_layout Standard
 Write and interpret complex SQL queries for standard as well as ad hoc data
- analysis purposes
+ analysis purposes: 
+\series bold
+SQL
 \end_layout
 
 \begin_layout Standard
@@ -870,6 +859,8 @@ Experience with Hadoop (Pig, Scalding)
 \end_layout
 
 \begin_layout Standard
+
+\series bold
 Strategy consulting experience
 \end_layout
 
@@ -1083,7 +1074,738 @@ Why Advertisers Become Inactive
 \end_layout
 
 \begin_layout Section
-Twitter Products
+T Ier Background
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Read 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Twitter Engeenering blog! 
+\end_layout
+
+\begin_layout Itemize
+Chapter 10 Mining Social-Network Graphs
+\end_layout
+
+\begin_layout Itemize
+Optimizing Budget Constrained Spend in Search Advertising
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+incrementalism, This is because a mature product is hard to change in a
+ way that moves the metrics by a large margin.
+ A lot of ideas people think are home-runs simply do not move the needle
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+causal effects of international initiatives
+\end_layout
+
+\begin_layout Itemize
+cashtagged ($ticker) : Sentiment analysis / Tweet velocity (an indication
+ of volatility) It’s who’s Tweeting.
+ Social Market Analytics (“SMA”) believes it’s not just what is being said
+ that matters, it’s who is saying it.
+ A part of their proprietary approach includes filtering Tweets to identify
+ accounts of professional investors.
+\end_layout
+
+\begin_layout Itemize
+measure impression:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+followers: happen to see it 
+\end_layout
+
+\begin_layout Itemize
+retweets etc
+\end_layout
+
+\begin_layout Itemize
+syndicated content
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+https://support.twitter.com/articles/164083
+\end_layout
+
+\begin_layout Enumerate
+Flavien Bessede: SQL software engineering
+\end_layout
+
+\begin_layout Enumerate
+Andrew Techmeier: product strategy
+\end_layout
+
+\begin_layout Enumerate
+Joshua Lande : python.
+ Data Scientist on the Timeline Quality team
+\end_layout
+
+\begin_layout Enumerate
+Alex Rosner: trader, LSE
+\end_layout
+
+\begin_layout Itemize
+SQL!
+\end_layout
+
+\begin_layout Itemize
+A/B test!
+\end_layout
+
+\begin_layout Itemize
+How to define the causal impact of a new product
+\end_layout
+
+\begin_layout Itemize
+Clustering: handle (followers) targeting, language targeting, lookalike
+ user targeting, interests targeting, age targeting 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+K-means analysis of the social graph
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Timelines Quality - Relevancy / Ranking
+\end_layout
+
+\begin_layout Itemize
+Director / Data Scientist, Business Insights : 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Leading a team of data scientists and analysts examining Twitter content,
+ 
+\series bold
+user growth, user engagement, and syndicated content (twitts showed in other
+ sites).
+ 
+\series default
+Use statistical and econometric methods + A/B experiments to develop insights
+ that drive business decisions.
+ 
+\series bold
+I focus a lot on causality and attribution.
+\end_layout
+
+\begin_layout Itemize
+Senior Manager and Manager, Revenue Forecasting and Analytics Leading a
+ team of data scientists working with our revenue teams to understand advertiser
+ & user behavior, auctions, revenue, and the causal impact of new products.
+ 
+\series bold
+Applied statistical models in order to forecast revenue and advertiser growth.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Supported strategy & business development initiatives for Microsoft's Xbox
+ division.
+ Projects included hardware pricing/bundling analyses, international market
+ analysis / go-to-market strategies, cross-divisional analysis and subsequent
+ prioritization of the digital gaming category, and partner identification.
+ 
+\end_layout
+
+\begin_layout Itemize
+Alex Rosner: trader
+\end_layout
+
+\begin_layout Itemize
+I work at data analysis, development, implementation and maintenance of
+ various production pipelines for ads targeting, including handle (followers)
+ targeting, language targeting, lookalike user targeting, interests targeting,
+ age targeting 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+• Frequentist Statistics (A/B Testing, Experimental Design, Re-sampling
+ Techniques)
+\end_layout
+
+\begin_layout Itemize
+• Explanatory Linear / Logistic Regression (Smaller scale data sets with
+ 
+\series bold
+emphasis on interpretation
+\series default
+)
+\end_layout
+
+\begin_layout Itemize
+• Machine Learning Classifier and Regressor (Random Forest, Boosting, SVM,
+ K-Means Clustering)
+\end_layout
+
+\begin_layout Itemize
+• Network Statistics (Graph Traversal Algorithms, Centrality Measures, 
+\series bold
+Community Detection via Clustering
+\series default
+) 
+\end_layout
+
+\begin_layout Itemize
+• Big Data Technologies (Theory of Distributed System, Multi-Threading,
+ Spark, MLlib)
+\end_layout
+
+\begin_layout Itemize
+• Natural Language Processing (Bag of Word Model, Topic Modeling, Word2Vec)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Major analysis project was summary of major interest clusters among users
+ internationally, presented to COO.
+ Created dashboard that showed individual country managers how audiences
+ for different media categories evolved over time.
+ Managed multiple ETL pipelines as defacto SRE for the data science team.
+ 
+\end_layout
+
+\begin_layout Itemize
+Analyzed the effect of timeline diversity on retention
+\end_layout
+
+\begin_layout Itemize
+Heterogeneous Learning and the Targeting of Marketing Communication for
+ New Products
+\end_layout
+
+\begin_layout Itemize
+PIE (Product, instrumentation, and Experimentation) 
+\end_layout
+
+\begin_layout Itemize
+Worked on first version of methodology to count the number of users of Twitter's
+ syndication products.
+ Built an ETL pipeline in both Pig and Scalding for it.
+ Provided advice to product managers on how to design and evaluate their
+ experiments.
+
+\series bold
+ Produced an engagement score for users, predicting the likelihood that
+ they would receive an engagement.
+ 
+\series default
+Crafted document outlining best practices for data instrumentation.
+ Early user of Presto at Twitter and enabled access to important datasets
+ through it.
+\end_layout
+
+\begin_layout Itemize
+Provided detailed analysis o
+\series bold
+n active users and forecasts 
+\series default
+to Finance for quarterly reporting.
+ 
+\end_layout
+
+\begin_layout Itemize
+With the Notification team under User Growth - Responsible for data engineering
+ and analysis of Twitter's
+\series bold
+ ESPN platform (Email, SMS, Push Network),
+\series default
+ including * Real-time counting of huge data
+\series bold
+ (i.e., notification campaign performance, open/click/incremental MAU) 
+\series default
+with Twitter's TSAR framework - Created pipeline of 
+\series bold
+Churn ML model to tackle the user churn problem
+\series default
+ * Built the first ML model in production owned by Growth team.
+ * Fed data to Twitter's internal services in real-time to tailor user experienc
+e.
+ * US patent pending.
+\end_layout
+
+\begin_layout Itemize
+• Identified 
+\series bold
+Twitter Lookalike Score 
+\series default
+as very effective input for
+\series bold
+ client customer acquisition through time series analysis, potentially increasin
+g click-through rate by more than 10x.
+\end_layout
+
+\begin_layout Itemize
+• Optimized model using Twitter interest data for effective customer acquisition
+, through techniques including principal component analysis, cross-validation,
+ and lasso logistic regression.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+• Proposed ways to improve rigorousness of A/B testing on client revenue
+ lift, using bootstrap to estimate necessary length of observation period.
+\end_layout
+
+\begin_layout Itemize
+With the anti-spam team, - Built machine learning models to detect a variety
+ of spam vectors on Twitter (i.e., follow, mention, fake signups) - Major
+ contributor to realtime rules of 
+\series bold
+BotMaker (Twitter's anti-spam system)
+\series default
+ - Led the app spam project to fight against API abuse (i.e., 
+\series bold
+read-only apps, enforcing phone verification on app creation, leaked API
+ keys, et
+\series default
+c) - Provided full-stack data engineering and analysis
+\end_layout
+
+\begin_layout Itemize
+Applying data and science to #ReachEveryPersonOnThePlanet.
+ Currently, working on Recommendation systems for Twitter Trends.
+\end_layout
+
+\begin_layout Itemize
+Previously worked on user onboarding, growth and people recommendation
+\end_layout
+
+\begin_layout Itemize
+Ads marketplace team designing, analyzing, and implementing real time algorithms
+ for various ads products at twitter such as
+\series bold
+ target (average) bidding, budget throttling, and conversion optimization.
+ 
+\end_layout
+
+\begin_layout Itemize
+Ad
+\series bold
+s click-through/conversion rate prediction 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Timelines Quality / Social Recommendations / Who To Follow etc.
+ 
+\end_layout
+
+\begin_layout Itemize
+I work on the design and implementation of machine learning pipelines to
+ surface temporally and topically relevant content to users.
+ My team owns pipelines and our models incorporate features coming from
+ the following methodologies: basic NLP,
+\series bold
+ event detection, graph diffusion, collaborative filtering
+\series default
+, and deep learning.
+ I also use interaction and engagement data to refine these models and pipelines
+, and the interplay between them.
+ 
+\end_layout
+
+\begin_layout Itemize
+I lead a team of data scientists specializing in 
+\series bold
+statistical modeling to forecast and analyze advertising revenue.
+
+\series default
+ Key goals: understand advertiser & user behavior, auctions and the causal
+ impact of new products.
+ The team's mandate is to 
+\series bold
+drive revenue visibility for C-level executives and sales
+\backslash
+product leadership.
+ It's both a science and an art.
+ 
+\end_layout
+
+\begin_layout Itemize
+Data scientist in the advertising technology industry, specializing in 
+\series bold
+Revenue Product Analytics for Ads Performance Products and Revenue Forecasting
+\series default
+.
+ Experienced data science, quantitative, and statistical modeling skills
+ through projects to deliver key insights to stakeholders across Product,
+ Engineering, Sales, and Finance organizations.
+ Strong strategy, communication, time management, and leadership skills.
+ 
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Budget throttling, and conversion optimization.
+ 
+\end_layout
+
+\begin_layout Standard
+Paper: Optimizing Budget Constrained Spend in Search Advertising
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+User Activation and Churn
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ESPN platform (Email, SMS, Push Network)
+\end_layout
+
+\begin_layout Itemize
+user onboarding,
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+engagement score for users
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Produced an engagement score for users, predicting the likelihood that they
+ would receive an engagement.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+anti-spam system
+\end_layout
+
+\begin_layout Itemize
+Twitter (i.e., follow, mention, fake signups
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+BotMaker
+\end_layout
+
+\begin_layout Itemize
+ed the app spam project to fight against API abuse (i.e., 
+\series bold
+read-only apps, enforcing phone verification on app creation, leaked API
+ keys, et
+\series default
+c) -
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Causal Effects of New Initiatives
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+event detection
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Ads Performance
+\end_layout
+
+\begin_layout Subsection
+Quality Score of Ads
+\end_layout
+
+\begin_layout Standard
+Quality Score, on the other hand, is a more general estimate based on your
+ average past performance.
+ It also differs from Ad Rank in that it’s keyword-based.
+\end_layout
+
+\begin_layout Subsection
+Differentiate Advertise and Users
+\end_layout
+
+\begin_layout Subsection
+Improve your ad quality: G
+\end_layout
+
+\begin_layout Itemize
+Keep Twitter Ads Fresh to Retain High Impressions
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Twitter wants to show users the freshest content, so tweet new material
+ regularly.
+\end_layout
+
+\begin_layout Itemize
+No matter how good the ad, the number of impressions per day declines over
+ time.
+ And, as time goes on, Twitter is less likely to show older tweets.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Create very specific ad groups 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If your baked goods shop sells different types of cookie packages, think
+ about creating ad groups for each of those different cookie packages, like
+ one ad group for your holiday cookie package, and another ad group for
+ your birthday cookie package.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Choose your keywords specificlly: If you're selling cookie packages, some
+ keywords you might consider are "cookie gift package" or "cookie gift basket."
+ Generic keywords like "cookie" or "gift" probably aren't effective because
+ they're way too general.
+ 
+\end_layout
+
+\begin_layout Itemize
+Create simple, enticing ads
+\end_layout
+
+\begin_layout Itemize
+Use a strong call-to-action
+\end_layout
+
+\begin_layout Itemize
+Test out multiple ads 
+\end_layout
+
+\begin_layout Subsection
+Real time bidding: suggested CTR
+\end_layout
+
+\begin_layout Standard
+Ad Rank: A value that's used to determine your ad position (where ads are
+ shown on a page) and whether your ads will show at all.
+ 
+\end_layout
+
+\begin_layout Standard
+Ad Rank is calculated using your bid amount, the components of Quality Score
+ (expected clickthrough rate, ad relevance, and landing page experience)
+\end_layout
+
+\begin_layout Standard
+Ad Rank determines your ad position -- where your ad shows on the page in
+ relation to other ads -- and whether your ads are eligible to show at all.
+ The main components of your Ad Rank are your bids and the quality of your
+ ads and website.
+ We also incorporate the expected impact from your extensions and other
+ ad formats when computing your Ad Rank.
+ When estimating the expected impact of extensions and ad formats, we consider
+ such factors as the relevance, clickthrough rates, and the prominence of
+ the extensions or formats on the search results page.
+ So even if your competition has higher bids than yours, you can still win
+ a higher position at a lower price by using highly relevant keywords and
+ ads.
+ Your Ad Rank is recalculated each time your ad is eligible to appear and
+ competes in an auction, so your ad position can fluctuate each time depending
+ on your competition at that moment.
+ 
+\end_layout
+
+\begin_layout Subsection
+Relation bewteen Quality and Cost
+\end_layout
+
+\begin_layout Standard
+Regardless, Twitter’s quality adjusted bids algorithm isn’t some arbitrary
+ metric you can ignore.
+ As with Google AdWords, increasing the quality score on your Twitter ads
+ actually earns you a huge click discount.
+ In fact, on average, when you gain one point in the engagement rates on
+ your ads, you see a 5% decrease in cost per engagement.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Timelines Quality: Revency between Content to User
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+collaborative filtering
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Social Recommendations / Who To Follow: Relevancy between Users 
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Community Detection via Clustering
+\end_layout
+
+\begin_layout Standard
+Chapter 10 Mining Social-Network Graphs
+\end_layout
+
+\begin_layout Section
+Revenue Forecasting
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+causal effects of international initiatives
+\end_layout
+
+\begin_layout Standard
+time series and stochastic models to forecast revenue.
+ Cross functional role between sales, finance and engineering teams to forecast
+ revenue.
+ Perform analytics on existing and upcoming products to derive insights
+ which can have an impact on sales revenue.
+\end_layout
+
+\begin_layout Itemize
+I lead a team of data scientists specializing in 
+\series bold
+statistical modeling to forecast and analyze advertising revenue.
+
+\series default
+ Key goals: understand advertiser & user behavior, auctions and the causal
+ impact of new products.
+ The team's mandate is to 
+\series bold
+drive revenue visibility for C-level executives and sales
+\backslash
+product leadership.
+ It's both a science and an art.
+ 
+\end_layout
+
+\begin_layout Subsection
+Structure the Answer
+\end_layout
+
+\begin_layout Itemize
+Multiple Seaonality
+\end_layout
+
+\begin_layout Itemize
+Really hard to fit the peak
+\end_layout
+
+\begin_layout Subsection
+Models
+\end_layout
+
+\begin_layout Itemize
+ARMA + Seasonality Features
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+One set of regressors are the first 3 to 15 largest Fourier components for
+ weekly and yearly seasonality.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Intuition of ARMA: An ARMA(p,0) process is just an AR(p).
+ Which tells us that current value today is just a weighted sum of past
+ values.
+ Sometimes prices are said to follow such a process.
+\end_layout
+
+\begin_layout Itemize
+An ARMA(0,q) process is just MA(q) which is a moving average of past white
+ noise.
+ MA processes are often used to model shocks to a system (again say prices)
+ which are gradually weakened over time.
+ 
+\end_layout
+
+\begin_layout Subsection
+STL decomposition.
+\end_layout
+
+\begin_layout Standard
+Seasonal and Trend decomposition using Loess (STL) STL Decomposition is
+ a useful tool for accounting for seasonal effects.
+ In sales data, it is common to have repeating patterns every 24 hours,
+ or every 7 days, or every 365 days due to work/sleep cycles and holidays.
+ 
+\end_layout
+
+\begin_layout Standard
+Use Loess to fit the trend
+\end_layout
+
+\begin_layout Standard
+Use AMRA + Fourier + Indicators to get the left part.
+\end_layout
+
+\begin_layout Subsection
+Cross Validation in Time Series
+\end_layout
+
+\begin_layout Standard
+Slightly different than traditonal cross valiadtion, as testing data has
+ to be in continuous time order
+\end_layout
+
+\begin_layout Standard
+Select observation k + i for test set, and use observations at times 1;
+ 2; : : : ; k + i - 1 to estimate model.
+ 
+\end_layout
+
+\begin_layout Standard
+Compute error on forecast for time k + i for all 
+\begin_inset Formula $i$
+\end_inset
+
+from Repeat for i = 0; 1; : : : ; T 􀀀 k where T is total number of observations.
+ Compute accuracy measure over all errors
+\end_layout
+
+\begin_layout Section
+T Products
 \end_layout
 
 \begin_layout Standard
@@ -1112,7 +1834,11 @@ So, that's what we want to make stronger and also easier.
  on-boarding, so we can match people faster to their interests.
  And we believe that that interest drive is really important to us and unique
  to us.
- Two, is the timeline where people spend the majority of their time.
+ Two, is the timeline where 
+\series bold
+causal effects of international initiatives
+\series default
+people spend the majority of their time.
  We've made a number of refinements over the past few months to make sure
  that we're showing what's most important and what really matters, and enabling
  people to quickly get back to everything and to recency.
@@ -1123,6 +1849,33 @@ Notifications is another area where we think we can do a much better job,
  especially around breaking news.
  And not that we just push you into a tweet that dead ends, but we can enable
  you to further explore topics around that tweet and that interest.
+\end_layout
+
+\begin_layout Itemize
+Hashtag From Wikipedia, the free encyclopedia: A sign suggesting the use
+ of a #TimeToAct hashtag at a 2014 conference A hashtag is a type of label
+ or metadata tag used on social network and microblogging services which
+ makes it easier for users to find messages with a specific theme or content.
+ Users create and use hashtags by placing the hash character (or pound sign)
+ # in front of a word or unspaced phrase, either in the main text of a message
+ or at the end.
+ Searching for that hashtag will then present each message that has been
+ tagged with it.
+ A hashtag archive is consequently collected into a single stream under
+ the same hashtag.[1]
+\end_layout
+
+\begin_layout Itemize
+https://business.twitter.com/en/help/campaign-setup/campaign-targeting/forecaster-
+tool.html
+\end_layout
+
+\begin_layout Itemize
+https://blog.twitter.com/2015/introducing-new-audience-insights-for-brands
+\end_layout
+
+\begin_layout Itemize
+https://blog.twitter.com/2015/introducing-audience-insights
 \end_layout
 
 \begin_layout Subsection
@@ -2703,6 +3456,187 @@ g environment.
  
 \end_layout
 
+\begin_layout Section
+WFC
+\end_layout
+
+\begin_layout Standard
+he Credit Capital, Allowance, and Stress Testing Team (CCAST) is a unit
+ within Corporate Credit and is responsible for 
+\end_layout
+
+\begin_layout Description
+(i) oversight, modeling and estimation of risk weighted assets (RWA) in
+ compliance with BASEL regulations, 
+\end_layout
+
+\begin_layout Description
+(ii) consolidation coordination, documentation and oversight of the Allowance
+ for Credit Losses (ACL) and related external disclosures; 
+\end_layout
+
+\begin_layout Description
+(iii) coordination, oversight documentation modeling, and submission for
+ the credit section of the Corporate Stress Testing exercises in compliance
+ with Dodd Frank and the Comprehensive Capital Analysis and Reporting exercises
+ (CCAR).
+ 
+\end_layout
+
+\begin_layout Standard
+The team engages with team members throughout the bank to support the $800B
+ loan portfolio including the lines of business senior credit officers,
+ model governance, Controllers and External Reporting, and Treasury.
+ The team is also responsible for maintaining strong relationships with
+ regulators, external auditors and other examiners.
+\end_layout
+
+\begin_layout Standard
+The team is seeking a dynamic individual with experience in predictive modeling
+ and data analysis to join the
+\series bold
+ Commercial Modeling Team
+\series default
+ within the CCAST Portfolio Modeling Group.
+ Th
+\series bold
+e Portfolio Modeling Group
+\series default
+ is responsible for developing; documenting and supporting loss forecast
+ models and results for both 
+\series bold
+Commercial and Retail portfolios
+\series default
+.
+ These models are leveraged for the bank's Allowance, Stress Testing and
+ Loss forecasting processes.
+ This position requires application of analytical, statistical modeling,
+ and forecasting methods and focuses on the theory and mathematics behind
+ the analyses.
+\end_layout
+
+\begin_layout Standard
+The duties of this position include:
+\end_layout
+
+\begin_layout Itemize
+Develop and document models to forecast conditional credit losses and balance
+ indicative of both Wells Fargo as well as industry level performance for
+ commercial portfolio segments
+\end_layout
+
+\begin_layout Itemize
+Work closely with line of business partners to enhance the theory behind
+ existing models and forecast, address data and model questions.
+\end_layout
+
+\begin_layout Itemize
+Underlying commercial portfolio data research and analytics
+\end_layout
+
+\begin_layout Itemize
+Adhere to model validation governance to ensure models are in compliance
+ with policy and are working as intended, address model validation and regulator
+y feedback issues
+\end_layout
+
+\begin_layout Itemize
+Coherently support analysis to business partners, model validation, audit
+ and regulators
+\end_layout
+
+\begin_layout Itemize
+Support ad hoc analytic projects
+\end_layout
+
+\begin_layout Standard
+Required Qualifications
+\end_layout
+
+\begin_layout Standard
+2+ years of experience in an advanced scientific or mathematical field
+\end_layout
+
+\begin_layout Standard
+A master's degree or higher in a quantitative field such as mathematics,
+ statistics, engineering, physics, economics, or computer science
+\end_layout
+
+\begin_layout Standard
+Desired Qualifications
+\end_layout
+
+\begin_layout Standard
+A PhD in a quantitative discipline
+\end_layout
+
+\begin_layout Standard
+An active Chartered Financial Analyst (CFA) designation
+\end_layout
+
+\begin_layout Standard
+Excellent verbal, written, and interpersonal communication skills
+\end_layout
+
+\begin_layout Standard
+Other Desired Qualifications
+\end_layout
+
+\begin_layout Standard
+Our ideal candidate will have a sound understanding of credit portfolio
+ modeling including a strong understanding of modeling techniques like generaliz
+ed linear models, logistic regression, hazard models, time series models
+ and Monte Carlo simulation.
+ Prior experience in Comprehensive Capital Analysis and Review (CCAR), as
+ well as general forecasting will be useful.
+ Any Pre-Provision Net Revenue (PPNR) Modeling and balance sheet management
+ experience will be a plus towards the position.
+\end_layout
+
+\begin_layout Standard
+Our ideal candidate will be able to articulate the strengths and weaknesses
+ of various predictive modeling techniques and have a strong understanding
+ of statistical testing necessary to assess model performance.
+\end_layout
+
+\begin_layout Standard
+The following experience, knowledge, and skills are also highly preferred:
+\end_layout
+
+\begin_layout Standard
+Strong programming and data querying skills
+\end_layout
+
+\begin_layout Standard
+Advanced SAS programming and SQL experience
+\end_layout
+
+\begin_layout Standard
+Experience implementing and coding large and complex models
+\end_layout
+
+\begin_layout Standard
+Knowledge of either Commercial or Retail Banking deposit and credit products
+\end_layout
+
+\begin_layout Standard
+Detail oriented, results driven, and have the ability to navigate in a quickly
+ changing and high demand environment while balancing multiple priorities
+\end_layout
+
+\begin_layout Standard
+Disclaimer
+\end_layout
+
+\begin_layout Standard
+All offers for employment with Wells Fargo are contingent upon the candidate
+ having successfully completed a criminal background check.
+ Wells Fargo will consider qualified candidates with criminal histories
+ in a manner consistent with the requirements of applicable local, state
+ and Federal law, including Section 19 of the Federal Deposit Insurance
+ Act.
+\end_layout
+
 \begin_layout Part
 Method
 \end_layout
@@ -2730,6 +3664,10 @@ For behavior questions, when no need to discribe an example, use short sentences
 
 \begin_layout Subsection
 Interview
+\end_layout
+
+\begin_layout Standard
+对于重视quant的工作，应该展现出极端的quant，analytical，coding skill。
 \end_layout
 
 \begin_layout Itemize
@@ -2765,7 +3703,7 @@ Think for a while before you answer non-math/stat questions.
 \begin_layout Itemize
 For case / open-end question: 
 \series bold
-ZONG FEN ZONG
+总分总，一二三
 \end_layout
 
 \begin_deeper
@@ -2856,7 +3794,12 @@ Answer: I'm not sure the exact engagement pattern of those high net-value
 Machine Learning Specific Questions
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
+套话：im trying to link this business prolem into an particual matchine learning
+ algorithm
+\end_layout
+
+\begin_layout Itemize
 When answer features, never just mention features, but also describe why/how
  this feature is relevant or matter
 \end_layout
