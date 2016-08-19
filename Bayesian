@@ -1,0 +1,8463 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 3cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 16419249 "v660271" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Bayesians
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First version: Feb 
+\begin_inset Formula $4{}^{th}$
+\end_inset
+
+, 2013
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Pygmalion Study: compare samle mean ? How to solve that problem??
+\end_layout
+
+\begin_layout Itemize
+https://en.wikipedia.org/wiki/Jeffreys_prior
+\end_layout
+
+\begin_layout Itemize
+Improper Prior
+\end_layout
+
+\begin_layout Itemize
+Non-informative Prior
+\end_layout
+
+\begin_layout Itemize
+Gamma converge to Jeff
+\end_layout
+
+\begin_layout Part
+Bayesian
+\end_layout
+
+\begin_layout Section
+Ideas
+\end_layout
+
+\begin_layout Standard
+Frequentist thinks the 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is not a random variable, it should be a true value that we don't know.
+\end_layout
+
+\begin_layout Subsection
+How to Choose Prior
+\end_layout
+
+\begin_layout Standard
+The idea is what kind of information you want to bring into the estimation
+ of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ before you even see the new data
+\end_layout
+
+\begin_layout Itemize
+Subjective Infornation: One role of the prior is to stabilize estimates
+ in the presence of limited past data.
+\end_layout
+
+\begin_layout Itemize
+Objective: based on past data
+\end_layout
+
+\begin_layout Itemize
+Weakly Priod: almost no infor brought in.
+\end_layout
+
+\begin_layout Section
+
+\series bold
+Bayesian Rul
+\series default
+e
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Bayesian Rul
+\series default
+e
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(y\theta)=P(y|\theta)P(\theta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or 
+\begin_inset Formula 
+\[
+P(\theta|y)=\frac{P(y|\theta)P(\theta)}{P(y)}=\frac{P(y|\theta)P(\theta)}{\int P(y\theta)d\theta}=\frac{P(y|\theta)P(\theta)}{\int P(y|\theta)P(\theta)d\theta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or 
+\begin_inset Formula 
+\[
+\mbox{posterior for \ensuremath{\theta}}=\frac{\mbox{data likelihood under \theta}\times Prior(\theta)}{\sum_{\theta}\mbox{data likelihood under \theta}\times Prior(\theta)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bayesianist provides a mechanism for learning from data.
+ Bayesian statistics seeks to formalize the process of learning through
+ the accrual of evidence from different sources.
+ Most medical diagnoses proceed in a similar manner, with the patient &
+ physicians probabilities updated through Bayesian learning.
+ Scientific research evolves in a similar manner, with prior insights updated
+ as new data become available.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Prediction 
+\begin_inset Formula $P(y|y^{n})$
+\end_inset
+
+: Posterior Expectation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta$
+\end_inset
+
+ is the prameter of the model, 
+\begin_inset Formula $y^{n}$
+\end_inset
+
+ is the data and 
+\begin_inset Formula $y$
+\end_inset
+
+ is the value to be predicted.
+\end_layout
+
+\begin_layout Standard
+It means given 
+\begin_inset Formula $y^{n}$
+\end_inset
+
+ happens, what is the probability of the exact value 
+\begin_inset Formula $y$
+\end_inset
+
+ will happen?
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Formula 
+\begin{eqnarray*}
+P(y|y^{n}) & = & \int P(y|\theta)P(\theta|y^{n})d\theta\\
+ & = & \int Likelihood(\theta)\times Posterior(\theta)d\theta
+\end{eqnarray*}
+
+\end_inset
+
+
+\series default
+which means 
+\series bold
+\emph on
+
+\begin_inset Formula $P(y|y^{n})$
+\end_inset
+
+ is just the posterior expectation of 
+\begin_inset Formula $P(y|\theta)$
+\end_inset
+
+ (OR in other words, the expectation of 
+\begin_inset Formula $P(y|\theta)$
+\end_inset
+
+ under measure of posterior 
+\begin_inset Formula $\theta$
+\end_inset
+
+, 
+\begin_inset Formula $P(\theta|y^{n})$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+By including the distribution for 
+\begin_inset Formula $\theta$
+\end_inset
+
+: 
+\begin_inset Formula $P(\theta|y)$
+\end_inset
+
+, as a Bayesianist you think of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ as a random variable.
+ 
+\end_layout
+
+\begin_layout Standard
+Analytical way to solve it: make the integeral into some form of 
+\begin_inset Formula $\int pdf\times\theta d\theta=E(\theta)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Prediction, compared with Frequencist
+\end_layout
+
+\begin_layout Standard
+Frequencist: 
+\begin_inset Formula $f(y|y^{n},\hat{\theta})$
+\end_inset
+
+ ignore the uncertainty of the model (
+\begin_inset Formula $\theta$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+As Frequencists they believe 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is not random, and there is an underlying true value for 
+\begin_inset Formula $\theta$
+\end_inset
+
+ in this world.
+ They also believe what they get 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ is the true value of 
+\begin_inset Formula $\theta$
+\end_inset
+
+, thus in Frequencist's prediction they do not include the uncertainty of
+ 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Confidence Interval in Bayes
+\end_layout
+
+\begin_layout Standard
+Just directly use the 95% of posterior distribution or predicted values'
+ distribution.
+\end_layout
+
+\begin_layout Subsection
+Conjugate
+\end_layout
+
+\begin_layout Standard
+Definition: a class of prior distributions, 
+\begin_inset Formula $P$
+\end_inset
+
+, is conjugate if, for any prior distribution 
+\begin_inset Formula $P(\theta)\in P$
+\end_inset
+
+, we have 
+\begin_inset Formula $P(\theta|y)\in P$
+\end_inset
+
+ (y is just data/constant).
+\end_layout
+
+\begin_layout Standard
+Appplication:
+\end_layout
+
+\begin_layout Standard
+If in 
+\begin_inset Formula $P(\theta|y)$
+\end_inset
+
+ we can find a kernal function
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\theta|y)=constant\times Kernal(\theta)
+\]
+
+\end_inset
+
+where the Kernal belongs to a certain distribution class, then we can say
+ that kernal function is conjugate to 
+\begin_inset Formula $P$
+\end_inset
+
+, as we have 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int P(\theta|y)d\theta=\int constant\times Kernal(\theta)d\theta=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then we can directly write the functiona form of 
+\begin_inset Formula $P(\theta|y)$
+\end_inset
+
+ directly according to the functional form of the distribution class.
+ 
+\end_layout
+
+\begin_layout Subsection
+Sufficent Statistic
+\end_layout
+
+\begin_layout Standard
+Example: 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ follows Bernoulli(
+\begin_inset Formula $\theta$
+\end_inset
+
+), Then the posterior 
+\begin_inset Formula $P(\theta|y_{1}...y_{n})$
+\end_inset
+
+ is the same for different sets of 
+\begin_inset Formula $y_{1}...y_{n}$
+\end_inset
+
+, as long as 
+\begin_inset Formula $Y=\sum y_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Then we say 
+\begin_inset Formula $\sum y_{i}$
+\end_inset
+
+ is sufficent statistic for 
+\begin_inset Formula $y_{1}...y_{n}$
+\end_inset
+
+ in distribution 
+\begin_inset Formula $P(y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+See Class Notes P10-P11.
+ 
+\end_layout
+
+\begin_layout Standard
+This means that we do not need to store the individual data for every subject
+ in the study but can just save the sum of the data and the number of subjects
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Expectation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(\theta)=\int P(\theta)\theta d\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Joint/Marginal Distribution
+\end_layout
+
+\begin_layout Standard
+Cummulative
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\theta_{1}<a,\theta_{2}<b)=\int^{a}\int^{b}f(\theta_{1}\theta_{2})d\theta_{2}d\theta_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If the joint distribution of 
+\begin_inset Formula $\theta_{!}$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta_{2}$
+\end_inset
+
+ is known, then you know their marginal (individual) distributions by marginaliz
+ing out, and their conditional distribution by Baysian rule
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Marginalize Out
+\end_layout
+
+\begin_layout Standard
+To get the marginal density for 
+\begin_inset Formula $\theta_{2}$
+\end_inset
+
+ from joint density 
+\begin_inset Formula $P(\theta_{1},\theta_{2})$
+\end_inset
+
+, we can integrate (marginal out) 
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Density
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Formula 
+\[
+P(\theta_{2})=\int_{\mathbf{\mathbf{\theta}}_{1}}P(\theta_{1}\theta_{2})d\theta_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Coditional Independence
+\end_layout
+
+\begin_layout Standard
+if 
+\begin_inset Formula $M$
+\end_inset
+
+ is conditionally independent of 
+\begin_inset Formula $Y$
+\end_inset
+
+ given 
+\begin_inset Formula $X$
+\end_inset
+
+, then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(M|Y,X)=P(M|X)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Or in another way, for a series of events 
+\begin_inset Formula $Y=\{y_{1}...y_{n}\}$
+\end_inset
+
+ if 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ is coditionally indepdent on 
+\begin_inset Formula $\theta$
+\end_inset
+
+ with each other, then we can have 
+\begin_inset Formula 
+\[
+L(Y|\theta)=\prod L(y_{i}|\theta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Multiple Condition
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y^{n}$
+\end_inset
+
+ will be the 
+\begin_inset Quotes eld
+\end_inset
+
+parante condition
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(y|\theta)P(\theta|y^{n})=P(y\theta|y^{n})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+How to get 
+\begin_inset Formula $P(Y)$
+\end_inset
+
+ given 
+\begin_inset Formula $P(Y|\theta)$
+\end_inset
+
+ and 
+\begin_inset Formula $P(\theta)$
+\end_inset
+
+: unconditional likelihood
+\end_layout
+
+\begin_layout Standard
+Use sum to get 1 first, then derive 
+\begin_inset Formula $P(Y)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{g\in G}P(\theta_{g}|Y)=1=\frac{1}{P(Y)}\sum_{g\in G}\theta_{g}^{y}(1-\theta_{g})^{n-y}P(\theta_{g})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So we have 
+\begin_inset Formula $P(Y)=\sum_{g\in G}\theta_{g}^{y}(1-\theta)_{g}^{n-y}P(\theta_{g})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Functions
+\end_layout
+
+\begin_layout Subsection
+Beta function
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Definition
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+B(x,y)=\int_{0}^{1}t^{x-1}(1-t)^{y-1}\,\mathrm{d}t\!
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Symetric
+\series default
+: 
+\begin_inset Formula $B(x,y)=B(y,x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If both 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ are integers, then we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{B(a,b)}=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}=(a+b-1)C_{a+b-2}^{a-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Derivation see its wiki page.
+\end_layout
+
+\begin_layout Subsection
+Gamma Function
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\Gamma(a) & = & (a-1)!\\
+ &  & forIntergers\\
+ & = & \int_{0}^{\infty}x^{a-1}e^{-x}dx\\
+ &  & forGeneralForm
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Choice Function
+\end_layout
+
+\begin_layout Standard
+see Math.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Covariance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{j}$
+\end_inset
+
+ are 
+\begin_inset Formula $p\times1$
+\end_inset
+
+ vectors, and we have 
+\begin_inset Formula $i=1...100$
+\end_inset
+
+ observations, so 
+\begin_inset Formula $n=100$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula 
+\[
+\hat{\Sigma}=\frac{1}{n-1}\sum_{i=1}^{100}(y_{i}-\bar{y})(y_{j}-\bar{y})^{T}
+\]
+
+\end_inset
+
+If we do not want sample covariance, we want population covariance, then
+ we use 
+\begin_inset Formula $\frac{1}{n}$
+\end_inset
+
+ rather than 
+\begin_inset Formula $\frac{1}{n-1}$
+\end_inset
+
+.
+ (Remeber 
+\begin_inset Formula $cov(x,y)=E(x-E(x))(y-E(y)).$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Subsection
+Median
+\end_layout
+
+\begin_layout Standard
+solve 
+\begin_inset Formula $z$
+\end_inset
+
+ below
+\begin_inset Formula 
+\[
+0.5=\int_{\infty}^{z}f(y)dy
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Highest Posterior Density Interval
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Highest Posterior Density Interval
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The narrowest interval to cover the 
+\begin_inset Formula $1-\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Method: Draw horizental line to cross pdf graph at 
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+and 
+\begin_inset Formula $\theta_{2}$
+\end_inset
+
+, then adjust that line up or down till 
+\begin_inset Formula $P(\theta_{1}<\theta<\theta_{2})=1-\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Lindley's Paradox
+\end_layout
+
+\begin_layout Standard
+See wik or P51 Class Notes.
+\end_layout
+
+\begin_layout Standard
+Consider the result 
+\begin_inset Formula ${\textstyle x}$
+\end_inset
+
+ of some experiment, with two possible explanations, hypotheses 
+\begin_inset Formula ${\textstyle H_{0}}$
+\end_inset
+
+ and 
+\begin_inset Formula ${\textstyle H_{1}}$
+\end_inset
+
+, and some prior distribution 
+\begin_inset Formula ${\textstyle \pi}$
+\end_inset
+
+ representing uncertainty as to which hypothesis is more accurate before
+ taking into account 
+\begin_inset Formula ${\textstyle x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Lindley's paradox occurs when
+\end_layout
+
+\begin_layout Itemize
+The result
+\begin_inset Formula ${\textstyle x}$
+\end_inset
+
+ is "significant" by a frequentist test of 
+\begin_inset Formula ${\textstyle H_{0}}$
+\end_inset
+
+, indicating sufficient evidence to reject 
+\begin_inset Formula ${\textstyle H_{0}}$
+\end_inset
+
+, say, at the 5% level, 
+\end_layout
+
+\begin_layout Itemize
+The posterior probability of 
+\begin_inset Formula ${\textstyle H_{0}}$
+\end_inset
+
+ given 
+\begin_inset Formula ${\textstyle x}$
+\end_inset
+
+ is high, indicating strong evidence that 
+\begin_inset Formula ${\textstyle H_{0}}$
+\end_inset
+
+ is in better agreement with 
+\begin_inset Formula ${\textstyle x}$
+\end_inset
+
+ than 
+\begin_inset Formula ${\textstyle H_{1}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+These results can occur because 
+\end_layout
+
+\begin_layout Itemize
+at the same time when 
+\begin_inset Formula ${\textstyle H_{0}}$
+\end_inset
+
+ is very specific, 
+\begin_inset Formula ${\textstyle H_{1}}$
+\end_inset
+
+ more diffuse, and the prior distribution does not strongly favor one or
+ the other, as seen below.
+\end_layout
+
+\begin_layout Itemize
+the frequentist approach above tests
+\begin_inset Formula ${\textstyle H_{0}}$
+\end_inset
+
+without reference to
+\begin_inset Formula ${\textstyle H_{1}}$
+\end_inset
+
+.
+ The Bayesian approach evaluates 
+\begin_inset Formula ${\textstyle H_{0}}$
+\end_inset
+
+ as an alternative to 
+\begin_inset Formula ${\textstyle H_{1}}$
+\end_inset
+
+, and finds the first to be in better agreement with the observations.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Under 
+\begin_inset Formula ${\textstyle H_{0}}$
+\end_inset
+
+, we choose 
+\begin_inset Formula ${\textstyle \theta\approx0.500}$
+\end_inset
+
+, and ask how likely it is to see 49,581 boys in 98,451 births.
+ 
+\end_layout
+
+\begin_layout Itemize
+Under 
+\begin_inset Formula ${\textstyle H_{1}}$
+\end_inset
+
+, we choose 
+\begin_inset Formula ${\textstyle \theta}$
+\end_inset
+
+ randomly from anywhere within 0 to 1, and ask the same question.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Bayesian Approach
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(H_{0}\mid k)=\frac{P(k\mid H_{0})\pi(H_{0})}{P(k\mid H_{0})\pi(H_{0})+P(k\mid H_{1})\pi(H_{1})}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(H_{0}\mid k)=\frac{P(k\mid H_{1})\pi(H_{1})}{P(k\mid H_{0})\pi(H_{0})+P(k\mid H_{1})\pi(H_{1})}.
+\]
+
+\end_inset
+
+
+\change_inserted 16419249 1471618798
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1471618799
+\begin_inset Formula 
+\[
+P(H_{1}\mid k)=\frac{P(k\mid H_{1})\pi(H_{1})}{P(k\mid H_{0})\pi(H_{0})+P(k\mid H_{1})\pi(H_{1})}.
+\]
+
+\end_inset
+
+
+\change_unchanged
+where 
+\begin_inset Formula $k$
+\end_inset
+
+ is the data.
+\end_layout
+
+\begin_layout Standard
+In the Lindley's Paradox setting, 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ is specific and thus 
+\begin_inset Formula $p(k|H_{0})$
+\end_inset
+
+ and 
+\begin_inset Formula $\pi(H_{0})$
+\end_inset
+
+ is highe, whereas 
+\begin_inset Formula $H_{1}$
+\end_inset
+
+ is diffuse (non-informative)
+\end_layout
+
+\begin_layout Part
+Bernoulli
+\end_layout
+
+\begin_layout Section
+Likelihood for Data
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mbox{http://freakonometrics.hypotheses.org/8210}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Bernoulli
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ is 1 or 0
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+One time Bernoulli:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L(y_{i}|\theta)=\theta^{y_{i}}(1-\theta)^{1-y_{i}}
+\]
+
+\end_inset
+
+
+\series bold
+N time Bernoulli:
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $Y=\sum y_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L(y^{n}|\theta)=\theta^{Y}(1-\theta)^{N-Y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Binomial
+\end_layout
+
+\begin_layout Standard
+The binomial distribution is the discrete probability distribution of the
+\series bold
+ number of successes
+\series default
+, 
+\begin_inset Formula $Y$
+\end_inset
+
+, in a sequence of 
+\begin_inset Formula $n$
+\end_inset
+
+ time Bernoulli test, each of which yields success with probability 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Binomial distribution has two parameters 
+\begin_inset Formula $B(N,\theta)$
+\end_inset
+
+.
+ It is NOT the 
+\begin_inset Formula $\Pi$
+\end_inset
+
+ of 
+\begin_inset Formula $N$
+\end_inset
+
+'s pdf of Bernoulli 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+, you have to get a 
+\begin_inset Formula $C_{n}^{Y}$
+\end_inset
+
+ in front of it.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L(Y|N,\theta)=C_{N}^{Y}\theta^{Y}(1-\theta)^{N-Y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with mean as 
+\begin_inset Formula $N\times\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Normal Approximation of Binomial
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $n$
+\end_inset
+
+ is large enough, then the skew of the distribution is not too great.
+ In this case a reasonable approximation to B(n, p) is given by the normal
+ distribution
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1462896590
+\begin_inset Formula $p$
+\end_inset
+
+ is the probability of success
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{N}(np,\,\sqrt{np(1-p}))
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Poisson approximation of Binomial
+\end_layout
+
+\begin_layout Standard
+The binomial distribution converges towards the Poisson distribution as
+ the number of trials goes to 
+\change_deleted 16419249 1462896600
+infinity
+\change_inserted 16419249 1462896607
+very large
+\change_unchanged
+ while the product np remains fixed.
+ Therefore the Poisson distribution with parameter 
+\begin_inset Formula $λ=np$
+\end_inset
+
+ can be used as an approximation to 
+\begin_inset Formula $B(n,p)$
+\end_inset
+
+ of the binomial distribution if 
+\begin_inset Formula $n$
+\end_inset
+
+ is sufficiently large and 
+\begin_inset Formula $p$
+\end_inset
+
+ is sufficiently small.
+ 
+\end_layout
+
+\begin_layout Subsection
+Multinomial Distribution
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 16419249 1462896640
+The multinomial distribution is a generalization of the binomial distribution.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+Binomial is for two classes, number of successes in 
+\begin_inset Formula $N$
+\end_inset
+
+ trails.
+ Multinormial is for 
+\begin_inset Formula $K$
+\end_inset
+
+ classes, numbers of scuesses 
+\change_inserted 16419249 1462896688
+
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ 
+\change_unchanged
+for each of the class in 
+\begin_inset Formula $n$
+\end_inset
+
+ trials.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+P(x_{1}....x_{k}|p_{1}...p_{k}) & = & {\displaystyle \frac{n!}{x_{1}!\cdots x_{k}!}p_{1}^{x_{1}}\cdots p_{k}^{x_{k}}}\\
+ & = & \frac{\Gamma(\sum_{i}x_{i}+1)}{\prod_{i}\Gamma(x_{i}+1)}\prod_{i=1}^{k}p_{i}^{x_{i}}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\change_inserted 16419249 1462896707
+
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted 16419249 1462897041
+Multi-Normal is Approximation Multi-Normial
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1462897428
+Let 
+\begin_inset Formula $P=(p_{1},...,p_{k})$
+\end_inset
+
+ be the vector of your probabilities.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 16419249 1462897285
+Then the mean vector of the multivariate normal distribution is 
+\begin_inset Formula $np=(n_{1}p_{1},n_{2}p_{2},...,n_{k}p_{2})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 16419249 1462897283
+The covariance matrix is a k×k symmetric matrix.
+ The diagonal elements are actually the variance of 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_inserted 16419249 1462897399
+\begin_inset Formula $X_{i}$
+\end_inset
+
+'s; i.e.
+\begin_inset Formula $n_{i}p_{i}(1−p_{i}),$
+\end_inset
+
+ i=1,2...,k.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 16419249 1462897402
+The off-diagonal element in the ith row and jth column is Cov(Xi,Xj)=−
+\begin_inset Formula $n_{i}p_{i}n_{j}p_{j}$
+\end_inset
+
+ where i is not equal to j.
+\change_unchanged
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Prior
+\end_layout
+
+\begin_layout Subsection
+Beta: Prior for 
+\begin_inset Formula $\theta$
+\end_inset
+
+ in Bernoulli: probability of sucess
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta\sim Beta(a,b)$
+\end_inset
+
+, where 
+\begin_inset Formula $\theta\in[0,1]$
+\end_inset
+
+, to represent the probabolity of 
+\begin_inset Formula $a$
+\end_inset
+
+ successes in 
+\begin_inset Formula $a+b$
+\end_inset
+
+ bernoulli tests .
+ 
+\begin_inset Formula $a$
+\end_inset
+
+ means number of success and 
+\begin_inset Formula $b$
+\end_inset
+
+ means the number of failures.
+ 
+\begin_inset Formula $a+b$
+\end_inset
+
+ is the prior sample size.
+ So smaller values of a and b correspond to more Open Minded Priors.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\theta|a,b)=\frac{1}{B(a,b)}\theta^{a-1}(1-\theta)^{b-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with mean as 
+\begin_inset Formula $E(\theta|a,b)=\frac{a}{a+b}$
+\end_inset
+
+ and 
+\begin_inset Formula $V(\theta|a,b)=\frac{ab}{(a+b)^{2}(a+b+1)}\!$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that Frequentist always talk about 
+\begin_inset Formula $\hat{\theta}=\frac{a}{a+b}$
+\end_inset
+
+ if they see 
+\begin_inset Formula $a$
+\end_inset
+
+ successes in 
+\begin_inset Formula $a+b$
+\end_inset
+
+ bernoulli tests.
+ But Bayesianist only talk about the distribution of 
+\begin_inset Formula $\theta$
+\end_inset
+
+, not 
+\begin_inset Formula $\theta$
+\end_inset
+
+ or 
+\begin_inset Formula $E(\theta)$
+\end_inset
+
+ themselves.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Non-Informative Prior
+\end_layout
+
+\end_inset
+
+Non-Informative Prior
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Beta(1,1)$
+\end_inset
+
+ is uniform distribution.
+ It describes not a state of complete ignorance, but the state of knowledge
+ in which we have observed at least one success and one failure, and therefore
+ we have prior knowledge that both states are physically possible.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Beta(0,0)$
+\end_inset
+
+.
+ The 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Haldane prior probability
+\end_layout
+
+\end_inset
+
+
+\series bold
+Haldane prior probability
+\series default
+ expressing total ignorance about prior information, where we are not even
+ sure whether it is physically possible for an experiment to yield either
+ a success or a failure.
+\end_layout
+
+\begin_layout Subsection
+Posterior: Binomial + Beta = Beta
+\end_layout
+
+\begin_layout Subsubsection
+Likelihood 
+\begin_inset Formula $L(Y)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Actually not Binomial here, just products of 
+\begin_inset Formula $n$
+\end_inset
+
+ 
+\begin_inset Formula $Bernoulli$
+\end_inset
+
+ variables.
+\end_layout
+
+\begin_layout Standard
+Set 
+\begin_inset Formula $Y=\{y_{1},y_{2}...y_{n}\}$
+\end_inset
+
+, 
+\begin_inset Formula $\sum y_{i}=y$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta$
+\end_inset
+
+ has finite many values as 
+\begin_inset Formula $\theta_{1}...\theta_{G}$
+\end_inset
+
+.
+ So 
+\begin_inset Formula 
+\[
+P(\theta|Y)=\frac{L(Y|\theta)P(\theta)}{L(Y)}=\frac{\theta^{Y}(1-\theta)^{N-Y}P(\theta)}{L(Y)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and we can marginal out 
+\begin_inset Formula $\theta$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\sum_{g\in G}P(\theta_{g}|Y)=1=\frac{1}{L(Y)}\sum_{g\in G}\theta_{g}^{Y}(1-\theta_{g})^{N-Y}P(\theta_{g})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So we have 
+\begin_inset Formula $L(Y)=\sum_{g\in G}\theta_{g}^{Y}(1-\theta)_{g}^{N-Y}P(\theta_{g})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Posterior
+\end_layout
+
+\begin_layout Standard
+Note that in this way 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is marginalized out.
+ So there is no 
+\begin_inset Formula $\theta$
+\end_inset
+
+ in 
+\begin_inset Formula $L(Y)$
+\end_inset
+
+ and thus 
+\begin_inset Formula $L(Y)$
+\end_inset
+
+ is constant in 
+\begin_inset Formula $P(\theta|Y)$
+\end_inset
+
+.
+ Then the posterior pdf is 
+\begin_inset Formula 
+\[
+P(\theta|Y)=\frac{\theta^{Y}(1-\theta)^{N-Y}P(\theta)}{\sum_{g\in G}\theta_{g}^{y}(1-\theta)_{g}^{N-y}P(\theta_{g})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula $\theta\sim Beta(a,b)$
+\end_inset
+
+.
+ Thus according to conjugate theory, 
+\begin_inset Formula $\theta|Y\sim Beta(a+\sum y_{i},b+N-\sum y_{i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Posterior Mean is 
+\begin_inset Formula $\frac{a+Y}{a+b+N}$
+\end_inset
+
+, where 
+\begin_inset Formula $\frac{a}{a+b}$
+\end_inset
+
+ is prior mean，
+\begin_inset Formula $\text{\frac{Y}{N}}$
+\end_inset
+
+ is sample mean。
+\end_layout
+
+\begin_layout Subsection
+Prediction = Bernoulli.
+\end_layout
+
+\begin_layout Standard
+When doing prediction, you cannot use 
+\begin_inset Formula $\propto$
+\end_inset
+
+ when using the mean method, since constant, which contains 
+\begin_inset Formula $y$
+\end_inset
+
+, is actually not constant (only 
+\begin_inset Formula $y^{n}$
+\end_inset
+
+ is constant, 
+\begin_inset Formula $y$
+\end_inset
+
+ is the predicting value, and is a random number)! So you have to keep all
+ the 
+\begin_inset Quotes eld
+\end_inset
+
+constants
+\begin_inset Quotes erd
+\end_inset
+
+ whcih does not have 
+\begin_inset Formula $\theta$
+\end_inset
+
+ but does have 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ That's why you should always use 
+\begin_inset Formula $=$
+\end_inset
+
+ , not 
+\begin_inset Formula $\propto$
+\end_inset
+
+ in prediction.
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula 
+\begin{eqnarray*}
+L(y|y^{n}) & = & \int L(y|\theta)P(\theta|y^{n})d\theta\\
+ & = & \int\theta^{y}(1-\theta)^{1-y}\frac{1}{Beta(a+Y,b+N)}\theta^{a+Y-1}(1-\theta)^{b+N-Y}d\theta\\
+ & = & \frac{Beta(a+Y+y-1,b+N+1-y)}{Beta(a+Y,b+N)}\int\theta\frac{1}{Beta(a+Y+y-1,b+N+1-y)}\theta^{a+Y+y-1-1}(1-\theta)^{b+N+1-y-Y}d\theta\\
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $y=1$
+\end_inset
+
+, 
+\begin_inset Formula $P(y=1|y^{n})=\frac{a+Y+y-1}{a+b+N}$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $y|y^{n}\sim Bernoulli(\frac{a+Y+y-1}{a+b+N})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Formula $P(\theta|y^{n})=P(\theta|Y)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Count Data and Event/Location Data
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Count data
+\end_layout
+
+\end_inset
+
+Count Data
+\series default
+ means # friends on facebook, # links in LinkedIn, # songs on iPhone, #
+ tumors on mouse, etc.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $K$
+\end_inset
+
+ tests/observations (like 
+\begin_inset Formula $K$
+\end_inset
+
+ Facebook accounts).
+ Each has 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ events/frends, and total number of events 
+\begin_inset Formula $N$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Each cost 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ time, total time 
+\begin_inset Formula $A$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Event/Location Data
+\end_layout
+
+\end_inset
+
+
+\series bold
+Event/Location Data: Time of event interval.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Case 1: Maybe one test where 
+\begin_inset Formula $n$
+\end_inset
+
+ events happened across time (like accidents).
+ 
+\end_layout
+
+\begin_layout Itemize
+Case 2: multiple individuals each only has at most one event (like pregnany
+ of tested individuals).
+ Essentially it is the same as Case 1, as you can regard it as 
+\begin_inset Formula $n$
+\end_inset
+
+ event happend to a group or test.
+\end_layout
+
+\begin_layout Itemize
+Case 3: multiple tests, each cost 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ time and has 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ event.
+ It is also same as Case 1 or 2, as you can think it as one big test with
+ total time 
+\begin_inset Formula $A$
+\end_inset
+
+ and total events 
+\begin_inset Formula $N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ = time of the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ traffic accident occurring at an intersection during the study period 
+\begin_inset Formula $T$
+\end_inset
+
+ (a time interval since last event)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ = location of a microglia cell in a 3d brain image at snapshot in time.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Prior for both Count data and Event data: 
+\begin_inset Formula $\theta$
+\end_inset
+
+ ---- event rate, which means the # of event in Unit Time/Distance/Area.
+ 
+\end_layout
+
+\begin_layout Section
+Count Data
+\end_layout
+
+\begin_layout Subsection
+Likelihood: Poisson
+\end_layout
+
+\begin_layout Standard
+It is the probability of a 
+\begin_inset Formula $n$
+\end_inset
+
+
+\series bold
+ number of events
+\series default
+ occurring in a fixed interval of time and/or space 
+\series bold
+(one unit of time),
+\series default
+ given these events occur with a known average rate 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and independently of the time since the last event.
+ 
+\end_layout
+
+\begin_layout Standard
+The Poisson distribution can also be used for the number of events in other
+ specified intervals such as distance, area or volume.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L(n|\theta)=\frac{\theta^{n}e^{-\theta}}{n!}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with 
+\begin_inset Formula $E(n|\theta)=V(n|\theta)=\theta$
+\end_inset
+
+ as itself.
+\end_layout
+
+\begin_layout Subsection
+Independent Tests
+\end_layout
+
+\begin_layout Standard
+If there are 
+\begin_inset Formula $A$
+\end_inset
+
+ independent tests, in each test we have number of homogeneous Possion events
+ 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+, then we have 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\prod Possion(y_{i}) & \propto & \prod\frac{\theta^{n_{i}}exp(-\theta)}{n_{i}!}\\
+ & \propto & \theta^{N}exp(-A\theta)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\sum n_{i}=N$
+\end_inset
+
+ and 
+\begin_inset Formula $K$
+\end_inset
+
+ are the sufficient statistics.
+\end_layout
+
+\begin_layout Standard
+OR we can regard those 
+\begin_inset Formula $A$
+\end_inset
+
+ independent tests as one big test.
+ Thus the original unit time 
+\begin_inset Formula $\tau$
+\end_inset
+
+ becomes 
+\begin_inset Formula 
+\[
+\int d\tau=A
+\]
+
+\end_inset
+
+, and the event rate is 
+\begin_inset Formula $\theta A$
+\end_inset
+
+.
+ Therefore we have 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L(N|\theta A)\propto\theta^{N}exp(-A\theta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore we know 
+\begin_inset Formula $L(N|\theta A)=\prod^{A}L(n_{i}|\theta)$
+\end_inset
+
+.
+ In otherwords, we 
+\begin_inset Formula $A$
+\end_inset
+
+ independent tests with domain 
+\begin_inset Formula $\tau$
+\end_inset
+
+ are the same as one big time with volume of domain as 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Prior for Variance and Expected Number of Events in Unit Time: Gamma
+\end_layout
+
+\begin_layout Standard
+Note that Possion is for number of events for each unit of time, whereas
+ Gamma and Negative Binomial are for number of events across time interval.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\begin_inset Formula $\theta$
+\end_inset
+
+ in Gamma means the most possible number in a unit time.
+ 
+\end_layout
+
+\begin_layout Itemize
+Actually Gamma is useful as a prior for parameters that are strictly positive:
+ Thus Gamma is often used as prior for Variance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta\sim Gamma(a.b)$
+\end_inset
+
+, where 
+\begin_inset Formula $\theta\in[0,+\infty]$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+P(\theta|a,b)=\frac{b^{a}}{\Gamma(a)}\theta^{a-1}e^{-b\theta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+with mean as 
+\begin_inset Formula $\frac{a}{b}$
+\end_inset
+
+ and variance 
+\begin_inset Formula $\frac{a}{b^{2}}$
+\end_inset
+
+.
+ Thus, conceptually, 
+\series bold
+
+\begin_inset Formula $b$
+\end_inset
+
+ is the sample size
+\series default
+ (size of a unit time); 
+\begin_inset Formula $a$
+\end_inset
+
+ is the number of events.
+ 
+\series bold
+
+\begin_inset Formula $a=E(\theta)\times b$
+\end_inset
+
+.
+ 
+\series default
+Its variance is 
+\begin_inset Formula $V(\theta)=\frac{a}{b^{2}}$
+\end_inset
+
+, 
+\begin_inset Formula $Mean=\frac{pb}{1-p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Property: if 
+\begin_inset Formula $\theta_{i}\sim^{iid}Gamma(a_{i},b)$
+\end_inset
+
+ then 
+\begin_inset Formula $\sum_{i=1}^{n}\theta_{i}\sim Ga(\sum_{i}a_{i},b)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Prior for Probability of one event to happen: 
+\series default
+Exponential(1/b)
+\end_layout
+
+\begin_layout Standard
+If we only want to see the 
+\series bold
+probability of one event to happen,
+\series default
+ then Gamma decreased to Exponential: 
+\begin_inset Formula 
+\[
+Gamma(\theta|a=1,b)=exp(1/b)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Relation: Gamma, Exponential , Chi-squared and Normal
+\end_layout
+
+\begin_layout Standard
+The common exponential distribution and chi-squared distribution are special
+ cases of the gamma distribution.
+ If we only want to see the 
+\series bold
+probability of one event to happen,
+\series default
+ then Gamma decreased to Exponential: 
+\begin_inset Formula 
+\[
+Gamma(\theta|a=1,b)=exp(1/b)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Gamma(a,b)$
+\end_inset
+
+ is thus the sum of 
+\begin_inset Formula $a$
+\end_inset
+
+ independent 
+\begin_inset Formula $exp(1/b)$
+\end_inset
+
+ distributions, so Central Limit Theorem tells us for sufficiently large
+ 
+\begin_inset Formula $a$
+\end_inset
+
+ (>30, for example), we can make the approximation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Gamma(a,b)\sim Normal(ab,\sqrt{a}\beta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Discrete Prior: Negative Binomial
+\end_layout
+
+\begin_layout Standard
+Gamma distributions is for continouse 
+\begin_inset Formula $\text{\theta}$
+\end_inset
+
+.
+ For discrete 
+\begin_inset Formula $\theta$
+\end_inset
+
+, you have to use negative binomial, which is regarded as a the discrete
+ analogue of the Gamma distribution.
+\end_layout
+
+\begin_layout Itemize
+It is regarded as a the 
+\series bold
+discrete
+\series default
+ analogue of the Gamma distribution.
+ 
+\end_layout
+
+\begin_layout Itemize
+OR It is a discrete probability distribution of the number of successes
+ in a sequence of Bernoulli trials before a specified (non-random) number
+ of failures (denoted 
+\begin_inset Formula $b$
+\end_inset
+
+) occur.
+ Note that the failure event at time 
+\begin_inset Formula $\theta$
+\end_inset
+
+ will not be used into the choice function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta\sim NB(p,b)$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+P(\theta|b,p)=\frac{\Gamma(\theta+b)}{\Gamma(\theta+1)\Gamma(b)}p^{\theta}(1-p)^{b}=C\mathbf{_{\mathbf{\theta+b-1}}^{\theta}}p^{\theta}(1-p)^{b}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is the number of success, 
+\begin_inset Formula $b$
+\end_inset
+
+ is the number of failures you can afford most and 
+\begin_inset Formula $p$
+\end_inset
+
+ is the propability of sccuess.
+\end_layout
+
+\begin_layout Subsection
+Posterior + Prediction 
+\end_layout
+
+\begin_layout Standard
+Assume evenet is Homogenous Exponential Process:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Event
+\series default
+: 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ is the time between the 
+\begin_inset Formula $i-1$
+\end_inset
+
+ event and 
+\begin_inset Formula $i$
+\end_inset
+
+ event, and 
+\begin_inset Formula 
+\[
+y_{i}\sim Unif(y_{i}|\tau)
+\]
+
+\end_inset
+
+ (could also follow exponential distribution).
+ That means 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ could be any number between 
+\begin_inset Formula $0\sim\tau$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Total number of events = 
+\begin_inset Formula $N$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Domain
+\series default
+ =
+\begin_inset Formula $\tau$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\tau$
+\end_inset
+
+ is also the unit time.
+ Volume of domain as 
+\begin_inset Formula $A=\int d\tau$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Parameter:
+\series default
+ 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is the number of events in an unit of volume, or the 
+\series bold
+rate of events
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Prior for 
+\begin_inset Formula $\theta$
+\end_inset
+
+: 
+\series default
+
+\begin_inset Formula $\theta\sim Gamma(a,b)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Likelihood
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Note Thus the distribution of time intervals of 
+\begin_inset Formula $n$
+\end_inset
+
+ events with rate of events 
+\begin_inset Formula $\theta$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+L(y^{n}|\theta) & = & \mbox{Happen N times}\mbox{\times\prod\ensuremath{\mbox{time of each event}_{i}}}\\
+ & = & P(N|\theta A)\prod_{i}^{n}Uni(y_{i}|\tau)\\
+ & = & Possion\times\prod Uniform_{i}
+\end{eqnarray*}
+
+\end_inset
+
+which means the probability of 
+\begin_inset Formula $y^{n}$
+\end_inset
+
+ as a serious events happened = It happened 
+\begin_inset Formula $n$
+\end_inset
+
+ times
+\begin_inset Formula $\text{\times}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+(
+\begin_inset Formula $\prod$
+\end_inset
+
+ the probability of time intervals between each two events.)
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula $\Pi_{i}^{n}Uni(y_{i}|\tau)$
+\end_inset
+
+ is a constant, we have 
+\begin_inset Formula $L(y^{N}|\theta)\propto P(N|\theta)\propto Poisson$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Posterior
+\series default
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\theta|y^{n}A)=\frac{P(\theta)L(y^{n}|\theta A)}{P(y^{n}A)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula $P(\theta)$
+\end_inset
+
+ is Gamma and 
+\begin_inset Formula $L$
+\end_inset
+
+ is Possion.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\theta|y^{n}A & \sim & Gamma\times Possion\\
+ & \sim & \theta^{a-1}e^{-b\theta}\times(A\theta)^{N}e^{-\theta A}\\
+ &  & Gamma(a+N,b+A)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If event is Non-Homogenous Process (they didn't share a common 
+\begin_inset Formula $\theta$
+\end_inset
+
+,)
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+For every type of prorcess 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+, we have 
+\begin_inset Formula $y_{i}\sim exp(\theta_{i})$
+\end_inset
+
+ (Regarding the right likelihood for the time interval of events, see next
+ sectopn) (This could also be unit distribution), 
+\begin_inset Formula $n_{i}\sim Poisson(\theta_{i}A_{i})$
+\end_inset
+
+ and 
+\begin_inset Formula $A=\sum A_{i}$
+\end_inset
+
+ with 
+\begin_inset Formula $A_{i}=\int_{\tau_{i}}dt$
+\end_inset
+
+.
+ Thus 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+P(\theta_{1}..\theta_{T}|y_{1}..y_{T},A_{1}..A_{T}) & \propto & \prod P(n_{i}|\theta_{i}A_{i})P(y_{i})\\
+ & \propto & \prod Gamma(a+n_{i},b+A_{i})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Prediction
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Y$
+\end_inset
+
+ is not constant here
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+P(y|Y^{N}) & = & \int P(y|\theta)P(\theta|y^{N})d\theta\\
+ & = & \frac{(b+N)^{a+A}}{\Gamma(a+A)}\int\frac{\theta^{y}e^{-\theta}}{y!}\theta^{a+A-1}e^{-\theta(b+N)}d\theta\\
+ & \text{＝} & \frac{1}{y!}\frac{(b+N)^{a+A}}{\Gamma(a+A)}\frac{\Gamma(a+A+y-1)}{(b+N+1)^{a+A+y-1}}\frac{a+A+y-1}{(b+N+1)}\\
+ & = & \frac{\Gamma(a+A+y)}{\Gamma(y+1)\Gamma(a+A)}(\frac{b+N}{b+N+1})^{a+A}(\frac{1}{b+N+1})^{Y}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is the Negative Binomial
+\begin_inset Formula $(a+A,\frac{1}{1+b+N})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+第一参数为另一个term的exponential，is the number of times of failure 。其中第二参数
+\begin_inset Formula $\frac{1}{1+b+N}$
+\end_inset
+
+为以Y为exponential的底, is the probability of success。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\theta|b,p)=C\mathbf{_{\mathbf{\theta+b-1}}^{\theta}}p^{\theta}(1-p)^{b}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Event and Location Data
+\end_layout
+
+\begin_layout Standard
+Prior for 
+\begin_inset Formula $\theta$
+\end_inset
+
+: still Gamma or Negative Binomial, same as count data.
+\end_layout
+
+\begin_layout Subsection
+Likelihood: Exponential: time of event
+\end_layout
+
+\begin_layout Standard
+It describes the 
+\series bold
+time
+\series default
+ (
+\begin_inset Formula $y$
+\end_inset
+
+) between events in a 
+\series bold
+Poisson process
+\series default
+, i.e.
+ a process in which events occur continuously and independently at a constant
+ average rate.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(y|\theta)=\theta e^{-\theta y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta y$
+\end_inset
+
+ means number of events happened across time period 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+with 
+\begin_inset Formula $E(y|\theta)=\theta^{-1}$
+\end_inset
+
+ , where 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is the number of events in the unit of time.
+ Variance is 
+\begin_inset Formula $\theta^{-2}$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+F(y<z|\theta)=1-e^{-z\theta}
+\]
+
+\end_inset
+
+
+\change_inserted 16419249 1469214915
+
+\begin_inset Formula 
+\[
+F(y>z|\theta)=e^{-z\theta}
+\]
+
+\end_inset
+
+
+\change_unchanged
+.
+\end_layout
+
+\begin_layout Subsection
+Likelihood: Weibull: time of event
+\end_layout
+
+\begin_layout Standard
+There are one more parameter 
+\begin_inset Formula $k$
+\end_inset
+
+ than exponential, which can control the shape of the distrbution, thus
+ more flexible than exponential.
+ When 
+\begin_inset Formula $k=1$
+\end_inset
+
+, it is exponential distibution.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(y|\theta,k)=\frac{k}{\theta}\left(\frac{y}{\theta}\right)^{k-1}e^{-(y/\theta)^{k}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Likelihood: Unit Distribution: time of event
+\end_layout
+
+\begin_layout Subsection
+Posterior: Exponential+Gamma=Gamma; 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ means time for 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ event to happen.
+ Each 
+\begin_inset Formula $i$
+\end_inset
+
+ is a Possion process, which means 
+\begin_inset Formula $y_{i}\sim Exp(\theta)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+We have 
+\begin_inset Formula $N$
+\end_inset
+
+ homogenous Possion process, or 
+\begin_inset Formula $N$
+\end_inset
+
+ events happend.
+ and total time is 
+\begin_inset Formula $\sum y_{i}=A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Likelihood 
+\begin_inset Formula $L(y^{n}|\theta)=\prod\theta exp(-\theta y_{i})$
+\end_inset
+
+.
+ (With no censoring)
+\end_layout
+
+\begin_layout Itemize
+Posterior: 
+\begin_inset Formula 
+\begin{eqnarray*}
+P(\theta|y^{n}) & \propto & Gamma(\theta)\times\prod Exp(\theta)\\
+ & \propto & \theta^{a-1}e^{-b\theta}\times\theta^{N}e^{-\theta A}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Thus 
+\begin_inset Formula $\theta|y^{n}\sim Gamma(a+N,b+Y)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Prediction
+\end_layout
+
+\begin_layout Subsubsection*
+use the mean of Gamma to get rid of the integral, Prediction=Pareto
+\end_layout
+
+\begin_layout Standard
+Posterior prediction for 
+\begin_inset Formula $y$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+P(y|y^{n}) & = & \frac{(b+Y)^{a+N}}{\Gamma(a+N)}\int\theta e^{(-\theta y)}\times\theta^{a+N-1}e^{-(b+Y)\theta}d\theta\\
+ & = & (b+Y)\times(b+Y+y)^{-(a+N)}\int\theta\times\frac{(b+Y+y)^{a+N}}{\Gamma(a+N)}\theta^{a+N-1}e^{-(b+Y+y)\theta}d\theta\\
+ & = & (b+Y)^{a+N}\times(b+Y+y)^{-(a+N)}\times\frac{a+N}{b+Y+y}\\
+ & = & \frac{(a+N)(b+Y)^{a+N}}{(b+Y+y)^{(a+N+1)}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $y|y^{n}$
+\end_inset
+
+ enssitially follows the Pareto distribution with the variance 
+\begin_inset Formula 
+\[
+\frac{(b+Y)^{2}(a+N)}{(a+N-1)^{2}(a+N-2)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus when 
+\begin_inset Formula $N\to\infty$
+\end_inset
+
+, its variance, or prediction uncertainty in other words, goes to 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Geometric & Survival Analysis
+\end_layout
+
+\begin_layout Subsection
+Survival Analysis
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Formula $y_{i}=1$
+\end_inset
+
+ if conceives at 1st cycle.
+ 
+\begin_inset Formula $y_{i}>1$
+\end_inset
+
+ means NOT conceived in the 1st cycle.
+\end_layout
+
+\begin_layout Standard
+Probability of conceiving in cycle j given ‘survival’ (haven’t yet conceived
+ in the past j-1 cycles)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L(y_{i}=j|y_{i}>=j)=\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus 
+\begin_inset Formula 
+\[
+L(y_{i}=j)=(1-\theta)^{1-j}\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Geometric Distribution
+\end_layout
+
+\begin_layout Standard
+Geometric distribution is either of two discrete probability distributions:
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 16419249 1469196439
+1.
+ T
+\change_unchanged
+he probability distribution of the number of 
+\begin_inset Formula $Y$
+\end_inset
+
+ Bernoulli trials needed to get one success, supported on the set { 1, 2,
+ 3, ...} 
+\end_layout
+
+\begin_layout Standard
+Y number of tests
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(Y|\theta)=(1-\theta)^{Y-1}\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+with mean 
+\begin_inset Formula $\frac{1}{\theta}$
+\end_inset
+
+.
+
+\change_inserted 16419249 1469196170
+ variance : 
+\begin_inset Formula $\frac{1-p}{p^{2}}$
+\end_inset
+
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+2.
+ The probability distribution of the number Y = X − 1 (X also mean number
+ of tests) of failures before the first success, supported on the set {
+ 0, 1, 2, 3, ...
+ }.
+ Thus we have Y+1 tests
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(Y|\theta)=(1-\theta)^{Y}\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with mean 
+\begin_inset Formula $\frac{1-\theta}{\theta}$
+\end_inset
+
+.
+
+\change_inserted 16419249 1469196433
+ 
+\series bold
+variance : 
+\begin_inset Formula $\frac{1-p}{p^{2}}$
+\end_inset
+
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsection
+Censoring
+\end_layout
+
+\begin_layout Itemize
+Right censoring occurs when subjects drop out test prior to having the event.
+\end_layout
+
+\begin_layout Itemize
+Censoring is an empricial question.
+\end_layout
+
+\begin_layout Itemize
+Trucation is a thoretical assumption on distribution.
+\end_layout
+
+\begin_layout Part
+Normal Distribution
+\end_layout
+
+\begin_layout Section
+One Dimention
+\end_layout
+
+\begin_layout Subsection
+Likelihood
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L(y|\theta,\sigma^{2})=\frac{1}{\sigma\sqrt{2\pi}}exp(-\frac{(y-\theta)^{2}}{2\sigma^{2}})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L(y^{n}|\theta,\sigma^{2})=\prod L(y_{i}|\theta,\sigma^{2})=(2\pi\sigma^{2})^{-n/2}exp\left[\frac{1}{2}\sum(\frac{y_{i}-\theta}{\sigma})^{2}\right]
+\]
+
+\end_inset
+
+That means the sample mean 
+\begin_inset Formula $\bar{y}=\sum y/n$
+\end_inset
+
+ and sample mean's variance 
+\begin_inset Formula $std(\bar{y})=\frac{\sum(y-\bar{y})^{2}}{n-1}$
+\end_inset
+
+ are the sufficient statistics for 
+\begin_inset Formula $L(y^{N}|\theta,\sigma^{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sample Distribution of Sample Variance: Chi-Square Distribution
+\end_layout
+
+\begin_layout Standard
+Note that this is sample variance 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+, not the sample mean variance
+\end_layout
+
+\begin_layout Standard
+if 
+\begin_inset Formula $X1,...,Xn$
+\end_inset
+
+ are i.i.d.
+ 
+\begin_inset Formula $N(μ,σ^{2})$
+\end_inset
+
+ random variables, then
+\begin_inset Formula 
+\[
+\sum_{i=1}^{n}(X_{i}-\bar{X})^{2}\sim\sigma^{2}\chi_{n-1}^{2}where\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+OR in other words
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{1}{\sigma^{2}} & \sim & \frac{\chi_{n-1}^{2}}{\sum_{i=1}^{n}(X_{i}-\bar{X})^{2}}\\
+ & \propto & \chi_{n-1}^{2}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Chi-Square Distribution
+\end_layout
+
+\begin_layout Standard
+If Z1, ..., Zk are independent, standard normal random variables, then the
+ sum of their squares,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Q\ =\sum_{i=1}^{k}Z_{i}^{2},$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is distributed according to the chi-squared distribution with k degrees
+ of freedom.
+ This is usually denoted as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Q\ \sim\chi^{2}(k)$
+\end_inset
+
+ or 
+\begin_inset Formula $Q\sim\chi_{k}^{2}$
+\end_inset
+
+ .
+ 
+\end_layout
+
+\begin_layout Standard
+The chi-squared distribution has one parameter: k — a positive integer that
+ specifies the number of degrees of freedom (i.e.
+ the number of Zi’s).
+\end_layout
+
+\begin_layout Standard
+PDF: 
+\begin_inset Formula $\chi^{2}(k)$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\frac{1}{2^{\frac{k}{2}}\Gamma\left(\frac{k}{2}\right)}\;x^{\frac{k}{2}-1}e^{-\frac{x}{2}}\$
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It seems that , compare with Gamma 
+\begin_inset Formula $f(x;k,\theta)=\frac{x^{k-1}e^{-\frac{x}{\theta}}}{\theta^{k}\Gamma(k)}\quad\text{ for }x>0\text{ and }k,\theta>0.$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\chi^{2}(k)=Gamma(2k,2)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Relation between Chi-Square and Gamma Distribution
+\end_layout
+
+\begin_layout Standard
+The sample mean of n i.i.d.
+ chi-squared variables of degree 
+\begin_inset Formula $k$
+\end_inset
+
+ is distributed according to a gamma distribution with shape 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and scale 
+\begin_inset Formula $\theta$
+\end_inset
+
+ parameters: 
+\begin_inset Formula 
+\[
+\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_{i}\sim Gamma\left(\alpha=n\,k/2,\theta=2/n\right)\qquad\text{where}\quad X_{i}\sim\chi^{2}(k)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conjugate Prior of 
+\begin_inset Formula $\theta$
+\end_inset
+
+, given data variance 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ is known
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\theta|\sigma^{2}\sim N(\mu_{0},\tau_{0}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Often a reasonable 
+\begin_inset Formula $u_{0}=\bar{y}$
+\end_inset
+
+, and 
+\begin_inset Formula $\tau_{0}^{2}=\hat{\sigma}^{2}/n$
+\end_inset
+
+ or 
+\begin_inset Formula $\tau_{0}=1/(k_{0}\phi)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Posterior
+\end_layout
+
+\begin_layout Itemize
+Lecture Notes Before P179
+\end_layout
+
+\begin_layout Itemize
+text_FC_BSM P78
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\theta|y^{n},\sigma^{2})\propto P(\theta|\sigma^{2})P(y^{N}|\theta,\sigma^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Results are still normal, see Notes p21 or https://en.wikipedia.org/wiki/Conjugate
+_prior
+\end_layout
+
+\begin_layout Standard
+Posterior mean
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mu_{n}=\frac{\tilde{\tau}_{0}^{2}}{\tilde{\tau}_{n}^{2}}\mu_{0}+\frac{n\tilde{\sigma}^{2}}{\tilde{\tau}_{n}^{2}}\bar{y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\tau_{n}^{2}}=\frac{1}{\tau_{0}^{2}}+\frac{n}{\sigma^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Or if we use 
+\begin_inset Formula $\tilde{\tau}_{n}$
+\end_inset
+
+,
+\begin_inset Formula $\tilde{\tau}_{0}$
+\end_inset
+
+,
+\begin_inset Formula $\tilde{\sigma}$
+\end_inset
+
+ to represent their iverse form, we have 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\tilde{\tau}_{n}^{2}=\tilde{\tau}_{0}^{2}+n\tilde{\sigma}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So posterior information = prior information + data information
+\end_layout
+
+\begin_layout Standard
+So the posterior mean is a weighted average of the prior mean and the sample
+ mean.
+ The weight on the sample mean is n/"2, the sampling precision of the sample
+ mean.
+\end_layout
+
+\begin_layout Subsubsection
+Prediction, given 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ is known
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L(y|y^{n},\sigma^{2})=\int P(y|\theta,\sigma^{2})P(\theta|y^{n},\sigma^{2})d\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Results are still normal, see Notes p22
+\end_layout
+
+\begin_layout Subsubsection
+Noninformative Prior
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p(\mu,1/\phi)=\phi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is an improper prior distribution.
+ But, it leads to a proper posterior distribution that yields inferences
+ similar to the frequentist ones.
+ See Class Handout
+\end_layout
+
+\begin_layout Section
+Conjugate Prior for Variance 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+, given 
+\begin_inset Formula $\theta$
+\end_inset
+
+ known
+\end_layout
+
+\begin_layout Subsection
+Gamma Density
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X\sim\Gamma(k,\theta)\equiv\textrm{Gamma}(k,\theta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The probability density function using the shape-scale parametrization is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+f(x;k,\theta) & = & \frac{x^{k-1}e^{-\frac{x}{\theta}}}{\theta^{k}\Gamma(k)}.\\
+ & \propto & x^{k-1}e^{-\frac{x}{\theta}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $X\sim\mbox{Gamma}(k,\theta)$
+\end_inset
+
+, (Gamma distribution) then 
+\begin_inset Formula $\tfrac{1}{X}\sim\mbox{Inv-Gamma}(k,\theta^{-1})$
+\end_inset
+
+, (see derivation in the next paragraph for details).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\scriptstyle \mathbf{E}[X]=k\theta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Prior 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+1/\sigma^{2}=\tilde{\sigma}^{2}\sim Gamma(a,\beta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Jeffery's Prior 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\sigma^{2})\propto\frac{1}{\sigma^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the inverse gamma distribution, we get:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+p(σ^{2}|α,β) & \propto & (σ^{2})^{\text{−}α\text{−}1}exp(\text{−}β/σ^{2})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You can see easily that if β→0 β→0 and α→0 α→0 then the inverse gamma will
+ approach the Jeffreys prior.
+ This distribution is called "uninformative" because it is a proper approximatio
+n to the Jeffreys prior
+\end_layout
+
+\begin_layout Standard
+p(σ 2 )∝1σ 2 p(σ2)∝1σ2
+\end_layout
+
+\begin_layout Standard
+Which is uninformative for scale parameters see page 18 here for example,
+ because this prior is the only one which remains invariant under a change
+ of scale (note that the approximation is not invariant).
+ This has a indefinite integral of log(σ 2 ) log⁡(σ2) which shows that it
+ is improper if the range of σ 2 σ2 includes either 0 0 or ∞ ∞ .
+ But these cases are only problems in the maths - not in the real world.
+ Never actually observe infinite value for variance, and if the observed
+ variance is zero, you have perfect data!.
+ For you can set a lower limit equal to L>0 L>0 and upper limit equal U<∞
+ U<∞ , and your distribution is proper.
+ 
+\end_layout
+
+\begin_layout Subsection
+Posterior is also Gamma 
+\end_layout
+
+\begin_layout Standard
+(Notes p23)
+\end_layout
+
+\begin_layout Standard
+Suppose 
+\begin_inset Formula $\tilde{\sigma}^{2}\sim Gamma(\alpha,\beta)$
+\end_inset
+
+, then it has posterior as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+P(\tilde{\sigma}^{2}|y^{n},\theta) & = & P(\tilde{\sigma}^{2})P(y^{n}|\tilde{\sigma}^{2},\theta)\\
+ & = & Gamma(a+\frac{n}{2},\mathbf{\beta}+\frac{\sum_{i=1}^{n}(x_{i}-\theta)^{2}}{2})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Joint Posterior for 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+: Normal-Gamma distribution
+\end_layout
+
+\begin_layout Standard
+A Normal-Gamma distribution (Notes p24)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\theta,\sigma^{2}|y^{n})=P(\theta|\sigma^{2},y^{n})P(\sigma^{2}|y^{n})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Properties
+\end_layout
+
+\begin_layout Subsection
+Addable
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $Y\sim N(\theta,\sigma^{2})$
+\end_inset
+
+ and 
+\begin_inset Formula $X\sim N(\mu,\tau^{2})$
+\end_inset
+
+, then 
+\begin_inset Formula $aX+bY\sim N(\theta+\mu,a^{2}\sigma^{2}+b^{2}\tau^{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sufficient Statistic
+\end_layout
+
+\begin_layout Standard
+See Lecture Notes Before p175
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\phi=1/\sigma^{2}$
+\end_inset
+
+, then we have 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+L(Y|\mu,\phi) & \propto & \phi^{n/2}exp\left\{ -\frac{1}{2}\phi\sum_{i}(y_{i}-\mu)^{2}\right\} \\
+ & \propto & \phi^{n/2}exp\left\{ -\frac{1}{2}\phi\sum_{i}((y_{i}-\bar{y})-(\mu-\bar{y}))^{2}\right\} \\
+ & \propto & \phi^{n/2}exp\left\{ -\frac{1}{2}\phi s^{2}(n-1)\right\} exp\left\{ -\frac{1}{2}\phi n(\mu-\bar{y})^{2}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $s^{2}=\frac{\sum^{n}(y-\bar{y})^{2}}{n-1}_{i=1}$
+\end_inset
+
+, whic is sample variance.
+\end_layout
+
+\begin_layout Standard
+The the sufficient statistics are
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+ mean.
+\end_layout
+
+\begin_layout Itemize
+sample sum of squares 
+\begin_inset Formula $SS=s^{2}(n-1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Log Normal
+\end_layout
+
+\begin_layout Standard
+If the random variable X is log-normally distributed, then 
+\begin_inset Formula $Y=\log(X)$
+\end_inset
+
+ has a normal distribution.
+ 
+\end_layout
+
+\begin_layout Standard
+A variable might be modeled as log-normal if it can be thought of as the
+ 
+\series bold
+multiplicative product
+\series default
+ of many independent random variables each of which is positive.
+ (This is justified by considering the central limit theorem in the log-domain.)
+ For example, in finance, the variable could represent the compound return
+ from a sequence of many trades (each expressed as its 
+\begin_inset Formula $Return+1$
+\end_inset
+
+); or a long-term 
+\begin_inset Formula $Discountfactor+1$
+\end_inset
+
+ can be derived from the product of short-term discount factors.
+ 
+\end_layout
+
+\begin_layout Section
+Multi-Dimention: 
+\end_layout
+
+\begin_layout Standard
+See Fan's Notes P34 or Lecture Notes Lecture 后 Section-11.
+ 
+\end_layout
+
+\begin_layout Itemize
+Any multi-deimentional distribution for vector 
+\begin_inset Formula $x$
+\end_inset
+
+ is actually the joint distribution of all elements 
+\begin_inset Formula $(x_{1}....x_{k})$
+\end_inset
+
+ in 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+If vector 
+\begin_inset Formula $x\sim MultiNormal$
+\end_inset
+
+, the key assumption is all elements in 
+\begin_inset Formula $x$
+\end_inset
+
+ are linear dependant with each other.
+ (see the different count plots in Lecture Notes Lecture 11.)
+\end_layout
+
+\begin_layout Itemize
+Likelihood]
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(y_{i}|\theta,\Sigma)=(2\pi)^{-\frac{p}{2}}|\Sigma|^{-\frac{1}{2}}exp\left\{ -\frac{1}{2}(y_{i}-\theta)^{T}\Sigma^{-1}(y_{i}-\theta)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Prior 
+\begin_inset Formula $\theta$
+\end_inset
+
+: see Fan's Notes P34
+\begin_inset Formula 
+\begin{eqnarray*}
+\theta & \sim & MultiNormal(\mu_{0},\varLambda_{0})\\
+ & \propto & exp\left\{ -\frac{1}{2}(\theta-\mu_{0})^{T}\varLambda^{-1}(\theta-\mu_{0})\right\} \\
+ & \propto & exp\left\{ -\frac{1}{2}\theta^{T}\varLambda_{0}^{-1}\theta+\mu_{0}^{T}\varLambda_{0}^{-1}\theta\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Posterior 
+\begin_inset Formula $\theta$
+\end_inset
+
+, with known 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+P(\theta|Y,\Sigma) & \propto & \prod_{i}P(y_{i}|\theta,\Sigma)\times P(\theta|\mu_{0},\varLambda_{i})\\
+ & \propto & exp\left\{ -\frac{1}{2}\theta^{T}\varLambda_{n}\theta+\theta^{T}b_{n}\right\} \\
+ & = & MultiNormal(\varLambda_{n}^{-1}b_{n},\varLambda_{n}^{-1})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+where 
+\begin_inset Formula $\varLambda{}_{n}=\varLambda_{0}^{-1}+n\Sigma^{-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $b_{n}=\varLambda_{0}^{-1}\mu_{0}+n\Sigma^{-1}\bar{y}$
+\end_inset
+
+ (note that here 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ is not sum, it is the covariance matrix of 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Prior for 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Sigma^{-1}\sim Wishart(V_{0},S_{0})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Posterior for 
+\begin_inset Formula $\Sigma^{-1}$
+\end_inset
+
+ is also 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Wishart
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\Sigma^{-1}|Y,\theta\sim Wishard(V_{0}+N,(S_{0}+S_{\theta})^{-1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+where 
+\begin_inset Formula $S_{\theta}=\sum(y_{i}-\theta)(y_{i}-\theta)^{T}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $V_{0}$
+\end_inset
+
+ is often chosen as 
+\begin_inset Formula $p+2$
+\end_inset
+
+ if you want 
+\begin_inset Formula $E(\Sigma)=\Sigma_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Gibbs Sampling of Multi-Normal
+\end_layout
+
+\begin_layout Standard
+As the joint posterior 
+\begin_inset Formula $P(\theta,\Sigma|Y,...)$
+\end_inset
+
+ has no conjugate form, but its marginal (or full condition marginal) 
+\begin_inset Formula $P(\theta|Y,\Sigma...)$
+\end_inset
+
+ and 
+\begin_inset Formula $P(\Sigma|Y,\theta)$
+\end_inset
+
+ both have the conjugate form, thus we call the original joint posterior
+ 
+\begin_inset Formula $P(\theta,\Sigma|Y,...)$
+\end_inset
+
+ semi-conjugate.
+\end_layout
+
+\begin_layout Standard
+In this case, we can use Gibbs Sampling to get the Joint!
+\end_layout
+
+\begin_layout Enumerate
+Darw from 
+\begin_inset Formula $\Sigma^{-1}\sim Wishart(V_{0},S_{0})$
+\end_inset
+
+ thus update 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Plug in the updated 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ into 
+\begin_inset Formula $P(\theta|Y,\Sigma)$
+\end_inset
+
+ to update 
+\begin_inset Formula $\theta$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Then plug in the updated 
+\begin_inset Formula $\theta$
+\end_inset
+
+ into first step and repeat.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Jeffrey's Prior
+\end_layout
+
+\begin_layout Standard
+Jeffrey's Prior:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\theta,\Sigma)\propto|\Sigma|^{-\frac{P+2}{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+It's a non-informative Prior
+\end_layout
+
+\begin_layout Itemize
+Can insure oint posterior 
+\begin_inset Formula $P(\theta,\Sigma|Y,...)$
+\end_inset
+
+ has a nice form
+\end_layout
+
+\begin_layout Standard
+Therefore the posterior is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\Sigma|Y)=\mbox{InverseWishart}(n,S_{\theta}^{-1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\theta|Y)=N_{P}(\bar{Y},\Sigma/N)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Prior and posterior
+\end_layout
+
+\begin_layout Standard
+Also see Lecture Notes Section 11
+\end_layout
+
+\begin_layout Standard
+Prior for 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+: inverse-Wishart prior
+\end_layout
+
+\begin_layout Subsection
+Application
+\end_layout
+
+\begin_layout Itemize
+Two groups (two dimentions), one is test and the other one is control.
+ Can answer the questions whether 
+\begin_inset Formula $P(\mu_{1}>\mu_{2}|Y)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Can predict post-test score from pre-test score 
+\begin_inset Formula $P(\sigma_{12}>0|Y)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Normal Gamma
+\end_layout
+
+\begin_layout Standard
+See wiki
+\end_layout
+
+\begin_layout Standard
+In probability theory and statistics, the normal-gamma distribution (or
+ Gaussian-gamma distribution) is a bivariate four-parameter family of continuous
+ probability distributions.
+ It is the conjugate prior of a normal distribution with unknown mean and
+ precision.
+\end_layout
+
+\begin_layout Standard
+Assume that 
+\begin_inset Formula $x$
+\end_inset
+
+ is distributed according to a normal distribution with unknown mean 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and precision 
+\begin_inset Formula $\tau$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x\sim\mathcal{N}(\mu,\tau^{-1})$
+\end_inset
+
+ and that the prior distribution on 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\tau$
+\end_inset
+
+, 
+\begin_inset Formula $(\mu,\tau),$
+\end_inset
+
+ has a normal-gamma distribution
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(\mu,\tau)\sim\text{NormalGamma}(\mu_{0},\lambda_{0},\alpha_{0},\beta_{0}),$
+\end_inset
+
+for which the density π satisfies
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\pi(\mu,\tau)\propto\tau^{\alpha_{0}-\frac{1}{2}}\exp[{-\beta_{0}\tau}]\exp[{-\frac{\lambda_{0}\tau(\mu-\mu_{0})^{2}}{2}}].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then the posterior is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{P}(\tau,\mu|\mathbf{X})=\text{NormalGamma}\left(\frac{\lambda_{0}\mu_{0}+n\bar{x}}{\lambda_{0}+n},\lambda_{0}+n,\alpha_{0}+\frac{n}{2},\beta_{0}+\frac{1}{2}\left(ns+\frac{\lambda_{0}n(\bar{x}-\mu_{0})^{2}}{\lambda_{0}+n}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Probability density function
+\end_layout
+
+\begin_layout Standard
+The joint probability density function of (X,T) is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f(x,\tau|\mu,\lambda,\alpha,\beta)=\frac{\beta^{\alpha}\sqrt{\lambda}}{\Gamma(\alpha)\sqrt{2\pi}}\,\tau^{\alpha-\frac{1}{2}}\,e^{-\beta\tau}\,e^{-\frac{\lambda\tau(x-\mu)^{2}}{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Marginal distributions
+\end_layout
+
+\begin_layout Itemize
+By construction, the marginal distribution over 
+\begin_inset Formula $\tau$
+\end_inset
+
+ is a gamma distribution,
+\end_layout
+
+\begin_layout Itemize
+the conditional distribution over 
+\begin_inset Formula $x$
+\end_inset
+
+ given 
+\begin_inset Formula $\tau$
+\end_inset
+
+ is a Gaussian distribution.
+ 
+\end_layout
+
+\begin_layout Itemize
+The marginal distribution over 
+\begin_inset Formula $x$
+\end_inset
+
+ is a three-parameter non-standardized Student's t-distribution with parameters
+ 
+\begin_inset Formula 
+\[
+(\nu,\mu,\sigma^{2})=(2\alpha,\mu,\beta/(\lambda\alpha))
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conditional Distribution
+\end_layout
+
+\begin_layout Standard
+Can be used in linear regression: (note that 
+\begin_inset Formula $y_{1}$
+\end_inset
+
+ or 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+ could be scale variables OR vecotors)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{1}|y_{2}\sim N(u_{1}+\Sigma_{12}\Sigma_{22}^{-1}(y_{2}-\mu_{2}),\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Linear Regression
+\end_layout
+
+\begin_layout Itemize
+Likelihood 
+\begin_inset Formula $y_{i}\sim N(\beta^{T}x_{i},\sigma^{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Prior for 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+: 
+\begin_inset Formula $\frac{1}{\sigma^{2}}=\phi=Gamma(\frac{v_{0}}{2},\frac{v_{0}\sigma^{2}}{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Prior for 
+\begin_inset Formula $\beta$
+\end_inset
+
+: 
+\begin_inset Formula $\beta\sim N(\alpha_{0},\Sigma_{0})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Posterior: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\beta,\sigma^{2}|X,Y)\approx P(Y|\beta,X,\sigma^{2})\times P(\sigma^{2})\times P(\beta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Separate posterior -- Full Condition : 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $P(\phi|\beta X,Y)\wasypropto P(Y|\beta X,\phi)\times P(\phi)$
+\end_inset
+
+.
+ Here 
+\begin_inset Formula $\beta$
+\end_inset
+
+ and 
+\begin_inset Formula $X$
+\end_inset
+
+ are always in condition (note that 
+\begin_inset Formula $P(\phi|\beta)=P(\phi)$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $P(\beta|X,Y,\phi)\approx P(Y|\beta,X,\phi)\times P(\beta)$
+\end_inset
+
+ Here 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi$
+\end_inset
+
+ is always the condition (note that 
+\begin_inset Formula $P(\beta|\phi)=P(\beta)$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+Posterior for joint 
+\begin_inset Formula $P(\beta,\sigma^{2}|X,Y)$
+\end_inset
+
+ (see Lecture Notes) has no conjugate form, but the full conditional posterior
+ 
+\begin_inset Formula $P(\beta|X,Y,\phi)$
+\end_inset
+
+ and 
+\begin_inset Formula $P(\phi|X,Y,\beta)$
+\end_inset
+
+ both have conjugate forms Thus we call the priors with no joint conjugate
+ posterior but have full conditional conjugate posterior as Semi-Conjugate
+ Prior.
+\end_layout
+
+\begin_layout Itemize
+Thus we can run Gibbs Sampler and get the inference!
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Default prior
+\end_layout
+
+\begin_layout Standard
+See Lecture Notes 17 
+\end_layout
+
+\begin_layout Standard
+Often it can be time consuming and difficult to formulate semi-conjugate
+ prior distributions, especially for 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+ A common strategy is to use a default, noninformative prior distribution.
+\end_layout
+
+\begin_layout Standard
+Limiting case of semi-conjugate prior as all prior variances go to infinity
+ and v0 goes to zero (no information)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\beta,\sigma^{2})\approx1/\sigma^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+MCMC
+\end_layout
+
+\begin_layout Section
+
+\series bold
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Monte Carrlo
+\end_layout
+
+\end_inset
+
+
+\series default
+Monte Carrlo
+\series bold
+: Definition & Application: 
+\end_layout
+
+\begin_layout Itemize
+Given a complex system and you don't know how to get some useful information
+ from it analytically, you have to simulate tests using this system to get
+ the data for it.
+ Thus you can get useful information from those simulated data to understand
+ the system.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In physics-related problems, Monte Carlo methods are quite useful for simulating
+ systems with many coupled degrees of freedom, such as fluids, disordered
+ materials.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Known the distrubution 
+\begin_inset Formula $P(\theta)$
+\end_inset
+
+, but hard to calculate the 
+\series bold
+summary statistics
+\series default
+ analytically, sample 
+\begin_inset Formula $s$
+\end_inset
+
+ times 
+\begin_inset Formula $\theta$
+\end_inset
+
+ from 
+\begin_inset Formula $P(\theta)$
+\end_inset
+
+, thus we can use 
+\begin_inset Formula $\theta^{s}$
+\end_inset
+
+ to approximate 
+\series bold
+summary statistics
+\series default
+ 
+\begin_inset Formula $P(\theta)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Summary Statistics of MC
+\end_layout
+
+\begin_layout Standard
+(Note that according to CLT, sample mean follows Normal distribution).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(\theta)\approx\frac{\sum\theta_{i}}{S}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Var\left[E(\theta)\right]\approx\hat{\sigma}^{2}/S=\sqrt{\frac{\sum(\theta_{i}-\hat{\theta})^{2}}{S-1}/S}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Var(\theta)\approx\hat{\sigma}^{2}=\frac{\sum(\theta_{i}-\hat{\theta})^{2}}{S-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\theta<C|y^{n})=\frac{\sum1_{\theta^{i}<c}}{S}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Monte Carlo Standard Error: How well 
+\begin_inset Formula $\frac{\sum\theta_{i}}{S}$
+\end_inset
+
+ approximates 
+\begin_inset Formula $E(\theta)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Monte Carlo Standard Error can help us answer how sure we are about the
+ statistics we get by Monte Carrlo.
+\end_layout
+
+\begin_layout Standard
+Measured by Monte Carlo Standard Error
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Monte Carlo Standard Error
+\end_layout
+
+\end_inset
+
+=
+\begin_inset Formula $\sqrt{\frac{\hat{\sigma}^{2}}{S}}$
+\end_inset
+
+.
+ Thus if we want to make sure 
+\begin_inset Formula 
+\[
+P\left[\bar{\theta}-E(\theta)<0.01\right]>0.95
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We should have 
+\begin_inset Formula 
+\[
+\frac{0-0.011}{error}<1.96
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+MCMC
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+MCMC
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Markov Chain Monte Carlo (MCMC) methods are a class of algorithms for sampling
+ from a probability distribution based on constructing a Markov chain that
+ has the desired distribution as its equilibrium distribution.
+ The state of the chain after a number of steps is then used as a sample
+ of the desired distribution.
+ The quality of the sample improves as a function of the number of steps.
+\end_layout
+
+\begin_layout Subsection
+Markov Chain 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Markov Chain
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+a mathematical system that undergoes transitions from one state to another
+ on a state space.
+ It is a random process usually characterized as memoryless: the next state
+ depends only on the current state and not on the sequence of events that
+ preceded it.
+ This specific kind of "memorylessness" is called the Markov property.
+\end_layout
+
+\begin_layout Section
+MCMC: Gibbs Sampling
+\end_layout
+
+\begin_layout Standard
+HW 8,9
+\end_layout
+
+\begin_layout Description
+
+\series bold
+Probelm:
+\end_layout
+
+\begin_layout Itemize
+Goal: get either (marginal) or both (joint) 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ empirical data.
+ 
+\end_layout
+
+\begin_layout Itemize
+Known: 
+\series bold
+The conditional 
+\begin_inset Formula $P(x_{1}|x_{2})$
+\end_inset
+
+ and 
+\begin_inset Formula $P(x_{2}|x_{1})$
+\end_inset
+
+, and it is easy to sample 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ from its conditional form.
+\end_layout
+
+\begin_layout Itemize
+Normally we try to get 
+\begin_inset Formula $P(x_{1})$
+\end_inset
+
+ or 
+\begin_inset Formula $P(x_{1},x_{2})$
+\end_inset
+
+ and then sample 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ from either of them.
+\end_layout
+
+\begin_layout Itemize
+But 
+\begin_inset Formula $P(x_{1})$
+\end_inset
+
+ or 
+\begin_inset Formula $P(x_{1},x_{2})$
+\end_inset
+
+ is hard to get!
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $P(x_{1},x_{2})=P(x_{1}|x_{2})P(x_{2})$
+\end_inset
+
+, which does not often has analytical form, or we don't have 
+\begin_inset Formula $P(x_{2})$
+\end_inset
+
+ on hand at all.
+\end_layout
+
+\begin_layout Itemize
+To get: 
+\begin_inset Formula $P(x_{1})$
+\end_inset
+
+ to get the joint, the common method is to marginalize by integrating: 
+\begin_inset Formula $P(x_{1})=\int P(x_{1},x_{2})dx_{2}=\int P(x_{1}|x_{2})P(x_{2})dx_{2}$
+\end_inset
+
+.
+ which does not often has analytical form either....
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\series bold
+Answer: 
+\series default
+Gibbs method will sample 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ just using Conditional probability, without using any Joint distribution
+ or Marginal distribution!
+\end_layout
+
+\begin_layout Subsection
+Proceduare
+\end_layout
+
+\begin_layout Enumerate
+Under initial values 
+\begin_inset Formula $x_{2}^{0}$
+\end_inset
+
+, we draw 
+\begin_inset Formula $x_{1}^{*}$
+\end_inset
+
+ from 
+\begin_inset Formula $P(x_{1}|x_{2}^{0})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Using the updaed 
+\begin_inset Formula $x_{`}^{*}$
+\end_inset
+
+, we draw 
+\begin_inset Formula $x_{2}^{*}$
+\end_inset
+
+ from 
+\begin_inset Formula $P(x_{2}|x_{1}^{*})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Keep doing the two steps, we have done a complete search for 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ in 
+\begin_inset Formula $P(x_{1}|x_{2})$
+\end_inset
+
+, thus the 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ from it is essentially from Marginal 
+\begin_inset Formula $P(x_{1})$
+\end_inset
+
+.
+ 
+\series bold
+That complete search for 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ is same as margialization by integration on 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+.
+ Same for 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ to get 
+\begin_inset Formula $P(x_{2})$
+\end_inset
+
+ from 
+\begin_inset Formula $P(x_{2}|x_{1}$
+\end_inset
+
+).
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Result: what we get is essentially 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ from joint 
+\begin_inset Formula $P(x_{1},x_{2})$
+\end_inset
+
+; or in other words, wehat we get is 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ from Marginal 
+\begin_inset Formula $P(x_{1})$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ from Marginal 
+\begin_inset Formula $P(x_{2})$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+总之，gibbs 的核心思想是random sample 
+\begin_inset Formula $\theta^{*}$
+\end_inset
+
+ 以simulate 
+\begin_inset Formula $y$
+\end_inset
+
+ from 
+\begin_inset Formula $y|\theta^{*}$
+\end_inset
+
+ ，从而marginalize out 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Application: Linear Regression
+\end_layout
+
+\begin_layout Standard
+See 'Linear Regression' section in 'Nornal' Part
+\end_layout
+
+\begin_layout Subsection
+Application: Multi-Normal Posterior 
+\end_layout
+
+\begin_layout Standard
+See Multi-Normal Section
+\end_layout
+
+\begin_layout Subsection
+Application: Posterior Prediction
+\end_layout
+
+\begin_layout Itemize
+Target: From prior 
+\begin_inset Formula $P(\theta)$
+\end_inset
+
+ and data 
+\begin_inset Formula $P(y^{n}|\theta)$
+\end_inset
+
+, you get posterior 
+\begin_inset Formula $P(\theta|y^{n})$
+\end_inset
+
+.
+ Now do the prediction (to get distribution of 
+\begin_inset Formula $y|y^{n}$
+\end_inset
+
+, Bayesian never just does pointwise prediction)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+But the prediction formula
+\begin_inset Formula $P(y|y^{n})=\int P(y|\theta)P(\theta|y^{n})d\theta$
+\end_inset
+
+ is so complex.....
+ That's why we need Gibbs Sampling here
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Solve: according to the integration formula, our goal is to do a complete
+ search for all 
+\begin_inset Formula $\theta|y^{n}$
+\end_inset
+
+ (here 
+\begin_inset Formula $y^{n}$
+\end_inset
+
+ is forever parameter)
+\end_layout
+
+\begin_layout Subsection
+Procedure
+\change_deleted 16419249 1469738254
+:
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+Randomly draw a 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ from 
+\begin_inset Formula $P(\theta|y^{n})$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If there are multiple 
+\begin_inset Formula $\theta$
+\end_inset
+
+s (
+\begin_inset Formula $\theta$
+\end_inset
+
+ is a vector 
+\begin_inset Formula ${\theta^{1},\theta^{2}..\theta^{n}}$
+\end_inset
+
+), then we can each time only update one 
+\begin_inset Formula $\theta_{i}^{j}$
+\end_inset
+
+ from 
+\begin_inset Formula $P(\theta_{j}|y^{n},\theta_{i}^{1},\theta_{i}^{2}..\theta_{i}^{j-1},\theta_{i-1}^{j+1}..\theta_{i-1}^{n})$
+\end_inset
+
+ That is, sample each variable from the distribution of that variable conditione
+d on all other variables, making use of the most recent values and updating
+ the variable with its new value as soon as it has been sampled.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Get 
+\begin_inset Formula $\hat{y}$
+\end_inset
+
+ from 
+\begin_inset Formula $P(y|\hat{\theta})$
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Note that for this problem you already know the marginal form of 
+\begin_inset Formula $P(\theta|y^{n})$
+\end_inset
+
+ (we mean un-condtional/marginal on 
+\begin_inset Formula $\hat{y}$
+\end_inset
+
+, as 
+\begin_inset Formula $y^{n}$
+\end_inset
+
+ is forever parameter), so there is no need to plug in the updated 
+\begin_inset Formula $\hat{y}$
+\end_inset
+
+ when we sample 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Repeat the 1-2 steps N times, and you get the Joint empirical data 
+\begin_inset Formula $\hat{\theta},\hat{y}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Just pull our all the 
+\begin_inset Formula $y$
+\end_inset
+
+, that is the marginal: 
+\begin_inset Formula $y|y^{n}$
+\end_inset
+
+ (as 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ already covers all the possible 
+\begin_inset Formula $\theta$
+\end_inset
+
+ in 
+\begin_inset Formula $\theta|y^{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Trace plot and Credit Interval
+\end_layout
+
+\begin_layout Itemize
+Normally you need some burn-in time, just look at the trace plot, (value
+ against iteration time), when the value is relatively stable, then you
+ can be sure the burn-in time is gone.
+\end_layout
+
+\begin_layout Itemize
+Then just choose 95% emprical interval after burn-in time as Credit Interval
+\end_layout
+
+\begin_layout Section
+Importance Sampling & Rejection Sampling
+\end_layout
+
+\begin_layout Description
+Problem: Estimating
+\series bold
+ properties (normally mean of 
+\begin_inset Formula $f(x)$
+\end_inset
+
+) of a particular distribution
+\series default
+ 
+\begin_inset Formula $p(x)$
+\end_inset
+
+: 
+\begin_inset Formula $\int_{D}f(x)p(x)dx$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Difficulty: 
+\end_layout
+
+\begin_layout Itemize
+No analytical form of the integral, so only MC method can be used.
+\end_layout
+
+\begin_layout Itemize
+But it is also hard to draw samples from 
+\begin_inset Formula $p(x)$
+\end_inset
+
+, because here we can only draw from a restricted domen 
+\begin_inset Formula $D$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Solve: Change the measure to 
+\begin_inset Formula $q$
+\end_inset
+
+ , as it is super easy to sample from 
+\begin_inset Formula $q(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+E(f(x)) & = & \int_{D}f(x)p(x)dx\\
+ & = & \int_{D}\frac{f(x)p(x)}{q(x)}q(x)dx\\
+ & = & E_{q}(X)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $X\sim q$
+\end_inset
+
+.
+ (originally 
+\begin_inset Formula $x\sim p$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $p(x)/q(x)$
+\end_inset
+
+ is called likelihood ratio.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $q$
+\end_inset
+
+ is the importance distribution.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Example: 
+\end_layout
+
+\begin_layout Itemize
+To calcualte 
+\begin_inset Formula $\int_{0}^{1}xp(x)dx$
+\end_inset
+
+ where 
+\begin_inset Formula $p\sim normal$
+\end_inset
+
+, we can construct 
+\begin_inset Formula $q(x)=\int_{0}^{1}p(x)dx$
+\end_inset
+
+, because in this way 
+\begin_inset Formula $q(x)\sim U(0,1)$
+\end_inset
+
+, which is very easy to sample.
+ 
+\end_layout
+
+\begin_layout Itemize
+Thus we get sample 
+\begin_inset Formula $x$
+\end_inset
+
+ from 
+\begin_inset Formula $U(0,1)$
+\end_inset
+
+ and plug into 
+\begin_inset Formula $xp(x)/q(x)$
+\end_inset
+
+ where 
+\begin_inset Formula $q(x)$
+\end_inset
+
+ is always 1.
+ Then calculate the mean of all different 
+\begin_inset Formula $xp(x)/q(x)$
+\end_inset
+
+ and thus you get the result.
+ 
+\end_layout
+
+\begin_layout Itemize
+Example: in Bayesian Setting
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $z=\int L(y|\theta)p(\theta)d\theta=\int\frac{L(y|\theta)p(\theta)}{q(\theta)}q(\theta)d\theta=\int w(\theta)q(\theta)d\theta=E(w(\theta))$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Let choose a large variance distribution 
+\begin_inset Formula $q(\theta)=N(0,10000)$
+\end_inset
+
+.
+ Normally this 
+\begin_inset Formula $q$
+\end_inset
+
+ will make 
+\begin_inset Formula $w$
+\end_inset
+
+ computable.
+ You can then draw 
+\begin_inset Formula $\theta\sim q$
+\end_inset
+
+ and compute 
+\begin_inset Formula $w(\theta).$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+MCMC: Metropolis-Hastings
+\end_layout
+
+\begin_layout Standard
+Lab 7
+\end_layout
+
+\begin_layout Enumerate
+The basis of Metropolis–Hastings algorithm is Rejection Sampling (See Rejection
+ Sampling section in Application)
+\end_layout
+
+\begin_layout Enumerate
+Metropolis–Hastings algorithm is a Markov chain Monte Carlo (MCMC) method
+ for obtaining a sequence of random samples from a probability distribution
+ 
+\begin_inset Formula $\pi$
+\end_inset
+
+ for 
+\series bold
+which direct sampling is difficult.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Example: it is hard to draw random vectors from Multi-Dimentional distribution,
+ or the density function is non-standard (see Lab 7 )).
+ 
+\end_layout
+
+\begin_layout Enumerate
+But you have to insure the probability 
+\begin_inset Formula $\pi$
+\end_inset
+
+ itself is easy to get its density value.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+This sequence of 
+\begin_inset Formula $x$
+\end_inset
+
+ from MH is Metropolis random walk, which will converge to a stationary
+ status, the approximate the 
+\begin_inset Formula $P(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Procedure
+\end_layout
+
+\begin_layout Enumerate
+Known 
+\begin_inset Formula $\pi(\theta)$
+\end_inset
+
+, or at least know the kernal of 
+\begin_inset Formula $\pi(\theta)$
+\end_inset
+
+, you want to draw the empirical distribution of 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Let the proposal distribution of transition probability be 
+\begin_inset Formula $\theta^{t}\sim q(\theta^{t}|\theta^{t-1})=N(\theta^{t-1},\sigma)$
+\end_inset
+
+.
+ Darw 
+\begin_inset Formula $\theta^{t}$
+\end_inset
+
+, or 
+\begin_inset Formula $\theta_{i}^{t}$
+\end_inset
+
+ the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ element of , if in multiple dimentions.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The acceptance distribution of transition probability is normally 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+min\{1,Q=\frac{\pi(\theta^{t})}{q(\theta^{t}|\theta^{t-1})}/\frac{\pi(\theta^{t-1})}{q(\theta^{t-1}|\theta^{t})}\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+That means if 
+\begin_inset Formula $Q\ge1$
+\end_inset
+
+, then we accept the new 
+\begin_inset Formula $\theta^{t}$
+\end_inset
+
+ for sure.
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $Q<1$
+\end_inset
+
+, we draw a random number 
+\begin_inset Formula $r$
+\end_inset
+
+ from 
+\begin_inset Formula $U(0,1)$
+\end_inset
+
+ and compare 
+\begin_inset Formula $r$
+\end_inset
+
+ with 
+\begin_inset Formula $Q$
+\end_inset
+
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+if 
+\begin_inset Formula $Q>r$
+\end_inset
+
+, then accept; 
+\end_layout
+
+\begin_layout Itemize
+otherwise we reject 
+\begin_inset Formula $\theta^{t}$
+\end_inset
+
+ and redraw
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+If the interest is on Posterior, then just replace 
+\begin_inset Formula $P(\theta)=\pi(\theta)$
+\end_inset
+
+ as 
+\begin_inset Formula $P(\pi)L(y|\theta)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Transition Probability:
+\begin_inset Formula $Q$
+\end_inset
+
+, 
+\begin_inset Formula $p$
+\end_inset
+
+ and 
+\begin_inset Formula $q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Choose a Transition Probability / Jump Probability 
+\begin_inset Formula $Q=P(\theta^{*}|\theta)$
+\end_inset
+
+, which allows you to jump from 
+\begin_inset Formula $\theta^{t-1}$
+\end_inset
+
+ to 
+\begin_inset Formula $\theta^{t}$
+\end_inset
+
+ (from 
+\begin_inset Formula $\theta$
+\end_inset
+
+ to 
+\begin_inset Formula $\theta^{*}$
+\end_inset
+
+).
+ 
+\series bold
+This 
+\begin_inset Formula $Q$
+\end_inset
+
+ is a Markov Process.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Q$
+\end_inset
+
+ has to be detailed balance and reversible 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/Markov_chain#Reversible_Markov_chain
+\end_layout
+
+\end_inset
+
+, which means the probability of being at 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and jumping from 
+\begin_inset Formula $\theta$
+\end_inset
+
+ to 
+\begin_inset Formula $\theta^{*}$
+\end_inset
+
+ is the same as probability of being at 
+\begin_inset Formula $\theta^{*}$
+\end_inset
+
+ and jumping from 
+\begin_inset Formula $\theta^{*}$
+\end_inset
+
+ to 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P(\theta)Q(\theta\rightarrow\theta^{*})=P(\theta^{*})Q(\theta^{*}\rightarrow\theta)\label{eq:reversible_markov_process}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\theta)P(\theta^{*}|\theta)=P(\theta^{*})P(\theta|\theta^{*})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Also, normally we separate 
+\begin_inset Formula $Q$
+\end_inset
+
+ into two sub-steps: The proposal distribution 
+\begin_inset Formula $q(\theta\rightarrow\theta^{*})$
+\end_inset
+
+ , and the acceptance distribution 
+\begin_inset Formula $A(\theta\rightarrow\theta^{*})$
+\end_inset
+
+ the conditional probability to accept the proposed state 
+\begin_inset Formula $\theta^{*}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q(\theta\rightarrow\theta^{*})=q(\theta\rightarrow\theta^{*})A(\theta\rightarrow\theta^{*})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+How to choose proposal distribution 
+\begin_inset Formula $q$
+\end_inset
+
+? Normally we just let it be normal: 
+\begin_inset Formula $\theta^{t}\sim q(\theta^{t}|\theta^{t-1})=N(\theta^{t-1},\sigma)$
+\end_inset
+
+ (that means the new 
+\begin_inset Formula $\theta^{t}$
+\end_inset
+
+ will center at the its own at its last status 
+\begin_inset Formula $\theta^{t-1}$
+\end_inset
+
+), where 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ means how much you want to move for each iteration.
+ If you move too slow (small 
+\begin_inset Formula $\sigma$
+\end_inset
+
+), then slow convergence.
+ If too quick, then no convergence.
+ Thus to choose the right 
+\begin_inset Formula $\sigma$
+\end_inset
+
+, you need to test and learn!
+\end_layout
+
+\begin_layout Subsection
+Acceptance Distribution 
+\begin_inset Formula $A$
+\end_inset
+
+ of Transition Probability:
+\begin_inset Formula $Q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How to choose proposal distribution 
+\begin_inset Formula $A(\theta\rightarrow\theta^{*})$
+\end_inset
+
+? The goal is to let it fit into the Reversible Markov Process 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:reversible_markov_process"
+
+\end_inset
+
+ when you plug it, so 
+\begin_inset Formula $A$
+\end_inset
+
+ is designed, not derived.
+ Metropolis designed it to be
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A(\theta\rightarrow\theta^{*})=min\{1,\frac{\pi(\theta^{t})q(\theta^{t-1}|\theta^{t})}{\pi(\theta^{t-1})q(\theta^{t}|\theta^{t-1})}\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Note that if 
+\begin_inset Formula $q$
+\end_inset
+
+ is 
+\series bold
+symmetrical
+\series default
+, then 
+\begin_inset Formula $q(\theta^{t-1}|\theta^{t})=q(\theta^{t}|\theta^{t-1})$
+\end_inset
+
+.
+ Thus cceptance distribution of transition probability is simplified to
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+min\{1,Q=\frac{\pi(\theta^{t})}{\pi(\theta^{t-1})}\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Traceplot and Convergence
+\end_layout
+
+\begin_layout Itemize
+Burn-in: samples at start of the chain that are discarded to allow convergence
+ 
+\end_layout
+
+\begin_layout Itemize
+Slow mixing: tendency for high autocorrelation in the samples.
+ 
+\end_layout
+
+\begin_layout Itemize
+Thinning: practice of collecting every kth iteration to reduce autocorrelation
+ I Trace plot: plot of sampled values of a parameter vs iteration #
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Convergence Diagnostics (see lecture note 10 for methods and pratical advice)
+\end_layout
+
+\begin_layout Itemize
+How to choose 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ in the normal proposal distribution 
+\begin_inset Formula $q$
+\end_inset
+
+? Or how fast you want to burn into convergence?: Want to have 40% acceptance
+ in univariate proposal & 20% in multivariate.
+\end_layout
+
+\begin_layout Itemize
+Check auto-correlation; check stationarity.
+\end_layout
+
+\begin_layout Itemize
+Gelman-Rubin; Geweke; Heidelberger-Welch; Raftery-Lewis.
+\end_layout
+
+\begin_layout Standard
+See lab 7
+\end_layout
+
+\begin_layout Part
+Application
+\end_layout
+
+\begin_layout Section
+
+\change_inserted 16419249 1471622719
+Bayesian Hypothesis Testing
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1471623214
+Traditional Frequencist: 
+\begin_inset Formula $p-value=P(D|H_{0})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1471623250
+But what we truely care is 
+\begin_inset Formula $P(H_{0}|Data)$
+\end_inset
+
+ vs 
+\begin_inset Formula $P(H_{1}|Data)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1471623264
+So use Bayesian Factor 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1471623269
+\begin_inset Formula 
+\[
+BayesianFactor=\frac{P(H_{0}|Data)}{P(H_{1}|Data)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Random Number Generator: Inverse Transform Sampling
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Inverse Transform Sampling
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Uniformly sample a number 
+\begin_inset Formula $u$
+\end_inset
+
+ between 0 and 1, interpreted as a CDF of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u=F(x).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x=F^{-1}(u)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Why 
+\begin_inset Formula $u$
+\end_inset
+
+ can be interpreted as a CDF of 
+\begin_inset Formula $x$
+\end_inset
+
+? As the probability of 
+\begin_inset Formula $u$
+\end_inset
+
+ lower than, say 90%, is the same as the probability that 
+\begin_inset Formula $x$
+\end_inset
+
+ makes its CDF less than 90% (
+\begin_inset Formula $P(x<Q_{0.9})=0.9$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Itemize
+The shapes of 
+\begin_inset Formula $F(x)$
+\end_inset
+
+ is different for different distriubition.
+ It is just because the scale of 
+\begin_inset Formula $x$
+\end_inset
+
+-axis.
+\end_layout
+
+\begin_layout Standard
+Example:
+\end_layout
+
+\begin_layout Standard
+For exponential: pdf 
+\begin_inset Formula $f(x)=\lambda e^{-\lambda x}$
+\end_inset
+
+ and CDF 
+\begin_inset Formula $F(x)=1-e^{-\lambda x}=u$
+\end_inset
+
+.
+ Thus to calculate the exponential-distributed random number 
+\begin_inset Formula $x$
+\end_inset
+
+ from 
+\begin_inset Formula $u$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+x=-\frac{1}{\lambda}ln(1-u)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this formula is not pdf of 
+\begin_inset Formula $x$
+\end_inset
+
+, it is just a way to calcualte 
+\begin_inset Formula $x$
+\end_inset
+
+ itself, not its pdf.
+ 
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula $1-u$
+\end_inset
+
+ is also a uniform distribution, so 
+\begin_inset Formula 
+\begin{equation}
+x=-\frac{1}{\lambda}ln(u)\label{eq:Inverse_Sampling_for_exponential-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Random Number Generator: Rejection Sampling
+\end_layout
+
+\begin_layout Standard
+Copy the graph from http://www.cs.berkeley.edu/~jordan/courses/260-spring10/lecture
+s/lecture17.pdf
+\end_layout
+
+\begin_layout Standard
+Suppose we want to sample from the density p(x) as shown in Figure 1.
+ If we can sample uniformly from the 2-D region under the curve, then this
+ process is same as sampling from p(x).
+ In rejection sampling, another density g(x) is considered from which we
+ can sample directly under the restriction that p(x) < Mg(x) for all 
+\begin_inset Formula $x$
+\end_inset
+
+ .
+ 
+\end_layout
+
+\begin_layout Standard
+This method relates to the general field of Monte Carlo techniques, including
+ Markov chain Monte Carlo algorithms that also use a proxy distribution
+ to achieve simulation from the target distribution f(x).
+ It forms the basis for algorithms such as the Metropolis algorithm.
+ 
+\end_layout
+
+\begin_layout Subsection
+Algorithm
+\end_layout
+
+\begin_layout Standard
+The rejection sampling algorithm is described below.
+\end_layout
+
+\begin_layout Enumerate
+Sample x from 
+\begin_inset Formula $g(x)$
+\end_inset
+
+ and u from 
+\begin_inset Formula $U(0,1)$
+\end_inset
+
+ (the uniform distribution over the unit interval) 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Check whether or not 
+\begin_inset Formula $u<f(x)/Mg(x)$
+\end_inset
+
+.
+ If this holds, accept x as a realization of 
+\begin_inset Formula $f(x)$
+\end_inset
+
+; 
+\end_layout
+
+\begin_layout Enumerate
+if not, reject the value of 
+\begin_inset Formula $x$
+\end_inset
+
+ and repeat the sampling step.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Why it can work
+\end_layout
+
+\begin_layout Standard
+Nice Proof: http://blog.quantitations.com/inference/2012/11/24/rejection-sampling-
+proof/
+\end_layout
+
+\begin_layout Itemize
+Lemma 1: If A is a random variable whose support is a subset of [0,1] ,
+ and U is a standard uniform random variable independent of A , then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P{U≤A}=E(A)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Lemma 2: Using Lemma 1, we can prove Lemma 2:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+P(x\mbox{ is accepted}) & = & \int P(x\mbox{ is accepted}|x)g(x)\mbox{ }d(x)\\
+ & = & E(\frac{p(x)}{Mg(x)})\\
+ & = & P(U\le\frac{p(x)}{Mg(x)})\\
+ & = & \frac{1}{M}\int\frac{p(x)}{g(x)}g(x)dx\\
+ & = & \frac{1}{M}\int p(x)dx\\
+ & = & 1/M
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Given the two lemmas above, we can do the Proof of Rejection Sampling: To
+ prove the Rejection Samplying works, the goal is to prove:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int_{0}^{x}p(x)dx=\int^{x}g(x|\mbox{x is accpeted})dx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus we need to prove
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+p(x) & = & g(x|\mbox{x is accpeted})\\
+ & = & P(\mbox{x is accpeted}|x)\times g(x)/P(\mbox{x is accpeted})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Formula $P(\mbox{x is accpeted}|x)=\frac{p(x)}{Mg(x)}$
+\end_inset
+
+ and 
+\begin_inset Formula $P(x\mbox{ is accepted})=1/M$
+\end_inset
+
+, plug in these two into the above formula, and we got it approved.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Truncated posterior
+\end_layout
+
+\begin_layout Standard
+As 
+\series bold
+
+\begin_inset Formula $P_{trun}(\theta)\propto P(\theta)\mathbf{1}_{[a,b]}$
+\end_inset
+
+.
+
+\series default
+ So we have 
+\begin_inset Formula $P_{trunc}(\theta|y)\propto P(y|\theta)P(\theta)\mathbf{1}_{[a,b]}$
+\end_inset
+
+.
+ As we also know 
+\begin_inset Formula $P(\theta|y)\propto P(y|\theta)P(\theta)$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\[
+P_{trunc}(\theta|y)\propto P(\theta|y)\mathbf{1}_{[a,b]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then to make its integration equal to 1, we have to divide 
+\begin_inset Formula $F(a|y)-F(b|y)$
+\end_inset
+
+.
+ So the relationship between 
+\begin_inset Formula $P_{trunc}(\theta|y)$
+\end_inset
+
+ and 
+\begin_inset Formula $P(\theta|y)$
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P_{trunc}(\theta|y)=\frac{P(\theta|y)\mathbf{1}_{[a,b]}}{F(a|y)-F(b|y)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\theta|y\sim Beta(c+y,d+n-y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Sampling Method
+\end_layout
+
+\begin_layout Standard
+Class notes P4后
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Rejection Method
+\end_layout
+
+\end_inset
+
+Rejection Method: Known the distribution of 
+\begin_inset Formula $P(\theta|y)$
+\end_inset
+
+, draw 
+\begin_inset Formula $\theta$
+\end_inset
+
+ from it, and drop any 
+\begin_inset Formula $\theta$
+\end_inset
+
+ that is beyond 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Inverse PDF method
+\end_layout
+
+\end_inset
+
+Inverse PDF method: given you know the analytical form or its
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $CDF_{trunc}(z)=\int_{-\infty}^{z}P_{truc}(\theta)d\theta=\frac{F(z)-F(a)}{F(b)-F(a)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Sove 
+\begin_inset Formula $z$
+\end_inset
+
+ from the equation above 
+\begin_inset Formula $z=F^{-1}\left[(F(b)-F(a))P+F(a)\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Use 1: Given 
+\begin_inset Formula $P$
+\end_inset
+
+ then use foumula above to calculate 
+\begin_inset Formula $z$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Use 2: to get 
+\begin_inset Formula $z$
+\end_inset
+
+, first draw 
+\begin_inset Formula $P$
+\end_inset
+
+ from uniform(0,1) and plug it into the equation above to get 
+\begin_inset Formula $z$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Loss Function and 
+\series bold
+Bayes Risk
+\end_layout
+
+\begin_layout Standard
+General Form: 
+\begin_inset Formula $Loss(A|\theta)$
+\end_inset
+
+, where 
+\begin_inset Formula $A$
+\end_inset
+
+ is your action, and 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is a random variable.
+\end_layout
+
+\begin_layout Standard
+Expected Loss of taking action 
+\begin_inset Formula $A$
+\end_inset
+
+ , or 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Bayes Risk
+\end_layout
+
+\end_inset
+
+
+\series bold
+Bayes Risk 
+\series default
+is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R(A)=E\left[Loss(A|\theta)\right]=\int Loss(A|\theta)P(\theta|y)d\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus, the goal is to minimize the Bayes Risk, by 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{dR(A)}{dA}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Example: 
+\end_layout
+
+\begin_layout Standard
+Choose 
+\begin_inset Formula $\theta$
+\end_inset
+
+ itself as Action 
+\begin_inset Formula $A$
+\end_inset
+
+, and use MSE Loss function 
+\begin_inset Formula $L(\hat{\theta}|\theta)=(\theta-\hat{\theta})^{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Thus 
+\begin_inset Formula $R(A)=R(\hat{\theta})=\int(\theta-\hat{\theta})^{2}P(\theta|y)d\theta$
+\end_inset
+
+.
+ Do the first differetiation, we got 
+\begin_inset Formula $\hat{\theta}=0$
+\end_inset
+
+.
+ (see class (前) nots p94)
+\end_layout
+
+\begin_layout Subsection
+Normal + Gamma
+\end_layout
+
+\begin_layout Standard
+Here Normal as likelihood conditional on variance, Gamma as Prior for Variance
+\end_layout
+
+\begin_layout Standard
+Assume 
+\begin_inset Formula $a=\frac{nu}{2}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(x|\tau^{2})=\frac{1}{\sqrt{2\pi\frac{1}{\tau^{2}}}}exp\{-\frac{1}{2\frac{1}{\tau^{2}}}(x-\theta)^{2}\}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\theta=0$
+\end_inset
+
+.
+ Assume 
+\begin_inset Formula $\tau^{2}\sim Gmma(a,a)$
+\end_inset
+
+, then if 
+\begin_inset Formula $\frac{1}{2}+a-1>0$
+\end_inset
+
+, then we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+f(x) & = & \int f(x|\tau^{2})p(\tau^{2})d\tau^{2}\\
+ & = & \frac{1}{\sqrt{2\pi}}\frac{a^{a}}{\Gamma(a)}\int\tau^{2}exp\{-\tau^{2}(\frac{(x-\theta)^{2}}{2}+a)\}\tau^{2(\frac{1}{2}+a-1-1)}d\tau^{2}\\
+ & = & \frac{1}{\sqrt{2\pi}}\frac{a^{a}}{\Gamma(a)}\frac{\Gamma(\frac{1}{2}+a-1)}{(\frac{(x-\theta)^{2}}{2}+a)^{\frac{1}{2}+a-1}}\frac{\frac{1}{2}+a-1}{\frac{(x-\theta)^{2}}{2}+a}\\
+ & = & \frac{1}{\sqrt{2\pi}}\frac{a^{a}}{\Gamma(a)}\frac{\Gamma(\frac{1}{2}+a)}{(\frac{(x-\theta)^{2}}{2}+a)^{\frac{1}{2}+a}}\\
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\frac{1}{2}+a-1=0$
+\end_inset
+
+, then we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+f(x) & = & \int f(x|\tau^{2})p(\tau^{2})d\tau^{2}\\
+ & = & \frac{1}{\sqrt{2\pi}}\frac{a^{a}}{\Gamma(a)}\int_{0}^{+\infty}exp\{-\tau^{2}(\frac{(x-\theta)^{2}}{2}+a)\}d\tau^{2}\\
+ & = & \frac{1}{\sqrt{2\pi}}\frac{a^{a}}{\Gamma(a)}\frac{1}{(\frac{(x-\theta)^{2}}{2}+a)^{1}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can find that 
+\begin_inset Formula $\frac{1}{(\frac{(x-\theta)^{2}}{2}+a)^{\frac{1}{2}+a}}$
+\end_inset
+
+ is the kernel function of 
+\begin_inset Formula $t$
+\end_inset
+
+-distribution with df as 
+\begin_inset Formula $nu=\frac{a}{2}$
+\end_inset
+
+.
+ Thus, 
+\begin_inset Formula $x\sim t(nu)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Missing Data
+\end_layout
+
+\begin_layout Itemize
+This section is an application of Mult-Normal + Gibbs Sampling.
+ 见课堂笔记40
+\end_layout
+
+\begin_layout Standard
+If we just 
+\series bold
+impute
+\series default
+ the mean, that ignores the uncertainty.
+\end_layout
+
+\begin_layout Subsection
+Prior for Missing Mechamisim 
+\begin_inset Formula $P(m_{i}|...)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(m_{i}|y_{i}\psi)=logit(y_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Or if we want to use covariate for 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+: 
+\begin_inset Formula $P(m_{i}|y_{i}\beta)=logit(\beta^{T}X)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For example, we can write an informative prior 
+\begin_inset Formula $P(m_{i}|y_{i},\psi)=logit(\text{−}1+2(y_{i}\text{−}μ)/\sigma)$
+\end_inset
+
+ to show the prior assumption, the heavier the weight, the more lilkely
+ to be missing.
+\end_layout
+
+\begin_layout Standard
+Example:
+\end_layout
+
+\begin_layout Standard
+Suppose older male profs are heavier & less likely to respond
+\end_layout
+
+\begin_layout Subsection*
+
+\series bold
+Whether the missing value depends on missingness or observed values?
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Missing NOT at Random: 
+\series default
+the missing value depends on whether it is missing and other varaibles 
+\begin_inset Formula $P(y_{i,j}|m_{i},y_{i,-j})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Missing at random (MAR)
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(y_{i,j}|m_{i},y_{i,-j})=P(y_{i,j}|y_{i,-j})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+即 missing value does not dependent on whether it is missing or not, but
+ does depend on the observed data 
+\end_layout
+
+\begin_layout Itemize
+See picture Lecture Notes After P68.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Missing completely at random (MCAR)
+\series default
+
+\begin_inset Formula 
+\[
+P(y_{i,j}|m_{i},y_{i,-j})=P(y_{i,j}|y_{i,-j})=P(y_{i,j})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+即 missing value independent from everything.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Complete-case analysis
+\series default
+, which ignore the error data at all and only focuses on observed 
+\begin_inset Formula $Y$
+\end_inset
+
+, is based on MCAR assumption.
+\end_layout
+
+\begin_layout Itemize
+MCAR 
+\begin_inset Formula $\in$
+\end_inset
+
+ MAR
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Setting 1
+\end_layout
+
+\begin_layout Itemize
+
+\strikeout on
+The variable contatins missing rows: 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ is the true hidden value of that missing value
+\end_layout
+
+\begin_layout Itemize
+
+\strikeout on
+Whether the variable 
+\begin_inset Formula $j$
+\end_inset
+
+ is missing 1 or not 0 at row 
+\begin_inset Formula $i$
+\end_inset
+
+: 
+\begin_inset Formula $m_{i,j}$
+\end_inset
+
+ .
+ So for example at row 
+\begin_inset Formula $i$
+\end_inset
+
+, the missing indicator is 
+\begin_inset Formula $m_{i}=\{1,0,0,1,0,..\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\strikeout on
+The likelihood of one observation shall be 
+\begin_inset Formula $L(y_{i},m_{i}|......)=P(y_{i}|...)P(m_{i}|...)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $y_{1}$
+\end_inset
+
+, .
+ .
+ .
+ , 
+\begin_inset Formula $y_{100}$
+\end_inset
+
+ denote the body weights for the 100 profs surveyed.
+ 
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $m_{1}$
+\end_inset
+
+, .
+ .
+ .
+ ,
+\begin_inset Formula $m_{100}$
+\end_inset
+
+ denote 0/1 indicators that the survey was returned.
+\end_layout
+
+\begin_layout Subsection
+Selection Model
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(Y,M|\mu,\sigma^{2},\psi)=\prod_{i}P(m_{i}|y_{i},\psi)P(y_{i}|\mu,\sigma^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $P(m_{i}|y_{i},\psi)$
+\end_inset
+
+ could be a logit function involed with 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For example, we can write an informative prior 
+\begin_inset Formula $P(m_{i}|y_{i},\psi)=logit(\text{−}1+2(y_{i}\text{−}μ)/\sigma)$
+\end_inset
+
+ to show the prior assumption, the heavier the weight, the more lilkely
+ to be missing.
+\end_layout
+
+\begin_layout Standard
+Such informative missingness occurs commonly in biomedical studies & can
+ lead to bias.
+ If the missingness model is known, it is straightforward to adjust for
+ bias
+\end_layout
+
+\begin_layout Subsection
+Pattern-Mixture Likelihood
+\end_layout
+
+\begin_layout Standard
+Difference from Selection Model: The value of 
+\begin_inset Formula $y$
+\end_inset
+
+ depends on the missing indicator! This is called 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Missing NOT at random
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+ (though here there is only one variable 
+\begin_inset Formula $y$
+\end_inset
+
+, no other variables.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(Y,M|\mu,\sigma^{2},\psi,a)=\prod_{i}P(m_{i}|y_{i},\psi)P(y_{i}|\mu-m_{i}a,\sigma^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Identifiability of 
+\begin_inset Formula $a$
+\end_inset
+
+ necessarily relies on an informative prior.
+\end_layout
+
+\begin_layout Subsection
+Setting 2: Putting in complete covariates
+\end_layout
+
+\begin_layout Standard
+See P77 Lecture Notes After
+\end_layout
+
+\begin_layout Standard
+Now we got the target variable that contains missign values 
+\begin_inset Formula $y_{i,j}$
+\end_inset
+
+ and covariates that, for simplicity, does not contain missing values, 
+\begin_inset Formula $y_{i,-j}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Suppose older male profs are heavier & less likely to respond: set age-
+ 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+, male/ female 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $y_{-j}=\{x_{1},x_{2}\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P(m_{i}|y_{i,-j},\beta)=logit(\beta y_{-j})$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Setting 3: Missing Covariates
+\end_layout
+
+\begin_layout Standard
+See P82 Lecture Notes After
+\end_layout
+
+\begin_layout Subsubsection
+Imputing Missing Values: Gibbs Sampling
+\end_layout
+
+\begin_layout Standard
+See P41 class notes
+\end_layout
+
+\begin_layout Standard
+Assume 
+\begin_inset Formula $Y=(y_{obs},y_{miss})\sim MutiNormal(\theta,\Sigma)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Start from any initial value of 
+\begin_inset Formula $y_{miss}$
+\end_inset
+
+, calculate the posterior 
+\begin_inset Formula $P(\theta|y_{obs},y_{miss},\Sigma)$
+\end_inset
+
+, draw a 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Then based on new 
+\begin_inset Formula $\theta$
+\end_inset
+
+, update 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Update 
+\begin_inset Formula $y_{miss}$
+\end_inset
+
+: using the conditional probability 
+\begin_inset Formula $P(y_{miss}|y_{obs},\theta,\Sigma)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+本质上，you know the joint for 
+\begin_inset Formula $\theta$
+\end_inset
+
+, 
+\begin_inset Formula $y_{complete}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma$
+\end_inset
+
+.
+ You just want to get the marginal distribution for 
+\begin_inset Formula $y_{miss}$
+\end_inset
+
+, which is part of 
+\begin_inset Formula $y_{complete}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Prior for 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then 
+\begin_inset Formula $L(y_{i},m_{i})=L(y_{i}|\mu,\sigma^{2})\times P(m_{i}|y_{i},\psi)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Selection Model: that suggests MAR (here we only talk about prior first,
+ other data 
+\begin_inset Formula $y_{i,-j}$
+\end_inset
+
+ will participate in the likelihood and posterior steps) 
+\series default
+
+\begin_inset Formula 
+\[
+L(y_{i})=Normal(y_{i}|\mu,\sigma^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Pattern-Mixture Model
+\series default
+: value of 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ dependes on whether it is missing (not MAR)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+L(y_{i}|m_{i},\mu,\psi,\alpha)=Normal(\mu-m_{i}\alpha,\sigma^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For For 
+\begin_inset Formula $\alpha=0$
+\end_inset
+
+, random subsample assumption holds & complete-case analysis is appropriate,
+ and the pattern-mixture & selection model likelihoods are equivalent.
+ 
+\end_layout
+
+\begin_layout Itemize
+Identifiability of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ necessarily relies on an informative prior.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Covariates for 
+\begin_inset Formula $y$
+\end_inset
+
+
+\series default
+: Just write the Selection Model or Pattern-Mixture Model as Mumti-Normal
+ for vector 
+\begin_inset Formula $(y_{i},X_{i})=(y_{i},x_{1,i}....x_{K,i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Covariates for 
+\begin_inset Formula $y$
+\end_inset
+
+ and 
+\begin_inset Formula $m$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+If you use same 
+\begin_inset Formula $X$
+\end_inset
+
+ to predict 
+\begin_inset Formula $y$
+\end_inset
+
+ and 
+\begin_inset Formula $m$
+\end_inset
+
+, then 
+\begin_inset Formula $m$
+\end_inset
+
+ is not MAR.
+\end_layout
+
+\begin_layout Itemize
+Just write the Selection Model or Pattern-Mixture Model as Mumti-Normal
+ for vector 
+\begin_inset Formula $(y_{i},X_{i})=(y_{i},x_{1,i}....x_{K,i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Also write 
+\begin_inset Formula $P(m_{i}|y_{i}\beta)=logit(\beta^{T}X)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Hierarchical Model and Shrinkage (LASSO + RIDGE) ???? 
+\end_layout
+
+\begin_layout Subsection
+Shrinkage Effect of Bayesian vs.
+ Frequentist
+\end_layout
+
+\begin_layout Itemize
+With conjugate Normal-Gamma prior, the posterior expectation is a weighted
+ average of the prior mean and the sample mean – i.e.
+ it is biased.
+ That also means the Bayes procedure tends to pull the estimator 
+\begin_inset Formula $\mu$
+\end_inset
+
+ toward the prior mean.
+ This is 
+\series bold
+shrinkage effect of Bayesian
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+That a biased estimator would do a better job in many prediction problems
+ can be proven rigorously, and is referred to as 
+\series bold
+Stein’s paradox
+\series default
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Stein’s paradox
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Three layers
+\end_layout
+
+\begin_layout Enumerate
+Individual layer: 
+\begin_inset Formula $i$
+\end_inset
+
+ follow 
+\begin_inset Formula $y_{i,j}\sim N(\mu_{j},\sigma_{j}^{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Group layer: 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Every group 
+\begin_inset Formula $j$
+\end_inset
+
+'s mean follows 
+\begin_inset Formula $\mu_{j}\sim P(\theta,\tau^{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Every group 
+\begin_inset Formula $j$
+\end_inset
+
+'s within-group variance 
+\begin_inset Formula $1/\sigma_{j}^{2}\sim Gamma(v_{0}/2,v_{0}\sigma_{0}^{2}/2)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Population layer: T
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Population mean 
+\begin_inset Formula $\theta\sim N(\mu_{0},\gamma_{0}^{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Group means' variance 
+\begin_inset Formula $\tau^{2}\sim Gamma(n_{0}/2,n_{0}\tau_{0}^{2}/2)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Gibbs Sampling procedure
+\end_layout
+
+\begin_layout Standard
+The goal is to get empirical posterior distribution ('empirical' means just
+ simulate data according to the distribution) for each of the group mean
+ 
+\begin_inset Formula $u_{j}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+Update group means 
+\begin_inset Formula $\mu_{j}$
+\end_inset
+
+ from posterior 
+\begin_inset Formula $P(\mu_{j}|Y,\theta,\theta_{0})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+As we have new data 
+\begin_inset Formula $\mu_{j}$
+\end_inset
+
+ for second layer.
+ Update population mean 
+\begin_inset Formula $\theta$
+\end_inset
+
+ from posterior 
+\begin_inset Formula $P(\theta|\mu_{j},Y,\theta_{0})$
+\end_inset
+
+ (
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+ is forever prior).
+\end_layout
+
+\begin_layout Enumerate
+Using the updated population mean, plug it into step one to get 
+\begin_inset Formula $u_{j}$
+\end_inset
+
+ again.
+ 
+\series bold
+In this way we say we borrow the population information to estimate group
+ mean, or groups share information together, or shrink the group mean to
+ population mean.
+\end_layout
+
+\begin_layout Subsection
+Default Prior and Zellner's 
+\begin_inset Formula $g$
+\end_inset
+
+ prior
+\end_layout
+
+\begin_layout Standard
+See Lecture Notes 17 后 p145
+\end_layout
+
+\begin_layout Part
+Model Selection and Regression
+\end_layout
+
+\begin_layout Section
+Unit Information Prior
+\end_layout
+
+\begin_layout Standard
+http://stats.stackexchange.com/questions/26329/what-is-a-unit-information-prior
+\end_layout
+
+\begin_layout Standard
+The unit information prior is a data-dependent prior, (typically multivariate
+ Normal) with mean at the MLE, and precision equal to the information provided
+ by one observation.
+ See e.g.
+ this tech report, or this paper for full details.
+ The idea of the UIP is to give a prior that 'lets the data speak for itself';
+ in most cases the addition of prior that tells you as much as one observation
+ centered where the other data are 'pointing' will have little impact on
+ the subsequent analysis.
+ 
+\end_layout
+
+\begin_layout Standard
+As this prior is minimally informative and tends to have high variance,
+ the penalty for model complexity is high leading the BIC 
+\series bold
+to favor small models (therefore, this 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series default
+minimally informative
+\series bold
+
+\begin_inset Quotes erd
+\end_inset
+
+ prior essentially contains more information than it seems have)
+\end_layout
+
+\begin_layout Standard
+One of its main uses is in showing that use of BIC corresponds, in large
+ samples, to use of Bayes factors, with UIPs on their parameters.
+\end_layout
+
+\begin_layout Subsection
+Example: For normal data:
+\end_layout
+
+\begin_layout Standard
+Setting:
+\end_layout
+
+\begin_layout Itemize
+Normal data: X n =(X 1 ,…,X n ) Xn=(X1,…,Xn) with 
+\begin_inset Formula $Xi∼N(μ,σ2)$
+\end_inset
+
+ with μ unknown and σ2 known.
+ 
+\end_layout
+
+\begin_layout Itemize
+The data can then be sufficiently summarised by the sample mean, which before
+ any datum is seen is distributed according to 
+\begin_inset Formula $\bar{X}∼N(μ,σ^{2}/n)$
+\end_inset
+
+, which is the MLE estimate of 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Unit-Infor Prior choice:
+\end_layout
+
+\begin_layout Itemize
+Normal prior for μ μ : With 
+\begin_inset Formula $μ∼N(a,σ^{2})$
+\end_inset
+
+ with the same variance as in the data.
+ 
+\end_layout
+
+\begin_layout Standard
+Posterior using the Unit-Infor Prior
+\end_layout
+
+\begin_layout Itemize
+Normal posterior for μ : With 
+\begin_inset Formula $μ∼N(M,v)$
+\end_inset
+
+ where 
+\begin_inset Formula $M=\frac{1}{n+1}(a+n\bar{x})$
+\end_inset
+
+ and 
+\begin_inset Formula $v=\frac{σ^{2}}{n+1}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Interpretation
+\end_layout
+
+\begin_layout Itemize
+Mean of posterior is dragged from MLE estimate to 
+\begin_inset Formula $a$
+\end_inset
+
+ by an one-sample weight 
+\begin_inset Formula $\frac{1}{n+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Variance of posterior is then given by 
+\begin_inset Formula $v=\frac{\sigma^{2}}{n+1}$
+\end_inset
+
+ , hence, as if we have 
+\begin_inset Formula $n+1$
+\end_inset
+
+ observations rather than 
+\begin_inset Formula $n$
+\end_inset
+
+ because we are adding one-sample observation into 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Overall posterior kind of looks like MLE, thus allowing the data speak for
+ themselves.
+ Hence, with the unit information prior one gets a posterior that is mostly
+ concentrated on the data, 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ , and shrunk towards the prior information 
+\begin_inset Formula $a$
+\end_inset
+
+ as a one-off penalty.
+ 
+\end_layout
+
+\begin_layout Section
+Bayes Factors
+\end_layout
+
+\begin_layout Standard
+The Bayes factor (BF) can be used as a summary of the weight of evidence
+ in the data in favor of model/assumption 
+\begin_inset Formula $\gamma_{1}$
+\end_inset
+
+ over model/assumption 
+\begin_inset Formula $\gamma_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The posterior probability Pr(M|D) of a model 
+\begin_inset Formula $M$
+\end_inset
+
+ given data 
+\begin_inset Formula $D$
+\end_inset
+
+ is given by Bayes' theorem:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Pr(M|D)=\frac{\Pr(D|M)\Pr(M)}{\Pr(D)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The key data-dependent term Pr(D|M) is a likelihood, and represents the
+ probability that some data are produced under the assumption of this model,
+ M; evaluating it correctly is the key to Bayesian model comparison.
+\end_layout
+
+\begin_layout Standard
+Given a model selection problem in which we have to choose between two models,
+ on the basis of observed data D, the plausibility of the two different
+ models M1 and M2, parametrised by model parameter vectors 
+\backslash
+theta_1 and 
+\backslash
+theta_2 is assessed by the Bayes factor K given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+K=\frac{\Pr(D|M_{1})}{\Pr(D|M_{2})}=\frac{\int\Pr(\theta_{1}|M_{1})\Pr(D|\theta_{1},M_{1})\,d\theta_{1}}{\int\Pr(\theta_{2}|M_{2})\Pr(D|\theta_{2},M_{2})\,d\theta_{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Difference with MLE
+\end_layout
+
+\begin_layout Itemize
+If instead of the Bayes factor integral, the likelihood corresponding to
+ the maximum likelihood estimate of the parameter for each model is used,
+ then the test becomes a classical likelihood-ratio test.[citation needed]
+ 
+\end_layout
+
+\begin_layout Itemize
+Unlike a likelihood-ratio test, this Bayesian model comparison does not
+ depend on any single set of parameters, as it integrates over all parameters
+ in each model (with respect to the respective priors).
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+However, an advantage of the use of Bayes factors is that it automatically,
+ and quite naturally, includes a penalty for including too much model structure.[
+3] It thus guards against overfitting.
+ 
+\end_layout
+
+\begin_layout Subsection
+Why and When we need integral
+\end_layout
+
+\begin_layout Standard
+It seems 
+\begin_inset Formula $\Pr(D|M_{1})$
+\end_inset
+
+ is easy enough, why we need to bother to write it into 
+\begin_inset Formula $\int\Pr(\theta_{1}|M_{1})\Pr(D|\theta_{1},M_{1})\,d\theta_{1}$
+\end_inset
+
+??
+\end_layout
+
+\begin_layout Standard
+It is because in some problem, the model statement has a range of possible
+ 
+\begin_inset Formula $\theta$
+\end_inset
+
+, rather than a fixed one.
+ Let’s say we are observe 4 heads and 1 tail from a coinflipping game.
+ • Let p = probability of landing heads.
+ • We know that they were either flipped using a fair coin with 
+\begin_inset Formula $p=0.5$
+\end_inset
+
+ (Model 1), or a biased coin with 
+\begin_inset Formula $p\ne0.5$
+\end_inset
+
+ (Model 2).
+\end_layout
+
+\begin_layout Standard
+Therefore, for model 1, you don't need to write it into integral as you
+ already got the fixed 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ For model 1, you don't need to write it into integral as you already got
+ the fixed 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Why Integral Punishes Complex model
+\end_layout
+
+\begin_layout Standard
+The likelihood 
+\begin_inset Formula $\int\Pr(\theta_{1}|M_{1})\Pr(D|\theta_{1},M_{1})\,d\theta_{1}$
+\end_inset
+
+ is essentially a weighted average with weight 
+\begin_inset Formula $P(\theta_{1}|M_{1})$
+\end_inset
+
+ (here small weight does not mean small importance, as small weight also
+ contain large information: pull the model towards that unlikely 
+\begin_inset Formula $\theta$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+When we include too many small weight 
+\begin_inset Formula $\theta$
+\end_inset
+
+, the likelihood will just be smaller.
+ Thus, to make the likelihood higher, you need to refine the choice of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ set.
+\end_layout
+
+\begin_layout Subsection
+Estimate the Integral:
+\end_layout
+
+\begin_layout Itemize
+For models where an explicit version of the likelihood is not available
+ or too costly to evaluate numerically, approximate Bayesian computation
+ can be used for model selection in a Bayesian framework, with the caveat
+ that approximate-Bayesian estimates of Bayes factors are often biased.
+\end_layout
+
+\begin_layout Section
+BIC
+\end_layout
+
+\begin_layout Itemize
+Lecture Notes - After: p159 Section 18 
+\end_layout
+
+\begin_layout Itemize
+http://stats.stackexchange.com/questions/26329/what-is-a-unit-information-prior
+\end_layout
+
+\begin_layout Standard
+A very widely used criteria for model selection is the BIC (Schwartz, 1978),
+ which is defined as 
+\begin_inset Formula 
+\[
+-2\mbox{max}\mbox{log}L+2*log(p)
+\]
+
+\end_inset
+
+- models with low BIC are preferred.
+ 
+\end_layout
+
+\begin_layout Standard
+The BIC can be derived from a Laplace approximation to the marginal likelihood
+ under a unit information prior (Kass & Wasserman, 1995)
+\end_layout
+
+\begin_layout Standard
+The fact BIC approximates a Bayes factor based on a unit information prior,
+ does not imply that we should use a unit information prior to construct
+ a Bayes factor.
+ Jeffreys's (1961) default choice is to use a Cauchy prior on the effect
+ size instead, see also Ly et al.
+ (in press) for an explanation on Jeffreys's choice.
+ 
+\end_layout
+
+\begin_layout Standard
+It's probably also worth noting that many statsticians (including Bayesians)
+ are uncomfortable with the use of Bayes Factors and/or BIC, for many applied
+ problems.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+BIC is not a Bayesian tool, as it removes the impact of the prior.
+ As a Bayesian, I am comfortable with Bayes factors, but not with AIC, BIC,
+ nor DIC 
+\end_layout
+
+\begin_layout Section
+Variable Selection and SSVS
+\change_inserted 16419249 1468431643
+ (stochastic search variable selection)
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+Whether to include variable 
+\begin_inset Formula $j$
+\end_inset
+
+ (
+\begin_inset Formula $\gamma_{j}=1$
+\end_inset
+
+): Bernouli 
+\begin_inset Formula $P(\gamma_{j}=1)=\pi_{j}$
+\end_inset
+
+.
+ Then the set of variables has prior
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\gamma)=\prod_{j-1}^{P}\pi_{j}^{\gamma_{j}}(1-\pi_{j})^{1-\gamma_{j}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Priors for including variable 
+\begin_inset Formula $j$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Setting 
+\begin_inset Formula $\pi_{J}=0.5$
+\end_inset
+
+ is not non-informative, as it has strong information: as 
+\begin_inset Formula $P$
+\end_inset
+
+ increases, the final number of variables you include might be around 
+\begin_inset Formula $P/2$
+\end_inset
+
+, which causes overfitting.
+\end_layout
+
+\begin_layout Standard
+A small 
+\begin_inset Formula $\pi_{j}$
+\end_inset
+
+ also contans strong information: you prefer smaller model!
+\end_layout
+
+\begin_layout Subsection
+Priors for 
+\begin_inset Formula $\theta_{j}$
+\end_inset
+
+, value of variable 
+\begin_inset Formula $j$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+See class notes p53
+\end_layout
+
+\begin_layout Standard
+Priors for 
+\begin_inset Formula $\theta_{j}$
+\end_inset
+
+, value of variable 
+\begin_inset Formula $j$
+\end_inset
+
+, shall depend on 
+\begin_inset Formula $\gamma_{j}$
+\end_inset
+
+.
+ So eventially we want 
+\begin_inset Formula $P(\theta|\gamma)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+First set 
+\begin_inset Formula $P(\theta_{j}|\gamma_{j}=0)=\gamma_{0}(\beta_{j})=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Then choose prior for 
+\begin_inset Formula $P(\theta_{j}|\gamma_{j}=1)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Zellner g-prior
+\end_layout
+
+\begin_layout Itemize
+Ridge prior: used when variable number 
+\begin_inset Formula $P>N$
+\end_inset
+
+: 
+\begin_inset Formula $N(\beta_{j}|0,\psi_{j}^{-1})$
+\end_inset
+
+ where 
+\begin_inset Formula $\psi_{j}\sim Gamma(v/2,v/2)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Therefore, the 
+\begin_inset Formula $P(\theta|\gamma)$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\pi(\beta|\gamma)=\prod_{i=1}^{P}\left\{ \pi_{j}\gamma_{0}(\beta_{j})+(1-\pi_{j})N(\beta_{j}|0,\psi_{j}^{-1})\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+SSVS
+\end_layout
+
+\begin_layout Standard
+Write down the full condition, and use the gibbs sampling to get 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P(y|x\beta,\sigma^{2},\gamma)=Normal$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P(1/\sigma^{2}|x\beta,y,\gamma)=Gamma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\pi(\beta|\gamma,x,y,\sigma^{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+note that you need to update each 
+\begin_inset Formula $j$
+\end_inset
+
+ individually.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $\pi(\gamma|x,y,\sigma^{2},\beta)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+note that you need to update each 
+\begin_inset Formula $j$
+\end_inset
+
+ individually.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Inference and Prediction
+\end_layout
+
+\begin_layout Standard
+After burn-in of Gibbs Sampling, we can do inference to see the mean and
+ variance for 
+\begin_inset Formula $\pi_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The correct way to explain 
+\begin_inset Formula $P(\pi_{j})$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Considenring the uncertainty of whether including other variables, the probabili
+ty to include 
+\begin_inset Formula $j$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Thus 
+\begin_inset Formula $1-P(\pi_{j})$
+\end_inset
+
+ is called Margin Exclusion Probability.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+MLE does not consider the uncertainty of whether including other variables.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Model Averaging Prediction
+\end_layout
+
+\begin_layout Standard
+Analytical Form:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(y_{n+1}|x_{n+1},y,x)=\int\int P(y_{n+1}|x_{n+1},y,x,\beta,\gamma)d\beta d\gamma
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Or you can just choose the 
+\begin_inset Formula $\beta$
+\end_inset
+
+ in Gibbs sampling and do the predictions, then averge the prediction.
+ 
+\end_layout
+
+\begin_layout Part
+Non Linear Prediction
+\end_layout
+
+\begin_layout Standard
+Likelihood 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L(y|x\beta)=\prod_{i}^{N}\phi(x_{i}\beta)^{y_{i}}\left\{ 1-\phi(x_{i}\beta)\right\} ^{1-y_{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Yet the posterior for beta is not conjugate.
+\end_layout
+
+\begin_layout Standard
+So to solve this problem, we introduce a Latent Variable (data argumentation)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P(z_{i}>0)=P(y_{i}=1)$
+\end_inset
+
+ and 
+\begin_inset Formula $z_{i}\sim N((x_{i}\beta,1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, the full condtion is 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\pi(\beta|y,z)\propto\pi(\beta)\prod\phi(z_{i}|x_{i}\beta,1)\sim Normal$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $z_{i}|y,\beta\sim Normal$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Finite Mixutre Model
+\end_layout
+
+\begin_layout Subsection
+Setting
+\end_layout
+
+\begin_layout Standard
+In general case, a finite mixture model can be characterized as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(y)=\sum_{h=1}^{k}\pi_{h}K(y|\theta_{h})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\pi=(\pi_{1},....\pi_{k})^{'}$
+\end_inset
+
+= probability weights on components 
+\begin_inset Formula $1,...,k$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The finite mixture of normals can be equivalently expressed as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{i}\sim N(u_{S_{i}},\tau_{S_{i}}^{-1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S_{i}\sim\sum_{h=1}^{K}\pi_{h}\delta_{h}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $i$
+\end_inset
+
+ is for observation.
+ 
+\begin_inset Formula $h$
+\end_inset
+
+ is for index of mixture component, and there are 
+\begin_inset Formula $k$
+\end_inset
+
+ components.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $S_{i}\in\{1....k\}$
+\end_inset
+
+ = indexes the mixture component for subject 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\delta_{h}=$
+\end_inset
+
+probability measure concentrated at the integer 
+\begin_inset Formula $h$
+\end_inset
+
+: 
+\begin_inset Formula $\delta_{h=i}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta_{h\ne i}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Likelihood
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $y_{i}\sim N(u_{S_{i}},\tau_{S_{i}}^{-1})$
+\end_inset
+
+, where sometimes we write thep parameter pair 
+\begin_inset Formula $(\mu,\tau)$
+\end_inset
+
+ as 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ Thus we can write 
+\begin_inset Formula 
+\[
+(y_{i}|S_{i}=h,\theta)\sim f(.|\theta_{h})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The marginal distribution (marginal out 
+\begin_inset Formula $S_{i}=h$
+\end_inset
+
+) is 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(y_{i}|\pi,\theta)\sim\sum^{K}\pi_{k}f(.|\theta_{h})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Prior and Posterior for 
+\begin_inset Formula $u_{s}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tau_{s}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+(\mu_{h},\tau_{h}^{-1}) & \sim & NormalGamma\\
+ & \sim & N(\mu_{h}|\mu_{0},k_{\tau}^{-1})Ga(\tau_{h}|a_{\tau},b_{\tau})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Prior and Posterior for Joint Probability of mixture component 
+\begin_inset Formula $\pi=(\pi_{1},....\pi_{k})^{'}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Prior: 
+\begin_inset Formula $P(\pi)=P(\pi_{1},....\pi_{k})\text{～}\mbox{Dirichlet(\ensuremath{a_{1},....a_{k})}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Posterior : 
+\begin_inset Formula $P(\pi|...)\sim Dir(a_{1}+n_{1},....a_{k}+n_{k})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Prior and Posterior labeling for observation 
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Prior 
+\begin_inset Formula $S_{i}\sim\sum_{h=1}^{K}\pi_{h}\delta_{h}$
+\end_inset
+
+ or 
+\begin_inset Formula $P(S_{i}=h)=\pi_{h}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Posterior is 
+\begin_inset Formula 
+\[
+P(S_{i}=h|..)=\frac{P(\pi_{h})P(y_{i}|\mu_{h},\tau_{h}^{-1})}{\sum P(\pi_{h})P(y_{i}|\mu_{h},\tau_{h}^{-1})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Gibbs Sampling
+\end_layout
+
+\begin_layout Standard
+Exact posterior formula see Lecture Notes 后 in P219
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $P(S_{i}=h|\pi,\mu,\tau)$
+\end_inset
+
+ to update label of mixture component.
+ (where 
+\begin_inset Formula $\pi,\mu,\tau$
+\end_inset
+
+ are all vectors with same length of number of mixture components.)
+\end_layout
+
+\begin_layout Enumerate
+For each mixture component 
+\begin_inset Formula $h$
+\end_inset
+
+, update its mean and variance: 
+\begin_inset Formula $(\mu_{h},\tau_{h}^{-1}|-)\sim NormalGamma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+update the overall mixture component: 
+\begin_inset Formula $P(\pi|...)\sim Dir(a_{1}+n_{1},....a_{k}+n_{k})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Discarding a burn-in, monitor 
+\begin_inset Formula $f(y)=\sum_{h=1}^{k}\pi_{h}N(y|\mu_{h},\tau_{h}^{-1})$
+\end_inset
+
+ for a large number of iterations & a dense grid of y values I Bayes estimate
+ of f (y) under squared error loss averages the samples.
+\end_layout
+
+\begin_layout Subsection
+Switch Label
+\end_layout
+
+\begin_layout Standard
+the parameter (vector) of the 
+\begin_inset Formula $\pi$
+\end_inset
+
+ and of the parameter 
+\begin_inset Formula $\mu_{h},\tau_{h}^{-1}$
+\end_inset
+
+ is at best identifiable up to an arbitrary permutation of the components
+ of the above sum.
+ In other words, “component #1 of the mixture” is not a meaningful concept.
+ And hence cannot be estimated.
+\end_layout
+
+\end_body
+\end_document
