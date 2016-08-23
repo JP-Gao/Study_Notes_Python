@@ -1,415 +1,339 @@
----
-title: "Uber's Login Behavior: a Fourier Analysis"
-author: "Fan Yang"
-date: "August 15, 2016"
-output: 
-  pdf_document:
-    number_sections: yes
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
 
----
-
-
-\begin{abstract}
-
-We build a linear Poisson regression model on Uber's hourly login frequency data, where
-hourly and weekly Fourier series are used to capture the dynamics of login behaviors across a day and a week.
-
-\end{abstract}
-
-\tableofcontents{}
-
-
-\newpage{}
-
-
-```{r load_packages, include = F }
-
-# Pakcages we will use:
-cat("\n")
-list.of.packages <-
-  c(
-    
-    # visualization
-    "ggplot2","scales",
-    
-    # regular expression
-    "stringr",
-    
-    # foriegn data
-    "rjson",
-    
-    # data maniputaltion
-    "reshape","reshape2","data.table","plyr","dplyr","magrittr","DataCombine",
-    
-    # some functions in dplyr are duplicate in plyr, and we want to use functions in dplyr
-    # so load plyr first and then let dplyr to mask it.
-    
-    # panel and cross sectional data
-    # "plm","AER","censReg",'MASS',
-    
-    # model 
-    'linear.tools',"MASS","glmnet","gbm","mboost",
-    # time series
-    "lubridate", "zoo","tseries",
-    
-    # literature programming & code style
-    "knitr","formatR",'rmarkdown'# 'yaml', 'htmltools', 'caTools',"xtable",
-    
-    # Computing on the Language
-    # "pryr", "gtools","lazyeval"
-    
-  )
-
-cat("Pakcages we will use : \n")
-print(list.of.packages)
-
-cat("\n \n check new packages that this computer did not install before \n")
-
-new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-
-
-if(length(new.packages)) {
-  cat("\n \n download & install new packages \n")
-  install.packages(new.packages)
+%%%%%%%%%%%
+\usepackage{color}
+\usepackage{xcolor}
+% \definecolor{keywordcolor}{rgb}{0.8,0.1,0.5}
+\usepackage{listings}
+\lstset{breaklines}%这条命令可以让LaTeX自动将长的代码行换行排版
+\lstset{extendedchars=false}%这一条命令可以解决代码跨页时，章节标题，页眉等汉字不显示的问题
+\lstset{language= R, %用于设置语言为C++
+  %背景框
+  framexleftmargin=10mm,
+  frame=none,
+  %背景色
+  %backgroundcolor=\color[rgb]{1,1,0.76},
+  backgroundcolor=\color[RGB]{245,245,244},
+  %样式
+  keywordstyle=\bf\color{blue},
+  identifierstyle=\bf,
+  numberstyle=\color[RGB]{0,192,192},
+  commentstyle=\it\color[RGB]{0,96,96},
+  stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},
+  %显示空格
+  showstringspaces=false,
+  xleftmargin=2em, %边距
+  xrightmargin=2em, 
+  aboveskip=1em
 }
 
 
-cat("\n \n load packages to R \n")
-for (Library in list.of.packages) library(Library,character.only = T)
-
-
-opts_chunk$set(
-	cache=FALSE,
-	fig.width=6.8, 
-	fig.height=4,
-	fig.align='center',
-	message=F,
-	error=F,
-	warning=F,
-	tidy.opts = F,
-	tidy = F
-)
-
-```
-
-# Clean Data
-
-Load and clean data. Also adjust the time zone from UTC to EST.
-
-```{r load_clean_data}
-setwd('/Users/yangguodaxia/Dropbox/Tech/Uber_case_study')
-# setwd('H:/jpmDesk/Desktop/Personal/U')
-file <- "logins.json"
-data_raw <- fromJSON(paste(readLines(file), collapse=""))
-# adjust the time zone from UTC to EST.
-data_raw = ymd_hms(data_raw) - hours(5)
-
-```
-
-
-We group the data by hour + date, and sum up the login times as `freq`. The cleaned data looks like below
-```{r expand_features, echo = F}
-initial_time = min(data_raw)
-expand_features = function(data_input,initial_time = min(data_raw) ){
-  data = ymd_hms(data_input)
-  data = data[order(data)] %>% data.frame
-  
-  colnames(data) = 'time'
-
-  data[,'hour'] = lubridate::hour(data$time)
-  data[,'date'] = as.Date(data$time)
-  
-  data = data %>% 
-    group_by(date, hour) %>% 
-    summarise(freq = n()) %>% data.frame
-  
-  data[,'month'] = month(data[,'date'])
-  # for plot
-  data[,'time_by_hour'] = ymd_h(paste(data$date,'T',data$hour))
-  
-  data[,'weekday'] = weekdays(data[,'date'],abbreviate = T)
-
-  # for model: more weekday features
-  matrix_weekday = model.matrix(freq~weekday-1,data) %>% data.frame
-  colnames(matrix_weekday) = str_replace_all(colnames(matrix_weekday),'weekday','')
-  
-  data = cbind(data,matrix_weekday)
-  
-  data$Mon_to_Thu = data$weekday %in% c('Mon','Tue','Wed','Thu') * 1
-  data$Mon_to_Fri = data$weekday %in% c('Mon','Tue','Wed','Thu','Fri') * 1
-  
-  data$weekend_night = 
-    (data$weekday %in% c('Fri','Sat') * data$hour %in% c(19:23) * 1) + 
-    (data$weekday %in% c('Sun','Sat') * data$hour %in% c(0:2) * 1)
-    
-  # week cycle
-  weekday_n = match(data$weekday,weekdays(1:7,T))
-  data$week_cycle =(weekday_n-1)*24 + data$hour
-  data$week_cycle %>% unique %>% max
-
-  data = data[with(data,order(date,hour)),]
-  data[,'trend'] = interval(initial_time,data$time_by_hour) %/% hours(1)
-  if (min(data[,'trend'])<0){
-    data[,'trend'] = data[,'trend'] - min(data[,'trend']) # to insure min > 00
-  }
-  data
-  
-}
-data = expand_features(data_raw,initial_time = initial_time)
-
-# head(data[,c('date','hour','freq','time_by_hour','weekday','trend')],100)
-```
-
-
-```{r show_data}
-head(data)
-```
-
-where
-
-  * `freq`: sum of login frequencies in an hour.
-  * `hour`: hour in a day, from 0 to 23.
-  * `trend`: from hour 0 as starting point to hour `r (interval(min(data_raw),max(data_raw)) %/% hours(1))` (number of data points).
-  * `week_cycle`: an hourly cycle of a week; it is from hour 0 to hour 167 (one week has 168 hours).
-
-
-# Q1: Hourly Login Behavior
-
-
-The first graph shows hourly login frequencies for the whole time series, where you can see clear seasonal patterns. Also we see an increasing trend of acitivities throughout the time, though not that obvious.
-
-```{r long_graph, echo = F, fig.width = 6.5}
-ggplot(data) + geom_line(aes(x = time_by_hour, y = freq)) + 
-  labs(title = 'Hourly login\n from Mar 01 to May 01', x = 'date and hour', y = 'sum of freq')
-```
-
-Thw weekly graph also shows a clear increasing pattern.
-
-```{r weekly_plot, echo = F}
-week_n = interval(as.Date(min(data_raw)),data_raw) %/% weeks(1)
-data_plot = data.frame(tiem = data_raw, week_n)
-ggplot(data_plot) + geom_bar(aes(x = week_n)) + 
-  labs(y = 'sum of freq', x = 'weeks', title = 'Sum of login freq, by weeks')
-```
-
-To further investigate the seasonal patterns above, we plot a box plot by hour as below, where we see that there is a clear hourly pattern during a day: the login number starts to rise from morning (around 5:00) then peaked at evening (20:00-21:00), before it sharply drops till next day's morning.
-
-```{r pure_hour_graph, echo = F, fig.width = 6.5}
-ggplot(data) + geom_boxplot(aes(x = factor(hour), y = freq )) + 
-  labs(y = 'number of logins', x = 'hours in a day', title = 'login time distributions across a day')
-```
-
-The box plot also shows there are a lot of outliers during the evening and night time. We suspect it is caused by the weekend effect -- people hangout more during the weekend night. So we further make a plot grouping the number of logins by hour + weekday. 
-
-Now we see more activities starting from Friday night and from Saturday night, and both of them have much higher peaks than other weekdays.
-
-```{r wide_graph, echo = F}
-data %>% group_by(hour,weekday) %>% summarise(freq= sum(freq)) %>% 
-  ggplot(.) + geom_line(aes(x = hour, y = freq, color = weekday )) + 
-  geom_point(aes(x = hour, y = freq, color = weekday )) +
-  labs(y = 'sum of freq', x = 'hours in a day', title = 'sum of login, by hours + weekdays')
-```
-
-## Summary
-
-From the four graphs below we find that 
-
-  1. Hourly seasonal pattern: every day the login number starts to rise from morning (around 5:00) then peaked around 20:00-22:00, before it sharply drops.
-  2. Weekday pattern: Friday and Saturday have higher peaks during their nights.
-  3. Time trend: though not clear, it seems that the average login number does have an increasing trend from Mar 01 to May 01.
-
-
-# Q2: Modelling - using Fourier Series in Poisson Regression
-
-## Modelling Concepts:
-
-* As the login frequency is count data and follows Poisson distribution, thus Poisson regression is used here (using `log(freq)` as `y`).
-* Also, we use Fourier Series to represent the hourly seasonality and weekday seasonality.
-
-## Feature Set
-
-```{r interact_feature, echo = F}
-interact_feature = function(f1,f2, f1_include = F){
-  
-  feasure_set = 
-    expand.grid(f1,f2)
-  result = paste(feasure_set[,1],feasure_set[,2],sep = ":")
-  if (f1_include){
-    result = c(f1,result)
-  }
-  result
-}
-```
-
-We list all possible feature sets below, and later throw them into a variable selection algorithm (Lasso) to trim them down.
-
-  * Fourier series for hours. We will test at most 4 basis functions. 
-  * Fourier series for weekdays. A week cycle is from hour 0 to hour 167 (one week has 168 hours). We will test at most 1 basis functions. 
-  
-```{r feature_Fourier_hour,}
-feature_Fourier_hour = 
-  c("cos(2*pi*hour/24)","cos(2*pi*hour/24*2)","cos(2*pi*hour/24*3)","cos(2*pi*hour/24*4)",
-    "sin(2*pi*hour/24)","sin(2*pi*hour/24*2)","sin(2*pi*hour/24*3)","sin(2*pi*hour/24*4)")
-# a week_cycle is c(0:167) hours (a week has 168 hours)
-feature_Fourier_week = c("sin(2*pi*week_cycle/24/7)","cos(2*pi*week_cycle/24/7)") 
-```
-  
-  * Weekday indicators, such `Sun`,`Fri` and `Sat` etc. We also have a indicator for weekend night, which equals to `1` during Friday's and Saturday's 19:00-24:00 and next days' 0:00-2:00.
-  * Time trend (also allow quadratic trend): from hour 0 as starting point to hour `r (interval(min(data_raw),max(data_raw)) %/% hours(1))` (total number of data points).
-  
-```{r weekday_trend}
-feature_weekday = c("Sun","Fri","Sat","Thu",'Wed','Tue',"Mon_to_Thu","Mon_to_Fri",'weekend_night')
-feature_trend = 'trend + I(trend^2)'
-```
-  
-  * Interaction between hourly Fourier series and weekday indicators. This is to capture the different hourly patterns across weekdays.
-
-```{r feature_Fourier_hour_interact,}
-# hourly seasonality interacted with weekday
-feature_Fourier_hour_interact =
-  interact_feature(c(feature_Fourier_hour),feature_weekday)
-
-# number of interaction terms
-length(feature_Fourier_hour_interact)
-
-# first 6 examples
-head(feature_Fourier_hour_interact)
-```
-
-## Estimate the Model: Lasso
-
-Our feature set is large, especially the interaction part; thus we use Lasso regression to trim it down. 10-Fold cross validation is used to choose the best model.
-
-```{r}
-
-# create a full formula
-full_formula = paste("log(freq) ~" ,
-                     paste(feature_trend,collapse = "+"),"+",
-                     paste(feature_Fourier_week,collapse = "+"),"+",
-                     paste(feature_Fourier_hour,collapse = "+"),"+",
-                     paste(feature_weekday,collapse = "+"),"+",
-                     paste(feature_Fourier_hour_interact,collapse = "+"),
-                     sep ="",collapse = '') %>% as.formula
-
-X = model.matrix(full_formula,data = data) 
-
-set.seed(413)
-# Lasso with CV 
-cvfit <- cv.glmnet(x = X,y = log(data$freq),nfolds = 10,lambda = c(1:10)/10^5*2)
-fitted = predict(cvfit,newx = X)
-```
-
-## The Final Model
-
-The final linear model has coefficients as below, where you can see the model takes a lot of efforts to fit the dynamics in the weekend, as it includes those interaction terms with `Fri`, `Sat`  and `Sun`.
-
-```{r,echo = F}
-coeff_lasso = coef(cvfit)
-coeff_lasso = coeff_lasso[,1]
-coeff_lasso = coeff_lasso[coeff_lasso>0]
-coeff_lasso = data.frame(coeff_lasso)
-coeff_lasso
-```
-
-
-# Q3 Forecast the Next Two Weeks
-
-An output data set is generated for the predicted result, named as `predict_next2week.csv`.
-
-```{r,echo = F,fi}
-next2week_raw = paste(as.Date(c("2012-05-1")),"T00",sep='') %>% ymd_h  + hours(0:(24*14-1)) 
-next2week = expand_features(data_input = next2week_raw, initial_time = min(data_raw))
-
-X_new = model.matrix(full_formula,data = next2week) 
-next2week$freq = predict(cvfit,newx = X_new) %>% exp
-next2week$type = 'predicted'
-
-write.csv(next2week,'predict_next2week.csv')
-
-next2week = rbind(data.frame(data,type = 'actual'),next2week)
-
-subset(next2week, date >= as.Date('2012-04-10')) %>% 
-  ggplot(.) + geom_line(aes(x = time_by_hour, y = freq, color = type)) + 
-    labs(title = 'prediction of next 2 weeks', x = 'date and hour', y = 'sum of freq')
-
-```
-
-
-# Q4 Model Performance & Model Comparision
-
-## Model Performance
-
-The model fits the training data pretty well, as it should be. 
-Cross-validation training error is
-
-```{r}
-mean(cvfit$cvm^2)^0.5
-```
-
-
-R-square is
-```{r}
-1 - sum((log(data$freq) - fitted)^2) / sum((log(data$freq) - mean(log(data$freq)))^2)
-```
-
-Visualize the in-sample performance
-
-```{r performance_draw, echo = F}
-data_hat = data
-data_hat$freq = predict(cvfit,newx = model.matrix(full_formula,data = data_hat) ) %>% exp
-#data_hat$freq = predict(model_best,data) %>% exp
-data_hat = rbind(data.frame(data,type = 'actual'),
-                          data.frame(data_hat,type = 'estimated'))  %>% data.frame
-
-ggplot(data_hat) + 
-  geom_line(aes(x = time_by_hour, y = freq, color = type,linetype = type,size = type)) + 
-  labs(title = 'actual vs estimated\nhourly login', x = 'date and hour', y = 'sum of freq') + 
-  scale_size_manual(values = c(0.2,0.5))
-
-
-```
-
-
-```{r,echo = F}
-data_hat %>% group_by(hour,weekday,type) %>% summarise(freq= sum(freq)) %>%  data.frame %>% 
-  subset(.) %>% 
-    ggplot(.) + geom_line(aes(x = hour, y = freq, color = weekday,linetype = type,size = type)) + 
-    labs(y = 'sum of logins', x = 'hours in a day',
-         title = 'actual vs estimated\nhourly login grouped by hour + weekday ') +
-    scale_size_manual(values = c(0.3,0.6)) + 
-    scale_x_continuous(breaks = c(0:24))
-
-```
-
-## Other Models which You would have Thought of.
-
-Instead of using Fourier series as features to describe the hour dynamics, we did try to purely use hour indicators, such as defining `hour_7_ind = 1` when `hour ==7` or `late_nigh_ind` as hour from 22:00 - 5:00. This method does work but certainly is not elegant as the one with Fourier series.
-
-During the variable selection, we tried stepwise, which is too slow, and ridge, which is inferior to Lasso in our case.
-
-
-# Q5 Trends or Deviations
-
-From the two graphs in the beginning we find that 
-
-  1. Hourly seasonal pattern: everyday the login number starts to rise from morning (around 5:00) then peaked at 20:00, before it sharply drops.
-  2. Weekday pattern: Friday and Saturday have higher peaks.
-  3. Time trend: though not clear, it seems that the average login number does have an increasing trend from Mar 01 to May 01.
-
-# Extra Credit
-Question: Repeat this analysis by graphing client logins by week and/or by hour of day. What do you notice about client behavior?
-
-See the four graphs in Q1 and their comments.
-
-
-
-
-
-
-
-
-
-
-
-
-
+%%%%%%%%%%%%
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Conceptual
+\end_layout
+
+\begin_layout Standard
+Can you please choose one of the following papers and complete a conceptual
+ soundness review (1-2 pages maximum)? Your review should include your opinion
+ on whether or not the text I’ve highlighted below is true or not.
+ Please return to me no later than Monday, August 22nd.
+ 1.
+ Myhrvold, N.
+ P., (2013), Revisiting the Estimation of Dinosaur Growth Rates, http://secure.adv
+enturesofthemind.org/website/download.asp?id=400
+\end_layout
+
+\begin_layout Standard
+“Previous estimates of both maximum dinosaur growth rates and maximum dinosaur
+ sizes have little statistical support”.
+\end_layout
+
+\begin_layout Subsection
+Conceptual Soundness
+\end_layout
+
+\begin_layout Standard
+1- Conceptual Soundness- does it make sense? This includes a thorough review
+ of the assumptions and methodologies employed, as well as the data set
+ used; it also involves identifying where the key assumptions are useable
+ and where they are not.
+ 
+\end_layout
+
+\begin_layout Itemize
+Detailed analysis of the equations and math behind the model
+\end_layout
+
+\begin_layout Itemize
+Search for theoretical errors
+\end_layout
+
+\begin_layout Itemize
+Review of the model controls and available assumptions
+\end_layout
+
+\begin_layout Itemize
+Examination of model cash flows for each asset category and rate scenario
+\end_layout
+
+\begin_layout Itemize
+Review of sufficient contractual-based inputs
+\end_layout
+
+\begin_layout Itemize
+Assessment of loan model’s ability to properly handle optionality
+\end_layout
+
+\begin_layout Itemize
+Valuation assumptions and methodologies
+\end_layout
+
+\begin_layout Itemize
+Reasonableness of asset and liability behavioral assumptions
+\end_layout
+
+\begin_layout Itemize
+Sensitivity analysis of model assumptions
+\end_layout
+
+\begin_layout Itemize
+Model’s robustness matches the bank’s balance sheet composition
+\end_layout
+
+\begin_layout Subsection
+Writing
+\end_layout
+
+\begin_layout Standard
+Based on Myhrvold NP (2013), we believe there is little statistical support
+ for previous estimates of both maximum dinosaur 
+\series bold
+growth rates
+\series default
+ and 
+\series bold
+maximum dinosaur sizes
+\series default
+.
+\end_layout
+
+\begin_layout Subsection
+non-replicable
+\end_layout
+
+\begin_layout Standard
+The first and foremost element that any scientific study needs to insure
+ is replicable.
+ 
+\end_layout
+
+\begin_layout Itemize
+However, among 26 taxa that the author reviwied, 15 of them either suffers
+ problems suchs missing data or regression equitions or lacks sufficient
+ detailed analytical methods, all of which lead to impossible to be replicated
+ or validated.
+\end_layout
+
+\begin_layout Itemize
+Within those 11 taxa left, 7 of them have their esimted max group rate significa
+ntly different from author's validated results, despire the author employed
+ the same analytic methods as their papers stated.
+ 
+\end_layout
+
+\begin_layout Subsection
+Biased Data Input to assesse specimen maturity 
+\end_layout
+
+\begin_layout Standard
+For the four taxa noted above that are best fit by asymptotic curves, with
+ sdmaxw60%, three of them (Tyrannosaurus, Saurornitholestes and Hypacrosaurus)
+ have sdmaxw90% indicating that the data sets include specimens that at
+ leas
+\series bold
+t approach skeletal maturity
+\series default
+.
+ But for the remaining ten taxa, the oldest specimens available are less
+ than 62% of the asymptotic size predicted by their best-fitting asymptotic
+ models.
+ This finding suggests that the specimens for those taxa were skeletally
+ immature at the time of death, and that the asymptotic fits may suffer
+ from insufficient data.
+\end_layout
+
+\begin_layout Subsection
+The Effects of Population Sampling
+\end_layout
+
+\begin_layout Standard
+In 26.8% of the 500 bootstrap trials of the Tyrannosaurus 2 data set, an
+ increasing curve was the best fit to the resampled data; in contrast, only
+ asymptotic curves obtained strong statistical support when fit to the original
+ data set.
+ The reason is clear from examination of the data sets: the original data
+ include only one very old specimen (age 28) and one very young specimen
+ (age 2).
+ If either or both of these data points are missing from a bootstrap trial,
+ the data points in the middle may be best fit by a nonasymptotic function.
+\end_layout
+
+\begin_layout Subsection
+The Effects of Errors in Age Estimation 
+\end_layout
+
+\begin_layout Standard
+A Monte Carlo simulation using normally distributed heteroscedastic errors
+ in age added to the Tyrannosaurus 2 data set found that, whereas only asymptoti
+c curves had strong statistical support when fit to the unadjusted data
+ set, the best-fit model was an increasing function in 1% of the trials
+ when 5% error was added to the age estimates.
+ At 10% error, the proportion rose to 12.6%, and it increased further to
+ 19.8% when 15% random error was added to the data.
+ This is in good agreement with the result found for Monte Carlo simulation
+ on the effects of error on a synthetic data set (see Figure S10 and Text
+ S5).
+ This result suggests that even relatively small amounts of age estimation
+ error can alter the pattern in the data so much that an asymptotic curve
+ no longer offers the best fit
+\end_layout
+
+\begin_layout Subsection
+Issues with Mass Estimation
+\end_layout
+
+\begin_layout Standard
+Issues with Mass Estimation Osteology is the source of all data on dinosaur
+ growth, and questions about maximum asymptotic size (if any) and other
+ biological characteristics can and should be answered directly from observation
+s of bones.
+ If estimated masses are needed, they would best be calculated only after
+ statistical analysis has been performed on the osteological growth data.
+ Performing mass estimation as an intermediate step prior to fitting a growth
+ curve unnecessarily risks introducing error, which could confound the statistic
+al analysis challenges already present in the osteology.
+ Nevertheless, many
+\end_layout
+
+\begin_layout Subsection
+Inappropriate choice of variables.
+ 
+\end_layout
+
+\begin_layout Standard
+A bedrock assumption in ordinary least-squares regression (also known as
+ Model I regression) is that the independent variable has no error; all
+ error to be minimized by the regression procedure occurs only in the dependent
+ variable [94].
+ Model II regression (or Deming regression) distributes the error equally
+ in independent and dependent variables [94].
+ In dinosaur growth data sets, the bone dimensions are typically measured
+ accurately to within a millimeter (except when fractured or incomplete),
+ so they make a natural choice of independent variable for conventional
+ regression.
+ Age, in contrast, is estimated with considerably greater uncertainty, and
+ for that reason it is the natural choice for the dependent variable.
+ Using size rather than time as the independent variable has long been recommend
+ed in studies of growth in extant animals [95].
+\end_layout
+
+\end_body
+\end_document
