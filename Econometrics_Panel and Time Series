@@ -137,6 +137,14 @@ LatexCommand tableofcontents
 
 \end_layout
 
+\begin_layout Standard
+ARM: PCF graph examples
+\end_layout
+
+\begin_layout Standard
+Your paper
+\end_layout
+
 \begin_layout Part*
 Book Reference
 \end_layout
@@ -191,6 +199,48 @@ Early panel data literature assumed cross-sectionally independent errors.
 
 \begin_layout Standard
 All time series techniques can be used in Pannel data
+\end_layout
+
+\begin_layout Subsection
+Structural Form vs Reduced Form
+\end_layout
+
+\begin_layout Itemize
+Structural equations are then equations that come from an underlying economic
+ (or physical, or legal) model.
+ 
+\end_layout
+
+\begin_layout Itemize
+By the reduced form of a complete set of linear structural equations...
+ we mean the form obtained by solving for each of the dependent (i.e., nonlagged
+ endogenous) variables, and in terms of transformed disturbances (which
+ are linear functions of the disturbances in the original structural equations).
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+So, a linear regression will be a reduced-form of some true structural model,
+ because linear regression usually does not have a true economic interpretation.
+ This does not mean that reduced form equations cannot be used to identify
+ parameters in structural equations - in fact this is precisely how indirect
+ inference works - just that they do not represent a deeper model of the
+ data generating process.
+ Reduced forms can (in principle) be used to identify structural parameters,
+ in which cased you are still performing structural estimation, just through
+ using the reduced form.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Another way to look at this is that structural models are generally deductive,
+ whereas reduced forms tend to be used as part of some greater inductive
+ reasoning.
+\end_layout
+
+\begin_layout Subsection
+Simultaneous Equations ??
 \end_layout
 
 \begin_layout Section
@@ -433,6 +483,11 @@ See 书p454
 Instrumental Variable
 \end_layout
 
+\begin_layout Standard
+The method of instrumental variables is a signature technique in the econometric
+s toolkit.
+\end_layout
+
 \begin_layout Itemize
 本质都是处理 missing variable / unobserved effect 的一种方法。并非去找missing variable,
  而是去承认missing variable的存在，此时如何能让 estimate unbiased 
@@ -500,18 +555,21 @@ In real causal systems, however, there can be a range of endogeneity.
  
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
+
+\series bold
+Dependent 
 \begin_inset Formula $y$
 \end_inset
 
- is Endogenous
-\series bold
- forever.
+ is Endogenous forever.
  
 \end_layout
 
-\begin_layout Itemize
-If an 
+\begin_layout Enumerate
+
+\series bold
+If an Independent var 
 \begin_inset Formula $x$
 \end_inset
 
@@ -552,8 +610,13 @@ For example, rainfall is exogenous to the causal system constituting the
 Often serve as IV when it does not correlate with missing variable.
 \end_layout
 
-\begin_layout Itemize
-If 
+\begin_layout Enumerate
+
+\series bold
+Error is Exogenous.
+
+\series default
+ If 
 \begin_inset Formula $E(u|x_{1}...x_{k})=0$
 \end_inset
 
@@ -563,7 +626,23 @@ exogenous explanatory variables
 \begin_inset Formula $x_{1}...x_{k}$
 \end_inset
 
-.
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+The missing key var (IQ) that hide inside inside 
+\begin_inset Formula $u$
+\end_inset
+
+ is also Exogenous
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+a good IV is also also Exogenous
 \end_layout
 
 \end_deeper
@@ -576,6 +655,24 @@ exogenous explanatory variables
 
 , then a variable is exogenous.
  Otherwise it is endogenous.
+\end_layout
+
+\begin_layout Subsection
+Example
+\end_layout
+
+\begin_layout Itemize
+Estimate 
+\begin_inset Formula $x$
+\end_inset
+
+ - total number of school year on 
+\begin_inset Formula $y$
+\end_inset
+
+ - annual earnings.
+ Problem is the IQ is missing and cannot be measured, so the whole estimatation
+ is biased and inconsistent
 \end_layout
 
 \begin_layout Subsection
@@ -627,7 +724,7 @@ u
 \end_layout
 
 \begin_layout Standard
-When 
+However, when 
 \begin_inset Formula $x$
 \end_inset
 
@@ -841,17 +938,17 @@ Therefore, you can calculate
 \end_layout
 
 \begin_layout Subsubsection*
-Example: 
+Usage: 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Return to the earnings-schooling example.
  Suppose a one unit change in the instrument z is associated with 0.2 more
  years of schooling and with a $500 increase in annual earnings.
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 This increase in earnings is a consequence of the indirect effect that increase
  in 
 \begin_inset Formula $z$
@@ -901,7 +998,11 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-As 
+
+\series bold
+Reduce Equation:
+\series default
+ As 
 \begin_inset Formula $\frac{dx}{dz}$
 \end_inset
 
@@ -927,11 +1028,15 @@ Reduced Form
 \begin_inset Formula $\hat{x}$
 \end_inset
 
-
+, which is uncorrelated from the missing variable
 \end_layout
 
 \begin_layout Enumerate
-Then get 
+
+\series bold
+Structural Equation
+\series default
+: Then get 
 \begin_inset Formula $\frac{dy}{dz}$
 \end_inset
 
@@ -947,7 +1052,7 @@ Then get
 \end_layout
 
 \begin_layout Standard
-Thus we have :
+Thus we have:
 \end_layout
 
 \begin_layout Standard
@@ -966,14 +1071,87 @@ Multiple Regression
 \end_layout
 
 \begin_layout Standard
+Example: Wooldridge P478
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Structural Equaiton:
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
-y_{1}=\beta_{0}+\beta_{1}y_{2}+\beta_{1}z_{1}+...+\beta_{k-1}z_{k-1}+u
+y_{1}=\beta_{0}+\beta_{1}y_{2}+\beta_{1}z_{1}+u_{1}
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+We use 
+\begin_inset Formula $z_{1}$
+\end_inset
+
+ to indicate that this variable is exogenous in (15.22) (
+\begin_inset Formula $z_{1}$
+\end_inset
+
+ is uncorrelated with 
+\begin_inset Formula $u_{1}$
+\end_inset
+
+).
+ We use 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+ to indicate that this variable is suspected of being correlated with 
+\begin_inset Formula $u_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+An example
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+log(wage)=\beta_{0}+\beta_{1}educ+\beta_{2}exper+u_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To find IV for 
+\begin_inset Formula $y_{1}$
+\end_inset
+
+, principles are
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Principle 1: Any exogenous variable used in Structural Equation cannot be
+ used as IV, they are IV for itself: 
+\begin_inset Formula $z_{1}$
+\end_inset
+
+ can not be IV for 
+\begin_inset Formula $y_{1}$
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -989,10 +1167,25 @@ Here
  
 \end_layout
 
+\begin_layout Standard
+A more generic example
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{1}=\beta_{0}+\beta_{1}y_{2}+\beta_{1}z_{1}+...+\beta_{k-1}z_{k-1}+u
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
 
 \series bold
-An IV must be exogenous and not appear in the structural equation!
+Principle 1: An IV must be exogenous and not appear in the structural equation!
 \end_layout
 
 \begin_deeper
@@ -1004,25 +1197,32 @@ An IV must be exogenous and not appear in the structural equation!
 \begin_inset Formula $y_{2}$
 \end_inset
 
-, but they serve its own IV.
+, but they serve its own IV (which means they can be an independent variable
+ in structural equation)
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula $z_{k}$
 \end_inset
 
- can be IV for 
+ , if exist, can be IV for 
 \begin_inset Formula $y_{2}$
 \end_inset
 
- if it meets all criteria.
+ (as 
+\begin_inset Formula $z_{k}$
+\end_inset
+
+ not appear in the structural equation) if it meets all criteria.
  
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-Then Reduced Form equation shall include all explanatory variables other
- than 
+
+\series bold
+Principle 2: Then Reduced Form equation shall include all explanatory variables
+ other than 
 \begin_inset Formula $y_{2}$
 \end_inset
 
@@ -1134,7 +1334,9 @@ That means
 \end_inset
 
 .
- This is the Order Condition constraint
+ This is the 
+\series bold
+Order Condition constraint
 \end_layout
 
 \begin_layout Subsection
@@ -1207,6 +1409,8 @@ Testing for Endogeneity: Determine whether to use IV
 \end_layout
 
 \begin_layout Standard
+
+\series bold
 本质是test whether 
 \begin_inset Formula $y_{2}$
 \end_inset
@@ -1402,8 +1606,8 @@ Do not do 2SLS by hand, use software package, as dealing with Statistical
  Inference is tedious (P481)
 \end_layout
 
-\begin_layout Subsection
-IV 的经济学例子
+\begin_layout Section
+IV in Economics
 \end_layout
 
 \begin_layout Itemize
@@ -1419,7 +1623,7 @@ IV 的经济学例子
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $Dmand\sim Price$
+\begin_inset Formula $Demand\sim Price$
 \end_inset
 
 .
@@ -1431,11 +1635,24 @@ IV 的经济学例子
 \begin_inset Formula $Demand$
 \end_inset
 
-, but cannot separate the reverse causality: more demand, then higher price.
- 
+, 
 \end_layout
 
 \begin_deeper
+\begin_layout Itemize
+but cannot separate the reverse causality: more demand, then higher price
+ --- If one unit change of price will drive 
+\begin_inset Formula $\beta$
+\end_inset
+
+ unit of demand, the reverse may not true: one unit change of demand may
+ not cause price to change by 
+\begin_inset Formula $1/\beta$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
 So 
 \begin_inset Formula $Supply$
@@ -1451,6 +1668,17 @@ Like if it is agriculture good, the favorable growing conditions (essentially
 \end_layout
 
 \end_deeper
+\begin_layout Subsection
+Elasticities of Supply and Demand for Flaxseed
+\end_layout
+
+\begin_layout Standard
+A variable he used for the demand curve shifter was the price of substitute
+ goods, such as cottonseed, while a variable he used for the supply curve
+ shifter was yield per acre, which can be thought of as primarily determined
+ by the weather.
+\end_layout
+
 \begin_layout Section
 Tobit Model
 \end_layout
@@ -1685,7 +1913,7 @@ Inertia/Time to Adjust: This often occurs in macro time series data.
  The US interest rate unexpectedly increases and so there is an associated
  change in exchange rates with other countries.
  Reaching a new equilibrium could take some time.
- 
+ If there is an exogenous shock it taks time to get new equilibrium.
 \end_layout
 
 \begin_layout Itemize
@@ -1755,7 +1983,11 @@ For the two graphs about, the serial correlation may be caused by a missing
 
 \end_deeper
 \begin_layout Itemize
-You can also use serial correlation-robust standard errors (Wooldridge 12.5)
+You can also use 
+\series bold
+serial correlation-robust standard errors 
+\series default
+(Wooldridge 12.5)
 \end_layout
 
 \begin_layout Itemize
@@ -2475,6 +2707,119 @@ Give you long-run stationary relation for un-stationary series.
 \end_layout
 
 \begin_layout Subsection
+Long-run and Short-run Form
+\end_layout
+
+\begin_layout Standard
+Long-run Form
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Δy_{t}=Γ_{1}Δy_{t−1}+...+Γ_{p−1}Δy_{t−p+1}+Πy_{t−p}+μ+ΦD_{t}+ε_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Short-run form
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Δy_{t}=Γ_{1}Δy_{t−1}+...+Γ_{p−1}Δy_{t−p+1}+Πy_{t−1}+μ+ΦD_{t}+ε_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Π matrix is the same as in the first specification.
+ However, the Γi matrices now differ in the sense that they measure transitory
+ effects; hence, this form of the VECM is termed the transitory form.
+ Furthermore, the levels of the components in yt enter lagged by one period.
+ Incidentally, as will become evident, inferences drawn on Π will be the
+ same regardless of which specification is chosen, and the explanatory power
+ is the same.
+\end_layout
+
+\begin_layout Subsection
+Common Trend
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X_{t}=\alpha(\beta^{\prime}\alpha)\beta^{\prime}X_{t}+\beta_{\perp}(\alpha_{\perp}^{\prime}\beta_{\perp})^{-1}\alpha_{\perp}X_{t}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha(\beta^{\prime}\alpha)\beta^{\prime}X_{t}$
+\end_inset
+
+ is 
+\begin_inset Formula $\emph{I(0)}$
+\end_inset
+
+ and the transitory part, and 
+\begin_inset Formula $\beta_{\perp}(\alpha_{\perp}^{\prime}\beta_{\perp})^{-1}\alpha_{\perp}X_{t}$
+\end_inset
+
+ is 
+\begin_inset Formula $\emph{I(1)}$
+\end_inset
+
+ and the permanent part (see Equation 11 in Gonzalo and Granger 1995).
+ Be cafreful in Gonzalo and Granger's paper they use different notation
+ for 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\backslash
+beta
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X_{t}=\beta(\beta^{\prime}\beta)^{-1}\beta^{\prime}X_{t}+\beta_{\perp}(\beta_{\perp}^{\prime}\beta_{\perp})^{-1}\beta_{\perp}X_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where ``the first part defines the stationary component and the second part
+ then defines the common stochastic trend'' (Kasa 1992) (see Equation 12
+ in Kasa 1992).
+\end_layout
+
+\begin_layout Subsection
 Difference between Cointegration and First Differencing in OLS
 \end_layout
 
@@ -2597,6 +2942,10 @@ a linear regression
 \series default
 of the current value of the series against current and previous (unobserved)
  white noise error terms or Random Shocks.
+\end_layout
+
+\begin_layout Itemize
+AR means current value is a weighted average of past values.
 \end_layout
 
 \begin_layout Subsection
@@ -2851,6 +3200,38 @@ plot(arima.sim(list(order=c(2,0,0), ar=c(-0.9,-0.9)), n=100),
 @
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Exponential moving average 
+\end_layout
+
+\begin_layout Standard
+An exponential moving average (EMA), also known as an exponentially weighted
+ moving average (EWMA), is a type of infinite impulse response filter that
+ applies weighting factors 
+\series bold
+which decrease exponentially
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The weighting for each older datum decreases exponentially, never reaching
+ zero.
+ The graph at right shows an example of the weight decrease.
+\end_layout
+
+\begin_layout Standard
+The EMA for a series Y may be calculated recursively:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\displaystyle S_{1}=Y_{1}}\mbox{ for }{\displaystyle t>1,\ \ S_{t}=\alpha\cdot Y_{t}+(1-\alpha)\cdot S_{t-1}}$
 \end_inset
 
 
@@ -3117,10 +3498,13 @@ where
 \end_layout
 
 \begin_layout Standard
-Partial autocorrelation plots (Box and Jenkins, Chapter 3.2, 2008) are a
- commonly used tool for identifying the order of an AR model.
+Partial autocorrelation plots (Box and Jenkins, Chapter 3.2, 2008) are 
+\series bold
+a commonly used tool for identifying the order of an AR model.
  The partial autocorrelation of an AR(p) process is zero at lag p + 1 and
- greater.
+ greater
+\series default
+.
  If the sample autocorrelation plot indicates that an AR model may be appropriat
 e, then the sample partial autocorrelation plot is examined to help identify
  the order.
@@ -3928,7 +4312,7 @@ ARCH
 \end_layout
 
 \begin_layout Enumerate
-Estimate the best fitting autoregressive model 
+Estimate the best fitting AR model 
 \begin_inset Formula 
 \[
 AR(q)y_{t}=a_{0}+a_{1}y_{t-1}+\cdots+a_{q}y_{t-q}+\epsilon_{t}=a_{0}+\sum_{i=1}^{q}a_{i}y_{t-i}+\epsilon_{t}
@@ -3977,6 +4361,18 @@ VAR
 
 \begin_layout Subsection
 Finite-distributed lag model
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Intuition
+\series default
+: VAR models generalize the univariate autoregressive model (AR model) by
+ allowing for more than one evolving variable.
+ All variables in a VAR enter the model in the same way: each variable has
+ an equation explaining its evolution based on its own lags and the lags
+ of the other model variables
 \end_layout
 
 \begin_layout Standard
@@ -4089,6 +4485,121 @@ Often the lag length is dictated by the frequency of the data (as well as
 \end_layout
 
 \begin_layout Section
+Event Detection
+\end_layout
+
+\begin_layout Standard
+https://www.cs.cmu.edu/~neill/papers/eventdetection.pdf
+\end_layout
+
+\begin_layout Itemize
+Goal: detect the anomaly in time series as early as possible
+\end_layout
+
+\begin_layout Itemize
+Data aviable: a univarite time series with x as date/hour etc
+\end_layout
+
+\begin_layout Itemize
+Method: biuld a time series model to fit the data, then whatever in the
+ residual is the event
+\end_layout
+
+\begin_layout Standard
+A breakout is typically characterized by two steady states and an intermediate
+ transition period.
+ Broadly speaking, breakouts have two flavors:
+\end_layout
+
+\begin_layout Enumerate
+Mean shift: A sudden jump in the time series corresponds to a mean shift.
+ A sudden jump in CPU utilization from 40% to 60% would exemplify a mean
+ shift.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+To detect mean shift event, from time 
+\begin_inset Formula $t$
+\end_inset
+
+ we use the model to predict 
+\begin_inset Formula $\hat{x}_{t+1}$
+\end_inset
+
+, then if 
+\begin_inset Formula $d_{t+1}=|x_{t+1}-\hat{x}_{t+1}|$
+\end_inset
+
+ is deviating too much from 0, then we say this is an anomaly
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Ramp up: A gradual increase in the value of the metric from one steady state
+ to another constitutes a ramp up.
+ A gradual increase in CPU utilization from 40% to 60% would exemplify a
+ ramp up.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+CUmulative SUM Statistics (CUSUM method): 
+\end_layout
+
+\end_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+CUSUM
+\end_layout
+
+\begin_layout Enumerate
+Keep a running sum of Keep a running sum of “surprises surprises :” a sum
+ of a sum of excesses each day over the mean • 
+\end_layout
+
+\begin_layout Enumerate
+Wh this sum excee ds threshold, sound the alarm and reset the Sum
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $r$
+\end_inset
+
+: reference mean.
+ 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+: 
+\begin_inset Formula $i$
+\end_inset
+
+th observation.
+ 
+\begin_inset Formula $S_{i}$
+\end_inset
+
+:ith cumulative sum
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{1}=X_{1}-r$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{2}=X_{2}-r+S_{1}$
+\end_inset
+
+ etc
+\end_layout
+
+\begin_layout Section
 Filter
 \end_layout
 
@@ -4120,7 +4631,7 @@ where
 \begin_inset Formula $\lambda\sum_{t=2}^{T-1}[(\tau_{t+1}-\tau_{t})-(\tau_{t}-\tau_{t-1})]^{2}$
 \end_inset
 
-, which is the second derivative, to pubish the variation of the trend part.
+, which is the second derivative, to punish the variation of the trend part.
 \end_layout
 
 \begin_layout Standard
@@ -4150,6 +4661,407 @@ R function
 
 \begin_layout Standard
 See package mFilter, hpfilter(series,lamda) where series has to be ts class.
+\end_layout
+
+\begin_layout Section
+Fourier Series
+\end_layout
+
+\begin_layout Standard
+See 
+\series bold
+Uber take home exercise.
+ 
+\end_layout
+
+\begin_layout Standard
+Used in fitting the seasonality.
+\end_layout
+
+\begin_layout Standard
+For example, weekly effect with daily data can use 
+\begin_inset Formula $sin(2\pi t/7)$
+\end_inset
+
+ and 
+\begin_inset Formula $cos(2\pi t/7)$
+\end_inset
+
+ into regression, which is one level 
+\end_layout
+
+\begin_layout Standard
+You can use mutliple level of Fourier series, which is 
+\end_layout
+
+\begin_layout Itemize
+second level 
+\begin_inset Formula $sin(2\pi t/7*2)$
+\end_inset
+
+ and 
+\begin_inset Formula $cos(2\pi t/7*2)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+third level 
+\begin_inset Formula $sin(2\pi t/7*3)$
+\end_inset
+
+ and 
+\begin_inset Formula $cos(2\pi t/7*3)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The more levels you use, there is more danager to overfit.
+ So you Cross Validation to trim the data.
+\end_layout
+
+\begin_layout Subsection
+Cycle
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta$
+\end_inset
+
+ is any angle, then 
+\begin_inset Formula $sin(w\theta)$
+\end_inset
+
+ or 
+\begin_inset Formula $cos(w\theta)$
+\end_inset
+
+ has cycle period as 
+\begin_inset Formula 
+\[
+2\pi/w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus a weekly fourier fourier series with daily data shall be 
+\begin_inset Formula $sin(2\pi t/7)$
+\end_inset
+
+ and 
+\begin_inset Formula $cos(2\pi t/7)$
+\end_inset
+
+ to get period 
+\begin_inset Formula $7$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Part
+Pricing
+\end_layout
+
+\begin_layout Standard
+But over time, surge pricing will also become more familiar and less surprising.
+\end_layout
+
+\begin_layout Subsection
+Uber Measruement
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+price per mile
+\series default
+ in surApp openings are a good representation of those who are in the market
+ for Uber’s services and thus provide a nice measure of 
+\series bold
+Potential Demand
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+number of rides are just realized demand
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Measure the Causality: we cannot make the strong claim that surge pricing
+ caused more driverpartners to be in the area.
+\end_layout
+
+\begin_layout Itemize
+Completion rate – measure the marketing equilibrating, defined as the percentage
+ of requested rides that end in a completed trip.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Uber normally has completion rate = 1 for all time.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Friction: waiting time -- time from request to ride
+\end_layout
+
+\begin_layout Subsection
+Pricing to drive the supply
+\end_layout
+
+\begin_layout Itemize
+Sypply: the reality is that the times when people most want a ride are also
+ the times when it’s most annoying and, often, most risky to drive.
+ Rush hour, New Year’s Eve, 2 a.m.
+ on a Saturday night, snowstorms: generally speaking, these are exactly
+ the times when a driver doesn’t want to be on the road.
+ But if driving at those times pays considerably better, then they are more
+ likely to be willing.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Cost/Risk of driving in rush hours is high
+\end_layout
+
+\begin_layout Itemize
+Another factor that impacts driver supply is substitute opportunities.
+ Prt-time drivers may have other part-time jobs.
+ Drivers have lucrative alternative opportunities on event nights like New
+ Years Eve.
+ Some party-goers are willing to book a single captive driver for a flat
+ rate which could be well over $1000 for the night.
+ And in this case, the driver enjoys quite a bit of downtime.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Demand: its dynamic pricing policy to be used solely when demand is materially
+ outstripping supply, so I think it will not hurt demand so much.
+\end_layout
+
+\begin_layout Itemize
+Quantity: maximize the number of completed rides.
+\end_layout
+
+\begin_layout Itemize
+Reliability / Convinience / Time to Fullfill the order
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+the next time you see a message indicating that Uber’s surge pricing is
+ in effect: immediately try an alternative other than Uber.
+ In other words, try to hail a cab, call a traditional black car service,
+ find a rental car, or jump on a bus or subway.
+ You will find that availability and reliability for all forms of transportation
+ are under stress at that same precise moment in time.
+ At these times, a fixed price taxi will be highly unavailable, and a fixed
+ price subway will be remarkably over-crowded.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Key metrics: number of completed rides / total request
+\end_layout
+
+\begin_layout Subsection
+Difference between Uber and Other's Dynamic Pricing
+\end_layout
+
+\begin_layout Enumerate
+There is, however, one key difference that materially increases the need
+ for dynamic pricing in Uber’s case.
+ With hotels, airplanes, and rental cars, supply is relatively fixed.
+\end_layout
+
+\begin_layout Enumerate
+Others tend to lower the price dynamically.
+\end_layout
+
+\begin_layout Subsection
+Why people hates dynamic pricing
+\end_layout
+
+\begin_layout Enumerate
+Price of taxi is pre-set up and regulated for decades.
+\end_layout
+
+\begin_layout Enumerate
+Most people thought “raising prices in response to a shortage is unfair
+ even when close substitutes are readily available”
+\end_layout
+
+\begin_layout Enumerate
+Customers seem to accept dynamic pricing more easily when it’s characterized
+ as a discount.
+ At the movies, for instance, prime-time tickets aren’t presented as a few
+ dollars more than the normal price—rather, matinees are presented as a
+ few dollars less.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Uber’s competitor Lyft seems to have recognized the power of framing: it
+ recently introduced what it calls happy-hour pricing, offering discounts
+ during slow business hours.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Marketing -- Education to Customers
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Best marketing is educatiom.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+empathetic / sympathy
+\end_layout
+
+\begin_layout Standard
+Another point to keep in perspective is that the operator of each and every
+ car on the Uber service is a human just like all of the passengers.
+ Why should we expect that individual to be excited about working precisely
+ when we want to be out of the town? Do you enjoy working on Friday and
+ Saturday night? What about Holidays? What about New Year’s Eve? Nurses
+ and doctors routinely receive 2-3X overtime pay for work at those times;
+ is there a reason that a driver should not? What about during really bad
+ storms? Should the independent driver be more concerned about your needs,
+ or those of their own family and friends? This is not a plea for you to
+ be overly 
+\series bold
+empathetic
+\series default
+ for the independent drivers on Uber’s system, but rather simply asking
+ you to consider the basic human reasons why they may chose not to drive
+ at the exact same time that you are most interested in not driving.
+ Is it unreasonable to expect higher fares if they are sacrificing their
+ own time at the least convenient moment?
+\end_layout
+
+\begin_layout Subsection
+Subsidies
+\end_layout
+
+\begin_layout Standard
+The company itself should take no money during surge periods (it now takes
+ 20 percent of every fare), so all the money goes to the drivers.
+ Or it should cap prices to consumers but pay the higher price to drivers,
+ essentially subsidizing people’s rides in surge periods.
+ Or when prices rise really sharply, Uber should donate its take to charity.
+\end_layout
+
+\begin_layout Subsection
+Matching Algorithms
+\end_layout
+
+\begin_layout Standard
+Timing is everything at Uber.
+ Given a pickup location, drop off location and time of the day, predictive
+ models developed at Uber predict how long will it take for a driver to
+ cover the distance.
+ Uber has 
+\series bold
+sophisticated routing and matching algorithms
+\series default
+ that direct cars to people and people to places.
+ Right from the time you open the uber app till you reach your destination,
+ Uber’s routing engine and matching algorithms are hard at work.
+\end_layout
+
+\begin_layout Standard
+Uber follows a supplier pick map matching algorithm where the customer selects
+ the variables associated with a service (in this case Uber app) and makes
+ a match by sending requests to the most optimal list of service providers.
+ 
+\end_layout
+
+\begin_layout Standard
+Any Uber ride request is first sent to the nearest available.
+ Uber driver (the nearest available Uber driver is determined by comparing
+ the customer location with the expected time of arrival of the driver).
+ The Uber driver then accepts or rejects a ride request.
+ This matching algorithm works well for Uber since the transaction is highly
+ commoditized i.e.
+ the number of variables that the customer has to decide before a match
+ is made are minimal.
+\end_layout
+
+\begin_layout Subsection
+Fare Estimates
+\end_layout
+
+\begin_layout Standard
+Goal: 
+\end_layout
+
+\begin_layout Itemize
+Strict constraint: Price is high enough so that enough drivers will show
+ up.
+\end_layout
+
+\begin_layout Itemize
+Goal 1 -- take the market share / be the low-cost leader: Price is as low
+ as possible so that as many riders can take Uber.
+\end_layout
+
+\begin_layout Itemize
+Goal 2 (not that possible): max profit.
+\end_layout
+
+\begin_layout Standard
+Uber uses a mixture of internal and external data to estimate fares.
+ Uber calculates fares automatically using street traffic data, GPS data
+ and its own algorithms that make alterations based on the time of the journey.
+ It also analyses external data like public transport routes to plan various
+ services.
+\end_layout
+
+\begin_layout Subsection
+Reduce the Friction
+\end_layout
+
+\begin_layout Standard
+Asymmetric Information: 
+\end_layout
+
+\begin_layout Itemize
+riders know where and when they will show up and the price they want to
+ pay.
+\end_layout
+
+\begin_layout Itemize
+drivers didn't know
+\end_layout
+
+\begin_layout Standard
+So Uber needs to inform the diriver so that 
+\end_layout
+
+\begin_layout Itemize
+they know where to go in the next hour / where to go get the highest 
+\series bold
+price per mile
 \end_layout
 
 \end_body
