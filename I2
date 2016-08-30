@@ -171,10 +171,32 @@
 
 \begin_body
 
+\begin_layout Itemize
+t-test in AB test -- the variance
+\end_layout
+
+\begin_layout Itemize
+variance of poisson, binomial
+\end_layout
+
+\begin_layout Itemize
+join on with a between
+\end_layout
+
+\begin_layout Itemize
+which table is large, which table is small, which is subet of which? --
+ trying to decide to use inner join or left join
+\end_layout
+
 \begin_layout Standard
 以quoro为主
 \end_layout
 
+\begin_layout Itemize
+专业interview总结，不仅仅理解数学方法，还要注重答题套路
+\end_layout
+
+\begin_deeper
 \begin_layout Itemize
 a/b test 实践
 \end_layout
@@ -184,11 +206,42 @@ cluster 实践
 \end_layout
 
 \begin_layout Itemize
-recommendation 实践
+recommendation
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+SQL: union
 \end_layout
 
 \begin_layout Itemize
-SQL 加强 （如union）
+
+\series bold
+past experience
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+projects
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+campaign
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Questions to Ask
+\end_layout
+
+\begin_layout Itemize
+behavior questions
 \end_layout
 
 \begin_layout Standard
@@ -201,10 +254,6 @@ Operational Modelling
 
 \series bold
 https://www.bis.org/bcbs/cp3/embfurkau.pdf
-\end_layout
-
-\begin_layout Part
-IV
 \end_layout
 
 \begin_layout Standard
@@ -220,8 +269,40 @@ http://www.cricode.com/2001.html
 Dynamic Programming!
 \end_layout
 
+\begin_layout Part
+Social Media and Advertisement : Q & A
+\end_layout
+
+\begin_layout Subsection
+Features of Users/Contents Social Media
+\end_layout
+
+\begin_layout Standard
+Two perspectives of 
+\end_layout
+
+\begin_layout Itemize
+Features of the users themselves
+\end_layout
+
+\begin_layout Itemize
+Features of those who follow the users
+\end_layout
+
+\begin_layout Standard
+Similary, for contents
+\end_layout
+
+\begin_layout Itemize
+Labels of the users themselves
+\end_layout
+
+\begin_layout Itemize
+Labelsof those users who follow the content.
+\end_layout
+
 \begin_layout Section
-Q & A
+Label and Relevancy
 \end_layout
 
 \begin_layout Subsection
@@ -345,8 +426,9 @@ extract certain key toptics, key words.
 Based on who they follow
 \series default
 : It's hard to directly do clustering on common users.
- But it is relatively easy to cluster those celebrities, they are most likely
- just has oen label --- either movie star, musician, or comupter scientist.
+ But it is relatively easy to cluster those celebrities / influencers, they
+ are most likely just has oen label --- either movie star, musician, or
+ comupter scientist.
  So their labels are more 
 \series bold
 pure 
@@ -373,69 +455,323 @@ Or we can even bring the number of likes or retweets for each celebrities,
 Data can be constructed like this: It is a matrix with rows as users, columns
  as celebrities.
  value equal to 1 if a user follow a celebrity, equal to 0 if not.
- OR the value is the total ``
+ OR the value is the total 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Pagerank to measure importance/influence of user
+\end_layout
+
+\begin_layout Standard
+The idea is:
+\end_layout
+
+\begin_layout Itemize
+The importance of a user depends on number of followers, and also depend
+ on the importance of those followers.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If an influential celebrity A follows B, that means A endorses some of his
+ impotant to him
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Pagerank algorithm is using this idea to measure how importance/influence
+ of a point in the network.
+\end_layout
+
+\begin_layout Standard
+The way it works is:
+\end_layout
+
+\begin_layout Enumerate
+Image you want to do a random work through all the social network, starting
+ from point A, as A is following N people the probability that A travels
+ to each followees 1/N.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Then assume now we travel from A to B, then do a random walk to the people
+ that B follows.
+\end_layout
+
+\begin_layout Enumerate
+You keep doing one millions of time, and it turned out the probability/number
+ of times of getting to a certain point will converge to a steady value.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+That value is the score of the importance
+\end_layout
+
+\begin_layout Enumerate
+the idea is: if the more people follow a point A, then it is easier to get
+ their.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Path Find to measure importance of a user
+\end_layout
+
+\begin_layout Itemize
+You can think about this problem as a path finding problem: How to find
+ the shortest parth to travel from one user to another user.
+\end_layout
+
+\begin_layout Enumerate
+If you randomly select two points in the scoial network, both A and B have
+ no common firends in the real world, but they both follow one musician
+ in Twitter.
+\end_layout
+
+\begin_layout Enumerate
+You do this test millions times --- each time you randomly select two points
+ and calculating the clost path.
+ The more common trespassing / transiting points are those celebrities.
+\end_layout
+
+\begin_layout Subsection
+Recommend Tweet
+\end_layout
+
+\begin_layout Itemize
+Features
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Labels of users
+\end_layout
+
+\begin_layout Itemize
+Labels of twittes / formats of the twitters
+\end_layout
+
+\begin_layout Itemize
+How many users shared/liked the twitts
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+How close of those users.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Algorithm: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Similarity measure
+\end_layout
+
+\begin_layout Itemize
+Logistic Function
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Recommend Friend / Following
+\end_layout
+
+\begin_layout Itemize
+K-means / Mixture Gaussian
+\end_layout
+
+\begin_layout Itemize
+Logistics
+\end_layout
+
+\begin_layout Itemize
+Link Prediction ???
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Social Recommendations / Who To Follow: Relevancy between Users 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Distance between users: Interest, formats, geography, who you follow also
+ likes
+\end_layout
+
+\begin_layout Itemize
+Popularity of itself: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Total likes, shares, mpressions.
+ 
+\end_layout
+
+\begin_layout Itemize
+Format of
 \end_layout
 
 \end_deeper
 \begin_layout Subsection
 
 \series bold
-Feature
-\series default
-: Why an advertiser becomes inactive
+Community Detection via Clustering
 \end_layout
 
 \begin_layout Standard
+Chapter 10 Mining Social-Network Graphs
+\end_layout
 
-\series bold
-Feature
-\series default
-: 
+\begin_layout Subsection
+Differentiate Advertise and Users
 \end_layout
 
 \begin_layout Enumerate
-
-\series bold
-Industry
-\series default
-: you want to indenify which industry likes do marketing on Twitter, which
- not like.
- Those are the markets we need to penetrate.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Price
-\series default
-: Cost per click / view.
- ---- to see whether the advertiser is really 
-\series bold
-price sensitive.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Month on Book: 
-\series default
-how many times they have done campaign on twitter --- 
+First, look at what data we have
 \end_layout
 
 \begin_deeper
+\begin_layout Itemize
+You have some users that you are pretty sure that they are advertisers,
+ beacuse they spend money on us.
+\end_layout
+
+\begin_layout Itemize
+Then you also have a lot data that you are pretty sure they are users (if
+ you don't have you can mannualy label them)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Amazon Mechanical Turk (MTurk) is a crowdsourcing Internet marketplace enabling
+ individuals and businesses (known as Requesters) to coordinate the use
+ of human intelligence to perform tasks that computers are currently unable
+ to do.
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Enumerate
-new advertisers may have a high churn rate.
- So you have to design retention strategies specificly for them
+Then the problem becomes a semi-supervised learning program, where on the
+ one hand you have huge amount of un-labeled data, and ont the other hand
+ you have some labeled data that you can leverage.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Then I would use Mixture Gaussian.
+ which can give you a probability of being a user or an advertisers.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+
+\series bold
+Activaion & Engagemnt & Advertiser Success
+\end_layout
+
+\begin_layout Subsection
+Features of Advertisers
+\end_layout
+
+\begin_layout Standard
+Advertiser itself:
+\end_layout
+
+\begin_layout Itemize
+number of employee
+\end_layout
+
+\begin_layout Itemize
+revenue yearly
+\end_layout
+
+\begin_layout Itemize
+where they do marketing
+\end_layout
+
+\begin_layout Standard
+On twtiiter:
+\end_layout
+
+\begin_layout Itemize
+Money,
+\end_layout
+
+\begin_layout Itemize
+Month on book,
+\end_layout
+
+\begin_layout Itemize
+Targeting Granularity
+\end_layout
+
+\begin_layout Itemize
+Success: measure by cost per Impression & cost per action
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Strategy: Activation
+\end_layout
+
+\begin_layout Standard
+Look at the churn rate for each segmentation
 \end_layout
 
 \begin_layout Enumerate
-old users tend to stay very long time, but once they become inactive, that
- means something bad happends, we may want to call them to figure out why.
+The major problem: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+when, which channel to send the activation can generate largest incremental
+ impact.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
-How much money spend on Twitter in total.
+But there are several sub-problems: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If you arealy send out one email, then conditinal on this single email,
+ when to send to second email to generate largest incremental impact.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Another dimention is the dynamics of different segmentation of users.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+When an Advertise stop at input credit card, when pop up help button
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Feature
+\series default
+: Why an Advertiser Becomes Inactive
 \end_layout
 
 \begin_layout Enumerate
@@ -448,7 +784,7 @@ User Experience: How much time the advertise spend on the campaign designing
 \end_layout
 
 \begin_layout Subsection
-Model: Why a User becomes inactive
+Model: Why a User becomes Inactive
 \end_layout
 
 \begin_layout Itemize
@@ -503,7 +839,7 @@ Then you can use these probability to design some action
 Action Plan
 \series default
 : For example, if we forsee a high value customer will become inactive,
- then you want to call him, or give him better offers.
+ then you want to email him, or give him better offers.
 \end_layout
 
 \begin_layout Itemize
@@ -589,115 +925,245 @@ Interaction / Measure how strong / Close:
 Number of replies + retweet + likes / Followers.
 \end_layout
 
-\begin_layout Subsection
-Pagerank to measure importance/influence of user
-\end_layout
+\begin_layout Section
 
-\begin_layout Standard
-The idea is:
-\end_layout
-
-\begin_layout Itemize
-The importance of a user depends on number of followers, and also depend
- on the importance of those followers.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-If an influential celebrity A follows B, then B must also has certain importance.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Pagerank algorithm is using this idea to measure how importance/influence
- of a point in the network.
-\end_layout
-
-\begin_layout Standard
-The way it works is:
+\series bold
+Anti-Spam
 \end_layout
 
 \begin_layout Enumerate
-Image you want to do a random work through all the social network, starting
- from point A, as A is following N people the probability that A travels
- to each followees 1/N.
- 
-\end_layout
-
-\begin_layout Enumerate
-Then assume now we travel from A to B, then do a random walk to the people
- that B follows.
-\end_layout
-
-\begin_layout Enumerate
-You keep doing one millions of time, and it turned out the probability/number
- of times of getting to a certain point will converge to a steady value.
- 
+Users creation:
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-That value is the score of the importance
+whether log in/ sign up different accouts with same IP at the same time
 \end_layout
 
 \begin_layout Enumerate
-the idea is: if the more people follow a point A, then it is easier to get
- their.
+Techniques: 
+\series bold
+enforcing phone/email verification
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Users Hacked:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+whether log in at different IP / geography,
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Contents Creation:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+robots -- same user keeps sending same content, Different user keeps sending
+ same content
+\end_layout
+
+\begin_layout Enumerate
+natural lanague processing skills to detect same format of the contents
  
 \end_layout
 
 \end_deeper
-\begin_layout Subsection
-Path Find to measure importance of a user
+\begin_layout Enumerate
+Contents Interactions
 \end_layout
 
-\begin_layout Itemize
-You can think about this problem as a path finding problem: How to find
- the shortest parth to travel from one user to another user.
+\begin_deeper
+\begin_layout Enumerate
+Sundenlly a lot of likes and shares from the same IP.
 \end_layout
 
 \begin_layout Enumerate
-If you randomly select two points in the scoial network, both A and B have
- no common firends in the real world, but they both follow one musician
- in Twitter.
+or totally different users -- they are disconnected + no common interest
+ --- suddenly like or follow the same person
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Techniques fight against API abuse (i.e., 
+\series bold
+read-only apps, enforcing phone verification on app creation, leaked API
+ keys, et
+\series default
+c) -
+\end_layout
+
+\begin_layout Standard
+Goals, challenges and BotMaker overview
+\end_layout
+
+\begin_layout Standard
+The goal of any anti-spam system is to reduce spam that the user sees while
+ having nearly zero false positives.
+ Three key principles guided our design of Botmaker:
 \end_layout
 
 \begin_layout Enumerate
-You do this test millions times --- each time you randomly select two points
- and calculating the clost path.
- The more common trespassing / transiting points are those celebrities.
+Prevent spam content from being created.
+ By making it as hard as possible to create spam, we reduce the amount of
+ spam the user sees.
 \end_layout
 
-\begin_layout Subsection
-Recommend Tweet
+\begin_layout Enumerate
+Reduce the amount of time spam is visible on Twitter.
+ For the spam content that does get through, we try to clean it up as soon
+ as possible.
 \end_layout
 
-\begin_layout Standard
-Logistic Function, which will give you 
+\begin_layout Enumerate
+Reduce the reaction time to new spam attacks.
+ Spam evolves constantly.
+ Spammers respond to the system defenses and the cycle never stops.
+ In order to be effective, we have to be able to collect data, and evaluate
+ and deploy rules and models quickly.
 \end_layout
 
-\begin_layout Subsection
-Recommend Friend / Following
-\end_layout
-
-\begin_layout Itemize
-K-means / Mixture Gaussian
-\end_layout
-
-\begin_layout Itemize
-Logistics
-\end_layout
-
-\begin_layout Itemize
-Link Prediction ???
-\end_layout
-
-\begin_layout Subsection
-Measure Importance of a User
+\begin_layout Section
+Causal Inference and AB test
 \end_layout
 
 \begin_layout Standard
-See ML_Ad
+See ML_ad
+\end_layout
+
+\begin_layout Itemize
+Causal Inference when A/B test cannot be done
+\end_layout
+
+\begin_layout Section
+
+\series bold
+Time Series
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Event Detection
+\end_layout
+
+\begin_layout Subsection
+Forecasting
+\end_layout
+
+\begin_layout Enumerate
+Univariate Forecasting
+\end_layout
+
+\begin_layout Enumerate
+If you have a series of variables, and they are mutually linked, then fit
+ an VAR.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Leading variable, but only useful for short term forecasting.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+like Purchasing Managers' Index (PMI) is the leading variable for GDP
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Structure the Answer
+\end_layout
+
+\begin_layout Itemize
+Multiple Seaonality
+\end_layout
+
+\begin_layout Itemize
+Really hard to fit the peak, find the indicator!
+\end_layout
+
+\begin_layout Subsection
+Models
+\end_layout
+
+\begin_layout Itemize
+ARMA + Seasonality Features
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+One set of regressors are the first 3 to 15 largest Fourier components for
+ weekly and yearly seasonality.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Intuition of ARMA: An ARMA(p,0) process is just an AR(p).
+ Which tells us that current value today is just a weighted sum of past
+ values.
+ Sometimes prices are said to follow such a process.
+\end_layout
+
+\begin_layout Itemize
+An ARMA(0,q) process is just MA(q) which is a moving average of past white
+ noise.
+ MA processes are often used to model shocks to a system (again say prices)
+ which are gradually weakened over time.
+ 
+\end_layout
+
+\begin_layout Subsection
+STL decomposition.
+\end_layout
+
+\begin_layout Standard
+Seasonal and Trend decomposition using Loess (STL) STL Decomposition is
+ a useful tool for accounting for seasonal effects.
+ In sales data, it is common to have repeating patterns every 24 hours,
+ or every 7 days, or every 365 days due to work/sleep cycles and holidays.
+ 
+\end_layout
+
+\begin_layout Standard
+Use Loess to fit the trend
+\end_layout
+
+\begin_layout Standard
+Use AMRA + Fourier + Indicators to get the left part.
+\end_layout
+
+\begin_layout Subsection
+Cross Validation in Time Series
+\end_layout
+
+\begin_layout Standard
+Slightly different than traditonal cross valiadtion, as testing data has
+ to be in continuous time order
+\end_layout
+
+\begin_layout Standard
+Select observation k + i for test set, and use observations at times 1;
+ 2; : : : ; k + i - 1 to estimate model.
+ 
+\end_layout
+
+\begin_layout Standard
+Compute error on forecast for time k + i for all 
+\begin_inset Formula $i$
+\end_inset
+
+from Repeat for i = 0; 1; : : : ; T 􀀀 k where T is total number of observations.
+ Compute accuracy measure over all errors
+\end_layout
+
+\begin_layout Part
+IV
 \end_layout
 
 \begin_layout Section
@@ -1074,7 +1540,7 @@ Why Advertisers Become Inactive
 \end_layout
 
 \begin_layout Section
-T Ier Background
+Twitter Background
 \end_layout
 
 \begin_layout Itemize
@@ -1114,8 +1580,12 @@ causal effects of international initiatives
 \end_layout
 
 \begin_layout Itemize
-cashtagged ($ticker) : Sentiment analysis / Tweet velocity (an indication
- of volatility) It’s who’s Tweeting.
+
+\series bold
+cashtagged ($ticker)
+\series default
+: Sentiment analysis / Tweet velocity (an indication of volatility) It’s
+ who’s Tweeting.
  Social Market Analytics (“SMA”) believes it’s not just what is being said
  that matters, it’s who is saying it.
  A part of their proprietary approach includes filtering Tweets to identify
@@ -1171,637 +1641,6 @@ A/B test!
 
 \begin_layout Itemize
 How to define the causal impact of a new product
-\end_layout
-
-\begin_layout Itemize
-Clustering: handle (followers) targeting, language targeting, lookalike
- user targeting, interests targeting, age targeting 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-K-means analysis of the social graph
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Timelines Quality - Relevancy / Ranking
-\end_layout
-
-\begin_layout Itemize
-Director / Data Scientist, Business Insights : 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Leading a team of data scientists and analysts examining Twitter content,
- 
-\series bold
-user growth, user engagement, and syndicated content (twitts showed in other
- sites).
- 
-\series default
-Use statistical and econometric methods + A/B experiments to develop insights
- that drive business decisions.
- 
-\series bold
-I focus a lot on causality and attribution.
-\end_layout
-
-\begin_layout Itemize
-Senior Manager and Manager, Revenue Forecasting and Analytics Leading a
- team of data scientists working with our revenue teams to understand advertiser
- & user behavior, auctions, revenue, and the causal impact of new products.
- 
-\series bold
-Applied statistical models in order to forecast revenue and advertiser growth.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Supported strategy & business development initiatives for Microsoft's Xbox
- division.
- Projects included hardware pricing/bundling analyses, international market
- analysis / go-to-market strategies, cross-divisional analysis and subsequent
- prioritization of the digital gaming category, and partner identification.
- 
-\end_layout
-
-\begin_layout Itemize
-Alex Rosner: trader
-\end_layout
-
-\begin_layout Itemize
-I work at data analysis, development, implementation and maintenance of
- various production pipelines for ads targeting, including handle (followers)
- targeting, language targeting, lookalike user targeting, interests targeting,
- age targeting 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-• Frequentist Statistics (A/B Testing, Experimental Design, Re-sampling
- Techniques)
-\end_layout
-
-\begin_layout Itemize
-• Explanatory Linear / Logistic Regression (Smaller scale data sets with
- 
-\series bold
-emphasis on interpretation
-\series default
-)
-\end_layout
-
-\begin_layout Itemize
-• Machine Learning Classifier and Regressor (Random Forest, Boosting, SVM,
- K-Means Clustering)
-\end_layout
-
-\begin_layout Itemize
-• Network Statistics (Graph Traversal Algorithms, Centrality Measures, 
-\series bold
-Community Detection via Clustering
-\series default
-) 
-\end_layout
-
-\begin_layout Itemize
-• Big Data Technologies (Theory of Distributed System, Multi-Threading,
- Spark, MLlib)
-\end_layout
-
-\begin_layout Itemize
-• Natural Language Processing (Bag of Word Model, Topic Modeling, Word2Vec)
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Major analysis project was summary of major interest clusters among users
- internationally, presented to COO.
- Created dashboard that showed individual country managers how audiences
- for different media categories evolved over time.
- Managed multiple ETL pipelines as defacto SRE for the data science team.
- 
-\end_layout
-
-\begin_layout Itemize
-Analyzed the effect of timeline diversity on retention
-\end_layout
-
-\begin_layout Itemize
-Heterogeneous Learning and the Targeting of Marketing Communication for
- New Products
-\end_layout
-
-\begin_layout Itemize
-PIE (Product, instrumentation, and Experimentation) 
-\end_layout
-
-\begin_layout Itemize
-Worked on first version of methodology to count the number of users of Twitter's
- syndication products.
- Built an ETL pipeline in both Pig and Scalding for it.
- Provided advice to product managers on how to design and evaluate their
- experiments.
-
-\series bold
- Produced an engagement score for users, predicting the likelihood that
- they would receive an engagement.
- 
-\series default
-Crafted document outlining best practices for data instrumentation.
- Early user of Presto at Twitter and enabled access to important datasets
- through it.
-\end_layout
-
-\begin_layout Itemize
-Provided detailed analysis o
-\series bold
-n active users and forecasts 
-\series default
-to Finance for quarterly reporting.
- 
-\end_layout
-
-\begin_layout Itemize
-With the Notification team under User Growth - Responsible for data engineering
- and analysis of Twitter's
-\series bold
- ESPN platform (Email, SMS, Push Network),
-\series default
- including * Real-time counting of huge data
-\series bold
- (i.e., notification campaign performance, open/click/incremental MAU) 
-\series default
-with Twitter's TSAR framework - Created pipeline of 
-\series bold
-Churn ML model to tackle the user churn problem
-\series default
- * Built the first ML model in production owned by Growth team.
- * Fed data to Twitter's internal services in real-time to tailor user experienc
-e.
- * US patent pending.
-\end_layout
-
-\begin_layout Itemize
-• Identified 
-\series bold
-Twitter Lookalike Score 
-\series default
-as very effective input for
-\series bold
- client customer acquisition through time series analysis, potentially increasin
-g click-through rate by more than 10x.
-\end_layout
-
-\begin_layout Itemize
-• Optimized model using Twitter interest data for effective customer acquisition
-, through techniques including principal component analysis, cross-validation,
- and lasso logistic regression.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-• Proposed ways to improve rigorousness of A/B testing on client revenue
- lift, using bootstrap to estimate necessary length of observation period.
-\end_layout
-
-\begin_layout Itemize
-With the anti-spam team, - Built machine learning models to detect a variety
- of spam vectors on Twitter (i.e., follow, mention, fake signups) - Major
- contributor to realtime rules of 
-\series bold
-BotMaker (Twitter's anti-spam system)
-\series default
- - Led the app spam project to fight against API abuse (i.e., 
-\series bold
-read-only apps, enforcing phone verification on app creation, leaked API
- keys, et
-\series default
-c) - Provided full-stack data engineering and analysis
-\end_layout
-
-\begin_layout Itemize
-Applying data and science to #ReachEveryPersonOnThePlanet.
- Currently, working on Recommendation systems for Twitter Trends.
-\end_layout
-
-\begin_layout Itemize
-Previously worked on user onboarding, growth and people recommendation
-\end_layout
-
-\begin_layout Itemize
-Ads marketplace team designing, analyzing, and implementing real time algorithms
- for various ads products at twitter such as
-\series bold
- target (average) bidding, budget throttling, and conversion optimization.
- 
-\end_layout
-
-\begin_layout Itemize
-Ad
-\series bold
-s click-through/conversion rate prediction 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Timelines Quality / Social Recommendations / Who To Follow etc.
- 
-\end_layout
-
-\begin_layout Itemize
-I work on the design and implementation of machine learning pipelines to
- surface temporally and topically relevant content to users.
- My team owns pipelines and our models incorporate features coming from
- the following methodologies: basic NLP,
-\series bold
- event detection, graph diffusion, collaborative filtering
-\series default
-, and deep learning.
- I also use interaction and engagement data to refine these models and pipelines
-, and the interplay between them.
- 
-\end_layout
-
-\begin_layout Itemize
-I lead a team of data scientists specializing in 
-\series bold
-statistical modeling to forecast and analyze advertising revenue.
-
-\series default
- Key goals: understand advertiser & user behavior, auctions and the causal
- impact of new products.
- The team's mandate is to 
-\series bold
-drive revenue visibility for C-level executives and sales
-\backslash
-product leadership.
- It's both a science and an art.
- 
-\end_layout
-
-\begin_layout Itemize
-Data scientist in the advertising technology industry, specializing in 
-\series bold
-Revenue Product Analytics for Ads Performance Products and Revenue Forecasting
-\series default
-.
- Experienced data science, quantitative, and statistical modeling skills
- through projects to deliver key insights to stakeholders across Product,
- Engineering, Sales, and Finance organizations.
- Strong strategy, communication, time management, and leadership skills.
- 
-\end_layout
-
-\begin_layout Subsection
-
-\series bold
-Budget throttling, and conversion optimization.
- 
-\end_layout
-
-\begin_layout Standard
-Paper: Optimizing Budget Constrained Spend in Search Advertising
-\end_layout
-
-\begin_layout Subsection
-
-\series bold
-User Activation and Churn
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-ESPN platform (Email, SMS, Push Network)
-\end_layout
-
-\begin_layout Itemize
-user onboarding,
-\end_layout
-
-\begin_layout Subsection
-
-\series bold
-engagement score for users
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Produced an engagement score for users, predicting the likelihood that they
- would receive an engagement.
-\end_layout
-
-\begin_layout Subsection
-
-\series bold
-anti-spam system
-\end_layout
-
-\begin_layout Itemize
-Twitter (i.e., follow, mention, fake signups
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-BotMaker
-\end_layout
-
-\begin_layout Itemize
-ed the app spam project to fight against API abuse (i.e., 
-\series bold
-read-only apps, enforcing phone verification on app creation, leaked API
- keys, et
-\series default
-c) -
-\end_layout
-
-\begin_layout Subsection
-
-\series bold
-Causal Effects of New Initiatives
-\end_layout
-
-\begin_layout Subsection
-
-\series bold
-event detection
-\end_layout
-
-\begin_layout Subsection
-
-\series bold
-Ads Performance
-\end_layout
-
-\begin_layout Subsection
-Quality Score of Ads
-\end_layout
-
-\begin_layout Standard
-Quality Score, on the other hand, is a more general estimate based on your
- average past performance.
- It also differs from Ad Rank in that it’s keyword-based.
-\end_layout
-
-\begin_layout Subsection
-Differentiate Advertise and Users
-\end_layout
-
-\begin_layout Subsection
-Improve your ad quality: G
-\end_layout
-
-\begin_layout Itemize
-Keep Twitter Ads Fresh to Retain High Impressions
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Twitter wants to show users the freshest content, so tweet new material
- regularly.
-\end_layout
-
-\begin_layout Itemize
-No matter how good the ad, the number of impressions per day declines over
- time.
- And, as time goes on, Twitter is less likely to show older tweets.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Create very specific ad groups 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-If your baked goods shop sells different types of cookie packages, think
- about creating ad groups for each of those different cookie packages, like
- one ad group for your holiday cookie package, and another ad group for
- your birthday cookie package.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Choose your keywords specificlly: If you're selling cookie packages, some
- keywords you might consider are "cookie gift package" or "cookie gift basket."
- Generic keywords like "cookie" or "gift" probably aren't effective because
- they're way too general.
- 
-\end_layout
-
-\begin_layout Itemize
-Create simple, enticing ads
-\end_layout
-
-\begin_layout Itemize
-Use a strong call-to-action
-\end_layout
-
-\begin_layout Itemize
-Test out multiple ads 
-\end_layout
-
-\begin_layout Subsection
-Real time bidding: suggested CTR
-\end_layout
-
-\begin_layout Standard
-Ad Rank: A value that's used to determine your ad position (where ads are
- shown on a page) and whether your ads will show at all.
- 
-\end_layout
-
-\begin_layout Standard
-Ad Rank is calculated using your bid amount, the components of Quality Score
- (expected clickthrough rate, ad relevance, and landing page experience)
-\end_layout
-
-\begin_layout Standard
-Ad Rank determines your ad position -- where your ad shows on the page in
- relation to other ads -- and whether your ads are eligible to show at all.
- The main components of your Ad Rank are your bids and the quality of your
- ads and website.
- We also incorporate the expected impact from your extensions and other
- ad formats when computing your Ad Rank.
- When estimating the expected impact of extensions and ad formats, we consider
- such factors as the relevance, clickthrough rates, and the prominence of
- the extensions or formats on the search results page.
- So even if your competition has higher bids than yours, you can still win
- a higher position at a lower price by using highly relevant keywords and
- ads.
- Your Ad Rank is recalculated each time your ad is eligible to appear and
- competes in an auction, so your ad position can fluctuate each time depending
- on your competition at that moment.
- 
-\end_layout
-
-\begin_layout Subsection
-Relation bewteen Quality and Cost
-\end_layout
-
-\begin_layout Standard
-Regardless, Twitter’s quality adjusted bids algorithm isn’t some arbitrary
- metric you can ignore.
- As with Google AdWords, increasing the quality score on your Twitter ads
- actually earns you a huge click discount.
- In fact, on average, when you gain one point in the engagement rates on
- your ads, you see a 5% decrease in cost per engagement.
-\end_layout
-
-\begin_layout Subsection
-
-\series bold
-Timelines Quality: Revency between Content to User
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-collaborative filtering
-\end_layout
-
-\begin_layout Subsection
-
-\series bold
-Social Recommendations / Who To Follow: Relevancy between Users 
-\end_layout
-
-\begin_layout Subsection
-
-\series bold
-Community Detection via Clustering
-\end_layout
-
-\begin_layout Standard
-Chapter 10 Mining Social-Network Graphs
-\end_layout
-
-\begin_layout Section
-Revenue Forecasting
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-causal effects of international initiatives
-\end_layout
-
-\begin_layout Standard
-time series and stochastic models to forecast revenue.
- Cross functional role between sales, finance and engineering teams to forecast
- revenue.
- Perform analytics on existing and upcoming products to derive insights
- which can have an impact on sales revenue.
-\end_layout
-
-\begin_layout Itemize
-I lead a team of data scientists specializing in 
-\series bold
-statistical modeling to forecast and analyze advertising revenue.
-
-\series default
- Key goals: understand advertiser & user behavior, auctions and the causal
- impact of new products.
- The team's mandate is to 
-\series bold
-drive revenue visibility for C-level executives and sales
-\backslash
-product leadership.
- It's both a science and an art.
- 
-\end_layout
-
-\begin_layout Subsection
-Structure the Answer
-\end_layout
-
-\begin_layout Itemize
-Multiple Seaonality
-\end_layout
-
-\begin_layout Itemize
-Really hard to fit the peak
-\end_layout
-
-\begin_layout Subsection
-Models
-\end_layout
-
-\begin_layout Itemize
-ARMA + Seasonality Features
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-One set of regressors are the first 3 to 15 largest Fourier components for
- weekly and yearly seasonality.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Intuition of ARMA: An ARMA(p,0) process is just an AR(p).
- Which tells us that current value today is just a weighted sum of past
- values.
- Sometimes prices are said to follow such a process.
-\end_layout
-
-\begin_layout Itemize
-An ARMA(0,q) process is just MA(q) which is a moving average of past white
- noise.
- MA processes are often used to model shocks to a system (again say prices)
- which are gradually weakened over time.
- 
-\end_layout
-
-\begin_layout Subsection
-STL decomposition.
-\end_layout
-
-\begin_layout Standard
-Seasonal and Trend decomposition using Loess (STL) STL Decomposition is
- a useful tool for accounting for seasonal effects.
- In sales data, it is common to have repeating patterns every 24 hours,
- or every 7 days, or every 365 days due to work/sleep cycles and holidays.
- 
-\end_layout
-
-\begin_layout Standard
-Use Loess to fit the trend
-\end_layout
-
-\begin_layout Standard
-Use AMRA + Fourier + Indicators to get the left part.
-\end_layout
-
-\begin_layout Subsection
-Cross Validation in Time Series
-\end_layout
-
-\begin_layout Standard
-Slightly different than traditonal cross valiadtion, as testing data has
- to be in continuous time order
-\end_layout
-
-\begin_layout Standard
-Select observation k + i for test set, and use observations at times 1;
- 2; : : : ; k + i - 1 to estimate model.
- 
-\end_layout
-
-\begin_layout Standard
-Compute error on forecast for time k + i for all 
-\begin_inset Formula $i$
-\end_inset
-
-from Repeat for i = 0; 1; : : : ; T 􀀀 k where T is total number of observations.
- Compute accuracy measure over all errors
 \end_layout
 
 \begin_layout Section
@@ -1876,6 +1715,18 @@ https://blog.twitter.com/2015/introducing-new-audience-insights-for-brands
 
 \begin_layout Itemize
 https://blog.twitter.com/2015/introducing-audience-insights
+\end_layout
+
+\begin_layout Subsection
+data pattern
+\end_layout
+
+\begin_layout Standard
+Whether it’s a retirement announcement from a member of a boy band, a government
+ coup, a world wide soccer tournament goal, or simply the start of a new
+ year, traffic patterns change quickly and unpredictably as these events
+ unfold.
+ T
 \end_layout
 
 \begin_layout Subsection
@@ -2250,8 +2101,8 @@ Working with Finance, because a lot what we do is the Income Statement,
  so we need to borrow a lot of accountin / finance assumptions from them.
 \end_layout
 
-\begin_layout Standard
-Question to ask
+\begin_layout Subsection
+Question to ask in F
 \end_layout
 
 \begin_layout Standard
@@ -2970,65 +2821,6 @@ Uber
 \end_layout
 
 \begin_layout Subsection
-Why U
-\end_layout
-
-\begin_layout Enumerate
-PERSONAL: First, my girlfirend just found a job in San F, so I have to move
- there.
- 
-\end_layout
-
-\begin_layout Enumerate
-COMPANY: Secondly, U is such a cool and fast growing c, AND it must be super
- interesting to work as a Data Scientist there, 
-\series bold
-BECAUSE
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-You have 
-\series bold
-huge
-\series default
- amount 
-\series bold
-interesting data you can play once,
-\series default
- 
-\end_layout
-
-\begin_layout Enumerate
-and the 
-\series bold
-problems
-\series default
- we re trying to 
-\series bold
-solve
-\series default
- there, like balancing the demand and supply, optimizing the price, are
- 
-\series bold
-Challenging and Exciting
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-FIT: Also this role really fits me very well, 
-\series bold
-BECAUSE
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-It requires Data Science, a lot of programming and financial modelling,
- which are exactly what I learned in school and what I'm doing now.
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
 Strategic Finance Associate
 \end_layout
 
@@ -3098,15 +2890,14 @@ What KPIs should Uber use to measure success in a new city.
 \end_layout
 
 \begin_layout Subsection
-Position: Data Scientist, Strategic Finance
+Position: 
 \end_layout
 
-\begin_layout Standard
-The quantitative research team within Strategic Finance is looking for entry/mid
- level data scientist in the field of econometrics, time series analysis
- and machine learning to help with modeling work related to 
+\begin_layout Itemize
+Data Scientist, Strategic Finance
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 
 \series bold
@@ -3120,202 +2911,142 @@ understanding supply-demand relationships and much more.
  
 \end_layout
 
-\begin_layout Standard
-You will be working with team of data scientists responsible for providing
- insights to the finance leadership to make financial decisions.
- This is a unique opportunity to apply your math skills in growing Uber
- and having a direct impact on building an efficient transportation system.
-\end_layout
-
-\begin_layout Standard
-The perfect candidate for this role is someone with a highly analytical
- background and at the same time has the ability to communicate the results
- to folks in finance, operations, etc.
- This role will be working very closely with company executives.
- Prior experience or a desire to work with executives is a plus.
- 
-\series bold
+\begin_layout Itemize
 [part of jobs is to transform the numbers into strories, and make up decks
  to present to the management.]
 \end_layout
 
-\begin_layout Standard
-WHAT YOU’LL DO:
-\end_layout
-
-\begin_layout Standard
-Develop mathematical models related to 
-\series bold
+\begin_layout Itemize
 pricing optimization
-\series default
- that will scale across major cities in which we operate Spend time researching
- state of the art techniques and implementing them Collaborate across the
- organization to iterate on forecasts and provide transparency for key business
- decisions.
 \end_layout
 
-\begin_layout Standard
-Day to day activities involve
-\series bold
- pulling data from warehouse, back-testing the model, comparing the model
+\begin_layout Itemize
+pulling data from warehouse, back-testing the model, comparing the model
  performance and communicating the results
 \end_layout
 
-\begin_layout Standard
-WHAT WE’RE LOOKING FOR:
+\begin_layout Itemize
+econometrics, time series analysis and machine learning
 \end_layout
 
-\begin_layout Standard
-PhD in Applied Maths, Operations Research, Computer Science, Engineering,
- Computational Finance or Economics.
- MS graduates with 3 years experience can also apply.
-\end_layout
-
-\begin_layout Standard
-Strong coding experience in one (or more) scientific programming languages
- like Python/R.
- 
-\end_layout
-
-\begin_layout Standard
-Knowledge of object-oriented programming paradigm is a plus.
- If you have experience with major programming language [Java, C++], its
- even better!
-\end_layout
-
-\begin_layout Standard
-Strong background in 
-\series bold
+\begin_layout Itemize
 stochastic modeling, regression, time series analysis and techniques like
  PCA etc.
 \end_layout
 
-\begin_layout Standard
-
-\series bold
-Experience developing scalable mathematical models and solving complex quantitat
-ive problems.
+\begin_layout Itemize
+Experience with Git 
 \end_layout
 
-\begin_layout Standard
-Be able to translate the model into a story to major stakeholders.
- As a data scientist, being able to explain your model to wide variety of
- audience is a key.
+\begin_layout Itemize
+Internal tips
 \end_layout
 
-\begin_layout Standard
-Experience with databases and data pulling tools (SQL, SQL Server, Vertica).
+\begin_deeper
+\begin_layout Itemize
+allocation budget / product -- finance
 \end_layout
 
-\begin_layout Standard
-Experience with Git (share your github, stackoverflow, statexchange pages!).
+\begin_layout Itemize
+incentive + rider intelligence 
 \end_layout
 
-\begin_layout Standard
-Willingness to adapt in fast-paced work environment; is a strong team player
+\begin_layout Itemize
+modelling + reserach + code
 \end_layout
 
-\begin_layout Subsection
+\end_deeper
+\end_deeper
+\begin_layout Itemize
 Senior Associate - Strategic Finance, Growth Finance
 \end_layout
 
-\begin_layout Standard
+\begin_deeper
+\begin_layout Itemize
 The mission of the Growth Finance team is to optimize Uber’s growth by developin
 g innovative forecast models, real-time performance monitoring tools, and
  profit-maximizing decision frameworks.
  As the name implies, this team is focused 100% on helping Uber grow as
- quickly and profitably as possible.
+ quickly and profitably as possible
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
+develop financial forecasts, execute on operational goals, and optimize
+ our marketing spend
+\end_layout
+
+\begin_layout Itemize
+new methods of forecasting Uber’s exponential growth, 
+\end_layout
+
+\begin_layout Itemize
+partner closely with the Performance Marketing team to optimize and monitor
+ Uber’s global marketing strategy --- Driver Incentive!
+\end_layout
+
+\begin_layout Itemize
+perform detailed ad hoc analyses on a variety of growth related topics.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Manager – Strategic Finance, Core Business Partnering
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
 
 \series bold
-In practice, this is achieved through three major types of responsibilities:
- 1) partner closely with our Finance Data Science team (but literally, they’re
- actual scientists) to develop new methods of forecasting Uber’s exponential
- growth, 2) partner closely with the Performance Marketing team to optimize
- and monitor Uber’s global marketing strategy, and 3) perform detailed ad
- hoc analyses on a variety of growth related topics.
-\end_layout
-
-\begin_layout Standard
-So if you're ready to dive into a rewarding set of challenges and you've
- got the proven financial skills, experience, passion, and strong team mentality
- - read on and get in touch! The ideal candidate has an entrepreneurial
- spirit, hustles hard, and can handle the ever-changing environment of a
- start up with a charisma that is consistent with the Uber brand.
-\end_layout
-
-\begin_layout Standard
-WHAT YOU'LL DO:
-\end_layout
-
-\begin_layout Standard
-Sophisticated financial and operational modeling - 
-\series bold
-you’ll build models directly in Excel, but you’ll also help develop complex
- model frameworks for the Finance Data Science team to ultimately code in
- R 
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Business partnering - work closely with Marketing leaders to develop financial
- forecasts, execute on operational goals, and optimize our marketing spend
-\end_layout
-
-\begin_layout Standard
-Special projects / ad hoc analyses - new initiatives, products, risks and
- opportunities are constantly arising.
- You will help evaluate and drive these important initiatives Project manage
- - as we operationalize our data-driven insights, you will need the ability
- to own projects from start to finish, ensuring all teams involved are deliverin
-g high-quality results quickly and on time
-\end_layout
-
-\begin_layout Standard
-WHAT YOU'LL NEED:
-\end_layout
-
-\begin_layout Standard
-BS/BA in Finance, Accounting, Economics, or similar 4-6 years in Banking,
- Management Consulting and/or Corporate finance / operational FP&A at either
- a high-growth tech startup or a large, well-established company Exceptional
- Excel / financial modeling skills.
+building dynamic, detailed, scalable financial models and most importantly,
+\series default
  
+\series bold
+turning your insights into actionable strategic initiatives (from idea generatio
+n through implementation) to optimize the company’s operations and financials.
 \end_layout
 
-\begin_layout Standard
-Best practices are second-nature, you can handle complexity but strive for
- simplicity 
+\end_deeper
+\begin_layout Itemize
+Head of Growth - Xchange Leasing
 \end_layout
 
-\begin_layout Standard
-Hustle - hustle and passion are the lifeblood of Uber.
- We move fast and deliver results because of our hustle and passion Excellent
- communication (written and verbal) and relationship building skills - numbers
- are key, but a business is built with people.
- You possess the ability to distill complex analyses and nuanced problems
- into simple, logical frameworks with concrete action plans.
- High emotional intelligence and adept communication are required in our
- fast-moving environment Team player - this is a highly collaborative and
- supportive team environment Entrepreneurial self-starter - we don't have
- time or desire to micro-manage.
- You will take initiative, be proactive and resourceful, set and drive toward
- solutions / goals in a fast-paced, rapidly-evolving environment 
+\begin_deeper
+\begin_layout Itemize
+Design Xchange-specific marketing campaigns
 \end_layout
 
-\begin_layout Standard
-Nice to have - SQL or R skills - the ability to self-serve, investigate
- and produce the data we require is key 
+\begin_layout Itemize
+growth, growth-hacking, marketing, SEO, SEM, or related roles
 \end_layout
 
-\begin_layout Standard
-Nice to have - Systems - working knowledge of enterprise-level financial
- planning systems
+\begin_layout Itemize
+Manage Xchange’s Credit and Pricing/Residual analyst
 \end_layout
 
+\begin_layout Itemize
+Own the pricing analytics function, building a detailed knowledge base and
+ expertise in what any make/model/trim/year/mileage/wear combo is worth,
+ anywhere
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Create a sell/hold decision engine for Xchange for vehicles returning from
+ drivers
+\end_layout
+
+\begin_layout Itemize
+Xchange Leasing’s underwriting model, creating industry-leading performance
+ by leveraging new and creative data sources and the latest in machine learning
+\end_layout
+
+\begin_layout Itemize
+Own all KPIs associated with underwriting and report on them to the Xchange
+ management team/board
+\end_layout
+
+\end_deeper
 \begin_layout Section
 B
 \end_layout
@@ -3407,7 +3138,7 @@ PD/EAD/LGD credit risk models for retail, wholesale and/or structured products
 \end_layout
 
 \begin_layout Standard
-* Market risk models for economic capital estimation
+* Market risk models for economic capital estimation.
 \end_layout
 
 \begin_layout Standard
@@ -3415,8 +3146,14 @@ PD/EAD/LGD credit risk models for retail, wholesale and/or structured products
 \series bold
 Basel
 \series default
- regulatory framework, US Basel III Final Rule, BCC 13-5, 13-7, 14-1, 14-3
- and other regulatory requirements, familiarity with OCC 2011-12 / SR 11-7.
+ regulatory framework, 
+\series bold
+US Basel III Final Rule, BCC 13-5, 13-7, 14-1, 14-3 and other regulatory
+ requirements
+\series default
+, 
+\series bold
+familiarity with OCC 2011-12 / SR 11-7.
 \end_layout
 
 \begin_layout Standard
@@ -3466,8 +3203,11 @@ he Credit Capital, Allowance, and Stress Testing Team (CCAST) is a unit
 \end_layout
 
 \begin_layout Description
-(i) oversight, modeling and estimation of risk weighted assets (RWA) in
- compliance with BASEL regulations, 
+(i) oversight, modeling and estimation of 
+\series bold
+risk weighted assets (RWA) in compliance with BASEL regulation
+\series default
+s, 
 \end_layout
 
 \begin_layout Description
@@ -3689,12 +3429,32 @@ we use --- let people believe you are doing the same thing now!
 
 \end_deeper
 \begin_layout Itemize
-If you are not sure whether your anwer is correct: 
-\series bold
-say you never encounter this type of problems below, and then describe how
- you construct
+For hard open-answer questions, never start to talk immediately.
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+You may get wrong in the particular questions / answer, But you want to
+ use this Confidence / Logic!
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Alwasy think a while, then talk!
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Be confident
+\end_layout
+
+\begin_layout Itemize
+how you woul construct answer: 总分总，一二三
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 Think for a while before you answer non-math/stat questions.
  Think the structure of the answer.
@@ -3791,7 +3551,7 @@ Answer: I'm not sure the exact engagement pattern of those high net-value
 
 \end_deeper
 \begin_layout Subsection
-Machine Learning Specific Questions
+Analytical Interview
 \end_layout
 
 \begin_layout Itemize
@@ -3804,7 +3564,87 @@ When answer features, never just mention features, but also describe why/how
  this feature is relevant or matter
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Standard
+
+\series bold
+When given you situations too vagure, you need to choose
+\end_layout
+
+\begin_layout Enumerate
+ask more
+\end_layout
+
+\begin_layout Enumerate
+Say: I need to know more about A, B and C to really decide ....
+\end_layout
+
+\begin_layout Enumerate
+just narrow down situation by your self.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+ML problems are often asked implicitly in a business case
+\end_layout
+
+\begin_layout Enumerate
+First descirbe different siutations this problem sit it.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Maybe this problem has different dynamics for different segments of customers.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Exact Algorithm
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The reason I choose the algorithm is: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Interpretability vs Predictability
+\end_layout
+
+\begin_layout Enumerate
+Give you soft label (percentage) or hard label
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Then discribe the business sense / relations between 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $y$
+\end_inset
+
+ and 
+\begin_inset Formula $x$
+\end_inset
+
+ - for supervised learning
+\end_layout
+
+\begin_layout Enumerate
+label and 
+\begin_inset Formula $x$
+\end_inset
+
+- for unsupervised learning
+\end_layout
+
+\end_deeper
+\begin_layout Section
 Onsite
 \end_layout
 
@@ -3819,7 +3659,11 @@ Be humble! 尤其是你觉得问题很简单的时候！
 \end_layout
 
 \end_deeper
-\begin_layout Subsection
+\begin_layout Itemize
+坐正！
+\end_layout
+
+\begin_layout Section
 Words
 \end_layout
 
@@ -4360,16 +4204,21 @@ Hard part of the problem
 
 \series bold
 It is hard to find a closed form equation to generate a curve at once.
- 
-\series default
-When you are talking a loss curve, that is the loss dollar rate for 60 months
- or even 72 months.
- It is hard to use a single equation to describe the shape of the curve,
- how high the peak is, when is the peak, what happens after the peak (should
- it stay high, or sharply decrease or slowly decrease).
 \end_layout
 
 \begin_deeper
+\begin_layout Itemize
+there are so many dynamics in shape of the curve, how high the peak is,
+ when is the peak, what happens after the peak (should it stay high, or
+ sharply decrease or slowly decrease).
+\end_layout
+
+\begin_layout Itemize
+As this product just launced in 2013.
+ Also we don't have data for the late stages of the product -- we don't
+ know its behavior after 4ths year
+\end_layout
+
 \begin_layout Enumerate
 Splines or moving average smooth lines doesn't work here because:
 \end_layout
@@ -4685,11 +4534,15 @@ Background
 \end_layout
 
 \begin_layout Itemize
-The first goal of this campaign is the 
+The key metric of this campaign is the 
 \series bold
 respons rate,
 \series default
- (which is quite similar with ).
+ (which is 
+\series bold
+quite similar with Converstion Rate
+\series default
+).
  But 
 \series bold
 for us this is not the whole story
@@ -4913,6 +4766,8 @@ Second step is find the best pricing for each group of the customer.
 
 \begin_deeper
 \begin_layout Enumerate
+
+\series bold
 ROI model is combination of models: it contains response rate model, then
  default probability model.
  
@@ -6155,15 +6010,30 @@ Otherwise, reject it.
 
 \begin_deeper
 \begin_layout Enumerate
-You have to clearly know you capability.
- What you can do what you cannot.
+You have to clearly understand you 
+\series bold
+capability and capacity
+\series default
+: --What you can do what you cannot.
 \end_layout
 
 \begin_layout Enumerate
+Also you want to manage the expectation you boss has on you, to let him
+ know 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
 Reject politely, clearly articulate the reasons, people will understand.
 \end_layout
 
 \end_deeper
+\begin_layout Enumerate
+If no choice, then work overnight -- like old days in the college, before
+ the midterm...
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 The hard part is when something is not urgent at all, and not even in priority,
@@ -6200,16 +6070,203 @@ You dont want to leave a bad reputation.
 Why A Company?
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Grow a lot here, and learn a lot here, both technically and professionally.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Fit me, relatively new world to me, confident I can handle the work.
 \end_layout
 
 \begin_layout Standard
 Engineer and and Data Scientist are blurrerd.
+\end_layout
+
+\begin_layout Subsection
+Why U
+\end_layout
+
+\begin_layout Enumerate
+PERSONAL: First, my girlfirend just found a job in San F, so I have to move
+ there.
+ 
+\end_layout
+
+\begin_layout Enumerate
+COMPANY: Secondly, U is such a cool and fast growing c, AND it must be super
+ interesting to work as a Data Scientist there, 
+\series bold
+BECAUSE
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+You have 
+\series bold
+huge
+\series default
+ amount 
+\series bold
+interesting data you can play once,
+\series default
+ 
+\end_layout
+
+\begin_layout Enumerate
+and the 
+\series bold
+problems
+\series default
+ we re trying to 
+\series bold
+solve
+\series default
+ there, like balancing the demand and supply, optimizing the price, are
+ 
+\series bold
+Challenging and Exciting
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+FIT: Also this role really fits me very well, 
+\series bold
+BECAUSE
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+It requires Data Science, a lot of programming and financial modelling,
+ which are exactly what I learned in school and what I'm doing now.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Why T, Data Scientist
+\end_layout
+
+\begin_layout Itemize
+I always want to be a data scientist, and I see Twitter as one the best
+ place to do Data Science.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+There is huge amount of interesting data coming in every day and every hour
+\end_layout
+
+\begin_layout Itemize
+you can see how people interact with news, you can see how people interact
+ with people.
+\end_layout
+
+\begin_layout Itemize
+So I can imagine a lot of cool things can be biult on this cool data.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Fit: I also believe I woul be a good fit for this job, because my my daily
+ job now is also about 
+\series bold
+biulding models & strategies on consumer financial data
+\series default
+.
+ So I believe those experiences and skills can be readily transfered to
+ Twitter.
+\end_layout
+
+\begin_layout Itemize
+Personally
+\end_layout
+
+\begin_layout Subsection
+Why F, 
+\series bold
+Data Scientist, Analytics 
+\end_layout
+
+\begin_layout Enumerate
+PERSONAL: First, my girlfirend just found a job in San F, so I have to move
+ there.
+ 
+\end_layout
+
+\begin_layout Enumerate
+COMPANY: Secondly, F is such a cool and fast growing c, AND it must be super
+ interesting to work as a Data Scientist there, 
+\series bold
+BECAUSE
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+You have 
+\series bold
+huge
+\series default
+ amount 
+\series bold
+interesting data you can play once,
+\series default
+ 
+\end_layout
+
+\begin_layout Enumerate
+and the 
+\series bold
+problems
+\series default
+ we are trying to 
+\series bold
+solve
+\series default
+ there, like quantifying customers certain behavior or optimizing certain
+ products., optimizing the price, are 
+\series bold
+Challenging and Exciting
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+FIT: Also this role really fits me very well, 
+\series bold
+BECAUSE
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+It requires Data Science, a lot of programming, analytical mind and data
+ science knowledge which are exactly what I learned in school and what I'm
+ doing now.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Tracking and Reporting: Besides this, we have also done a lot tracking or
+ dashboard reportint on the key metrics of our portfolio.
+\end_layout
+
+\begin_layout Itemize
+Working with Finance, because a lot what we do is the Income Statement,
+ so we need to borrow a lot of accountin / finance assumptions from them.
+\end_layout
+
+\begin_layout Subsection
+Question to ask in F
+\end_layout
+
+\begin_layout Standard
+Is this interview for a apticular role or a more generic data scientist
+ role
+\end_layout
+
+\begin_layout Standard
+I heared about that after you join F, you didn't join a particular group,
+ first go to a training camp to really assess skills and interests, then
+ depend on your skills and interests, you will be assigned to certain Paticular
+ groups.
+ OR this is not the case for everyone.
 \end_layout
 
 \begin_layout Subsection
