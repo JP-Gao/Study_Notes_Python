@@ -202,6 +202,14 @@ All time series techniques can be used in Pannel data
 \end_layout
 
 \begin_layout Subsection
+Why use log on Quantities and Price
+\end_layout
+
+\begin_layout Standard
+To get the coefficeint as Elasticity.
+\end_layout
+
+\begin_layout Subsection
 Structural Form vs Reduced Form
 \end_layout
 
@@ -241,6 +249,10 @@ Another way to look at this is that structural models are generally deductive,
 
 \begin_layout Subsection
 Simultaneous Equations ??
+\end_layout
+
+\begin_layout Standard
+https://en.wikipedia.org/wiki/File:Supply_and_demand.png
 \end_layout
 
 \begin_layout Section
@@ -324,6 +336,57 @@ fixed effect
 \end_layout
 
 \begin_layout Subsection
+Example
+\end_layout
+
+\begin_layout Standard
+P429 Wooldridge
+\end_layout
+
+\begin_layout Standard
+As an example, suppose we wish to evaluate the effect of a Michigan job
+ training program on worker productivity of manufacturing firms (see also
+ Problem 9.8).
+ Let scrapit denote the scrap rate of firm i during year t (the number of
+ items, per 100, that must be scrapped due to defects -- this is the defective
+ rate / rejection rate).
+ Let grantit be a binary indicator equal to one if firm i in year t received
+ a job training grant.
+ For the years 1987 and 1988, the model is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+scrap_{it}=\beta_{0}+\delta_{0}y88_{t}+\beta_{1}grant_{it}+\alpha_{i}+\mu_{it},\mbox{ where }t=1,2
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $y88_{t}$
+\end_inset
+
+ is a dummy
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\begin_inset Formula $a_{i}$
+\end_inset
+
+is the unobserved firm effect or the firm fixed effect.
+\end_layout
+
+\begin_layout Subsection
 Estimate
 \end_layout
 
@@ -334,37 +397,11 @@ Remember that using fixed effects is the same as allowing a different intercept
 \end_layout
 
 \begin_layout Subsubsection*
-Method 1: First Differencing
-\end_layout
-
-\begin_layout Standard
-Wooldridge 12.4.
- 将虽有 
-\begin_inset Formula $y$
-\end_inset
-
- and 
-\begin_inset Formula $x$
-\end_inset
-
- 做 first differencing 成为
-\begin_inset Formula $\Delta$
-\end_inset
-
- 再作 regression.
- In this way, 
-\begin_inset Formula $a_{i}$
-\end_inset
-
- is deleted.
-\end_layout
-
-\begin_layout Standard
-Be careful with degree of freedom (see the Book)
+Method
 \end_layout
 
 \begin_layout Subsubsection*
-Method 2: Time De-meaning
+Method 1: Time De-meaning
 \end_layout
 
 \begin_layout Standard
@@ -398,12 +435,95 @@ Be careful with degree of freedom (see the Book) and serial correlation
 \end_layout
 
 \begin_layout Subsubsection*
-Method 3: Dummy Variables
+Method 2: Dummy Variables
 \end_layout
 
 \begin_layout Standard
 For each observation, add a specific dummy on it; that means each observation
  has its own intercept.
+\end_layout
+
+\begin_layout Standard
+the dummy variable regression has some interesting features.
+ Most importantly, it gives us exactly the same estimates of the "j that
+ we would obtain from the regression on time-demeaned data, and the standard
+ errors and other major statistics are identical.
+ Therefore, the fixed effects estimator can be obtained by the dummy variable
+ regression.
+ One benefit of the dummy variable regression is that it properly computes
+ the degrees of freedom directly.
+ This is a minor advantage now that many econometrics packages have programmed
+ fixed effects options.
+\end_layout
+
+\begin_layout Standard
+The R-squared from the dummy variable regression is usually rather high.
+ This is because we are including a dummy variable for each cross-sectional
+ unit, which explains much of the variation in the data.
+\end_layout
+
+\begin_layout Subsection
+First Differencing is Not the Same as Fixed Effect
+\end_layout
+
+\begin_layout Standard
+Wooldridge 12.4.
+ tkae all and and do first differencing for each company and thus you get
+ , then do regression.
+ In this way, is deleted.
+ 
+\end_layout
+
+\begin_layout Standard
+FD estimator will have the same value as FE, but slightly different efficiency.
+\end_layout
+
+\begin_layout Itemize
+When T = 2, the FE and FD estimates and all test statistics are identical,
+ and so it does not matter which we use.
+\end_layout
+
+\begin_layout Itemize
+When T = 3, the FE and FD estimators are not the same.
+ Since both are unbiased under Assumptions FE.1 through FE.4, we cannot use
+ unbiasedness as a criterion.
+ Further, both are consistent (with T fixed as 
+\begin_inset Formula $N\rightarrow\infty$
+\end_inset
+
+) under FE.1 through FE.4.
+ For large N and small T, the choice between FE and FD hinges on the relative
+ efficiency of the estimators, and this is determined by the serial correlation
+ in the idiosyncratic errors, uit.
+ (We will assume homoskedasticity of the uit, since efficiency comparisons
+ require homoskedastic errors.)
+\end_layout
+
+\begin_layout Itemize
+When the 
+\begin_inset Formula $u_{it}$
+\end_inset
+
+ are serially uncorrelated, fixed effects is more efficient than first differenc
+ing
+\end_layout
+
+\begin_layout Itemize
+It is difficult to choose between FE and FD when they give substantively
+ different results.
+ It makes sense to report both sets of results and to try to determine why
+ they differ.
+\end_layout
+
+\begin_layout Section
+Unbalanced Panels
+\end_layout
+
+\begin_layout Standard
+Method in Unbalanced Pnanels are Not so different.
+ But be really careful about why the panel data is unbalanced, to see if
+ there is an un-random reason.
+ 
 \end_layout
 
 \begin_layout Section
@@ -449,7 +569,20 @@ Random Effect model
  Random Effect model.
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Itemize
+In fact, the ideal random effects assumptions include all of the fixed effects
+ assumptions plus the additional requirement that 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ is independent of all explanatory variables in all time periods.
+\end_layout
+
+\begin_layout Itemize
+So RE bases on assumptions that are much more strict that FE's
+\end_layout
+
+\begin_layout Subsection
 Estimate: Quasi-Demean & Generalized Least Square
 \end_layout
 
@@ -476,7 +609,73 @@ Create a composite error term:
 \end_layout
 
 \begin_layout Standard
-See 书p454
+See Woodridge p454
+\end_layout
+
+\begin_layout Standard
+Deriving the GLS transformation that eliminates serial correlation in the
+ errors requires sophisticated matrix algebra [see, for example, Wooldridge
+ (1999) Chapter 10].
+ But the transformation itself is simple.
+ Define
+\begin_inset Formula 
+\[
+\lambda=1-[\frac{\sigma_{\mu}^{2}}{T\sigma_{a}^{2}+\sigma_{u}^{2}}]^{1/2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then, the transformed equation turns out to be
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{it}-\lambda\bar{y}_{i}=\beta_{0}(1-\lambda)+\beta_{1}(x_{it1}-\lambda\bar{x}_{i1})+...\beta_{k}(x_{itk}-\lambda\bar{x}_{ik})+(v_{it}-\lambda\bar{v}_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that 
+\end_layout
+
+\begin_layout Itemize
+The fixed effects estimator subtracts the time averages from the corresponding
+ variable.
+ 
+\end_layout
+
+\begin_layout Itemize
+The random effects transformation 
+\series bold
+subtracts a fraction of that time average
+\series default
+, where the fraction depends on 
+\begin_inset Formula $\sigma_{a}^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{u}^{2}$
+\end_inset
+
+ and and the number of time periods, T.
+ Also It is hardly obvious that the errors in (14.11) are serially
+\end_layout
+
+\begin_layout Itemize
+uncorrelated, but they are.
+\end_layout
+
+\begin_layout Subsection
+Example
 \end_layout
 
 \begin_layout Section
@@ -1606,7 +1805,35 @@ Do not do 2SLS by hand, use software package, as dealing with Statistical
  Inference is tedious (P481)
 \end_layout
 
-\begin_layout Section
+\begin_layout Standard
+Derivation: see P469 Wooldridge, formula see http://stats.stackexchange.com/questi
+ons/126313/standard-errors-of-a-two-stage-least-squares-regression-stata
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Var(\beta_{IV})=\sigma^{2}(X'P_{z}X)^{-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\sigma^{2}=(y-X\beta_{IV})'(y-X\beta_{IV})/(n-k_{ss})$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{z}=Z(Z'Z)Z'$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 IV in Economics
 \end_layout
 
@@ -1623,60 +1850,381 @@ IV in Economics
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $Demand\sim Price$
-\end_inset
-
-.
- We want to get the causality of 
-\begin_inset Formula $Price$
-\end_inset
-
- on 
-\begin_inset Formula $Demand$
-\end_inset
-
-, 
+Supply and Demand
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
-but cannot separate the reverse causality: more demand, then higher price
- --- If one unit change of price will drive 
-\begin_inset Formula $\beta$
-\end_inset
-
- unit of demand, the reverse may not true: one unit change of demand may
- not cause price to change by 
-\begin_inset Formula $1/\beta$
-\end_inset
-
-
+\begin_layout Section
+Identification Problem
 \end_layout
 
-\begin_layout Itemize
-So 
-\begin_inset Formula $Supply$
-\end_inset
-
-, correlated with price but does not directly effect quantity demanded,
- might be a good IV for Price
-\end_layout
-
-\begin_layout Itemize
-Like if it is agriculture good, the favorable growing conditions (essentially
- supply) is good IV
-\end_layout
-
-\end_deeper
 \begin_layout Subsection
-Elasticities of Supply and Demand for Flaxseed
+Non-Idneifiable Case
 \end_layout
 
 \begin_layout Standard
-A variable he used for the demand curve shifter was the price of substitute
- goods, such as cottonseed, while a variable he used for the supply curve
- shifter was yield per acre, which can be thought of as primarily determined
- by the weather.
+\begin_inset Formula $p$
+\end_inset
+
+,
+\begin_inset Formula $Q_{t}^{s}$
+\end_inset
+
+ and 
+\begin_inset Formula $Q_{t}^{d}$
+\end_inset
+
+ are all endogenous variables
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mbox{ln}Q_{t}^{s}(p,z)=\alpha^{s}+\beta^{s}\times\mbox{ln}p+\epsilon_{t}^{s}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mbox{ln}Q_{t}^{d}(p,z)=\alpha^{d}+\beta^{d}\times\mbox{ln}p+\epsilon_{t}^{d}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So under market Equilibrium
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(\mbox{ln}Q_{t}^{obs}|Z_{t}=z)=\frac{\beta^{s}\alpha^{d}-\beta^{d}\alpha^{s}}{\beta^{s}-\beta^{d}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(\mbox{ln}P_{t}^{obs}|Z_{t}=z)=\frac{\alpha^{d}-\alpha^{s}}{\beta^{s}-\beta^{d}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Which is NON-Identifiable by data + regression
+\end_layout
+
+\begin_layout Subsection
+Example & Intuition: Wiki -- can only indentify Supply in this case.
+\end_layout
+
+\begin_layout Standard
+https://en.wikipedia.org/wiki/Parameter_identification_problem#/media/File:Supply_
+and_demand.png
+\end_layout
+
+\begin_layout Itemize
+This example shows the intuition that why we can only indentify one curve
+ with IV for the other curve.
+\end_layout
+
+\begin_layout Itemize
+Using the consumer income change, which only affect demand, we can identify
+ supply curve
+\end_layout
+
+\begin_layout Standard
+With the quantities supplied and demanded being equal, the observations
+ on quantity and price are the three white points in the graph: they reveal
+ the supply curve.
+ 
+\end_layout
+
+\begin_layout Itemize
+Hence the effect of Z (may be the consumer income) on demand makes it possible
+ to identify the (positive) slope of the supply equation.
+ 
+\end_layout
+
+\begin_layout Itemize
+But The (negative) slope parameter of the demand equation cannot be identified
+ in this case.
+\end_layout
+
+\begin_layout Standard
+In other words, the parameters of an equation can be identified if it is
+ known that some variable does not enter into the equation, while it does
+ enter the other equation.
+\end_layout
+
+\begin_layout Subsection
+Example 2: Identify Demand 
+\end_layout
+
+\begin_layout Standard
+Ref: Instrumental Variables: An Econometrician’s Perspective IZA DP No.
+ 8048 March 2014 Guido W.
+ Imbens
+\end_layout
+
+\begin_layout Itemize
+To identify the demand function we look for determinants of the supply of
+ whiting that do not affect the demand for whiting, 
+\end_layout
+
+\begin_layout Itemize
+and, similarly, to identify the supply function we look for determinants
+ of the demand for whiting that do not affect the supply
+\end_layout
+
+\begin_layout Itemize
+If you want to itndeify both demand and supply, then you have to find IVs
+ for both 
+\end_layout
+
+\begin_layout Standard
+To idnetify demand curve of fish, we need a IV for sypply 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $Z_{t}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ that 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q_{t}^{d}(p)\perp Z_{t}\mbox{ and }Q_{t}^{d}(p)\mbox{ not }\perp Z_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+-- weather conditions at sea on the days prior to market t, as IV for supply,
+ thus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mbox{ln}Q_{t}^{s}(p,z)=\alpha^{s}+\beta^{s}\times\mbox{ln}p+\gamma^{s}\times z+\epsilon_{t}^{s}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mbox{ln}Q_{t}^{d}(p,z)=\alpha^{d}+\beta^{d}\times\mbox{ln}p+\epsilon_{t}^{d}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(function for 
+\begin_inset Formula $Q^{d}$
+\end_inset
+
+ didn't change).
+\end_layout
+
+\begin_layout Standard
+Solve it we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(\mbox{ln}Q_{t}^{obs}|Z_{t}=z)=\frac{\beta^{s}\alpha^{d}-\beta^{d}\alpha^{s}}{\beta^{s}-\beta^{d}}-\frac{\gamma^{s}\beta^{d}}{\beta^{s}-\beta^{d}}\times z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(\mbox{ln}P_{t}^{obs}|Z_{t}=z)=\frac{\alpha^{d}-\alpha^{s}}{\beta^{s}-\beta^{d}}-\frac{\gamma^{s}}{\beta^{s}-\beta^{d}}\times z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Example 3: Identify both
+\end_layout
+
+\begin_layout Standard
+First consider a model of the market for bread in which the supply of bread
+ depends upon the price of bread p and the price of flour f; i.e.,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q=a-bp-ef
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The demand for bread depends upon the price of bread p and the level of
+ consumer income I;
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q=-c+dp+gI
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+hese are the structural equations of the model.
+ There are six parameters in the structural form of the model.
+\end_layout
+
+\begin_layout Standard
+In the model price and quantity, p and Q, are endogenous; i.e., they are determine
+d within the model.
+ The price of flour f and consumer income I are exogenous variables.
+ They are determined outside of the model.
+\end_layout
+
+\begin_layout Standard
+The solution of the model for the endogenous variables gives 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p=(a+c)/(b+d)-[e/(b+d)]f+[g/(b+d)]I
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q=a-[b(a+c)/(b+d)]+[be/(b+d)]f-[bg/(b+d)]I
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus you can do regression to get 
+\end_layout
+
+\begin_layout Enumerate
+h0 = (a+c)/(b+d)
+\end_layout
+
+\begin_layout Enumerate
+h1 = - [e/(b+d)
+\end_layout
+
+\begin_layout Enumerate
+h2 = [g/(b+d)]
+\end_layout
+
+\begin_layout Enumerate
+h3 = a - [b(a+c)/(b+d)]
+\end_layout
+
+\begin_layout Enumerate
+h4 = [be/(b+d)]
+\end_layout
+
+\begin_layout Enumerate
+h5 = - [bg/(b+d)].
+ 
+\end_layout
+
+\begin_layout Standard
+From a knowledge of the values of the reduced form coefficients, the h's,
+ one can determine unique values for the structural parameters {a, b, c,
+ d, e, g}.
+ The model is then said to be exactly identified.
+ 
+\end_layout
+
+\begin_layout Subsection
+Over-Identification
+\end_layout
+
+\begin_layout Standard
+An over identified model is one in which there are more reduced form coefficient
+s than there are structural parameters.
+ This would mean that for arbitrarily given reduced form coeffients there
+ is no solution for the structural parameters.
+ If the model correctly describes the empirical market then not just any
+ values of the reduced form coefficients can arise.
+ The only reduced form coefficients that can arise are ones consistent with
+ a set of values of the structral parameters.
+ 
 \end_layout
 
 \begin_layout Section
@@ -1764,6 +2312,8 @@ Heteroskedasticity-Robust Statistics in OLS can also be applied here.
 
 \end_deeper
 \begin_layout Enumerate
+
+\series bold
 No serial correlation.
  
 \begin_inset Formula $corr(u_{t},u_{s})=0\mbox{ }\forall t\ne s$
@@ -1909,7 +2459,11 @@ Cause:
 \end_layout
 
 \begin_layout Itemize
-Inertia/Time to Adjust: This often occurs in macro time series data.
+
+\series bold
+Inertia/Time to Adjust
+\series default
+: This often occurs in macro time series data.
  The US interest rate unexpectedly increases and so there is an associated
  change in exchange rates with other countries.
  Reaching a new equilibrium could take some time.
@@ -1917,14 +2471,21 @@ Inertia/Time to Adjust: This often occurs in macro time series data.
 \end_layout
 
 \begin_layout Itemize
-Prolonged Influences This is again a time series issue dealing with economic
- shocks.
+
+\series bold
+Prolonged Influences
+\series default
+ This is again a time series issue dealing with economic shocks.
  
 \end_layout
 
 \begin_layout Itemize
-Data Smoothing/Manipulation Using functions to smooth data will bring autocorrel
-ation into the disturbance terms Misspecification 
+
+\series bold
+Data Smoothing/Manipulation
+\series default
+: using functions to smooth data will bring autocorrelation into the disturbance
+ terms Misspecification 
 \end_layout
 
 \begin_layout Description
@@ -1967,7 +2528,10 @@ Solve
 \end_layout
 
 \begin_layout Itemize
-You can solve the serial correlation by a more careful model specification
+You can solve the serial correlation by a more 
+\series bold
+careful model specification
+\series default
  (but not guaranteed you can find the correct variable or correct specification).
 \end_layout
 
@@ -2130,7 +2694,7 @@ from both sides, then the regression model can be written as
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\nabla y_{t}=(\rho-1)y_{t-1}+u_{t}=\delta y_{t-1}+u_{t}
+\nabla y_{t}=(\rho-1)y_{t-1}+u_{t}=\beta y_{t-1}+u_{t}
 \]
 
 \end_inset
@@ -2219,6 +2783,82 @@ If data is exponentially trending then you might need to take the log of
 
 \end_deeper
 \begin_layout Subsection
+Unit Root and Characteristic Equation
+\end_layout
+
+\begin_layout Standard
+Unit Roots and Characteristic Roots
+\end_layout
+
+\begin_layout Standard
+L.
+ Magee Winter, 2008
+\end_layout
+
+\begin_layout Standard
+One way to determine if an AR(p) process such as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{t}=\rho_{1}y_{t-1}+\rho_{2}y_{t-2}+\rho_{y}y_{t-p}+\epsilon_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then the characteristic equation is obtained by expressing the process in
+ lag polynomial notation: To get the characteristic equation, replace the
+ lag operator L by a variable (call it z), and set the resulting polynomial
+ equal to zero:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+1-\rho_{1}z-\rho_{2}z^{2}-...\rho_{p}z^{p}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The characteristic roots are the values of z that solve this equation.
+ There are p of them, although some of them may be equal.
+ 
+\end_layout
+
+\begin_layout Itemize
+Stationary: 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+ is stationary if all of the roots 
+\begin_inset Quotes eld
+\end_inset
+
+lie outside the unit circle".
+ This phrase refects the fact that some of these roots may be complex numbers.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For ARMA(p; q) processes, the MA(q) part is irrelevant for determining stationar
+ity, so the MA(q) part can be ignored as long as 
+\begin_inset Formula $q$
+\end_inset
+
+ is nite.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
 Empirical: I(1) In Model
 \end_layout
 
@@ -2235,19 +2875,31 @@ The basic rule is
 \end_layout
 
 \begin_layout Standard
-there are three variables that could be stationary or non-stationary: 
+There are three variables that could be stationary or non-stationary: 
 \end_layout
 
 \begin_layout Enumerate
-the dependent variable y, 
+the dependent variable 
+\begin_inset Formula $y$
+\end_inset
+
+, 
 \end_layout
 
 \begin_layout Enumerate
-the regressor x, 
+the regressor 
+\begin_inset Formula $x$
+\end_inset
+
+, 
 \end_layout
 
 \begin_layout Enumerate
-the disturbance term u.
+the disturbance term 
+\begin_inset Formula $u$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3327,6 +3979,8 @@ tails off
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 cut off >q
 \end_layout
 
@@ -3356,6 +4010,8 @@ PACF
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 cut off >p
 \end_layout
 
@@ -4781,7 +5437,7 @@ Uber Measruement
 \begin_layout Itemize
 
 \series bold
-price per mile
+Pric -- price per mile:
 \series default
  in surApp openings are a good representation of those who are in the market
  for Uber’s services and thus provide a nice measure of 
@@ -4798,13 +5454,24 @@ number of rides are just realized demand
 
 \end_deeper
 \begin_layout Itemize
-Measure the Causality: we cannot make the strong claim that surge pricing
- caused more driverpartners to be in the area.
+
+\series bold
+Measure the Causality:
+\series default
+ we cannot make the strong claim that surge pricing caused more driverpartners
+ to be in the area.
 \end_layout
 
 \begin_layout Itemize
-Completion rate – measure the marketing equilibrating, defined as the percentage
- of requested rides that end in a completed trip.
+
+\series bold
+Completion rate 
+\series default
+– 
+\series bold
+measure the marketing equilibrium
+\series default
+, defined as the percentage of requested rides that end in a completed trip.
 \end_layout
 
 \begin_deeper
@@ -4814,7 +5481,103 @@ Uber normally has completion rate = 1 for all time.
 
 \end_deeper
 \begin_layout Itemize
-Friction: waiting time -- time from request to ride
+
+\series bold
+Friction
+\series default
+: waiting time -- time from request to ride
+\end_layout
+
+\begin_layout Subsection
+Customer Behaviors
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Customers have long memories and are emotional: 
+\series default
+What economists often fail to understand is price creates an emotional response
+ within customers that affects their loyalty.
+\end_layout
+
+\begin_layout Subsection
+Pricing Elasticity Strategy
+\end_layout
+
+\begin_layout Standard
+“A marketer’s goal is to move his or her products from relatively elastic
+ to relatively inelastic,” she continues.
+ “We do that by creating something that is differentiated and meaningful
+ to customers.
+\end_layout
+
+\begin_layout Subsection
+vs Taxi
+\end_layout
+
+\begin_layout Itemize
+It is a substitute (a competitor), not a complement.
+ -- Look at how taxi rides has dropped after uber lunched
+\end_layout
+
+\begin_layout Itemize
+Uber also expland the market -- server the underserved market.
+\end_layout
+
+\begin_layout Subsection
+Medallions
+\end_layout
+
+\begin_layout Itemize
+Because the medallion system artificially restricts the number of cabs,
+ it has been criticized as an entry barrier to the New York City taxi market
+ which has in turn created a black market for illegal taxicab operation
+ in areas underserved by medallion cabs.[76] 
+\end_layout
+
+\begin_layout Itemize
+Because the cost of leasing a medallion is so high, the system may cut into
+ the income of drivers and raise costs to passengers.
+ 
+\end_layout
+
+\begin_layout Itemize
+On the other hand, some transportation analysts contend that cities with
+ no barriers to entry to the taxi market end up with an abundance of poorly
+ maintained taxis.
+ They say that a medallion system helps the city to better regulate taxis
+ and enables the city to raise the standards of all taxis.[77]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Can regulate taxi without barrier to entry
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Estimate Price Elasticity
+\end_layout
+
+\begin_layout Itemize
+you’d have to change your price multiple times to see what would happen
+ at each price point.
+ This is not what companies tend to do in practice.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Random variation from your optimal price strategy or champion strategy,so
+ you can collect data
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Rather, they send out questionnaires, run focus groups, or perform small-scale
+ experiments in certain markets, to give them a sense of what would happen
+ if they changed their price.
 \end_layout
 
 \begin_layout Subsection
@@ -4822,8 +5585,8 @@ Pricing to drive the supply
 \end_layout
 
 \begin_layout Itemize
-Sypply: the reality is that the times when people most want a ride are also
- the times when it’s most annoying and, often, most risky to drive.
+Syupply: the reality is that the times when people most want a ride are
+ also the times when it’s most annoying and, often, most risky to drive.
  Rush hour, New Year’s Eve, 2 a.m.
  on a Saturday night, snowstorms: generally speaking, these are exactly
  the times when a driver doesn’t want to be on the road.
@@ -4847,6 +5610,11 @@ Another factor that impacts driver supply is substitute opportunities.
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+Even without the help of algorithms, cab drivers know to converge on a venue
+ as an event finishes;
+\end_layout
+
 \begin_layout Itemize
 Demand: its dynamic pricing policy to be used solely when demand is materially
  outstripping supply, so I think it will not hurt demand so much.
