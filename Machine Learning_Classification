@@ -90,13 +90,12 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 16419249 "v660271" 
 \end_header
 
 \begin_body
 
 \begin_layout Title
-Machine Learning_Classification: MAIN 6/20/2016
+Machine Learning_Classification: MAIN 7/21/2016
 \end_layout
 
 \begin_layout Author
@@ -262,6 +261,61 @@ Design choice, to make the problem as GLM: make
 \end_layout
 
 \begin_layout Subsection
+Logit vs Logistic
+\end_layout
+
+\begin_layout Itemize
+Logit Function of any ratio 
+\begin_inset Formula $p$
+\end_inset
+
+ between 0 - 1:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+logit(p)=\mbox{log}(\frac{p}{1-p})=\mbox{log}odds
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If you have proportion data 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ , you can assume the underlying distribution is eseentially counting data
+ which is Possion, then you can use logit-transformation then use OLS.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Logistic Function of any number 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\mbox{logistic(\alpha)}=\mbox{logit^{-1}}(\alpha)=\frac{1}{1+exp(-\alpha)}=\frac{exp(\alpha)}{exp(\alpha)+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Logistic Regression
 \end_layout
 
@@ -405,11 +459,7 @@ If
 \begin_inset Formula $\beta=\%\Delta odds=\Delta log(Odds)$
 \end_inset
 
-
-\change_inserted 16419249 1468260577
 : change of log odds
-\change_unchanged
-
 \end_layout
 
 \begin_layout Enumerate
@@ -565,6 +615,26 @@ where
 
 \end_layout
 
+\begin_layout Standard
+Or from minimize Loss perspectinve, here the loss function is Negative Logit
+\end_layout
+
+\begin_layout Standard
+we min 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+-L(\beta) & = & -\sum_{i}^{N}\mbox{log}P(y_{i}|\beta)\\
+ & = & -\sum\mathbf{logit}(y_{i}x'\beta)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 L1 Regularized Logistic Regression
 \end_layout
@@ -650,8 +720,8 @@ Independence of Irrelevant Alternatives (IIA), which is not always desirable.
 \end_layout
 
 \begin_layout Itemize
-This assumption states that the odds of preferring one class over anotherdo
- not depend on the presence or absence of other “irrelevant” alternatives.
+This assumption states that the odds of preferring one class over another
+ do not depend on the presence or absence of other “irrelevant” alternatives.
  For example, the relative probabilities of taking a car or bus to workdo
  not change if a bicycle is added as an additional possibility.
 \end_layout
@@ -676,12 +746,8 @@ Algorithm: Softmax Regression
 
 \begin_layout Standard
 See
-\change_inserted 16419249 1468261107
-
 \emph on
- 
-\change_unchanged
-Elements of Statistical Learning Section 4.4:
+ Elements of Statistical Learning Section 4.4:
 \end_layout
 
 \begin_layout Standard
@@ -892,7 +958,7 @@ Asymptotic likelihood theory says that if the model is correct, then
 \end_layout
 
 \begin_layout Subsection
-asymptotics
+Asymptotics
 \end_layout
 
 \begin_layout Standard
@@ -960,7 +1026,7 @@ Easier to interpret, and has a nice graphical representation.
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ../../Desktop/Lyx_Picture/tree.png
+	filename Lyx_Picture/tree.png
 
 \end_inset
 
@@ -973,7 +1039,7 @@ Box plot of the tree
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ../../Desktop/Lyx_Picture/tree_box.png
+	filename Lyx_Picture/tree_box.png
 
 \end_inset
 
@@ -1221,7 +1287,7 @@ Impurity Measure for a single Node
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ../../Desktop/Lyx_Picture/Gini_impurity.png
+	filename Gini_impurity.png
 	lyxscale 80
 	scale 80
 
@@ -1491,13 +1557,9 @@ Finally after you get feature_importances[i] for each
 
 \begin_layout Itemize
 You can choose the impurity method you want.
-\change_inserted 16419249 1468261544
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 16419249 1468261646
 So bascially Variable Importance 
 \begin_inset Formula $i$
 \end_inset
@@ -1509,8 +1571,6 @@ So bascially Variable Importance
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Section
@@ -1518,13 +1578,7 @@ Tree Pruning
 \end_layout
 
 \begin_layout Standard
-Therefore, 
-\change_deleted 16419249 1468261664
-a better 
-\change_inserted 16419249 1468261665
-ONE 
-\change_unchanged
-strategy is to grow a very large tree
+Therefore, ONE strategy is to grow a very large tree
 \begin_inset Formula $T_{0}$
 \end_inset
 
@@ -1750,12 +1804,6 @@ infor_{X}(T)=\sum_{i=1}^{N}\frac{|T_{i}|}{|T|}\times Entropy(T_{i})
 
 \end_inset
 
-
-\change_deleted 16419249 1468261893
-
-\end_layout
-
-\begin_layout Standard
 information that is gained by partitioning T in accordance with the test
  X:
 \end_layout
@@ -2087,15 +2135,9 @@ all of which are examined
 \series default
 .
  (It might seem expensive to examine all 
-\change_deleted 16419249 1468262129
-m - 1
-\change_inserted 16419249 1468262129
-
 \begin_inset Formula $m-1$
 \end_inset
 
-
-\change_unchanged
  such thresholds, but, when the cases have been s~rted as above, this can
  be carried out in one pass, updating the class distributions to the left
  and right of the threshold on the fly.)
@@ -2132,13 +2174,7 @@ If replacement of this subtree with a leaf, or with its most frequently
 
 \end_deeper
 \begin_layout Enumerate
-In addition, 
-\change_deleted 16419249 1468262195
-0
-\change_inserted 16419249 1468262195
-C
-\change_unchanged
-4.5 allows replacement of a subtree by one of its branches.
+In addition, C4.5 allows replacement of a subtree by one of its branches.
 \end_layout
 
 \begin_layout Standard
@@ -2455,10 +2491,7 @@ Random forests provide an improvement over bagged trees by way of a small
 
 \begin_layout Standard
 But in the collection of bagged trees, most or all of the trees will use
-\change_inserted 16419249 1468262439
- 
-\change_unchanged
-this strong predictor in the top split.
+ this strong predictor in the top split.
  Consequently, all of the bagged trees will look quite similar to each other.Unfo
 rtunately, averaging many highly correlated quantities does not leadto as
  large of a reduction in variance as averaging many uncorrelated quanti-ties.
@@ -2572,19 +2605,11 @@ For each observation
 \end_inset
 
 , construct its random forest predictor by averaging only those trees correspond
-ing to bootstrap samples in which
-\change_inserted 16419249 1468262506
- 
-\change_unchanged
-
+ing to bootstrap samples in which 
 \begin_inset Formula $z_{i}$
 \end_inset
 
-
-\change_inserted 16419249 1468262504
- 
-\change_unchanged
-did not appear.
+ did not appear.
 \end_layout
 
 \begin_layout Itemize
@@ -2706,11 +2731,7 @@ means you randomly re-order all the
 \begin_inset Formula $N$
 \end_inset
 
-
-\change_inserted 16419249 1468262686
  
-\change_unchanged
-
 \begin_inset Formula $X_{j,i}$
 \end_inset
 
@@ -2735,11 +2756,7 @@ permutation accuracy importance
 \begin_inset Formula $X_{j}$
 \end_inset
 
- by some permutation
-\change_inserted 16419249 1468262820
- 
-\change_unchanged
-
+ by some permutation 
 \begin_inset Formula $\psi_{j}$
 \end_inset
 
@@ -3048,11 +3065,7 @@ Discriminative
 Generative
 \series default
  learning algorithm: Here, we’ll talk about algorithms that instead try
- to model
-\change_inserted 16419249 1468262977
- 
-\change_unchanged
-
+ to model 
 \begin_inset Formula $p(x|y)$
 \end_inset
 
@@ -3444,13 +3457,7 @@ Naive Bayes models are a variant of the previous case, and assume that each
 \series default
 Gaussian
 \series bold
-) Discriminant 
-\change_deleted 16419249 1468263641
-f
-\change_inserted 16419249 1468263641
-F
-\change_unchanged
-unction: Compare posterior: to Forecast/ draw Decision Boundary
+) Discriminant Function: Compare posterior: to Forecast/ draw Decision Boundary
 \end_layout
 
 \begin_layout Standard
@@ -3556,15 +3563,7 @@ Under the multivariate Gaussian assumption, log of the
 \begin_inset Formula $P(Y=k|X)$
 \end_inset
 
-
-\change_inserted 16419249 1468263688
- 
-\change_unchanged
-is a linear function of
-\change_inserted 16419249 1468263691
- 
-\change_unchanged
-
+ is a linear function of 
 \begin_inset Formula $X$
 \end_inset
 
@@ -3612,11 +3611,7 @@ reference "eq:discriminant_function"
 \uwave default
 \noun default
 \color inherit
- Linear Discriminant Analysis
-\change_inserted 16419249 1468263703
-.
-\change_unchanged
-
+ Linear Discriminant Analysis.
 \end_layout
 
 \begin_layout Standard
@@ -3805,75 +3800,6 @@ where Σ is the pooled covariance matrix as used in LDA.
  
 \end_layout
 
-\begin_layout Subsection
-
-\change_deleted 16419249 1468264068
-Limitation of this method & Compared with Logit
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 16419249 1468264068
-I f
-\begin_inset Formula $x|y\sim Normal\rightarrow p(y=1|x)\in Logistic$
-\end_inset
-
- but inverse is not
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\change_deleted 16419249 1468264068
-For example, if 
-\begin_inset Formula $x|y\sim Poission$
-\end_inset
-
- we can still get 
-\begin_inset Formula $p(y=1|x)\in Logistic$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-
-\change_deleted 16419249 1468264068
-Assuming 
-\begin_inset Formula $x$
-\end_inset
-
- follows a specific distribution is a strong assumption, that means you
- add you own information (belief in Normalality of data) into modeling.
- Thus you need smaller dataset to fit than Logistic regression.
- It works very well when 
-\begin_inset Formula $x$
-\end_inset
-
- really follows your assumed distribution.
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 16419249 1468264068
-
-\series bold
-Logistic regression makes no assumption on 
-\begin_inset Formula $x$
-\end_inset
-
-, more loose, more robust, but need more data to fit.
- GDA specifies that 
-\begin_inset Formula $x\sim Gaussian$
-\end_inset
-
-, so more restrictive.
- 
-\change_unchanged
-
-\end_layout
-
 \begin_layout Section
 Naive Bayes (with Bernoulli as single word probablity)
 \end_layout
@@ -3944,10 +3870,7 @@ To model
 This assumption is called the
 \series bold
  Naive Bayes (NB) assumption: given we know the email is spam or not, the
-\change_inserted 16419249 1468264306
- 
-\change_unchanged
-probability of each word’ appearance is independent with each other.
+ probability of each word’ appearance is independent with each other.
 \end_layout
 
 \end_deeper
@@ -4083,13 +4006,7 @@ For new email
 \begin_inset Formula $i$
 \end_inset
 
-, 
-\change_deleted 16419249 1468264968
-C
-\change_inserted 16419249 1468264968
-c
-\change_unchanged
-ompare 
+, compare 
 \begin_inset Formula 
 \[
 \phi_{y_{i}}P(x^{i}|y^{i}=1)
@@ -5409,8 +5326,9 @@ Likelihood is
 \begin_inset Formula 
 \begin{eqnarray*}
 L(\phi,\mu,\Sigma) & = & \sum_{i}^{N}\mbox{log}P(x^{i}|\phi,\mu,\Sigma)\\
+ & = & \sum_{i}^{N}\mbox{log}\sum_{z^{i}=1}^{K}P(x^{i}z^{i}|\mu_{z^{i}},\Sigma_{z^{i}})\\
  & = & \sum_{i}^{N}\mbox{log}\sum_{z^{i}=1}^{K}P(x^{i}|z^{i},\mu_{z^{i}},\Sigma_{z^{i}})P(z^{i}|\phi)\mbox{ (rewrite using latent label)}\\
- & = & \sum_{i}^{N}\mbox{log}\sum_{z^{i}=1}^{K}P(x^{i}z^{i}|\mu_{z^{i}},\Sigma_{z^{i}})
+ & \ge & \sum_{i}^{N}\sum_{z^{i}=1}^{K}P(z^{i}|\phi)\mbox{log}P(x^{i}|z^{i},\mu_{z^{i}},\Sigma_{z^{i}})
 \end{eqnarray*}
 
 \end_inset
@@ -5605,16 +5523,16 @@ Note that
 \begin_inset Formula $\sum$
 \end_inset
 
- 
-\change_inserted 16419249 1468266275
-for 
+ for 
 \begin_inset Formula $P(x^{i}|z^{i}=j)$
 \end_inset
 
- 
-\change_unchanged
-through 
-\begin_inset Formula $max_{\theta,\mu,\sum}l(\theta,\mu,\sum)=\prod_{j}\prod_{i}P(x^{i}|z^{i}=j)\times P(z^{i}=j)$
+ through 
+\begin_inset Formula 
+\[
+max_{\theta,\mu,\sum}L(\theta,\mu,\sum)=\prod_{j}\prod_{i}P(x^{i}|z^{i}=j)\times P(z^{i}=j)
+\]
+
 \end_inset
 
 
@@ -5822,20 +5740,14 @@ logL(d^{i}|\Theta) & = & \sum_{j}^{M}\mbox{log}P(d^{i}|\Theta)\\
 \end_inset
 
 
-\change_inserted 16419249 1468267081
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 16419249 1468267117
 Here inside each document, 
 \begin_inset Formula $P(d^{i}|z^{i}\Theta)$
 \end_inset
 
  is made up by multiplication of P for each word, based on Naive Bayes.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Paragraph
@@ -6091,11 +6003,11 @@ Mixture Gaussin is applicable when sample size
 .
 
 \series bold
- Factor Analysis Model can be used when
+ Factor Analysis Model can be used when 
 \begin_inset Formula $m$
 \end_inset
 
- is near
+ is near 
 \begin_inset Formula $n$
 \end_inset
 
@@ -6153,7 +6065,7 @@ Parameters of this model is
 \begin_inset Formula $\lambda$
 \end_inset
 
-nad
+ and 
 \begin_inset Formula $\Psi$
 \end_inset
 
@@ -6696,7 +6608,7 @@ Dimentions
 
 \begin_deeper
 \begin_layout Itemize
-for single observation
+for single observation 
 \begin_inset Formula $x_{i}=p\times1$
 \end_inset
 
@@ -7170,7 +7082,7 @@ The first linear principal component of a set of data.
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ../../Desktop/Lyx_Picture/PCA_variance.png
+	filename Lyx_Picture/PCA_variance.png
 	lyxscale 70
 	scale 70
 
@@ -7775,7 +7687,7 @@ Update
 \end_layout
 
 \begin_layout Itemize
-Go back to step 1.
+Go back to step 1 to re-estimate the spline.
  Stop with 
 \begin_inset Formula $\sum||\lambda_{i}^{'}-\lambda_{i}^{''}||^{2}$
 \end_inset
@@ -9350,7 +9262,7 @@ Mirco
  is an unknown square matrix called the mixing matrix: 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 \begin_inset Formula 
 \[
 x_{j}^{i}=\sum_{k}A_{jk}S_{k}^{i}
@@ -9361,7 +9273,6 @@ x_{j}^{i}=\sum_{k}A_{jk}S_{k}^{i}
 
 \end_layout
 
-\begin_deeper
 \begin_layout Standard
 \begin_inset Formula 
 \[
@@ -9373,9 +9284,8 @@ X=AS
 
 \end_layout
 
-\end_deeper
 \begin_layout Itemize
-Training set is
+Training set is 
 \begin_inset Formula ${x^{1}…x^{n}}$
 \end_inset
 
@@ -9391,7 +9301,7 @@ Goal
 \end_layout
 
 \begin_layout Itemize
-Find
+Find 
 \begin_inset Formula $W=A^{-1}$
 \end_inset
 
@@ -9436,7 +9346,7 @@ You can find the index of speaker
 \end_layout
 
 \begin_layout Itemize
-You can find the sign (+, -) of
+You can find the sign (+, -) of 
 \begin_inset Formula $x_{j}^{i}$
 \end_inset
 
@@ -10195,6 +10105,12 @@ an
 , 
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+each singular value represent the weight of topics/concepts
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 and a 
 \begin_inset Formula $n$
@@ -10268,97 +10184,314 @@ The SVD is then truncated to reduce the rank by keeping only the largest
  as:
 \end_layout
 
-\begin_layout Standard
-Accordingly, it is conventional to omit the rightmost M − r columns of 
-\begin_inset Formula $T$
-\end_inset
+\begin_layout Subsection
+35.4 Explanation
+\end_layout
 
- corresponding to these omitted rows of S; likewise the rightmost N − r
- columns of 
-\begin_inset Formula $D$
-\end_inset
+\begin_layout Subsection
+• Weight of term i
+\end_layout
 
- are omitted since they correspond in 
-\begin_inset Formula $D^{T}$
-\end_inset
+\begin_layout Subsection
+in doc j
+\end_layout
 
- to the rows that will be multiplied by the N − r columns of zeros in S.
+\begin_layout Subsection
+is expressed as a “linear combination of term-concept and doc-concept weights”
+\end_layout
+
+\begin_layout Subsection
+C_{ij}=
+\backslash
+sum_{c}^{r}t_{i,c}
+\backslash
+lambda_{c}d_{j,c}
+\end_layout
+
+\begin_layout Subsection
+• CC^{T}=TS^{2}T^{2}
+\end_layout
+
+\begin_layout Subsection
+is the term-term similarity matrix, and the columns of T are the eigenvectors
+ of such matrix.
+\end_layout
+
+\begin_layout Subsection
+• DD^{T}=TS^{2}T^{2}
+\end_layout
+
+\begin_layout Subsection
+document-document similarity matrix, and the columns of D are the eigenvectors
+ of such matrix.
+\end_layout
+
+\begin_layout Subsection
+35.5 Low Dimention Approximation
+\end_layout
+
+\begin_layout Subsection
+It turns out that when you select the k
+\end_layout
+
+\begin_layout Subsection
+largest singular values, and their corresponding singular vectors fromU
+\end_layout
+
+\begin_layout Subsection
+and V, you get the rank k
+\end_layout
+
+\begin_layout Subsection
+approximation to {
+\backslash
+displaystyle X} X with the smallest error (Frobenius norm).
+ This approximation has a minimal error.
+ But more importantly we can now treat the term and document vectors as
+ a "semantic space".
+ The row "term" vector 
+\backslash
+hat{
+\backslash
+textbf{t}}_{i}^{T}
+\end_layout
+
+\begin_layout Subsection
+then has k
+\end_layout
+
+\begin_layout Subsection
+entries mapping it to a lower-dimensional space dimensions.
+ These new dimensions do not relate to any comprehensible concepts.
+ They are a lower-dimensional approximation of the higher-dimensional space.
+ Likewise, the "document" vector {
+\backslash
+displaystyle 
+\backslash
+hat{
+\backslash
+textbf{d}}_{j}}
+\end_layout
+
+\begin_layout Subsection
+is an approximation in this lower-dimensional space.
+ We write this approximation as
+\end_layout
+
+\begin_layout Subsection
+C_{k}=T_{k}S_{k}D_{k}^{T}
+\end_layout
+
+\begin_layout Subsection
+Accordingly, it is conventional to omit the rightmost M − r columns of T
+\end_layout
+
+\begin_layout Subsection
+corresponding to these omitted rows of S; likewise the rightmost N − r columns
+ of D
+\end_layout
+
+\begin_layout Subsection
+are omitted since they correspond in D^{T}
+\end_layout
+
+\begin_layout Subsection
+to the rows that will be multiplied by the N − r columns of zeros in S.
  This written form of the SVD is sometimes known as the reduced SVD or truncated
  SVD
 \end_layout
 
-\begin_layout Standard
-\begin_inset Formula 
-\[
+\begin_layout Subsection
 C_{k}=T_{k}S_{k}D_{k}^{T}
-\]
-
-\end_inset
-
-
 \end_layout
 
-\begin_layout Standard
-Efficient LSI algorithms only compute the first 
-\begin_inset Formula $k$
-\end_inset
+\begin_layout Subsection
+Efficient LSI algorithms only compute the first k
+\end_layout
 
- singular values and term and document vectors as opposed to computing a
+\begin_layout Subsection
+singular values and term and document vectors as opposed to computing a
  full SVD and then truncating it.
 \end_layout
 
 \begin_layout Subsection
-Queries
+Namely, the terms are represented by the row vectors of the m × k matrix
 \end_layout
 
-\begin_layout Standard
-the user query 
-\begin_inset Formula $q$
-\end_inset
-
- can be represented by
+\begin_layout Subsection
+S_{k}
+\backslash
+Sigma_{k}
 \end_layout
 
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\hat{q}=q^{T}T_{t\times k}S_{k\times k}^{-1}
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $q$
-\end_inset
-
- is simply the vector of words in the users query, 
-\begin_inset Formula $t$
-\end_inset
-
- is the length of this query..
+\begin_layout Subsection
+, Note that S_{k}
 \end_layout
 
-\begin_layout Itemize
-\begin_inset Formula $T_{t\times k}$
-\end_inset
-
- term weights./ or mapping to concepts with terms weights
+\begin_layout Subsection
+is the real mapping from t
 \end_layout
 
-\begin_layout Itemize
-\begin_inset Formula $S_{k\times k}^{-1}$
-\end_inset
-
- concept weights.
+\begin_layout Subsection
+to k
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
+, 
+\backslash
+Sigma_{k}
+\end_layout
+
+\begin_layout Subsection
+is just a scalling factors.
+\end_layout
+
+\begin_layout Subsection
+whereas the documents by the column vectors the k × n matrix
+\end_layout
+
+\begin_layout Subsection
+
+\backslash
+Sigma_{k}U_{k}^{T}
+\end_layout
+
+\begin_layout Subsection
+Then the query is represented by the centroid of the vectors for its terms.
+\end_layout
+
+\begin_layout Subsection
+35.6 Queries
+\end_layout
+
+\begin_layout Subsection
+the user query q
+\end_layout
+
+\begin_layout Subsection
+can be represented by at the k
+\end_layout
+
+\begin_layout Subsection
+dimention world:
+\end_layout
+
+\begin_layout Subsection
+
+\backslash
+hat{q}^{T}=q^{T}T_{t
+\backslash
+times k}S_{k
+\backslash
+times k}^{-1}
+\end_layout
+
+\begin_layout Subsection
+where q
+\end_layout
+
+\begin_layout Subsection
+is simply the vector of words in the users query, t
+\end_layout
+
+\begin_layout Subsection
+is the length of this query..
+\end_layout
+
+\begin_layout Subsection
+• q^{T}=1
+\backslash
+times t
+\end_layout
+
+\begin_layout Subsection
+• 
+\backslash
+hat{q}^{T}=1
+\backslash
+times k
+\end_layout
+
+\begin_layout Subsection
+• T_{t
+\backslash
+times k}
+\end_layout
+
+\begin_layout Subsection
+term weights./ or mapping to concepts with terms weights
+\end_layout
+
+\begin_layout Subsection
+• S_{k
+\backslash
+times k}^{-1}
+\end_layout
+
+\begin_layout Subsection
+concept weights.
+ Use S_{k
+\backslash
+times k}^{-1}
+\end_layout
+
+\begin_layout Subsection
+to scale the query q
+\end_layout
+
+\begin_layout Subsection
+as the same scale as the unitary matrix T_{t
+\backslash
+times k}
+\end_layout
+
+\begin_layout Subsection
+.
+ But first you need to insure query q
+\end_layout
+
+\begin_layout Subsection
+and term-document C
+\end_layout
+
+\begin_layout Subsection
+both use the standard tf-idf weighting schedual, so that they can use the
+ same scaling factor S_{k
+\backslash
+times k}
+\end_layout
+
+\begin_layout Subsection
 The query vector can then be compared to all existing document vectors,
  and the documents ranked by their similarity (nearness) to the query.
  One common measure of similarity is the cosine between the query vector
  and document vector.
  Typically, the z closest documents or all documents exceeding some cosine
  threshold are returned to the user
+\end_layout
+
+\begin_layout Subsection
+35.7 Difference between PCA and LSI
+\end_layout
+
+\begin_layout Subsection
+One difference I noted was that PCA can only give you either the term-term
+ or Document-Document similarity (depending on how you multiplied the coreferenc
+e matrix AA∗AA∗ or A∗AA∗A) but SVD/LSA can deliver both since you have eigenvect
+ors of both AA∗AA∗ and A∗AA∗A.
+ Actually I don't see a reason to use PCA ever over SVD.
+\end_layout
+
+\begin_layout Subsection
+One difference I noted was that PCA can only give you either the term-term
+ or Document-Document similarity (depending on how you multiplied the coreferenc
+e matrix AA∗AA∗ or A∗AA∗A) but SVD/LSA can deliver both since you have eigenvect
+ors of both AA∗AA∗ and A∗AA∗A.
+ Actually I don't see a reason to use PCA ever over SVD.
+\end_layout
+
+\begin_layout Subsection
+36 Non-Negative Matrix Factorization in Clustering News
 \end_layout
 
 \begin_layout Section
