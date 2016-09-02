@@ -147,26 +147,6 @@ http://open.163.com/movie/2010/11/7/3/M6V0BQC4M_M6V29E773.html?recomend=2
 http://open.163.com/movie/2013/3/T/0/M8PTB0GHI_M8PTBUHT0.html 数学之旅 王维克
 \end_layout
 
-\begin_layout Section
-IDEAS
-\end_layout
-
-\begin_layout Standard
-Know how to apply them into real problems:
-\end_layout
-
-\begin_layout Itemize
-a/b test
-\end_layout
-
-\begin_layout Itemize
-cluster
-\end_layout
-
-\begin_layout Itemize
-recommendation
-\end_layout
-
 \begin_layout Part
 Algebra
 \end_layout
@@ -248,9 +228,7 @@ May miss certain key conditions, which require you to ask to the interviewer.
 
 \begin_layout Itemize
 All questions in infinite site/stages without memory cyou an be solved in
- an 
-\series bold
-Recursive Way
+ an Recursive Way
 \end_layout
 
 \begin_layout Itemize
@@ -297,6 +275,12 @@ Choice 问题的大体思路
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+
+\series bold
+two part 的输赢问题可以用p 和 1-p。
+\end_layout
+
 \begin_layout Standard
 REFERENCE https://www.probabilitycourse.com/chapter2/2_1_2_ordered_without_replace
 ment.php
@@ -592,15 +576,7 @@ Unordered
 If you choose a bunch of unqiue stuff in one time and the order inside them
  didn't matter, then also use 
 \series bold
-Unordered, or using the ordered way but divided 
-\begin_inset Formula $Y!$
-\end_inset
-
- where 
-\begin_inset Formula $Y$
-\end_inset
-
- is the sample size.
+Unordered
 \end_layout
 
 \begin_layout Itemize
@@ -828,8 +804,10 @@ I choose 3 cards from the standard deck of cards.
 
 \begin_deeper
 \begin_layout Itemize
+
+\series bold
 If you choose a bunch of unqiue stuff in one time and the order inside them
- didn't matter, then also use Unordered.
+ didn't matter, then also use Unordered
 \end_layout
 
 \end_deeper
@@ -876,7 +854,7 @@ An urn consists of 30 red balls and 70 green balls.
 
 \end_deeper
 \begin_layout Enumerate
-What is the probability of 5 people wi th different ages sitting in ascending
+What is the probability of 5 people with different ages sitting in ascending
  or descending order at a round table.
 \end_layout
 
@@ -889,9 +867,9 @@ Unique in denomenator!
 \begin_layout Enumerate
 
 \series bold
-HARD:
+HARD
 \series default
- We toss a fair coin n times.
+: We toss a fair coin n times.
  A k-streak of flips is said to occur starting at toss i, if the outcome
  of all the k flips starting from i th flip is the same.
  For example, for the sequence HTTTHH, there is a 2-streak occurring at
@@ -903,11 +881,7 @@ HARD:
 \end_layout
 
 \begin_layout Enumerate
-
-\series bold
-HARD:
-\series default
- You flip a coin 10 times.
+You flip a coin 10 times.
  What is the probability of only three heads occurring? What is the probability
  of three heads occurring in a row (which means all others are T)? (Actual
  interview question, J.P.
@@ -928,7 +902,7 @@ A casino offers a simple card game.
  You pick up a card from the deck and the dealer picks another one without
  replacement.
  If you have a larger number, you win; if the numbers are equal or yours
- is smaller, the house win as in all other casinos, the house always has
+ is smaller, th~ house win as in all other casinos, the house always has
  better odds of winning.
  What is your probability of winning?
 \end_layout
@@ -1034,10 +1008,8 @@ Total tosses = n.
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $C_{8}^{1}/2^{10}$
-\end_inset
-
-
+8/210.
+ ????
 \end_layout
 
 \begin_layout Enumerate
@@ -1056,44 +1028,17 @@ choose(52,1) * choose(48,1) /2 / choose(52,2) *0.5 OR choose(13,2)*4*4/ choose(5
 \end_layout
 
 \begin_layout Enumerate
-Hands with a four-of·a -kiod: 13x48 =624 (choose(13,1) * choose(12,1) *
- 4 ) Hands wit~ a Full House: 13x 4x 12x6= 3, 744.
+Hands with a four-of·a -kiod: 13x48 =624.
+ Hands wit~ a Full House: 13x 4x 12x6= 3, 744.
  Hands with Two Pairs· 78x6x6x44 = 123,552.
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
-分步问题每一步都是unqiue的，不必除以
-\begin_inset Formula $Y!$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $C_{13}^{1}48$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $C_{13}^{2}C_{4}^{3}C_{4}^{2}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $C_{13}^{2}C_{4}^{2}C_{4}^{2}\times44$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
 \begin_layout Subsection
-组内顺序不重要则除以factorial(group size)
+
+\series bold
+HARD
+\series default
+: 组内顺序不重要则除以factorial(group size)
 \end_layout
 
 \begin_layout Itemize
@@ -1108,13 +1053,16 @@ Hands with a four-of·a -kiod: 13x48 =624 (choose(13,1) * choose(12,1) *
 \end_layout
 
 \begin_layout Itemize
-N = 52!/13!/13!13!/13! OR choose(52,13) * choose(39,13) * choose(26,13)
- 
+N = 52!/13!/13!13!/13!
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-What is the probability that each of them get an Ace
+
+\series bold
+HARD
+\series default
+: What is the probability that each of them get an Ace
 \end_layout
 
 \begin_deeper
@@ -1122,13 +1070,9 @@ What is the probability that each of them get an Ace
 4! * 48! / 12! / 12! / 12! / 12! / N
 \end_layout
 
-\begin_layout Itemize
-OR: factorial(4) * lchoose(48,12) * choose(36,12) * choose(24,12) 
-\end_layout
-
 \end_deeper
 \begin_layout Subsection
-Inclusion–exclusion principle
+Inclusion–exclusion principle 
 \end_layout
 
 \begin_layout Itemize
@@ -1168,9 +1112,11 @@ both of them are correct, without considering the correctness of other elements.
 \begin_deeper
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\biggl|\bigcup_{{i=1}}^{n}A_{i}\biggr|=\sum_{{i=1}}^{n}\left|A_{i}\right|-\sum_{1\leq i<j\leq n}\left|A_{i}\cap A_{j}\right|+\sum_{{1\leq i<j<k\leq n}}\left|A_{i}\cap A_{j}\cap A_{k}\right|-\ldots+\left(-1\right)^{{n-1}}\left|A_{1}\cap\cdots\cap A_{n}\right|.
-\]
+\begin{eqnarray*}
+\biggl|\bigcup_{{i=1}}^{n}A_{i}\biggr| & = & \sum_{{i=1}}^{n}\left|A_{i}\right|-\sum_{1\leq i<j\leq n}\left|A_{i}\cap A_{j}\right|\\
+ &  & +\sum_{{1\leq i<j<k\leq n}}\left|A_{i}\cap A_{j}\cap A_{k}\right|-\ldots\\
+ &  & +\left(-1\right)^{{n-1}}\left|A_{1}\cap\cdots\cap A_{n}\right|
+\end{eqnarray*}
 
 \end_inset
 
@@ -1209,28 +1155,16 @@ If
  happens.
 \end_layout
 
-\begin_layout Itemize
-\begin_inset Formula $\left|A_{i}\cap A_{j}\right|$
-\end_inset
-
- means 
-\begin_inset Formula $i$
-\end_inset
-
- and 
-\begin_inset Formula $j$
-\end_inset
-
- happen, the others we don't care at all.
- so no need to worry other events.
-\end_layout
-
 \begin_layout Standard
 Q
 \end_layout
 
 \begin_layout Itemize
-You're sending job applications to 5 firms: Morgan Stanley, Lehman Brothers,
+
+\series bold
+HARD
+\series default
+:You're sending job applications to 5 firms: Morgan Stanley, Lehman Brothers,
  UBS.
  Goldman Sachs.
  and Merrill Lynch.
@@ -1239,7 +1173,7 @@ You're sending job applications to 5 firms: Morgan Stanley, Lehman Brothers,
  You even have 5 cover letters personalized to each of these firms.
  Your 3-year-old tried to be helpful and stuffed each cover letter into
  each of the envelopes for you.
- Lnfortunately she randomly put letters into envelopes without realizing
+ Unfortunately she randomly put letters into envelopes without realizing
  that the letters are personalized.
  What is the probability that all 5 cover letters are mailed to the wrong
  firms?
@@ -1276,7 +1210,7 @@ status open
 
 \end_deeper
 \begin_layout Subsection
-Russian Roulette 
+Hard: Russian Roulette 
 \end_layout
 
 \begin_layout Itemize
@@ -1289,32 +1223,41 @@ everytime you spin, it will go to any random chamber
 
 \begin_layout Standard
 Russian roulette series Let's play a traditional version of Russian roulette.
- A single bullet is put into a 6- chamber revolver.
- The barrel is randomly spWl so that each chamber is eq ually likely to
+ A single bullet is put into a 6-chamber revolver.
+ The barrel is randomly spun so that each chamber is eq ually likely to
  be under the hammer.
  Two players take turns to pull the trigger- with the gun unfortunately
- pointing at one's oWid1ead - without further spinnin~; until the gun goes
- off and the _e_er~9!:!_ who gets killed loses.
- If you, one"'fllle playt'rs, cnn cnoosc to go-first orsecond, .how wili
- you-choose-? And what is your probability of loss?
+ pointing at one's own head - without further spinning; until the gun goes
+ off and the person who gets killed loses.
+ If you can choose to go-first or second, .how wiill you-choose-? And what
+ is your probability of loss?
 \end_layout
 
 \begin_layout Itemize
 Solution: Many people have the wrong impression that the first person has
- higher probabi lity of loss.
- After all, the first player has a J/6 chance of getting killed in the first
- ~ound before the second player starts.
- Unfortunately, this is one of the few times that Intu ition is wrong.
+ higher probability of loss.
+ After all, the first player has a 1/6 chance of getting killed in the first
+ round before the second player starts.
+ Unfortunately, this is one of the few times that Intuition is wrong.
  Once the barrel is spun, the position of the bullet is fixed.
- If you go first, you lose if and only if the bullet is in chamber I, J
+ If you go first, you lose if and only if the bullet is in chamber 1, 3
  and 5.
- So the probability that you lose is the same as the second player, 112.
+ So the probability that you lose is the same as the second player, 1/2.
  In that sense, whether to go first or second does not matter.
 \end_layout
 
+\begin_layout Itemize
+Idea: if the bullet is in 1,3,5, then person 1 lost, if at 2,4,6 then person
+ 2 lost.
+\end_layout
+
 \begin_layout Standard
+
+\series bold
+two part 的输赢问题可以用p 和 1-p。
+\series default
 Now, Jet's change the rule slightly.
- We ·w ill spin the barrel again after every trigger pull.
+ We will spin the barrel again after every trigger pull.
  Will you choose to be the first or the second player? And what is your
  probabjlity of loss?
 \end_layout
@@ -1323,18 +1266,27 @@ Now, Jet's change the rule slightly.
 Solution: The difference is that each run now becomes independent.
  Assume that the first player's probability of losing is p.
  then the second player's probabili ty of losing is 1- p.
- Let's condition the probabil ity on the first person's fir~t trigger pull.
- He has 1/6 pr:oba bility of losing in this run.
+ Let's condition the probability on the first person's first trigger pull.
+ He has 1/6 probability of losing in this run.
  Otherwise, he essentially becomes the second player in the game with new
- (conditional) probabili ty of losing I- p.
+ (conditional) probability of losing I- p.
  That happens with probability 5/6.
- That gives us p = tx116+(l-p)xS/6 ~ p= 6111.
- So you should choose to be the second player and have 5/ I 1 probability
+ That gives us 
+\begin_inset Formula 
+\[
+p=1/6+(l-p)\times5/6
+\]
+
+\end_inset
+
+ p= 6111.
+ So you should choose to be the second player and have 5/ 11 probability
  of losing.
 \end_layout
 
 \begin_layout Standard
-lf instead of one bullet, two bullets are ~al}domly put in t~ chan1~r.
+lf instead of one bullet, two bullets are put into chammerr (not necessarily
+ continues).
  Your opponent played the first and he was alive a1ler the first trigger
  pull.
  You are given the option whether to spin the barrel.
@@ -1344,9 +1296,9 @@ lf instead of one bullet, two bullets are ~al}domly put in t~ chan1~r.
 \begin_layout Itemize
 Solution: if you spin the barrel, the probability that you will lose in
  this round is 2/6.
- If y~u don't spin th_e_ barrel, there are only 5 chambers left and your
- probability of losing Ln th1s round (cond1t10ned on that your opponent
- survived) is 2/5.
+ If ypu don't spin the barrel, there are only 5 chambers left and your probabili
+ty of losingin the first (conditinal on that your opponent survived) is
+ 2/5.
  So you should spin the barrel.
 \end_layout
 
@@ -1358,14 +1310,12 @@ What if the two bullets are randomly put in two consecutive positions? If
 \begin_layout Itemize
 Solution: Now ~e have _to condition our probability on the fact that the
  position!> of the two bullets are consecutive.
- As shown in Figure 4.3, let's label the empty chambers as I, 2.
- 3 and 4; lab~l the o~e_s with bullets 5 and 6.
+ As shown in Figure 4.3, let's label the empty chambers as 1, 2.
+ 3 and 4; labl the ones with bullets 5 and 6.
  Since your opponent survived the first ro~md, the possible pos1t~on he
  encountered is I, 2, 3 or 4 wi th equal probability.
- With 11~_ch~?ce.
- ~he next ?ne IS a _bullet (the position was 4).
- So if you don't spin, the chance ~It s~l~vJva! J~ 3/4.
- It you spm ~he barrel, each position has equal probability of being c lOsul,
+ So if you don't spin, the chance of survival.
+ It you spin the barrel, each position has equal probability of being chosen,
  and your chance of survtval is only 2/3.
  So you should not spin the barrel.
 \end_layout
@@ -1375,9 +1325,17 @@ Q: Binomial
 \end_layout
 
 \begin_layout Itemize
-经典的硬币fairness假设检验：For now, go back to the coin tossing experiment where
+
+\series bold
+IMPORTANT
+\series default
+: 经典的硬币fairness假设检验：For now, go back to the coin tossing experiment where
  the null hypothesis is that the coin is fair (p=0.5) and the alternative
- hypothesis is that the coin is biased in favor of heads (p>0.5).
+ hypothesis is that the coin is biased in favor of heads (
+\begin_inset Formula $p>0.5$
+\end_inset
+
+).
  Suppose the coin is tossed 10 times and 8 heads are observed.
  Since the alternative hypothesis is p>0.5, more extreme values are numbers
  of heads closer to 10.
@@ -1393,7 +1351,11 @@ Q: Binomial
 \end_layout
 
 \begin_layout Itemize
-The probability of a success for a player is 
+
+\series bold
+IMPORTANT
+\series default
+: The probability of a success for a player is 
 \begin_inset Formula $p$
 \end_inset
 
@@ -1453,168 +1415,6 @@ Case 1: If you replace Let m be the number picked, then probability of choosing
 
 \begin_layout Itemize
 Case 2: Step Solve! 列示子即可
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Sum of Binomial Variables
-\end_layout
-
-\begin_layout Itemize
-Let X1 and X2 be independent binomial random variables where Xi has a Binomial(n
-i, p) distribution for i = 1, 2.
- Then X1 +X2 has a binomial distribution with n1+n2 trials and probability
- of success p
-\end_layout
-
-\begin_layout Subsection
-On average, how many times must a 6-sided die be rolled until a 6 turns
- up?
-\end_layout
-
-\begin_layout Standard
-When rolling a die, there is a 1/6 chance that a 6 will appear.
- If a 6 doesn’t appear, then we’re in essence starting over.
- That is to say, the number of times we expect to throw the die before a
- 6 shows up is the same as the number of additional times we expect to throw
- the die after throwing a non-6.
- So we have a 1/6 chance of rolling a 6 (and stopping), and a 5/6 chance
- of not rolling a six, after which the number of rolls we expect to throw
- is the same as when we started.
- We can formulate this as
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-E=\frac{1}{6}+\frac{5}{6}(E+1)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-E=6
-\end_layout
-
-\begin_layout Section
-Q: Baysian
-\end_layout
-
-\begin_layout Itemize
-There are 2 companies making electronic chips: good and bad.
- Good company is making good chips with probability 80 % and defective chips
- with probability 20 %, and bad company is making good chips with probability
- 20 % and defective chips with probability 80 %.
- 
-\end_layout
-
-\begin_layout Itemize
-You get two chips from the same company, and the probability that it is
- coming from either of companies is the same.
- First chip in the pack is good, what is the probability that the other
- one is also good chip?
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-此处如果你列式 P(B/A) = P(A/B)*P(B) / P(A) 则无法解开了，因为 you know P(B/A) = P(A/B),
- 所以需要列式子 P(B/A) = P(AB) / P(A) 
-\end_layout
-
-\begin_layout Itemize
-68% is correct but the solution is not.
- The correct solution is: A - first chip is good; B - second chip is good.
- What we have to find is a conditional probability p(B/A) which is p(B/A)=
- p(AB) / p(A).
- Let's designate: p1 - is probability to get a good chip from the first
- vendor.
- p2 - is probability to get a good chip from the second vendor.
- p(AB) = 0.5*p1*p1 + 0.5*p2*p2, p(A) = 0.5*p1 + 0.5*p2 So p(B/A) = (p1*p1 +
- p2*p2)/(p1 + p2).
-\end_layout
-
-\begin_layout Itemize
-Example: p1 = 0.8; p2 = 0.2 p(B/A)=0.68
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-You are given 1000 coin.
- 1 coint has heads on both sides.
- The other 999 coin tnormal coins.
- You random pick one and toss 10 times and get 10 heads.
- What is the probability that you get an unfair coin.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-1/1000 / (1/1000 + 999/1000*0.5^10)
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-You are taking out candies one by one from a jar that has 10 red candies,
- 20 blue candies, and 30 green candies in it.
- What is the probability that in the end at least I blue candy and l green
- candy lefi in the jar when you have taken out all the red candies
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-XINFENG ZHOU P40
-\end_layout
-
-\begin_layout Itemize
-Let 
-\begin_inset Formula $T_{r}$
-\end_inset
-
- be the order number of last red ball is taken out, similarly for 
-\begin_inset Formula $T_{h}$
-\end_inset
-
- for blue and 
-\begin_inset Formula $T_{g}$
-\end_inset
-
- for green.
- This is a Bayesian problem, not combination problem.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $P(T_{g}=60)=30/60$
-\end_inset
-
- (Position chooses elements: there are 60 elements to choose.
- there are 30 of them are green, then 
-\begin_inset Formula $P(T_{g}=60)=30/60$
-\end_inset
-
-).
- Then given 
-\begin_inset Formula $T_{g}=60$
-\end_inset
-
- or 
-\begin_inset Formula $60th=g$
-\end_inset
-
-, among the 30 red and blue candies each candy again equally likely to be
- the last candy, then the blue becomes the last candy is 20/30.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula 
-\[
-P(T_{r}<T_{h}\cap T_{r}<T_{g})=P(T_{r}<T_{h}<T_{g})+P(T_{r}<T_{g}<T_{h})=\frac{30}{60}\times\frac{20}{30}+\frac{20}{60}\times\frac{30}{40}=\frac{7}{12}
-\]
-
-\end_inset
-
-
 \end_layout
 
 \end_deeper
@@ -1691,6 +1491,215 @@ P(H3|C3,X1) & =0
 
 \end_layout
 
+\end_deeper
+\begin_layout Itemize
+What are the probabilities of getting hands with four·of-a-kind (four of
+ the five cards with the same value)? Hands with a full house (three cards
+ of one value and two cards of another value)? Hands with two pairs?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+分步问题每一步都是unqiue的，不必除以
+\begin_inset Formula $Y!$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{13}^{1}48$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{13}^{2}C_{4}^{3}C_{4}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{13}^{2}C_{4}^{2}C_{4}^{2}\times44$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Sum of Binomial Variables
+\end_layout
+
+\begin_layout Itemize
+Let X1 and X2 be independent binomial random variables where Xi has a Binomial(n
+i, p) distribution for i = 1, 2.
+ Then X1 +X2 has a binomial distribution with n1+n2 trials and probability
+ of success p
+\end_layout
+
+\begin_layout Subsection
+On average, how many times must a 6-sided die be rolled until a 6 turns
+ up?
+\end_layout
+
+\begin_layout Standard
+When rolling a die, there is a 1/6 chance that a 6 will appear.
+ If a 6 doesn’t appear, then we’re in essence starting over.
+ That is to say, the number of times we expect to throw the die before a
+ 6 shows up is the same as the number of additional times we expect to throw
+ the die after throwing a non-6.
+ So we have a 1/6 chance of rolling a 6 (and stopping), and a 5/6 chance
+ of not rolling a six, after which the number of rolls we expect to throw
+ is the same as when we started.
+ We can formulate this as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E=\frac{1}{6}+\frac{5}{6}(E+1)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+E=6
+\end_layout
+
+\begin_layout Section
+Q: Baysian
+\end_layout
+
+\begin_layout Itemize
+There are 2 companies making electronic chips: good and bad.
+ Good company is making good chips with probability 80 % and defective chips
+ with probability 20 %, and bad company is making good chips with probability
+ 20 % and defective chips with probability 80 %.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+IMPORT
+\series default
+: You get two chips from the same company, and the probability that it is
+ coming from either of companies is the same.
+ First chip in the pack is good, what is the probability that the other
+ one is also good chip?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+此处如果你列式 P(B/A) = P(A/B)*P(B) / P(A) 则无法解开了，因为 you know P(B/A) = P(A/B),
+ 所以需要列式子 P(B/A) = P(AB) / P(A) 
+\end_layout
+
+\begin_layout Itemize
+I didn't answer this one correctly, but the interviewer helped me.
+ So, if we know that probability to get good chip from good company is 0.8
+ and from bad company is 0.2, and first chip in the pack is good, it translates
+ to the probability of the second chip to be good 0.8*0.8=0.64 (if pack came
+ from the good company), and 0.2*0.2=0.04 (if pack came from the bad company).
+ And total probability that the second chip in the pack is good is a sum
+ of both probabilities: 0.8*0.8 + 0.2*0.2 = 0.64+0.04 = 0.68 , or 68%.
+\end_layout
+
+\begin_layout Itemize
+68% is correct but the solution is not.
+ The correct solution is: A - first chip is good; B - second chip is good.
+ What we have to find is a conditional probability p(B/A) which is p(B/A)=
+ p(AB) / p(A).
+ Let's designate: p1 - is probability to get a good chip from the first
+ vendor.
+ p2 - is probability to get a good chip from the second vendor.
+ p(AB) = 0.5*p1*p1 + 0.5*p2*p2, p(A) = 0.5*p1 + 0.5*p2 So p(B/A) = (p1*p1 +
+ p2*p2)/(p1 + p2).
+\end_layout
+
+\begin_layout Itemize
+Example: p1 = 0.8; p2 = 0.2 p(B/A)=0.68
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+You are given 1000 coin.
+ 1 coint has heads on both sides.
+ The other 999 coin tnormal coins.
+ You random pick one and toss 10 times and get 10 heads.
+ What is the probability that you get an unfair coin.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+1/1000 / (1/1000 + 999/1000*0.5^10)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+HARD
+\series default
+: You are taking out candies one by one from a jar that has 10 red candies,
+ 20 blue candies, and 30 green candies in it.
+ What is the probability that there are at least 1 blue candy and l green
+ candy left in the jar when you have taken out all the red candies
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+XINFENG ZHOU P40
+\end_layout
+
+\begin_layout Itemize
+This is a Bayesian problem, not combination problem.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+P(T_{r}<T_{h}\cap T_{r}<T_{g})=P(T_{r}<T_{g}<T_{h})+P(T_{r}<T_{h}<T_{g})=\frac{30}{60}\times\frac{20}{30}+\frac{20}{60}\times\frac{30}{40}=\frac{7}{12}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P(T_{r}<T_{g}<T_{h})=\frac{30}{60}\times\frac{20}{30}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+blue is last one, as there are 30 blue balls and 60 balls in totla, so the
+ probability is 
+\begin_inset Formula $\frac{30}{60}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+then the last ball before blue has to be green, there are 20 green balls
+ within 30 non-blue balls, so the porbability of choose green is 
+\begin_inset Formula $\frac{20}{30}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Section
 Geometric (replacement)
@@ -1900,7 +1909,7 @@ Draw without Replacement
 \end_layout
 
 \begin_layout Section
-Insert Probelm
+Hard:Insert Probelm
 \end_layout
 
 \begin_layout Standard
@@ -1928,7 +1937,7 @@ The total number of cards that need to be turned over in order to see the
 \begin_layout Standard
 \begin_inset Formula 
 \[
-E(X)=1+\sum_{i=1}^{48}E(X_{i})
+E(X)=1+\sum_{i=1}^{48}(X_{i})
 \]
 
 \end_inset
@@ -2126,7 +2135,11 @@ Q
 \end_layout
 
 \begin_layout Itemize
-The number of insurance claims arriving electronically in a small insurance
+
+\series bold
+IMPORT
+\series default
+: The number of insurance claims arriving electronically in a small insurance
  office has been modelled as a Poisson Process with rate 5 per hour.
  Given that the last claim arrived 15 seconds ago, what is the mean time
  from now until the next claim arrives?
@@ -2225,7 +2238,11 @@ Also
 
 \end_deeper
 \begin_layout Itemize
-People line up at a bus station according to a Poisson distribution with
+
+\series bold
+HARD
+\series default
+: People line up at a bus station according to a Poisson distribution with
  5 people / minute.
  The next bus will arrive some time in the next 2 minutes, with "some time"
  being a uniform distribution.
@@ -2262,7 +2279,7 @@ Use Wald Theory
 
 \begin_layout Itemize
 According to Wald Thery 
-\begin_inset Formula $E\left[\sum(X_{i}|i)\right]=E(i)E(X_{1})=1\times5=5$
+\begin_inset Formula $E\left[\sum(X_{i}|i)\right]=E(i)E(X_{1})=\frac{1}{2}\times10=5$
 \end_inset
 
 
@@ -2486,7 +2503,11 @@ The key is to fins a SYMETRICALL SOUTION.
 
 \end_deeper
 \begin_layout Itemize
-In a movie theater.
+
+\series bold
+HARD
+\series default
+: In a movie theater.
  a whimsical manager announced that the 
 \series bold
 first
@@ -2519,23 +2540,13 @@ assume you are at the position
 You should be the 20th person in line.
 \end_layout
 
-\begin_layout Itemize
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \end_deeper
 \begin_layout Itemize
-A stick is cut twice randomly.
+
+\series bold
+HARD
+\series default
+: A stick is cut twice randomly.
  What is the probability that the 3 segments can form a tranagle.
 \end_layout
 
@@ -2568,8 +2579,12 @@ Solve it you get 1/4
 
 \end_deeper
 \begin_layout Itemize
-There are N distinct types of coupons in cereal boxes and each type, independent
- of prior selections, is equally likely to be in a box.B.
+
+\series bold
+HARD
+\series default
+: There are N distinct types of coupons in cereal boxes and each type, independe
+nt of prior selections, is equally likely to be in a box.B.
  If the child has collected n coupons, what is the expected number of distinct
  coupon types- (Xinfeng Zhou p50)
 \end_layout
@@ -2643,12 +2658,16 @@ Simplification & Recursive
 \end_layout
 
 \begin_layout Standard
+
+\series bold
 The case to recursive question is to break down the question to each of
  small step, and the unsolved part of that step will become question of
  next simplier step.
 \end_layout
 
 \begin_layout Standard
+
+\series bold
 Think from a generic middle time 
 \begin_inset Formula $n$
 \end_inset
@@ -2696,7 +2715,7 @@ In case this over-simplified version of reasoning is not clear to you, consider
  designated seat # 1 and each new "drunk" guy has equal probability of taking
  #I or # 100.
  Since at all jump points there's an equal probability for the "drunk" guy
- to choose seat #I or 100, by symmetry, the probability that you, as the
+ to choose seat #1 or 100, by symmetry, the probability that you, as the
  1 OOth passenger, will seat in# IOO is 0.5.
 \end_layout
 
@@ -2822,8 +2841,6 @@ Two players A and B, an 'alternattvely toss a fair com, (A tosses the coin
 
 \begin_layout Itemize
 要想对称的情况！
-\series bold
-A's win is B's lost.
 \end_layout
 
 \begin_layout Itemize
@@ -3279,7 +3296,7 @@ Big O notation
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Lyx_Picture/big_O.png
+	filename ../AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/SCGIBQJU/Lyx_Picture/big_O.png
 	scale 70
 
 \end_inset
@@ -3780,19 +3797,89 @@ Basics
 \end_layout
 
 \begin_layout Subsection
-Sample Variance vs.
- Variance of Sample Mean
-\end_layout
-
-\begin_layout Standard
-Variance of Sample Mean in the following form is a biased but consistent
- estimate of variance of population mean.
+P-value, significance level
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-SE_{\bar{x}}=\frac{s}{\sqrt{n-1}}
+T=\frac{\bar{O}_{B}-\bar{O}_{A}}{\hat{\sigma}_{d}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+p-value
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+It's the probability of a result of that magnitude 
+\begin_inset Formula $T$
+\end_inset
+
+ or larger occurring, given that the null hypothesis is true.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If you reject the NULL, then probabiltiy that you are wrong (type 1 error)
+ is 
+\begin_inset Formula $p$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+significance level
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Threshold for the 
+\begin_inset Formula $p$
+\end_inset
+
+ value.
+ traditionally 5% or 1%, and denoted as 
+\begin_inset Formula $α$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Confidence Interval
+\end_layout
+
+\begin_layout Standard
+Given the test 
+\begin_inset Formula $T=\frac{\bar{O}_{B}-\bar{O}_{A}}{\hat{\sigma}_{d}}$
+\end_inset
+
+, CI of 
+\begin_inset Formula $T$
+\end_inset
+
+ is the range of possible true/population value of 
+\begin_inset Formula $T$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+CILimits=T±1.96\times\tilde{σ}_{d}
 \]
 
 \end_inset
@@ -3801,21 +3888,159 @@ SE_{\bar{x}}=\frac{s}{\sqrt{n-1}}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $s$
+Connect to Hypothethis Testing: If the 
+\begin_inset Formula $T|H_{0}=0$
 \end_inset
 
- is the sample standard deviation (i.e., the sample-based estimate of the
- standard deviation of the 
+ is also in this range, that means you cannot reject it.
+\end_layout
+
+\begin_layout Subsection
+Sample Variance vs.
+ Variance of Sample Mean
+\end_layout
+
+\begin_layout Itemize
+
 \series bold
-population
+Population Variance 
 \series default
- (just population, not population mean)): 
-\begin_inset Formula $s_{N}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_{i}-\overline{x})^{2}}$
+(just population, not population mean)): 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\sigma^{2}=Var(X)=\frac{1}{n}\sum_{i=1}^{n}\left(y_{i}-\overline{y}\right)^{2}
+\]
+
 \end_inset
 
 
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+or
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\sigma=\frac{\sqrt{\sum_{i=1}^{n}\left(y_{i}-\overline{y}\right)^{2}}}{\sqrt[]{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Sample Variance
+\series default
+ (i.e., the sample-based estimate of the standard deviation of the population
+ (just population, not population mean)): 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\displaystyle s^{2}=\frac{n}{n-1}\sigma_{y}^{2}=\frac{1}{n-1}\sum_{i=1}^{n}\left(y_{i}-\overline{y}\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Variance of Poulation Mean
+\series default
+ in the following form is a 
+\series bold
+biased but consistent
+\series default
+ estimate of variance of population mean.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+Var\left(\overline{X}\right)=Var\left(\frac{1}{n}\sum_{i=1}^{n}X_{i}\right)=\frac{\sigma^{2}}{n}=\frac{\sum_{i=1}^{n}\left(y_{i}-\overline{y}\right)^{2}}{n^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+sd(\bar{X})=\sigma/\sqrt{n}=\frac{\sqrt{\sum_{i=1}^{n}\left(y_{i}-\overline{y}\right)^{2}}}{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+where 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ is the population variance
+\end_layout
+
+\begin_layout Itemize
+For sample mean variance, then replace 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ by 
+\begin_inset Formula $s^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\mbox{sd}(\mbox{sample mean})=\frac{\sqrt{\sum_{i=1}^{n}\left(y_{i}-\overline{y}\right)^{2}}}{\sqrt{n\times(n-1)}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Note that the when 
+\begin_inset Formula $n\rightarrow\infty$
+\end_inset
+
+, 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+sample variance will converge to population variance 
+\end_layout
+
+\begin_layout Itemize
+sample mean variance will converge to 0.
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Formula $n$
 \end_inset
@@ -3923,7 +4148,7 @@ power of a test
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename Lyx_Picture/Type_of_Error.png
+	filename ../AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/SCGIBQJU/Lyx_Picture/Type_of_Error.png
 	scale 40
 	rotateOrigin center
 
@@ -4253,7 +4478,7 @@ Magnitude of effect (effect size): the standardized difference between
 Sample size.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Wald Theory
 \end_layout
 
@@ -4303,154 +4528,6 @@ Roll a six-sided die.
 \end_layout
 
 \begin_layout Section
-Inclusion–exclusion principle
-\end_layout
-
-\begin_layout Itemize
-The this rule states that it is hard to calculate 
-\begin_inset Quotes eld
-\end_inset
-
-within N events, at least one of them correctt
-\begin_inset Quotes erd
-\end_inset
-
-, but it relatively easy to calculate 
-\begin_inset Quotes eld
-\end_inset
-
-both of them are correct, without considering the correctness of other elements.
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $|A\cup B|=|A|+|B|-|A\cap B|$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $|A\cup B\cup C|=|A|+|B|+|C|-|A\cap B|-|A\cap C|-|B\cap C|+|A\cap B\cap C|$
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\biggl|\bigcup_{{i=1}}^{n}A_{i}\biggr|=\sum_{{i=1}}^{n}\left|A_{i}\right|-\sum_{1\leq i<j\leq n}\left|A_{i}\cap A_{j}\right|+\sum_{{1\leq i<j<k\leq n}}\left|A_{i}\cap A_{j}\cap A_{k}\right|-\ldots+\left(-1\right)^{{n-1}}\left|A_{1}\cap\cdots\cap A_{n}\right|.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-start from iniEnd at 
-\begin_inset Formula $n-1$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-If 
-\begin_inset Formula $A_{i}$
-\end_inset
-
- means the 
-\begin_inset Formula $A_{i}$
-\end_inset
-
- card is in its correct position.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $\biggl|\bigcup_{{i=1}}^{n}A_{i}\biggr|$
-\end_inset
-
- means at least one of 
-\begin_inset Formula $A_{i}$
-\end_inset
-
- happens.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $\left|A_{i}\cap A_{j}\right|$
-\end_inset
-
- means 
-\begin_inset Formula $i$
-\end_inset
-
- and 
-\begin_inset Formula $j$
-\end_inset
-
- happen, the others we don't care at all.
- so no need to worry other events.
-\end_layout
-
-\begin_layout Standard
-Q
-\end_layout
-
-\begin_layout Itemize
-You're sending job applications to 5 firms: Morgan Stanley, Lehman Brothers,
- UBS.
- Goldman Sachs.
- and Merrill Lynch.
- You have 5 envelopes on the table neatly typed with names and addresses
- of people at these 5 finns.
- You even have 5 cover letters personalized to each of these firms.
- Your 3-year-old tried to be helpful and stuffed each cover letter into
- each of the envelopes for you.
- Lnfortunately she randomly put letters into envelopes without realizing
- that the letters are personalized.
- What is the probability that all 5 cover letters are mailed to the wrong
- firms?
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-11/30 (p36 XINFENG ZHOU)
-\end_layout
-
-\begin_layout Itemize
-1-
-\begin_inset Formula $\biggl|\bigcup_{{i=1}}^{n}A_{i}\biggr|=1-\left(\sum\frac{1}{5}-C_{5}^{2}\frac{1}{5}\frac{1}{4}+C_{5}^{3}\frac{1}{5}\frac{1}{4}\frac{1}{3}-C_{5}^{4}\frac{1}{5!}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-1 - (1 - choose(5,2) / 20 + choose(5,3)/60 -   5 /factorial(5) + 1/factorial(5))
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Section
 Measure of statistical dispersion
 \end_layout
 
@@ -4461,7 +4538,7 @@ Gini Coefficient
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename Lyx_Picture/Gini_coefficient.svg
+	filename ../AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/SCGIBQJU/Lyx_Picture/Gini_coefficient.svg
 	scale 80
 
 \end_inset
@@ -4572,7 +4649,7 @@ tex_Convex Optimization_Cambridge_Boyd_Vandenberghe
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Lyx_Picture/Convex_Set.png
+	filename ../AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/SCGIBQJU/Lyx_Picture/Convex_Set.png
 	scale 50
 
 \end_inset
@@ -4797,7 +4874,7 @@ A function is strictly convex if and only if the second derivative is positive
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename Lyx_Picture/Convex_Function.png
+	filename ../AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/SCGIBQJU/Lyx_Picture/Convex_Function.png
 
 \end_inset
 
@@ -4913,7 +4990,7 @@ That means the first-order Taylor approximation in the left is alwasy a
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Lyx_Picture/Convex_Function_First_Order_Condition.png
+	filename ../AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/SCGIBQJU/Lyx_Picture/Convex_Function_First_Order_Condition.png
 	scale 40
 
 \end_inset
@@ -5072,7 +5149,7 @@ Lagrange Multiplier 的公式不是正推出来的，而是凑巧凑出来的。
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename Lyx_Picture/Lagrange.png
+	filename ../AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/SCGIBQJU/Lyx_Picture/Lagrange.png
 
 \end_inset
 
@@ -6764,7 +6841,7 @@ Effect of applying various 2D affine transformation matrices on a unit square.
 \end_deeper
 \begin_layout Itemize
 \begin_inset Graphics
-	filename Lyx_Picture/2D affine transformation matrix.jpg
+	filename ../AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/SCGIBQJU/Lyx_Picture/2D affine transformation matrix.jpg
 	lyxscale 30
 	scale 30
 
@@ -9503,7 +9580,7 @@ For the transformation
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Lyx_Picture/Singular-Value-Decomposition.png
+	filename ../AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/SCGIBQJU/Lyx_Picture/Singular-Value-Decomposition.png
 
 \end_inset
 
@@ -9657,9 +9734,8 @@ Positive Definite
 \end_layout
 
 \begin_layout Standard
-In linear algebra, a symmetric n × n real matrix M {
-\backslash
-displaystyle M} is said to be positive definite if the scalar 
+In linear algebra, a symmetric n × n real matrix M is said to be positive
+ definite if the scalar 
 \begin_inset Formula ${\displaystyle z^{\mathrm{T}}Mz}$
 \end_inset
 
