@@ -1463,6 +1463,18 @@ McDowell, Gayle Laakmann; Bavaro, Jackie.
 I: Pricing Questions
 \end_layout
 
+\begin_layout Section
+Design Email
+\end_layout
+
+\begin_layout Standard
+A little design exercise we’ve developed over time is to assume someone
+ will only read a subject line, the first headline in the email, and the
+ call-to-action (the biggest visual anchors).
+ If everything else was removed, would it still make sense? That’s the north
+ star we aim for when designing an effective email.
+\end_layout
+
 \begin_layout Part
 Ad Basis
 \end_layout
@@ -1699,7 +1711,7 @@ Engagement or action taken: whether to share a product
 \end_layout
 
 \begin_layout Enumerate
-Visitors with past conversions versus no conversions
+Visitors with past sesson
 \end_layout
 
 \begin_deeper
@@ -1906,6 +1918,14 @@ r change by comparing the behavior of users who have a feature to those
  While it is an incredibly useful tool, it can also be misapplied.
  For example, rolling out a new chat feature to only a small percentage
  of users might give you misleading data about usage patterns.
+\end_layout
+
+\begin_layout Subsection
+Impressions
+\end_layout
+
+\begin_layout Standard
+When a user spend 200 millisecond or more on a ad, then it is one impression.
 \end_layout
 
 \begin_layout Subsection
@@ -2676,6 +2696,125 @@ For some websites robots are thought to provide up to half the pageviews
  to escape detections and filtering (Tan and Kumar 2002).
 \end_layout
 
+\begin_layout Section
+Ad Quanlity
+\end_layout
+
+\begin_layout Subsection
+Improve your ad quality
+\end_layout
+
+\begin_layout Itemize
+Keep Twitter Ads Fresh to Retain High Impressions
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Twitter wants to show users the freshest content, so tweet new material
+ regularly.
+\end_layout
+
+\begin_layout Itemize
+No matter how good the ad, the number of impressions per day declines over
+ time.
+ And, as time goes on, Twitter is less likely to show older tweets.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Create very specific ad groups 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If your baked goods shop sells different types of cookie packages, think
+ about creating ad groups for each of those different cookie packages, like
+ one ad group for your holiday cookie package, and another ad group for
+ your birthday cookie package.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Choose your keywords specificlly: If you're selling cookie packages, some
+ keywords you might consider are "cookie gift package" or "cookie gift basket."
+ Generic keywords like "cookie" or "gift" probably aren't effective because
+ they're way too general.
+ 
+\end_layout
+
+\begin_layout Itemize
+Create simple, enticing ads
+\end_layout
+
+\begin_layout Itemize
+Use a strong call-to-action
+\end_layout
+
+\begin_layout Itemize
+Test out multiple ads
+\end_layout
+
+\begin_layout Subsection
+Quality Score of Ads
+\end_layout
+
+\begin_layout Standard
+Quality Score, on the other hand, is a more general estimate based on your
+ average past performance.
+ It also differs from Ad Rank in that it’s keyword-based.
+\end_layout
+
+\begin_layout Subsection
+Ad Rank
+\end_layout
+
+\begin_layout Itemize
+Ad Rank: A value that's used to determine your ad position (where ads are
+ shown on a page) and whether your ads will show at all.
+ 
+\end_layout
+
+\begin_layout Itemize
+Ad Rank is calculated using your bid amount, the components of Quality Score
+ (expected clickthrough rate, ad relevance, and landing page experience)
+\end_layout
+
+\begin_layout Standard
+Ad Rank determines your ad position -- where your ad shows on the page in
+ relation to other ads -- and whether your ads are eligible to show at all.
+ The main components of your Ad Rank are your bids and the quality of your
+ ads and website.
+ 
+\end_layout
+
+\begin_layout Standard
+We also incorporate the expected impact from your extensions and other ad
+ formats when computing your Ad Rank.
+ When estimating the expected impact of extensions and ad formats, we consider
+ such factors as the relevance, clickthrough rates, and the prominence of
+ the extensions or formats on the search results page.
+ So even if your competition has higher bids than yours, you can still win
+ a higher position at a lower price by using highly relevant keywords and
+ ads.
+ Your Ad Rank is recalculated each time your ad is eligible to appear and
+ competes in an auction, so your ad position can fluctuate each time depending
+ on your competition at that moment.
+ 
+\end_layout
+
+\begin_layout Subsection
+Relation bewteen Quality and Cost
+\end_layout
+
+\begin_layout Standard
+Regardless, Twitter’s quality adjusted bids algorithm isn’t some arbitrary
+ metric you can ignore.
+ As with Google AdWords, increasing the quality score on your Twitter ads
+ actually earns you a huge click discount.
+ In fact, on average, when you gain one point in the engagement rates on
+ your ads, you see a 5% decrease in cost per engagement.
+\end_layout
+
 \begin_layout Part
 A/B Test Math
 \end_layout
@@ -2707,6 +2846,9 @@ T=\frac{\bar{O}_{B}-\bar{O}_{A}}{\hat{\sigma}_{d}}
 
 \begin_layout Standard
 where 
+\end_layout
+
+\begin_layout Itemize
 \begin_inset Formula $\bar{O}_{B},\bar{O}_{A}$
 \end_inset
 
@@ -2738,6 +2880,157 @@ ps between two categorical variables (nominal/ordinal)
 e.g.
  Is there a statistically significant relationship between skateboard ownership
  and sex? In other words, is skateboard ownership INDEPENDENT of sex? 
+\end_layout
+
+\begin_layout Subsection
+Pooled Variance: When Population Variances are Assumed Same
+\end_layout
+
+\begin_layout Standard
+In statistics, pooled variance (also known as combined, composite, or overall
+ variance) is a method for estimating variance of several different populations
+ when the mean of each population may be different, but one may assume that
+ the variance of each population is the same.
+ 
+\end_layout
+
+\begin_layout Standard
+If the populations are indexed 
+\begin_inset Formula $i=1,…,k$
+\end_inset
+
+ , then the pooled variance 
+\begin_inset Formula ${\displaystyle s_{p}^{2}}$
+\end_inset
+
+ can be estimated by the weighted average of the sample variances 
+\begin_inset Formula ${\displaystyle s_{i}^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\displaystyle s_{p}^{2}=\frac{\sum_{i=1}^{k}(n_{i}-1)s_{i}^{2}}{\sum_{i=1}^{k}(n_{i}-1)}=\frac{(n_{1}-1)s_{1}^{2}+(n_{2}-1)s_{2}^{2}+\cdots+(n_{k}-1)s_{k}^{2}}{n_{1}+n_{2}+\cdots+n_{k}-k}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For two sample, it is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+s_{p}^{2}=\frac{(n_{1}-1)s_{1}^{2}+(n_{2}-1)s_{2}^{2}}{n_{1}+n_{2}-2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ is the sample size of population 
+\begin_inset Formula $i$
+\end_inset
+
+ and
+\end_layout
+
+\begin_layout Itemize
+the sample variance (not sample mean variance!) is 
+\begin_inset Formula 
+\[
+s_{i}^{2}={\displaystyle \frac{1}{n_{i}-1}\sum_{j=1}^{n_{i}}\left(y_{j}-\overline{y_{j}}\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Use of 
+\begin_inset Formula $(n_{i}-1)$
+\end_inset
+
+ weighting factors instead of 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ comes from Bessel's correction.
+\end_layout
+
+\begin_layout Standard
+Then the 
+\begin_inset Formula $T$
+\end_inset
+
+ statistics will have degree of freedom: 
+\begin_inset Formula $\sum_{i=1}^{k}(n_{i}-1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Unpooled Variance: When Population Variances are Assumed Different
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+s^{2}=\frac{s_{1}^{2}}{n_{1}}+\frac{s_{2}^{2}}{n_{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then the df for the 
+\begin_inset Formula $T$
+\end_inset
+
+ statistics are
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+df=\frac{(n_{1}-1)\times(n_{2}-1)}{(n_{2}-1)C^{2}+(1-C)^{2}(n_{2}-1)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and round down to the nearest integer
+\begin_inset Formula 
+\[
+C=\frac{s_{1}^{2}/n_{1}}{s_{1}^{2}/n_{1}+s_{2}^{2}/n_{2}}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -3029,8 +3322,28 @@ n=\frac{4\gamma^{2}\sigma^{2}}{CI^{2}}
 
 \end_layout
 
+\begin_layout Standard
+So a sample size is decided as 
+\end_layout
+
 \begin_layout Itemize
-The coefficient of 
+
+\series bold
+Significance Level
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Variance
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Power
+\series default
+: The coefficient of 
 \begin_inset Formula $\gamma^{2}=16$
 \end_inset
 
@@ -3051,7 +3364,11 @@ Replace the 16 by 21 in the formula above to increase the power to 90% (5%
 
 \end_deeper
 \begin_layout Itemize
-The 
+
+\series bold
+Effective difference:
+\series default
+ The 
 \begin_inset Formula $\Delta=(\bar{O}_{B}-\bar{O}_{A})^{2}$
 \end_inset
 
@@ -3077,6 +3394,49 @@ the more trivial the difference, the larger sample size you need.
 \end_layout
 
 \end_deeper
+\begin_layout Subsection
+Power as a function of sample size
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\pi(\tau)\approx1-\Phi(1.64-\tau\sqrt{n}/\hat{\sigma}_{D})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that the power of test depends on 
+\end_layout
+
+\begin_layout Enumerate
+Sample size 
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Effective Size 
+\begin_inset Formula $\sqrt{n}(\bar{D}-\tau)/\hat{\sigma}_{D}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Significance level 
+\begin_inset Formula $1.64$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Example: impact of lower-variability OEC on the sample size
 \end_layout
@@ -3578,121 +3938,216 @@ Significance: If the statistical test returns significant, then you conclude
  
 \end_layout
 
-\begin_layout Section
-Teminology
+\begin_layout Subsection
+Steps
 \end_layout
 
-\begin_layout Standard
-https://www.optimizely.com/optimization-glossary/
-\end_layout
-
-\begin_layout Itemize
-Power.
- The probability of correctly rejecting the null hypothesis, H0, when it
- is false.
- Power measures our ability to detect a difference when it indeed exists.
- 
-\end_layout
-
-\begin_layout Itemize
-Conclusive -- same as Significance
-\end_layout
-
-\begin_layout Itemize
+\begin_layout Enumerate
 
 \series bold
-A/A test
+Prepare 1: Hypothesis
 \series default
-.
- Sometimes called a 
+: First you need a Hypothesis which is 
 \series bold
-Null Test
+testable and quantifiable.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Prepare 2: 
 \series default
- (Peterson 2004).
- Instead of an A/B test, you exercise the experimentation system, assigning
- users to one of two groups, but expose them to exactly the same experience.
- An A/A test can be used to (i) collect data and assess its variability
- for power calculations, and (ii) test the experimentation system (the Null
- hypothesis should be rejected about 5% of the time when a 95% confidence
- level is used).
+Then based on this hypothesis, you want to choose
 \end_layout
 
 \begin_deeper
-\begin_layout Itemize
-A/A testing is the tactic of using A/B testing to test two identical versions
- of a page against each other.
- Typically, this is done to check that the tool being used to run the experiment
- is statistically fair.
- In an A/A test, the tool should report no difference in conversions between
- the control and variation, if the test is implemented correctly.
+\begin_layout Enumerate
+Which 
+\series bold
+user group
+\series default
+ you want to run the test on, like 
+\series bold
+geography
+\series default
+, 
+\series bold
+language, new users / matrue users
 \end_layout
 
-\begin_layout Itemize
-THINGS TO KEEP IN MIND WITH A/A TESTING
+\begin_layout Enumerate
+One 
+\series bold
+key metric
+\series default
+ 
+\series bold
+to measure the success, 
+\series default
+you don't want to choose it after you run the test, which is
+\series bold
+ in danger of cherry picking
 \end_layout
 
-\begin_layout Itemize
-When running an A/A test, it’s important to keep in mind that finding a
- difference in conversion rate is always an identical test and control page
- is a possibility.
- This isn’t necessarily a poor reflection on the A/B testing platform, as
- there is always an element of randomness when it comes to testing.
+\begin_layout Enumerate
+The 
+\series bold
+minimum
+\series default
+ 
+\series bold
+lift to this metric you want to see.
+\end_layout
+
+\begin_layout Enumerate
+the 
+\series bold
+significance
+\series default
+ level and 
+\series bold
+power
+\series default
+ of the test
+\end_layout
+
+\begin_layout Enumerate
+Then based on 
+\series bold
+historical
+\series default
+ 
+\series bold
+variance
+\series default
+ 
+\series bold
+and
+\series default
+ 
+\series bold
+traffic
+\series default
+, you can decide your 
+\series bold
+sample size 
+\series default
+and
+\series bold
+ duration time
 \end_layout
 
 \end_deeper
-\begin_layout Itemize
+\begin_layout Enumerate
 
 \series bold
-A/B/n Testing
+Prepare 3: 
+\series default
+Final step before your run, you have to test the 
+\series bold
+health of Control bucket and Treatment bucket
+\series default
+: to see whether they are really similar groups.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Run 1:
+\series default
+ Then you click the button and run the run!
 \end_layout
 
 \begin_deeper
-\begin_layout Itemize
-A/B/n testing is a type of website testing where multiple versions of a
- web page are compared against each other to determine which has the highest
- conversion rate.
- 
+\begin_layout Enumerate
+Meanwhile you want to
+\series bold
+ moniter the time series of the key metrics
+\series default
+, to see whether there is 
+\series bold
+anomaly
+\series default
+ or 
+\series bold
+bugs
+\series default
+, to decide whever you want to 
+\series bold
+ealy stop.
 \end_layout
 
-\begin_layout Itemize
-In addition to helping which version of a page is most successful, A/B/n
- testing also shows which version of a page performed the worst.
- By analyzing these low performing pages, it is possible to come up with
- hypotheses for why certain features convert better than others, and these
- lessons can then be incorporated into new tests on other pages of the site.
-\end_layout
-
-\begin_layout Itemize
-pitfall: it doesn’t always mean those variables would work well combined.
- Consider running multivariate tests to test all variations and make sure
- that improvements to top level metrics carry all the way through the conversion
- funnel.
+\begin_layout Enumerate
+Otherwise yiu just wait till the end of time duration.
 \end_layout
 
 \end_deeper
-\begin_layout Itemize
+\begin_layout Enumerate
 
 \series bold
-Multivariate testing
+Analytical
 \series default
- is more comprehensive than A/B/n testing and is used to test changes to
- specific elements on a page whereas A/B/n testing can be used to test completel
-y different versions of a page against each other.
+ 
+\series bold
+1
+\series default
+: Once the run ends, 
+\series bold
+besides
+\series default
+ just looking at 
+\series bold
+major metrics at the Overall level
+\series default
+, 
 \end_layout
 
-\begin_layout Itemize
+\begin_deeper
+\begin_layout Enumerate
+you may also want to look at
+\series bold
+ other metrics to see whether there is interesting pattern
+\series default
+, 
+\end_layout
+
+\begin_layout Enumerate
+or look at the result in a more 
+\series bold
+granular
+\series default
+ level: success or unsuccess in the overall level may not mean the same
+ thing at particualr segments level.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Roll Out: Finally rollout!
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
 
 \series bold
-Effect
+Slowly ramp up
 \series default
-.
- The difference in OECs for the variants, i.e.
- the mean of the Treatment minus the mean of the Control.
- Larger differences are easier to detect, so great ideas will unlikely be
- missed.
- Conversely, Type II errors are more likely when the effects are small.
+ - monitor the metrics to see anomaly / bugs / different from what you expect
 \end_layout
 
+\begin_layout Enumerate
+
+\series bold
+Holdback
+\series default
+ 5%.
+\end_layout
+
+\begin_layout Enumerate
+the idea is is, be less optimistic or less confidence, leave some groups
+ unchanged so that you compare with.
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Biuld Hypothesis
 \end_layout
@@ -3788,17 +4243,211 @@ Choose Samples
 \end_layout
 
 \begin_layout Subsection
-Filtering users not impacted by the change
+Princple of choosing Control & Treatment: Unbiased + Un-diluted
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
+
+\series bold
+Dilution Effect:
+\series default
+ Filtering users not impacted by the change, otherwise there is Dilution
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
 If you made a change to the checkout process, you should only analyze users
  who started the checkout process (point 3.c), as others could not see any
  difference and therefore just add noise.
 \end_layout
 
+\end_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/AB_sample1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/AB_sample2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Deteckting Bucket Imbalance 
+\end_layout
+
+\begin_layout Itemize
+Overall health check using 
+\series bold
+multinomial
+\series default
+ test 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Overall health check using multinomial test Imagine an experiment with k
+ buckets, where bucket i receives p percent of the traffic (p can be different
+ across buckets).
+ Given that we know the total number of users who are bucketed into the
+ experiment, we can model the number of users in each bucket jointly as
+ a multinomial distribution.
+ Furthermore, we can perform a goodness of fit test to see if the actual
+ observed count deviates from the expected count.
+ If we see that the traffic allocation deviates significantly from what
+ it is supposed to be, this is a good indicator that split of traffic is
+ problematic or that the splitting is biased.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+{\displaystyle \chi^{2}=\sum_{i=1}^{n}{\frac{(O_{i}-E_{i})^{2}}{E_{i}}}=N\sum_{i=1}^{n}{\frac{\left(O_{i}/N-p_{i}\right)^{2}}{p_{i}}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The test statistics follow a chi-square distribution (with k-1 degrees of
+ freedom).
+ Here, O denotes the observed number of users bucketed in bucket i, and
+ E denotes the expected number of users bucketed in each bucket.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+It is worth noting that the multinomial test is a generalization of the
+ binomial tes
+\series default
+t (i.e.
+ often used when there is only 1 control vs.
+ 1 treatment group).
+ In the past, we leveraged the binomial test so that each bucket was compared
+ to its expected bucket count.
+ However, in situations where an experiment has many buckets, we can quickly
+ run into the problems of multiple hypothesis testing.
+ Below, we plot the probability of getting at least one false positive as
+ a function of the number of independent buckets, which is simply 1 - (1
+ - p)^k where p is the probability of a getting a false positive (often
+ set at 5%).
+ The increase in false positives rate in a properly designed experiment
+ when multiple buckets are involved is fairly high: Under the null hypothesis,
+ with 5 buckets, one would expect to see at least one of them be imbalanced
+ more than 20 percent of the time.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+A/A test
+\series default
+.
+ 
+\series bold
+It can not only test the health of contol + treatment, but also test the
+ whole system.
+
+\series default
+ Sometimes called a 
+\series bold
+Null Test
+\series default
+ (Peterson 2004).
+ Instead of an A/B test, you exercise the experimentation system, assigning
+ users to one of two groups, but expose them to exactly the same experience.
+ An A/A test can be used to (i) collect data and assess its variability
+ for power calculations, and (ii) test the experimentation system (the Null
+ hypothesis should be rejected about 5% of the time when a 95% confidence
+ level is used).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A/A testing is the tactic of using A/B testing to test two identical versions
+ of a page against each other.
+ Typically, this is done to check that the tool being used to run the experiment
+ is statistically fair.
+ In an A/A test, the tool should report no difference in conversions between
+ the control and variation, if the test is implemented correctly.
+\end_layout
+
+\begin_layout Itemize
+THINGS TO KEEP IN MIND WITH A/A TESTING
+\end_layout
+
+\begin_layout Itemize
+When running an A/A test, it’s important to keep in mind that finding a
+ difference in conversion rate is always an identical test and control page
+ is a possibility.
+ This isn’t necessarily a poor reflection on the A/B testing platform, as
+ there is always an element of randomness when it comes to testing.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Test Individual Bucket Imbalance: Binomial Test
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The multinomial test can protect us from the woes of multiple hypothesis
+ testing, but it has a disadvantage: it does not tell us which buckets are
+ problematic.
+ To provide more guidance, we run additional binomial tests in cases when
+ the multinomial test flags an experiment.
+\end_layout
+
+\begin_layout Itemize
+Suppose we have a board game that depends on the roll of one die (see dice)
+ and attaches special importance to rolling a 6.
+ In a particular game, the die is rolled 235 times, and 6 comes up 51 times.
+ If the dice is fair, we would expect 6 to come up 235/6 = 39.17 times.
+ Is the proportion of 6s significantly higher than would be expected by
+ chance, on the null hypothesis of a fair dice? To find an answer to this
+ question using the binomial test, we use the binomial distribution B(235,1/6)
+ to calculate the probability of 51 or more sixes in a sample of 235 if
+ the true probability of rolling a 6 on each trial is 1/6.
+ This is done by adding up the probability of getting exactly 51 sixes,
+ exactly 52 sixes, and so on up to 235.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Bucket Health plot according to Binomial Test in each period of time
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Graphics
+	filename Lyx_Picture/AB_test_BucketHealth.png
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Stratefied Sampling
+\end_layout
+
+\begin_layout Standard
+To insure balance in each segmentation: metrics in each segmentation are
+ similar between control vs test
 \end_layout
 
 \begin_layout Subsection
@@ -3885,7 +4534,9 @@ carryover effect
 \end_layout
 
 \begin_layout Itemize
-So you need a Washout Period
+So you need a 
+\series bold
+Washout Period
 \end_layout
 
 \begin_layout Subsection
@@ -3942,14 +4593,14 @@ Evaluate each point of user graph, and calculate its relative exposure to
 
 \end_deeper
 \begin_layout Itemize
-Just firstr choose a random sample A who are allowed to send out stickers
+Just first choose a random sample A who are allowed to send out stickers
  and run the test for a week.
  After the week, look at historical data and choose the people within A
  that are only interact with those are also in A.
 \end_layout
 
 \begin_layout Subsection
-Be Careful with Biased rollouts
+Samples have to be Random
 \end_layout
 
 \begin_layout Standard
@@ -3961,6 +4612,10 @@ Biased rollouts.
  meant we couldn't trust our A/B test results at all! I've also seen this
  happen at Google, where new features or algorithms were non-randomly rolled
  out to the users we thought would be most engaged with them.
+\end_layout
+
+\begin_layout Standard
+In those cases, the control group and treatment group are 
 \end_layout
 
 \begin_layout Subsection
@@ -4039,7 +4694,7 @@ If there is a cost: like poor customer experience in the inferior group,
 
 \begin_deeper
 \begin_layout Itemize
-\begin_inset Formula $|y|>\Phi^{-1}(\frac{n}{k+2n})\sqrt[]{n}$
+\begin_inset Formula $|y|>\Phi^{-1}(\frac{n}{k+2n})\sqrt{n}$
 \end_inset
 
  Where y is the difference between results of A and B, k is the expected
@@ -4069,24 +4724,36 @@ We would then recommend running it for a week to avoid day-of-week effects
 \end_layout
 
 \begin_layout Subsection
-Primacy and Novelty effect 
+Primacy and Novelty effect
 \end_layout
 
 \begin_layout Itemize
 Primacy effect occurs when you change the navigation on a web site, and
- experienced users may be less efficient until they get used to the new
- navigation, thus giving an inherent advantage to the Control.
+ experienced users may be 
+\series bold
+less efficient 
+\series default
+until they get used to the new navigation, thus giving an inherent advantage
+ to the Control.
 \end_layout
 
 \begin_layout Itemize
 Novelty effect: when a new design or feature is introduced, some users will
- investigate the new feature, click everywhere, and thus introduce a “novelty”
- bias that dies quickly if the feature is not truly useful.
+ 
+\series bold
+investigate more 
+\series default
+the new feature, click everywhere, and thus introduce a “novelty” bias that
+ dies quickly if the feature is not truly useful.
 \end_layout
 
 \begin_layout Standard
 So be aware of any trend pattern by time, you need to wait longer time till
- the trend stabalized and then evaluate.
+ the trend 
+\series bold
+stabalized ／ cool down
+\series default
+ and then evaluate.
 \end_layout
 
 \begin_layout Subsection
@@ -4173,19 +4840,6 @@ Even 99% confidence means you are wrong in 1% time
 \end_layout
 
 \begin_layout Subsection
-How to choose population of roll out ?
-\end_layout
-
-\begin_layout Itemize
-Roll out in one geographic area, especially if your AB test only focus on
- one area.
-\end_layout
-
-\begin_layout Itemize
-Ramp-Up + Hold-back + keep monitoring the data
-\end_layout
-
-\begin_layout Subsection
 Ramp-Up and Hold-back: be less optimistic
 \end_layout
 
@@ -4195,11 +4849,27 @@ Always be careful, to minimize the impact of bugs in your new feature, or
 \end_layout
 
 \begin_layout Itemize
-use Ramp-Up -- roll out slowly, 
+Roll out in one geographic area, especially if your AB test only focus on
+ one area.
 \end_layout
 
 \begin_layout Itemize
+use Ramp-Up -- roll out slowly, 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+montitor key metrics, to see whether your the actual results meet your expeced
+ result in A/B test.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
 Leave a 5% holdback group.
+\end_layout
+
+\begin_layout Itemize
+keep monitoring the data
 \end_layout
 
 \begin_layout Subsection
@@ -4238,11 +4908,10 @@ All experimenters are required to document their experiments.
 What to be Test & cannot be Tested
 \end_layout
 
-\begin_layout Itemize
-Tested
+\begin_layout Standard
+Can be Tested
 \end_layout
 
-\begin_deeper
 \begin_layout Itemize
 A/B testing is a way to make sure good ideas don’t die young, and are given
  the opportunity to develop fully.
@@ -4265,7 +4934,11 @@ Quickly iterating and measuring the effects of proposed changes lets our
 \end_layout
 
 \begin_layout Itemize
-Some may look at incremental changes as insufficient.
+
+\series bold
+Incrementalisim: Some may look at incremental changes as insufficient.
+
+\series default
  Certainly, shipping a “big idea” sounds far better than a small improvement.
  Consider, however, that small changes add up, and have a compounding effect.
  Shying away from incremental changes that materially improve the product
@@ -4275,14 +4948,17 @@ Some may look at incremental changes as insufficient.
  Product portfolio management is not very different in that regard.
 \end_layout
 
-\end_deeper
-\begin_layout Itemize
+\begin_layout Standard
 cannot be Tested
 \end_layout
 
-\begin_deeper
 \begin_layout Itemize
-That said, there are lots of things we cannot, or perhaps should not, test.
+
+\series bold
+Social network that cannot be controled and spearated -- crossover effect.
+
+\series default
+ That said, there are lots of things we cannot, or perhaps should not, test.
  Some changes are designed to result in network effects which user-bucketed
  A/B testing won’t capture (although other techniques do exist to quantify
  such effects).
@@ -4290,17 +4966,33 @@ That said, there are lots of things we cannot, or perhaps should not, test.
  For example, Group DMs are not a feature to use in a plain A/B test, because
  chances are the lucky people who get the feature would want to message
  those who don’t have it, which makes the feature essentially useless.
- Others might just be totally orthogonal — e.g., rolling out a new app like
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+A totally new product
+\series default
+: Others might just be totally orthogonal — e.g., rolling out a new app like
  Periscope is not a Twitter application experiment.
  But once it’s out, A/B testing becomes an important way to drive measurable
  incremental and not-so-incremental changes within that app.
 \end_layout
 
 \begin_layout Itemize
-For an example that perhaps illustrates the idea more clearly, suppose we
- want to understand the effect of income on mental health.
- We can't force some people to become poor or rich, and a correlational
- study is clearly flawed.
+
+\series bold
+Users metrics that are Impossible to Control or Manipulate.
+
+\series default
+ suppose we want to 
+\series bold
+understand the effect of income on mental health.
+ 
+\series default
+We can't force some people to become poor or rich, and a correlational study
+ is clearly flawed.
  This NY Times article describes a natural experiment when a group of Cherokee
  Indians distributed casino profits to its members, thereby "randomly" lifting
  some of them out of poverty.
@@ -4311,9 +5003,17 @@ For an example that perhaps illustrates the idea more clearly, suppose we
 \end_layout
 
 \begin_layout Itemize
-Yet another class of changes is major new features that are tested in internal
- builds and via user research, but released in a big-bang moment to all
- the customers in a given market for strategic reasons.
+
+\series bold
+Big Bang effect
+\series default
+: Yet another class of changes is major new features that are tested in
+ internal builds and via user research, but
+\series bold
+ released in a big-bang moment to all the customers in a given market for
+ strategic reasons.
+
+\series default
  Such a decision is made when, as an organization, we believe it’s the right
  thing to do for the product and the customer.
  We believe there are greater gains to be had from a large release than
@@ -4326,7 +5026,6 @@ Yet another class of changes is major new features that are tested in internal
  of the process.
 \end_layout
 
-\end_deeper
 \begin_layout Section
 Culture and business
 \end_layout
@@ -4385,10 +5084,6 @@ What we found was that a great way to convince people that we are not good
 \end_layout
 
 \begin_layout Section
-Applications
-\end_layout
-
-\begin_layout Section
 Multivariate Testing
 \end_layout
 
@@ -4403,6 +5098,36 @@ e, or A/B tests.
  takes advantage of the potential benefits and mitigates the limitations.
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+A/B/n Testing
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A/B/n testing is a type of website testing where multiple versions of a
+ web page are compared against each other to determine which has the highest
+ conversion rate.
+ 
+\end_layout
+
+\begin_layout Itemize
+In addition to helping which version of a page is most successful, A/B/n
+ testing also shows which version of a page performed the worst.
+ By analyzing these low performing pages, it is possible to come up with
+ hypotheses for why certain features convert better than others, and these
+ lessons can then be incorporated into new tests on other pages of the site.
+\end_layout
+
+\begin_layout Itemize
+pitfall: it doesn’t always mean those variables would work well combined.
+ Consider running multivariate tests to test all variations and make sure
+ that improvements to top level metrics carry all the way through the conversion
+ funnel.
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Example
 \end_layout
@@ -4499,6 +5224,35 @@ In the statistical field of Design of Experiments, a major research area
 Causal Inference
 \end_layout
 
+\begin_layout Itemize
+A/B test is the most direct way to measure Causal Inference.
+\end_layout
+
+\begin_layout Itemize
+When AB test cannot be run:Etiehr some natural experiment: like a a new
+ feature launced in Andorid not in iPhone.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Multi-variable interpretable model: like linear regression
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If the feature is new: Then use the historical data before the change as
+ training data of your model, then predict the after change: then what ever
+ significant residual is the impacts of new change.
+\end_layout
+
+\begin_layout Enumerate
+If the feature has changed several times: then just use this modle to simulate
+ the impact -- holding other variables unchanged, only let the interest
+ one to move.
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Multi-Variable Regression: Ceteris Paribus 
 \end_layout
