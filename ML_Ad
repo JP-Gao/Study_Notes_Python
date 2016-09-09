@@ -374,7 +374,7 @@ You can use Personalalization models to predict and then use Segmentation
 
 \end_deeper
 \begin_layout Part
-Bid Price
+Ad Bid Price
 \end_layout
 
 \begin_layout Standard
@@ -426,6 +426,415 @@ Online games in the form of ad.
 
 \end_deeper
 \begin_layout Part
+Recommendation
+\end_layout
+
+\begin_layout Section
+Label and Relevancy
+\end_layout
+
+\begin_layout Subsection
+Features of Users/Contents Social Media
+\end_layout
+
+\begin_layout Standard
+Two perspectives of 
+\end_layout
+
+\begin_layout Itemize
+Features of the users themselves
+\end_layout
+
+\begin_layout Itemize
+Features of those who follow the users
+\end_layout
+
+\begin_layout Standard
+Similary, for contents
+\end_layout
+
+\begin_layout Itemize
+Labels of the users themselves
+\end_layout
+
+\begin_layout Itemize
+Labelsof those users who follow the content.
+\end_layout
+
+\begin_layout Subsection
+How to cluster users in social media
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Model
+\series default
+: Normally use two algorithms to do clustering: K-means & Gaussian Mixture
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+K-means is to assign a hard label
+\end_layout
+
+\begin_layout Itemize
+Gaussian Mixture is to assign a soft label, which give you a a probability
+ of being A or B
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Multiple Tags
+\series default
+: But the problem is, those models will give you mutually exclusive labels
+ : 
+\series bold
+IN REALITY
+\series default
+ one user may have 
+\series bold
+multiple tags
+\series default
+ / labels at the same.
+ One user may love music and computer science at the same time
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+So there is no way to do clustering at just one time
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+You need to first choose music related featuresm, do clustering on whether
+ a user likes music or not.
+ Then run another clustering to decide for the computer science label.
+\end_layout
+
+\begin_layout Itemize
+That means, for each time, you just model one label.
+ But you run the label multiple times to get all the labels you want.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Hierarchy
+\series default
+: Also even within the music label, there are further sublabels --- rock,
+ pop, rap etc.
+ So you have to run clustering in a hierarchical way.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+I means first decide all the pepople who like music, then within those people,
+ clustering into different groups
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Features used to cluster in social media
+\end_layout
+
+\begin_layout Itemize
+Facebook: Two dimentions
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+based on their interests / Base on what they write on their wall: You can
+ extract key words / topics
+\end_layout
+
+\begin_layout Enumerate
+also interest of the people are following / What those followees write on
+ their wall.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Twitter:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Based on what they tweet, y
+\series default
+ou can use 
+\series bold
+extract certain key toptics, key words.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Based on who they follow
+\series default
+: It's hard to directly do clustering on common users.
+ But it is relatively easy to cluster those celebrities / influencers, they
+ are most likely just has oen label --- either movie star, musician, or
+ comupter scientist.
+ So their labels are more 
+\series bold
+pure 
+\series default
+that common users.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Then we go back to the common users, to see what types of celebrities they
+ follow
+\end_layout
+
+\begin_layout Itemize
+Or we can even bring the number of likes or retweets for each celebrities,
+ using this as a weight to mearue how strong / close this following relation
+ is.
+ So the following relation is no longer 0 or 1 anymore, it may be 0, 1,
+ 2, continous integers.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Data can be constructed like this: It is a matrix with rows as users, columns
+ as celebrities.
+ value equal to 1 if a user follow a celebrity, equal to 0 if not.
+ OR the value is the total 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Pagerank to measure importance/influence of user
+\end_layout
+
+\begin_layout Standard
+The idea is:
+\end_layout
+
+\begin_layout Itemize
+The importance of a user depends on number of followers, and also depend
+ on the importance of those followers.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If an influential celebrity A follows B, that means A endorses some of his
+ impotant to him
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Pagerank algorithm is using this idea to measure how importance/influence
+ of a point in the network.
+\end_layout
+
+\begin_layout Standard
+The way it works is:
+\end_layout
+
+\begin_layout Enumerate
+Image you want to do a random work through all the social network, starting
+ from point A, as A is following N people the probability that A travels
+ to each followees 1/N.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Then assume now we travel from A to B, then do a random walk to the people
+ that B follows.
+\end_layout
+
+\begin_layout Enumerate
+You keep doing one millions of time, and it turned out the probability/number
+ of times of getting to a certain point will converge to a steady value.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+That value is the score of the importance
+\end_layout
+
+\begin_layout Enumerate
+the idea is: if the more people follow a point A, then it is easier to get
+ their.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Path Find to Measure Importance of a User
+\end_layout
+
+\begin_layout Itemize
+You can think about this problem as a path finding problem: How to find
+ the shortest parth to travel from one user to another user.
+\end_layout
+
+\begin_layout Enumerate
+If you randomly select two points in the scoial network, both A and B have
+ no common firends in the real world, but they both follow one musician
+ in Twitter.
+\end_layout
+
+\begin_layout Enumerate
+You do this test millions times --- each time you randomly select two points
+ and calculating the clost path.
+ The more common trespassing / transiting points are those celebrities.
+\end_layout
+
+\begin_layout Subsection
+Recommend Tweet
+\end_layout
+
+\begin_layout Itemize
+Features
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Labels of users
+\end_layout
+
+\begin_layout Itemize
+Labels of twittes / formats of the twitters
+\end_layout
+
+\begin_layout Itemize
+How many users shared/liked the twitts
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+How close of those users.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Algorithm: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Similarity measure
+\end_layout
+
+\begin_layout Itemize
+Logistic Function
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Recommend Friend / Following
+\end_layout
+
+\begin_layout Itemize
+K-means / Mixture Gaussian
+\end_layout
+
+\begin_layout Itemize
+Logistics
+\end_layout
+
+\begin_layout Itemize
+Link Prediction ???
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Social Recommendations / Who To Follow: Relevancy between Users 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Distance between users: Interest, formats, geography, who you follow also
+ likes
+\end_layout
+
+\begin_layout Itemize
+Popularity of itself: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Total likes, shares, mpressions.
+ 
+\end_layout
+
+\begin_layout Itemize
+Format of
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+
+\series bold
+Community Detection via Clustering
+\end_layout
+
+\begin_layout Standard
+Chapter 10 Mining Social-Network Graphs
+\end_layout
+
+\begin_layout Subsection
+Differentiate Advertise and Users
+\end_layout
+
+\begin_layout Enumerate
+First, look at what data we have
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+You have some users that you are pretty sure that they are advertisers,
+ beacuse they spend money on us.
+\end_layout
+
+\begin_layout Itemize
+Then you also have a lot data that you are pretty sure they are users (if
+ you don't have you can mannualy label them)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Amazon Mechanical Turk (MTurk) is a crowdsourcing Internet marketplace enabling
+ individuals and businesses (known as Requesters) to coordinate the use
+ of human intelligence to perform tasks that computers are currently unable
+ to do.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Then the problem becomes a semi-supervised learning program, where on the
+ one hand you have huge amount of un-labeled data, and ont the other hand
+ you have some labeled data that you can leverage.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Then I would use Mixture Gaussian.
+ which can give you a probability of being a user or an advertisers.
+\end_layout
+
+\end_deeper
+\begin_layout Section
 Recommendation: Collaborative Filtering
 \end_layout
 
@@ -817,12 +1226,8 @@ Then you use Neighborhood of users/items in the
  dimention to see which user is close to A
 \end_layout
 
-\begin_layout Part
-Recommendation: Content-based 
-\end_layout
-
 \begin_layout Section
-LSI: Application to Recommend who to Follow
+LSI: Content-based: Application to Recommend who to Follow
 \end_layout
 
 \begin_layout Standard
@@ -2266,6 +2671,22 @@ How to calculate social LTV for those celebrities.
 \end_layout
 
 \begin_layout Subsection
+On Usage: Customer Experence
+\end_layout
+
+\begin_layout Standard
+Use Traffic Analysis
+\end_layout
+
+\begin_layout Enumerate
+Which stage that the customer spend the most time on.
+\end_layout
+
+\begin_layout Enumerate
+Which stage most customer stops there.
+\end_layout
+
+\begin_layout Subsection
 Deeper Analysis of Usage
 \end_layout
 
@@ -2697,6 +3118,253 @@ For some websites robots are thought to provide up to half the pageviews
 \end_layout
 
 \begin_layout Section
+
+\series bold
+Activaion & Engagemnt & Advertiser Success
+\end_layout
+
+\begin_layout Subsection
+Features of Advertisers
+\end_layout
+
+\begin_layout Standard
+Advertiser itself:
+\end_layout
+
+\begin_layout Itemize
+number of employee
+\end_layout
+
+\begin_layout Itemize
+revenue yearly
+\end_layout
+
+\begin_layout Itemize
+where they do marketing
+\end_layout
+
+\begin_layout Standard
+On twtiiter:
+\end_layout
+
+\begin_layout Itemize
+Money,
+\end_layout
+
+\begin_layout Itemize
+Month on book,
+\end_layout
+
+\begin_layout Itemize
+Targeting Granularity
+\end_layout
+
+\begin_layout Itemize
+Success: measure by cost per Impression & cost per action
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Strategy: Activation
+\end_layout
+
+\begin_layout Standard
+Look at the churn rate for each segmentation
+\end_layout
+
+\begin_layout Enumerate
+The major problem: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+when, which channel to send the activation can generate largest incremental
+ impact.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+But there are several sub-problems: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If you arealy send out one email, then conditinal on this single email,
+ when to send to second email to generate largest incremental impact.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Another dimention is the dynamics of different segmentation of users.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+When an Advertise stop at input credit card, when pop up help button
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Feature
+\series default
+: Why an Advertiser Becomes Inactive
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+User Experience: How much time the advertise spend on the campaign designing
+ page 
+\series default
+---- they may feel frustration on figuring out how to design their campaign.
+\end_layout
+
+\begin_layout Subsection
+Model: Why a User becomes Inactive
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Logit
+\series default
+: Biulding model here is easy, logistic regression would work here.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Interpreation
+\series default
+: becasue the purpose of model is
+\series bold
+ not only prediction, but also interpreation
+\series default
+.
+ Because we want to understand which variable causes the inactivity.
+ So you really want to use some glassbox model rather than black box.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+You can pin down which exact factor is 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Probability
+\series default
+: Also when you want to classify 0,1, you want something can give you a
+ probability, rather than just give you 0 or 1
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Then you can use these probability to design some action
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Action Plan
+\series default
+: For example, if we forsee a high value customer will become inactive,
+ then you want to email him, or give him better offers.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Feature
+\series default
+: Finding out the exact correct features is the key.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Feature: interest they have, number of people they follow, number of people
+ that follows him, demographic etc.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Understanding Ad Engagement Behavior of High Net Worth user
+\end_layout
+
+\begin_layout Standard
+Give me a context of this problem, or what problems we are trying to solve
+ here
+\end_layout
+
+\begin_layout Standard
+Answer: I'm not sure the exact engagement pattern of those high net-value
+ people, But if I see the data, the data can reveal their pattern.
+\end_layout
+
+\begin_layout Itemize
+I want to use the data to test: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+What 
+\series bold
+kind of ads
+\series default
+ they are particular interest
+\end_layout
+
+\begin_layout Itemize
+In average, how they will 
+\series bold
+interact
+\series default
+ with the adds, whether he will spend some seconds to view it, or even reply
+ it and click into it
+\end_layout
+
+\begin_layout Itemize
+what is the 
+\series bold
+difference in conversion rat
+\series default
+e: They are probably esiser to do impusive purchases, especially for high
+ price stuff.
+ So if you target them with the purpose of conversion rate, they are probably
+ higher than normal people
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Standardized Measure of Creator's Success (creator tool)
+\end_layout
+
+\begin_layout Itemize
+Followers
+\end_layout
+
+\begin_layout Itemize
+Number of replies reweet, likes, saves.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Interaction / Measure how strong / Close: 
+\series default
+Number of replies + retweet + likes / Followers.
+\end_layout
+
+\begin_layout Section
 Ad Quanlity
 \end_layout
 
@@ -3048,6 +3716,12 @@ CILimits=OB−OA±1.96\times\tilde{σ}_{d}
 
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+Percent Effect
+\end_layout
+
 \begin_layout Itemize
 For many online metrics, the difference in the means is so small that percent
  change has much more intuitive meaning than the absolute difference.
@@ -3243,7 +3917,7 @@ Sample Size
 \end_layout
 
 \begin_layout Subsection
-Minimum sample size
+Minimum Sample Size
 \end_layout
 
 \begin_layout Standard
@@ -3341,13 +4015,26 @@ Variance
 \begin_layout Itemize
 
 \series bold
+Effective difference:
+\series default
+ The 
+\begin_inset Formula $\Delta=(\bar{O}_{B}-\bar{O}_{A})^{2}$
+\end_inset
+
+ is the sensitivity you want to detact, the samller it is, the larger data
+ needed,
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
 Power
 \series default
 : The coefficient of 
 \begin_inset Formula $\gamma^{2}=16$
 \end_inset
 
- in the formula provides 80% power(10% in each side), i.e., it has an 80%
+ in the formula provides 80% power (10% in each side), i.e., it has an 80%
  probability of rejecting the null hypothesis that there is no difference
  between the Treatment and Control if the true mean is different than the
  true Control by.
@@ -3359,23 +4046,17 @@ Power
 \begin_deeper
 \begin_layout Itemize
 Replace the 16 by 21 in the formula above to increase the power to 90% (5%
- in each side)
+ in each side).
+\end_layout
+
+\begin_layout Itemize
+Actually once you decide the 
+\series bold
+Significance Level, Variance, and Effective Difference, then everything
+ is decided
 \end_layout
 
 \end_deeper
-\begin_layout Itemize
-
-\series bold
-Effective difference:
-\series default
- The 
-\begin_inset Formula $\Delta=(\bar{O}_{B}-\bar{O}_{A})^{2}$
-\end_inset
-
- is the sensitivity you want to detact, the samller it is, the larger data
- needed,
-\end_layout
-
 \begin_layout Standard
 Basically, minimum sample size depends on 
 \end_layout
@@ -3519,6 +4200,86 @@ The Key Difference here is OEC = Average Conversion Rate has much smaller
 Normality Assumption
 \end_layout
 
+\begin_layout Subsection
+Normal Approximation of Binomial
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $n$
+\end_inset
+
+ is large enough, then the skew of the distribution is not too great.
+ In this case a reasonable approximation to B(n, p) is given by the normal
+ distribution
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{N}(np,\,\sqrt{np(1-p}))
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Poisson approximation of Binomial
+\end_layout
+
+\begin_layout Standard
+The binomial distribution converges towards the Poisson distribution as
+ the number of trials goes to infinity while the product np remains fixed.
+ Therefore the Poisson distribution with parameter 
+\begin_inset Formula $λ=np$
+\end_inset
+
+ can be used as an approximation to 
+\begin_inset Formula $B(n,p)$
+\end_inset
+
+ of the binomial distribution if 
+\begin_inset Formula $n$
+\end_inset
+
+ is sufficiently large and 
+\begin_inset Formula $p$
+\end_inset
+
+ is sufficiently small.
+ 
+\end_layout
+
+\begin_layout Subsection
+Normality approximation of Binomial
+\end_layout
+
+\begin_layout Standard
+For sufficiently large values of λ, (say λ>1000), the normal distribution
+ with mean λ and variance λ (standard deviation ) is an excellent approximation
+ to the Poisson distribution.
+ If λ is greater than about 10, then the normal distribution is a good approxima
+tion if an appropriate continuity correction is performed, i.e., if P(X ≤
+ x), where x is a non-negative integer, is replaced by 
+\begin_inset Formula $P(X≤x+0.5)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{\mathrm{Poisson}}(x;\lambda)\approx F_{\mathrm{normal}}(x;\mu=\lambda,\sigma^{2}=\lambda)
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Power analysis and Sample Design
 \end_layout
@@ -3612,7 +4373,7 @@ Given any three, we can determine the fourth.
  Thus the first three factors can affect the power of test.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Effect size
 \end_layout
 
@@ -3665,7 +4426,7 @@ MagnituteEffect=\frac{\mu_{0}-\mu_{A}}{\sigma_{WholeSample}}
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Calculate power of test
 \end_layout
 
@@ -3784,7 +4545,7 @@ Significance level
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Balance 
 \begin_inset Formula $\alpha$
 \end_inset
@@ -3996,7 +4757,7 @@ minimum
 \series default
  
 \series bold
-lift to this metric you want to see.
+lift to this metric you want to see meaningful.
 \end_layout
 
 \begin_layout Enumerate
@@ -4047,7 +4808,7 @@ Final step before your run, you have to test the
 \series bold
 health of Control bucket and Treatment bucket
 \series default
-: to see whether they are really similar groups.
+: to see whether they are really similar/comparable groups.
 \end_layout
 
 \begin_layout Enumerate
@@ -4142,7 +4903,7 @@ Holdback
  5%.
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 the idea is is, be less optimistic or less confidence, leave some groups
  unchanged so that you compare with.
 \end_layout
@@ -4294,17 +5055,20 @@ multinomial
 
 \begin_deeper
 \begin_layout Itemize
-Overall health check using multinomial test Imagine an experiment with k
- buckets, where bucket i receives p percent of the traffic (p can be different
- across buckets).
+Overall health check using multinomial test.
+ Imagine an experiment with k buckets, where bucket i receives p percent
+ of the traffic (p can be different across buckets).
  Given that we know the total number of users who are bucketed into the
  experiment, we can model the number of users in each bucket jointly as
  a multinomial distribution.
  Furthermore, we can perform a goodness of fit test to see if the actual
  observed count deviates from the expected count.
- If we see that the traffic allocation deviates significantly from what
- it is supposed to be, this is a good indicator that split of traffic is
- problematic or that the splitting is biased.
+ If we see that the traffic allocation 
+\series bold
+deviates
+\series default
+ significantly from what it is supposed to be, this is a good indicator
+ that split of traffic is problematic or that the splitting is biased.
 \end_layout
 
 \begin_layout Itemize
@@ -4432,6 +5196,22 @@ Bucket Health plot according to Binomial Test in each period of time
 
 \begin_deeper
 \begin_layout Itemize
+Reasoning: Multinomial Test / Binomial Test with certain P-value still suffers
+ P% of type 1 error.
+ So insteading testing them once, we do the testing continousely.
+\end_layout
+
+\begin_layout Itemize
+So if we see the a bucket continousely cross the limit, then there is a
+ problem.
+ 
+\end_layout
+
+\begin_layout Itemize
+Or if it jsut cross the limit once or twice, then there is no problem.
+\end_layout
+
+\begin_layout Itemize
 \begin_inset Graphics
 	filename Lyx_Picture/AB_test_BucketHealth.png
 
@@ -4456,10 +5236,17 @@ Treatment ramp-up
 
 \begin_layout Standard
 An experiment can be initiated with a small percentage of users assigned
- to the Treatment( s), and then that percentage can be gradually increased.
+ to the Treatment( s), and then that percentage can be 
+\series bold
+gradually
+\series default
+ increased.
  For example, if you plan to run an A/B test at 50%/50%, you might start
- with a 99.9%/0.1% split, then rampup the Treatment from 0.1% to 0.5% to 2.5%
- to 10% to 50%.
+ with a 99.9%/0.1% split, then 
+\series bold
+rampup
+\series default
+ the Treatment from 0.1% to 0.5% to 2.5% to 10% to 50%.
  
 \end_layout
 
@@ -4623,10 +5410,13 @@ Cannibalization and Crossover
 \end_layout
 
 \begin_layout Standard
-Basic idea: you test group A enjoys certain advantage only when an inferior
- group B exist (people compare prices of A and B and choose B), when you
- roll out, the differences/comparision/ price picking behavior disapprear,
- so the result after rll out is poor.
+Basic idea: you test group 
+\series bold
+A enjoys certain advantage only when an inferior group B exis
+\series default
+t (people compare prices of A and B and choose B), when you roll out, the
+ differences/comparision/ price picking behavior disapprear, so the result
+ after rll out is poor.
  
 \end_layout
 
@@ -4869,6 +5659,8 @@ Leave a 5% holdback group.
 \end_layout
 
 \begin_layout Itemize
+
+\series bold
 keep monitoring the data
 \end_layout
 
@@ -5220,7 +6012,7 @@ In the statistical field of Design of Experiments, a major research area
  little or no confounding.
 \end_layout
 
-\begin_layout Part
+\begin_layout Section
 Causal Inference
 \end_layout
 
@@ -5229,7 +6021,7 @@ A/B test is the most direct way to measure Causal Inference.
 \end_layout
 
 \begin_layout Itemize
-When AB test cannot be run:Etiehr some natural experiment: like a a new
+When AB test cannot be run: Etiehr some natural experiment: like a a new
  feature launced in Andorid not in iPhone.
 \end_layout
 
@@ -5292,7 +6084,7 @@ How do his subscribers respond? Do they stop watching YouTube on Wednesdays,
  on the front page?
 \end_layout
 
-\begin_layout Part
+\begin_layout Section
 Multi-Armed Bandit 
 \end_layout
 
@@ -5353,7 +6145,14 @@ quickly
 \end_layout
 
 \begin_layout Itemize
-So, bandit algorithms try to minimize opportunity costs and minimize regret
+So, bandit algorithms try to 
+\series bold
+minimize opportunity costs 
+\series default
+and 
+\series bold
+minimize regret
+\series default
  (the difference between your actual payoff and the payoff you would have
  collected had you played the optimal (best) options at every opportunity.).
 \end_layout
@@ -5367,8 +6166,12 @@ Weakness / Trade - off
 
 \begin_deeper
 \begin_layout Itemize
-http://conversionxl.com/wp-content/uploads/2015/09/Screen-Shot-2015-09-09-at-3.49.4
-5-PM-1.jpg
+\begin_inset Graphics
+	filename Lyx_Picture/multi_bandit_tradeoff.jpg
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -5423,17 +6226,25 @@ When To Use Bandit Tests Instead of A/B/n Tests?
 \begin_layout Standard
 There’s a high level answer, and then there are some specific circumstances
  in which bandit works well.
- For the high level answer, if you have a research question where you want
+ 
+\end_layout
+
+\begin_layout Standard
+For the high level answer, if you have a research question where you want
  to understand the effect of a treatment and have some certainty around
  your estimates, a standard a/b test experiment will be best.
 \end_layout
 
 \begin_layout Standard
-According to Matt Gershoff, “If on the other hand, you actually care about
- optimization, rather than understanding, bandits are often the way to go.”
+According to Matt Gershoff, “
+\series bold
+If on the other hand, you actually care about optimization, rather than
+ understanding, bandits are often the way to go.
+\series default
+”
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Itemize
 
 \series bold
 Usage Example
@@ -5441,8 +6252,11 @@ Usage Example
 
 \begin_layout Standard
 For example, if we wish to test which of three titles works for an article
- on a news website, we know that the article will be featured on our front
- page for a few hours only.
+ on a news website, we know that the article will be 
+\series bold
+featured on our front page for a few hours only
+\series default
+.
  This means we have to quickly detect the better performing title and also
  exploit that knowledge within the timeframe of a few hours.
  In this case, we can use a multi-armed bandit approach, which helps us
@@ -5762,6 +6576,110 @@ We know these are bad reductions by contrast to direct methods for solving
  (Dividing by T gives error-rate like quantities.) This result is independent
  of the number of contexts x and only weakly dependent (similar to supervised
  learning) on the number of policies.
+\end_layout
+
+\begin_layout Part
+Spam and Fraud
+\end_layout
+
+\begin_layout Subsection
+Typical Types of Spam
+\end_layout
+
+\begin_layout Enumerate
+Users creation:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+whether log in/ sign up different accouts with same IP at the same time
+\end_layout
+
+\begin_layout Enumerate
+Techniques: 
+\series bold
+enforcing phone/email verification
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Users Hacked:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+whether log in at different IP / geography,
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Contents Creation:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+robots -- same user keeps sending same content, Different user keeps sending
+ same content
+\end_layout
+
+\begin_layout Enumerate
+natural lanague processing skills to detect same format of the contents
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Contents Interactions
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Sundenlly a lot of likes and shares from the same IP.
+\end_layout
+
+\begin_layout Enumerate
+or totally different users -- they are disconnected + no common interest
+ --- suddenly like or follow the same person
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Techs agians Spam
+\end_layout
+
+\begin_layout Standard
+• Techniques fight against API abuse (i.e., read-only apps, enforcing phone
+ verification on app creation, leaked API keys, etc) -
+\end_layout
+
+\begin_layout Subsection
+Goals, challenges and BotMaker overview
+\end_layout
+
+\begin_layout Standard
+The goal of any anti-spam system is to reduce spam that the user sees while
+ having nearly zero false positives.
+ Three key principles guided our design of Botmaker:
+\end_layout
+
+\begin_layout Enumerate
+Prevent spam content from being created.
+ By making it as hard as possible to create spam, we reduce the amount of
+ spam the user sees.
+\end_layout
+
+\begin_layout Enumerate
+Reduce the amount of time spam is visible on Twitter.
+ For the spam content that does get through, we try to clean it up as soon
+ as possible.
+\end_layout
+
+\begin_layout Enumerate
+Reduce the reaction time to new spam attacks.
+ Spam evolves constantly.
+ Spammers respond to the system defenses and the cycle never stops.
+ In order to be effective, we have to be able to collect data, and evaluate
+ and deploy rules and models quickly.
 \end_layout
 
 \begin_layout Part
