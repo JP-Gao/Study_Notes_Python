@@ -85,7 +85,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -1033,317 +1033,6 @@ By contrast, in boosting methods, base estimators are built sequentially
 \begin_deeper
 \begin_layout Itemize
 Examples: AdaBoost, Gradient Tree Boosting, ...
-\end_layout
-
-\end_deeper
-\begin_layout Section
-Loss Function Discusssions
-\end_layout
-
-\begin_layout Subsection
-Least Absolute Deviation LAD
-\end_layout
-
-\begin_layout Standard
-For each 
-\begin_inset Formula $i$
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-L=|y_{i}-f(x_{i})|
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-So its negative deviation is 
-\begin_inset Formula $-\frac{\partial L}{\partial f}=sign(y_{i}-f_{i})$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Loss for data:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-L=\sum_{i}^{N}|y-f|
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-If 
-\begin_inset Formula $f$
-\end_inset
-
- can only be taken as a single value, the one minimize 
-\begin_inset Formula $L$
-\end_inset
-
- is median of 
-\begin_inset Formula $y$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsection
-Binomial Deviance loss / Logit Losss
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $y\in\{1,-1\}$
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-log(1+exp(−2yf(X))).
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-K-class (multinomial) Deviance loss function
-\end_layout
-
-\begin_layout Itemize
-Note that Probabilities of Logit of 
-\begin_inset Formula $K$
-\end_inset
-
- class
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\begin_inset Formula 
-\[
-P_{k}(x)=\frac{e^{f_{k}(x)}}{\sum_{l=1}^{K}e^{f_{l}(x)}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-So Binomial deviance extends to K-class multinomial deviance loss function
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-L(y,p(x)) & = & -\sum_{i=1}^{K}I(y=G_{k})\mbox{log}p_{k}(x)\\
- & = & -\sum_{i=1}^{K}I(y=G_{k})f_{k}(x)+\mbox{log}\sum_{i=1}^{K}e^{f_{l}(x)}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Exponential Loss
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $L(y,f(x))=exp(-yf(x))$
-\end_inset
-
- for Classification
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-The principal attraction of exponential loss in the context of additive
- modeling is computational; it leads to the simple modular reweighting AdaBoost
- algorithm.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Squared-error loss 
-\end_layout
-
-\begin_layout Itemize
-for Classification: is not a good surrogate for misclassification error.
- As seen in Figure 10.4, it is not a monotone decreasing function of increasing
- margin yf(x).Thus, if class assignment is the goal, a monotone decreasing
- criterion serves as a better surrogate loss function.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Easy to deal with mathematically Not robust to outliers.
-\end_layout
-
-\begin_layout Itemize
-Not robust to outliers (result in large values for outlier 
-\begin_inset Formula $x$
-\end_inset
-
-)
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Absolute loss for regression (more robust to outliers than Squared-error
- loss)
-\end_layout
-
-\begin_layout Subsection
-Huber loss (more robust to outliers)
-\end_layout
-
-\begin_layout Standard
-Huber loss is a loss function used in robust regression, that is less sensitive
- to outliers in data than the squared error loss.
- Huber loss (below) deals well with outliers and nearly as efficient as
- least squares for Gaussian errors.
- 
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula 
-\[
-L(y,F)=\begin{cases}
-\frac{1}{2}(y-F)^{2} & |y-F|\le\delta\\
-\delta(|y-F|-\delta/2) & |y-F|>\delta
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Any 
-\begin_inset Formula $y$
-\end_inset
-
- that has 
-\begin_inset Formula $|y-F|>\delta$
-\end_inset
-
- is believed to be 
-\series bold
-outliers.
- To not let outliers affect the model, we only use absolute loss for them,
- not squared loss.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $\delta$
-\end_inset
-
- is often choosen as 
-\begin_inset Formula $\alpha$
-\end_inset
-
--quatitle of distribution 
-\begin_inset Formula $|y-F|$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Construct in this way such that its derivative has a nice form, and also
- continuous at points 
-\begin_inset Formula $|y-F|=\delta$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Compare Loss Functions
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename Lyx_Picture/Loss_Functions_Classification.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Figure 10.4 shows both the exponential (10.8) and binomial deviance criteria
- as a function of the margin y · f(x).
- 
-\end_layout
-
-\begin_layout Standard
-Misclassification loss 
-\begin_inset Formula $L(y,f(x))=I(y·f(x)<0)$
-\end_inset
-
-, which gives unit penalty for negative margin values, and no penalty at
- all for positive ones.
-\end_layout
-
-\begin_layout Subsection
-Negative Likelihood
-\end_layout
-
-\begin_layout Itemize
-probabilities 
-\begin_inset Formula $p_{k}(X)=Pr(G=k|X)$
-\end_inset
-
- and thus 
-\begin_inset Formula $\hat{G}(x)=argmax_{k}\hat{p}_{k}(X)$
-\end_inset
-
-.
- Then 
-\begin_inset Formula $L(G,\hat{G}(x))=-2log\hat{p}_{k}(X)$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-The quantity −2 × the log-likelihood is sometimes referred to as the deviance.
- The log-likelihood can be used as a loss-function for general response
- densities, such as the Poisson, gamma, exponential, log-normal and others.
- 
-\end_layout
-
-\begin_layout Itemize
-The “−2” in the definition makes the log-likelihood loss for the Gaussian
- distribution match squared-error loss
 \end_layout
 
 \end_deeper
@@ -3768,30 +3457,6 @@ a rehearsal of a performance or procedure before the real one.
 \end_layout
 
 \begin_layout Section
-Questions to Ask
-\end_layout
-
-\begin_layout Standard
-What is the last project you shipped? What was the goal, how long did it
- take, what were the stumbling blocks, what tools did you use, etc.
- 
-\end_layout
-
-\begin_layout Standard
-Who will I report to and how many people report to that person? Do they
- have regular 1:1 with their team members? 
-\end_layout
-
-\begin_layout Standard
-What would be my first project here? Has someone already been working on
- this or is this in the aspirational stage? 
-\end_layout
-
-\begin_layout Standard
-Why did the last person who quit this team leave? The company? 
-\end_layout
-
-\begin_layout Section
 Outliers
 \end_layout
 
@@ -4773,7 +4438,7 @@ I f
 \end_layout
 
 \begin_layout Subsection
-KNN vs other Linear Classification methods
+Whether the Boundary is Liner: KNN vs other Linear Classification methods
 \end_layout
 
 \begin_layout Enumerate
@@ -4797,8 +4462,12 @@ en the decision boundary is highly non-linear.On the other hand, KNN does
 \end_layout
 
 \begin_layout Standard
+
+\series bold
 Nonlinear methods like kNN have high variance.
- It is apparent from Figure 14.6 that kNN can model very complex boundaries
+ 
+\series default
+It is apparent from Figure 14.6 that kNN can model very complex boundaries
  between two classes.
  It is therefore sensitive to noise documents of the sort depicted in Figure
  14.10.
@@ -4914,6 +4583,350 @@ Mixture of Gaussian: when assume data follows Gaussian
 K-Means: when not Gaussian.
 \end_layout
 
+\begin_layout Section
+Loss Function Discusssions
+\end_layout
+
+\begin_layout Subsection
+Don't take default loss function for granted
+\end_layout
+
+\begin_layout Standard
+Many practitioners train and pick the best model using the default loss
+ function (e.g., squared error).
+ In practice, off-the-shelf loss function rarely aligns with the business
+ objective.
+ Take fraud detection as an example.
+ When trying to detect fraudulent transactions, the business objective is
+ to minimize the fraud loss.
+ The off-the-shelf loss function of binary classifiers weighs false positives
+ and false negatives equally.
+ To align with the business objective, the loss function should not only
+ penalize false negatives more than false positives, but also penalize each
+ false negative in proportion to the dollar amount.
+ Also, data sets in fraud detection usually contain highly imbalanced labels.
+ In these cases, bias the loss function in favor of the rare case (e.g., through
+ up/down sampling).
+ 
+\end_layout
+
+\begin_layout Subsection
+No Free Lunch
+\end_layout
+
+\begin_layout Standard
+NFL results is that "a general-purpose universal optimization strategy is
+ theoretically impossible, and the only way one strategy can outperform
+ another is if it is specialized to the specific problem under consideration".
+\end_layout
+
+\begin_layout Subsection
+Least Absolute Deviation LAD
+\end_layout
+
+\begin_layout Standard
+For each 
+\begin_inset Formula $i$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L=|y_{i}-f(x_{i})|
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+So its negative deviation is 
+\begin_inset Formula $-\frac{\partial L}{\partial f}=sign(y_{i}-f_{i})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Loss for data:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L=\sum_{i}^{N}|y-f|
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $f$
+\end_inset
+
+ can only be taken as a single value, the one minimize 
+\begin_inset Formula $L$
+\end_inset
+
+ is median of 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Binomial Deviance loss / Logit Losss
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y\in\{1,-1\}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+log(1+exp(−2yf(X))).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+K-class (multinomial) Deviance loss function
+\end_layout
+
+\begin_layout Itemize
+Note that Probabilities of Logit of 
+\begin_inset Formula $K$
+\end_inset
+
+ class
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P_{k}(x)=\frac{e^{f_{k}(x)}}{\sum_{l=1}^{K}e^{f_{l}(x)}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+So Binomial deviance extends to K-class multinomial deviance loss function
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+L(y,p(x)) & = & -\sum_{i=1}^{K}I(y=G_{k})\mbox{log}p_{k}(x)\\
+ & = & -\sum_{i=1}^{K}I(y=G_{k})f_{k}(x)+\mbox{log}\sum_{i=1}^{K}e^{f_{l}(x)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Exponential Loss
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $L(y,f(x))=exp(-yf(x))$
+\end_inset
+
+ for Classification
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The principal attraction of exponential loss in the context of additive
+ modeling is computational; it leads to the simple modular reweighting AdaBoost
+ algorithm.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Squared-error loss 
+\end_layout
+
+\begin_layout Itemize
+for Classification: is not a good surrogate for misclassification error.
+ As seen in Figure 10.4, it is not a monotone decreasing function of increasing
+ margin yf(x).Thus, if class assignment is the goal, a monotone decreasing
+ criterion serves as a better surrogate loss function.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Easy to deal with mathematically Not robust to outliers.
+\end_layout
+
+\begin_layout Itemize
+Not robust to outliers (result in large values for outlier 
+\begin_inset Formula $x$
+\end_inset
+
+)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Absolute loss for regression (more robust to outliers than Squared-error
+ loss)
+\end_layout
+
+\begin_layout Subsection
+Huber loss (more robust to outliers)
+\end_layout
+
+\begin_layout Standard
+Huber loss is a loss function used in robust regression, that is less sensitive
+ to outliers in data than the squared error loss.
+ Huber loss (below) deals well with outliers and nearly as efficient as
+ least squares for Gaussian errors.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+L(y,F)=\begin{cases}
+\frac{1}{2}(y-F)^{2} & |y-F|\le\delta\\
+\delta(|y-F|-\delta/2) & |y-F|>\delta
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Any 
+\begin_inset Formula $y$
+\end_inset
+
+ that has 
+\begin_inset Formula $|y-F|>\delta$
+\end_inset
+
+ is believed to be 
+\series bold
+outliers.
+ To not let outliers affect the model, we only use absolute loss for them,
+ not squared loss.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\delta$
+\end_inset
+
+ is often choosen as 
+\begin_inset Formula $\alpha$
+\end_inset
+
+-quatitle of distribution 
+\begin_inset Formula $|y-F|$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Construct in this way such that its derivative has a nice form, and also
+ continuous at points 
+\begin_inset Formula $|y-F|=\delta$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Compare Loss Functions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/Loss_Functions_Classification.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 10.4 shows both the exponential (10.8) and binomial deviance criteria
+ as a function of the margin y · f(x).
+ 
+\end_layout
+
+\begin_layout Standard
+Misclassification loss 
+\begin_inset Formula $L(y,f(x))=I(y·f(x)<0)$
+\end_inset
+
+, which gives unit penalty for negative margin values, and no penalty at
+ all for positive ones.
+\end_layout
+
+\begin_layout Subsection
+Negative Likelihood
+\end_layout
+
+\begin_layout Itemize
+probabilities 
+\begin_inset Formula $p_{k}(X)=Pr(G=k|X)$
+\end_inset
+
+ and thus 
+\begin_inset Formula $\hat{G}(x)=argmax_{k}\hat{p}_{k}(X)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $L(G,\hat{G}(x))=-2log\hat{p}_{k}(X)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The quantity −2 × the log-likelihood is sometimes referred to as the deviance.
+ The log-likelihood can be used as a loss-function for general response
+ densities, such as the Poisson, gamma, exponential, log-normal and others.
+ 
+\end_layout
+
+\begin_layout Itemize
+The “−2” in the definition makes the log-likelihood loss for the Gaussian
+ distribution match squared-error loss
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 SVM as Loss Function and Compare with Logistic
 \end_layout
@@ -5031,7 +5044,7 @@ Gaussian Mixture compared with Gaussian Linear Discriminative Analysis
 \end_layout
 
 \begin_layout Itemize
-Similar as Gassian Discriminative analysis, but here we just replace the
+Similar as Gaussian Discriminative analysis, but here we just replace the
  label 
 \begin_inset Formula $y$
 \end_inset
@@ -5262,39 +5275,6 @@ Run a quick and dirty model first to see which feature is more important
 \begin_layout Itemize
 Regularization methods like LASSO and ridge regression may also be considered
  algorithms with feature selection baked i
-\end_layout
-
-\begin_layout Section
-Don't take default loss function for granted
-\end_layout
-
-\begin_layout Standard
-Many practitioners train and pick the best model using the default loss
- function (e.g., squared error).
- In practice, off-the-shelf loss function rarely aligns with the business
- objective.
- Take fraud detection as an example.
- When trying to detect fraudulent transactions, the business objective is
- to minimize the fraud loss.
- The off-the-shelf loss function of binary classifiers weighs false positives
- and false negatives equally.
- To align with the business objective, the loss function should not only
- penalize false negatives more than false positives, but also penalize each
- false negative in proportion to the dollar amount.
- Also, data sets in fraud detection usually contain highly imbalanced labels.
- In these cases, bias the loss function in favor of the rare case (e.g., through
- up/down sampling).
- 
-\end_layout
-
-\begin_layout Subsection
-No Free Lunch
-\end_layout
-
-\begin_layout Standard
-NFL results is that "a general-purpose universal optimization strategy is
- theoretically impossible, and the only way one strategy can outperform
- another is if it is specialized to the specific problem under consideration".
 \end_layout
 
 \begin_layout Section
@@ -6038,11 +6018,31 @@ Evaluate Classifciaton Model
 \end_layout
 
 \begin_layout Section
+Application
+\end_layout
+
+\begin_layout Itemize
+How to evaluate Classification Model: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+KS/ROC: how much true positive you can identify at the cost of false positive.
+\end_layout
+
+\begin_layout Itemize
+Furthermore, you can quantify the monetary value of true positive, false
+ positive, etc.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Section
 Model Fit Overall
 \end_layout
 
 \begin_layout Subsection
-Contingency Table
+Contingency Table / Confusion Matrix
 \end_layout
 
 \begin_layout Standard
@@ -6199,7 +6199,25 @@ N
 \begin_layout Itemize
 
 \series bold
-Sensitivity/precision
+If care about overall acuacy: Accuracy 
+\begin_inset Formula $\frac{TP+TN}{P+N}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+If care about type 2 error -- missing something positive will cause huge
+ disaster, like you want to identify terrorist.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Sensitivity/Recall
 \series default
  or true positive rate (TPR) 
 \begin_inset Formula $=\frac{TP}{P}=\frac{TP}{TP+FN}$
@@ -6214,16 +6232,29 @@ Sensitivity/precision
 \end_inset
 
  as Positive.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-Sensitivity = Power = 1 - Type II
+ = Power = 1 - Type II
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+
+\series bold
+If care about type 1 error -- get a False Positive will insult your customer
+ -- create a bad customer expenrence 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Sensitivity
+\series default
+
+\begin_inset Formula $=\frac{TP}{\mbox{Diagnostic Positive}}=\frac{TP}{TP+FP}$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
 
 \series bold
@@ -6372,10 +6403,20 @@ Lift
 \end_layout
 
 \begin_layout Enumerate
+
+\series bold
 Cumulative Lift
 \end_layout
 
 \begin_layout Enumerate
+
+\series bold
+KS
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
 ROC 
 \end_layout
 
@@ -6910,11 +6951,18 @@ Figure 1 gives an example of estimation of distribution functions of good
  and bad clients, including an estimate of KS statistics.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 It can be seen, for example, that the score around 2.5 and smaller has population
  of approximately 30% of good clients and 70%.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+An area in the left of a cutoff line is How much ture positive you can identify
+ as a cost of false positive.
 \end_layout
 
 \begin_layout Standard
@@ -7034,7 +7082,7 @@ Then plot
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 For any given 
@@ -7486,7 +7534,11 @@ X^{T}(Y-\beta X)=0
 
 \begin_layout Standard
 Solve this we get 
-\begin_inset Formula $\beta=\left(X^{T}X\right)^{-1}X^{T}Y$
+\begin_inset Formula 
+\[
+\beta=\left(X^{T}X\right)^{-1}X^{T}Y
+\]
+
 \end_inset
 
 
@@ -7643,6 +7695,13 @@ cov(\hat{\beta}) & = & E\left[(\hat{\beta}-\beta)(\hat{\beta}-\beta)'\right]\\
 
 \begin_layout Standard
 where
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\text{\beta}=\left(X^{T}X\right)^{-1}X^{T}Y$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -8147,7 +8206,7 @@ You should be able to verify that this is equivalent to the solution we
 \end_layout
 
 \begin_layout Section
-Gauss-Markov Assumptions (for cross-sectional analysis)
+5 Gauss-Markov Assumptions (for cross-sectional analysis)
 \end_layout
 
 \begin_layout Paragraph*
@@ -8483,7 +8542,7 @@ In other words,for a regression outlier, neither theX nor the Y value is
 \end_layout
 
 \begin_layout Subsection
-Leverage Effect
+Leverage Effect and Hat Values
 \begin_inset Index idx
 status open
 
@@ -8704,7 +8763,7 @@ What do you think? In Case 1, the residuals appear randomly spread.
 \end_layout
 
 \begin_layout Subsection
-Identify outliers
+Quantify Identify outliers
 \end_layout
 
 \begin_layout Enumerate
@@ -9138,7 +9197,7 @@ Lagrange Multiplier (LM) tests for this and other types of mis-specification
 
 \end_deeper
 \begin_layout Subsection
-Check Heteroscedasticity
+Check Heteroscedasticity: White Test
 \end_layout
 
 \begin_layout Enumerate
@@ -9714,8 +9773,15 @@ variance inflation factor (VIF)
 \end_layout
 
 \begin_layout Standard
-The VIF is the ratio of the variance of βˆj when fitting the full model
- divided by the variance of βˆj if fit on its own.
+The VIF is the ratio of the variance of 
+\begin_inset Formula $β{}_{j}$
+\end_inset
+
+ when fitting the full model divided by the variance of 
+\begin_inset Formula $β{}_{j}$
+\end_inset
+
+ if fit on its own.
  The smallest possible value for VIF is 1, which indicates the complete
  absence of collinearity.
  
