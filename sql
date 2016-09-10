@@ -117,6 +117,1575 @@ SQL is a non-procedure language: You specify what you want, not how to do.
 \end_layout
 
 \begin_layout Part
+SQL Interview
+\end_layout
+
+\begin_layout Itemize
+When Join tables, 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+think things visiually
+\end_layout
+
+\begin_layout Itemize
+think about which new information you want to bring in
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+It is CASE WHEN ...
+ 
+\series bold
+THEN
+\series default
+ ..
+ , NOT CASE WHEN ...
+ AS
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+CASE WHEN ...
+ THEN ...
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+ELSE
+\end_layout
+
+\begin_layout Plain Layout
+
+END
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Be careful about ; and ,
+\end_layout
+
+\begin_layout Itemize
+Group by 在 where 之后
+\end_layout
+
+\begin_layout Itemize
+OUTER UNION CORR 最灵活-- match by name; UNION ALL 最严格 -- match by position,
+ allow overlay
+\end_layout
+
+\begin_layout Itemize
+Type of Questions
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Group by then Group by: 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select 
+\end_layout
+
+\begin_layout Plain Layout
+
+	..
+\end_layout
+
+\begin_layout Plain Layout
+
+from (
+\end_layout
+
+\begin_layout Plain Layout
+
+	SELECT
+\end_layout
+
+\begin_layout Plain Layout
+
+	  .., SUM() AS Y
+\end_layout
+
+\begin_layout Plain Layout
+
+	FROM A 
+\end_layout
+
+\begin_layout Plain Layout
+
+	GROUP BY X
+\end_layout
+
+\begin_layout Plain Layout
+
+) AS DETACH
+\end_layout
+
+\begin_layout Plain Layout
+
+GROUP BY DETACH.Y
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Left Join itself.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The Main table may need to GROUP BY
+\end_layout
+
+\begin_layout Itemize
+The Left table may also need to GROUP BY
+\end_layout
+
+\begin_layout Itemize
+Be careful about the JOIN-ON KEY
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+How to think:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+First think about what we need in the MAIN table
+\end_layout
+
+\begin_layout Itemize
+Then think about what infor to bring from LEFT JOIN table
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+What is the KEY to join on: maybe there are DOUBLE KEYS
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Method
+\end_layout
+
+\begin_layout Enumerate
+Describe the general structure of the query you want to write
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Let A join B, then group by or sum
+\end_layout
+
+\begin_layout Enumerate
+Probably a subqquery is needed
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Clarify 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+When two tables to join, if you are unsure: always ASK whether A table contains
+ table B, or vice versa, or they are not mutually contained by each other
+ 
+\end_layout
+
+\begin_layout Enumerate
+Why one variable is an Unique Indeitfier in the table, or it is possible
+ to be duplicated? ------- Is one to many possible?
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+First write From and Join ON 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Then write subquery
+\end_layout
+
+\begin_layout Enumerate
+Then take care WHERE and GROUP BY
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Sample Questions
+\end_layout
+
+\begin_layout Subsection
+Conecptual Questions
+\end_layout
+
+\begin_layout Itemize
+What does UNION do? What is the difference between UNION and UNION ALL?
+\end_layout
+
+\begin_layout Itemize
+Consider the following two query results:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Itemize
+
+SELECT count(*) AS total FROM orders;
+\end_layout
+
+\begin_layout Itemize
+
++-------+
+\end_layout
+
+\begin_layout Itemize
+
+| total |
+\end_layout
+
+\begin_layout Itemize
+
++-------+
+\end_layout
+
+\begin_layout Itemize
+
+| 100 |
+\end_layout
+
+\begin_layout Itemize
+
++-------+
+\end_layout
+
+\begin_layout Itemize
+
+SELECT count(*) AS cust_123_total FROM orders WHERE customer_id = '123';
+\end_layout
+
+\begin_layout Itemize
+
++----------------+
+\end_layout
+
+\begin_layout Itemize
+
+| cust_123_total |
+\end_layout
+
+\begin_layout Itemize
+
++----------------+
+\end_layout
+
+\begin_layout Itemize
+
+| 15 |
+\end_layout
+
+\begin_layout Itemize
+
++----------------+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Given the above query results, what will be the result of the query below?
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT count(*) AS cust_not_123_total FROM orders WHERE customer_id <> '123'
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Answer:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+The obvious answer is 85 (i.e, 100 - 15).
+ However, that is not necessarily correct.
+ Specifically, any records with a customer_id of NULL will not be included
+ in either count (i.e., they won’t be included in cust_123_total, nor will
+ they be included in cust_not_123_total).
+ For example, if exactly one of the 100 customers has a NULL customer_id,
+ the result of the last query will be:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
++--------- ----------+
+\end_layout
+
+\begin_layout Plain Layout
+
+| cust_not_123_total |
+\end_layout
+
+\begin_layout Plain Layout
+
++--------------------+
+\end_layout
+
+\begin_layout Plain Layout
+
+|         84         |
+\end_layout
+
+\begin_layout Plain Layout
+
++--------------------+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What will be the result of the query below? Explain your answer and provide
+ a version that behaves correctly.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Itemize
+
+select case when null = null then 'Yup' else 'Nope' end as Result;
+\end_layout
+
+\begin_layout Itemize
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Answer:
+\end_layout
+
+\begin_layout Itemize
+This query will actually yield “Nope”, seeming to imply that null is not
+ equal to itself! The reason for this is that the proper way to compare
+ a value to null in SQL is with the is operator, not with =.
+ Accordingly, the correct version of the above query that yields the expected
+ result (i.e., “Yup”) would be as follows:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select case when null is null then 'Yup' else 'Nope' end as Result;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Given the following tables:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Itemize
+
+sql> SELECT * FROM runners;
+\end_layout
+
+\begin_layout Itemize
+
++----+--------------+
+\end_layout
+
+\begin_layout Itemize
+
+| id | name |
+\end_layout
+
+\begin_layout Itemize
+
++----+--------------+
+\end_layout
+
+\begin_layout Itemize
+
+| 1 | John Doe |
+\end_layout
+
+\begin_layout Itemize
+
+| 2 | Jane Doe |
+\end_layout
+
+\begin_layout Itemize
+
+| 3 | Alice Jones |
+\end_layout
+
+\begin_layout Itemize
+
+| 4 | Bobby Louis |
+\end_layout
+
+\begin_layout Itemize
+
+| 5 | Lisa Romero |
+\end_layout
+
+\begin_layout Itemize
+
++----+--------------+
+\end_layout
+
+\begin_layout Itemize
+
+sql> SELECT * FROM races;
+\end_layout
+
+\begin_layout Itemize
+
++----+----------------+-----------+
+\end_layout
+
+\begin_layout Itemize
+
+| id | event | winner_id |
+\end_layout
+
+\begin_layout Itemize
+
++----+----------------+-----------+
+\end_layout
+
+\begin_layout Itemize
+
+| 1 | 100 meter dash | 2 |
+\end_layout
+
+\begin_layout Itemize
+
+| 2 | 500 meter dash | 3 |
+\end_layout
+
+\begin_layout Itemize
+
+| 3 | cross-country | 2 |
+\end_layout
+
+\begin_layout Itemize
+
+| 4 | triathalon | NULL |
+\end_layout
+
+\begin_layout Itemize
+
++----+----------------+-----------+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+What will be the result of the query below?
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT * FROM runners WHERE id NOT IN (SELECT winner_id FROM races)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Explain your answer and also provide an alternative version of this query
+ that will avoid the issue that it exposes.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Answer:
+\end_layout
+
+\begin_layout Itemize
+Surprisingly, given the sample data provided, the result of this query will
+ be an empty set.
+ The reason for this is as follows: If the set being evaluated by the SQL
+ NOT IN condition contains any values that are null, then the outer query
+ here will return an empty set, even if there are many runner ids that match
+ winner_ids in the races table.
+\end_layout
+
+\begin_layout Itemize
+Knowing this, a query that avoids this issue would be as follows:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT * FROM runners WHERE id NOT IN (SELECT winner_id FROM races WHERE
+ winner_id IS NOT null)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Given these contents of the Customers table:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Itemize
+
+Id Name ReferredBy
+\end_layout
+
+\begin_layout Itemize
+
+1 John Doe NULL
+\end_layout
+
+\begin_layout Itemize
+
+2 Jane Smith NULL
+\end_layout
+
+\begin_layout Itemize
+
+3 Anne Jenkins 2
+\end_layout
+
+\begin_layout Itemize
+
+4 Eric Branford NULL
+\end_layout
+
+\begin_layout Itemize
+
+5 Pat Richards 1
+\end_layout
+
+\begin_layout Itemize
+
+6 Alice Barnes 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Here is a query written to return the list of customers not referred by
+ Jane Smith:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT Name FROM Customers WHERE ReferredBy <> 2;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+What will be the result of the query? Why? What would be a better way to
+ write it?
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Anwer:
+\end_layout
+
+\begin_layout Itemize
+Although there are 4 customers not referred by Jane Smith (including Jane
+ Smith herself), the query will only return one: Pat Richards.
+ All the customers who were referred by nobody at all (and therefore have
+ NULL in their ReferredBy column) don’t show up.
+ But certainly those customers weren’t referred by Jane Smith, and certainly
+ NULL is not equal to 2, so why didn’t they show up?
+\end_layout
+
+\begin_layout Itemize
+SQL Server uses three-valued logic, which can be troublesome for programmers
+ accustomed to the more satisfying two-valued logic (TRUE or FALSE) most
+ programming languages use.
+ In most languages, if you were presented with two predicates: ReferredBy
+ = 2 and ReferredBy <> 2, you would expect one of them to be true and one
+ of them to be false, given the same value of ReferredBy.
+ In SQL Server, however, if ReferredBy is NULL, neither of them are true
+ and neither of them are false.
+ Anything compared to NULL evaluates to the third value in three-valued
+ logic: UNKNOWN.
+\end_layout
+
+\begin_layout Itemize
+The query should be written:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT Name FROM Customers WHERE ReferredBy IS NULL OR ReferredBy <> 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Watch out for the following, though!
+\end_layout
+
+\begin_layout Itemize
+SELECT Name FROM Customers WHERE ReferredBy = NULL OR ReferredBy <> 2
+\end_layout
+
+\begin_layout Itemize
+This will return the same faulty set as the original.
+ Why? We already covered that: Anything compared to NULL evaluates to the
+ third value in the three-valued logic: UNKNOWN.
+ That “anything” includes NULL itself! That’s why SQL Server provides the
+ IS NULL and IS NOT NULL operators to specifically check for NULL.
+ Those particular operators will always evaluate to true or false.
+\end_layout
+
+\begin_layout Itemize
+Even if a candidate doesn’t have a great amount of experience with SQL Server,
+ diving into the intricacies of three-valued logic in general can give a
+ good indication of whether they have the ability learn it quickly or whether
+ they will struggle with it.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Assume a schema of Emp ( Id, Name, DeptId ) , Dept ( Id, Name).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If there are 10 records in the Emp table and 5 records in the Dept table,
+ how many rows will be displayed in the result of the following SQL query:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Select * From Emp, Dept
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Explain your answer.
+ 
+\end_layout
+
+\begin_layout Itemize
+The query will result in 50 rows as a “cartesian product” or “cross join”,
+ which is the default whenever the ‘where’ clause is omitted.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+How can you select all the even number records from a table? All the odd
+ number records?
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+To select all the even number records from a table:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Select * from table where id % 2 = 0 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To select all the odd number records from a table:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Select * from table where id % 2 != 0
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Given a table dbo.users where the column user_id is a unique identifier,
+ how can you efficiently select the first 100 odd user_id values from the
+ table?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+(Assume the table contains well over 100 records with odd user_id values.)
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT TOP 100 user_id FROM dbo.users WHERE user_id % 2 = 1 ORDER BY user_id
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Real Questions
+\end_layout
+
+\begin_layout Standard
+Table A has two variables: id_x, id_y, feature_A, feature_B ....
+ Feature_NOFULLSTIMER
+\end_layout
+
+\begin_layout Standard
+where id_y values are in the same nature of id_x.
+\end_layout
+
+\begin_layout Itemize
+Example
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Content_id, Commented, content_type, ....
+\end_layout
+
+\begin_layout Plain Layout
+
+10035        NULL,        Picture
+\end_layout
+
+\begin_layout Plain Layout
+
+10023,       10035, 	  Comment
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Questions 1: Find out all id_y with certain feature and with its corresponding
+ id_x meeting certain feature requirment
+\end_layout
+
+\begin_layout Itemize
+Questions 2: Find out all id_x with certain feature and with its corresponding
+ id_y meeting certain feature requirment
+\end_layout
+
+\begin_layout Subsection
+Query Qustions
+\end_layout
+
+\begin_layout Itemize
+Given the following tables:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT * FROM users;
+\end_layout
+
+\begin_layout Plain Layout
+
+user_id username
+\end_layout
+
+\begin_layout Plain Layout
+
+1 John Doe 
+\end_layout
+
+\begin_layout Plain Layout
+
+2 Jane Don 
+\end_layout
+
+\begin_layout Plain Layout
+
+3 Alice Jones 
+\end_layout
+
+\begin_layout Plain Layout
+
+4 Lisa Romero
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT * FROM training_details;
+\end_layout
+
+\begin_layout Plain Layout
+
+user_training_id user_id training_id training_date
+\end_layout
+
+\begin_layout Plain Layout
+
+1 1 1 "2015-08-02"
+\end_layout
+
+\begin_layout Plain Layout
+
+2 2 1 "2015-08-03"
+\end_layout
+
+\begin_layout Plain Layout
+
+3 3 2 "2015-08-02"
+\end_layout
+
+\begin_layout Plain Layout
+
+4 4 2 "2015-08-04"
+\end_layout
+
+\begin_layout Plain Layout
+
+5 2 2 "2015-08-03"
+\end_layout
+
+\begin_layout Plain Layout
+
+6 1 1 "2015-08-02"
+\end_layout
+
+\begin_layout Plain Layout
+
+7 3 2 "2015-08-04"
+\end_layout
+
+\begin_layout Plain Layout
+
+8 4 3 "2015-08-03"
+\end_layout
+
+\begin_layout Plain Layout
+
+9 1 4 "2015-08-03"
+\end_layout
+
+\begin_layout Plain Layout
+
+10 3 1 "2015-08-02"
+\end_layout
+
+\begin_layout Plain Layout
+
+11 4 2 "2015-08-04"
+\end_layout
+
+\begin_layout Plain Layout
+
+12 3 2 "2015-08-02"
+\end_layout
+
+\begin_layout Plain Layout
+
+13 1 1 "2015-08-02"
+\end_layout
+
+\begin_layout Plain Layout
+
+14 4 3 "2015-08-03"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Write a query to to get the list of users who took the a training lesson
+ more than once in the same day, grouped by user and training lesson, each
+ ordered from the most recent lesson date to oldest date.
+\end_layout
+
+\begin_layout Itemize
+Answer
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT
+\end_layout
+
+\begin_layout Plain Layout
+
+      u.user_id,
+\end_layout
+
+\begin_layout Plain Layout
+
+      username,
+\end_layout
+
+\begin_layout Plain Layout
+
+      training_id,
+\end_layout
+
+\begin_layout Plain Layout
+
+      training_date,
+\end_layout
+
+\begin_layout Plain Layout
+
+      count( user_training_id ) AS count
+\end_layout
+
+\begin_layout Plain Layout
+
+  FROM users u JOIN training_details t ON t.user_id = u.user_id
+\end_layout
+
+\begin_layout Plain Layout
+
+  GROUP BY user_id,
+\end_layout
+
+\begin_layout Plain Layout
+
+           training_id,
+\end_layout
+
+\begin_layout Plain Layout
+
+           training_date
+\end_layout
+
+\begin_layout Plain Layout
+
+  HAVING count( user_training_id ) > 1
+\end_layout
+
+\begin_layout Plain Layout
+
+  ORDER BY training_date DESC;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+user_id  username      training_id  training_date             count
+\end_layout
+
+\begin_layout Plain Layout
+
+4        Lisa Romero   2            August, 04 2015 00:00:00  2
+\end_layout
+
+\begin_layout Plain Layout
+
+4        Lisa Romero   3            August, 03 2015 00:00:00  2
+\end_layout
+
+\begin_layout Plain Layout
+
+1        John Doe      1            August, 02 2015 00:00:00  3
+\end_layout
+
+\begin_layout Plain Layout
+
+3        Alice Jones   2            August, 02 2015 00:00:00  2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Question 1: SQL Query to find second highest salary of Employee
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Answer: There are many ways to find second highest salary of Employee in
+ SQL, you can either use SQL Join or Subquery to solve this problem.
+ Here is SQL query using Subquery:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select MAX(Salary) from Employee WHERE Salary NOT IN (select MAX(Salary)
+ from Employee ); 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+find all Employee records containing the word "Joe", regardless of whether
+ it was stored as JOE, Joe, or joe.
+ Answer :
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT * from Employees WHERE UPPER(EmpName) like '%JOE%';
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+There is a table which contains two column Student and Marks, you need to
+ find all the students, whose marks are greater than average marks i.e.
+ list of above average students.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Answer: This query can be written using subquery as shown below:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT student, marks from table where marks > SELECT AVG(marks) from table)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+How do you find all employees which are also manager? .
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+You have given a standard employee table with an additional column mgr_id,
+ which contains employee id of the manager.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+a.employee_id
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+from employee as a 
+\end_layout
+
+\begin_layout Plain Layout
+
+inner join 
+\end_layout
+
+\begin_layout Plain Layout
+
+	(select b.manager_id, sum(1) as count from employee as b)  as b
+\end_layout
+
+\begin_layout Plain Layout
+
+on b.manager_id = a.employee_id;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+How to select first 5 records from a table?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This question, often asked in many interviews, does not make any sense to
+ me.
+ The problem here is how do you define which record is first and which is
+ second.
+ Which record is retrieved first from the database is not deterministic.
+ It depends on many uncontrollable factors such as how database works at
+ that moment of execution etc.
+ So the question should really be – “how to select any 5 records from the
+ table?” But whatever it is, here is the solution:
+\end_layout
+
+\begin_layout Itemize
+In Oracle,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Itemize
+
+SELECT * 
+\end_layout
+
+\begin_layout Itemize
+
+FROM EMP
+\end_layout
+
+\begin_layout Itemize
+
+WHERE ROWNUM <= 5;
+\end_layout
+
+\begin_layout Itemize
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+In SQL Server,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT TOP 5 * FROM EMP;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+SELECT TOP 5 * FROM EMP;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT  name 
+\end_layout
+
+\begin_layout Plain Layout
+
+FROM EMPLOYEE o
+\end_layout
+
+\begin_layout Plain Layout
+
+WHERE (SELECT count(*) FROM EMPLOYEE i WHERE i.name < o.name) < 5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+How to generate row number in SQL Without ROWNUM
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT name, sal, (SELECT COUNT(*) FROM EMPLOYEE i WHERE o.name >= i.name)
+ row_num
+\end_layout
+
+\begin_layout Plain Layout
+
+FROM EMPLOYEE o
+\end_layout
+
+\begin_layout Plain Layout
+
+order by row_num
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+NAME SAL ROW_NUM
+\end_layout
+
+\begin_layout Plain Layout
+
+Anno 80 1
+\end_layout
+
+\begin_layout Plain Layout
+
+Bhuti 60 2
+\end_layout
+
+\begin_layout Plain Layout
+
+Darl 80 3
+\end_layout
+
+\begin_layout Plain Layout
+
+Hash 100 4
+\end_layout
+
+\begin_layout Plain Layout
+
+Inno 50 5
+\end_layout
+
+\begin_layout Plain Layout
+
+Meme 60 6
+\end_layout
+
+\begin_layout Plain Layout
+
+Pete 70 7
+\end_layout
+
+\begin_layout Plain Layout
+
+Privy 50 8
+\end_layout
+
+\begin_layout Plain Layout
+
+Robo 100 9
+\end_layout
+
+\begin_layout Plain Layout
+
+Tomiti 70 10
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Clairfy
+\end_layout
+
+\begin_layout Section
+Resources
+\end_layout
+
+\begin_layout Subsection
+Resources for Advanced
+\end_layout
+
+\begin_layout Itemize
+http://www.programmerinterview.com/index.php/database-sql/advanced-sql-interview-qu
+estions-and-answers/
+\end_layout
+
+\begin_layout Standard
+Try SQL exercises (SQL - Ex .
+ ru) --It has different scenario based exercises and a great online practice
+ area where you can instantly write the queries and see the result straightaway.
+ Also, you can try different questions based on the level of difficulty
+ you are comfortable with.
+\end_layout
+
+\begin_layout Standard
+Yes ..Here is one best website that provide online tutorial and online practice
+ set for SQL.
+\end_layout
+
+\begin_layout Standard
+SQL Tutorial and Test Paper with simple example on Installation,Basic Syntax,Dat
+a Types, Create DB,Create Table,Insert,Delete etc.
+ Here you can download pdf SQL Tutorial SQL Interview Questions and Answers.
+ And you can find also SQL interview questions and answers & online Skill
+ Test on Database SQL Server Online Quiz | Online Test | Mock Exam
+\end_layout
+
+\begin_layout Subsection
+Practise Tools
+\end_layout
+
+\begin_layout Standard
+Not online but consider using http://www.sqlite.org/ which is a "self-contained,
+ serverless, zero-configuration, transactional SQL database engine.".
+ You can put the database file in a Dropbox folder and use the https://addons.moz
+illa.org/en-US...
+ Firefox addon to access the database.
+ 
+\end_layout
+
+\begin_layout Part
 Topics
 \end_layout
 
@@ -2041,6 +3610,21 @@ means make observations with unique values of A, B ,C as a single group.
 We call A, B, C as key variables..
 \end_layout
 
+\begin_layout Itemize
+Principle
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+When ise GROUP BY., for non-key variables, must apply summary calculation
+ on it
+\end_layout
+
+\begin_layout Itemize
+Cannot use summary calculation without GROUP BY.
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 No Calculation Action in Group By
 \end_layout
@@ -2477,8 +4061,8 @@ M1C12 201103
 
 \end_layout
 
-\begin_layout Subsection
-Calculation
+\begin_layout Paragraph
+Another Example
 \end_layout
 
 \begin_layout Standard
@@ -2497,17 +4081,12 @@ distinct E
 within a group by the number of distinct E times.
 \end_layout
 
+\begin_layout Subsection
+Calculation without GROUP BY
+\end_layout
+
 \begin_layout Standard
-编程的原则：
-\end_layout
-
-\begin_layout Itemize
-GROUP BY 的key value 组合必须能将整个selected variables (不须整个data的variables) 的uniqueness确
-定。 
-\end_layout
-
-\begin_layout Itemize
-否则则须极其小心 费神。 
+Weired behavior.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2581,12 +4160,20 @@ sum(case when p.sgmnt_cd='PR' then p.tot_opn_bal_amt else 0 end as ..)
 
 \end_layout
 
+\begin_layout Subsection
+Missing Values in Group_by keys
+\end_layout
+
+\begin_layout Standard
+Then the missing vlaue NULL will be a separat group.
+\end_layout
+
 \begin_layout Section
 Operators 
 \end_layout
 
 \begin_layout Standard
-可用于任何EXPRESSION (SELECT 或 WHERE， HAVING，GROUP BY .。。)中
+Can be used in any EXPRESSION (SELECT or WHERE， HAVING，GROUP BY )
 \end_layout
 
 \begin_layout Standard
@@ -2929,7 +4516,11 @@ Cannot be used in HAVING
 Basic Techs
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Section
+Bascis
+\end_layout
+
+\begin_layout Subsection
 好的SQL编程习惯
 \end_layout
 
@@ -2938,7 +4529,7 @@ SELECT 中的每一个variable前都要加 library.
  ,以便知道这个vairable来自于FROM、JOIN中的哪一个table。
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 as: Specifying a Table Alias/change output variable name
 \end_layout
 
@@ -2990,7 +4581,7 @@ where s.empid=p.empid;
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 NULL
 \end_layout
 
@@ -3021,7 +4612,7 @@ Where A<=10
 Will include all NULL values in A
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 .* / * Choose 
 \end_layout
 
@@ -3033,7 +4624,7 @@ Choose all variables in select: *
 Choose all variables in table A: A.*
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Rename Column: Label/AS/In_Line_view
 \end_layout
 
@@ -3271,8 +4862,18 @@ The COUNT(column_name) function returns the number of values (NULL values
 \end_layout
 
 \begin_layout Itemize
-The COUNT(DISTINCT column_name) function returns the number of distinct
- values of the specified column:
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+The COUNT(DISTINCT column_name) 
+\end_layout
+
+\end_inset
+
+function returns the number of distinct values of the specified column:
 \end_layout
 
 \begin_layout Itemize
@@ -3468,56 +5069,6 @@ quit;
 \end_layout
 
 \begin_layout Subsection
-An arithmetic overflow
-\end_layout
-
-\begin_layout Standard
-Happen when apply any calculation into infinity values and huge values beyond
- system ability.
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-Sum(af.credit_limit) as credit_limit 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-will result in 
-\series bold
-arithmetic overflow
-\series default
- error.
-\end_layout
-
-\begin_layout Standard
-Id there are infinity values in 
-\series bold
-af.credit_limit
-\series default
-.
- So the way to solve this is first select all 
-\series bold
-af.credit_limit and then see the actual range of it.
- Then use where condition to restrict the sum calculation
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-If total sum value is too big, then divide it by some 10^6 to make it small.
-\end_layout
-
-\begin_layout Subsection
 CALCULATED VARIABLE
 \end_layout
 
@@ -3531,23 +5082,133 @@ CALCULATED variable.
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 proc sql;
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
 select age*2 as double_Age, 
+\end_layout
+
+\begin_layout Plain Layout
+
+(calculated double_age)/2 as normal_age from sashelp.class;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+ASCII
+\end_layout
+
+\begin_layout Standard
+/*Generate offer time,using ASCII.
+ A means Jan, B means Feb.....
+\end_layout
+
+\begin_layout Standard
+ASCII FUNCTION CAN ONLY WORK WITHIN DB2*/
 \end_layout
 
 \begin_layout Standard
 
 \series bold
-(calculated double_age)/2 
-\series default
-as normal_age from sashelp.class;
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+proc sql;
+\end_layout
+
+\begin_layout Plain Layout
+
+CONNECT TO DB2(DATABaSE=fnndw4);
+\end_layout
+
+\begin_layout Plain Layout
+
+create table out.Offer_BT_2011_2013 as
+\end_layout
+
+\begin_layout Plain Layout
+
+select *
+\end_layout
+
+\begin_layout Plain Layout
+
+from connection to DB2(
+\end_layout
+
+\begin_layout Plain Layout
+
+	select substr(AFFINIUM_CELL_CODE,1,10) AS AFFINIUM_CELL_CODE,
+\end_layout
+
+\begin_layout Plain Layout
+
+	MAIN.*,
+\end_layout
+
+\begin_layout Plain Layout
+
+	CASE WHEN substr(Offer_Name,2,1) IN ('0','1','2','3','4','5','6','7' /*Welcome
+ to 2017*/) and (ASCII(substr(Offer_Name,3,1))-64)=12
+\end_layout
+
+\begin_layout Plain Layout
+
+		THEN (INTEGER(substr(Offer_Name,2,1))+2010)*100+ ASCII(substr(Offer_Name,3,1))
+-64
+\end_layout
+
+\begin_layout Plain Layout
+
+		else 204604
+\end_layout
+
+\begin_layout Plain Layout
+
+		end as offer_time
+\end_layout
+
+\begin_layout Plain Layout
+
+	from u338194.Offer_BT_2011_2013 AS MAIN
+\end_layout
+
+\begin_layout Plain Layout
+
+	WHERE AFFINIUM_CELL_CODE IS NOT NULL);
+\end_layout
+
+\begin_layout Plain Layout
+
+quit;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Duplication
 \end_layout
 
 \begin_layout Subsection
-Duplicate variables
+Duplicate variables in DB2
 \end_layout
 
 \begin_layout Standard
@@ -3654,162 +5315,37 @@ oc on o.orgName = oc.orgName
 
 \end_layout
 
-\begin_layout Subsection
-proc sas: FEEDBACK option: Displaying All Column Names
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-proc sql feedback;
-\end_layout
-
-\begin_layout Plain Layout
-
-select *
-\end_layout
-
-\begin_layout Plain Layout
-
-from sasuser.staffchanges;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Describe the Table
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-proc sql;
-\end_layout
-
-\begin_layout Plain Layout
-
-describe table work.discount;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-ASCII
-\end_layout
-
-\begin_layout Standard
-/*Generate offer time,using ASCII.
- A means Jan, B means Feb.....
-\end_layout
-
-\begin_layout Standard
-ASCII FUNCTION CAN ONLY WORK WITHIN DB2*/
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-proc sql;
-\end_layout
-
-\begin_layout Plain Layout
-
-CONNECT TO DB2(DATABaSE=fnndw4);
-\end_layout
-
-\begin_layout Plain Layout
-
-create table out.Offer_BT_2011_2013 as
-\end_layout
-
-\begin_layout Plain Layout
-
-select *
-\end_layout
-
-\begin_layout Plain Layout
-
-from connection to DB2(
-\end_layout
-
-\begin_layout Plain Layout
-
-	select substr(AFFINIUM_CELL_CODE,1,10) AS AFFINIUM_CELL_CODE,
-\end_layout
-
-\begin_layout Plain Layout
-
-	MAIN.*,
-\end_layout
-
-\begin_layout Plain Layout
-
-	CASE WHEN substr(Offer_Name,2,1) IN ('0','1','2','3','4','5','6','7' /*Welcome
- to 2017*/) and (ASCII(substr(Offer_Name,3,1))-64)=12
-\end_layout
-
-\begin_layout Plain Layout
-
-		THEN (INTEGER(substr(Offer_Name,2,1))+2010)*100+ ASCII(substr(Offer_Name,3,1))
--64
-\end_layout
-
-\begin_layout Plain Layout
-
-		else 204604
-\end_layout
-
-\begin_layout Plain Layout
-
-		end as offer_time
-\end_layout
-
-\begin_layout Plain Layout
-
-	from u338194.Offer_BT_2011_2013 AS MAIN
-\end_layout
-
-\begin_layout Plain Layout
-
-	WHERE AFFINIUM_CELL_CODE IS NOT NULL);
-\end_layout
-
-\begin_layout Plain Layout
-
-quit;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
-Update Table
+Scalar function
 \end_layout
 
 \begin_layout Standard
-应避免使用。如须修改table，最好重新generate correct one， rather than update。应update代码冗长，不易于维护。
+A build in Scalar function can be used directly in expression.
+\end_layout
+
+\begin_layout Itemize
+DECIMAL, MONTH, YEAR\SpecialChar \ldots{}
+.
+\end_layout
+
+\begin_layout Itemize
+CORRELATION(variable1, variable2)
+\end_layout
+
+\begin_layout Itemize
+COVARIANCE(variable1, variable2)
+\end_layout
+
+\begin_layout Itemize
+STDDEV
+\end_layout
+
+\begin_layout Itemize
+RAND # Random numbers
+\end_layout
+
+\begin_layout Itemize
+QUARTER(Date) # return which quarter of the date in a year.
 \end_layout
 
 \begin_layout Section
@@ -3826,50 +5362,6 @@ default variable / Special register
 
 \begin_layout Standard
 系统中中default variable，如调用当前系统时间 CURRENT------DATE。
-\end_layout
-
-\begin_layout Part
-My SQL
-\end_layout
-
-\begin_layout Standard
-Duplicated varaibles will all show up, not the first coversthe later ones
-\end_layout
-
-\begin_layout Standard
-cannot simply write *, has to write table.*
-\end_layout
-
-\begin_layout Part
-Proc SAS
-\end_layout
-
-\begin_layout Subsubsection
-OUTBOS=10: head in R: Display data (limited rows showed)
-\end_layout
-
-\begin_layout Standard
-Only show the first 10 observations in columns: flightnumber, date
-\end_layout
-
-\begin_layout Standard
-proc sql 
-\series bold
-outobs=10
-\series default
-;
-\end_layout
-
-\begin_layout Standard
-select flightnumber, date
-\end_layout
-
-\begin_layout Standard
-from sasuser.flightschedule;
-\end_layout
-
-\begin_layout Subsubsection
-INBOS=10: Only read first 10 columns, thus faster than OUTBOS
 \end_layout
 
 \begin_layout Part
@@ -3986,10 +5478,6 @@ from sasuser.payrollmaster);
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 
 \end_layout
 
@@ -4415,7 +5903,57 @@ all
 Bugs & Error
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
+An arithmetic overflow
+\end_layout
+
+\begin_layout Standard
+Happen when apply any calculation into infinity values and huge values beyond
+ system ability.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Sum(af.credit_limit) as credit_limit 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+will result in 
+\series bold
+arithmetic overflow
+\series default
+ error.
+\end_layout
+
+\begin_layout Standard
+Id there are infinity values in 
+\series bold
+af.credit_limit
+\series default
+.
+ So the way to solve this is first select all 
+\series bold
+af.credit_limit and then see the actual range of it.
+ Then use where condition to restrict the sum calculation
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+If total sum value is too big, then divide it by some 10^6 to make it small.
+\end_layout
+
+\begin_layout Subsection
 Ambiguous Columns
 \end_layout
 
@@ -4455,7 +5993,7 @@ On .
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 缺逗号
 \end_layout
 
@@ -4498,266 +6036,6 @@ JOIN 缺 ON
 
 \begin_layout Standard
 同样：Error不会告诉你错是啥，只是很复杂。
-\end_layout
-
-\begin_layout Section
-Create/ Modify Table
-\end_layout
-
-\begin_layout Subsection
-Empty Table
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-proc sql;
-\end_layout
-
-\begin_layout Plain Layout
-
-create table work.discount
-\end_layout
-
-\begin_layout Plain Layout
-
-	(Destination char(4), * the first column specification indicates a column
- width of 3 for the character column Destination:
-\end_layout
-
-\begin_layout Plain Layout
-
-	BeginDate num format=date9.,
-\end_layout
-
-\begin_layout Plain Layout
-
-	EndDate  num format=date9.
- Label='End',
-\end_layout
-
-\begin_layout Plain Layout
-
-	Discount num);
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Data type: is specified as CHAR or NUM 
-\end_layout
-
-\begin_layout Itemize
-Column Width: Because the last three columns are numeric, no width is specified
- and these columns will have the default column width of 8 bytes, which
- allows for 16- or 17-digit precision within 8 bytes.
- 
-\end_layout
-
-\begin_layout Itemize
-Format: 
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Empty Table That Is Like Another Table
-\end_layout
-
-\begin_layout Standard
-Suppose you want to create a new table, 
-\emph on
-Work.Flightdelays2
-\emph default
-, that contains data about flight delays.
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-proc sql;
-\end_layout
-
-\begin_layout Plain Layout
-
-create table work.flightdelays2
-\end_layout
-
-\begin_layout Plain Layout
-
-(drop = delaycategory destinationtype)
-\end_layout
-
-\begin_layout Plain Layout
-
-like sasuser.flightdelays;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-The drop option can drop unwanted columns
-\end_layout
-
-\begin_layout Subsection
-Table from a Query 
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-proc sql;
-\end_layout
-
-\begin_layout Plain Layout
-
-creat table work.ticketagents as
-\end_layout
-
-\begin_layout Plain Layout
-
-	select lastname, firstname,
-\end_layout
-
-\begin_layout Plain Layout
-
-	jobcode, salary
-\end_layout
-
-\begin_layout Plain Layout
-
-from sasuser.payrollmaster,
-\end_layout
-
-\begin_layout Plain Layout
-
-	sasuser.staffmaster
-\end_layout
-
-\begin_layout Plain Layout
-
-where payrollmaster.empid = staffmaster.empid and jobcode contains 'TA';
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-Copy table
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-proc sql;
-\end_layout
-
-\begin_layout Plain Layout
-
-create table work.supervisors2 as
-\end_layout
-
-\begin_layout Plain Layout
-
-select *
-\end_layout
-
-\begin_layout Plain Layout
-
-from sasuser.supervisors;
-\end_layout
-
-\begin_layout Plain Layout
-
-(Drop)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-Drop Tables
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-proc sql;
-\end_layout
-
-\begin_layout Plain Layout
-
-drop table work.payrollmaster4;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Scalar function
-\end_layout
-
-\begin_layout Standard
-A build in Scalar function can be used directly in expression.
-\end_layout
-
-\begin_layout Itemize
-DECIMAL, MONTH, YEAR\SpecialChar \ldots{}
-.
-\end_layout
-
-\begin_layout Itemize
-CORRELATION(variable1, variable2)
-\end_layout
-
-\begin_layout Itemize
-COVARIANCE(variable1, variable2)
-\end_layout
-
-\begin_layout Itemize
-STDDEV
-\end_layout
-
-\begin_layout Itemize
-RAND # Random numbers
-\end_layout
-
-\begin_layout Itemize
-QUARTER(Date) # return which quarter of the date in a year.
 \end_layout
 
 \begin_layout Part
@@ -4845,18 +6123,328 @@ Otherwise it is super SLOW.
 
 \end_deeper
 \begin_layout Itemize
-If you really want to put some restrictions on right table, put them in
- the final WHERE condition, it would be still quite fast.
- You do not need to put those restrictions in a derived table like below
+Be really careful when you put WHERE restriction on the variables of right
+ table in the suface layer.
+ It is much safer to put it in the subquery.
+ See the difference in behavior below.
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-LEFT JOIN (SELECT \SpecialChar \ldots{}
- FROM RIGHT_TABLE WHERE) 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 \end_layout
 
-\end_deeper
+\begin_layout Plain Layout
+
+select 
+\end_layout
+
+\begin_layout Plain Layout
+
+  e.id,
+\end_layout
+
+\begin_layout Plain Layout
+
+  ep.employee_id,
+\end_layout
+
+\begin_layout Plain Layout
+
+  e.*
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+from employees as e
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  left join (
+\end_layout
+
+\begin_layout Plain Layout
+
+    select ep.* 
+\end_layout
+
+\begin_layout Plain Layout
+
+    from employees_projects as ep
+\end_layout
+
+\begin_layout Plain Layout
+
+    where ep.employee_id> 3
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  ) as ep
+\end_layout
+
+\begin_layout Plain Layout
+
+  on e.id = ep.employee_id
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
++----+-------------+----+------------+-----------+--------+--------------
+\end_layout
+
+\begin_layout Plain Layout
+
+-+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+| id | employee_id | id | first_name | last_name | salary | department_id
+\end_layout
+
+\begin_layout Plain Layout
+
+ | 
+\end_layout
+
+\begin_layout Plain Layout
+
++----+-------------+----+------------+-----------+--------+--------------
+\end_layout
+
+\begin_layout Plain Layout
+
+-+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+|  1 |        NULL |  1 | John       | Smith     |  20000 |            
+ 1
+\end_layout
+
+\begin_layout Plain Layout
+
+ | 
+\end_layout
+
+\begin_layout Plain Layout
+
+|  2 |        NULL |  2 | Ava        | Muffinson |  10000 |            
+ 5
+\end_layout
+
+\begin_layout Plain Layout
+
+ | 
+\end_layout
+
+\begin_layout Plain Layout
+
+|  3 |        NULL |  3 | Cailin     | Ninson    |  30000 |            
+ 2
+\end_layout
+
+\begin_layout Plain Layout
+
+ | 
+\end_layout
+
+\begin_layout Plain Layout
+
+|  4 |           4 |  4 | Mike       | Peterson  |  20000 |            
+ 2
+\end_layout
+
+\begin_layout Plain Layout
+
+ | 
+\end_layout
+
+\begin_layout Plain Layout
+
+|  5 |           5 |  5 | Ian        | Peterson  |  80000 |            
+ 2
+\end_layout
+
+\begin_layout Plain Layout
+
+ | 
+\end_layout
+
+\begin_layout Plain Layout
+
+|  6 |        NULL |  6 | John       | Mills     |  50000 |            
+ 3
+\end_layout
+
+\begin_layout Plain Layout
+
+ | 
+\end_layout
+
+\begin_layout Plain Layout
+
++----+-------------+----+------------+-----------+--------+--------------
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+select 
+\end_layout
+
+\begin_layout Plain Layout
+
+  e.id, 
+\end_layout
+
+\begin_layout Plain Layout
+
+  ep.employee_id, 
+\end_layout
+
+\begin_layout Plain Layout
+
+  e.* 
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+from employees as e 
+\end_layout
+
+\begin_layout Plain Layout
+
+  left join employees_projects as ep 
+\end_layout
+
+\begin_layout Plain Layout
+
+    on e.id = ep.employee_id 
+\end_layout
+
+\begin_layout Plain Layout
+
+    where ep.employee_id> 3 
+\end_layout
+
+\begin_layout Plain Layout
+
+-------------- 
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
++----+-------------+----+------------+-----------+--------+--------------
+\end_layout
+
+\begin_layout Plain Layout
+
+-+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+| id | employee_id | id | first_name | last_name | salary | department_id
+\end_layout
+
+\begin_layout Plain Layout
+
+ | 
+\end_layout
+
+\begin_layout Plain Layout
+
++----+-------------+----+------------+-----------+--------+--------------
+\end_layout
+
+\begin_layout Plain Layout
+
+-+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+|  4 |           4 |  4 | Mike       | Peterson  |  20000 |            
+ 2
+\end_layout
+
+\begin_layout Plain Layout
+
+ | 
+\end_layout
+
+\begin_layout Plain Layout
+
+|  5 |           5 |  5 | Ian        | Peterson  |  80000 |            
+ 2
+\end_layout
+
+\begin_layout Plain Layout
+
+ | 
+\end_layout
+
+\begin_layout Plain Layout
+
++----+-------------+----+------------+-----------+--------+--------------
+\end_layout
+
+\begin_layout Plain Layout
+
+-+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
 Left Join中，right table 若为 left table 的 subset, then if you put a RESTRICTION
  on WHERE for right table, then there might be no null in the variable of
@@ -4865,6 +6453,7 @@ Left Join中，right table 若为 left table 的 subset, then if you put a RESTR
  
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 \begin_inset listings
 inline false
@@ -4958,6 +6547,40 @@ on one.x=two.x;
 
 \begin_layout Subsection
 Coalesce in Full Join
+\end_layout
+
+\begin_layout Standard
+Evaluates the arguments in order and returns the current value of the first
+ expression that initially does not evaluate to NULL.
+\end_layout
+
+\begin_layout Standard
+COALESCE (expr1, expr2)
+\end_layout
+
+\begin_layout Standard
+is equivalent to:
+\end_layout
+
+\begin_layout Standard
+CASE WHEN expr1 IS NOT NULL THEN expr1 ELSE expr2 END
+\end_layout
+
+\begin_layout Standard
+Similarly,
+\end_layout
+
+\begin_layout Standard
+COALESCE (expr1, expr2, ..., exprn), for n>=3
+\end_layout
+
+\begin_layout Standard
+is equivalent to:
+\end_layout
+
+\begin_layout Standard
+CASE WHEN expr1 IS NOT NULL THEN expr1 ELSE COALESCE (expr2, ..., exprn) END
+ 
 \end_layout
 
 \begin_layout Standard
@@ -5736,7 +7359,7 @@ from two;
 \begin_layout Subsection
 
 \series bold
-CORR in OUTER UNION
+OUTER UNION CORR -- most flexible
 \end_layout
 
 \begin_layout Standard
@@ -5813,18 +7436,37 @@ Key Word Summary
 \begin_layout Itemize
 
 \series bold
-ALL:
+ALL -- govern the duplicated rows:
 \series default
  by default duplicate rows in output are removed (except for OUTER UNION).
  ALL prevents this.
 \end_layout
 
 \begin_layout Itemize
-CORR: by default we combine tables vertically by column position, now by
- column's name.
+Outer -- 
+\series bold
+govern both the duplicated cols and rows: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If there is a column in B that not eixst in A, then that column will not
+ be included.
+ Outer will prevent this.
+\end_layout
+
+\begin_layout Itemize
+Also Outer allows duplication of rows.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+CORR: by default we combine tables vertically by column position, CORR is
+ force to use column's name.
  If there is only 1 name matched, then output is also 1 column.
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 
 \series bold
@@ -5835,18 +7477,30 @@ CORR in OUTER UNION：Allow overlaying table, by variable names
 UNION CORR can only be used beyond db2, which means you cannot write
 \end_layout
 
+\end_deeper
 \begin_layout Itemize
 From connection to db2 (select * ..)
 \end_layout
 
 \begin_layout Subsection
-以UNION ALL最常用
+以UNION ALL最严格
 \end_layout
 
 \begin_layout Itemize
 column: UNION ALL 要求从AA，BB同时选出数量、名称、type接一样的variables。
 \end_layout
 
+\begin_layout Itemize
+If there is a column in B that not eixst in A, then that column will not
+ be included.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Outer will prevent this.
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 rows: combine all rows in AA and BB
 \end_layout
@@ -5887,7 +7541,7 @@ from BB
 \end_layout
 
 \begin_layout Section
-技巧
+Modify
 \end_layout
 
 \begin_layout Subsection
@@ -6063,6 +7717,643 @@ Change a column's name.
  you can use the SAS data set option RENAME= or the DATASETS procedure with
  the RENAME statement.
  
+\end_layout
+
+\begin_layout Subsection
+Empty Table
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+proc sql;
+\end_layout
+
+\begin_layout Plain Layout
+
+create table work.discount
+\end_layout
+
+\begin_layout Plain Layout
+
+	(Destination char(4), * the first column specification indicates a column
+ width of 3 for the character column Destination:
+\end_layout
+
+\begin_layout Plain Layout
+
+	BeginDate num format=date9.,
+\end_layout
+
+\begin_layout Plain Layout
+
+	EndDate  num format=date9.
+ Label='End',
+\end_layout
+
+\begin_layout Plain Layout
+
+	Discount num);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Data type: is specified as CHAR or NUM 
+\end_layout
+
+\begin_layout Itemize
+Column Width: Because the last three columns are numeric, no width is specified
+ and these columns will have the default column width of 8 bytes, which
+ allows for 16- or 17-digit precision within 8 bytes.
+ 
+\end_layout
+
+\begin_layout Itemize
+Format: 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Empty Table That Is Like Another Table
+\end_layout
+
+\begin_layout Standard
+Suppose you want to create a new table, 
+\emph on
+Work.Flightdelays2
+\emph default
+, that contains data about flight delays.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+proc sql;
+\end_layout
+
+\begin_layout Plain Layout
+
+create table work.flightdelays2
+\end_layout
+
+\begin_layout Plain Layout
+
+(drop = delaycategory destinationtype)
+\end_layout
+
+\begin_layout Plain Layout
+
+like sasuser.flightdelays;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+The drop option can drop unwanted columns
+\end_layout
+
+\begin_layout Subsection
+Table from a Query 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+proc sql;
+\end_layout
+
+\begin_layout Plain Layout
+
+creat table work.ticketagents as
+\end_layout
+
+\begin_layout Plain Layout
+
+	select lastname, firstname,
+\end_layout
+
+\begin_layout Plain Layout
+
+	jobcode, salary
+\end_layout
+
+\begin_layout Plain Layout
+
+from sasuser.payrollmaster,
+\end_layout
+
+\begin_layout Plain Layout
+
+	sasuser.staffmaster
+\end_layout
+
+\begin_layout Plain Layout
+
+where payrollmaster.empid = staffmaster.empid and jobcode contains 'TA';
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Copy table
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+proc sql;
+\end_layout
+
+\begin_layout Plain Layout
+
+create table work.supervisors2 as
+\end_layout
+
+\begin_layout Plain Layout
+
+select *
+\end_layout
+
+\begin_layout Plain Layout
+
+from sasuser.supervisors;
+\end_layout
+
+\begin_layout Plain Layout
+
+(Drop)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Drop Tables
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+proc sql;
+\end_layout
+
+\begin_layout Plain Layout
+
+drop table work.payrollmaster4;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+MySQL
+\end_layout
+
+\begin_layout Standard
+dataset:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
++----+------------+-----------+--------+---------------+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+| id | first_name | last_name | salary | department_id | 
+\end_layout
+
+\begin_layout Plain Layout
+
++----+------------+-----------+--------+---------------+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+|  1 | John       | Smith     |  20000 |             1 | 
+\end_layout
+
+\begin_layout Plain Layout
+
+|  2 | Ava        | Muffinson |  10000 |             5 | 
+\end_layout
+
+\begin_layout Plain Layout
+
+|  3 | Cailin     | Ninson    |  30000 |             2 | 
+\end_layout
+
+\begin_layout Plain Layout
+
+|  4 | Mike       | Peterson  |  20000 |             2 | 
+\end_layout
+
+\begin_layout Plain Layout
+
+|  5 | Ian        | Peterson  |  80000 |             2 | 
+\end_layout
+
+\begin_layout Plain Layout
+
+|  6 | John       | Mills     |  50000 |             3 | 
+\end_layout
+
+\begin_layout Plain Layout
+
++----+------------+-----------+--------+---------------+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Duplicated varaibles will all show up, not the first coversthe later ones
+\end_layout
+
+\begin_layout Itemize
+cannot simply write *, has to write table.*
+\end_layout
+
+\begin_layout Itemize
+SUM without group by will only return the first row
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Itemize
+
+SELECT sum(1), first_name 
+\end_layout
+
+\begin_layout Itemize
+
+FROM employees AS e 
+\end_layout
+
+\begin_layout Itemize
+
+\end_layout
+
+\begin_layout Itemize
+
+-------------- 
+\end_layout
+
+\begin_layout Itemize
+
++--------+------------+ 
+\end_layout
+
+\begin_layout Itemize
+
+| sum(1) | first_name | 
+\end_layout
+
+\begin_layout Itemize
+
++--------+------------+ 
+\end_layout
+
+\begin_layout Itemize
+
+| 6 | John | 
+\end_layout
+
+\begin_layout Itemize
+
++--------+------------+ 
+\end_layout
+
+\begin_layout Itemize
+
+1 row in set (0.08 sec) 
+\end_layout
+
+\begin_layout Itemize
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Calculated Variable
+\end_layout
+
+\begin_layout Standard
+testing enviorment: https://coderpad.io/WGJCHDPJ
+\end_layout
+
+\begin_layout Standard
+Only used when no GROUP BY
+\end_layout
+
+\begin_layout Itemize
+Method 1: (select cal_var) as 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+SELECT 
+\end_layout
+
+\begin_layout Plain Layout
+
+  e.id as new,
+\end_layout
+
+\begin_layout Plain Layout
+
+  (select new) + 1 as anohter # works when no group by
+\end_layout
+
+\begin_layout Plain Layout
+
+FROM employees   AS e
+\end_layout
+
+\begin_layout Plain Layout
+
+JOIN departments AS d ON e.department_id = d.id
+\end_layout
+
+\begin_layout Plain Layout
+
+having ( new ) >3;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Method 2: @cal_var:= existing, then use @cal_var later
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+SELECT 
+\end_layout
+
+\begin_layout Plain Layout
+
+  @test:=e.id as new,
+\end_layout
+
+\begin_layout Plain Layout
+
+  @test + 1 as anohter, # works when no group by
+\end_layout
+
+\begin_layout Plain Layout
+
+  d.name as department_name
+\end_layout
+
+\begin_layout Plain Layout
+
+FROM employees   AS e
+\end_layout
+
+\begin_layout Plain Layout
+
+JOIN departments AS d ON e.department_id = d.id
+\end_layout
+
+\begin_layout Plain Layout
+
+having ( new ) >3;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Test: calculated variables in GROUP BY cannot work
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+select 
+\end_layout
+
+\begin_layout Plain Layout
+
+  project_id,
+\end_layout
+
+\begin_layout Plain Layout
+
+  sum(1) as real_sum, 
+\end_layout
+
+\begin_layout Plain Layout
+
+  # cannot use real_sum here
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  @test:=sum(1) as new,
+\end_layout
+
+\begin_layout Plain Layout
+
+  # (select new) new1
+\end_layout
+
+\begin_layout Plain Layout
+
+  @test + 5 as new1 # weired behavior
+\end_layout
+
+\begin_layout Plain Layout
+
+from employees_projects
+\end_layout
+
+\begin_layout Plain Layout
+
+  group by project_id
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Proc SAS
+\end_layout
+
+\begin_layout Subsection
+OUTBOS=10: head in R: Display data (limited rows showed)
+\end_layout
+
+\begin_layout Standard
+Only show the first 10 observations in columns: flightnumber, date
+\end_layout
+
+\begin_layout Standard
+proc sql 
+\series bold
+outobs=10
+\series default
+;
+\end_layout
+
+\begin_layout Standard
+select flightnumber, date
+\end_layout
+
+\begin_layout Standard
+from sasuser.flightschedule;
+\end_layout
+
+\begin_layout Subsection
+INBOS=10: Only read first 10 columns, thus faster than OUTBOS
+\end_layout
+
+\begin_layout Subsection
+roc sas: FEEDBACK option: Displaying All Column Names
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+proc sql feedback;
+\end_layout
+
+\begin_layout Plain Layout
+
+select *
+\end_layout
+
+\begin_layout Plain Layout
+
+from sasuser.staffchanges;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Describe the Table
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+proc sql;
+\end_layout
+
+\begin_layout Plain Layout
+
+describe table work.discount;
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
