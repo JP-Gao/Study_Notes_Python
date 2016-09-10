@@ -167,6 +167,7 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 16419249 "v660271" 
 \end_header
 
 \begin_body
@@ -249,6 +250,34 @@ http://www.cricode.com/2001.html
 
 \begin_layout Standard
 Dynamic Programming!
+\end_layout
+
+\begin_layout Subsection
+加强！
+\end_layout
+
+\begin_layout Standard
+How to design the geographic feature 
+\end_layout
+
+\begin_layout Standard
+经纬度
+\end_layout
+
+\begin_layout Standard
+Unsupervised Learning in fraud and spam
+\end_layout
+
+\begin_layout Standard
+articulate 4 cells in confusion matrix
+\end_layout
+
+\begin_layout Standard
+Case Interview
+\end_layout
+
+\begin_layout Standard
+collect more data from just vague description
 \end_layout
 
 \begin_layout Subsection
@@ -654,7 +683,7 @@ promote brand (general awareness).
 \end_layout
 
 \begin_layout Itemize
-promote a paticular tweet/picture/video/follow you.
+promote a particular tweet/picture/video/follow you.
  So in this case they want to target those who already know their business/produ
 ct.
 \end_layout
@@ -762,7 +791,7 @@ s, etc.), advanced degrees highly preferred
 \end_layout
 
 \begin_layout Itemize
-2+ years of work experience in predictive analytics/statistical modeling/machine
+2+ years of work experience in predictive analytic/statistical modeling/machine
  learning/data mining
 \end_layout
 
@@ -772,7 +801,7 @@ Experience interacting with #BigData data sources, using a combination of
 \end_layout
 
 \begin_layout Itemize
-Experience with at least one programing languages such as 
+Experience with at least one programming languages such as 
 \series bold
 Python
 \series default
@@ -781,6 +810,176 @@ Python
 
 \begin_layout Itemize
 Knowledge of digital ad space or social media data preferred
+\end_layout
+
+\begin_layout Subsection
+Why You Like this P?
+\end_layout
+
+\begin_layout Itemize
+Personal Reasons
+\end_layout
+
+\begin_layout Itemize
+Also I want to use this chance to change the direction of my career,
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+I have spent three years in banking, I just feel the the pace is slow to
+ me, the innovation in terms of modelling and data science is also 
+\series bold
+stagnant
+\end_layout
+
+\begin_layout Itemize
+There is work-life balance there, but at my age I didn't care about work-life
+ balance too much.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+I want to try something 
+\series bold
+quicker, more agile
+\series default
+, more 
+\series bold
+quant
+\series default
+, more data science, that is why I choose to apply this position
+\end_layout
+
+\begin_layout Standard
+Why Fit: 
+\end_layout
+
+\begin_layout Itemize
+I think this position is about using a quantitative way to learn and predict
+ small business owners behavior and eventually grow the revenue.
+\end_layout
+
+\begin_layout Itemize
+Though I come from the banking industry, my past experience is also about
+ 
+\series bold
+acquisition, activation and retention
+\series default
+ of our credit card customers and ---- let them use our card more, do more
+ transactions, carry more balances, and eventually grow the revenue.
+\end_layout
+
+\begin_layout Itemize
+rather than stay in the banking industry, which is a little bit slow in
+ pace, 
+\end_layout
+
+\begin_layout Standard
+So I know how to combine the data science and business acumen to solve real
+ product problem
+\end_layout
+
+\begin_layout Standard
+That is why I believe I WILL fit this role very well
+\end_layout
+
+\begin_layout Standard
+The techniques
+\end_layout
+
+\begin_layout Standard
+Change Industry
+\end_layout
+
+\begin_layout Standard
+Innovation is stagnant
+\end_layout
+
+\begin_layout Subsection
+Metrics about Twitter
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+分析三要素
+\end_layout
+
+\begin_layout Itemize
+Cohort: how the newly books customers performs vs experienced advertiser
+ 
+\end_layout
+
+\begin_layout Itemize
+Segmentation
+\end_layout
+
+\begin_layout Itemize
+Context
+\end_layout
+
+\begin_layout Standard
+三要素后续
+\end_layout
+
+\begin_layout Itemize
+You can design strategies on it.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Basic Metrics
+\end_layout
+
+\begin_layout Itemize
+Views: if they see the twitts more than half second
+\end_layout
+
+\begin_layout Itemize
+Interactions: like, retweet, comments
+\end_layout
+
+\begin_layout Itemize
+Conversion: follow, click
+\end_layout
+
+\begin_layout Standard
+Growth Metrics
+\end_layout
+
+\begin_layout Itemize
+Number of Newly Signed 
+\end_layout
+
+\begin_layout Itemize
+Price per view/interaction/conversion
+\end_layout
+
+\begin_layout Itemize
+Total Revenue: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Segmentation + Context: Compare a SMB spending with its peers
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Segmentation of Business
+\end_layout
+
+\begin_layout Itemize
+Geography -- local or national wide
+\end_layout
+
+\begin_layout Itemize
+Size: revenue, number of Employees
+\end_layout
+
+\begin_layout Itemize
+Month on book: experienced advertiser tends to spend more
 \end_layout
 
 \begin_layout Subsection
@@ -1694,7 +1893,7 @@ Sample Questions:
 \end_layout
 
 \begin_layout Itemize
-- Given timestamps of logins, figure out how many people on Facebook were
+- Given time-stamps of logins, figure out how many people on Facebook were
  active all seven days of a week on a mobile phone.
 \end_layout
 
@@ -1801,7 +2000,7 @@ https://www.facebook.com/careers/jobs/a0I1200000JIWQvEAP/
 \end_layout
 
 \begin_layout Section
-F Questions from Glassfor
+F Questions from Glassdoor
 \end_layout
 
 \begin_layout Standard
@@ -1824,7 +2023,7 @@ The interview has three parts:
 \end_layout
 
 \begin_layout Itemize
-Baseic Integration Differentiation!
+Basic Integration Differentiation!
 \end_layout
 
 \begin_layout Itemize
@@ -2552,7 +2751,7 @@ Measure the Causality:
 \end_layout
 
 \begin_layout Subsection
-Measruement for Market Efficiency
+Measurement for Market Efficiency
 \end_layout
 
 \begin_layout Itemize
@@ -2615,7 +2814,7 @@ It is a substitute (a competitor), not a complement.
 \end_layout
 
 \begin_layout Itemize
-Uber also expland the market -- server the underserved market.
+Uber also expand the market -- server the underserved market.
 \end_layout
 
 \begin_layout Subsection
@@ -2626,7 +2825,7 @@ Medallions
 Because the medallion system artificially restricts the number of cabs,
  it has been criticized as an entry barrier to the New York City taxi market
  which has in turn created a black market for illegal taxicab operation
- in areas underserved by medallion cabs.[76] 
+ in areas undeserved by medallion cabs.[76] 
 \end_layout
 
 \begin_layout Itemize
@@ -2678,8 +2877,8 @@ Pricing to drive the supply
 \end_layout
 
 \begin_layout Itemize
-Syupply: the reality is that the times when people most want a ride are
- also the times when it’s most annoying and, often, most risky to drive.
+Supply: the reality is that the times when people most want a ride are also
+ the times when it’s most annoying and, often, most risky to drive.
  Rush hour, New Year’s Eve, 2 a.m.
  on a Saturday night, snowstorms: generally speaking, these are exactly
  the times when a driver doesn’t want to be on the road.
@@ -2722,7 +2921,7 @@ Quantity: maximize the number of completed rides.
 \end_layout
 
 \begin_layout Itemize
-Reliability / Convinience / Time to Fullfill the order
+Reliability / Convenience / Time to Fulfill the order
 \end_layout
 
 \begin_deeper
@@ -2744,7 +2943,7 @@ Key metrics: number of completed rides / total request
 \end_layout
 
 \begin_layout Subsection
-Difference between Uber and Other's Dynamic Pricing
+Difference between Uber and Others Dynamic Pricing
 \end_layout
 
 \begin_layout Enumerate
@@ -2794,7 +2993,7 @@ Marketing -- Education to Customers
 \begin_layout Standard
 
 \series bold
-Best marketing is educatiom.
+Best marketing is education.
 \end_layout
 
 \begin_layout Standard
@@ -2876,7 +3075,7 @@ Any Uber ride request is first sent to the nearest available.
 \end_layout
 
 \begin_layout Section
-U-Pricing: Economicss
+U-Pricing: Economics
 \end_layout
 
 \begin_layout Subsection
@@ -2898,7 +3097,7 @@ Or the market didn't achieve the more efficient way to allocate resources.
 
 \end_deeper
 \begin_layout Itemize
-It happends for two reasons
+It happens for two reasons
 \end_layout
 
 \begin_deeper
@@ -2921,7 +3120,7 @@ So to solve the Market Failure
 
 \begin_deeper
 \begin_layout Itemize
-Dertermine the price to balance the supply and demand
+Determine the price to balance the supply and demand
 \end_layout
 
 \begin_layout Itemize
@@ -3080,7 +3279,7 @@ n level code.
 \end_layout
 
 \begin_layout Itemize
-What's the background of the team
+What's the background of the team.
 \end_layout
 
 \begin_layout Subsection
@@ -3140,12 +3339,12 @@ Q: Why U and Why this P
 \end_layout
 
 \begin_layout Itemize
-Uber is such a cool company, and being a data scientist there means your
+Uber is such a cool comp any, and being a data scientist there means your
  models and strategies that impact how city operates.
 \end_layout
 
 \begin_layout Itemize
-Also actually I got two friends from Duke they both wotk at Uber now, they
+Also actually I got two friends from Duke they both work at Uber now, they
  actually refer me for this job.
  They said working at Uber is Exciting, stressful and there is no work-life
  balance 
@@ -3154,7 +3353,7 @@ Also actually I got two friends from Duke they both wotk at Uber now, they
 \begin_deeper
 \begin_layout Itemize
 What'm thinking is that: At my age, I don't need work-life balance.
- I need the excitment, I need the learning opportunity, rather than work-life
+ I need the excitement, I need the learning opportunity, rather than work-life
  balance.
 \end_layout
 
@@ -3168,12 +3367,12 @@ About this position:
 \begin_layout Itemize
 I think this position is about using the data science to make the
 \series bold
- Uber product more successfull.
+ Uber product more successful.
 \end_layout
 
 \begin_layout Itemize
-Though I come from the banking industry, but my past experince is also about
- biulding models and strategies -- make our product more successfull.
+Though I come from the banking industry, but my past experience is also
+ about building models and strategies -- make our product more successful.
 \end_layout
 
 \begin_deeper
@@ -3183,7 +3382,7 @@ For example, we are using models and AB test to learn and predict consumer
 \end_layout
 
 \begin_layout Itemize
-to let them use our credit card, carry more balances, do more transcations
+to let them use our credit card, carry more balances, do more transactions
  --- 
 \end_layout
 
@@ -3486,7 +3685,7 @@ They are different
 \end_layout
 
 \begin_layout Standard
-Location:
+Location
 \end_layout
 
 \begin_layout Itemize
@@ -3499,11 +3698,11 @@ It cannot be the shopping mall, beach, or bar area.
 \end_layout
 
 \begin_layout Standard
-Timewise: 
+Timewise:
 \end_layout
 
 \begin_layout Itemize
-it is normally early morning or business hours
+it is normally early morning or business hours.
 \end_layout
 
 \begin_layout Itemize
@@ -4526,7 +4725,11 @@ Be
 \series bold
 Patient
 \series default
-, because they don't know  modelling at all.
+, because they don't know
+\change_deleted 16419249 1473432042
+ 
+\change_unchanged
+ modelling at all.
  
 \end_layout
 
