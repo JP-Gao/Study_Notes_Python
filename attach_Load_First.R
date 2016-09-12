@@ -1,5 +1,19 @@
 ###  Excel Macros
 
+#
+# Sub Resize()
+# '
+# ' Macro2 Macro
+# '
+# ' Keyboard Shortcut: Ctrl+Shift+R
+# '
+# With ActiveChart.Parent
+# .Width = 195 * 1.618
+# .Height = 195
+#
+# End With
+#
+# End Sub
 
 
 # 195 * 1.618
@@ -12,36 +26,52 @@
 cat("\n")
 list.of.packages <-
   c(
-    
+
     # visualization
     "ggplot2","scales",
-    
+
     # regular expression
-    "stringr",
+    "stringr","english",
     
     # foriegn data
     "rjson","XML","RJSONIO",
     
+    # model 
+    "randomForest","MASS","glmnet","gbm","mboost","ROCR",
+
     # data maniputaltion
     "reshape","reshape2","data.table","plyr","dplyr","magrittr","DataCombine",
-    
+    'linear.tools',
+
     # some functions in dplyr are duplicate in plyr, and we want to use functions in dplyr
     # so load plyr first and then let dplyr to mask it.
-    
+
     # panel and cross sectional data
-    # "plm","AER","censReg",'MASS',
-    
-    # model 
-    'linear.tools',"MASS","glmnet","gbm","mboost",
+    "plm","AER","censReg",
+
+    # machine learning and Bayesian
+    # "nnet",
+
     # time series
     "lubridate", "zoo","tseries",
-    
+
+    # statistics and regression
+    "VGAM","MASS","Formula",'linear.tools',
+
+    # excel files
+    "readxl",
+    # "XML","XLConnect",
+
     # literature programming & code style
-    "knitr","formatR",'rmarkdown'# 'yaml', 'htmltools', 'caTools',"xtable",
-    
+    # "knitr","formatR",'yaml', 'htmltools', 'caTools','rmarkdown',"xtable",
+
     # Computing on the Language
-    # "pryr", "gtools","lazyeval"
-    
+    "pryr", "gtools","lazyeval"
+
+
+    # compose packages
+    # "Rd2roxygen","roxygen2"
+
   )
 
 cat("Pakcages we will use : \n")
@@ -57,24 +87,24 @@ if(length(new.packages)) {
   install.packages(new.packages)
 }
 
+# _____________________________________________________________
 
 cat("\n \n load packages to R \n")
 for (Library in list.of.packages) library(Library,character.only = T)
 
 
-opts_chunk$set(
-  cache=FALSE,
-  fig.width=6.8, 
-  fig.height=4,
-  fig.align='center',
-  message=F,
-  error=F,
-  warning=F,
-  tidy.opts = F,
-  tidy = F
-)
+###  Global Options  -------------------
 
 
+
+
+cat("\n
+    Global Option Settings: \n
+    Not transform string to factor when load data \n
+    Not use NA in any calculation \n
+    Only print 4 ts. \n
+
+    Print Warnings as they occure \n")
 
 options(stringsAsFactors = FALSE, na.rm=T,warn=1)
 
@@ -93,7 +123,13 @@ utheme = theme(panel.grid = element_blank(),
                panel.background = element_rect(fill = umix),
                legend.background = element_rect(fill = umix),
                plot.background  = element_rect(fill = umix),
-               plot.title = element_text(size = 13),
+               plot.title = element_text(size = 15),
+               panel.border = element_rect(linetype = NULL, colour = NULL),
+               legend.position = "bottom")
+
+
+utheme_whitie = theme(panel.grid = element_blank(),
+               plot.title = element_text(size = 15),
                panel.border = element_rect(linetype = NULL, colour = NULL),
                legend.position = "bottom")
 
@@ -117,61 +153,11 @@ if (!exists("print.data.frame2")){
 }
 
 
-
-
-
-
-
-# print(data.frame(1:4))
-
-# use drop = F option to keep the data.frame class
-# x = data.frame(1:4)
-# x[1:3,]
-# x[1:3,,drop = F]
-
-Enter_to_Continue=function(Pairs_data.frame = NA){
-  # from attach_load_first.R
-  # Type words in keyboard, return certain values, and then continue
-  # Enter_to_Continue when you are in thr process of runing code
-
-  # Pairs_data.frame shall be a two column data.frame, with first column as what you want to type,
-  # second column as what you want to return
-  # an example would be: Pairs_data.frame = rbind(c('small','small data'),c('n','normal'),c('w','weird curve'))
-  Return=NA
-
-  cat ("\n .... Press [enter] to continue; Type [s] to stop ....")
-
-  if (!is.null(Pairs_data.frame) && !is.na(Pairs_data.frame) &&
-      nrow(Pairs_data.frame)>0){
-    for (pair_row in 1:nrow(Pairs_data.frame)) {
-      # pair = List[[1]]
-      cat("\n .... Type [ ",paste(Pairs_data.frame[pair_row,1])," ]"," to return '",
-          paste(Pairs_data.frame[pair_row,2]),"' as object 'Return' ....",sep='')
-    }
-  }
-
-  line <- readline()
-  if (line=='s' | line=='S') stop("Stop ! ")
-
-  # line = 'small'
-  if (!is.null(Pairs_data.frame) && !is.na(Pairs_data.frame) &&
-      nrow(Pairs_data.frame)>0 ) {
-
-    Match = match(line,paste(Pairs_data.frame[,1]))
-    Return = Pairs_data.frame[Match,2]
-  }
-  Return
-
-  # unit test code:
-  # Enter_to_Continue(rbind(c('small','small data'),c('n','normal'),c('w','weird curve')))
-
-}
-
 equal =  function(x,y) {
   # an attach_Load_First.R function
 
   # USED to replace == to when compare two numeric values
-  # a lot times two numeric values are not the same in R
+  # a lot of times two numeric values are not the same in R
   # example
   # 3.3/3 == 1.1
 
@@ -376,67 +362,6 @@ clean_empty = function(x,clean0 = F){
 
 
 
-Expand.grid = function (List, KEEP.OUT.ATTRS = TRUE, stringsAsFactors = TRUE) {
-
-  # from attach_load_first.R
-
-  # same as expand.grid, only difference is Expland.grid here uses list as input here
-  # Create a data frame from all combinations of the supplied vectors or factors
-
-  nargs <- length(args <- List)
-  if (!nargs)
-    return(as.data.frame(list()))
-  if (nargs == 1L && is.list(a1 <- args[[1L]]))
-    nargs <- length(args <- a1)
-  if (nargs == 0L)
-    return(as.data.frame(list()))
-  cargs <- vector("list", nargs)
-  iArgs <- seq_len(nargs)
-  nmc <- paste0("Var", iArgs)
-  nm <- names(args)
-  if (is.null(nm))
-    nm <- nmc
-  else if (any(ng0 <- nzchar(nm)))
-    nmc[ng0] <- nm[ng0]
-  names(cargs) <- nmc
-  rep.fac <- 1L
-  d <- sapply(args, length)
-  if (KEEP.OUT.ATTRS) {
-    dn <- vector("list", nargs)
-    names(dn) <- nmc
-  }
-  orep <- prod(d)
-  if (orep == 0L) {
-    for (i in iArgs) cargs[[i]] <- args[[i]][FALSE]
-  }
-  else {
-    for (i in iArgs) {
-      x <- args[[i]]
-      if (KEEP.OUT.ATTRS)
-        dn[[i]] <- paste0(nmc[i], "=", if (is.numeric(x))
-          format(x)
-          else x)
-      nx <- length(x)
-      orep <- orep/nx
-      x <- x[rep.int(rep.int(seq_len(nx), rep.int(rep.fac,
-                                                  nx)), orep)]
-      if (stringsAsFactors && !is.factor(x) && is.character(x))
-        x <- factor(x, levels = unique(x))
-      cargs[[i]] <- x
-      rep.fac <- rep.fac * nx
-    }
-  }
-  if (KEEP.OUT.ATTRS)
-    attr(cargs, "out.attrs") <- list(dim = d, dimnames = dn)
-  rn <- .set_row_names(as.integer(prod(d)))
-  structure(cargs, class = "data.frame", row.names = rn)
-
-  # Expand.grid(list(A= c(1:3),b= letters[1:4]))
-  # Expand.grid(List = list(c(1:3)))
-
-}
-
-
 ###  Time Functions  -------------------
 # _______________________________________________________________________
 
@@ -507,7 +432,9 @@ stand_Q = function(x, Q_character = NULL){
   for (i in c(1:4)){
     # i = 1
     if (length(Q_character)<=1 ){
+      
       Q[str_detect(x,paste(i,tolower(Q_character),sep=''))] = i
+      
     } else {
 
       if (length(Q_character)!=4) {
@@ -1710,7 +1637,9 @@ ldply0 = function(x, # data
 
   # can also loop accross indexes: unique colors, or unique price>=500 (F and T)
 
-
+  if (sum(index %in% colnames(x))< length(index)) {
+   stop ('index cannot be foudn in colnames') 
+  }
   index_summary = unique.comb(Data_to_Combine = x, index =  index, unique_var = unique_var)
 
 
@@ -1758,12 +1687,14 @@ ldply0 = function(x, # data
       result_func = func(data,...)
       # result_func = func(data = data, index = index_summary_i)
       # result_func = func(data = data)
-
-      # delete any variables in reseult
-      index_summary_i = deletenames(index_summary_i, colnames(result_func), PRINT = F)
-      rownames(index_summary_i) = NULL
-
-      cbind(index_summary_i,result_func)
+    
+      if (!is.null(result_func) && nrow(result_func)>0){
+        # delete any variables in reseult
+        index_summary_i = deletenames(index_summary_i, colnames(result_func), PRINT = F)
+        rownames(index_summary_i) = NULL
+  
+        cbind(index_summary_i,result_func)
+      }
     }
   })
 
@@ -1818,7 +1749,7 @@ ldply0.colSums = function(Data, index,
                           var_bop = NULL,
                           index_bop = NULL,
                           method_bop = c('sum','average','unique'),
-
+                          weights_average = NULL,
                           var_average = NULL,
                           var_sum = NULL,
                           test = T){
@@ -1904,8 +1835,19 @@ ldply0.colSums = function(Data, index,
                     } else {
                       value_bop = NULL
                     }
+                    
+                    
                     if (!is.null(var_average) ){
+                      
+                      if (is.null(weights_average)){
+                        weights_average = rep(1,nrow(data))
+                      } else {
+                        
+                        weights_average = data[,weights_average] 
+                      }
+                      
                       value_average = data.frame(
+                      
                         t(colMeans(data[,(var_average),drop = F],na.rm = T))
                       )
                       dupnames = var_average %in% c(var_eop,var_sum,var_bop)
@@ -1949,10 +1891,13 @@ ldply0.colSums = function(Data, index,
                    var_bop = 'sales',index_bop = 'month',
                    var_average = c('sales','volume'),var_sum = 'sales',method_eop = 'average')
 
+    
+    
+    txhousing$sales_rate = txhousing$sales / txhousing$volumn 
     ldply0.colSums(Data = txhousing,
                    index = c('year'),
-                   var_eop = 'sales',index_eop = 'month',var_average = c('sales','volume'),var_sum = 'sales',method_eop = 'unique')
-
+                   var_eop = 'sales',index_eop = 'month',weights_average = 'sales_rate' ,var_average = c('sales','volume'),var_sum = 'sales',method_eop = 'average')
+    
   }
 
 
@@ -1966,7 +1911,7 @@ ldply0.colSums = function(Data, index,
 
 
 
-get_unmatched = function(a,b){
+get_unmatched = function(a,b,strip_space = F){
   # an attach_Load_First.R function
 
 
@@ -1974,6 +1919,11 @@ get_unmatched = function(a,b){
 
   a = a %>% unique
   b = b %>% unique
+  if (strip_space) {
+   a = a %>% str_replace_all(.,' ','') 
+   b = b %>% str_replace_all(.,' ','') 
+  }
+  
   a_not_in_b = a[is.na(match(a, b))]
   b_not_in_a = b[is.na(match(b, a))]
   list(
@@ -2127,6 +2077,9 @@ clean_wide_data = function(x,delete_row =NULL ,delete_col = NULL,
 
 
 complete_data = function(data,additional_cols, template_data = NULL){
+  
+  #' complete the dataset with additional rows by filling them as 0
+  
   Cols = colnames(data)
   for (i in additional_cols){
     if (!i %in% Cols) {
@@ -2702,16 +2655,16 @@ standardize_names2 =
             # see whether element of non-stand is in stand
 
             match_score = (
-              (str_detect(tolower(j),tolower(ii)) * str_length(tolower(ii)))
-              %>% sum
-            )/2/length(non_stand_list[[i]])
+                    (str_detect(tolower(j),tolower(ii)) * str_length(tolower(ii)))
+                    %>% sum
+                      )/2/length(non_stand_list[[i]])
 
             if (!is.null(special_mapping) && ii %in% names(special_mapping)){
               ii = special_mapping[names(special_mapping) == ii][1]
               match_score = match_score +
                 (
                   (str_detect(tolower(j),tolower(ii))* str_length(tolower(ii))) %>% sum
-                )/2/length(non_stand_list[[i]])
+                  )/2/length(non_stand_list[[i]])
             }
             if (match_score>0) data.frame(i,j,ii,match = match_score)
           })
@@ -2901,11 +2854,14 @@ str_changeline = function(x,L = 10,tobereplaced = c('(_| )')){
 
 }
 
-print_percent = function(x, digits = 2){
-  paste(sprintf(paste("%.",digits,"f",sep=''),x),"%",sep='')
+print_percent = function(x, digits = 2, multiply = 1){
+  if (!'numeric' %in% x) x =  as.numeric(x)
+  x = x * multiply
+  result = paste(sprintf(paste("%.",digits,"f",sep=''),x),"%",sep='')
+  result[is.na(result)]=''
+  result
+  
 }
-
-
 
 str_reverse = function(x){
   result = c()
@@ -2925,14 +2881,15 @@ print_millions = function(x,
                           digits = 2,numeric = F,
                           comma = T,dollar_sign = T,
                           postfix = 'm', dollar_divide = 10^6){
+  # x = 2389617393
 
-  if (is.na(x)) return (x)
-
-  numeric_result = round(x/dollar_divide*10^digits)/10^digits
+  if (!'numeric' %in% x) x =  as.numeric(x)
+  
+  numeric_result = round(abs(x)/dollar_divide*10^digits)/10^digits
 
   if (!numeric){
 
-    character_result = paste(sprintf(paste("%.",digits,"f",sep=''),x/dollar_divide),postfix,sep='')
+    character_result = paste(sprintf(paste("%.",digits,"f",sep=''),abs(x)/dollar_divide),postfix,sep='')
 
     if (comma){
       inter_part_length = str_length(round(numeric_result))
@@ -2940,33 +2897,48 @@ print_millions = function(x,
 
       character_result =
         comma_number_needed = round(inter_part_length/3) + 1
-      List = NULL
 
-      integer_part = as.character(round(numeric_result))
+      for (xi in 1:length(x)){
+        
+        # xi = 1
+        List = NULL
 
+        integer_part = as.character(round(numeric_result[xi]))
+        
+        rev_integer_part = str_reverse(integer_part)
 
-      rev_integer_part = str_reverse(integer_part)
+        for (i in 1:comma_number_needed[xi]){
+          # i = 1
+          List[i] = str_sub(rev_integer_part,
+                            1 + (i-1)*3 ,
+                            3 * i)
+        }
 
-      for (i in 1:comma_number_needed){
-        # i = 1
-        List[i] = str_sub(rev_integer_part,
-                          1 + (i-1)*3 ,
-                          3 * i)
+        List = unlist(List)
+        List = List[List!='']
+        inter_part = str_reverse(paste(unlist(List),collapse = ',') )
+
+        character_result[xi] = paste(inter_part,fraction_part[xi],sep='',collapse = '')
+
+        if (x[xi]<0) character_result[xi]  = paste("(",character_result[xi] ,')',sep='',collapse = '')
+        if (dollar_sign ) character_result[xi]  = paste("$",character_result[xi] ,sep='',collapse = '')
       }
-      List = unlist(List)
-      List = List[List!='']
-      inter_part = str_reverse(paste(unlist(List),collapse = ',') )
-
-      character_result = paste(inter_part,fraction_part,sep='',collapse = '')
-
+      
     }
-
-    if (dollar_sign ) character_result = paste("$",character_result,sep='',collapse = '')
+    
+    if (sum(is.na(x))){
+      character_result[is.na(x)] = NA
+    }
+    
+    character_result[is.na(character_result)]=''
+    character_result
 
     return(character_result)
 
   } else {
 
+    
+    
     return(numeric_result)
 
   }
@@ -2976,8 +2948,10 @@ print_millions = function(x,
     print_millions(2121310899)
     print_millions(2121310899,digits = 5)
     print_millions(212131089321312319)
-    print_millions(212131089321312319)
-
+    print_millions(x = c(2123123,123123))
+    print_millions(x = c(-2123123,-123123))
+    
+    
   }
 
 
@@ -3089,50 +3063,6 @@ complete.row= function(data_to_check){
   })
 }
 
-check_vec_meaningful = function (x){
-
-  # an attach_Load_First.R function
-
-  # this function will check whether the vector is NULL or all values of it are NA NULL or NaN,
-  # but we do allow logic(0) and integer(0)
-
-  if (is.null(x) || length(x)==0) { # is.null will check the object as a whole, not each single element
-    y = 0
-  } else if ( !is.vector(x) || class(x)=='list') { # is.vector will return true for list and vector!
-    stop('x is not a vector, it might be a list or data.frame or matrix ....')
-  } else if (sum(is.na(x) + is.nan(x)  )==length(x) ){ # this method will allow logic(0) and integer(0)
-    y = 0
-  } else {
-    y = 1
-  }
-
-  return(y)
-
-  if (F){
-
-    check_vec_meaningful(c(NA,NA)) # NOT PASS
-    check_vec_meaningful(x=list(NA,NaN)) # NOT PASS
-    check_vec_meaningful(c(NA,1)) # PASS
-    check_vec_meaningful(c(NULL,1)) # PASS
-
-  }
-}
-
-check_single_numeric = function(x, sign = 1){
-
-  # an attach_Load_First.R function
-  # check whether an object is a single numeric number
-
-  if (sum(c('numeric','integer','logical') %in% class(x)) && length(x)==1 && x*sign>0) {
-    x= 1
-  } else {x = 0}
-
-  return(x)
-
-  if (F){
-    check_single_numeric(x = nrow(diamonds))
-  }
-}
 
 ####  unit test
 
@@ -3161,68 +3091,47 @@ exist_col = function(data,col,joint = T){
 
 # _____________________________________________________________
 
-get_valid_rows = function(model, data ){
-  # from attach_load_first.R
-
-  # get the used rows i n the data for modelling
-  data[,c(get_x(model,method = 'raw'), get_y(model,method = 'raw'))] %>% complete.cases
-}
-
-stripGlmLR = function(model) {
+stripGlmLR = function(cm) {
 
   # from attach_load_first.R
 
   # Trimming the Fat from glm() Models in R: reduce the size of it
   # http://www.r-bloggers.com/trimming-the-fat-from-glm-models-in-r/
 
-  #' make the lm or glm thin
-  #' @export
-  #' @keywords internal
-  #' @param model glm or lm.
-  #' @return a thinner model
-  #' @author  Nina Zumel
+  cm$y = c()
+  cm$model = c()
 
-  model$y = c()
-  model$model = c()
+  cm$residuals = c()
+  cm$fitted.values = c()
+  cm$effects = c()
+  cm$qr$qr = c()
+  cm$linear.predictors = c()
+  cm$weights = c()
+  cm$prior.weights = c()
+  cm$data = c()
 
-  model$residuals = c()
-  model$fitted.values = c()
-  model$effects = c()
-  model$qr$qr = c()
-  model$linear.predictors = c()
-  model$weights = c()
-  model$prior.weights = c()
-  model$data = c()
+  cm$family$variance = c()
+  cm$family$dev.resids = c()
+  cm$family$aic = c()
+  cm$family$validmu = c()
+  cm$family$simulate = c()
+  attr(cm$terms,".Environment") = c()
+  attr(cm$formula,".Environment") = c()
 
-  model$family$variance = c()
-  model$family$dev.resids = c()
-  model$family$aic = c()
-  model$family$validmu = c()
-  model$family$simulate = c()
-  attr(model$terms,".Environment") = c()
-  attr(model$formula,".Environment") = c()
-
-  model$striped = TRUE
+  cm
+}
 
 
+getModelSize = function(n) {
 
-  return(model)
+  # from attach_load_first.R
+  # get the model size
 
-
-  if( FALSE && TRUE) {
-
-
-    model = lm(price~  I(carat^   2) + cut  - carat:table - cut ,ggplot2::diamonds)
-
-    model = stripGlmLR(model)
-
-    model$residuals
-
-    for (i in attributes(model)$names){
-      print(model[[i]])
-    }
-  }
-
+  data = synthFrame(n)
+  model = stripGlmLR(glm(y~xN+xC,data=data,
+                         family=binomial(link='logit'),
+                         y=FALSE, model=FALSE))
+  length(serialize(model, NULL))
 }
 
 
@@ -3313,30 +3222,6 @@ string_tidy = function(test_string,
 }
 
 
-
-formula.paste = function(x){
-  # from attach_load_first.R
-  # paste a formula into text
-
-  return(gsub(" ","", deparse(formula(x),width.cutoff = 500)))
-
-  if(F){
-
-    formula.paste(price~carat +
-                    cut)
-
-  }
-}
-
-#
-# str_replace_all("Id(q_status_last2*dq_status_last*dq_status)",
-#                 "\\*dq_status(?![A-z0-9\\_\\.])",
-#                 "")
-
-######  Unit test
-# formula.replace(Formula = price~carat + cut,tobe_replaced = '\\+cut',replacing = '',method="model")
-# formula.replace(Formula = price~ I(carat*cut) + carat + cut,tobe_replaced = 'carat',replacing = '')
-
 get_var_sign = function(result,concatenate = T){
   # from attach_load_first.R
 
@@ -3373,490 +3258,7 @@ get_var_sign = function(result,concatenate = T){
 
 }
 
-get_x = function(result = diamond_lm, method = c("raw","model","coeff"),
-                 exclude.intercept = T,  # whether to exlude intercept
-                 exclude.y = T, # whether to exlude y
-                 data = NULL,  # to replace "." in the model wiht vars in data.
-                 perl = F, # when excluding or including certain strings, whether to use regular expression
-                 joint_include = NULL,
-                 union_include = NULL,
-                 joint_exclude = NULL
-){
-  # from attach_load_first.R
 
-  # if method = "raw": only get the raw var: you will get "x" instead of "log(x)" from formula y~log(x).
-  # if method = "model": only get the raw var: you will get "x" instead of "log(x)" from formula y~log(x).
-  # if method = "coeff": used for categorical variables, you will get
-  # "cut.L"       "cut.Q"       "cut.C"       "cut^4"
-  # instead of just cut
-  # from lm(price ~ cut,data = diamonds)
-
-  method = match.arg(method)
-  if (is.null(data)) data=data.frame(DELETE_LATER.....123.= 0)
-  # some formulas contain "." to represent all other vars in data.
-  # if data is null, then "." has no meaning at all
-  # so we want to delete it
-  # just replace "." by "DELETE_LATER.....123." temporily, later we will delete it.
-  # so this "DELETE_LATER.....123." is just a temp place holder
-
-  if (method == "raw") {
-    var = all.vars(formula (result))
-    if (exclude.y == T) var = var[-1]
-  }
-
-  if (method == "model") var = terms(result,data = data) %>% attr(.,"factors") %>% colnames()
-  if (method == "coeff") {
-    var = model.matrix(result) %>% colnames()
-    if (exclude.intercept) var = var["(Intercept)" !=var]
-  }
-
-  var = gsub(" ","",var)
-
-  ## ???
-  for (type in c("joint_include", "joint_exclude" ,"union_include")){
-
-    to_be_test =eval(as.name(type))
-
-    if (! is.null(to_be_test)){
-      var_match = 0
-
-      to_be_test = gsub(" ","",to_be_test)
-      # include = c("carat","cut")
-      for (x in to_be_test){
-        # x = 'carat'
-        if (perl == F) x= fixed(x)
-        var_match = str_detect(var, x) + var_match
-      }
-      if (type == 'joint_include')   var_match = var_match == length(joint_include)
-      if (type == 'joint_exclude')   var_match = var_match == 0
-      if (type == 'union_include')   var_match = var_match>0
-      var = var[var_match]
-    }
-  }
-
-  return(var[var != "DELETE_LATER.....123."])
-
-  if (F) {
-
-    diamond_lm  = lm(price~  I(carat^   2) + cut  + carat*table ,diamonds)
-    case_inf = glm(case ~ age + education , infert,family = "binomial")
-
-    get_x(diamond_lm,method = 'raw')
-    get_x(diamond_lm,method = 'raw',exclude.y = F)
-    get_x(diamond_lm,method = 'model')
-    get_x(diamond_lm,method = 'coeff')
-    get_x(diamond_lm,method = 'coeff',exclude.intercept = F)
-
-    # DOC:
-
-    # only select variables that include all the elments in joint_include
-    get_x(diamond_lm,joint_include = c("carat","table"),method = "model")
-
-    # only select vars that include at least one element in union_include
-    get_x(diamond_lm,union_include = c("carat","table"))
-    get_x(diamond_lm,union_include = c("carat","table"), method = "model")
-
-    # exclude vars that contain at most one element in joint_exclude
-    get_x(diamond_lm,joint_exclude = c("carat","table"))
-
-  }
-}
-
-get_y = function(Formula,method = c("raw","model","coeff")){
-  # from attach_load_first.R
-
-  # depend on get_x
-
-  method = match.arg(method)
-  if (method == "raw") {
-    result = get_x(formula(Formula),exclude.y = F)[1]
-
-  } else {
-    Formula = gsub(" ","",deparse(formula(Formula),500))
-    result = gsub("\\~.*","",Formula,perl = T)
-  }
-
-  return(result)
-
-  if ( F ) {
-    get_y(log(price) ~sdfsf + dsa ~dsad)
-    get_y(log(price) ~sdfsf + dsa ~dsad, method = "coeff")
-    get_y(log(price) ~sdfsf + dsa ~dsad, method = "model")
-  }
-}
-
-get_x_all = function(Formula){
-  # from attach_load_first.R
-
-  # get all x together from the formula as a single formula, without y
-  # see the example
-  # depend on get_y and get_x
-
-  y = get_y(Formula,"model")
-  Formula = gsub(" ","",deparse(formula(Formula),500))
-  return(gsub(paste(y,"~",sep=''),"",Formula,fixed = T))
-
-  if(F){
-
-    get_x_all(Formula = log(price) ~sdfsf + dsa ~ dsad +.)
-
-  }
-}
-
-#
-#
-# ### unit test
-#
-
-focusing_var_coeff = function(model,focus_var_coeff = NULL,focus_raw_coeff = NULL,  intercept_include = T){
-
-  # an attach_Load_First.R function
-
-  # make any coeff except focus_var_coeff as 0
-  replacement = model$coefficients # model = Result
-  names(replacement) = gsub(" ","",names(replacement))
-
-  if ( !is.null(focus_var_coeff)){
-    sanity_check(focus_var_coeff, exact_in_match = get_x(model,method = "coeff") )
-    focus_var_coeff = gsub(" ","",focus_var_coeff)
-  }
-
-  if ( !is.null(focus_raw_coeff)){
-    sanity_check(focus_raw_coeff, exact_in_match = get_x(model,method = "raw") )
-    focus_raw_coeff = gsub(" ","",focus_raw_coeff)
-    focus_var_coeff = get_x(model,union_include = focus_raw_coeff, method = "coeff")
-  }
-
-  if (intercept_include) focus_var_coeff = c(focus_var_coeff,"(Intercept)")
-
-  # focus_var_coeff = '(Intercept)'
-  replacement[!names(replacement) %in% focus_var_coeff] = 0
-
-  model$coefficients = replacement
-  return(model)
-
-  if (F){
-    lm(price~ cut + carat + I(carat^2) + I(carat^3) + I(carat  * depth),diamonds) %>%
-      focusing_var_coeff(.,c("I(carat^2)","carat"))
-  }
-}
-
-Effects = function( model = diamond_lm3,
-                    Data,
-                    focus_var_raw=c('carat',"depth"), # must be the raw vars in the model
-                    focus_var_coeff=NULL,   # must be the coeff vars in the model
-                    focus_value = NULL,
-                    # a list, each element of the list must have names in focus_var_raw, and contain at least 2 values of the key coeff vars
-                    # at least 2 vlaues shall be provided, as we want to get the effects of it on the dependent
-                    nonfocus_value = NULL,
-                    # a list, each element of the list must have names in non focus_var_raw, and contain at most 1 values of the key coeff vars
-                    # only one vlaue can be provided, as we want to fix those non focus vars.
-                    transform_y = NULL, # a function on y (ex. log(y) )
-                    PRINT = T,
-                    Reverse = T, # when plot, whether to use reverse order in x-axis (ex. for balance_left)
-                    bar_plot = NULL # choose bar plot or line plot
-){
-
-  # an attach_Load_First.R function
-
-  # Main usage:: check the effects of the key raw variable (key_focus), focus_var_raw[1], on the dependent.
-  # If focus_var_raw[2] exists, then we call it non-key focus raw var,
-  # then we will check the effects of the first raw var under different values of the second raw.
-
-  # the function will also check if the dependent vars is monotonic under different values of the key_focus
-  # if focus_var_raw[2] exists, then we will check if it is monotonic under different values of focus_var_raw[2]
-
-  # you can also focus on effects of key_focus (focus_var_raw[1]) through only certain coeff vars.
-  # you need specify those coeff vars, focus_var_coeff in the arguments. then all other coeff vars unspecified will have coeff 0
-  # by default, focus_var_coeff is null, which means we will check effect of key_focus on all coeff vars.
-
-  # by default, effects of key_focus through its value seq(0.05,0.95,by = 0.05) quantitles will be shown.
-  # you can also provid values of all raws through argument focus_value (for focus_var_raw), and nonfocus_value for non-focus var
-  # by default, for all non-key non_focus raw vars, we assume their values are fixed at mean (if numeric) or mode (if factor or character) .
-
-  # what is "raw var" / "model var" and "coeff var"
-  # in price ~ I(carat * depth) + I(carat>1), carat and depth are raw, but not model var,
-  # "model vars" here are "I(carat * depth)" and "I(carat>1)"
-  # "coeff vars" here are "I(carat * depth)" and "I(carat>1)TRUE"
-  # "coeff vars" only exist after running the model
-  # "raw vars" and "model vars" exist when formula is created.
-
-  # preg = model =  glm(case ~ I(age>35) + spontaneous, data = infert,family = "binomial")
-  # Data = infert
-
-  ### ------------------------   prepare
-
-  all_raw_var = get_x(model)
-  all_coeff = get_x(model,method = "coeff")
-  y = get_y(model,"coeff")
-  names(model$coefficients) = gsub(" ","",names(model$coefficients)) # standardized the names
-
-  ### ------------------------   check
-
-  sanity_check(focus_var_raw, exact_in_match = all_raw_var )
-  sanity_check(Data)
-  if (sum(colnames(Data) %in% all_raw_var) < length(all_raw_var)) stop("Data provided is missing some raw vars for this regression")
-
-  if (length(nonfocus_value)) {
-    sanity_check(nonfocus_value, Class = 'list')
-    sanity_check(names(nonfocus_value), exact_in_match = all_raw_var)
-    for (x in nonfocus_value){
-      sanity_check(x, exact_length = 1, message_provided = "Only 1 value can be provided for each non focus vars")
-    }
-  }
-
-  if (length(focus_var_raw)>2) stop("You can only focus on at most two variables")
-  if (length(focus_value)) {
-    sanity_check(focus_value, Class = 'list')
-    sanity_check(names(focus_value), exact_in_match = all_raw_var )
-    for (x in focus_value){
-      sanity_check(x,min_oberserv = 2,
-                   message_provided = 'The provided values for each focus raw var shall at least have to different values to enable monoton comparsion')
-    }
-  }
-
-  if (length(transform_y)) sanity_check(transform_y, Class = 'function')
-
-  ### ------------------------    values for non-focus varaibles
-
-  #   llply(diamonds,function(x){
-  #      print(paste( class(x),collapse=' '))
-  #   })
-
-  ##~~~~~~~~   get the mean or mode for all raw vars : used for prediction
-
-  all_raw_values = list()
-  for ( each_raw_var in all_raw_var) {
-    x = Data[,each_raw_var]
-    Class = paste( class(x),collapse=' ')
-
-    if ( Class %in% c("numeric","integer")){
-      all_raw_values[[each_raw_var]] = mean(x)
-    } else {
-      # for factor or character, we assume Mode
-      all_raw_values[[each_raw_var]] = Mode(x)
-    }
-  }
-
-  # if you provide the values to the non-focus vars, then replace the mean/mode by the provided ones.
-  if (length(nonfocus_value)){
-    for( x in names(nonfocus_value)){
-      all_raw_values[[x]] = nonfocus_value[[x]]
-    }
-  }
-
-  ### get the valueS for focus raw vars
-  # if numeric:
-  # get seq(0.015,0.95,0.3 ) quanttile values for the non-key focus vars
-  # get seq(0.015,0.95,0.05 ) quanttile values for the key focus vars
-  # if not : like factor
-  # get the unique values
-
-  is_factor_key  = c(1,1)
-  names(is_factor_key) = focus_var_raw
-  i=1
-
-  for( x in focus_var_raw){
-    # x = focus_var_raw[1]
-    is_factor_key[x] = sum(c("factor","character") %in% class(all_raw_values[[x]] ))
-
-    if (x %in% names(focus_value)) {   # if values are provided for focus variables
-      all_raw_values[[x]] = focus_value[[x]]
-
-    } else if ( # if not provided,
-      is_factor_key[x]
-    ){
-      # for factors and characters, just get unique values
-      all_raw_values[[x]] =  focus_value[[x]] = unique(Data[,x])
-    } else if ( i== 2 & is_factor_key[1]) { # for numerics
-      # if the first focus var is a factor/character, and second focus var is a numeric,
-      # then we just don't need a very detailed quantitle for the second one
-      # i = 2
-      all_raw_values[[x]] =  focus_value[[x]] =   unique(quantile(Data[,x],seq(0.015,0.95,0.3 )))
-    } else {
-      all_raw_values[[x]] =  focus_value[[x]] =   unique(quantile(Data[,x],seq(0.015,0.95,0.05 )))
-    }
-    i = i + 1
-  }
-
-  # ________ prepare data for predict() _____________
-
-  # this will keep the class
-  modeled_data = Expand.grid(all_raw_values,stringsAsFactors = F)
-  # modeled_data[,1] %>% class
-  model_use = model
-
-  # if you only focus the effects of certain coeff vars, then assign all other coeff vars to 0
-  if (!is.null(focus_var_coeff)){
-    model_use = focusing_var_coeff(model,focus_var_coeff)
-  }
-
-  # ------------------- Prediction ~~~~~~~~~~~~~~~~~~~~~~~~```
-
-  # class(modeled_data[,focus_var_raw[1]])
-  predicted =  data.frame(predict = predict(model_use,modeled_data,type='response'),
-                          modeled_data)
-
-  ###_____  check the monotonicty ________
-
-  # when there is only one focus var: the key
-  if (length(focus_var_raw) ==1 ) {
-    predicted = predicted[order(predicted[,focus_var_raw[1]]),]
-    monoton_increase = is.increase(predicted$predict)
-    monoton_decrease = is.decrease(predicted$predict)
-  }
-  # when there are focus vars: the key and non-key, we check each the monoton effectt under each value of the non-key
-  if (length(focus_var_raw) ==2 ) {
-
-    predicted = data.table(predicted)
-    predicted = setorderv(predicted, focus_var_raw[2:1]) %>% data.frame
-
-    unique_key_focus = unique(predicted[,focus_var_raw[2]])
-
-    monoton_increase = laply(unique_key_focus, function(x){
-      is.increase(predicted[predicted[,focus_var_raw[2]] ==x, ]$predict)
-    })
-
-    monoton_decrease = laply(unique_key_focus, function(x){
-      is.decrease(predicted[predicted[,focus_var_raw[2]] ==x, ]$predict)
-    })
-
-    names(monoton_decrease) = unique_key_focus
-    names(monoton_increase) = unique_key_focus
-
-  }
-
-  # ------------------- For Plot ~~~~~~~~~~~~~~~~~~~~~~~~```
-
-  plot_data = predicted
-
-  # whether the target variable needs some tranform function?
-  if (!is.null(transform_y)){
-    plot_data$predict =  predicted$predict = transform_y(plot_data$predict)
-  }
-
-  # initialize the graph
-  graph = NULL
-
-  # if the key focus var only has at most 10 unique values, then transfer it to factor when plot
-  if (PRINT){
-
-    Length_Unique = plot_data[,focus_var_raw[1]] %>% unique %>% length
-
-    if (is.null(bar_plot) && ("numeric" %in% class(plot_data[,focus_var_raw[1]]))
-    ){
-      bar_plot = F
-    } else if ((is.null(bar_plot))) {
-      bar_plot = T
-    }
-
-    if (bar_plot && Length_Unique<=10) {
-      plot_data[,focus_var_raw[1]] = as.factor(plot_data[,focus_var_raw[1]])
-      is_factor_key[1] = 1
-    }
-
-    # plot according to number of focus variables
-    if (length(focus_var_raw) ==1 ) {
-
-      if (bar_plot && is_factor_key[1]>0){
-        # if it is a character, then use bar to plot
-        graph =
-          ggplot(plot_data) + geom_bar(aes_string(x=focus_var_raw[1], y = 'predict'),stat = "identity") +
-          labs(y=y)
-      } else {
-        graph =
-          ggplot(plot_data) + geom_line(aes_string(x=focus_var_raw[1], y = 'predict')) +
-          labs(y=y)
-      }
-    }
-    #
-
-    if (length(focus_var_raw)==2) {
-
-      Class_col = paste( class(plot_data[,focus_var_raw[2]]),collapse=' ')
-
-      if (!is_factor_key[2]) { # transfer the secondary key into factor
-        plot_data[,focus_var_raw[2]] = as.factor(plot_data[,focus_var_raw[2]])
-      }
-
-      if (bar_plot && is_factor_key[1] ){
-        graph = ggplot(plot_data) + geom_bar(aes_string(x=focus_var_raw[1],
-                                                        fill = focus_var_raw[2],
-                                                        y = 'predict'),
-                                             stat = "identity") +labs(y=y)
-
-      } else {
-        graph = ggplot(plot_data) +
-          geom_line(aes_string(x=focus_var_raw[1], colour = focus_var_raw[2], y = 'predict')) +
-          labs(y=y)
-      }
-
-    }
-
-    if (Reverse && is_factor_key[1] == 0) graph = graph + scale_x_reverse() # factor cannot use reverse
-    print(graph)
-  }
-
-  Coeff_table = data.frame(Var = names(model$coefficients) , value = model$coefficients)
-  rownames(Coeff_table) = NULL
-
-  return(list(
-    Focus_values = focus_value,
-    data_and_predict = predicted,
-    summmary_glm = Coeff_table,
-    Monoton_Increase = monoton_increase,
-    Monoton_Decrease = monoton_decrease,
-    Graph = graph
-  ))
-
-  if (F) {
-    ##___ unit test ____
-
-    # ~~~~~~~~~~~~~ Basic
-
-    preg = reulst = glm(case ~ I(age>35) + spontaneous + I(age*spontaneous), data = infert,family = "binomial")
-
-    #
-    Effects(preg, focus_var_raw = 'age', focus_var_coeff = c("I(age>35)TRUE"),Data = infert,PRINT = T)
-
-    Effects(preg, focus_var_raw = 'age', focus_var_coeff = c("I(age*spontaneous)"),Data = infert,PRINT = T)
-
-    # ERROR
-    Effects(preg, focus_var_raw = 'age', focus_var_coeff = c("age>35"),Data = infert,PRINT = T)
-
-    diamond_lm3 = lm(price~ cut + carat + I(carat^2) + I(carat^3) + I(carat  * depth),diamonds) # a GLM
-    Effects(model = diamond_lm3,Data = diamonds, focus_var_raw=c('carat'))
-    #~~~~~~~~~~~~~  for categorical
-
-    # diamonds$cut %>% unique
-    Effects(model = diamond_lm3,Data = diamonds, focus_var_raw=c('cut'))
-
-    #~~~~~~~~~~~~~  for double
-    Effects(model = diamond_lm3,Data = diamonds, focus_var_raw=c('carat',"cut"))
-    Effects(model = diamond_lm3,Data = diamonds, focus_var_raw=c('carat',"depth"))
-
-    Effects(model = diamond_lm3,Data = diamonds, focus_var_raw=c("cut","carat"))
-
-    #~~~~~~~~~~~~~ only fucus on certain values
-    Effects(model = diamond_lm3,Data = diamonds, focus_var_raw=c('carat',"cut"),
-            focus_var_coeff = c("I(carat^2)","cut.L","cut.Q","cut.C","I(carat*depth)"))
-
-    # also to test the monoton
-    Effects(model = diamond_lm3,Data = diamonds, focus_var_raw=c('carat',"cut"),
-            focus_var_coeff = c("I(carat^3)","cut.L","cut.Q","cut.C","I(carat*depth)"))
-
-    #~~~~~~~~~~~~~ Provided values
-    # also to test the monoton
-    Effects(model = diamond_lm3,Data = diamonds, focus_var_raw=c('carat',"cut"),focus_value = list(carat=seq(0.5,6,0.1)))
-
-    # wrong examples
-    Effects(model = diamond_lm3,Data = diamonds, focus_var_raw=c('carat',"cut"), focus_var_coeff = c("I(carat^2)","cut"))
-    Effects(model = diamond_lm3,Data = diamonds, focus_var_raw=c('carat',"cut7897"))
-
-    # _____________________________________________________________
-
-  }
-}
 
 get_sigma = function(model){
 
@@ -3961,130 +3363,6 @@ tree_one_node = function(data, condition , key = NULL){
   result
 }
 
-
-
-
-Stepwise = function(DATA= infert,
-                    Upper= DQ_Upper,
-                    Family = NULL, # gaussian(link = "identity") for OLS
-                    Direction = 'forward',
-                    Base = NULL, # the overall base formula when Upper is a list # usually it can be the most naive formula: depedent ~ 1
-                    Test_Suit = NULL, # test siut
-                    PRINT = T,
-                    STOP = F,
-                    method = c("BIC")){
-  # !!!! you have to use defmacro, not the normal functions, as normal functions have bugs:
-  # stepAIC cannot find the development dataset.
-
-
-  # this function enables Upper models as a list of models, and each step the stepwise AIC algorithm will only look
-  # variables within eahc element of the list.
-  # only after searching completes for all variables in that list, will will continue to
-  # include variables in the next level in the search
-
-  sanity_check(Upper,Class = c("formula","list"))
-  sanity_check(Upper[[1]],Class = c("formula"))
-  sanity_check(method,exact_in_match = c("AIC","BIC"))
-
-
-  if (class(Upper)=='formula') Upper = list(Upper)
-
-  # by pass the " invalid (do_set) left-hand side to assignment" bug in defmacro
-  if (is.null(Base)) {
-    Base2 = get_y(Upper[[1]],"coeff") %>% paste(.," ~1") %>%  as.formula
-  } else (Base2 = Base)
-
-
-  cat("dependent var: ", get_y(Base2,"raw"))
-
-
-  if (is.null(Family)) {
-
-    Unique_Values_L = DATA[,get_y(Base2,"raw")] %>% unique
-    Unique_Values_L = Unique_Values_L[!is.na(Unique_Values_L)]
-
-    if ( length(Unique_Values_L) > 2) {
-      Family2 = gaussian(link = "identity")
-    } else {
-      Family2 = 'binomial'
-    }
-  } else {Family2= Family }
-
-  cat("type of model: ", paste(Family2)[1])
-
-  for (k in 1:length(Upper)){
-
-    # k=1
-    if (PRINT){
-      cat("\n \n -------------------------------------------------------------- ")
-      cat("         Begin to include variables below      \n")
-      print(Upper[[k]])
-      cat("-------------------------------------------------------------- \n \n ")
-    }
-
-    # colnames(DATA)
-    # ??stepAIC
-
-    if (method=='AIC') K_punish = 2
-    if (method=='BIC') K_punish = log(nrow(DATA)); cat("BIC is used")
-    if (k==1) Result = Upper[[1]]
-
-    Result = stepwise2(object =  Result,data = DATA,family = Family2,
-                       scope =list(upper = Upper[[k]],lower = Base2 ),k = K_punish,
-                       trace = PRINT)
-
-    # always use the lowest model as the lower boundary
-
-    # for the test suit
-
-
-    Old_Formula  = 1 # initialize
-    New_Formula = 0 # initialize
-
-    if (PRINT) {
-      cat("\n\n"); print(summary(Result)$coeff)
-    }
-    if (STOP ) Enter_to_Continue()
-
-    while (!is.null(Test_Suit) && Old_Formula != New_Formula ) {
-      Old_Formula = formula.paste(Result)
-
-      for (test_i in Test_Suit){
-        if ( is.null(test_i$Monoton_to_Match)) test_i$Monoton_to_Match = 1
-        if ( is.null(test_i$Reverse)) test_i$Reverse = T
-
-        Result = deleting_wrongeffect (model = Result, focus_var_raw = test_i$focus_var_raw, Reverse =  test_i$Reverse,family = Family2,
-                                       Monoton_to_Match = test_i$Monoton_to_Match,
-                                       focus_var_coeff = test_i$focus_var_coeff,PRINT =  PRINT,data = DATA, STOP = STOP)
-      }
-
-      New_Formula = formula.paste(Result)
-    }
-  }
-
-  if ( PRINT ) {
-    return(Result)
-  } else {
-    return(invisible(Result))
-  }
-
-  if (F){
-    ## UNIT TEST
-
-    Upper_List = list(
-      level_1 = case ~ .+spontaneous,
-      level_2 = case ~ .+induced
-    )
-    Test_Suit_test = list(test = list(focus_var_raw = "spontaneous",Monoton_to_Match = -1))
-
-    Stepwise(DATA = infert,
-             Upper = Upper_List,Test_Suit = Test_Suit_test,
-             PRINT = T,STOP = T)
-  }
-
-
-
-}
 
 
 delete_insig =
@@ -4403,9 +3681,18 @@ walk_plot = function (data, # input shall be the output of walk excel
                       clean_index = T, # whether to clean the index names
                       text_size = 13,
                       x_title = NULL,
+                      text_labels = NULL , 
+                      # a named vector to mannually provide you the text labels
+                      # we can use number 1000 @ index == 'A', but label it with 1200 by text_labels = c('A' = 1200)
+                      label_size = NULL,
+                      label_size_level_ratio = 1.5,
+                      label_x_vertical = F,
+                      
                       ...
 
 ){
+  
+  
   if (sum(duplicated(data$index))) stop('index is not unique')
 
 
@@ -4464,8 +3751,27 @@ walk_plot = function (data, # input shall be the output of walk excel
   # text for LEVEL
   data$change[levels_pos] = data$data[levels_pos]
 
+  if (!is.null(text_labels)){
+    for (i in names(text_labels)){
+      if (i %in% data$index) data[data$index == i,'change'] = text_labels[i]
+    }
+  }
+  
   data$change = sprintf("%.0f",data$change)
 
+  
+  data$label_size = text_size
+  data$label_size[levels_pos]  = round(text_size * label_size_level_ratio)
+  
+  data$fontface = 'plain'
+  data$fontface[levels_pos]  = 'bold'
+  
+  if (!is.null(label_size)){
+    for (i in names(label_size)){
+      if (i %in% data$index) data[data$index == i,'label_size'] = label_size[i] * text_size
+    }
+  }
+  
 
   Index = unique(data$index) %>% as.character
   if ( clean_index ) Index = Index %>% clean_col_names(.,check_dup = F, lower_cap = F,underscore_to_empty = T,single_dot_to_empty = F, ...)
@@ -4480,9 +3786,10 @@ walk_plot = function (data, # input shall be the output of walk excel
   if (text_position == 'below'){
     data$text_position = data$ymin - text_adjust
   }
-
-
-
+  
+  if (is.null(ylim)){
+    data$text_position[levels_pos] = (data$ymax + data$ymin)[levels_pos]/2
+  }
   #____________ Plot ___________
   color_shcedual_fill = color_shcedual
   unique_fills = unique(clean_empty(data$color_fill))
@@ -4507,15 +3814,23 @@ walk_plot = function (data, # input shall be the output of walk excel
     scale_fill_manual(values =color_shcedual_fill,guide="none") +
     scale_color_manual(values = color_shcedual,guide="none") +
 
-    theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust=0.2, size=text_size),
+    theme(axis.text.x = element_text(size=text_size),
           plot.title = element_text(size = text_size)) +
 
     labs(y = 'million', x = x_title, title = title)+
-    geom_text(aes(x= (xmin + xmax)/2, y = text_position, label = change) )
+    geom_text(aes(x= (xmin + xmax)/2, y = text_position, label = change, size = label_size/3),show.legend = F) + 
+    scale_size_identity()
 
   # if adjust the plot limit in y direction
   if ( !is.null(ylim)){
     Plot = Plot +  coord_cartesian(ylim=ylim)
+  }
+  
+  if (label_x_vertical){
+    Plot = Plot +  
+      theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust=0.2, size=text_size),
+            plot.title = element_text(size = text_size))
+    
   }
 
   print(Plot)
@@ -4677,7 +3992,12 @@ plot_labeled_stackbar =
     # PLOT A STACKED BAR IN R
     # input shall be the output of stacked_bar_prepare()
 
-    if (is.null(label)) label = fill
+    if (is.null(label)) {
+      label = fill
+    }
+    if (is.null(top_label)) {
+      top_label = fill
+    }
     if (is.null(value_onbar))  value_onbar = '(ymin + ymin)/2'
 
     data = data %>%
@@ -4820,8 +4140,3 @@ get_color = function(mode = 'predefined'){
 }
 
 
-
-
-### Test ---------------------
-
-# source("/Users/yangguodaxia/Dropbox/Tech/R/attach_Load_First.R")
