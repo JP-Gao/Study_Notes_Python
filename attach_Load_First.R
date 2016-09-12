@@ -1,19 +1,5 @@
 ###  Excel Macros
 
-#
-# Sub Resize()
-# '
-# ' Macro2 Macro
-# '
-# ' Keyboard Shortcut: Ctrl+Shift+R
-# '
-# With ActiveChart.Parent
-# .Width = 195 * 1.618
-# .Height = 195
-#
-# End With
-#
-# End Sub
 
 
 # 195 * 1.618
@@ -26,45 +12,36 @@
 cat("\n")
 list.of.packages <-
   c(
-
+    
     # visualization
     "ggplot2","scales",
-
+    
     # regular expression
-    "stringr","english",
-
+    "stringr",
+    
+    # foriegn data
+    "rjson","XML","RJSONIO",
+    
     # data maniputaltion
     "reshape","reshape2","data.table","plyr","dplyr","magrittr","DataCombine",
-
+    
     # some functions in dplyr are duplicate in plyr, and we want to use functions in dplyr
     # so load plyr first and then let dplyr to mask it.
-
+    
     # panel and cross sectional data
-    "plm","AER","censReg",
-
-    # machine learning and Bayesian
-    # "nnet",
-
+    # "plm","AER","censReg",'MASS',
+    
+    # model 
+    'linear.tools',"MASS","glmnet","gbm","mboost",
     # time series
     "lubridate", "zoo","tseries",
-
-    # statistics and regression
-    "VGAM","MASS","Formula",
-
-    # excel files
-    "readxl",
-    # "XML","XLConnect",
-
+    
     # literature programming & code style
-    # "knitr","formatR",'yaml', 'htmltools', 'caTools','rmarkdown',"xtable",
-
+    "knitr","formatR",'rmarkdown'# 'yaml', 'htmltools', 'caTools',"xtable",
+    
     # Computing on the Language
-    "pryr", "gtools","lazyeval"
-
-
-    # compose packages
-    # "Rd2roxygen","roxygen2"
-
+    # "pryr", "gtools","lazyeval"
+    
   )
 
 cat("Pakcages we will use : \n")
@@ -80,24 +57,24 @@ if(length(new.packages)) {
   install.packages(new.packages)
 }
 
-# _____________________________________________________________
 
 cat("\n \n load packages to R \n")
 for (Library in list.of.packages) library(Library,character.only = T)
 
 
-###  Global Options  -------------------
+opts_chunk$set(
+  cache=FALSE,
+  fig.width=6.8, 
+  fig.height=4,
+  fig.align='center',
+  message=F,
+  error=F,
+  warning=F,
+  tidy.opts = F,
+  tidy = F
+)
 
 
-
-
-cat("\n
-    Global Option Settings: \n
-    Not transform string to factor when load data \n
-    Not use NA in any calculation \n
-    Only print 4 ts. \n
-
-    Print Warnings as they occure \n")
 
 options(stringsAsFactors = FALSE, na.rm=T,warn=1)
 
