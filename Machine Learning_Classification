@@ -85,7 +85,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -95,7 +95,7 @@
 \begin_body
 
 \begin_layout Title
-Machine Learning_Classification: MAIN 7/21/2016
+Machine Learning_Classification: 9/13/2016
 \end_layout
 
 \begin_layout Author
@@ -291,7 +291,7 @@ If you have proportion data
 \end_inset
 
  , you can assume the underlying distribution is eseentially counting data
- which is Possion, then you can use logit-transformation then use OLS.
+ which is Possion, then you can use Logit-transformation then use OLS.
 \end_layout
 
 \end_deeper
@@ -356,7 +356,7 @@ If we let
 \begin_inset Formula $\{0,1\}$
 \end_inset
 
-, like in SMV, then we can wrtie 
+, like in SMV, then we can write 
 \end_layout
 
 \begin_layout Itemize
@@ -616,7 +616,7 @@ where
 \end_layout
 
 \begin_layout Standard
-Or from minimize Loss perspectinve, here the loss function is Negative Logit
+Or from minimize Loss perspective, here the loss function is Negative Logit
 \end_layout
 
 \begin_layout Standard
@@ -667,7 +667,7 @@ Figure 4.13 shows the L1 regularization path for the South African heart
 \end_layout
 
 \begin_layout Subsection
-DIstribution Assumptions: NO
+Distribution Assumptions: NO
 \end_layout
 
 \begin_layout Itemize
@@ -695,8 +695,8 @@ Multinomial Logistic (Softmax) Regression
 \end_layout
 
 \begin_layout Standard
-Multinomial logistic regression is a classification method that generalizeslogis
-tic regression to multiclass problems.
+Multinomial logistic regression is a classification method that generalizes
+ logistic regression to multi-class problems.
 \end_layout
 
 \begin_layout Subsection
@@ -722,18 +722,18 @@ Independence of Irrelevant Alternatives (IIA), which is not always desirable.
 \begin_layout Itemize
 This assumption states that the odds of preferring one class over another
  do not depend on the presence or absence of other “irrelevant” alternatives.
- For example, the relative probabilities of taking a car or bus to workdo
- not change if a bicycle is added as an additional possibility.
+ For example, the relative probabilities of taking a car or bus to work
+ do not change if a bicycle is added as an additional possibility.
 \end_layout
 
 \begin_layout Itemize
 This allows the choice of K alternatives to be modeled as a set of K-1 independe
 nt binary choices, in which 
 \series bold
-one alternative is chosen as a “pivot” and theother K-1
+one alternative is chosen as a “pivot” and the other K-1
 \series default
  compared against it, one at a time.
- (即所有其他选择都被归为一组选择，以用作 alternative)
+ (which means all other classes are seen as one group, or one alternative)
 \end_layout
 
 \begin_layout Itemize
@@ -751,8 +751,8 @@ See
 \end_layout
 
 \begin_layout Standard
-The logistic regression model arises from the desire to model the posteriorproba
-bilities of the K classes via linear functions in
+The logistic regression model arises from the desire to model the posterior
+ probabilities of the K classes via linear functions in
 \begin_inset Formula $x$
 \end_inset
 
@@ -827,7 +827,7 @@ For the class
 \begin_inset Formula $\ne K$
 \end_inset
 
-, we havej
+, we have
 \begin_inset Formula 
 \[
 P(G=i|x)=exp(\beta_{j}^{T}x)P(G=K|x)
@@ -898,7 +898,8 @@ L(\theta)=\sum_{i=1}^{N}logP_{i}(G|x)
 \end_layout
 
 \begin_layout Standard
-ESL 以 simple logit 的 mle as exmple, using newton iteration to max the likelihood.
+ESL use simple logit mle as example, using newton iteration to max the likelihoo
+d.
 \end_layout
 
 \begin_layout Standard
@@ -921,7 +922,7 @@ Inferences
 \end_layout
 
 \begin_layout Standard
-This sectoion applies in both logit and softmax.
+This section applies in both logit and softmax.
 \end_layout
 
 \begin_layout Standard
@@ -933,8 +934,8 @@ Residual sum-of-squares
 \end_layout
 
 \begin_layout Standard
-The weighted residual sum-of-squares is the familiar Pearson chisquare statistic
- 
+The weighted residual sum-of-squares is the familiar Pearson chi-square
+ statistic 
 \begin_inset Formula 
 \[
 \sum_{i}^{N}\frac{(y_{i}\text{−}\hat{p}_{i})}{\hat{p}_{i}(1\text{−}\hat{p}_{i})})
@@ -958,7 +959,7 @@ Asymptotic likelihood theory says that if the model is correct, then
 \end_layout
 
 \begin_layout Subsection
-Asymptotics
+Asymptotic
 \end_layout
 
 \begin_layout Standard
@@ -975,7 +976,7 @@ N(β,(X^{T}WX)^{−1})
 \end_inset
 
 .
- This and other asymptotics can be derived directly from the weighted least
+ This and other asymptotic can be derived directly from the weighted least
  squares fit by mimicking normal theory inference.
 \end_layout
 
@@ -1063,8 +1064,8 @@ Root Node:
 \series bold
 Child Node:
 \series default
- A child node in a tree is any node in the tree that has an immediate parentnode
- above it.Hence, all nodes other than the root node are child nodes.
+ A child node in a tree is any node in the tree that has an immediate parent
+ node above it.Hence, all nodes other than the root node are child nodes.
 \end_layout
 
 \begin_layout Itemize
@@ -1084,8 +1085,8 @@ Rule Representation (Non-Graphical)
 \end_layout
 
 \begin_layout Standard
-Trees partition the space of joint predictor variable values into disjointregion
-s
+Trees partition the space of joint predictor variable values into disjoint
+ regions
 \begin_inset Formula $R_{j}$
 \end_inset
 
@@ -1109,7 +1110,7 @@ T(x;\Theta)=\sum_{j=1}^{J}\gamma_{j}I(x\in R_{j})
 
 \end_inset
 
-wieth parameters
+with parameters
 \begin_inset Formula $\Theta=\{R_{j},\gamma_{j}\}_{i}^{J}$
 \end_inset
 
@@ -1211,7 +1212,7 @@ ISL P321
 \end_layout
 
 \begin_layout Standard
-The essense of tree problem is to group observations into
+The essence of tree problem is to group observations into
 \begin_inset Formula $J$
 \end_inset
 
@@ -1255,17 +1256,17 @@ that minimize the total Loss Functions of the tree
 \series bold
 Unfortunately
 \series default
-, it is computationally infeasible to consider every possible partition
+, it is computationally unfeasible to consider every possible partition
  of the feature space into J boxes.
- For this reason, we take a top-down, greedy approach that is known asrecursive
+ For this reason, we take a top-down, greedy approach that is known as recursive
  binary splitting.
 \end_layout
 
 \begin_layout Enumerate
-The recursive binary splitting approach is top-down because it begins atthe
- top of the tree (at which point all observations belong to a singleregion)
- and then successively splits the predictor space; each split isindicated
- via two new branches further down on the tree.
+The recursive binary splitting approach is top-down because it begins at
+ the top of the tree (at which point all observations belong to a single
+ region) and then successively splits the predictor space; each split is
+ indicated via two new branches further down on the tree.
 \end_layout
 
 \begin_layout Enumerate
@@ -1277,7 +1278,7 @@ It is
 \series bold
  the best split is made at that particular step, rather
 \series default
- than looking ahead and picking a split that will lead to a better treein
+ than looking ahead and picking a split that will lead to a better treeing
  some future step.
 \end_layout
 
@@ -1474,7 +1475,7 @@ maximize the impurity
 \series bold
 reduction
 \series default
- by selecting the correct varaible at its correct cut off.
+ by selecting the correct variable at its correct cut off.
 \end_layout
 
 \begin_layout Standard
@@ -1540,15 +1541,15 @@ The usual way to compute the feature importance values of a single tree
 \end_layout
 
 \begin_layout Standard
-you initialize an array feature_importances of all zeros with size n_features.
+you initialize an array feature_importance of all zeros with size n_features.
  you traverse the tree: for each internal node that splits on feature i
  you compute the error reduction ／ impurity reduction of that node multiplied
  by the number of samples that were routed to the node and add this quantity
- to feature_importances[i].
+ to feature_importance[i].
 \end_layout
 
 \begin_layout Itemize
-Finally after you get feature_importances[i] for each 
+Finally after you get feature_importance[i] for each 
 \begin_inset Formula $i$
 \end_inset
 
@@ -1560,12 +1561,12 @@ You can choose the impurity method you want.
 \end_layout
 
 \begin_layout Standard
-So bascially Variable Importance 
+So basically Variable Importance 
 \begin_inset Formula $i$
 \end_inset
 
  is the weighted Impurity Reduction amount, where the weights are the number
- of traning sample passing through the spliting nodes that are using variable
+ of training sample passing through the splitting nodes that are using variable
  
 \begin_inset Formula $i$
 \end_inset
@@ -1624,7 +1625,7 @@ where
 \end_inset
 
  means the number of terminals.
- The tuning parameter α controls a trade-off between the subtree’s com-plexity
+ The tuning parameter α controls a trade-off between the subtree’s complexity
  and its fit to the training data.We can select a value of α using a validation
  set or using cross-validation.
 \end_layout
@@ -1632,7 +1633,7 @@ where
 \begin_layout Section
 
 \series bold
-Empiricals
+Empirical
 \end_layout
 
 \begin_layout Itemize
@@ -1648,7 +1649,7 @@ Remember that the number of samples required to populate the tree doubles
 \end_layout
 
 \begin_layout Itemize
-Balance your dataset before training to prevent the tree from being biased
+Balance your data set before training to prevent the tree from being biased
  toward the classes that are dominant.
  Decision tree learners create biased trees if some classes dominate
 \end_layout
@@ -1664,7 +1665,7 @@ white box model.
 
 \series default
  If a given situation is observable in a model, the explanation for the
- condition is easily explained by boolean logic.
+ condition is easily explained by Boolean logic.
  By contrast, in a 
 \series bold
 black box model 
@@ -1676,7 +1677,7 @@ black box model
 
 \begin_layout Itemize
 Able to handle both numerical and categorical data.
- Other techniques are usually specialised in analysing datasets that have
+ Other techniques are usually specialized in analyzing data sets that have
  only one type of variable.
  See algorithms for more information.
  Able to handle multi-output problems.
@@ -1834,7 +1835,7 @@ For some years the selection of a test in ID3 was made on the basis of the
  gain criterion.
  Although it gave quite good results, this criterion has a serious deficiency-it
  has a strong bias in favor of tests with many outcomes.
- If we make all subgroups as 1-case subgroup and all of these onecase subsets
+ If we make all subgroups as 1-case subgroup and all of these one case subsets
  necessarily contain cases of a single class, infox (T) = 0, so information
  gain from using this attribute to partition the set of training cases is
  maximal.
@@ -1860,7 +1861,7 @@ splitinfo(X)=\sum_{i=1}^{N}\frac{|T_{i}|}{|T|}\times log\frac{|T_{i}|}{|T|}
 
 \begin_layout Standard
 This represents the potential information generated by dividing T into n
- subsets, nothing about correct or wrong of classfication.
+ subsets, nothing about correct or wrong of classification.
 \end_layout
 
 \begin_layout Standard
@@ -1878,8 +1879,8 @@ gainratio(X)=gain(X)/splitinfo(X)
 \begin_layout Standard
 expresses the proportion of information generated by the split that is useful,
  i.e., that appears helpful for classification.
- If the split is neartrivial, split information will be small and this ratio
- will be unstable.
+ If the split is near trivial, split information will be small and this
+ ratio will be unstable.
  To avoid this, the gain ratio criterion selects a test to maximize the
  ratio above, subject to the constraint that the information gain must be
  large-at least as great as the average gain over all tests examined.
@@ -2085,9 +2086,9 @@ C4.5 contains mechanisms for proposing three types of tests:
 \end_layout
 
 \begin_layout Itemize
-The ''standard" test on a discrete attribute, with one outcome and branch
- for each possible value of that attribute.
- 即attribute的unique value单独分成一组（outcome）。
+The standard" test on a discrete attribute, with one outcome and branch
+ for each possible value of that attribute --- attribute'sunique values
+ are in one group（outcome）。
 \end_layout
 
 \begin_layout Itemize
@@ -2095,7 +2096,7 @@ A more complex test, based on a discrete attribute, in which the possible
  values are allocated to a variable number of groups with one outcome for
  each group rather than each value.
  Tests of this form, discussed in Chapter 7, must be invoked by an option.
- 即attribute的多个 value成为一组（outcome）。
+ attribute's multiple value as one group（outcome）。
 \end_layout
 
 \begin_layout Itemize
@@ -2138,7 +2139,7 @@ all of which are examined
 \begin_inset Formula $m-1$
 \end_inset
 
- such thresholds, but, when the cases have been s~rted as above, this can
+ such thresholds, but, when the cases have been sorted as above, this can
  be carried out in one pass, updating the class distributions to the left
  and right of the threshold on the fly.)
 \end_layout
@@ -2189,7 +2190,7 @@ Original Tree:
 
 \begin_layout Standard
 (For the unpruned tree, recall that the (N) or (N/ E) appearing after a
- leaf indicates that the leaf covers N tfaining cases, E erroneously; similar
+ leaf indicates that the leaf covers N training cases, E erroneously; similar
  numbers for the pruned tree are explained below.)
 \end_layout
 
@@ -2325,7 +2326,7 @@ physician fee freeze= u:
 
 \begin_layout Standard
 How can we predict these error rates? It is clear that error rate on the
- training set from which the tree was built ( resubstitutign...
+ training set from which the tree was built ( re-substitutign...
  error, in the terminology of Breiman et al.) does not provide a suitable
  estimate.
 \end_layout
@@ -2414,11 +2415,11 @@ is the standardized value from a standard normal distribution, and N is
 \end_layout
 
 \begin_layout Subsection
-Missing when Biulding Tree
+Missing when Building Tree
 \end_layout
 
 \begin_layout Standard
-See Application in Machine Learing 1
+See Application in Machine Learning 1
 \end_layout
 
 \begin_layout Subsection
@@ -2426,7 +2427,7 @@ Missing when Forecasting
 \end_layout
 
 \begin_layout Standard
-See Application in Machine Learing 1
+See Application in Machine Learning 1
 \end_layout
 
 \begin_layout Section
@@ -2438,7 +2439,7 @@ Boosting
 \end_layout
 
 \begin_layout Standard
-see Bagging in Boostraping section for detail
+see Bagging in Bootstrapping section for detail
 \end_layout
 
 \begin_layout Subsection
@@ -2452,9 +2453,9 @@ Bagging
 \series bold
 Bagging in decision tree
 \series default
-: biuld several trees: For a given test observation, we can record the class
+: build several trees: For a given test observation, we can record the class
  predicted by each of the B trees, and take a majority vote: Thus, bagging
- improves prediction accuracy at the expense of interpretability.
+ improves prediction accuracy at the expense of interpret ability.
 \end_layout
 
 \begin_layout Subsection
@@ -2472,8 +2473,8 @@ Boosting works in a similar way, except that the trees are grown sequentially:
 \series bold
 Boosting does not involve bootstrap sampling
 \series default
-; instead each tree is fiton a modified version (residualtes of the last
- tree) of the original dataset.
+; instead each tree is fraction a modified version (residuals of the last
+ tree) of the original data set.
 \end_layout
 
 \begin_layout Part
@@ -2493,13 +2494,13 @@ Random forests provide an improvement over bagged trees by way of a small
 But in the collection of bagged trees, most or all of the trees will use
  this strong predictor in the top split.
  Consequently, all of the bagged trees will look quite similar to each other.Unfo
-rtunately, averaging many highly correlated quantities does not leadto as
- large of a reduction in variance as averaging many uncorrelated quanti-ties.
+rtunately, averaging many highly correlated quantities does not lead to
+ as large of a reduction in variance as averaging many uncorrelated quantities.
 \end_layout
 
 \begin_layout Standard
-Random forests overcome this problem by forcing each split to consider onlya
- subset of the predictors.
+Random forests overcome this problem by forcing each split to consider only
+ a subset of the predictors.
 \end_layout
 
 \begin_layout Section
@@ -2532,8 +2533,9 @@ Grow a random-forest tree
 \begin_inset Formula $T_{b}$
 \end_inset
 
- to the bootstrapped data, by recursively repeating the following stepsfor
- each terminal node of the tree, until the minimum node size nmin isreached.i
+ to the bootstrapped data, by recursively repeating the following steps
+ for each terminal node of the tree, until the minimum node size n min is
+ reached.
 \end_layout
 
 \begin_deeper
@@ -2650,8 +2652,8 @@ See the Chapter 6 in paper
 \begin_inset Quotes eld
 \end_inset
 
-Statistical Issues in Machine Learning – Towards Reliable Split Selectionand
- Variable Importance Measures
+Statistical Issues in Machine Learning – Towards Reliable Split Selection
+ and Variable Importance Measures
 \begin_inset Quotes erd
 \end_inset
 
@@ -2782,12 +2784,12 @@ When the permuted variable
 \end_layout
 
 \begin_layout Standard
-Thus, Breiman (2001a) suggests the difference in prediction accuracy beforeand
+Thus, Breiman (2001a) suggests the difference in prediction accuracy beforehand
  after permuting 
 \begin_inset Formula $X_{j}$
 \end_inset
 
- , averaged over all its OOB trees, as a measurefor variable importance,
+ , averaged over all its OOB trees, as a measure for variable importance,
  that we formalize as follows: Let
 \begin_inset Formula $\bar{B}(t)$
 \end_inset
@@ -2843,7 +2845,7 @@ is the predicted class for observation
 \end_layout
 
 \begin_layout Standard
-The raw variable importance score for each variable is then computed asthe
+The raw variable importance score for each variable is then computed haste
  average importance over all trees
 \end_layout
 
@@ -2884,8 +2886,8 @@ ntree.The standardized or scaled importance is then computed as
 \begin_layout Standard
 When the central limit theorem is applied to the mean importance VI (xj),Breiman
  and Cutler (2008) argue that the z-score is asymptotically normal.This property
- will be used explicitly for the statistical test that iscritically investigated
- in Chapter 7.
+ will be used explicitly for the statistical test that is critically investigate
+d in Chapter 7.
 \end_layout
 
 \begin_layout Section
@@ -2911,8 +2913,8 @@ R package
 \end_layout
 
 \begin_layout Standard
-There is a randomForest package in R, maintained by Andy Liaw, availablefrom
- the CRAN website.
+There is a randomForest package in R, maintained by Andy Liaw, available
+ from the CRAN website.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2939,7 +2941,7 @@ How to choose
 \begin_inset Formula $m$
 \end_inset
 
- and node size of each trem 
+ and node size of each tree 
 \begin_inset Formula $m$
 \end_inset
 
@@ -2954,12 +2956,12 @@ How to choose
 \end_layout
 
 \begin_layout Itemize
-For classification, the default value for m is ⌊√p⌋ and the minimum nodesize
- is one.
+For classification, the default value for m is ⌊√p⌋ and the minimum node
+ size is one.
 \end_layout
 
 \begin_layout Itemize
-For regression, the default value for m is ⌊p/3⌋ and the minimum nodesize
+For regression, the default value for m is ⌊p/3⌋ and the minimum node size
  is five.
 \end_layout
 
@@ -2983,7 +2985,7 @@ Overfitting
 \begin_layout Standard
 
 \series bold
-Basic conclusion: Random Forest is robust to overfitting.
+Basic conclusion: Random Forest is robust to Overfitting.
 \end_layout
 
 \begin_layout Enumerate
@@ -2992,10 +2994,10 @@ When the number of variables is large, but the fraction of relevant variables
 \begin_inset Formula $m$
 \end_inset
 
-: as at each split the chance can be small that the relevant variables willbe
- selected.
- According to Figure 15.7, this does not hurt the performance of random forestsco
-mpared with boosting.
+: as at each split the chance can be small that the relevant variables will
+ be selected.
+ According to Figure 15.7, this does not hurt the performance of random forests
+ compared with boosting.
  This robustness is largely due to the relative insensitivity of misclassificati
 on cost to the bias and variance of the probability estimates in each tree.
 \end_layout
@@ -3006,9 +3008,10 @@ It is certainly true that increasing B does not cause the random forest
 \end_layout
 
 \begin_layout Enumerate
-Segal (2004) demonstrates small gains in performance by controlling thedepths
- of the individual trees grown in random forests.Our experience is that using
- full-grown trees seldom costs much, and resultsin one less tuning parameter.
+Segal (2004) demonstrates small gains in performance by controlling the
+ depths of the individual trees grown in random forests.Our experience is
+ that using full-grown trees seldom costs much, and result sin one less
+ tuning parameter.
 \end_layout
 
 \begin_layout Section
@@ -3024,7 +3027,11 @@ Prediction
 \end_layout
 
 \begin_layout Itemize
-Explain the data: a small tree is readable and intelligible to human beings.
+Can give you the probability: just look at votes of all different tress
+\end_layout
+
+\begin_layout Itemize
+Suffer to the unbalanced data.
 \end_layout
 
 \begin_layout Part
@@ -3091,10 +3098,10 @@ First, looking at elephants, we can build a model of what elephants look
 \end_layout
 
 \begin_layout Itemize
-Finally, to classify a new animal, we can match the new animal against theelepha
-nt model, and match it against the dog model, to see whether thenew animal
- looks more like the elephants or more like the dogs we had seenin the training
- set:
+Finally, to classify a new animal, we can match the new animal against the
+ elephant model, and match it against the dog model, to see whether the
+ new animal looks more like the elephants or more like the dogs we had seen
+ in the training set:
 \begin_inset Formula $P(x|y=elephant)/P(x|y=dog)$
 \end_inset
 
@@ -3111,7 +3118,7 @@ it starts from
 \begin_inset Formula $P(y|x,\theta)$
 \end_inset
 
-, you still need to conside 
+, you still need to consider 
 \begin_inset Formula $P(x|y=i)$
 \end_inset
 
@@ -3148,7 +3155,7 @@ Find the
 
 \begin_deeper
 \begin_layout Standard
-OR, use Bayes Rule to get the classifcation/forecasting equation.
+OR, use Bayes Rule to get the classification/forecasting equation.
 \end_layout
 
 \end_deeper
@@ -3170,8 +3177,8 @@ Actually if were calculating
 \begin_inset Formula $p(y|x)$
 \end_inset
 
- in order to make a prediction, then we don’t actually need to calculatethe
- denominator 
+ in order to make a prediction, then we don’t actually need to calculate
+ the denominator 
 \begin_inset Formula $P(x)$
 \end_inset
 
@@ -3195,7 +3202,7 @@ argmax_{y}P(y|x) & =argmax_{y} & \frac{P(x|y)P(y)}{P(x)}\\
 \end_layout
 
 \begin_layout Standard
-Essentially that means we can do comparision between 
+Essentially that means we can do comparison between 
 \begin_inset Formula $P(y=i|x)$
 \end_inset
 
@@ -3215,11 +3222,11 @@ Linear and quadratic discriminative analysis (LDA and QDA)
 \end_layout
 
 \begin_layout Itemize
-Mixture of Gaussians (saw in BNP module)
+Mixture of Gaussian (saw in BNP module)
 \end_layout
 
 \begin_layout Itemize
-Nonparametric density estimation for 
+Non-parametric density estimation for 
 \begin_inset Formula $f_{k}$
 \end_inset
 
@@ -3227,7 +3234,7 @@ Nonparametric density estimation for
 \end_layout
 
 \begin_layout Itemize
-Naïve Bayes
+Naive Bayes
 \end_layout
 
 \begin_layout Section
@@ -3264,7 +3271,7 @@ Idea
 \begin_layout Standard
 We model the distribution of the predictors X separately in each of the
  response classes (i.e.given Y ), and then use Bayes’ theorem to flip these
- around into estimatesfor Pr(Y = k|X = x).
+ around into estimates for Pr(Y = k|X = x).
 \end_layout
 
 \begin_layout Standard
@@ -3401,8 +3408,8 @@ LDA and Bayes Classifier
 \begin_layout Standard
 Thus LDA is the estimated Bayes classifier if the observations are multi-variate
  Gaussian in each class, with a common covariance matrix.
- Since this assumption is unlikely to be true, this might not seem to bemuch
- of a virtue.
+ Since this assumption is unlikely to be true, this might not seem to be
+ much of a virtue.
 \end_layout
 
 \begin_layout Subsection
@@ -3434,12 +3441,12 @@ linear and quadratic discriminant analysis use Gaussian densities;
 \end_layout
 
 \begin_layout Itemize
-more flexible mixtures of Gaussians allow for nonlinear decision boundaries
+more flexible mixtures of Gaussian allow for nonlinear decision boundaries
  (Section 6.8);
 \end_layout
 
 \begin_layout Itemize
-general nonparametric density estimates for each class density allow the
+general non parametric density estimates for each class density allow the
  most flexibility (Section 6.6.2); 
 \end_layout
 
@@ -3543,7 +3550,7 @@ Why LDA is linear
 \end_layout
 
 \begin_layout Standard
-P128 ESL.(fornula 4.11)
+P128 ESL.(formula 4.11)
 \end_layout
 
 \begin_layout Enumerate
@@ -3617,9 +3624,9 @@ reference "eq:discriminant_function"
 \begin_layout Standard
 It is easy to show that the coefficient vector from least squares is proportiona
 l to the LDA direction given in (4.11).
- Since this derivation of the LDA direction via least squares does not usea
- Gaussian assumption for the features, its applicability extends beyondthe
- realm of Gaussian data.However the derivation of the particular intercept
+ Since this derivation of the LDA direction via least squares does not use
+ a Gaussian assumption for the features, its applicability extends beyond
+ the realm of Gaussian data.However the derivation of the particular intercept
  or cut-point given in(4.11) does require Gaussian data.
 \end_layout
 
@@ -3707,7 +3714,7 @@ c/multivariateanalysis.html
 \end_layout
 
 \begin_layout Subsection
-Coeffcients of LDA in lda() from R package MASS
+Coefficients of LDA in lda() from R package MASS
 \end_layout
 
 \begin_layout Standard
@@ -3715,15 +3722,15 @@ See ISL p175
 \end_layout
 
 \begin_layout Standard
-The coefficients of linear discriminants output provides the linear combinationo
-f Lag1 and Lag2 that are used to form the LDA decision rule.
+The coefficients of linear discriminant output provides the linear combination
+ of Lag1 and Lag2 that are used to form the LDA decision rule.
  In other words, these are the multipliers of the elements of X = x in (4.19).
  
 \end_layout
 
 \begin_layout Standard
 If −0.642×Lag1−0.514×Lag2 is large, then the LDA classifier will predict market
- increase, and if it is small, then the LDA classifier will predicta market
+ increase, and if it is small, then the LDA classifier will predicts market
  decline.
 \end_layout
 
@@ -3745,8 +3752,8 @@ See ISL p163.
 
 \begin_layout Standard
 However, unlike LDA, QDA assumes that each class has its own covariance
- matrix.Then the classifier in high dimention will become a quadratic curve,
- thusserving a much flexible classifer than LDA.
+ matrix.Then the classifier in high dimension will become a quadratic curve,
+ thusserving a much flexible classifier than LDA.
 \end_layout
 
 \begin_layout Standard
@@ -3801,7 +3808,7 @@ where Σ is the pooled covariance matrix as used in LDA.
 \end_layout
 
 \begin_layout Section
-Naive Bayes (with Bernoulli as single word probablity)
+Naive Bayes (with Bernoulli as single word probability)
 \end_layout
 
 \begin_layout Standard
@@ -3818,7 +3825,7 @@ Naive Bayes also use Exponential Class distribution.
 \end_layout
 
 \begin_layout Itemize
-Any model based on Exponential Class distribution is Linear Classifer.
+Any model based on Exponential Class distribution is Linear Classier.
 \end_layout
 
 \begin_layout Subsection
@@ -3880,9 +3887,9 @@ For instance, if y = 1 means spam email; “buy” is word 2087 and “price”i
 \begin_inset Formula $y=1$
 \end_inset
 
- (that a particularpiece of email is spam), then knowledge of x2087 (knowledge
+ (that a particular piece of email is spam), then knowledge of x2087 (knowledge
  of whether“buy” appears in the message) will have no effect on your beliefs
- aboutthe value of x39831 (whether “price” appears).
+ about the value of x39831 (whether “price” appears).
 \end_layout
 
 \begin_deeper
@@ -3895,7 +3902,7 @@ That means, for any email
 \begin_inset Formula $p^{th}$
 \end_inset
 
- word is idenpendent with appearence of 
+ word is independent with appearance of 
 \begin_inset Formula $q^{th}$
 \end_inset
 
@@ -3925,7 +3932,7 @@ Likelihood
 \end_layout
 
 \begin_layout Itemize
-Likelihood of a single word: In Naive base, we model each word with bernouli:
+Likelihood of a single word: In Naive base, we model each word with Bernoulli:
 \end_layout
 
 \begin_layout Itemize
@@ -4061,7 +4068,7 @@ reference "eq:Likelihood_one_email-1"
 
 \end_inset
 
-, likelihood of all emailes are 
+, likelihood of all emails are 
 \begin_inset Formula $L(\phi_{y},\phi_{j|y=0},\phi_{j|y=1})=\prod_{i=1}^{N}P(x^{i}|y^{i})P(y^{i})$
 \end_inset
 
@@ -4107,7 +4114,7 @@ Prior Probability of an email being spam
 \end_layout
 
 \begin_layout Subsection
-Lapalace Smooth Estimator: If a word never appear
+Laplace Smooth Estimator: If a word never appear
 \end_layout
 
 \begin_layout Standard
@@ -4115,7 +4122,7 @@ For the
 \begin_inset Formula $i^{th}$
 \end_inset
 
-word in your list, it never appears in your traning sample, thus
+word in your list, it never appears in your training sample, thus
 \begin_inset Formula 
 \[
 P(x_{i}=1|y=1)=P(x_{i}=1|y=0)=0
@@ -4131,7 +4138,7 @@ P(x_{i}=1|y=1)=P(x_{i}=1|y=0)=0
 \end_layout
 
 \begin_layout Standard
-To solve this problem, as we know the uncoditional probability of word
+To solve this problem, as we know the unconditional probability of word
 \begin_inset Formula $j$
 \end_inset
 
@@ -4139,8 +4146,8 @@ appearing is
 \begin_inset Formula $\phi_{j}=\frac{\sum^{m}1_{j=1}}{N}$
 \end_inset
 
-.In Lapalace Smooth, we can re-write it as They we can let the conditionalprobabi
-lity of word
+.In Laplace Smooth, we can re-write it as They we can let the conditional
+ probability of word
 \begin_inset Formula $i$
 \end_inset
 
@@ -4211,7 +4218,7 @@ and no
 \end_layout
 
 \begin_layout Standard
-This can also be used in Multi-Noraml representation or Naive Bayes.
+This can also be used in Multi-Normal representation or Naive Bayes.
 \end_layout
 
 \begin_layout Subsection
@@ -4282,7 +4289,7 @@ In Naive Bayes, the
 
 \end_deeper
 \begin_layout Section
-Naive Bayes: Multinormial 
+Naive Bayes: Multinomial 
 \end_layout
 
 \begin_layout Standard
@@ -4358,13 +4365,13 @@ P(x^{i}|y)=\frac{n_{i}}{\prod^{N}x_{j}^{i}!}\prod^{N}P(x_{j}|y)^{x_{j}^{i}}\prop
 \end_layout
 
 \begin_layout Standard
-Note here we still need Naive Bayes assumptions: appeareance of word 
+Note here we still need Naive Bayes assumptions: appearance of word 
 \begin_inset Formula $j$
 \end_inset
 
  does not depend on other words.
- (Mathematically, multinormial insures that every categoriy in the trail
- is independent)
+ (Mathematically, Multinomial insures that every category in the trail is
+ independent)
 \end_layout
 
 \begin_layout Standard
@@ -4431,7 +4438,7 @@ However,
 \series bold
 as black box prediction engines
 \series default
-, they can be very effective, andare often among the best performers in
+, they can be very effective, an dare often among the best performers in
  real data problems.
  The nearest-neighbor technique can also be used in regression; this was
  touched on in Chapter 2 and works reasonably well for low-dimensional problems.
@@ -4485,22 +4492,48 @@ part for the algorithm
 \end_layout
 
 \begin_layout Standard
-K-means is an unsupervised method, by which you don’t know the label intraining
- data at all.
+K-means is an unsupervised method, by which you don’t know the label in
+ training data at all.
  The goal is to to assign labels using this K-means method.
 \end_layout
 
 \begin_layout Itemize
-PCA looks to find a low-dimensional representation of the observations that
- explain a good fraction of the variance;
+
+\series bold
+PCA looks to find a low-dimensional representation of the ALL observations,
+ and that representation can explain a good fraction of the variance;
 \end_layout
 
 \begin_layout Itemize
-Clustering looks to find homogeneous subgroups among the observations.
+Clustering looks to find 
+\series bold
+homogeneous subgroups
+\series default
+ among the 
+\series bold
+observations
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+K-means has a number of interesting theoretical properties.
+ (https://en.wikipedia.org/wiki/File:KMeans-density-data.svg)
+\end_layout
+
+\begin_layout Itemize
+First, it partitions the data space into a structure known as a Voronoi
+ diagram.
+ 
+\end_layout
+
+\begin_layout Itemize
+Second, it is conceptually close to nearest neighbor classification, and
+ as such is popular in machine learning.
 \end_layout
 
 \begin_layout Subsection
-In Unsupervised Learning: find Protype Featues.
+In Unsupervised Learning: find Prototype Features.
 \end_layout
 
 \begin_layout Standard
@@ -4512,8 +4545,8 @@ k-means clustering aims to partition
 \begin_inset Formula $k$
 \end_inset
 
-clusters in which each observation belongs to the cluster with the nearestmean,
- serving as
+clusters in which each observation belongs to the cluster with the nearest
+ mean, serving as
 \series bold
  a prototype of the cluster
 \series default
@@ -4550,8 +4583,8 @@ where
 \begin_inset Formula $\frac{1}{2}$
 \end_inset
 
- is to deal with the double-counting when sum all the distances betweenpoints
- in class
+ is to deal with the double-counting when sum all the distances between
+ points in class
 \begin_inset Formula $k$
 \end_inset
 
@@ -4617,8 +4650,8 @@ to
 \begin_inset Formula $x^{i}$
 \end_inset
 
-might be a multi-dimentional vector, so you need to pre-define the distancebetwe
-en
+might be a multi-dimentional vector, so you need to pre-define the distance
+ between
 \begin_inset Formula $x^{i}$
 \end_inset
 
@@ -4653,7 +4686,7 @@ Each of the step is to reduce the value of the following loss function (directly
 “within cluster” point scatter
 \series default
 , see ESL P526).
- Thus K-means is guarnated to converge.
+ Thus K-means is guaranteed to converge.
 \end_layout
 
 \begin_layout Standard
@@ -4746,8 +4779,8 @@ The intuition underlying the approach is that if there are actually
  That is, the solution will not assign observations in the same naturally
  occurring group to different estimated clusters.
  To the extent that this is the case, the solution criterion value will
- tend to decrease substantially with each successive increase in the numberof
- specified clusters,
+ tend to decrease substantially with each successive increase in the number
+ of specified clusters,
 \end_layout
 
 \begin_layout Itemize
@@ -4770,8 +4803,9 @@ where to start the
 \end_layout
 
 \begin_layout Itemize
-one should start the algorithm with many different random choices for thestartin
-g means, and choose the solution having smallest value of the objectivefunction.
+one should start the algorithm with many different random choices for the
+ starting means, and choose the solution having smallest value of the objective
+ function.
 \end_layout
 
 \begin_layout Subsection
@@ -4791,14 +4825,14 @@ The K-means clustering algorithm represents a key tool in the apparently
 \begin_layout Standard
 Why do we expect VQ to work at all? The reason is that for typical everyday
  images like photographs, many of the blocks look the same.
- In this case there are many almost pure white blocks, and similarly puregray
- blocks of various shades.
+ In this case there are many almost pure white blocks, and similarly pure
+ gray blocks of various shades.
  These require only one block each to represent them, and then multiple
  pointers to that block.
 \end_layout
 
 \begin_layout Subsection
-Hierarchical Clustering
+Hierarchical Clustering: Bottom to Top
 \end_layout
 
 \begin_layout Standard
@@ -4840,7 +4874,7 @@ That means, fit K-Means in order from large
 \begin_inset Formula $K_{m}$
 \end_inset
 
- (higer hierarchy): thus 
+ (higher hierarchy): thus 
 \begin_inset Formula $K_{1}....K_{m}$
 \end_inset
 
@@ -4864,15 +4898,15 @@ points, to insure inheriting of Hierarchies.
 \end_layout
 
 \begin_layout Subsection
-In Supervised Learning
+K-Means in Supervised Learning
 \end_layout
 
 \begin_layout Standard
-Goal is to get
+Goal is to get 
 \begin_inset Formula $R$
 \end_inset
 
- appropriate prototype for eahc class
+ appropriate prototype for each class
 \end_layout
 
 \begin_layout Standard
@@ -4915,10 +4949,19 @@ KNN is non-parametric!
 \end_layout
 
 \begin_layout Itemize
+k-NN is a type of instance-based learning, or lazy learning, where the function
+ is only approximated locally and all computation is deferred until classificati
+on.
+ The k-NN algorithm is among the simplest of all machine learning algorithms.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
 KNN is to be used directly in Prediction.
  Estimate happens in prediction,
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 KNN is non-parametric!
 \end_layout
@@ -5018,12 +5061,129 @@ In Prediction, KNN applies Bayes rule and classifies the test observation
 \end_layout
 
 \begin_layout Subsection
+Prepare: Scaling Features
+\end_layout
+
+\begin_layout Standard
+The accuracy of the k-NN algorithm can be severely degraded by the presence
+ of noisy or irrelevant features, or if the feature scales are not consistent
+ with their importance.
+ Much research effort has been put into selecting or scaling features to
+ improve classification.
+ A particularly popular[citation needed] approach is the use of evolutionary
+ algorithms to optimize feature scaling.[6] Another popular approach is to
+ scale features by the mutual information of the training data with the
+ training classes.[citation needed]
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\displaystyle I(X;Y)=\sum_{y\in Y}\sum_{x\in X}p(x,y)\log\left(\frac{p(x,y)}{p(x)\,p(y)}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Computational Concern
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+It is computationally intensive for large training sets.
+\end_layout
+
+\begin_layout Standard
+k-NN is a type of instance-based learning, or lazy learning, where the function
+ is only approximated locally and all computation is deferred until classificati
+on.
+ The k-NN algorithm is among the simplest of all machine learning algorithms.
+\end_layout
+
+\begin_layout Standard
+It is called instance-based because it constructs hypotheses directly from
+ the training instances themselves.[2] This means that the hypothesis complexity
+ can grow with the data:[2] in the worst case, a hypothesis is a list of
+ n training items and the computational complexity of classifying a single
+ new instance is O(n)
+\end_layout
+
+\begin_layout Subsection
+Overfitting Concern
+\end_layout
+
+\begin_layout Standard
+A shortcoming of the k-NN algorithm is that it is sensitive to the local
+ structure of the data.[citation needed] The algorithm is not to be confused
+ with k-means, another popular machine learning technique.
+\end_layout
+
+\begin_layout Subsection
+Noise Feature Concern
+\end_layout
+
+\begin_layout Standard
+The accuracy of the k-NN algorithm can be severely degraded by the presence
+ of noisy or irrelevant features, or if the feature scales are not consistent
+ with their importance.
+ Much research effort has been put into selecting or scaling features to
+ improve classification.
+ 
+\end_layout
+
+\begin_layout Itemize
+Trim down the feature!
+\end_layout
+
+\begin_layout Itemize
+PCA
+\end_layout
+
+\begin_layout Subsection
+Data reduction
+\end_layout
+
+\begin_layout Standard
+Data reduction is one of the most important problems for work with huge
+ data sets.
+ Usually, only some of the data points are needed for accurate classification.
+ Those data are called the prototypes and can be found as follows:
+\end_layout
+
+\begin_layout Standard
+Select the class-outliers, that is, training data that are classified incorrectl
+y by k-NN (for a given k) Separate the rest of the data into two sets: 
+\end_layout
+
+\begin_layout Itemize
+the prototypes that are used for the classification decisions 
+\end_layout
+
+\begin_layout Itemize
+the absorbed points that can be correctly classified by k-NN using prototypes.
+ The absorbed points can then be removed from the training set.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+One can apply the 1-nearest neighbor classifier on the cluster centers obtained
+ by k-means to classify new data into the existing clusters.
+ This is known as nearest centroid classifier or Rocchio algorithm.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
 KNN for multiple variables
 \end_layout
 
 \begin_layout Standard
 You have to think about a way to define the nearest distance in a multiple
- dimention: like when you want to measure distance between two points, 
+ dimension: like when you want to measure distance between two points, 
 \begin_inset Formula $x_{0}$
 \end_inset
 
@@ -5047,11 +5207,18 @@ How to choose
 \end_layout
 
 \begin_layout Itemize
-When K = 1, the decision boundary is overly flexible and finds patternsin
- the data that don’t correspond to the Bayes decision boundary.
+When K = 1, the decision boundary is overly flexible and finds patterns
+ in the data that don’t correspond to the Bayes decision boundary.
  This corresponds to a classifier that has low bias but very high variance.
- As K grows, the method becomes less flexible and produces a decision boundaryth
-at is close to linear.
+ As K grows, the method becomes less flexible and produces a decision boundary
+ that is close to linear.
+\end_layout
+
+\begin_layout Itemize
+In binary (two class) classification problems, it is helpful to choose k
+ to be an odd number as this avoids tied votes.
+ One popular way of choosing the empirically optimal k in this setting is
+ via bootstrap method.[7]
 \end_layout
 
 \begin_layout Subsection
@@ -5123,6 +5290,26 @@ where
 \end_layout
 
 \begin_layout Part
+Clustering
+\end_layout
+
+\begin_layout Itemize
+Clustering is for unsupervised
+\end_layout
+
+\begin_layout Itemize
+Classification is supervised
+\end_layout
+
+\begin_layout Section
+K-Means
+\end_layout
+
+\begin_layout Standard
+See Prototype Methods
+\end_layout
+
+\begin_layout Section
 Mixture Models
 \end_layout
 
@@ -5134,7 +5321,9 @@ Mixture Models
 \end_layout
 
 \begin_layout Itemize
-Similatr as PCA, this is a UNsupervised method, mainly to explore the data.
+Similar as PCA, this is a Unsupervised method, 
+\series bold
+mainly to explore the data.
 \end_layout
 
 \begin_layout Subsection
@@ -5145,7 +5334,7 @@ Multivariate Gaussian Mixture model
 A Bayesian Gaussian mixture model is commonly extended to fit a vector of
  unknown parameters (denoted in bold), or multivariate normal distributions.
  In a multivariate distribution (i.e.
- one modelling a vector 
+ one modeling a vector 
 \begin_inset Formula $\boldsymbol{x}$
 \end_inset
 
@@ -5153,7 +5342,7 @@ A Bayesian Gaussian mixture model is commonly extended to fit a vector of
 \begin_inset Formula $N$
 \end_inset
 
- random variables) one may model a vector of parameters (such asseveral
+ random variables) one may model a vector of parameters (such as several
  observations of a signal or patches within an image) using a Gaussian mixture
  model prior distribution on the vector of estimates given by
 \end_layout
@@ -5216,7 +5405,7 @@ p(\boldsymbol{\theta|x})=\sum_{i=1}^{K}\tilde{\phi_{i}}\mathcal{N}(\boldsymbol{\
 \end_layout
 
 \begin_layout Subsection
-Example: House prices -- Neighboorhood Cluster 
+Example: House prices -- Neighborhood Cluster 
 \end_layout
 
 \begin_layout Standard
@@ -5253,6 +5442,48 @@ Fitting this model to observed prices, e.g., using the expectation-maximization
  actually be a better model than a normal distribution.)
 \end_layout
 
+\begin_layout Subsection
+When Mixture Gaussian fails
+\end_layout
+
+\begin_layout Standard
+See the 
+\begin_inset Quotes eld
+\end_inset
+
+K-means Limitations Illustrated
+\begin_inset Quotes erd
+\end_inset
+
+ page at Data Clustering: K-means and Hierarchical Clustering
+\end_layout
+
+\begin_layout Standard
+https://www.cs.utah.edu/~piyush/teaching/4-10-print.pdf
+\end_layout
+
+\begin_layout Standard
+University of Utah
+\end_layout
+
+\begin_layout Itemize
+Strong Assumption needed: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Distribution-based clustering produces complex models for clusters that
+ can capture correlation and dependence between attributes.
+ However, these algorithms put an extra burden on the user: for many real
+ data sets, there may be no concisely defined mathematical model (e.g.
+ assuming Gaussian distributions is a rather strong assumption on the data).
+\end_layout
+
+\begin_layout Itemize
+For K-means, there is no such assumptions needed
+\end_layout
+
+\end_deeper
 \begin_layout Section
 EM in Mixture Gaussian
 \end_layout
@@ -5868,7 +6099,95 @@ would be either very close to 1 or
 \end_layout
 
 \begin_layout Section
-Density estimation (Abnomal Identify)
+Density-Based Clustering
+\end_layout
+
+\begin_layout Standard
+In density-based clustering,[9] clusters are defined as areas of higher
+ density than the remainder of the data set.
+ Objects in these sparse areas - that are required to separate clusters
+ - are usually considered to be noise and border points.
+\end_layout
+
+\begin_layout Standard
+In this diagram, minPts = 4.
+ Point A and the other red points are core points, because the area surrounding
+ these points in an ε radius contain at least 4 points (including the point
+ itself).
+ Because they are all reachable from one another, they form a single cluster.
+ Points B and C are not core points, but are reachable from A (via other
+ core points) and thus belong to the cluster as well.
+ Point N is a noise point that is neither a core point nor density-reachable.
+\end_layout
+
+\begin_layout Standard
+Picture:
+\end_layout
+
+\begin_layout Standard
+https://upload.wikimedia.org/wikipedia/commons/a/af/DBSCAN-Illustration.svg
+\end_layout
+
+\begin_layout Section
+Hierarchical Clustering
+\end_layout
+
+\begin_layout Standard
+Algorithm -- From bottom to top:
+\end_layout
+
+\begin_layout Standard
+Every time find the closest 
+\series bold
+two
+\series default
+ points/cluster, and merge them into one cluster.
+\end_layout
+
+\begin_layout Standard
+https://upload.wikimedia.org/wikipedia/commons/a/ad/Hierarchical_clustering_simple
+_diagram.svg
+\end_layout
+
+\begin_layout Subsection
+Difference from K-Means / Clustering Gaussian
+\end_layout
+
+\begin_layout Itemize
+Time Complexity: To add to Franck Dernoncourt and Vishal Bhargava's answer
+ on execution time, K-means is linear in the number of data objects i.e.
+ O(n), where n is the number of data objects.
+ The time complexity of most of the hierarchical clustering algorithms is
+ quadratic i.e.
+ O(n2).
+ Therefore, for the same amount of data, hierarchical clustering will take
+ quadratic amount of time.
+ Imagine clustering 1 million records?
+\end_layout
+
+\begin_layout Itemize
+Shape of Clusters: K-means works well when the shape of clusters are hyper-spher
+ical (or circular in 2 dimensions).
+ If the natural clusters occurring in the dataset are non-spherical then
+ probably K-means is not a good choice.
+\end_layout
+
+\begin_layout Itemize
+Repeatability: K-means starts with a random choice of cluster centers, therefore
+ it may yield different clustering results on different runs of the algorithm.
+ Thus, the results may not be repeatable and lack consistency.
+ However, with hierarchical clustering, you will most definitely get the
+ same clustering results.
+\end_layout
+
+\begin_layout Itemize
+Prior-Knowledge/ Hyper Parameter: Off course, K-means clustering requires
+ prior knowledge of K (or number of clusters), whereas in hierarchical clusterin
+g you can stop at whatever level (or clusters) you wish
+\end_layout
+
+\begin_layout Section
+Density Estimation (Abnormal Identify)
 \end_layout
 
 \begin_layout Itemize
@@ -9855,6 +10174,1079 @@ Use of ICA
 Once you find ICs of data, you can subtract the certain IC from the data
  to get a much cleaner data or can help you see the data from a different
  view.
+\end_layout
+
+\begin_layout Part
+Semi-supervised Learning
+\end_layout
+
+\begin_layout Standard
+A lot of unlabeled data is plentiful and cheap, eg.
+ documents off the web speech samples images and video But labeling can
+ be expensive.
+\end_layout
+
+\begin_layout Standard
+Semisupervised and active learning is to use both unsupervised data and
+ supervised data together.
+\end_layout
+
+\begin_layout Standard
+Semi-supervised learning is a class of supervised learning tasks and techniques
+ that also make use of unlabeled data for training – typically a small amount
+ of labeled data with a large amount of unlabeled data.
+\end_layout
+
+\begin_layout Subsection
+Goal
+\end_layout
+
+\begin_layout Standard
+Use both Labeled data and Unlabled data to predict the labels 
+\end_layout
+
+\begin_layout Standard
+In a more mathematical formulation, one could say that the knowledge on
+ p(x) that one gains through the unlabeled data has to carry information
+ that is useful in the inference of p(y|x).
+ 
+\end_layout
+
+\begin_layout Subsection
+Assumptions used in Semi-Supervised learning
+\end_layout
+
+\begin_layout Standard
+In order to make any use of unlabeled data, we must assume some structure
+ to the underlying distribution of data.
+ Semi-supervised learning algorithms make use of at least one of the following
+ assumptions.
+\end_layout
+
+\begin_layout Enumerate
+Smoothness assumption: Points which are close to each other are more likely
+ to share a label.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+This is also generally assumed in supervised learning and yields a preference
+ for geometrically simple decision boundaries.
+\end_layout
+
+\begin_layout Enumerate
+In the case of semi-supervised learning, the smoothness assumption additionally
+ yields a preference for decision boundaries in low-density regions, so
+ that there are fewer points close to each other but in different classes.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Cluster assumption: The data tend to form discrete clusters, and points
+ in the same cluster are more likely to share a label (although data sharing
+ a label may be spread across multiple clusters).
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+This is a special case of the smoothness assumption and gives rise to feature
+ learning with clustering algorithms.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Manifold assumption: The data lie approximately on a manifold of much lower
+ dimension than the input space.
+ In this case we can attempt to learn the manifold using both the labeled
+ and unlabeled data to avoid the curse of dimensionality.
+ Then learning can proceed using distances and densities defined on the
+ manifold.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The manifold assumption is practical when high-dimensional data are being
+ generated by some process that may be hard to model directly, but which
+ only has a few degrees of freedom.
+ For instance, human voice is controlled by a few vocal folds,[2] and images
+ of various facial expressions are controlled by a few muscles.
+ We would like in these cases to use distances and smoothness in the natural
+ space of the generating problem, rather than in the space of all possible
+ acoustic waves or images respectively.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Mixture Model
+\end_layout
+
+\begin_layout Standard
+Semi-supervised learning in mixture models amounts to finding the MLE of
+ (3.13).
+ The only difference between supervised and semi-supervised learning (for
+ mixture models) is the objective function being maximized.
+\end_layout
+
+\begin_layout Subsection
+Likelihood
+\end_layout
+
+\begin_layout Standard
+For semi-supervised learning: their likelihood is:
+\end_layout
+
+\begin_layout Standard
+P25 text_Intro_SSL.pdf
+\end_layout
+
+\begin_layout Standard
+Based on data 
+\begin_inset Formula $D=\{(x_{1},y_{1})....,(x_{l},y_{l}),x_{l+1}....,x_{l+u}\}$
+\end_inset
+
+ where 
+\begin_inset Formula $l+1$
+\end_inset
+
+ to 
+\begin_inset Formula $l+u$
+\end_inset
+
+ observations didn't have data.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+\mbox{log}p(D|\theta) & = & \mbox{log}\left(\prod_{i=1}^{l}p(x_{i},y_{i}|\theta)\prod_{i=l+1}^{l+\mu}p(x_{i}|\theta)\right)\nonumber \\
+ & = & \sum_{i=1}^{l}\mbox{log}p(y_{i}|\theta)p(x_{i}|y_{i},\theta)+\sum_{i=l+1}^{l+u}p(x_{i}|\theta)\label{eq:MLE_SSL}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The essential difference between this semi-supervised log likelihood (3.13)
+ and the previous supervised log likelihood (3.6) is the second term for
+ unlabeled instances.We call 
+\begin_inset Formula $P(x|θ)$
+\end_inset
+
+ the marginal probability, which is defined as marginalizing out 
+\begin_inset Formula $y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(x|\theta)=\sum_{y=1}^{C}P(x,y|\theta)P(x|y,\theta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $C$
+\end_inset
+
+ is the number of possible classes of label 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Example: a 2-class GMM with Hidden Variables
+\end_layout
+
+\begin_layout Standard
+P26 Intro_SSL
+\end_layout
+
+\begin_layout Standard
+E-step:
+\end_layout
+
+\begin_layout Standard
+Calculate the soft label: It can be thought of as assigning “soft labels”
+ to the unlabeled data according to the current model 
+\begin_inset Formula $θ^{(t)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma_{ij}=P(y_{j}|x_{i},\theta^{t})=\frac{\pi_{j}^{t}N(x_{i}|\mu_{j}^{t},\Sigma_{j}^{t})}{\sum_{k=1}^{2}\pi_{k}^{t}N(x_{i}|\mu_{k}^{t},\Sigma_{k}^{t})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+M-step: Note that the 
+\begin_inset Formula $M$
+\end_inset
+
+-step is the max the overall likelihood 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:MLE_SSL"
+
+\end_inset
+
+, rather than just the second term of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:MLE_SSL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+l_{j} & = & \sum_{i=1}^{l+u}\gamma_{ij}\\
+\mu_{j}^{t+1} & = & \frac{1}{l_{j}}\sum_{i=1}^{l+u}\gamma_{ij}x_{i}\\
+\Sigma_{j}^{t+1} & = & \frac{1}{l_{j}}\sum_{i=1}^{l+u}\gamma_{ij}(x_{i}-\mu_{j}^{t+1})(x_{i}-\mu_{j}^{t+1})^{T}\\
+\pi_{j}^{t+1} & = & \frac{l_{j}}{l+u}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Assumptions of Mixture Models in SSL
+\end_layout
+
+\begin_layout Standard
+EM in SSL assumes each class of data only comes from one single gaussian
+ cluster.
+\end_layout
+
+\begin_layout Standard
+A case that EM does not work: a dataset contains four clusters of data,
+ two of each class, The correct decision boundary is a horizontal line along
+ the x-axis.
+ Clearly, the data is not generated from two Gaussians.
+ If we insist that each class is modeled by a single Gaussian, the results
+ may be poor.
+\end_layout
+
+\begin_layout Itemize
+As the case mentioned above, we may be better off using only labeled data
+ and supervised learning in this case.
+\end_layout
+
+\begin_layout Itemize
+In the above example, one might model each class itself as a GMM with two
+ components, instead of a single Gaussian.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+That means you need to first cluster the data using un-supervised method.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Another way is to de-emphasize the unlabeled data, in case the model correctness
+ is uncertain.
+ Specifically, we scale the contribution from unlabeled data in the semi-supervi
+sed log likelihood (3.13) by a small positive weight λ < 1 (bascially put
+ 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ on the second term of Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:MLE_SSL"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Subsection
+Identification Issues
+\end_layout
+
+\begin_layout Part
+Spam and Fraud
+\end_layout
+
+\begin_layout Subsection
+Typical Types of Spam
+\end_layout
+
+\begin_layout Enumerate
+Users creation:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+whether log in/ sign up different accounts with same IP at the same time
+\end_layout
+
+\begin_layout Enumerate
+Techniques: 
+\series bold
+enforcing phone/email verification
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Users Hacked:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+whether log in at different IP / geography,
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Contents Creation:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+robots -- same user keeps sending same content, Different user keeps sending
+ same content
+\end_layout
+
+\begin_layout Itemize
+natural lanague processing skills to detect same format of the contents
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Contents Interactions
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Sundenlly a lot of likes and shares from the same IP.
+\end_layout
+
+\begin_layout Enumerate
+or totally different users -- they are disconnected + no common interest
+ --- suddenly like or follow the same person
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Techs against Spam
+\end_layout
+
+\begin_layout Standard
+• Techniques fight against API abuse (i.e., read-only apps, enforcing phone
+ verification on app creation, leaked API keys, etc) -
+\end_layout
+
+\begin_layout Subsection
+Goals, challenges and BotMaker overview
+\end_layout
+
+\begin_layout Standard
+The goal of any anti-spam system is to reduce spam that the user sees while
+ having nearly zero false positives.
+ Three key principles guided our design of Botmaker:
+\end_layout
+
+\begin_layout Enumerate
+Prevent spam content from being created.
+ By making it as hard as possible to create spam, we reduce the amount of
+ spam the user sees.
+\end_layout
+
+\begin_layout Enumerate
+Reduce the amount of time spam is visible on Twitter.
+ For the spam content that does get through, we try to clean it up as soon
+ as possible.
+\end_layout
+
+\begin_layout Enumerate
+Reduce the reaction time to new spam attacks.
+ Spam evolves constantly.
+ Spammers respond to the system defenses and the cycle never stops.
+ In order to be effective, we have to be able to collect data, and evaluate
+ and deploy rules and models quickly
+\end_layout
+
+\begin_layout Part
+Application in Classification
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Questions First to Ask: --- classify basic types of problems
+\end_layout
+
+\begin_layout Itemize
+How 
+\series bold
+expensive
+\series default
+ to collect the label? OR Whether there is enough 
+\series bold
+labeled data 
+\series default
+to build supervised model?
+\end_layout
+
+\begin_layout Standard
+Structure
+\end_layout
+
+\begin_layout Subsection
+with known labels: fraud in consumer banking
+\end_layout
+
+\begin_layout Standard
+Depends on whether you care about the accuracy of forecasting, or the easy
+ interpretation of the model.
+\end_layout
+
+\begin_layout Itemize
+If you care about 
+\series bold
+accuracy
+\series default
+: 
+\series bold
+in my experience,
+\series default
+ Random Forest is the best -- it gives you accuracy, and also give you classific
+ation and probability.
+\end_layout
+
+\begin_layout Itemize
+If you care about the 
+\series bold
+interpretation
+\series default
+ of the model, Logistic is the best.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+because you can literally see the the direction, significance, magnitude
+ of each coefficient for each variable.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+without labels:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Reason
+\series default
+: too expensive to collect the label, classify business trips and personal
+ trips / Classify SMB account and personal account
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+There are two type of questions:
+\end_layout
+
+\begin_layout Enumerate
+Anomaly Detection
+\end_layout
+
+\begin_layout Enumerate
+Clustering
+\end_layout
+
+\begin_layout Enumerate
+a lot of times this is a problem of anomaly detection, where anomaly is
+ just a small percentage of normal cases.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+K-means or Mixture-Gaussian suffice.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+with limited/manual collecting labels.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Semi-Supervised -- Mixture Gaussian.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Purpose is to collect more data
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Active Learning: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+use unsupervised/supervised learning first, then collect the more uncertain
+ point near the boundary.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+How to Measure the goodness of Unsupervised Learning
+\end_layout
+
+\begin_layout Subsection
+Classification of Geography data
+\end_layout
+
+\begin_layout Standard
+Unsupervised Learning
+\end_layout
+
+\begin_layout Standard
+Semi-Supervised Leaning
+\end_layout
+
+\begin_layout Standard
+Active Learning
+\end_layout
+
+\begin_layout Part
+Anomaly Detection
+\end_layout
+
+\begin_layout Standard
+In data mining, anomaly detection (also outlier detection) is the identification
+ of items, events or observations which do not conform to
+\series bold
+ an expected pattern or other items in a dataset.
+\series default
+[1] Typically the anomalous items will translate to some kind of problem
+ such as bank fraud, a structural defect, medical problems or errors in
+ a text.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Anomalies are also referred to as outliers, novelties, noise, deviations
+ and exceptions.[2]
+\end_layout
+
+\begin_layout Standard
+In particular in the context of abuse and network intrusion detection, 
+\series bold
+the interesting objects are often not rare objects, but unexpected bursts
+ in activit
+\series default
+y.
+ This pattern does not adhere to the common statistical definition of an
+ outlier as a rare object, and many outlier detection methods (in particular
+ unsupervised methods) will fail on such data, unless it has been aggregated
+ appropriately.
+ Instead, a cluster analysis algorithm may be able to detect the micro clusters
+ formed by these patterns.[3]
+\end_layout
+
+\begin_layout Standard
+Three broad categories of anomaly detection techniques exist.[1] 
+\end_layout
+
+\begin_layout Standard
+Unsupervised anomaly detection techniques detect anomalies in an unlabeled
+ test data set under the assumption that the majority of the instances in
+ the data set are normal by looking for instances that seem to fit least
+ to the remainder of the data set.
+ 
+\end_layout
+
+\begin_layout Standard
+Supervised anomaly detection techniques require a data set that has been
+ labeled as "normal" and "abnormal" and involves training a classifier (the
+ key difference to many other statistical classification problems is the
+ inherent unbalanced nature of outlier detection).
+ 
+\end_layout
+
+\begin_layout Standard
+Semi-supervised anomaly detection techniques construct a model representing
+ normal behavior from a given normal training data set, and then testing
+ the likelihood of a test instance to be generated by the learnt model.
+\end_layout
+
+\begin_layout Part
+Fraud
+\end_layout
+
+\begin_layout Subsection
+How to Fight Fraud in Square
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Machine learning for fraud detection
+\end_layout
+
+\begin_layout Itemize
+We have 50+ machine learning 
+\series bold
+models
+\series default
+ and 
+\series bold
+heuristics
+\series default
+ that use historical transactions and payment activity to predict whether
+ or not a future payment is likely to result in loss to Square.
+ We use machine learning techniques like random forests and boosting trees
+ to classify merchants as fraudulent, and occasionally other regression
+ techniques to estimate the potential loss to Square.
+ These models target different types of fraud; for example 
+\series bold
+product-specific fraud, or buyer vs.
+ seller fraud.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Caseload Optimization: Quantify the Type 1 and Type 2 Error
+\end_layout
+
+\begin_layout Itemize
+For each model, we need to
+\series bold
+ determine at what threshold the case
+\series default
+ is worth reviewing, given the potential loss to Square and cost of reviewing
+ the case.
+ Ideally you want to catch the most bad dollars while reviewing the fewest
+ cases as possible.
+ Having many models means you need to have some standardized way to evaluate
+ the models and allocate resources to reviewing the cases from each model.
+ Some common metrics are:
+\end_layout
+
+\begin_layout Itemize
+Precision: % payments suspected that were bad Recall: % total bad payments/dolla
+rs that your models suspected Yield: $ bad payments caught per suspicion
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Operations Decisioning
+\end_layout
+
+\begin_layout Itemize
+The models can't do all the work - if the models were to take automated
+ actions on all merchants we'd risk insulting our strong merchants.
+ The operations team is then responsible for reviewing those cases.
+ So the problem here then is presenting the data to the operations team
+ in a way that leads them to making the best decisions, and determining
+ and reporting on the metrics that motivate those decisions.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Loss forecasting
+\end_layout
+
+\begin_layout Itemize
+Loss can take months to realize, but at any given month we want to know
+ as soon as possible how loss is tracking overall, and by product, country,
+ etc.
+ These forecasts should be stable and accurate, as they become the top level
+ metrics for the team and are important for accounting as well.
+\end_layout
+
+\begin_layout Section
+Fraud Knowledge
+\end_layout
+
+\begin_layout Subsection
+Fraud Type
+\end_layout
+
+\begin_layout Enumerate
+Lost or stolen
+\end_layout
+
+\begin_layout Enumerate
+Card not present (online fraud)
+\end_layout
+
+\begin_layout Enumerate
+Counterfeit (magnet /'mægnət/ strip)
+\end_layout
+
+\begin_layout Enumerate
+Bust out (the applicant is him/her self, he just apply the card, and maximize
+ the balance, and then not paying us at all)
+\end_layout
+
+\begin_layout Subsection
+Fraud Knowledge
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+POS Entry Mode: A literal translation of the value which indicates whether
+ the card number was entered via the mag-stripe reader or key pad.
+ 
+\end_layout
+
+\begin_layout Subsection
+Customer-Transaction level Model
+\end_layout
+
+\begin_layout Itemize
+Individual Features
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+travel indicator: buy a airplane ticket, call in to mention to travel.
+\end_layout
+
+\begin_layout Itemize
+whether make purchase before in this zip code
+\end_layout
+
+\begin_layout Itemize
+whether being watched
+\end_layout
+
+\begin_layout Itemize
+Refer frequency
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+You may miss the first time, but you may identify it second time.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+month on book: a long time uber user tent to do not do this thing.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Transaction Feature
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Number of approvals or transactions within several hours ago
+\end_layout
+
+\begin_layout Itemize
+Home to merchant distance 
+\end_layout
+
+\begin_layout Itemize
+Merchant categories.
+\end_layout
+
+\begin_layout Itemize
+Local hours / Local weekday: whether shop in weekdays in work hours
+\end_layout
+
+\begin_layout Itemize
+POS, Card-not-present
+\end_layout
+
+\begin_layout Itemize
+Chip
+\end_layout
+
+\begin_layout Itemize
+POS Entry Mode
+\end_layout
+
+\begin_layout Itemize
+transaction amount / personal average transaction amount
+\end_layout
+
+\begin_layout Itemize
+transaction amount / average transaction amount for this merchant category
+\end_layout
+
+\begin_layout Itemize
+input: billing address, CVV, home zip code, pin
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Online specific features
+\end_layout
+
+\begin_layout Subsection
+Merchant-level Model
+\end_layout
+
+\begin_layout Itemize
+imminent risk when merchant data system is attacked and compromised.
+\end_layout
+
+\begin_layout Itemize
+So all people who have used cards there will suffer fraud risk.
+\end_layout
+
+\begin_layout Itemize
+Can apply the control zone for a merchant or geographically, and used in
+ decision
+\end_layout
+
+\begin_layout Standard
+How to detect that merchant,
+\end_layout
+
+\begin_layout Enumerate
+check what is the common merchant for the customers who are subject to fraud
+ went before.
+\end_layout
+
+\begin_layout Standard
+Fraud after rate: % of customers going to that merchant then report fraud.
+\end_layout
+
+\begin_layout Standard
+The result of the merchant level fraud model will be used as an input of
+ the customer - transaction level model
+\end_layout
+
+\begin_layout Subsection
+Action Plan
+\end_layout
+
+\begin_layout Standard
+Decide whether to do any action 
+\end_layout
+
+\begin_layout Enumerate
+block
+\end_layout
+
+\begin_layout Enumerate
+approval, but call / message / email --- WATCH
+\end_layout
+
+\begin_layout Enumerate
+Hold the payment to Merchant
+\end_layout
+
+\begin_layout Enumerate
+Special rules:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Natural Disasters
+\end_layout
+
+\end_deeper
+\begin_layout Section
+How to Model Fraud
+\end_layout
+
+\begin_layout Standard
+fraud strategy contains 2 parts.
+\end_layout
+
+\begin_layout Enumerate
+Build a score model:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+We really just use logistics model, 
+\end_layout
+
+\begin_layout Enumerate
+We though about Support Vector Machine but it only gave us 1 or negative
+ 1.
+ What we really need is a probability score to used in the action plan.
+ Similarly a tree sufffers the same problem.
+ Similarly tree model suffers the same problem
+\end_layout
+
+\begin_layout Enumerate
+There are certainly fancier model, like random forest, which can also give
+ you a probability, like 20% tree give you 1 and 80% of tree give you 0,
+ But implementing it in our IT system is Formidable task, because we got
+ XX Million active customers and our system is definitely capable to do
+ random forest in normal time, but During Thanksgiving, it will definitely
+ crash.
+\end_layout
+
+\begin_layout Enumerate
+We really just use logistics model, but we do build models for different
+ groups of customers.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+For our X card, which give you 1.5% cash reward, 
+\end_layout
+
+\begin_layout Enumerate
+For our XX card, which give no reward at all but just lower APR to do balance
+ transfer, we get another model
+\end_layout
+
+\begin_layout Enumerate
+For Business card, we get one model, 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Use the score and other characteristic as input for a decision tree to get
+ an action plan
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+We really just develop the decision tree heuristically, rather than using
+ any tree algorithm.
+\end_layout
+
+\begin_layout Enumerate
+We use variables like whether the transaction is larger than 1000, whether
+ the customer is an VIP, whether the customer is in Travel
+\end_layout
+
+\begin_layout Enumerate
+For each leave, we measure the True Positive and False Negative, 
+\end_layout
+
+\begin_layout Enumerate
+Action Plan
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+When in one leaf, the TP is high and FN the want to block the transaction
+\end_layout
+
+\begin_layout Enumerate
+If you are unsure, then just approve it, but call or message or email the
+ customer to remind him or her there is a suspicion.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Obviously Making a Phone Call is more expensive and we only use it for relativel
+y large transactions
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+The third way is just approve the transaction even if it is suspicious,
+ and not reminding the customer at all.
+ Just let it go.
+ 
+\end_layout
+
+\begin_layout Enumerate
+For all approved suspicious accounts, normally we will watch this account
+ in our system to see whether there are more suspicion coming in.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Unsupervised Learning: K-means or PCA
+\end_layout
+
+\begin_layout Enumerate
+As fraulders keep trying to innovate new ways to do frauld, Supervised model
+ will certainly fail in that situation.
+ That is where you need Unsupervised Learning.
+\end_layout
+
+\begin_layout Enumerate
+Even if you didn't want to use Unsupervised model in formal frauld strategy,
+ it can still give you a lot of business intuition.
+ At least it can tell which particular cluster of customers you want to
+ do more research on.
+ So I regard it as a giuld of your next step of work.
+\end_layout
+
+\begin_layout Enumerate
+But in practice, we really use those clustering techniques in the frauld
+ strategy, we really use them as a kind of pre-step to do supervised model.
+ For example, to lower the dimension.
+\end_layout
+
+\begin_layout Subsection
+correctly labeling your data.
+\end_layout
+
+\begin_layout Standard
+A second issue is correctly labeling your data.
+ A lot of fraudulent transactions are not detected and subsequently get
+ wrongly labeled as non-fraudulent.
+ Not only does this compound the class imbalance issue, but the model will
+ also have a harder time identifying fraud-specific patterns.
+\end_layout
+
+\begin_layout Subsection
+Precision Recall on Machine Learning
+\end_layout
+
+\begin_layout Standard
+The inherent compromise in fraud detection is balancing the trade-off between
+ catching fraudsters and increasing friction for good users.
+ I spend time with customers to learn which they prioritize, then tune their
+ models to catch as many fraudsters as possible without too many false positives.
+ In our reporting to customers, one of the most important data points is
+ the Confusion Matrix, showing number of fraudsters caught and number missed
+ vs.
+ number of good users incorrectly caught vs.
+ number ignored
 \end_layout
 
 \begin_layout Part
