@@ -95,6 +95,7 @@ tabs-within-sections
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 16419249 "v660271" 
 \end_header
 
 \begin_body
@@ -6216,6 +6217,32 @@ we min
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+
+\change_inserted 16419249 1473976241
+One Class SVM
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 16419249 1473976257
+Estimating the Support of a High-Dimensional Distribution
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 16419249 1473976274
+One-Class Support Vector Machines: Methods and Applications
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 16419249 1473976274
+Support Vector Machine (and Statistical Learning Theory) Tutorial Jason
+ Weston NEC Labs America 4 IndependenceWay, Princeton, USA.
+ jasonw@nec-labs.com
 \end_layout
 
 \begin_layout Section
