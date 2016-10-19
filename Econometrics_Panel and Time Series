@@ -272,6 +272,13 @@ Fixed Effect
 \end_layout
 
 \begin_layout Standard
+Fixed Effect is the ubobserved 
+\series bold
+heterogeneity of each individual in the panel data, it can be correlated
+ with other variables.
+\end_layout
+
+\begin_layout Standard
 本质同 Instrumental Variable 一样，都是处理 missing variable / unobserved effect 的一种方法
 \end_layout
 
@@ -3540,6 +3547,26 @@ AR and MA
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+Intuition:
+\end_layout
+
+\begin_layout Itemize
+AR(p).
+ Which tells us that current value today is just a weighted sum of past
+ values.
+ Sometimes prices are said to follow such a process.
+\end_layout
+
+\begin_layout Itemize
+MA(q) which is a moving average of past white noise.
+ MA processes are often used to model shocks to a system (again say prices)
+ which are gradually weakened over time.
+ 
+\end_layout
+
+\begin_layout Standard
 ITF p100
 \end_layout
 
@@ -3744,11 +3771,34 @@ AR
 \end_layout
 
 \begin_layout Standard
+Relations between AR and MA
+\end_layout
+
+\begin_layout Itemize
+Also note: Every stationary process can be written as an infinite order
+ MA, and approximated by some finite truncation of it (Wold's theorem)
+\end_layout
+
+\begin_layout Itemize
+Also note: Every invertible AR process can be written as an MA process
+\end_layout
+
+\begin_layout Standard
 Even the AR(1) as the error term 
 \begin_inset Formula $z_{t}$
 \end_inset
 
  there
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Graphs:
+\end_layout
+
+\begin_layout Standard
+https://en.wikipedia.org/wiki/Autoregressive_model#/media/File:ArTimeSeries.svg
 \end_layout
 
 \begin_layout Standard
@@ -3841,14 +3891,6 @@ plot(arima.sim(list(order=c(2,0,0), ar=c(-0.9,-0.9)), n=100),
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 @
 \end_layout
 
@@ -3891,6 +3933,69 @@ The EMA for a series Y may be calculated recursively:
 
 \begin_layout Subsection
 Economic meaning of auto-correlation/ series correlation
+\end_layout
+
+\begin_layout Itemize
+In an AR process, a one-time shock affects values of the evolving variable
+ infinitely far into the future.
+ For example, consider the AR(1) model 
+\begin_inset Formula ${\displaystyle X_{t}=c+\varphi_{1}X_{t-1}+\varepsilon_{t}}X_{t}=c+\varphi_{1}X_{{t-1}}+\varepsilon_{t}$
+\end_inset
+
+.
+ A non-zero value for 
+\begin_inset Formula $\varepsilon_{t}$
+\end_inset
+
+ at say time t=1 affects 
+\begin_inset Formula $X_{1}$
+\end_inset
+
+ by the amount 
+\begin_inset Formula $\varepsilon_{1}$
+\end_inset
+
+.
+ Then by the AR equation for 
+\begin_inset Formula $X_{2}$
+\end_inset
+
+ in terms of 
+\begin_inset Formula $X_{1}$
+\end_inset
+
+, this affects 
+\begin_inset Formula $X_{2}$
+\end_inset
+
+ by the amount 
+\begin_inset Formula $\varphi_{1}\varepsilon_{1}$
+\end_inset
+
+.
+ Then by the AR equation for 
+\begin_inset Formula $X_{3}$
+\end_inset
+
+ in terms of 
+\begin_inset Formula $X_{2}$
+\end_inset
+
+, this affects
+\begin_inset Formula $X_{3}$
+\end_inset
+
+ by the amount 
+\begin_inset Formula $\varphi_{1}^{2}\varepsilon_{1}$
+\end_inset
+
+.
+ Continuing this process shows that the effect of 
+\begin_inset Formula $\varepsilon_{1}$
+\end_inset
+
+ never ends, although if the process is stationary then the effect diminishes
+ toward zero in the limit.
 \end_layout
 
 \begin_layout Itemize
@@ -4078,6 +4183,13 @@ For MA(q): The ACVF of the MA(q) process thus has the distinctive feature
 erage process of order q or less.
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+https://onlinecourses.science.psu.edu/stat510/sites/onlinecourses.science.psu.edu.stat5
+10/files/L02/graph_27.gif
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 For AR(p)
 \end_layout
@@ -5287,7 +5399,11 @@ where
 \begin_inset Formula $\lambda\sum_{t=2}^{T-1}[(\tau_{t+1}-\tau_{t})-(\tau_{t}-\tau_{t-1})]^{2}$
 \end_inset
 
-, which is the second derivative, to punish the variation of the trend part.
+, which is the 
+\series bold
+second derivative
+\series default
+, to punish the variation of the trend part.
 \end_layout
 
 \begin_layout Standard
@@ -5380,6 +5496,114 @@ The more levels you use, there is more danager to overfit.
 \end_layout
 
 \begin_layout Subsection
+Application
+\end_layout
+
+\begin_layout Itemize
+Fourier Series can be estimated by OLS
+\end_layout
+
+\begin_layout Itemize
+Levels of Fourier Series can be determined by AIC
+\end_layout
+
+\begin_layout Itemize
+Different seasonality terms shall correspond to different Fourier terms,
+ for the daily data
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $sin\left(\frac{2\pi kt}{7}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $cos\left(\frac{2\pi kt}{7}\right)$
+\end_inset
+
+ for weekly, where 
+\begin_inset Formula $k\in\{1,2,3,...\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $sin\left(\frac{2\pi kt}{30}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $cos\left(\frac{2\pi kt}{30}\right)$
+\end_inset
+
+ for monthly, where 
+\begin_inset Formula $k\in\{1,2,3,...\}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Fourier can be used with ARMA and other external variables
+\end_layout
+
+\begin_layout Subsection
+Example 1 
+\end_layout
+
+\begin_layout Standard
+See Uber Exercise 1
+\end_layout
+
+\begin_layout Subsection
+Example 2
+\end_layout
+
+\begin_layout Standard
+https://blog.pivotal.io/data-science-pivotal/products/forecasting-time-series-data
+-with-multiple-seasonal-periods
+\end_layout
+
+\begin_layout Standard
+Autoregressive integrated moving average (ARIMA) models are generally used
+ to model time series data, however they do not directly handle seasonality.
+ The ARIMA model regresses the current data value against historical data
+ value(s) in the time series.
+ In order to deal with multiple seasonality, external regressors need to
+ be added to the ARIMA model[1].
+ To incorporate the multiple seasonality in the gamer login behavior, additional
+ Fourier terms are added to the ARIMA model, where Nt is an ARIMA process.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{t}=a+\sum_{i=1}^{M}\sum_{k=1}^{K_{i}}\left[\alpha sin\left(\frac{2\pi kt}{p_{i}}\right)+\beta cos(\frac{2\pi kt}{p_{i}})\right]+N_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The seasonal pattern is modeled through the addition of Fourier terms which
+ are used as external regressors.
+ This approach is flexible, allowing you to incorporate multiple periods.
+ For example, if there are ‘M’ periods (p1, p2, p3, pM) in the data, we
+ would have different fourier series corresponding to each of the ‘M’ periods.
+ In this particular example, there are two seasonal periods, daily and weekly,
+ with p1 including 24 hours and p2 including 168 hours.
+ For each of the periods ‘pi’, the number of fourier terms (Ki) are chosen
+ to find the best statistical model for a given set of data.
+ Given a set of models, AIC (which is derived from information theory) estimates
+ the quality of model compared to other models, and thus provides a means
+ for model selection.
+ The value of Ki is chosen so as to minimize the AIC criteria.
+\end_layout
+
+\begin_layout Subsection
 Cycle
 \end_layout
 
@@ -5422,414 +5646,237 @@ Thus a weekly fourier fourier series with daily data shall be
 .
 \end_layout
 
+\begin_layout Section
+Application
+\end_layout
+
+\begin_layout Subsection
+Cross Validation in Time Series
+\end_layout
+
+\begin_layout Standard
+Slightly different than traditonal cross valiadtion, as testing data has
+ to be in continuous time order
+\end_layout
+
+\begin_layout Standard
+Select observation k + i for test set, and use observations at times 1;
+ 2; : : : ; k + i - 1 to estimate model.
+ 
+\end_layout
+
+\begin_layout Standard
+Compute error on forecast for time k + i for all 
+\begin_inset Formula $i$
+\end_inset
+
+from Repeat for i = 0; 1; : : : ; T 􀀀 k where T is total number of observations.
+ Compute accuracy measure over all errors
+\end_layout
+
+\begin_layout Subsection
+Q: Hot to do Forecast
+\end_layout
+
+\begin_layout Enumerate
+Univariate Forecasting
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+be careful with seasonalities -- specify dummy variable and Fourier Series
+\end_layout
+
+\begin_layout Enumerate
+be careful with anomalies -- use dummy variable.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+If you have a series of variables, and they are mutually linked, then fit
+ an VAR / Conintegration model.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Leading variable, but only useful for short term forecasting.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+like Purchasing Managers' Index (PMI) is the leading variable for GDP
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Part
-Pricing
+Macroeconomics
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Nominal vs.
+ Real
+\end_layout
+
+\begin_layout Itemize
+Nominal = Real rate + inflation
+\end_layout
+
+\begin_layout Subsection
+real interest rate
 \end_layout
 
 \begin_layout Standard
-But over time, surge pricing will also become more familiar and less surprising.
+The real interest rate is the rate of interest an investor, saver or lender
+ receives (or expects to receive) before allowing for inflation.
+ It can be described more formally by the Fisher equation, which states
+ that the real interest rate is approximately the nominal interest rate
+ minus the inflation rate.
 \end_layout
 
-\begin_layout Subsection
-Uber Measruement
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Pric -- price per mile:
-\series default
- in surApp openings are a good representation of those who are in the market
- for Uber’s services and thus provide a nice measure of 
-\series bold
-Potential Demand
-\series default
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-number of rides are just realized demand
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-
-\series bold
-Measure the Causality:
-\series default
- we cannot make the strong claim that surge pricing caused more driverpartners
- to be in the area.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Completion rate 
-\series default
-– 
-\series bold
-measure the marketing equilibrium
-\series default
-, defined as the percentage of requested rides that end in a completed trip.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Uber normally has completion rate = 1 for all time.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-
-\series bold
-Friction
-\series default
-: waiting time -- time from request to ride
-\end_layout
-
-\begin_layout Subsection
-Customer Behaviors
+\begin_layout Section
+IS-LM
 \end_layout
 
 \begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/Islm.png
+	lyxscale 70
+	scale 70
 
-\series bold
-Customers have long memories and are emotional: 
-\series default
-What economists often fail to understand is price creates an emotional response
- within customers that affects their loyalty.
-\end_layout
+\end_inset
 
-\begin_layout Subsection
-Pricing Elasticity Strategy
+
 \end_layout
 
 \begin_layout Standard
-“A marketer’s goal is to move his or her products from relatively elastic
- to relatively inelastic,” she continues.
- “We do that by creating something that is differentiated and meaningful
- to customers.
+The model was developed by John Hicks in 1937,[4] and later extended by
+ Alvin Hansen,[5] as a mathematical representation of Keynesian macroeconomic
+ theory.
 \end_layout
 
-\begin_layout Subsection
-vs Taxi
-\end_layout
-
-\begin_layout Itemize
-It is a substitute (a competitor), not a complement.
- -- Look at how taxi rides has dropped after uber lunched
+\begin_layout Standard
+The IS–LM model, or Hicks–Hansen model, is a macroeconomic tool that shows
+ the relationship 
 \end_layout
 
 \begin_layout Itemize
-Uber also expland the market -- server the underserved market.
-\end_layout
-
-\begin_layout Subsection
-Medallions
-\end_layout
-
-\begin_layout Itemize
-Because the medallion system artificially restricts the number of cabs,
- it has been criticized as an entry barrier to the New York City taxi market
- which has in turn created a black market for illegal taxicab operation
- in areas underserved by medallion cabs.[76] 
-\end_layout
-
-\begin_layout Itemize
-Because the cost of leasing a medallion is so high, the system may cut into
- the income of drivers and raise costs to passengers.
+between 
+\series bold
+interest rates
+\series default
+ and 
+\series bold
+real output
+\series default
+ in the 
+\series bold
+goods and services market
+\series default
+ and 
+\series bold
+the money market
+\series default
+ (also known as the assets market).
  
 \end_layout
 
 \begin_layout Itemize
-On the other hand, some transportation analysts contend that cities with
- no barriers to entry to the taxi market end up with an abundance of poorly
- maintained taxis.
- They say that a medallion system helps the city to better regulate taxis
- and enables the city to raise the standards of all taxis.[77]
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Can regulate taxi without barrier to entry
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Estimate Price Elasticity
-\end_layout
-
-\begin_layout Itemize
-you’d have to change your price multiple times to see what would happen
- at each price point.
- This is not what companies tend to do in practice.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Random variation from your optimal price strategy or champion strategy,so
- you can collect data
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Rather, they send out questionnaires, run focus groups, or perform small-scale
- experiments in certain markets, to give them a sense of what would happen
- if they changed their price.
-\end_layout
-
-\begin_layout Subsection
-Pricing to drive the supply
-\end_layout
-
-\begin_layout Itemize
-Syupply: the reality is that the times when people most want a ride are
- also the times when it’s most annoying and, often, most risky to drive.
- Rush hour, New Year’s Eve, 2 a.m.
- on a Saturday night, snowstorms: generally speaking, these are exactly
- the times when a driver doesn’t want to be on the road.
- But if driving at those times pays considerably better, then they are more
- likely to be willing.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Cost/Risk of driving in rush hours is high
-\end_layout
-
-\begin_layout Itemize
-Another factor that impacts driver supply is substitute opportunities.
- Prt-time drivers may have other part-time jobs.
- Drivers have lucrative alternative opportunities on event nights like New
- Years Eve.
- Some party-goers are willing to book a single captive driver for a flat
- rate which could be well over $1000 for the night.
- And in this case, the driver enjoys quite a bit of downtime.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Even without the help of algorithms, cab drivers know to converge on a venue
- as an event finishes;
-\end_layout
-
-\begin_layout Itemize
-Demand: its dynamic pricing policy to be used solely when demand is materially
- outstripping supply, so I think it will not hurt demand so much.
-\end_layout
-
-\begin_layout Itemize
-Quantity: maximize the number of completed rides.
-\end_layout
-
-\begin_layout Itemize
-Reliability / Convinience / Time to Fullfill the order
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-the next time you see a message indicating that Uber’s surge pricing is
- in effect: immediately try an alternative other than Uber.
- In other words, try to hail a cab, call a traditional black car service,
- find a rental car, or jump on a bus or subway.
- You will find that availability and reliability for all forms of transportation
- are under stress at that same precise moment in time.
- At these times, a fixed price taxi will be highly unavailable, and a fixed
- price subway will be remarkably over-crowded.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Key metrics: number of completed rides / total request
-\end_layout
-
-\begin_layout Subsection
-Difference between Uber and Other's Dynamic Pricing
-\end_layout
-
-\begin_layout Enumerate
-There is, however, one key difference that materially increases the need
- for dynamic pricing in Uber’s case.
- With hotels, airplanes, and rental cars, supply is relatively fixed.
-\end_layout
-
-\begin_layout Enumerate
-Others tend to lower the price dynamically.
-\end_layout
-
-\begin_layout Subsection
-Why people hates dynamic pricing
-\end_layout
-
-\begin_layout Enumerate
-Price of taxi is pre-set up and regulated for decades.
-\end_layout
-
-\begin_layout Enumerate
-Most people thought “raising prices in response to a shortage is unfair
- even when close substitutes are readily available”
-\end_layout
-
-\begin_layout Enumerate
-Customers seem to accept dynamic pricing more easily when it’s characterized
- as a discount.
- At the movies, for instance, prime-time tickets aren’t presented as a few
- dollars more than the normal price—rather, matinees are presented as a
- few dollars less.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Uber’s competitor Lyft seems to have recognized the power of framing: it
- recently introduced what it calls happy-hour pricing, offering discounts
- during slow business hours.
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Marketing -- Education to Customers
-\end_layout
-
-\begin_layout Standard
-
+The intersection of the "
 \series bold
-Best marketing is educatiom.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-empathetic / sympathy
-\end_layout
-
-\begin_layout Standard
-Another point to keep in perspective is that the operator of each and every
- car on the Uber service is a human just like all of the passengers.
- Why should we expect that individual to be excited about working precisely
- when we want to be out of the town? Do you enjoy working on Friday and
- Saturday night? What about Holidays? What about New Year’s Eve? Nurses
- and doctors routinely receive 2-3X overtime pay for work at those times;
- is there a reason that a driver should not? What about during really bad
- storms? Should the independent driver be more concerned about your needs,
- or those of their own family and friends? This is not a plea for you to
- be overly 
-\series bold
-empathetic
+investment–saving
 \series default
- for the independent drivers on Uber’s system, but rather simply asking
- you to consider the basic human reasons why they may chose not to drive
- at the exact same time that you are most interested in not driving.
- Is it unreasonable to expect higher fares if they are sacrificing their
- own time at the least convenient moment?
-\end_layout
-
-\begin_layout Subsection
-Subsidies
-\end_layout
-
-\begin_layout Standard
-The company itself should take no money during surge periods (it now takes
- 20 percent of every fare), so all the money goes to the drivers.
- Or it should cap prices to consumers but pay the higher price to drivers,
- essentially subsidizing people’s rides in surge periods.
- Or when prices rise really sharply, Uber should donate its take to charity.
-\end_layout
-
-\begin_layout Subsection
-Matching Algorithms
-\end_layout
-
-\begin_layout Standard
-Timing is everything at Uber.
- Given a pickup location, drop off location and time of the day, predictive
- models developed at Uber predict how long will it take for a driver to
- cover the distance.
- Uber has 
+" (IS) and "
 \series bold
-sophisticated routing and matching algorithms
+liquidity preference–money supply
 \series default
- that direct cars to people and people to places.
- Right from the time you open the uber app till you reach your destination,
- Uber’s routing engine and matching algorithms are hard at work.
+" (LM) curves is the "general equilibrium" where 
 \end_layout
 
-\begin_layout Standard
-Uber follows a supplier pick map matching algorithm where the customer selects
- the variables associated with a service (in this case Uber app) and makes
- a match by sending requests to the most optimal list of service providers.
+\begin_deeper
+\begin_layout Itemize
+there is simultaneous equilibrium in both markets.
+\end_layout
+
+\begin_layout Itemize
+equivalent interpretations are possible: first, the IS–LM model explains
+ changes in national income when the price level is fixed in the short-run;
+ second, the IS–LM model shows why the aggregate demand curve shifts.[2]
  
 \end_layout
 
-\begin_layout Standard
-Any Uber ride request is first sent to the nearest available.
- Uber driver (the nearest available Uber driver is determined by comparing
- the customer location with the expected time of arrival of the driver).
- The Uber driver then accepts or rejects a ride request.
- This matching algorithm works well for Uber since the transaction is highly
- commoditized i.e.
- the number of variables that the customer has to decide before a match
- is made are minimal.
-\end_layout
-
+\end_deeper
 \begin_layout Subsection
-Fare Estimates
-\end_layout
 
-\begin_layout Standard
-Goal: 
-\end_layout
-
-\begin_layout Itemize
-Strict constraint: Price is high enough so that enough drivers will show
- up.
-\end_layout
-
-\begin_layout Itemize
-Goal 1 -- take the market share / be the low-cost leader: Price is as low
- as possible so that as many riders can take Uber.
-\end_layout
-
-\begin_layout Itemize
-Goal 2 (not that possible): max profit.
-\end_layout
-
-\begin_layout Standard
-Uber uses a mixture of internal and external data to estimate fares.
- Uber calculates fares automatically using street traffic data, GPS data
- and its own algorithms that make alterations based on the time of the journey.
- It also analyses external data like public transport routes to plan various
- services.
-\end_layout
-
-\begin_layout Subsection
-Reduce the Friction
-\end_layout
-
-\begin_layout Standard
-Asymmetric Information: 
-\end_layout
-
-\begin_layout Itemize
-riders know where and when they will show up and the price they want to
- pay.
-\end_layout
-
-\begin_layout Itemize
-drivers didn't know
-\end_layout
-
-\begin_layout Standard
-So Uber needs to inform the diriver so that 
-\end_layout
-
-\begin_layout Itemize
-they know where to go in the next hour / where to go get the highest 
 \series bold
-price per mile
+Investment–Saving
+\series default
+ (IS) 
+\end_layout
+
+\begin_layout Standard
+The IS curve is defined by the equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\displaystyle Y=C\left(Y-T(Y)\right)+I\left(r\right)+G+NX(Y)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where Y represents income, C(Y-T(Y)) represents consumer spending as an
+ increasing function of disposable income (income, Y, minus taxes, T(Y),
+ which themselves depend positively on income), I(r) represents investment
+ as a decreasing function of the real interest rate, G represents government
+ spending, and NX(Y) represents net exports (exports minus imports) as an
+ decreasing function of income (decreasing because imports are an increasing
+ function of income).
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Liquidity Preference–Money Supply
+\series default
+: LM
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Lyx_Picture/Money_Market_diagram.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The LM function is the set of equilibrium points between the liquidity preferenc
+e (or demand for money) function and the money supply function (as determined
+ by banks and central banks).
+\end_layout
+
+\begin_layout Itemize
+The liquidity preference function is simply the willingness to hold cash
+ balances instead of securities.
+\end_layout
+
+\begin_layout Itemize
+The money supply is determined by the central bank decisions and willingness
+ of commercial banks to loan money.
+ Though the money supply is related indirectly to interest rates in the
+ very short run, the money supply in effect is perfectly inelastic with
+ respect to nominal interest rates 
 \end_layout
 
 \end_body
