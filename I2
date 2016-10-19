@@ -167,7 +167,6 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 16419249 "v660271" 
 \end_header
 
 \begin_body
@@ -260,14 +259,6 @@ Dynamic Programming!
 How to design the geographic feature 
 \end_layout
 
-\begin_layout Itemize
-经 Latitude 
-\end_layout
-
-\begin_layout Itemize
-纬度 longitude
-\end_layout
-
 \begin_layout Standard
 对cluster 分类，anomaly detection 的超级重视！
 \end_layout
@@ -351,3862 +342,6 @@ Classification model Evaluation.
 
 \begin_layout Part
 IV
-\end_layout
-
-\begin_layout Section
-T-Data Scientist, Business Insights
-\end_layout
-
-\begin_layout Itemize
-A/B test: Separation strategies for three pitfalls in A/B testing
-\end_layout
-
-\begin_layout Itemize
-Recommendation System
-\end_layout
-
-\begin_layout Itemize
-Graphs and Map/Reduce 
-\end_layout
-
-\begin_layout Standard
-https://medium.com/@rchang/my-two-year-journey-as-a-data-scientist-at-twitter-f0c
-13298aee6#.5lwz7cr00
-\end_layout
-
-\begin_layout Subsection
-Data Scientist, Business Insights
-\end_layout
-
-\begin_layout Standard
-Who We Are: 
-\end_layout
-
-\begin_layout Standard
-Twitter is looking for an exceptional data scientist to join a newly formed
- Business Insights team.
- This team is responsible for providing analytical support related to user
- growth & content, performing market and competitive analyses, identifying
- key market trends, and telling stories with data.
- You should be passionate about finding insights in large datasets, synthesizing
- and communicating results, and driving practical business impact.
- This team will work cross-functionally with Product, Engineering, Global
- Media, Corporate Development & Strategy, Marketing, Analytics, and Finance.
- 
-\end_layout
-
-\begin_layout Standard
-What You’ll Do:
-\end_layout
-
-\begin_layout Standard
-Driving business impact:
-\end_layout
-
-\begin_layout Standard
-Collaborate and work closely with 
-\series bold
-cross-functional business partners to identify gaps and structure problems：
- Corporation
-\end_layout
-
-\begin_layout Standard
-You will create meaningful presentations and analyses that 
-\series bold
-tell a “story” focused on insights, not just data: Story-Telling
-\end_layout
-
-\begin_layout Standard
-Synthesize methodology and data into actionable business strategy, and communica
-te findings to product, engineering, and management teams: 
-\series bold
-Action Strategy
-\end_layout
-
-\begin_layout Standard
-Getting your hands dirty:
-\end_layout
-
-\begin_layout Standard
-Use statistical and econometric techniques on large datasets to: 
-\end_layout
-
-\begin_layout Itemize
-i) measure results and show key trends: 
-\end_layout
-
-\begin_layout Itemize
-ii) identify causal impact and attribution: 
-\series bold
-Casual Inference
-\end_layout
-
-\begin_layout Itemize
-iii) analyze experiments: 
-\series bold
-AB TEST
-\end_layout
-
-\begin_layout Itemize
-iv) model and predict future performance of users or products: 
-\series bold
-Forecasting Time Series
-\end_layout
-
-\begin_layout Standard
-Write and interpret complex SQL queries for standard as well as ad hoc data
- analysis purposes: 
-\series bold
-SQL
-\end_layout
-
-\begin_layout Standard
-You will be the go-to person for any data question
-\end_layout
-
-\begin_layout Standard
-Who you are:
-\end_layout
-
-\begin_layout Standard
-Ability to communicate results clearly and effectively
-\end_layout
-
-\begin_layout Standard
-Requirements: 
-\end_layout
-
-\begin_layout Standard
-2+ years of work experience involving quantitative data analysis to solve
- problems
-\end_layout
-
-\begin_layout Standard
-Degree in Applied Math, Economics, Statistics, Engineering, Computer Science
- or other quantitative field.
- PhD or MS preferred.
-\end_layout
-
-\begin_layout Standard
-Expert in SQL and other programming languages
-\end_layout
-
-\begin_layout Standard
-Expert with statistical software (R/Stata/SAS/Matlab)
-\end_layout
-
-\begin_layout Standard
-Expert with Excel & PowerPoint/Keynote
-\end_layout
-
-\begin_layout Standard
-Pluses:
-\end_layout
-
-\begin_layout Standard
-Experience w Tableau
-\end_layout
-
-\begin_layout Standard
-Experience with Hadoop (Pig, Scalding)
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Strategy consulting experience
-\end_layout
-
-\begin_layout Subsection
-Glassdoor: DS at T
-\end_layout
-
-\begin_layout Standard
-General
-\end_layout
-
-\begin_layout Itemize
-In the pre-data-science period, statistician interviewers were composed
- of at least
-\series bold
- half internal data customers from various domains.
-
-\series default
- They wanted to know
-\series bold
- how I can help them achieve their research or business goals with data.
-
-\series default
- 
-\end_layout
-
-\begin_layout Itemize
-In contrast, all of my data scientist interviewers (not just at Twitter)
- were younger and more computing savvy data analysts from quantitative backgroun
-d.
- They wanted to know if I know how to do xyz, where xyz is something they
- themselves have encountered.
- This difference is important for candidate and employers of data scientist.
-\end_layout
-
-\begin_layout Standard
-Q
-\end_layout
-
-\begin_layout Itemize
-What features would you use to build recommendation algorithm for users.
- 
-\end_layout
-
-\begin_layout Itemize
-He mainly asked domain specific question to see whether I would be a good
- fit in his team.
- 
-\end_layout
-
-\begin_layout Itemize
-experimentation
-\end_layout
-
-\begin_layout Itemize
-Algorithms: Find the median of a large dataset 
-\end_layout
-
-\begin_layout Itemize
-Product Product Product: What's your social networking activity like 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Business Case.
- You need to know twitter inside out, if so, things get easier.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-http://collabedit.com/ for coding online
-\end_layout
-
-\begin_layout Subsection
-T as a product
-\end_layout
-
-\begin_layout Standard
-we think the easiest way to get what Twitter is, is really to show a live
- event, show people the great accounts who are providing insights that you
- can’t find anywhere else, you can’t find in your address, but you actually
- meet on Twitter through that experience, to connect them through a follow
- and also to encourage them in a conversation.
- 
-\end_layout
-
-\begin_layout Standard
-we are the fastest way to see that event, 
-\end_layout
-
-\begin_layout Subsection
-Business Insight Team
-\end_layout
-
-\begin_layout Itemize
-Measure Causal MAU
-\end_layout
-
-\begin_layout Itemize
-Accurately determine user's location
-\end_layout
-
-\begin_layout Itemize
-Standardized measure of creator success.
-\end_layout
-
-\begin_layout Itemize
-User Lifetime Value
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-first do a segmentation
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Understanding Ad Engagement Behavior of High Net Revenue Users.
-\end_layout
-
-\begin_layout Itemize
-New user retention and monetization -- Paid vs Organic
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Inactive and Active -- this is already labeled data --- so build a model
- to link these to product features -- to see what they love and what they
- don't love
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Insiders
-\end_layout
-
-\begin_layout Itemize
-How to grow advertisers
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-How to keep advertisers: they become inactive after first several time use.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-How to grow users
-\end_layout
-
-\begin_layout Itemize
-Clustering program:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-What's the difference between PCA and Gaussian Mixture.
- (PCA cannot be used in cluster! it is to reduce the dimension!)
-\end_layout
-
-\begin_layout Itemize
-What feature to use when you cluster users
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Categories:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-promote brand (general awareness).
- They want to target people who never heard of, of not familiar with them
-\end_layout
-
-\begin_layout Itemize
-promote a particular tweet/picture/video/follow you.
- So in this case they want to target those who already know their business/produ
-ct.
-\end_layout
-
-\begin_layout Itemize
-Persuade people to do a specific action: purchase, download, register.
- Target local / super interest.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-
-\series bold
-Recommendation Algorithm
-\end_layout
-
-\begin_layout Itemize
-Prediction: 0,1 (whether become inactive or not)
-\end_layout
-
-\begin_layout Itemize
-High value user / advertiser
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-A/B test
-\end_layout
-
-\begin_layout Itemize
-Why Advertisers Become Inactive
-\end_layout
-
-\begin_layout Section
-T-Growth Analytics, SMB
-\end_layout
-
-\begin_layout Standard
-We are the SMB team and we are responsible for driving global initiatives
- for Twitter's Small and Medium Business advertisers.
- The Growth Analyst will help our team utilize a
-\series bold
- data driven, analytical and programmatic approach
-\series default
- to design and execute revenue programs that generate significant revenue
- growth.
- We do this by partnering extensively with cross-functional teams across
- Sales, Marketing, Product and Engineering.
-\end_layout
-
-\begin_layout Standard
-Who You Are:
-\end_layout
-
-\begin_layout Standard
-You will work closely with Sales and cross-functional leaders to lead seamless
- execution, analysis, and improvement of our global programs.
- Through analyzing large volume of data both from Twitter users and Twitter
- advertisers, you’ll help Twitter’s Sales team grow revenue globally and
- scalably.
-\end_layout
-
-\begin_layout Standard
-Responsibilities:
-\end_layout
-
-\begin_layout Itemize
-You will become an expert on the data sources and systems at Twitter.
-\end_layout
-
-\begin_layout Itemize
-You will also help to 
-\series bold
-build, maintain and improve analytical algorithms and models that translates
- data into revenue.
-\end_layout
-
-\begin_layout Itemize
-You will assist in Analyzing internal and 
-\series bold
-external data
-\series default
-, synthesize raw information into insights, recommendations, dashboards,
- and reports.
-\end_layout
-
-\begin_layout Itemize
-You will partner with Product, Engineering, Marketing and Sales teams to
- help resolve broader business problems through data and analytics
-\end_layout
-
-\begin_layout Itemize
-You are able to Clearly communicate findings to senior management and to
- the broader organization.
-\end_layout
-
-\begin_layout Standard
-Qualifications:
-\end_layout
-
-\begin_layout Itemize
-BA/BS degree with a quantitative focus (computer science, mathematics, statistic
-s, etc.), advanced degrees highly preferred
-\end_layout
-
-\begin_layout Itemize
-2+ years of work experience in predictive analytic/statistical modeling/machine
- learning/data mining
-\end_layout
-
-\begin_layout Itemize
-Experience interacting with #BigData data sources, using a combination of
- SQL/NoSQL technologies: Pig/Hive/Map-Reduce/Scalding/Spark/Vertica
-\end_layout
-
-\begin_layout Itemize
-Experience with at least one programming languages such as 
-\series bold
-Python
-\series default
-, Java, Scala, C++
-\end_layout
-
-\begin_layout Itemize
-Knowledge of digital ad space or social media data preferred
-\end_layout
-
-\begin_layout Subsection
-Why You Like this P?
-\end_layout
-
-\begin_layout Itemize
-Personal Reasons
-\end_layout
-
-\begin_layout Itemize
-Also I want to use this chance to change the direction of my career,
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-I have spent three years in banking, I just feel the the pace is slow to
- me, the innovation in terms of modelling and data science is also 
-\series bold
-stagnant
-\end_layout
-
-\begin_layout Itemize
-There is work-life balance there, but at my age I didn't care about work-life
- balance too much.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-I want to try something 
-\series bold
-quicker, more agile
-\series default
-, more 
-\series bold
-quant
-\series default
-, more data science, that is why I choose to apply this position
-\end_layout
-
-\begin_layout Standard
-Why Fit: 
-\end_layout
-
-\begin_layout Itemize
-I think this position is about using a quantitative way to learn and predict
- small business owners behavior and eventually grow the revenue.
-\end_layout
-
-\begin_layout Itemize
-Though I come from the banking industry, my past experience is also about
- 
-\series bold
-acquisition, activation and retention
-\series default
- of our credit card customers and ---- let them use our card more, do more
- transactions, carry more balances, and eventually grow the revenue.
-\end_layout
-
-\begin_layout Itemize
-rather than stay in the banking industry, which is a little bit slow in
- pace, 
-\end_layout
-
-\begin_layout Standard
-So I know how to combine the data science and business acumen to solve real
- product problem
-\end_layout
-
-\begin_layout Standard
-That is why I believe I WILL fit this role very well
-\end_layout
-
-\begin_layout Standard
-The techniques
-\end_layout
-
-\begin_layout Standard
-Change Industry
-\end_layout
-
-\begin_layout Standard
-Innovation is stagnant
-\end_layout
-
-\begin_layout Subsection
-Metrics about Twitter
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-分析三要素
-\end_layout
-
-\begin_layout Itemize
-Cohort: how the newly books customers performs vs experienced advertiser
- 
-\end_layout
-
-\begin_layout Itemize
-Segmentation
-\end_layout
-
-\begin_layout Itemize
-Context
-\end_layout
-
-\begin_layout Standard
-三要素后续
-\end_layout
-
-\begin_layout Itemize
-You can design strategies on it.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Basic Metrics
-\end_layout
-
-\begin_layout Itemize
-Views: if they see the twits more than half second
-\end_layout
-
-\begin_layout Itemize
-Interactions: like, retweet, comments
-\end_layout
-
-\begin_layout Itemize
-Conversion: follow, click
-\end_layout
-
-\begin_layout Standard
-Growth Metrics
-\end_layout
-
-\begin_layout Itemize
-Number of Newly Signed 
-\end_layout
-
-\begin_layout Itemize
-Price per view/interaction/conversion
-\end_layout
-
-\begin_layout Itemize
-Total Revenue: 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Segmentation + Context: Compare a SMB spending with its peers
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Segmentation of Business
-\end_layout
-
-\begin_layout Itemize
-Geography -- local or national wide
-\end_layout
-
-\begin_layout Itemize
-Size: revenue, number of Employees
-\end_layout
-
-\begin_layout Itemize
-Month on book: experienced advertiser tends to spend more
-\end_layout
-
-\begin_layout Subsection
-linkedin
-\end_layout
-
-\begin_layout Standard
-I use data to develop growth strategies, marketing programs, and product
- features to drive four things:
-\end_layout
-
-\begin_layout Standard
-1.
- Get more new advertisers
-\end_layout
-
-\begin_layout Standard
-2.
- Improve retention of advertisers
-\end_layout
-
-\begin_layout Standard
-3.
- Resurrect churned advertisers
-\end_layout
-
-\begin_layout Standard
-4.
- Increase average spend per advertiser
-\end_layout
-
-\begin_layout Standard
-• Built criteria and operationalized a subgroup of the Policy Ops team to
- evaluate not safe for work content.
-\end_layout
-
-\begin_layout Standard
-• Trained team on developing metrics to feed into engineering team’s algorithm.
-\end_layout
-
-\begin_layout Standard
-• Aggregated data to further strengthen the deep learning algorithm for
- upcoming Twitter project.
-\end_layout
-
-\begin_layout Standard
-• Onboard new SMBs on Twitter’s advertising platform within the target market.
-\end_layout
-
-\begin_layout Standard
-• Design & develop social media strategy based on advertiser’s key objectives.
-\end_layout
-
-\begin_layout Standard
-• Evaluate Ad campaign performance and provide frontline optimization suggestion
-s to clients - ~1000 clients a Qtr with over $1.4M in spend.
-\end_layout
-
-\begin_layout Standard
-• Collaborated with private advertising agencies by providing frontline
- optimization suggestions and insight, including best practices and copywriting
- advice.
-\end_layout
-
-\begin_layout Standard
-• Analyze sales funnel data in the CRM system (Salesforce) & manage workflow
- for 8 sales specialists.
-\end_layout
-
-\begin_layout Standard
-• Leverage in-house tools and data sets to provide actionable insights &
- strategies to the team.
-\end_layout
-
-\begin_layout Standard
-Twitter: -Evaluate client's Twitter campaign performance and optimize campaigns
- through client communication.
- -Lead social media initiatives by focusing on new business development
- and consumer experiences.
- -Collaborate with agency partners in advertising sales for SMBs.
- 
-\end_layout
-
-\begin_layout Subsection
-Permission marketing 
-\end_layout
-
-\begin_layout Standard
-Permission marketing is a relatively new term, which was coined and developed
- by the entrepreneur, Seth Godin.[1] Traditional methods of marketing often
- revolve around the idea of attracting the customer’s attention away from
- whatever they are doing – whether it is a television advertisement that
- cuts into a TV show, or an internet pop-up that interferes with a website.
- According to Seth Godin, such traditional methods of advertising (often
- referred to as “Interruption marketing”), have become less effective in
- the modern world, where consumers are overloaded with information.[2] Therefore,
- Godin has developed the idea of permission marketing.
- Permission marketing is the opposite of interruption marketing; instead
- of interrupting the customer with unrequested information, permission marketing
- aims to sell goods and services only when the prospect gives consent in
- advance to receive the marketing information.[3]
-\end_layout
-
-\begin_layout Standard
-Opt-in email is a prime example of Permission marketing, where Internet
- users sign-up (in other words give permission) to receive information about
- a certain product or a service.[4] Supporters of Permission marketing claim
- it to be effective, as the potential client would be more interested in
- information that was requested in advance.
- It is also more cost-efficient in comparison to traditional marketing methods,
- as businesses only need to target consumers who have expressed an interest
- in their product.[5]
-\end_layout
-
-\begin_layout Section
-T Background
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Read 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-Twitter Engineering blog! 
-\end_layout
-
-\begin_layout Itemize
-Chapter 10 Mining Social-Network Graphs
-\end_layout
-
-\begin_layout Itemize
-Optimizing Budget Constrained Spend in Search Advertising
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-
-\series bold
-incrementalism, This is because a mature product is hard to change in a
- way that moves the metrics by a large margin.
- A lot of ideas people think are home-runs simply do not move the needle
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-causal effects of international initiatives
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-cashtagged ($ticker)
-\series default
-: Sentiment analysis / Tweet velocity (an indication of volatility) It’s
- who’s Tweeting.
- Social Market Analytics (“SMA”) believes it’s not just what is being said
- that matters, it’s who is saying it.
- A part of their proprietary approach includes filtering Tweets to identify
- accounts of professional investors.
-\end_layout
-
-\begin_layout Itemize
-measure impression:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-followers: happen to see it 
-\end_layout
-
-\begin_layout Itemize
-retweets etc
-\end_layout
-
-\begin_layout Itemize
-syndicated content
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-https://support.twitter.com/articles/164083
-\end_layout
-
-\begin_layout Enumerate
-Flavien Bessede: SQL software engineering
-\end_layout
-
-\begin_layout Enumerate
-Andrew Techmeier: product strategy
-\end_layout
-
-\begin_layout Enumerate
-Joshua Lande : python.
- Data Scientist on the Timeline Quality team
-\end_layout
-
-\begin_layout Enumerate
-Alex Rosner: trader, LSE
-\end_layout
-
-\begin_layout Itemize
-SQL!
-\end_layout
-
-\begin_layout Itemize
-A/B test!
-\end_layout
-
-\begin_layout Itemize
-How to define the causal impact of a new product
-\end_layout
-
-\begin_layout Section
-T Products
-\end_layout
-
-\begin_layout Standard
-All of this falls under the line of two of the most important use cases
- that we want to focus on, 
-\end_layout
-
-\begin_layout Enumerate
-News.
- And we think Twitter is better at real-time news and live news than anyone
- else on the platform – in the world, I should say.
- 
-\end_layout
-
-\begin_layout Enumerate
-Social commentary.
- Anyone can comment about what's happening now and share their thoughts,
- and sometimes those go into conversation
-\end_layout
-
-\begin_layout Standard
-So, that's what we want to make stronger and also easier.
- So, four areas that we've been focused on there.
- Number one is around on-boarding.
- We've been applying a lot more machine learning and deep learning to our
- on-boarding, so we can match people faster to their interests.
- And we believe that that interest drive is really important to us and unique
- to us.
- Two, is the timeline where 
-\series bold
-causal effects of international initiatives people
-\series default
- spend the majority of their time.
- We've made a number of refinements over the past few months to make sure
- that we're showing what's most important and what really matters, and enabling
- people to quickly get back to everything and to recency.
-\end_layout
-
-\begin_layout Standard
-Notifications is another area where we think we can do a much better job,
- especially around breaking news.
- And not that we just push you into a tweet that dead ends, but we can enable
- you to further explore topics around that tweet and that interest.
-\end_layout
-
-\begin_layout Itemize
-Hashtag From Wikipedia, the free encyclopedia: A sign suggesting the use
- of a #TimeToAct hashtag at a 2014 conference A hashtag is a type of label
- or metadata tag used on social network and microblogging services which
- makes it easier for users to find messages with a specific theme or content.
- Users create and use hashtags by placing the hash character (or pound sign)
- # in front of a word or unspaced phrase, either in the main text of a message
- or at the end.
- Searching for that hashtag will then present each message that has been
- tagged with it.
- A hashtag archive is consequently collected into a single stream under
- the same hashtag.[1]
-\end_layout
-
-\begin_layout Itemize
-https://business.twitter.com/en/help/campaign-setup/campaign-targeting/forecaster-
-tool.html
-\end_layout
-
-\begin_layout Itemize
-https://blog.twitter.com/2015/introducing-new-audience-insights-for-brands
-\end_layout
-
-\begin_layout Itemize
-https://blog.twitter.com/2015/introducing-audience-insights
-\end_layout
-
-\begin_layout Subsection
-data pattern
-\end_layout
-
-\begin_layout Standard
-Whether it’s a retirement announcement from a member of a boy band, a government
- coup, a world wide soccer tournament goal, or simply the start of a new
- year, traffic patterns change quickly and unpredictably as these events
- unfold.
- T
-\end_layout
-
-\begin_layout Subsection
-Periscope
-\end_layout
-
-\begin_layout Subsection
-Interest of Users
-\end_layout
-
-\begin_layout Standard
-Those logged-in users explicitly express their interests, what they care
- about, if they're a Red Sox fan, if they're a Jets fan, if they're Republican
- or Democrat, based on who they're following.
-\end_layout
-
-\begin_layout Subsection
-Moments
-\end_layout
-
-\begin_layout Standard
-The real question is what value casual, lapsed, and non-users of Twitter
- will find in Moments — and that’s much harder to answer.
- 
-\end_layout
-
-\begin_layout Standard
-Their bias is toward tweets from the source: people who are on the scene,
- or are directly involved in the news story.
-\end_layout
-
-\begin_layout Standard
-What we try to do is just immerse you in the content.
-\end_layout
-
-\begin_layout Standard
-If it sounds like Twitter is now running a media company inside a technology
- company, that’s because it is
-\end_layout
-
-\begin_layout Standard
-One aspect of Moments I didn’t see coming: not every story captures a real-time
- event.
- The company is also packaging together evergreen stories ("Catch a wave,"
- a collection of surfing pictures and videos) and offering them up to browse.
- It's building moments to tell stories that take place over weeks or months
- — a rookie's first month in the National Hockey League, for example, or
- the story of the Los Angeles Dodgers' season.
-\end_layout
-
-\begin_layout Subsubsection
-MAU
-\end_layout
-
-\begin_layout Standard
-In terms of MAU growth, the primary drivers of the MAU growth in the quarter
- were both seasonality and marketing initiatives
-\end_layout
-
-\begin_layout Subsection
-Measure of Engagement 
-\end_layout
-
-\begin_layout Standard
-MAU,searches and Direct Messages
-\end_layout
-
-\begin_layout Subsection
-Monetization 
-\end_layout
-
-\begin_layout Standard
-Advertising inventory is the number of advertisements, or amount of ad space,
- a publisher has available to sell to an advertiser.
- Ad inventory is often calculated by the month.
- The term can refer to ads in print or other traditional media but is increasing
-ly used to refer to online or mobile ads.
-\end_layout
-
-\begin_layout Standard
-Yes.
- So, on the online budgets, these are a set of budgets that we don’t have
- exposure to today, because they require a certain set of features that
- we are working on right now.
- These are features like demographic targeting and validation, GRP and TRP,
- targeting and reporting.
- So, it’s a function of putting these features in place.
- We believe that we can tap into incremental video budgets when we put those
- features in place.
-\end_layout
-
-\begin_layout Standard
-DoubleClick deal.
- DCM as you mentioned, which is around measurement.
- And DBM, which is around ad buying.
- So let me start with the DCM piece measurement.
- In the quarter, we expanded the beta over a dozen advertisers and we have
- run hundreds of campaigns now through DCM.
- We have seen two things.
- 
-\end_layout
-
-\begin_layout Standard
-One, when measuring desktop impressions to desktop conversions, the data
- looks accurate through DCM and the results for Twitter for these campaigns
- looks strong.
- So that’s good news.
- When on the other edge – on the other side of the house, when you look
- at mobile impressions that are measured through DCM that are measuring
- desktop conversions, so this cross-device measurement, what we saw through
- the measurement period is that something that the industry overall needs
- to address which is that this type of cross-device measurement overall
- need to work from an industry standpoint.
- 
-\end_layout
-
-\begin_layout Standard
-This is something that we are working with Google together on.
- It’s part of the reasons why we did the DoubleClick deal in the first place
- is to help solve some of this cross-device measurement for the overall
- industry.
- 
-\end_layout
-
-\begin_layout Standard
-This hits us particularly in an acute way because 90% of our impressions,
- our ad impressions are on mobile.
- 
-\end_layout
-
-\begin_layout Standard
-So cross-device for us is really important part.
- On the DBM side, Google engineers and Twitter engineers are working on
- the buying piece for integration.
- We believe it will be in beta in Q3.
-\end_layout
-
-\begin_layout Standard
-On the SMB side, we were up on a year-on-year basis overall in active advertiser
-s and it was driven by our SMB initiatives.
- SMB for us is an exciting opportunity because we have identified close
- to 9 million businesses who have setup shop on Twitter and are using it
- organically.
- Our goal is to move those 9 million businesses through the funnel to become
- active advertisers on the platform.
- 
-\end_layout
-
-\begin_layout Standard
-When we look at our top 10 vertical categories, QSR, quick serve restaurants,
- as well as retail were two categories that performed decidedly lower than
- the rest of the overall business, which are macro driven categories.
-\end_layout
-
-\begin_layout Standard
-We now are over 300 Amplify video partners, so this is premium video content
- that partners are bringing on the platforms, sometimes exclusively on to
- Twitter.
- 
-\end_layout
-
-\begin_layout Section
-F
-\end_layout
-
-\begin_layout Standard
-Thanh Nguyen <thanhn@fb.com>
-\end_layout
-
-\begin_layout Standard
-"A Collection of Data Science Takehome challenges
-\end_layout
-
-\begin_layout Subsection
-
-\series bold
-Data Scientist, Analytics 
-\end_layout
-
-\begin_layout Standard
-Data Scientist, Analytics (Menlo Park, CA) Facebook was built to help people
- connect and share, and over the last decade our tools have played a critical
- part in changing how people around the world communicate with one another.
- With over a billion people using the service and more than fifty offices
- around the globe, a career at Facebook offers countless ways to make an
- impact in a fast growing organization.
- We’re looking for data scientists to work on our core and business products
- 
-\series bold
-(ex.
- Instagram, Messaging, Growth, Engagement, Ads)
-\series default
- to help shape the future of what we build at Facebook.
- 
-\end_layout
-
-\begin_layout Standard
-Apply your expertise in quantitative analysis, data mining, and the presentation
- of data to see beyond the numbers and understand how our users interact
- with both our consumer and business products Partner with 
-\series bold
-Product and Engineering 
-\series default
-teams to solve problems and identify trends and opportunities Inform, influence,
- support, and execute our product decisions and product launches 
-\end_layout
-
-\begin_layout Standard
-The
-\series bold
- Data Scientist, Analytics 
-\series default
-role has work across the following four areas: 
-\end_layout
-
-\begin_layout Standard
-Product Operations 
-\end_layout
-
-\begin_layout Itemize
-Forecasting and setting product team goals 
-\end_layout
-
-\begin_layout Itemize
-Designing and evaluating 
-\series bold
-experiments
-\series default
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Monitoring key product metrics, understanding root causes of changes in
- metrics 
-\end_layout
-
-\begin_layout Itemize
-Building and analyzing dashboards and reports 
-\end_layout
-
-\begin_layout Itemize
-Building key data sets to empower operational and exploratory analysis 
-\end_layout
-
-\begin_layout Itemize
-Evaluating and defining metrics.
- 
-\end_layout
-
-\begin_layout Itemize
-Exploratory Analysis Proposing what to build in the next roadmap Understanding
- ecosystems, user behaviors, and long-term trends 
-\end_layout
-
-\begin_layout Itemize
-Identifying new levers to help move key metrics 
-\end_layout
-
-\begin_layout Itemize
-Building models of user behaviors for analysis or to power production systems
- 
-\end_layout
-
-\begin_layout Itemize
-Product Leadership Influencing product teams through presentation of data-based
- recommendations Communicating state of business, experiment results, etc
- to product teams 
-\end_layout
-
-\begin_layout Itemize
-Spreading best practices to analytics and product teams Data Infrastructure
- Working in Hadoop and Hive primarily, sometimes MySQL, Oracle, and Vertica
- Automating analyses and authoring pipelines via SQL and python based ETL
- framework Requirements
-\end_layout
-
-\begin_layout Standard
-2+ years experience doing quantitative analysis.
- BA/BS in Computer Science, Math, Physics, Engineering, Statistics or other
- technical field.
- Advanced degrees preferred.
- Experience in SQL or other programming languages.
- Development experience in any scripting language (PHP, Python, Perl, etc.)
- 
-\end_layout
-
-\begin_layout Standard
-Ability to initiate and drive projects to completion with minimal guidance.
- Ability to communicate the results of analyses in a clear and effective
- manner with product and leadership teams to influence the overall strategy
- of the product.
-\end_layout
-
-\begin_layout Standard
-Basic understanding of statistics (e.g., hypothesis testing, regressions).
- Experience manipulating large data sets through statistical software (ex.
- R, SAS) or other methods.
- Experience with distributed computing (Hive/Hadoop) a plus.
-\end_layout
-
-\begin_layout Subsection
-Why F, 
-\series bold
-Data Scientist, Analytics 
-\end_layout
-
-\begin_layout Enumerate
-PERSONAL: First, my girlfriend just found a job in San F, so I have to move
- there.
- 
-\end_layout
-
-\begin_layout Enumerate
-COMPANY: Secondly, F is such a cool and fast growing c, AND it must be super
- interesting to work as a Data Scientist there, 
-\series bold
-BECAUSE
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-You have 
-\series bold
-huge
-\series default
- amount 
-\series bold
-interesting data you can play once,
-\series default
- 
-\end_layout
-
-\begin_layout Enumerate
-and the 
-\series bold
-problems
-\series default
- we are trying to 
-\series bold
-solve
-\series default
- there, like quantifying customers certain behavior or optimizing certain
- products., optimizing the price, are 
-\series bold
-Challenging and Exciting
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-FIT: Also this role really fits me very well, 
-\series bold
-BECAUSE
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-It requires Data Science, a lot of programming, analytical mind and data
- science knowledge which are exactly what I learned in school and what I'm
- doing now.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Tracking and Reporting: Besides this, we have also done a lot tracking or
- dashboard reporting on the key metrics of our portfolio.
-\end_layout
-
-\begin_layout Itemize
-Working with Finance, because a lot what we do is the Income Statement,
- so we need to borrow a lot of accounting / finance assumptions from them.
-\end_layout
-
-\begin_layout Subsection
-Question to ask in F
-\end_layout
-
-\begin_layout Standard
-Is this interview for a paticular role or a more generic data scientist
- role
-\end_layout
-
-\begin_layout Standard
-I heared about that after you join F, you didn't join a particular group,
- first go to a training camp to really assess skills and interests, then
- depend on your skills and interests, you will be assigned to certain Paticular
- groups.
- OR this is not the case for everyone.
-\end_layout
-
-\begin_layout Subsection
-What group you want to work with 
-\end_layout
-
-\begin_layout Itemize
-specific product you want to work on
-\end_layout
-
-\begin_layout Section
-F Official Tips
-\end_layout
-
-\begin_layout Standard
-Do let me know if you have any questions in the mean time.
-\end_layout
-
-\begin_layout Standard
-Below are just some general tips on how to prepare for the initial interview.
-\end_layout
-
-\begin_layout Standard
-The interview will be 3 parts (for a total of 30-45 minutes): 
-\end_layout
-
-\begin_layout Itemize
-Analytical
-\end_layout
-
-\begin_layout Itemize
-Technical
-\end_layout
-
-\begin_layout Itemize
-Quantitative
-\end_layout
-
-\begin_layout Standard
-General tips: 
-\end_layout
-
-\begin_layout Standard
-During the video conference interview, you will need access to a computer.
- You will log in to 
-\series bold
-www.coderpad.com
-\series default
- - basically like a chat room, so the person on the other side can look
- at your code.
- (You will receive additional details about this when the interview is confirmed
-).
- 
-\end_layout
-
-\begin_layout Standard
-It's important that you think out loud/ provide a narrative as you go through
- the problem so the interviewer has insight into your thought process.
- Before the interview, we strongly encourage you to have a full understanding
- of being able to analyze data sets through a scripting language of your
- choice (SQL, R, or Python).
- 
-\end_layout
-
-\begin_layout Standard
-You can answer the questions in the language that you feel most comfortable
- with, although choosing a language that is going to assist in getting to
- an optimal solution in the most speedy and efficient manner is key.
- Feel free to ask clarifying questions during the interview as well.
- 
-\end_layout
-
-\begin_layout Standard
-Now, onto the interview.
- Remember to Operationalize your answers!!!!
-\end_layout
-
-\begin_layout Subsection
-Product Sense
-\end_layout
-
-\begin_layout Standard
-Analytical - Per our conversation, questions to gauge your product sense
- will come up.
- 
-\end_layout
-
-\begin_layout Standard
-I recommend picking different fb "products" like photos, or messenger, or
- instagram
-\end_layout
-
-\begin_layout Itemize
-Facebook Products: http://newsroom.fb.com/Products
-\end_layout
-
-\begin_layout Itemize
-Please continue to review product-specific features (i.e.
- Comments, comment threads, push notification, friend suggestions, likes,
- shares, posts, etc.) Think about what “metrics” you would look at to measure
- the success of each product.
- How do we measure user engagement?
-\end_layout
-
-\begin_layout Itemize
-Things you can consider may include # of users, click through rates, time
- spent, frequency, etc.
- 
-\end_layout
-
-\begin_layout Itemize
-We are looking for data scientists who can tell a compelling story with
- the data and really drive data driven decisions and impact change (optimizing
- products or even helping developing new products).
- 
-\end_layout
-
-\begin_layout Standard
-and think about what 
-\series bold
-METRICS
-\series default
- you need to determine the
-\end_layout
-
-\begin_layout Itemize
-health, 
-\end_layout
-
-\begin_layout Itemize
-growth, or 
-\end_layout
-
-\begin_layout Itemize
-engagement 
-\end_layout
-
-\begin_layout Itemize
-the product.
-\end_layout
-
-\begin_layout Standard
-For the analytical questions, the interviewer is trying to understand how
- you solve business questions and problems, as well as how creative and
- articulate you are at thinking through these problems while solving them.
- It’s not about the correct answer, but also about what kind of metrics
- you would want to consider when solving the problem.
- I would also review anything AB testing related too.
-\end_layout
-
-\begin_layout Standard
-I strongly encourage you to use FB products at least a little bit before
- coming in to the interview and think about
-\end_layout
-
-\begin_layout Itemize
-1) how would you measure the success of different parts of the product?
- 
-\end_layout
-
-\begin_layout Itemize
-2) put yourself in the shoes of the product team who built the product /
- feature – why do you think they made certain decisions about how it works?
- What could be done to improve the product?
-\end_layout
-
-\begin_layout Standard
-Sample analysis questions:
-\end_layout
-
-\begin_layout Itemize
-1.Estimation : how many doctors are there in the US?
-\end_layout
-
-\begin_layout Itemize
-2.If newsfeed content dropped in a given week, what metrics would you look
- at to understand why?
-\end_layout
-
-\begin_layout Itemize
-3.How would you measure the health of facebook newsfeed, versus the health
- of facebook messenger?”
-\end_layout
-
-\begin_layout Standard
-they're going to want to see how you approach that - w
-\end_layout
-
-\begin_layout Itemize
-hat metrics will you look at?
-\end_layout
-
-\begin_layout Itemize
-what metrics might indicate growth or health for one but not the other?
-\end_layout
-
-\begin_layout Itemize
-will you set up an A/B test?
-\end_layout
-
-\begin_layout Subsection
-Coding
-\end_layout
-
-\begin_layout Standard
-Technical - You will be given 1-2 data processing questions during this
- portion.
- 
-\end_layout
-
-\begin_layout Standard
-This interview will be a hands-on technical investigation of data problems.
- Note that we are looking not only for coding skills, but also for the ability
- to design an operational approach to figure out a concrete answer to a
- specific question using data.
-\end_layout
-
-\begin_layout Standard
-Sample Questions:
-\end_layout
-
-\begin_layout Itemize
-- Given time-stamps of logins, figure out how many people on Facebook were
- active all seven days of a week on a mobile phone.
-\end_layout
-
-\begin_layout Itemize
-- How do you determine what product in Facebook was used most by the non-employe
-e users for the last quarter? [Required parameters will be given]
-\end_layout
-
-\begin_layout Standard
-SQL tips: 
-\end_layout
-
-\begin_layout Standard
-http://www.sqlcourse2.com/
-\end_layout
-
-\begin_layout Standard
-http://www.programmerinterview.com/index.php/database-sql/practice-interview-questi
-on-1/
-\end_layout
-
-\begin_layout Itemize
-Performing skillful use of things like joins and subqueries.
- 
-\end_layout
-
-\begin_layout Itemize
-Knowing aggregate functions.
-\end_layout
-
-\begin_layout Itemize
-Performing data processing with SQL.
-\end_layout
-
-\begin_layout Itemize
-Knowing the differences between joins (IE: left, inner, outer, etc.)
-\end_layout
-
-\begin_layout Itemize
-Performing analysis with SQL and then from there applying it.
- 
-\end_layout
-
-\begin_layout Itemize
-Working with union and union all.
- 
-\end_layout
-
-\begin_layout Itemize
-Completing data manipulation tasks.
-\end_layout
-
-\begin_layout Itemize
-Scheduling jobs, automation, transforming data.
-\end_layout
-
-\begin_layout Subsection
-Quantitative
-\end_layout
-
-\begin_layout Standard
-Quantitative — These questions are designed to be a conversation in the
- language of numbers, and will include statistics and applied probability
- as well.
- 
-\end_layout
-
-\begin_layout Standard
-Reviewing the basics will be helpful (i.e.
- Mean, median, mode, standard deviation, conditional probability etc.) and
- also understanding distributions, regressions, and confidence intervals
- may help as well depending on which question is asked.
-\end_layout
-
-\begin_layout Standard
-Below are some additional links that we encourage you to take a look at
- as you prepare:
-\end_layout
-
-\begin_layout Standard
-Also, please prepare any questions you have before the interview and also
- be prepared to answer why you are interested in Facebook.
- The interviewers like to see people who know about our environment, projects,
- challenges, etc.
- 
-\end_layout
-
-\begin_layout Standard
-If there is time for questions at the end of the interview, please feel
- free to ask questions focused on Facebook and analytics.
- Interviewers would be more than happy to answer!
-\end_layout
-
-\begin_layout Standard
-Here is the link to the job description:
-\end_layout
-
-\begin_layout Standard
-Data Scientist, Analytics:
-\end_layout
-
-\begin_layout Standard
-https://www.facebook.com/careers/jobs/a0I1200000JIWQvEAP/
-\end_layout
-
-\begin_layout Section
-F Questions from Glassdoor
-\end_layout
-
-\begin_layout Standard
-The interview has three parts:
-\end_layout
-
-\begin_layout Standard
-1.
- Probability and Stats
-\end_layout
-
-\begin_layout Standard
-2.
- SQL
-\end_layout
-
-\begin_layout Standard
-3.
- Business
-\end_layout
-
-\begin_layout Itemize
-Basic Integration Differentiation!
-\end_layout
-
-\begin_layout Itemize
-AB test
-\end_layout
-
-\begin_layout Subsection
-Probability and Stats
-\end_layout
-
-\begin_layout Itemize
-http://www.crazyforcode.com/probability/
-\end_layout
-
-\begin_layout Itemize
-There are 50 cards of 5 different colors.
- It comprises of 10 Red cards, 10 blue cards, 10 orange cards, 10 green
- cards and 10 yellow cards.
- Each color will have the cards numbered between 1 to10.
- You pick 2 cards at random.
- What is the probability that they are not of same color and not of same
- number.
- 
-\end_layout
-
-\begin_layout Itemize
-What is the probability of drawing two cards (from the same deck of cards)
- that have the same suite?
-\end_layout
-
-\begin_layout Itemize
-Find the expected revenue/loss of throwing two dices.
- 
-\end_layout
-
-\begin_layout Itemize
-Very basic questions on treatment effects under various sampling schemes.
-\end_layout
-
-\begin_layout Itemize
-What is probability of pulling a different color or shape card from a shuttled
- deck of 52 cards
-\end_layout
-
-\begin_layout Itemize
-What is probability of getting one pair of card from 52 deck of cards?
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-3/51
-\end_layout
-
-\begin_layout Itemize
-choose(4, 2)*choose(13, 1)/choose(52,2) 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Pick up a coin C1 given C1+C2 with probability of trials p(h1)=.7, p(h2)=.6
- and doing 10 trials.
- And what is the probability that the given coin you picked is C1 given
- you have 7 heads and 3 tails? 
-\end_layout
-
-\begin_layout Itemize
-Lets say the population on Facebook clicks ads with a click-through-rate
- of P.
- We select a sample of size N and examine the sample's conversion rate,
- denoted by hat{P}, what is the minimum sample size N such that Probability(
- ABS(hat{P} - P) &lt; DELTA ) = 95%.
- In other words (this is my translation), find the minimum sample size N
- such that our sample estimate hat{P} is within DELTA of the true click
- through rate P, with 95% confidence.
- 
-\end_layout
-
-\begin_layout Subsection
-Product
-\end_layout
-
-\begin_layout Itemize
-1.
- How to evaluate the success of a product? 2.
- 
-\end_layout
-
-\begin_layout Itemize
-It will help to review some product manager interview questions.
- 
-\end_layout
-
-\begin_layout Itemize
-What teams are you interested in at Facebook? 
-\end_layout
-
-\begin_layout Subsection
-Coding
-\end_layout
-
-\begin_layout Standard
-Tips: Ask more about the data, like uniqueness.
-\end_layout
-
-\begin_layout Itemize
-About how to generate all possible friendship given four tables with the
- "request", "accept","reject", and "remove" information
-\end_layout
-
-\begin_layout Itemize
-1-Programming: Given data on Facebook members friending/defriending each
- other on Facebook, find out whether a given pair of members are currently
- friends.
-\end_layout
-
-\begin_layout Itemize
-Write an SQL query that makes recommendations using the pages that your
- friends liked.
- Assume you have two tables: a two-column table of users and their friends,
- and a two-column table of users and the pages they liked.
- It should not recommend pages you already like.
- 
-\end_layout
-
-\begin_layout Itemize
-2- Statistics: -Research Design Question: How would you test whether having
- more friends now 
-\end_layout
-
-\begin_layout Itemize
-order and unique in R
-\end_layout
-
-\begin_layout Itemize
-Given two tables
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Friend_request (requester_id, sent_to_id, time)
-\end_layout
-
-\begin_layout Itemize
-Request_accepted (acceptor_id, requestor_id, time)
-\end_layout
-
-\begin_layout Itemize
-Find the overall acceptance rate of requests
-\end_layout
-
-\begin_layout Itemize
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-select 
-\end_layout
-
-\begin_layout Plain Layout
-
-	round(100*count(case when b.requestor_id is null then 1 else 0 end)/count(a.reque
-ster_id),2) as acceptance_rate 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-from Friend_requests as a 
-\end_layout
-
-\begin_layout Plain Layout
-
-left join Request_accepted as b 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-on a.sent_to_id = b.acceptor_id and 
-\end_layout
-
-\begin_layout Plain Layout
-
-a.requester_id = b.requestor_id 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-where date(a.time) < date_add(current_date(), "-7", "day")
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-you have a table where you have date, user_id, song_id and count.
- It shows at the end of each day how many times in her history a user has
- listened to a given song.
- So count is cumulative sum.
- You have to update this on a daily basis based on a second table that records
- in real time when a user listens to a given song.
- Basically, at the end of each day, you go to this second table and pull
- a count of each user/song combination and then add this count to the first
- table that has the lifetime count.
- If it is the first time a user has listened to a given song, you won't
- have this pair in the lifetime table, so you have to create the pair there
- and then add the count of the last day.
- Onsite: lots of ads related and machine learning questions.
- How to build an ad model, how to test it, describe a model.
- I didn't do well in some of these.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Outer Join / Union All 
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Algorithm
-\end_layout
-
-\begin_layout Itemize
-Coding on whiteboard: solutions required using recursion and hash tables
-\end_layout
-
-\begin_layout Itemize
-Given two binary strings, write a function that adds them.
- You are not allowed to use any built in string to int conversions or parsing
- tools.
- E.g.
- Given "100" and "111" you should return "1011".
- What is the time and space complexity of your algorithm? 
-\end_layout
-
-\begin_layout Subsection
-Machine Learning
-\end_layout
-
-\begin_layout Itemize
-How would you compare the relative performance of two different back-end
- engines for automated generation of Facebook "Friend" suggestions? 
-\end_layout
-
-\begin_layout Section
-F Ads
-\end_layout
-
-\begin_layout Itemize
-Location: Reach your customers in the areas they live or where they do business
- with you.
- Target ads by country, state, zip code, or even the area around your business.
-\end_layout
-
-\begin_layout Itemize
-Demographics: The customers your business serves are on Facebook.
- Choose the audiences that should see your ads by age, gender, interests—and
- even the languages they speak.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Education
-\end_layout
-
-\begin_layout Itemize
-Age
-\end_layout
-
-\begin_layout Itemize
-Married Status / Household Size 
-\end_layout
-
-\begin_layout Itemize
-Own home / Own car (what type of car he/she owns)
-\end_layout
-
-\begin_layout Itemize
-Jon Title / Industry
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Interests: When people are interested in your business, they're more likely
- to take action on your ad.
- Choose from hundreds of categories like music, movies, sports, games, shopping,
- and so much more to help you find just the right people.
-\end_layout
-
-\begin_layout Itemize
-Behaviors: You know your customers best, and you can find them based on
- the things they do—like shopping behavior, the type of phone they use,
- or if they're looking to buy a car or house.
-\end_layout
-
-\begin_layout Itemize
-Connections: Reach the people who like your Page or your app—and reach their
- friends, too.
- It's an easy way to find even more people who may be interested in your
- business.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Page Likes
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Frequency of Activity / How they use Facebook
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Looking news / Getting new information --------- NGO
-\end_layout
-
-\begin_layout Itemize
-Connect with Friends / Social -------thus probabily food business want to
- target them
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Partner Categories: Partner Categories are targeting options provided by
- third-party data partners.
- With Partner Categories you can reach people based on offline behaviors
- people take outside of Facebook, such as owning a home, being in the market
- for a new truck or being a loyal purchaser of a specific brand or product.
-\end_layout
-
-\begin_layout Section
-U- Products and Tips
-\end_layout
-
-\begin_layout Subsection
-Uber: Fraud Type 
-\end_layout
-
-\begin_layout Enumerate
-乘客fraud: A refer B keep using the discount
-\end_layout
-
-\begin_layout Enumerate
-Hack
-\end_layout
-
-\begin_layout Enumerate
-cancel ride
-\end_layout
-
-\begin_layout Enumerate
-call credit card company to refund
-\end_layout
-
-\begin_layout Subsection
-Uber: Fraud Feature
-\end_layout
-
-\begin_layout Itemize
-For discount-frauders
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Whether credit card: same name, same billing address.
-\end_layout
-
-\begin_layout Itemize
-similar wifi network
-\end_layout
-
-\begin_layout Itemize
-similar pick-up and drop-off postion, similar time.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-For hacker-frauders
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-traver indicator: go to airport
-\end_layout
-
-\begin_layout Itemize
-distance from the usural pick-up place
-\end_layout
-
-\begin_layout Itemize
-Frequency or rides in recent days / freqency of rides in the long term
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Internal-tips 
-\end_layout
-
-\begin_layout Standard
-most from Glassdoor
-\end_layout
-
-\begin_layout Itemize
-SQL
-\end_layout
-
-\begin_layout Itemize
-Confusion Matrix
-\end_layout
-
-\begin_layout Itemize
-Loss Function
-\end_layout
-
-\begin_layout Itemize
-Poisson distribution and doctor attending the patient as uniform distribution
- and write code to display the average wait time of the patient and total
- number of patients that are attended on a random day.
- 
-\end_layout
-
-\begin_layout Itemize
-optimization of pickup time, 
-\end_layout
-
-\begin_layout Itemize
-how to evaluate the success of a new featur
-\end_layout
-
-\begin_layout Itemize
-Multicollinearity, how to solve the problem.
- Time series forecasting techniques.
-\end_layout
-
-\begin_layout Itemize
-PCA and SVD
-\end_layout
-
-\begin_layout Itemize
-Version Control
-\end_layout
-
-\begin_layout Section
-U-Strategic Finance
-\end_layout
-
-\begin_layout Subsection
-Strategic Finance Associate
-\end_layout
-
-\begin_layout Standard
-Application
-\end_layout
-
-\begin_layout Standard
-I applied through an employee referral.
- I interviewed at Uber.
-\end_layout
-
-\begin_layout Standard
-Interview
-\end_layout
-
-\begin_layout Standard
-Phone screen (straight-forward to gauge interest with a few high level case
- questions), 2hr Analytics Test (Very difficult, necessary to utilize all
- the time allotted), Phone Interview w/ 2 Associates (almost no behavioral
- questions, just high-level case questions)
-\end_layout
-
-\begin_layout Standard
-I had a great experience leading up to my 2nd of 2 phone interviews, which
- was clearly the turning point in my overall interview experience.
- The guy was a little arrogant and not prepared, asking the same questions
- as the previous interviewer and mumbling/speaking in an unclear manner.
- I did my best to recap his questions, which he rattled off in a jumbled
- fashion, but apparently, I didn't respond well enough to make it to the
- next round.Show Less
-\end_layout
-
-\begin_layout Standard
-Interview Questions
-\end_layout
-
-\begin_layout Standard
-Name 5 key metrics one would look at to gauge the ongoing success of Uber.
- Answer Question When entering a new market, which is more important to
- establish first: supply or demand? 
-\end_layout
-
-\begin_layout Subsection
-Senior Financial Analyst 
-\end_layout
-
-\begin_layout Standard
-Final round interview was a two-step Excel test at the office.
- First, I was asked to create a dynamic pricing model for a hypothetical
- expansion scenario with functionality to measure the effect on profit from
- changing various input drivers.
- Next we walked through an old expense forecasting model the company used
- to use, and I was asked to simply talk about some of the ways the model
- could be improved.
- 
-\end_layout
-
-\begin_layout Subsection
-Global Business Analyst 
-\end_layout
-
-\begin_layout Standard
-What KPIs should Uber use to measure success in a new city.
- KPIs related to driver optimization, etc.
- 
-\end_layout
-
-\begin_layout Subsection
-Related Position: 
-\end_layout
-
-\begin_layout Itemize
-Data Scientist, Strategic Finance
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-rider/driver elasticity, 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-understanding supply-demand relationships and much more.
- 
-\end_layout
-
-\begin_layout Itemize
-[part of jobs is to transform the numbers into strories, and make up decks
- to present to the management.]
-\end_layout
-
-\begin_layout Itemize
-pricing optimization
-\end_layout
-
-\begin_layout Itemize
-pulling data from warehouse, back-testing the model, comparing the model
- performance and communicating the results
-\end_layout
-
-\begin_layout Itemize
-econometrics, time series analysis and machine learning
-\end_layout
-
-\begin_layout Itemize
-stochastic modeling, regression, time series analysis and techniques like
- PCA etc.
-\end_layout
-
-\begin_layout Itemize
-Experience with Git 
-\end_layout
-
-\begin_layout Itemize
-Internal tips
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-allocation budget / product -- finance
-\end_layout
-
-\begin_layout Itemize
-incentive + rider intelligence 
-\end_layout
-
-\begin_layout Itemize
-modelling + reserach + code
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Itemize
-Senior Associate - Strategic Finance, Growth Finance
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-The mission of the Growth Finance team is to optimize Uber’s growth by developin
-g innovative forecast models, real-time performance monitoring tools, and
- profit-maximizing decision frameworks.
- As the name implies, this team is focused 100% on helping Uber grow as
- quickly and profitably as possible
-\end_layout
-
-\begin_layout Itemize
-develop financial forecasts, execute on operational goals, and optimize
- our marketing spend
-\end_layout
-
-\begin_layout Itemize
-new methods of forecasting Uber’s exponential growth, 
-\end_layout
-
-\begin_layout Itemize
-partner closely with the Performance Marketing team to optimize and monitor
- Uber’s global marketing strategy --- Driver Incentive!
-\end_layout
-
-\begin_layout Itemize
-perform detailed ad hoc analyses on a variety of growth related topics.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Manager – Strategic Finance, Core Business Partnering
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-building dynamic, detailed, scalable financial models and most importantly,
-\series default
- 
-\series bold
-turning your insights into actionable strategic initiatives (from idea generatio
-n through implementation) to optimize the company’s operations and financials.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Head of Growth - Xchange Leasing
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Design Xchange-specific marketing campaigns
-\end_layout
-
-\begin_layout Itemize
-growth, growth-hacking, marketing, SEO, SEM, or related roles
-\end_layout
-
-\begin_layout Itemize
-Manage Xchange’s Credit and Pricing/Residual analyst
-\end_layout
-
-\begin_layout Itemize
-Own the pricing analytics function, building a detailed knowledge base and
- expertise in what any make/model/trim/year/mileage/wear combo is worth,
- anywhere
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Create a sell/hold decision engine for Xchange for vehicles returning from
- drivers
-\end_layout
-
-\begin_layout Itemize
-Xchange Leasing’s underwriting model, creating industry-leading performance
- by leveraging new and creative data sources and the latest in machine learning
-\end_layout
-
-\begin_layout Itemize
-Own all KPIs associated with underwriting and report on them to the Xchange
- management team/board
-\end_layout
-
-\end_deeper
-\begin_layout Section
-U-Pricing Background
-\end_layout
-
-\begin_layout Standard
-But over time, surge pricing will also become more familiar and less surprising.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Pric -- price per mile:
-\series default
- in surApp openings are a good representation of those who are in the market
- for Uber’s services and thus provide a nice measure of 
-\series bold
-Potential Demand
-\series default
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-number of rides are just realized demand
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-
-\series bold
-Measure the Causality:
-\series default
- we cannot make the strong claim that surge pricing caused more driver partners
- to be in the area.
-\end_layout
-
-\begin_layout Subsection
-Measurement for Market Efficiency
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Completion rate 
-\series default
-– 
-\series bold
-measure the marketing equilibrium
-\series default
-, defined as the percentage of requested rides that end in a completed trip.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Uber normally has completion rate = 1 for all time.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-
-\series bold
-Friction
-\series default
-: waiting time -- time from request to ride
-\end_layout
-
-\begin_layout Subsection
-Customer Behaviors
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Customers have long memories and are emotional: 
-\series default
-What economists often fail to understand is price creates an emotional response
- within customers that affects their loyalty.
-\end_layout
-
-\begin_layout Subsection
-Pricing Elasticity Strategy
-\end_layout
-
-\begin_layout Standard
-“A marketer’s goal is to move his or her products from relatively elastic
- to relatively inelastic,” she continues.
- “We do that by creating something that is differentiated and meaningful
- to customers.
-\end_layout
-
-\begin_layout Subsection
-vs Taxi
-\end_layout
-
-\begin_layout Itemize
-It is a substitute (a competitor), not a complement.
- -- Look at how taxi rides has dropped after uber lunched
-\end_layout
-
-\begin_layout Itemize
-Uber also expand the market -- server the underserved market.
-\end_layout
-
-\begin_layout Subsection
-Medallions
-\end_layout
-
-\begin_layout Itemize
-Because the medallion system artificially restricts the number of cabs,
- it has been criticized as an entry barrier to the New York City taxi market
- which has in turn created a black market for illegal taxicab operation
- in areas undeserved by medallion cabs.[76] 
-\end_layout
-
-\begin_layout Itemize
-Because the cost of leasing a medallion is so high, the system may cut into
- the income of drivers and raise costs to passengers.
- 
-\end_layout
-
-\begin_layout Itemize
-On the other hand, some transportation analysts contend that cities with
- no barriers to entry to the taxi market end up with an abundance of poorly
- maintained taxis.
- They say that a medallion system helps the city to better regulate taxis
- and enables the city to raise the standards of all taxis.[77]
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Can regulate taxi without barrier to entry
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Estimate Price Elasticity
-\end_layout
-
-\begin_layout Itemize
-you’d have to change your price multiple times to see what would happen
- at each price point.
- This is not what companies tend to do in practice.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Random variation from your optimal price strategy or champion strategy,so
- you can collect data
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Rather, they send out questionnaires, run focus groups, or perform small-scale
- experiments in certain markets, to give them a sense of what would happen
- if they changed their price.
-\end_layout
-
-\begin_layout Subsection
-Pricing to drive the supply
-\end_layout
-
-\begin_layout Itemize
-Supply: the reality is that the times when people most want a ride are also
- the times when it’s most annoying and, often, most risky to drive.
- Rush hour, New Year’s Eve, 2 a.m.
- on a Saturday night, snowstorms: generally speaking, these are exactly
- the times when a driver doesn’t want to be on the road.
- But if driving at those times pays considerably better, then they are more
- likely to be willing.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Cost/Risk of driving in rush hours is high
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Another factor that impacts driver supply is 
-\series bold
-substitute
-\series default
- opportunities.
- Prt-time drivers may have other part-time jobs.
- Drivers have lucrative alternative opportunities on event nights like New
- Years Eve.
- Some party-goers are willing to book a single captive driver for a flat
- rate which could be well over $1000 for the night.
- And in this case, the driver enjoys quite a bit of downtime.
-\end_layout
-
-\begin_layout Itemize
-Even without the help of algorithms, cab drivers know to converge on a venue
- as an event finishes;
-\end_layout
-
-\begin_layout Itemize
-Demand: its dynamic pricing policy to be used solely when demand is materially
- outstripping supply, so I think it will not hurt demand so much.
-\end_layout
-
-\begin_layout Itemize
-Quantity: maximize the number of completed rides.
-\end_layout
-
-\begin_layout Itemize
-Reliability / Convenience / Time to Fulfill the order
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-the next time you see a message indicating that Uber’s surge pricing is
- in effect: immediately try an alternative other than Uber.
- In other words, try to hail a cab, call a traditional black car service,
- find a rental car, or jump on a bus or subway.
- You will find that availability and reliability for all forms of transportation
- are under stress at that same precise moment in time.
- At these times, a fixed price taxi will be highly unavailable, and a fixed
- price subway will be remarkably over-crowded.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Key metrics: number of completed rides / total request
-\end_layout
-
-\begin_layout Subsection
-Difference between Uber and Others Dynamic Pricing
-\end_layout
-
-\begin_layout Enumerate
-There is, however, one key difference that materially increases the need
- for dynamic pricing in Uber’s case.
- With hotels, airplanes, and rental cars, supply is relatively fixed.
-\end_layout
-
-\begin_layout Enumerate
-Others tend to lower the price dynamically.
-\end_layout
-
-\begin_layout Subsection
-Why people hates dynamic pricing
-\end_layout
-
-\begin_layout Enumerate
-Price of taxi is pre-set up and regulated for decades.
-\end_layout
-
-\begin_layout Enumerate
-Most people thought “raising prices in response to a shortage is unfair
- even when close substitutes are readily available”
-\end_layout
-
-\begin_layout Enumerate
-Customers seem to accept dynamic pricing more easily when it’s characterized
- as a discount.
- At the movies, for instance, prime-time tickets aren’t presented as a few
- dollars more than the normal price—rather, matinees are presented as a
- few dollars less.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Uber’s competitor Lyft seems to have recognized the power of framing: it
- recently introduced what it calls happy-hour pricing, offering discounts
- during slow business hours.
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Marketing -- Education to Customers
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Best marketing is education.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-empathetic / sympathy
-\end_layout
-
-\begin_layout Standard
-Another point to keep in perspective is that the operator of each and every
- car on the Uber service is a human just like all of the passengers.
- Why should we expect that individual to be excited about working precisely
- when we want to be out of the town? Do you enjoy working on Friday and
- Saturday night? What about Holidays? What about New Year’s Eve? Nurses
- and doctors routinely receive 2-3X overtime pay for work at those times;
- is there a reason that a driver should not? What about during really bad
- storms? Should the independent driver be more concerned about your needs,
- or those of their own family and friends? 
-\end_layout
-
-\begin_layout Standard
-This is not a plea for you to be overly 
-\series bold
-empathetic
-\series default
- for the independent drivers on Uber’s system, but rather simply asking
- you to consider the basic human reasons why they may chose not to drive
- at the exact same time that you are most interested in not driving.
- Is it unreasonable to expect higher fares if they are sacrificing their
- own time at the least convenient moment?
-\end_layout
-
-\begin_layout Subsection
-Subsidies
-\end_layout
-
-\begin_layout Standard
-The company itself should take no money during surge periods (it now takes
- 20 percent of every fare), so all the money goes to the drivers.
- Or it should cap prices to consumers but pay the higher price to drivers,
- essentially subsidizing people’s rides in surge periods.
- Or when prices rise really sharply, Uber should donate its take to charity.
-\end_layout
-
-\begin_layout Subsection
-Matching Algorithms
-\end_layout
-
-\begin_layout Standard
-Timing is everything at Uber.
- Given a pickup location, drop off location and time of the day, predictive
- models developed at Uber predict how long will it take for a driver to
- cover the distance.
- Uber has 
-\series bold
-sophisticated routing and matching algorithms
-\series default
- that direct cars to people and people to places.
- Right from the time you open the uber app till you reach your destination,
- Uber’s routing engine and matching algorithms are hard at work.
-\end_layout
-
-\begin_layout Standard
-Uber follows a supplier pick map matching algorithm where the customer selects
- the variables associated with a service (in this case Uber app) and makes
- a match by sending requests to the most optimal list of service providers.
- 
-\end_layout
-
-\begin_layout Standard
-Any Uber ride request is first sent to the nearest available.
- Uber driver (the nearest available Uber driver is determined by comparing
- the customer location with the expected time of arrival of the driver).
- The Uber driver then accepts or rejects a ride request.
- This matching algorithm works well for Uber since the transaction is highly
- commoditized i.e.
- the number of variables that the customer has to decide before a match
- is made are minimal.
-\end_layout
-
-\begin_layout Section
-U-Pricing: Economics
-\end_layout
-
-\begin_layout Standard
-http://freakonomics.com/podcast/uber-economists-dream/?
-\end_layout
-
-\begin_layout Standard
-Why Uber Is an Economist’s Dream
-\end_layout
-
-\begin_layout Standard
-Disruptive Change in the Taxi Business: The Case of Uber
-\end_layout
-
-\begin_layout Subsection
-Market Failure
-\end_layout
-
-\begin_layout Itemize
-Market Failure happens when 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-supply and demand in one market cannot be in equilibrium by themselves.
-\end_layout
-
-\begin_layout Itemize
-Or the market didn't achieve the more efficient way to allocate resources.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-It happens for two reasons
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-The market cannot adjust the price itself --- which is the Uber's case,
- in which the price is determined arbitrarily by Uber (Uber play the god),
- not the market itself.
-\end_layout
-
-\begin_layout Itemize
-There is Asymmetric Information: riders know where and when they will show
- up and the price they want to pay.
- Drivers didn't know.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-So to solve the Market Failure 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Determine the price to balance the supply and demand
-\end_layout
-
-\begin_layout Itemize
-Reduce the Friction to solving the Asymmetric Information problem
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Q: Fare Estimates to Balance the Supply and Demand
-\end_layout
-
-\begin_layout Standard
-Goal: 
-\end_layout
-
-\begin_layout Itemize
-Goal 1 -- take the market share / be the low-cost leader: Price is as low
- as possible so that as many as possible riders can be taken through Uber.
-\end_layout
-
-\begin_layout Itemize
-Goal 2 (not that possible): max profit.
-\end_layout
-
-\begin_layout Standard
-Actually when Uber takes 20% of the price as revenue, the goal 1 and goal
- 2 is is them same.
-\end_layout
-
-\begin_layout Itemize
-Uber uses a mixture of internal and external data to estimate fares.
- Uber calculates fares automatically using street traffic data, GPS data
- and its own algorithms that make alterations based on the time of the journey.
- It also analyses external data like public transport routes to plan various
- services.
-\end_layout
-
-\begin_layout Subsection
-Reduce the Friction
-\end_layout
-
-\begin_layout Standard
-Instead of simply using pricing to adjust the demand and supply
-\end_layout
-
-\begin_layout Standard
-Asymmetric Information: 
-\end_layout
-
-\begin_layout Itemize
-riders know where and when they will show up and the price they want to
- pay.
-\end_layout
-
-\begin_layout Itemize
-drivers didn't know
-\end_layout
-
-\begin_layout Standard
-So Uber needs to inform the diriver so that 
-\end_layout
-
-\begin_layout Itemize
-they know where to go in the next hour / where to go get the highest 
-\series bold
-price per mile
-\end_layout
-
-\begin_layout Subsection
-Insurance
-\end_layout
-
-\begin_layout Standard
-HALL: For example, the median Uber driver, driver partner, drives 10 hours
- a week.
- So it’s not a full-time position.
- In New York City, the median driver drives significantly more than that.
- And one of the reasons for that is that there’s a substantial requirement
- on insurance that requires that the car that the driver has be insured
- all the time.
- And the result of that is there’s a strong economic incentive for drivers
- to drive a lot because they don’t want to pay for a full-time insurance
- policy and then only drive part time.
- They’ll end up losing money.
- So we’re encouraging policies that mandate things like insurance during
- the time when a driver is driving but do not restrict part-time drivers
- from joining the platform.
- 
-\end_layout
-
-\begin_layout Subsection
-Demand Curve
-\end_layout
-
-\begin_layout Standard
-LEVITT: I wish that that were really true.
- We have estimated really, really well a demand curve.
- So the only sad part about this — because I’m so excited to have estimated
- a demand curve — is that it’s actually not the demand curve I wanted to
- estimate at all.
- It’s the only one I could estimate but not the one I really wanted.
- So for public policy, like in deciding how to regulate Uber, for instance,
- the demand curve you’d love to have is what we call a long-term demand
- curve.
-\end_layout
-
-\begin_layout Standard
-So we want to know how consumers would respond over the course of say, six
- months or a year, to changes in pricing of Uber.
- And that would give them time to respond and make other kinds of accommodations
- if Uber either got more expensive or less expensive.
- The actual demand curve we estimate is really almost like, you call it,
- an instantaneous demand curve.
- I open the app.
- I either buy it or not.
- 
-\end_layout
-
-\begin_layout Section
-U-Data
-\end_layout
-
-\begin_layout Itemize
-Geography data
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Longitude /ˈlɒndʒᵻtjuːd/ and Latitude of both pick-up and drop-off location
-\end_layout
-
-\begin_layout Itemize
-location of drivers -- when they usually hang /hail around when there is
- no trips
-\end_layout
-
-\begin_layout Itemize
-Path of trips
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Time Series data
-\end_layout
-
-\begin_layout Standard
-hail and ride is boarding or alighting a mode of public transport by signalling
- the driver or conductor that one wishes to board or alight, rather than
- the more conventional system of using a designated stop.
-\end_layout
-
-\begin_layout Section
-U-Product
-\end_layout
-
-\begin_layout Standard
-Driving with Uber means more than just being on the road.
- From choosing when and where to drive, to tracking progress toward goals—our
- driver-partners make choices at every turn.
- That’s why we’re excited to announce the next generation of the Uber Partner
- app, designed to give drivers more information so Uber works better for
- them.
-\end_layout
-
-\begin_layout Standard
-Through feedback sessions, research and testing, we collaborated with drivers
- to understand how our team of engineers, designers, and data scientists
- could build features that would best meet their needs.
- The result is an app that puts personalized insights at drivers’ fingertips.
-\end_layout
-
-\begin_layout Standard
-blog-screens
-\end_layout
-
-\begin_layout Standard
-The Uber Partner app now has 4 sections with features that can be used on
- the go or at home.
-\end_layout
-
-\begin_layout Standard
-HOME
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Personalized feed 
-\series default
-When drivers open the Uber Partner app they instantly get a 
-\series bold
-pulse of their city and real-time updates on their activity
-\series default
-.
- The feed includes notes from 
-\series bold
-local Uber city teams, upcoming events
-\series default
-, 
-\series bold
-(capability of manual information collection) 
-\series default
-extra earning opportunities, and tips for how to deliver their next 5-star
- experience.
- Drivers no longer have to dig through their inbox to find out what’s happening—
-everything is right there when a driver opens the app.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Heat map In the old driver app, the heat map only appeared to drivers when
- they were driving and it only lit up at times when surge pricing was in
- effect.
- We redesigned the heat map to provide drivers with recommended areas for
- where they’re most likely to get their next ride even when it’s not surging.
- That means less time waiting for a trip and less gas wasted.
-\end_layout
-
-\begin_layout Standard
-EARNINGS
-\end_layout
-
-\begin_layout Standard
-Earnings are an important aspect of driving, so we’ve created a section
- complete with interactive charts to make it easier for partners to see
- their earnings at any time.
- Fares are broken down with a specific focus on the take-home amount so
- that each week’s payout is never a surprise – and for drivers working towards
- a goal, they can track their progress in real time.
-\end_layout
-
-\begin_layout Standard
-RATINGS
-\end_layout
-
-\begin_layout Standard
-In the new Ratings section, partners can see more than just their average
- rating–they can now see what riders appreciate most in comments from 5-star
- trips as well as reasons why riders gave low ratings.
- Pro tips provide drivers with suggestions for how they can continue to
- make getting around the city with Uber an enjoyable experience for their
- passengers.
-\end_layout
-
-\begin_layout Standard
-ACCOUNT
-\end_layout
-
-\begin_layout Standard
-While updating account information 
-\series bold
-is an infrequent task,
-\series default
- drivers can now manage their profile from within the app.
- Help articles are just as easy to access as before, and reaching out to
- an Uber support representative is a few taps away.
-\end_layout
-
-\begin_layout Subsection
-Heat Map
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Heat map In the old driver app, the heat map only appeared to drivers when
- they were driving and it only lit up at times when surge pricing was in
- effect.
- We redesigned the heat map to provide drivers with recommended areas for
- where they’re most likely to get their next ride even when it’s not surging.
- That means less time waiting for a trip and less gas wasted.
-\end_layout
-
-\begin_layout Subsection
-Part 2 Experiment and metrics design
-\end_layout
-
-\begin_layout Standard
-[3 points] The Driver Experience team has just finished redesigning the
- Uber Partner app .
- The new version expands the purpose of the app beyond just driving.
- It includes additional information on earnings, ratings, and provides a
- unified platform for Uber to communicate with its partners.
- 
-\end_layout
-
-\begin_layout Subsection
-1.
- Propose and define the primary success metric of the redesigned app.
- What are 2-3 additional tracking metrics that will be important to monitor
- in addition to the success metric defined above? 
-\end_layout
-
-\begin_layout Standard
-Our assumption is that the redesigned app can help drivers to do their jobs
- more effectively, productively and rider-friendly, which will causes better
- ratings, more trips and eventually increased earnings.
-\end_layout
-
-\begin_layout Itemize
-Primary success metrics: revenue earned by drivers, or more precisely, it
- could be the incremental revenue earned by drivers during the first month
- after they receive the redesigned app, compared with those who use the
- old version of apps.
-\end_layout
-
-\begin_layout Itemize
-Other Metrics
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Number of completed trips.
-\end_layout
-
-\begin_layout Enumerate
-Ratings for the drivers.
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-2.
- Outline a testing plan to evaluate if redesigned app performs better (according
- to the metrics you outlined).
- How would you balance the need to deliver quick results, with statistical
- rigor, and while still monitoring for risks? 
-\end_layout
-
-\begin_layout Standard
-We will design an A/B test by using a ramp-up approach.
- In this way, we can monitor the risk, prevent early bugs, and at the same
- time quickly (in an exponential speed) bring enough drivers into the treatment
- group.
-\end_layout
-
-\begin_layout Itemize
-Ramp up the treatment group exponentially in a stepwise way: do not let
- all drivers in the treatment group receive the redesigned app at once,
- but first open it to the 0.1% of them in the beginning.
- If everything goes well, then ramp up to 0.5%, then 2.5%, then 10%, and finally
- to 100% of the pre-defined size of treatment group.
-\end_layout
-
-\begin_layout Itemize
-For each step of ramp-up, monitor the KPIs for both driver and riders within
- the treatment group, and only ramp up to the next level of sample size
- when no anomaly/bugs observed.
-\end_layout
-
-\begin_layout Itemize
-Also, to insure statistical rigor: 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Define minimum sample size to achieve the significance, expected lift and
- power of the test.
-\end_layout
-
-\begin_layout Enumerate
-Not just use random sampling, but use 
-\series bold
-Stratified Sampling, 
-\series default
-to insure balance of groups for each key markets/cities of Uber.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-To insure quick results 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Bring more drivers into the treatment group than the requirement of minimum
- sample size
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-3.
- Explain how you would translate the results from the testing plan into
- a decision on whether to launch the new design or roll it back.
-\end_layout
-
-\begin_layout Enumerate
-At the overall level.
- first run a T-test to see whether the drivers with redesigned apps performs
- better in completed trips, ratings and revenue, compared with the control
- group.
-\end_layout
-
-\begin_layout Enumerate
-Then for each segmentation of drivers (different cities, part-time vs full
- time, age, iPhone vs Android), test whether the treatment group performs
- better.
- In this way we can explore possibilities of personalization, according
- to drivers geography and characteristics.
- 
-\end_layout
-
-\begin_layout Section
-U-U for Business
-\end_layout
-
-\begin_layout Standard
-Uber for Business is on a path to revolutionize the way businesses manage
- their ground transportation needs.
- We need creative, quantitative thinkers with the ability to clearly synthesize
- and communicate insights from product data to accelerate us down this path.
- 
-\end_layout
-
-\begin_layout Standard
-As a Data Scientist on Uber for Business you will work hand in hand with
- the Product, 
-\series bold
-Marketing
-\series default
-, 
-\series bold
-Design
-\series default
- and Engineering teams to keep product development data driven and informed.
- You will oversee all analytical work related to the core product offering
- including experimental design for product changes (many with difficult
- constraints), defining and 
-\series bold
-measuring metrics and KPIs, predictive modeling and quantitatively
-\series default
- understanding the business travel experience.
-\end_layout
-
-\begin_layout Standard
-What you’ll need:
-\end_layout
-
-\begin_layout Standard
-Quantitative background in Statistics, Computer Science, Math, Economics,
- Physics or another technical field.
- Graduate degrees preferred.
-\end_layout
-
-\begin_layout Standard
-Extensive experience with common analysis tools - SQL, R, Python, Julia
- or similar.
- Demonstrable familiarity with programming concepts.
-\end_layout
-
-\begin_layout Standard
-2+ years experience in quantitative analytical roles, 
-\series bold
-preferably product related.
-\end_layout
-
-\begin_layout Standard
-Highly analytical and able to extract key 
-\series bold
-insights
-\series default
- from data then communicate them clearly and effectively to stakeholders.
-\end_layout
-
-\begin_layout Standard
-Ability to work in high growth, ambiguous environment.
-\end_layout
-
-\begin_layout Standard
-Advanced knowledge of 
-\series bold
-experimentation
-\series default
- and statistical methods.
-\end_layout
-
-\begin_layout Subsection
-Q: Questions to ask
-\end_layout
-
-\begin_layout Itemize
-Give me a long-term project you are working on / What is the most interesting
- or challenging problem you are trying to attack.
- -------- 
-\end_layout
-
-\begin_layout Itemize
-How you interact with Engineering team, do you get the chance to write productio
-n level code.
-\end_layout
-
-\begin_layout Itemize
-What's the background of the team.
-\end_layout
-
-\begin_layout Subsection
-Q: Summary
-\end_layout
-
-\begin_layout Itemize
-AB test
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-How to improve Credit Card as Product.
-\end_layout
-
-\begin_layout Itemize
-Economics:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-GLM assumptions
-\end_layout
-
-\begin_layout Itemize
-Fixed / Random
-\end_layout
-
-\begin_layout Itemize
-Instrumental Variables
-\end_layout
-
-\begin_layout Itemize
-Hodrick-Prescott
-\end_layout
-
-\begin_layout Itemize
-Cointegration
-\end_layout
-
-\begin_layout Itemize
-ARMA
-\end_layout
-
-\begin_layout Itemize
-GARCH
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Q: Whether Uber creates more congestion
-\end_layout
-
-\begin_layout Subsection
-Q: Why U and Why this P
-\end_layout
-
-\begin_layout Itemize
-Uber is such a cool comp any, and being a data scientist there means your
- models and strategies that impact how city operates.
-\end_layout
-
-\begin_layout Itemize
-Also actually I got two friends from Duke they both work at Uber now, they
- actually refer me for this job.
- They said working at Uber is Exciting, stressful and there is no work-life
- balance 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-What'm thinking is that: At my age, I don't need work-life balance.
- I need the excitement, I need the learning opportunity, rather than work-life
- balance.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-
-\series bold
-About this position:
-\end_layout
-
-\begin_layout Itemize
-I think this position is about using the data science to make the
-\series bold
- Uber product more successful.
-\end_layout
-
-\begin_layout Itemize
-Though I come from the banking industry, but my past experience is also
- about building models and strategies -- make our product more successful.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-For example, we are using models and AB test to learn and predict consumer
- financial behaviors
-\end_layout
-
-\begin_layout Itemize
-to let them use our credit card, carry more balances, do more transactions
- --- 
-\end_layout
-
-\end_deeper
-\begin_layout Description
-Summary:
-\end_layout
-
-\begin_layout Itemize
-So I know
-\series bold
- how to combine
-\series default
- the data science and business 
-\series bold
-acumen
-\series default
- to solve real 
-\series bold
-product
-\series default
- problem
-\end_layout
-
-\begin_layout Itemize
-That is why I believe I WILL fit this role very well
-\end_layout
-
-\begin_layout Subsection
-Q: What is U for Business
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Overall
-\series default
-: 
-\end_layout
-
-\begin_layout Itemize
-It is an 
-\series bold
-easy and flexible 
-\series default
-way to manage business trips, 
-\end_layout
-
-\begin_layout Itemize
-and also it is 
-\series bold
-cheep,
-\series default
- compared with taxis
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Easy 
-\end_layout
-
-\begin_layout Itemize
-It direct bills to the employers account, 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-so there is no collecting receipts, submitting to HR, reporting, auditing
- things
-\end_layout
-
-\begin_layout Itemize
--- no need for those 
-\series bold
-manual procedures
-\series default
- anymore / no 
-\series bold
-frustration
-\series default
- for traveler managers, admins, and finance departments
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Employer can design the policy to control who to ake a ride at which place
- at which time.
-\end_layout
-
-\begin_layout Itemize
-can integrate with third-party expense management system.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Take-away
-\end_layout
-
-\begin_layout Itemize
-This is easy for employer, this is easy for emploee -- people will love
- this.
-\end_layout
-
-\begin_layout Subsection
-Features of U for Businss
-\end_layout
-
-\begin_layout Itemize
-UberCENTRAL: require a ride for a cusomter -- a simple, quick and reliable
- way to make sure customer experence is good 
-\series bold
-DOOR TO DOOR
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-senior citizens / internatinal traveler
-\end_layout
-
-\begin_layout Itemize
-hotel / car rentals -- send customers back to airport/home
-\end_layout
-
-\begin_layout Itemize
-No need to manage/maintain a shuttle fleet.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Usage Situation
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Pre-trip — choice & quality of suppliers
-\end_layout
-
-\begin_layout Itemize
-On-trip — convenience of travel
-\end_layout
-
-\begin_layout Itemize
-Post-trip — ease of expense reporting
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-KPI & Measure
-\end_layout
-
-\begin_layout Standard
-From a customer 
-\series bold
-lifecycle
-\series default
- perpective:
-\end_layout
-
-\begin_layout Itemize
-There is Acuisition piece, how many new companies sign up
-\end_layout
-
-\begin_layout Itemize
-Activation part: within the companies who registered last month, how many
- of them actually use take a ride
-\end_layout
-
-\begin_layout Itemize
-Retention part: 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Among those who are actively using our business, how many of them will become
- inactive in the next half year
-\end_layout
-
-\begin_layout Itemize
-They you can 
-\series bold
-Different
-\series default
- design some strategy to engage them depending on their different 
-\series bold
-chances
-\series default
- of 
-\series bold
-becoming Inactive
-\series default
-.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-From a overall 
-\series bold
-product-success 
-\series default
-pespective
-\end_layout
-
-\begin_layout Itemize
-Revene / Number of Rides
-\end_layout
-
-\begin_layout Itemize
-Penetration of the 
-\series bold
-Business Travel
-\series default
- market
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Wihin a city: how many percentage of bussiness are happening through Uber,
- rather than Taxi or Car Renting
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Heterogeneous of Companies
-\series bold
- Problem
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Problem
-\end_layout
-
-\begin_layout Itemize
-Companies are natrually Heterogenous, they are different in sizes, revenue,
- location and industry.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Consultant company naturally needs more rides
-\end_layout
-
-\begin_layout Itemize
-Large business with a diverse locations natutally different
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-So compairing business across business doesn't make sence.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Solution
-\series default
-: 
-\end_layout
-
-\begin_layout Itemize
-You can only compare business when they are in the same segmentation: 
-\end_layout
-
-\begin_layout Itemize
-so the first thing to do is to segment them correctly
-\end_layout
-
-\begin_layout Itemize
-You need to collect data : sizes, revenue, location and industry.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-or using third-party data.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-
-\series bold
-Take-way
-\end_layout
-
-\begin_layout Itemize
-compare the company within each segmentation and get a meanful comparsion.
-\end_layout
-
-\begin_layout Subsection
-Difference between Business Trips and Personal Trips
-\end_layout
-
-\begin_layout Standard
-They are different
-\series bold
- location-wise and time-wise
-\end_layout
-
-\begin_layout Standard
-Location
-\end_layout
-
-\begin_layout Itemize
-Pick-up / drop-off location is normally airport or downtown 
-\end_layout
-
-\begin_layout Itemize
-It cannot be the shopping mall, beach, or bar area.
- 
-\end_layout
-
-\begin_layout Standard
-Timewise:
-\end_layout
-
-\begin_layout Itemize
-it is normally early morning or business hours.
-\end_layout
-
-\begin_layout Itemize
-cannot be 1am
-\end_layout
-
-\begin_layout Section
-B
-\end_layout
-
-\begin_layout Standard
-ob Description Senior Quantitative Finance Analyst - 16031020 Description
- 
-\end_layout
-
-\begin_layout Standard
-Responsible for independently conducting quantitative analytics and complex
- modeling projects.
- Leads efforts in development of new models, analytic processes or system
- approaches.
- Creates documentation for all activities and may work with technology staff
- in design of any system to run models developed.
- Incumbents possess excellent quantitative/analytic skills and are able
- to influence strategic direction, as well as develop tactical plans.
-\end_layout
-
-\begin_layout Standard
-General responsibilities include:
-\end_layout
-
-\begin_layout Standard
-- Reviewing conceptual soundness of models, mathematical specification,
- underlying assumptions and limitations, variable selection, data.
-\end_layout
-
-\begin_layout Standard
-- Assessing adequacy of model documentation.
-\end_layout
-
-\begin_layout Standard
-- Reviewing empirical evidence.
-\end_layout
-
-\begin_layout Standard
-- Challenging model assumptions and approach as needed.
-\end_layout
-
-\begin_layout Standard
-- Developing code to replicate results and conduct independent testing.
-\end_layout
-
-\begin_layout Standard
-- Assessing quality of model outputs through back testing against realized
- outcomes, benchmarking against alternative models, sensitivity tests around
- assumptions and limitations, and other relevant tests.
-\end_layout
-
-\begin_layout Standard
-- Verifying model implementation.
-\end_layout
-
-\begin_layout Standard
-- Assessing model accuracy, conservatism and quantitative compliance with
- regulations.
-\end_layout
-
-\begin_layout Standard
-- Conducting annual review and ongoing monitoring of existing models.
-\end_layout
-
-\begin_layout Standard
-- Writing thorough technical reports for distribution and presentation to
- model developers, senior management, audit and bank regulators.
- Qualifications 
-\end_layout
-
-\begin_layout Standard
-Required Skills
-\end_layout
-
-\begin_layout Standard
-- Master's or PhD degree in statistics, mathematics, finance, engineering,
- physics, economics or related field.
-\end_layout
-
-\begin_layout Standard
-- Background and experience in one of the following:
-\end_layout
-
-\begin_layout Standard
-* 
-\series bold
-PD/EAD/LGD credit risk models for retail, wholesale and/or structured products
- under the Advanced Approaches (A-IRB, SFA)
-\end_layout
-
-\begin_layout Standard
-* Market risk models for economic capital estimation.
-\end_layout
-
-\begin_layout Standard
-- Knowledge of the 
-\series bold
-Basel
-\series default
- regulatory framework, 
-\series bold
-US Basel III Final Rule, BCC 13-5, 13-7, 14-1, 14-3 and other regulatory
- requirements
-\series default
-, 
-\series bold
-familiarity with OCC 2011-12 / SR 11-7.
-\end_layout
-
-\begin_layout Standard
-- Expertise in econometrics, time series, classification, decision modeling,
- statistical distributions, Monte-Carlo simulation.
-\end_layout
-
-\begin_layout Standard
-- Strong knowledge of financial instruments and financial risk management
- principles.
-\end_layout
-
-\begin_layout Standard
-- Deep understanding and knowledge of 
-\series bold
-model performance measures.
-\end_layout
-
-\begin_layout Standard
-- Minimum 7 years of experience in financial risk modeling or validation,
- computational, engineering or scientific research or other model development
- roles using SAS, R, MATLAB, SQL or any other scientific/mathematical programmin
-g environment.
-\end_layout
-
-\begin_layout Standard
-- Experience in quantitative risk management in a financial institution,
- vendor or regulator.
-\end_layout
-
-\begin_layout Standard
-- Ability to communicate clearly and effectively.
-\end_layout
-
-\begin_layout Standard
-- Ability to produce high quality technical documentation.
- 
 \end_layout
 
 \begin_layout Section
@@ -4395,6 +530,30 @@ All offers for employment with Wells Fargo are contingent upon the candidate
 
 \begin_layout Section
 FR
+\end_layout
+
+\begin_layout Itemize
+Math Questions: bring your paper and pen
+\end_layout
+
+\begin_layout Itemize
+Regression
+\end_layout
+
+\begin_layout Itemize
+Bond duration
+\end_layout
+
+\begin_layout Itemize
+stock CAPM
+\end_layout
+
+\begin_layout Itemize
+future / option
+\end_layout
+
+\begin_layout Itemize
+Time Series: PACF, ACF
 \end_layout
 
 \begin_layout Subsection
@@ -4656,12 +815,548 @@ ssive process tails off after lag p, whereas a PACF cuts off after lag p.
  made, and their values.
 \end_layout
 
-\begin_layout Part
-Method
+\begin_layout Subsection
+LH
+\end_layout
+
+\begin_layout Standard
+Job Description
+\end_layout
+
+\begin_layout Standard
+LendingHome is reimagining the mortgage process from the ground up based
+ on technology as a simple, fast, transparent marketplace for borrowers
+ and investors.
+ We’re chasing the goal of being the best way to get a mortgage and the
+ best way to invest in them.
+ In the process of chasing this big goal, we’ve become the fastest growing
+ marketplace lender to date, and are uniquely positioned to be the world’s
+ leading mortgage marketplace.
+ LendingHome is taking on a huge problem and growing rapidly towards becoming
+ the next great financial services brand powered by the most advanced mortgage
+ platform in the world.
+\end_layout
+
+\begin_layout Standard
+THE TEAM
+\end_layout
+
+\begin_layout Standard
+LendingHome is an engineering-led culture.
+ As such, our core technology team is made up of 360-degree thinkers that
+ analyze complex problems and come up with simple solutions.
+ We look for entrepreneurial engineers who see the total picture and can
+ put on lots of hats at once.
+ This means leading product design, technical architecture, user experience,
+ and operational scalability in addition to writing great code.
+ We believe in small elite teams and would rather have the 30 best engineers
+ in the world vs.
+ 300 good ones.
+ Our team moves fast, deploys code every day, and is not afraid to break
+ things.
+ We work very hard but have a lot of fun in the process.
+\end_layout
+
+\begin_layout Standard
+PURPOSE OF THE ROLE
+\end_layout
+
+\begin_layout Standard
+LendingHome’s Risk department is seeking a talented Sr.
+ Data Scientist to join us in our effort to reinvent mortgage.
+ You will be working with the Head of Modeling and Analytics to tackle fun
+ business problems like risk modeling, asset valuation, process optimization,
+ etc.
+ An ideal candidate should be able to utilize advanced data manipulation
+ and modeling technique to work on structured and unstructured data to solve
+ complex business problems .
+ You’ll also have interaction with Data Infrastructure, Product/Engineer,
+ Capital Markets, etc.
+ to co-pilot on certain initiatives.
+ If you are keen on joining a dynamic company and working on intellectually
+ challenging problems in a fast paced environment, please reach out to us.
+\end_layout
+
+\begin_layout Standard
+KEY RESPONSIBILITIES:
+\end_layout
+
+\begin_layout Standard
+Develop and maintain innovative models for mortgage underwriting.
+ This requires thorough statistical analysis of the underlying data and
+ understanding of the various macroeconomic factors and risk factors that
+ impact the credit quality of borrowers.
+\end_layout
+
+\begin_layout Standard
+Develop models for portfolio analytics purposes, such as loss forecast,
+ loan modifications and collections.
+\end_layout
+
+\begin_layout Standard
+Closely provide regular ongoing model performance assessments and enhance
+ existing models 
+\end_layout
+
+\begin_layout Standard
+Review analysis results with executive management and provide insights and
+ recommendations 
+\end_layout
+
+\begin_layout Standard
+Develop analytical tools to support other teams 
+\end_layout
+
+\begin_layout Standard
+Working with the technology team, drive initiatives to enhance data capabilities
+ and streamline infrastructure 
+\end_layout
+
+\begin_layout Standard
+Work closely with engineers/data infrastructure team in designing useful
+ data attributes 
+\end_layout
+
+\begin_layout Standard
+Perform exploratory analysis and make recommendations on improving current
+ data models, decisioning framework, etc.
+ 
+\end_layout
+
+\begin_layout Standard
+Create innovative consumer-facing features to create a great customer experience
+ Interface with third party data provider APIs for seamless integration
+ Iterate on internal loan operations console to drive constant improvement
+ Optimize consumer loan funnel analytics to help drive data-driven decisions
+ Manage regular third party security audits to ensure we are compliant in
+ terms of (information) security Refactor to increase operational scalability
+ Improve internal tools and eam best practices across the organization and
+ drive cross-functional collaboration
+\end_layout
+
+\begin_layout Standard
+EXPERIENCE & QUALIFICATIONS:
+\end_layout
+
+\begin_layout Standard
+Bachelors degree in a quantitative discipline (e.g., statistics, economics,
+ finance, physics, math) 2-5 years of work experience in a modeling group
+ at a commercial bank, investment bank, or consulting firm, or technology
+ company 
+\end_layout
+
+\begin_layout Standard
+Statistical skills especially in 
+\series bold
+model development at account level.
+
+\series default
+ Solid understanding of machine learning techniques Strong programming skills
+ in R, SQL, Python Team player with strong interpersonal skills Excellent
+ oral and written communication skills with the ability to explain technical
+ concepts in practical terms
+\end_layout
+
+\begin_layout Standard
+PREFERRED REQUIREMENTS:
+\end_layout
+
+\begin_layout Standard
+Advanced degree (PhD or MS) in a quantitative discipline Hands on experience
+ with residential mortgage models, in particular, direct experience with
+ mortgage underwriting/scoring/default/prepayment models are highly desirable
+ Experience in handling unstructured data Experience with Monte Carlo simulation
+ and Bayesian statistics would be desirable, but not required 
+\end_layout
+
+\begin_layout Section
+Circle
 \end_layout
 
 \begin_layout Subsection
-Self-Intro
+Types of Fraud
+\end_layout
+
+\begin_layout Standard
+https://www.quora.com/What-is-the-difference-between-ACH-and-wire-transfer
+\end_layout
+
+\begin_layout Standard
+https://www.quora.com/What-is-the-difference-between-a-SWIFT-and-wire-transfer
+\end_layout
+
+\begin_layout Standard
+https://www.quora.com/What-are-the-types-of-fraud-that-can-happen-using-Bitcoins
+\end_layout
+
+\begin_layout Standard
+https://www.quora.com/What-are-the-different-types-of-fraud-risks-associated-with-
+ACH-and-wire-transfers
+\end_layout
+
+\begin_layout Standard
+https://www.quora.com/How-can-one-use-bitcoin-to-prevent-chargeback-fraud-through-
+ecommerce
+\end_layout
+
+\begin_layout Subsection
+Lead Risk Analyst
+\end_layout
+
+\begin_layout Standard
+The task of preventing fraud and managing risk while reducing friction for
+ our customers is critical to our business success, and our aim is to create
+ the best-in-class risk tools, methodologies, and processes to keep our
+ ecosystem safe and secure.
+\end_layout
+
+\begin_layout Standard
+We’re looking for an experienced risk analyst to join our savvy risk team
+ and help us take a big step forward in risk policy and analytics by leveraging
+ our data in smart ways and automating our decisions.
+ If that kind of challenge sounds exciting, and you’d like to make an impact
+ on a high-growth business that aims to revolutionize consumer finance,
+ keep reading.
+\end_layout
+
+\begin_layout Standard
+Responsibilities
+\end_layout
+
+\begin_layout Itemize
+Design, implement and track impactful policies, rules, and procedures that
+ will prevent and mitigate financial risk.
+\end_layout
+
+\begin_layout Itemize
+Identify gaps in our risk decisions and work closely with product, data
+ science and engineering teams to develop creative solutions.
+\end_layout
+
+\begin_layout Itemize
+Analyze big data to understand Circle’s risk, deliver actionable insights
+ and tackle fraud trends.
+\end_layout
+
+\begin_layout Itemize
+Contribute to all risk functions through data analysis – risk operations,
+ analytics, policy, data science and engineering.
+\end_layout
+
+\begin_layout Itemize
+Drive improvements to our 
+\series bold
+suite of fraud prevention tools.
+\end_layout
+
+\begin_layout Itemize
+Investigate fraud patterns quantitatively and qualitatively, be able to
+ 
+\series bold
+generalize from specific cases and validate your solutions with data.
+\end_layout
+
+\begin_layout Itemize
+Communicate to partners and vendors our efforts as well as our needs.
+\end_layout
+
+\begin_layout Itemize
+Focus on automation – actively work on 
+\series bold
+replacing manual work and processes with automated logics and procedures.
+\end_layout
+
+\begin_layout Itemize
+Requirements
+\end_layout
+
+\begin_layout Standard
+3+ years industry experience in analytics or related technical discipline.
+\end_layout
+
+\begin_layout Standard
+B.A./B.S.
+ degree or higher.
+\end_layout
+
+\begin_layout Standard
+Proficiency with SQL databases and at least one analytical tool.
+\end_layout
+
+\begin_layout Standard
+An innovative and creative mind looking to suggest new solutions to old
+ problems.
+\end_layout
+
+\begin_layout Standard
+Strong organizational, analytical, written, and verbal communication skills.
+\end_layout
+
+\begin_layout Standard
+Ability to understand complex business problems, break down analytics projects
+ into a structured approach and formalize complex ideas into a well-defined
+ logic.
+\end_layout
+
+\begin_layout Standard
+Curious, quick learner, proactive and action-oriented – fraudsters are moving
+ fast, we should move faster.
+\end_layout
+
+\begin_layout Standard
+Bonus Points
+\end_layout
+
+\begin_layout Standard
+Risk / Fraud / Trust and Safety experience.
+\end_layout
+
+\begin_layout Standard
+Payment industry experience.
+\end_layout
+
+\begin_layout Standard
+High growth startup experience.
+\end_layout
+
+\begin_layout Standard
+Coding / scripting skills.
+\end_layout
+
+\begin_layout Standard
+Experience with BI tools (e.g.
+ Tableau).
+\end_layout
+
+\begin_layout Standard
+Digital currency understanding and interest.
+\end_layout
+
+\begin_layout Subsection
+Risk Analyst
+\end_layout
+
+\begin_layout Standard
+Verify customer information and conduct due diligence reviews as part of
+ Circle's Know Your Customer (KYC) and Anti-Money Laundering (AML) programs
+\end_layout
+
+\begin_layout Standard
+Knowledge of Card Not Present fraud and ACH fraud.
+ 
+\end_layout
+
+\begin_layout Standard
+https://www.quora.com/What-are-the-types-of-fraud-that-can-happen-using-Bitcoins
+\end_layout
+
+\begin_layout Section
+LH
+\end_layout
+
+\begin_layout Standard
+Features
+\end_layout
+
+\begin_layout Itemize
+Home Price --- Change of Home Price
+\end_layout
+
+\begin_layout Itemize
+Unemployment
+\end_layout
+
+\begin_layout Itemize
+Govenment Interest Rate
+\end_layout
+
+\begin_layout Standard
+IV Q:
+\end_layout
+
+\begin_layout Itemize
+Model to evaluate the home price
+\end_layout
+
+\begin_layout Itemize
+Model to evaluate the easiness of fix-up
+\end_layout
+
+\begin_layout Standard
+Q:
+\end_layout
+
+\begin_layout Itemize
+Exposure to other areas, like Fraud, ....
+\end_layout
+
+\begin_layout Itemize
+Since we didn't have any score model yet, so we didn't have any legacy issue.
+ So do you want to use the industry-standard model, like logistics score-card,
+ or do we have the ambition to go into the machine learning area and try
+ something new like random forest, which is not widely used in consumer
+ banking industry,
+\end_layout
+
+\begin_layout Itemize
+I was waiting for the decision from Beimin for a month until I got offer
+ from JPMC, who gave me 48 hour to reply.
+ So I got no choice but accept it.
+ Then one week later I got a call from Beimin saying that she would like
+ to give me the offer, 
+\end_layout
+
+\begin_layout Section
+A
+\end_layout
+
+\begin_layout Standard
+Outage Capacity 1.
+ the probability that the capacity of the system is less than a capacity
+ threshold.
+ Learn more in: Radio Channel Modeling and Propagation Prediction for 5G
+ Mobile Communication Systems 
+\end_layout
+
+\begin_layout Standard
+reliability engineering
+\end_layout
+
+\begin_layout Subsection
+Technical Data Analyst - Capacity Forecasting and Planning 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Our Search Operations team operates one of the Internet's largest search
+ infrastructures, made up of thousands of servers, supporting millions of
+ customers performing hundreds of millions of queries - all delivered in
+ milliseconds.
+ Members of this team are continuously working to maximize performance,
+ availability and efficiency to help solve complex scaling and growth challenges.
+\end_layout
+
+\begin_layout Standard
+Responsibilities:
+\end_layout
+
+\begin_layout Standard
+Build and maintain statistical models for time series data to forecast future
+ growth in such parameters as search volume and catalog size.
+ Scale Amazon Search by working closely with service owners in engineering
+ and operations to understand the service in depth and drive optimal scaling
+ and capacity planning.
+ Analyze resource utilization and performance test data to identify variables
+ impacting performance and scalability.
+ Develop models for required hardware resources to meet current and future
+ SLAs.
+ 
+\end_layout
+
+\begin_layout Itemize
+Manage planning, ordering, and budgeting for hardware and other computational
+ resources.
+ 
+\end_layout
+
+\begin_layout Itemize
+Develop and improve tools for automating the foregoing responsibilities
+ wherever possible.
+\end_layout
+
+\begin_layout Standard
+Basic Qualifications:
+\end_layout
+
+\begin_layout Standard
+Bachelor’s Degree in a data-oriented field like Statistics, Economics, Engineeri
+ng, or basic sciences.
+ At least 1 years industry experience in predictive statistical modeling.
+ At least 5 years industry experience in analyzing and reporting on structured,
+ semi-structured, and unstructured data.
+ At least one year experience in identifying metrics and KPIs, gathering
+ data and presenting decks, dashboards and scorecards.
+\end_layout
+
+\begin_layout Standard
+Preferred Qualifications:
+\end_layout
+
+\begin_layout Standard
+Past experience in capacity planning or performance measurement methods.
+ Programming ability in SQL, Python, Perl, or Java.
+ Experience working with large-scale distributed software systems.
+ Experience dealing with engineering or financial data using desktop or
+ web-based tools.
+\end_layout
+
+\begin_layout Section
+Real Questions
+\end_layout
+
+\begin_layout Subsection
+Behavior
+\end_layout
+
+\begin_layout Itemize
+Leadership
+\end_layout
+
+\begin_layout Itemize
+Conflict
+\end_layout
+
+\begin_layout Itemize
+how to explain technical stuff to non-techniqual people
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+if they don't know what you are doing, you don't know what you are doing
+ wrong.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Classification/ClusteringReal Questions
+\end_layout
+
+\begin_layout Itemize
+Separate business trips with personal trips
+\end_layout
+
+\begin_layout Itemize
+If this model as a product, how to evaluate it
+\end_layout
+
+\begin_layout Itemize
+Identify Frauld in Uber: fake signup to get the signup bonus
+\end_layout
+
+\begin_layout Itemize
+Identify whether the Twitter user is an individual advertise or an advertiser
+ managed by agents.
+\end_layout
+
+\begin_layout Subsection
+Fraud Types
+\end_layout
+
+\begin_layout Standard
+how many fraud types Circle may have
+\end_layout
+
+\begin_layout Subsection
+SQL
+\end_layout
+
+\begin_layout Standard
+Rank
+\end_layout
+
+\begin_layout Part
+Method
 \end_layout
 
 \begin_layout Subsection
@@ -4691,11 +1386,11 @@ HR 面试 详细准备 why that company，what's your current role.
 \end_layout
 
 \begin_layout Subsection
-Behvaior Questions
+Behavior Questions
 \end_layout
 
 \begin_layout Itemize
-For behavior questions, when no need to discribe an example, use short sentences
+For behavior questions, when no need to describe an example, use short sentences
 , 
 \end_layout
 
@@ -4706,7 +1401,7 @@ Never say a single word indicating that you are looking for other opportunities!
 
 \begin_deeper
 \begin_layout Itemize
-You can mention some hobbies not related to the job to intrigure the interest
+You can mention some hobbies not related to the job to intrigue the interest
  of interviewer, 
 \end_layout
 
@@ -4716,7 +1411,7 @@ Prepare Interview
 \end_layout
 
 \begin_layout Itemize
-Prepare a lot of interesting talk-points, and practise, you never know when
+Prepare a lot of interesting talk-points, and practice, you never know when
  you will use them.
 \end_layout
 
@@ -4755,8 +1450,8 @@ In the Interview
 \end_layout
 
 \begin_layout Itemize
-Speak out your Achivements: Learn Machine Learning! R Package!--- as No
- one read your resume! Those who read it will never remeber the highlights
+Speak out your Achievements: Learn Machine Learning! R Package!--- as No
+ one read your resume! Those who read it will never remember the highlights
  you want to highlight! 
 \end_layout
 
@@ -4766,7 +1461,7 @@ Always answer questions like you know this industry / business a lot
 
 \begin_deeper
 \begin_layout Itemize
-Never show that you are gussing, even if you are prepared and smart enough
+Never show that you are guessing, even if you are prepared and smart enough
  to guess it right.
 \end_layout
 
@@ -4791,7 +1486,7 @@ You may get wrong in the particular questions / answer, But you want to
 \begin_layout Itemize
 
 \series bold
-Alwasy think a while, then talk!
+Always think a while, then talk!
 \end_layout
 
 \begin_layout Itemize
@@ -4805,7 +1500,7 @@ List what your prepare to talk
 \end_layout
 
 \begin_layout Itemize
-how you woul construct answer: 总分总，一二三
+how you would construct answer: 总分总，一二三
 \end_layout
 
 \begin_layout Itemize
@@ -4830,7 +1525,7 @@ describe your reasoning, answer in 1, 2, 3.
 \end_layout
 
 \begin_layout Itemize
-If the machine learnign problem you gave didn't solve the problem, then
+If the machine learning problem you gave didn't solve the problem, then
  use business sense / Heuristics / Recursively way
 \end_layout
 
@@ -4858,7 +1553,7 @@ Could you give me context? Or describe the data?
 \end_deeper
 \begin_layout Itemize
 If a question is about a fact, and you are not sure.
- Then answer how you would use the data to reveal the knowlege
+ Then answer how you would use the data to reveal the knowledge
 \end_layout
 
 \begin_deeper
@@ -4890,18 +1585,18 @@ Analytical Interview
 \end_layout
 
 \begin_layout Itemize
-套话：im trying to link this business prolem into an particual matchine learning
- algorithm
+套话：I'm trying to link this business problem into an particular matchine
+ learning algorithm
 \end_layout
 
 \begin_layout Itemize
-套话：choose the right features is always about Business Kownlege.
+套话：choose the right features is always about Business Knowledge.
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-When given you situations too vagure, you need to choose
+When given you situations too vague, you need to choose
 \end_layout
 
 \begin_deeper
@@ -4926,7 +1621,7 @@ never give short answer!
 
 \begin_deeper
 \begin_layout Itemize
-Alwasy illustration what this algorithm give you, what's the assumption,
+Always illustration what this algorithm give you, what's the assumption,
  what's s good or bad for it, or compare it with others
 \end_layout
 
@@ -4947,7 +1642,7 @@ ML problems are often asked implicitly in a business case
 
 \begin_deeper
 \begin_layout Enumerate
-First descirbe different siutations this problem sit it.
+First describe different situations this problem sit it.
  
 \end_layout
 
@@ -4978,7 +1673,7 @@ Give you soft label (percentage) or hard label
 \end_deeper
 \end_deeper
 \begin_layout Enumerate
-Then discribe the business sense / relations between 
+Then describe the business sense / relations between 
 \end_layout
 
 \begin_deeper
@@ -5163,7 +1858,122 @@ Exclamation Mark.
 省略号 suspension points
 \end_layout
 
-\begin_layout Part
+\begin_layout Section
+Self-Intro
+\end_layout
+
+\begin_layout Subsection
+School
+\end_layout
+
+\begin_layout Itemize
+I study computational economics and finance during the school, 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+I took some machine learning courses, but mainly focus econometrics and
+ time series.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+But Beyond shcool, I also spend a lot time taking online courses for machine
+ learning, and I have read two or three machine learnign graduate-level
+ textbooks 
+\end_layout
+
+\begin_layout Subsection
+First Y at FNBO
+\end_layout
+
+\begin_layout Itemize
+We design strategies for different 
+\series bold
+actions
+\series default
+ for credit card 
+\series bold
+product --- 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+When you apply our card, we decide whether we want to approve your application,
+ based on 
+\series bold
+your FICO score, income, debt, mortgage, past payment behavior
+\end_layout
+
+\begin_layout Itemize
+Then we need to decide how much credit limit we want to give you, whether
+ it is 1000 or 10000, 
+\series bold
+the idea is
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We want to give you enough line to 
+\series bold
+Encourage
+\series default
+ you to do more spending and carry more balances
+\end_layout
+
+\begin_layout Itemize
+But we don't want to you too much otherwise if you didn't pay back to us,
+ we will lose a lot
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+We also do lot of marketing stuff -- our goal is to 
+\series bold
+optimize
+\series default
+ the the total profit of a campaign
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+So we need to carefully design the credit card offers to balance the response
+ rate and profit margin.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+I also spent a lot time interacting with marketing, operational or IT people.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+listen to their ideas 
+\series bold
+when we design
+\series default
+ the strategy
+\end_layout
+
+\begin_layout Itemize
+get to their feedback 
+\series bold
+when we implement
+\series default
+ this strategy.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+So you see this kind of job really helps you understand the business, understand
+ the product, because everything you did defines the features of a product,
+ and would have a direct impact on customers.
+\end_layout
+
+\begin_layout Subsection
 2
 \begin_inset script superscript
 
@@ -5174,10 +1984,6 @@ nd
 \end_inset
 
  year at First National Bank of Omaha
-\end_layout
-
-\begin_layout Subsubsection
-Summary
 \end_layout
 
 \begin_layout Itemize
@@ -5252,3203 +2058,6 @@ Traditional model can only start from the very beginning of the loan, this
 Also this is the account level model, so you can group whatever way you
  want.
  
-\end_layout
-
-\begin_layout Subsection
-Model: One Single Model for Multi-Purposes
-\end_layout
-
-\begin_layout Standard
-Why one model
-\end_layout
-
-\begin_layout Itemize
-So you see we have multiple customers: marketing, Treasury and Finance.
- So we have to build the forecasting model that is 
-\series bold
-Generic and Flexible enough
-\series default
- that can serve those customers' need at the same time.
- We don't want to build separate models just to serve separate customers
- and different proposes, because essentially they have the same purposes:
- measure the risk of a product under different scenarios.
-\end_layout
-
-\begin_layout Itemize
-Also, Revenue and Loss shall naturally connected and modeled within one
- framework.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Thy practice to biuld a model to forecast revenue and then biuld a model
- to forecast loss separately is flawed and redudent.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-So what we are trying to do now, is to build one single loss forecasting
- model for a product, and that model has enough 
-\series bold
-flexibility and scalability
-\series default
- that can extent itself to model the loss at Campaign level, 
-\end_layout
-
-\begin_layout Enumerate
-offer level, 
-\end_layout
-
-\begin_layout Enumerate
-then all the way up to the whole portfolio level, which can be used for
- stress testing.
-\end_layout
-
-\begin_layout Standard
-Otherwise: have multiple models for that product: we have one model to decide
- the potential loss of a campaign, we have another model for collection,
- then we have another model for regulators, like stress testing.
-\end_layout
-
-\begin_layout Standard
-AND to maintain those models turns out a huge 
-\series bold
-burden
-\series default
- to a middle-size bank like us.
-\end_layout
-
-\begin_layout Subsection
-Behavior: Team work Experience: work with marketing
-\end_layout
-
-\begin_layout Standard
-An example to work with marketing
-\end_layout
-
-\begin_layout Standard
-In our bank we have a monthly meeting to decide to what kind of campaign
- we want to launc, and I need to provide a loss forecasting for this campaign.
-\end_layout
-
-\begin_layout Standard
-If my loss forecasting is too high, and their campaign can not pass the
- Profit hurdle and so they cannot mail the campaign, so often they first
- come to us to argue the forecasting is way to high
-\end_layout
-
-\begin_layout Enumerate
-Be 
-\series bold
-Patient
-\series default
-, because they don't know
-\change_deleted 16419249 1473432042
- 
-\change_unchanged
- modelling at all.
- 
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-consistent
-\series default
- : We also try our best to keep our loss forecasting 
-\series bold
-consistent
-\series default
-, so they can have a clear expectation of what offer will pass the profit
- hurdle, what will not.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-So everytime before we run the forecasting, we have to talk to them and
- really understand what they 
-\series bold
-expect.
- 
-\series default
-We don't want to give them a surprise.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-Be Proactive:
-\series default
- Whenever we made saw some differences in forecasting, I don't wait them
- to come to me, I try to be active to, to talk to them first.
- 
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Go further: make the model accessible to everyone.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-This is a huge change of our role: originally we are so 
-\series bold
-obsessed
-\series default
- with the modelling and just though out the output to our business partners,
- 
-\end_layout
-
-\begin_layout Enumerate
-Now we are trying to make the model as a 
-\series bold
-product
-\series default
-, 
-\series bold
-a product that is easy to be used by everyone
-\series default
-.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-
-\series bold
-So in this way, we build a very good working relationship.
- We still have tensions, because Credit Risk and Marketing are naturally
- having opposite interest: we want to control and they want to expand.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-But by being more active, more consistent, and communicating more, we worked
- really well.
-\end_layout
-
-\begin_layout Subsection
-Business: Serve Customer of Model
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Background
-\end_layout
-
-\begin_layout Itemize
-Originally, our model is coded in R, and every time Marketing sends us the
- campaign they want to launch, we plug the characteristics of the campaign
- into our model and give the output back to marketing.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Problem
-\end_layout
-
-\begin_layout Itemize
-The problem is, only we know how to play the model,
-\end_layout
-
-\begin_layout Itemize
-So to the marketing people, our model is a 
-\series bold
-black box
-\series default
-, or our whole modelling department is a black box.
- But they user and consumer of the model, don't even have access to the
- model.
- 
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Solution
-\end_layout
-
-\begin_layout Itemize
-instead of using the model for each campaign at one time and using the model
- only we know the campaign.
- 
-\end_layout
-
-\begin_layout Itemize
-I 
-\series bold
-summarized
-\series default
- all the historical campaigns and find all possible 
-\series bold
-Combination and Permutations
-\series default
-, for example, different combinations of APR, fees, channels etc.
- In total there are hundreds of possible campaigns.
- 
-\end_layout
-
-\begin_layout Itemize
-Output the model's result into a pivot table in excel, with some dynamic
- graphs, where you can click the VBA button so that they can choose mix
- of offers, channels and segmentation and automatically see the loss curve
- and profit curve.
- 
-\end_layout
-
-\begin_layout Itemize
-So after this become a user tool, when marking design their offer, they
- will see the profitability and loss vividly 
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Take-Away 
-\end_layout
-
-\begin_layout Itemize
-The efficacy /ˈefəkəsē/ of your model does not only depend on the model
- itself, but on how the model users use the result your model.
-\end_layout
-
-\begin_layout Subsection
-Business: Communicating with Marketing in loss curves
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Background
-\series default
- / 
-\series bold
-Problem
-\series default
-:
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-There is a natural conflict between any marketing person and a risk person.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-They have strong interests to question the accuracy of our loss curves,
- but only when it is so high to let their campaign fail in P&L evaluation.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-They are non- technical people; they have no idea in 
-\series bold
-overfitting
-\series default
-.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Example
-\series default
-: 
-\end_layout
-
-\begin_layout Itemize
-Sometimes you have to convince them
-\series bold
- one good performance campaign cannot represent anything
-\series default
-, 
-\series bold
-what we want to see is a continues good performance for all similar campaigns.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Solution
-\end_layout
-
-\begin_layout Itemize
-You have to really show a large amount of historical data and show them
- graph.
-\end_layout
-
-\begin_layout Enumerate
-Be active: talk to them before they talk to you.
- To show you are a 
-\series bold
-\emph on
-responsible and responsive
-\emph default
- person.
-
-\series default
- 
-\end_layout
-
-\begin_layout Enumerate
-Be consistent on your result 
-\end_layout
-
-\begin_layout Enumerate
-Be Patient 
-\end_layout
-
-\begin_layout Subsection
-Model: How to estimate the 6-year loss curve without enough late-life data?
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Problem
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-It is hard to find a closed form equation to generate a loss curve at once.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-there are so many dynamics in shape of the curve, how high the peak is,
- when is the peak, or what happens after the peak (should it stay high,
- or sharply decrease or slowly decrease).
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Also As this product just launced in 2013, we don't have data for the late
- stages of the product -- we don't know its behavior after 4ths year
-\end_layout
-
-\begin_layout Enumerate
-Splines or moving average smooth lines doesn't work here because:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-They may fit the traning data faily well, but suffers overfitting problem.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Especially this product launched since 2013, so at that time we didn't have
- long enough data to get a stable enough curve.
-\end_layout
-
-\begin_layout Enumerate
-Also accounts with different FICO or in different loan terms shall naturally
- have different shapes of the curve.
- When I mean different shapes I mean you cannot just adjust the curve proportion
-ally to fit different risk groups.
- 
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Standard
-
-\series bold
-Solution
-\end_layout
-
-\begin_layout Itemize
-The way we solve this problem is, we will not 
-\series bold
-try forecast the whole life of the product at once
-\series default
-, instead, we biuld a model to forecast only one month ahead.
- 
-\end_layout
-
-\begin_layout Itemize
-Once we got the forecasted next month status, we plug in this forecasted
- result into our model again, to forecast the Next Next Month.
-\end_layout
-
-\begin_layout Itemize
-So we do this recursively until we get the end of loan.
-\end_layout
-
-\begin_layout Subsection
-Model: Incorporate all dynamics of custormer behavior together.
- 
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Problem
-\end_layout
-
-\begin_layout Standard
-Another difficulty we found is, although the purpose of this model is to
- predict loss, but to get loss acurately, 
-\end_layout
-
-\begin_layout Enumerate
-The dollar loss rate is determined by PD but also determined by the charge
- off amount (EAD)
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-That's why you need to predict balance, which means you have to predict
- the payment..
- 
-\end_layout
-
-\begin_layout Enumerate
-PD and payment are not separated things.
- They are interactive with each other.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-If a customer keeps making the early payment, then his EAD is low, PD is
- also low.
- --- Thus PD, and Payment -- 
-\series bold
-They shall be incorporated in the one forecasting system.
- 
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Standard
-
-\series bold
-Solution
-\end_layout
-
-\begin_layout Itemize
-The way we are doing this is, we create multiple equations and each equation
- just described one single kind of behavior.
- We got one equation to forecast deliqnuency, another one to forecast early
- payment.
- When we use them, we link them together.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-We first run all the accounts through the delinquency equation, 
-\end_layout
-
-\begin_layout Itemize
-Then if the account is not predicted to be delinquent,
-\series bold
- given that predicted information
-\series default
-, we plug it in the second equation to predict early payment.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Because you know the initial balance at time 0, now you also know their
- payment at T, you can easily get the balance at T (which is your EAD)
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Itemize
-
-\series bold
-So each time, we just focus on one kind of behavior, then predict it, then
- utilize the updated information to predict another kind of behavior
-\end_layout
-
-\begin_layout Itemize
-After going through all thouse equations, we get full information for an
- accoutn at T: then plug the result into these system again to predict T+1
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Take-Away
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-So in this way, we decompose the complexity of different customer behaviors
- into each single small pieces, and attack them separately, 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Then by linking these different equations, we can forecast the PD and EAD
- together, simultaneously.
-\end_layout
-
-\begin_layout Subsection
-Project: credit card model
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Background:
-\end_layout
-
-\begin_layout Itemize
-For credit card model, my job is to maintain it and improve it.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Problem:
-\end_layout
-
-\begin_layout Itemize
-Originally it was purely excel-based and required a lot manual effort when
- you want to use the model.
- There are 
-\series bold
-v-loop up
-\series default
-, 
-\series bold
-update pivot table
-\series default
-, 
-\series bold
-VBA
-\series default
- and 
-\series bold
-solver
-\series default
-\SpecialChar \ldots{}
-..
- 
-\end_layout
-
-\begin_layout Itemize
-Bascially it is to smooth the historical performance for each kind of offer.
- Then acoording to the campaign request, we do a weighted average of different
- curves of different offers to generate overall campaign curve.
-\end_layout
-
-\begin_layout Itemize
-Excel is 
-\series bold
-best for some simple and stable model
-\series default
-, but when things become complex and you keep adding new features into it,
- it is very easy to break down and become un-maintainable.
-\end_layout
-
-\begin_layout Itemize
-We have a 3-page long document to explain
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-what shall do, 
-\end_layout
-
-\begin_layout Itemize
-what you shall watch out, 
-\end_layout
-
-\begin_layout Itemize
-what you might be missing when you use model.
- 
-\end_layout
-
-\begin_layout Itemize
-So it normally requires 30 minutes to generate one single curve 
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-
-\series bold
-Solution.
-\end_layout
-
-\begin_layout Itemize
-So after I took over the job I completely re-wrote the whole thing using
- R.
- So now it is super user-friendly, you just need to type the input of a
- campaign (PA/ITA, DM/BRANCH, BT/PO\SpecialChar \ldots{}
-..)\SpecialChar \ldots{}
- 
-\end_layout
-
-\begin_layout Itemize
-AUTO validation with historical data, AUTO -- Visualization\SpecialChar \ldots{}
-.
- 
-\end_layout
-
-\begin_layout Part
-1'st Year at First National Bank of Omaha
-\end_layout
-
-\begin_layout Itemize
-We design strategies for different 
-\series bold
-actions
-\series default
- for credit card 
-\series bold
-product --- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-When you apply our card, whether we want to approve your application, based
- on your FICO score, income, debt, mortgage, past payment behavior
-\end_layout
-
-\begin_layout Itemize
-Then we need to decide how much credit limit we want to give you, whether
- it is 1000 or 10000, 
-\series bold
-the idea is
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-We want to give you enough line to 
-\series bold
-Encourage
-\series default
- you to do more spending and carry more balances
-\end_layout
-
-\begin_layout Itemize
-But we don't want to you too much otherwise if you didnt pay back to us,
- we will lose a lot
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Itemize
-We also do lot of marketing stuff -- our goal is to optimize the the total
- profit of a campaign
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-So we need to carefully design the credit card offers to balance the response
- rate and profit margin.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-I also spent a lot time interacting with marketing, operational or IT people.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-listen to their ideas 
-\series bold
-when we design
-\series default
- the strategy
-\end_layout
-
-\begin_layout Itemize
-get to their feedback 
-\series bold
-when we implement
-\series default
- this strategy.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-
-\series bold
-So you see this kind of job really helps you understand the business, understand
- the product, because everything you did defines the features of a product,
- and would have a direct impact on customers.
-\end_layout
-
-\begin_layout Subsection
-CLI Optimization
-\end_layout
-
-\begin_layout Standard
-We first do the segmentation of customers based on their behavior and risk.
- 
-\end_layout
-
-\begin_layout Itemize
-For example, if a customer just uses our card for gas and grocery and restaurant
-, and payback in full every month, then he didn't need the line increase.
-\end_layout
-
-\begin_layout Itemize
-But if the customer keeps 90% balance in our card all the time, that means
- an incremental increase of his limit will
-\series bold
- induce
-\series default
- him to carry on more balances on us, so incrementally, we make more money.
-\end_layout
-
-\begin_layout Subsection
-Project: Marketing Campaign
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Background
-\series default
-: 
-\end_layout
-
-\begin_layout Itemize
-everymonth we send out direct mails, emails to certain group of potential
- customers to invite them to apply our credit cards.
- 
-\end_layout
-
-\begin_layout Itemize
-The key metric of this campaign is the 
-\series bold
-respons rate,
-\series default
- (which is 
-\series bold
-quite similar with Converstion Rate
-\series default
-).
- But 
-\series bold
-for us this is not the whole story
-\series default
-, the metric we truely cares is about how much money we can make per customers.
- 
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Problem
-\end_layout
-
-\begin_layout Itemize
-So there are two 
-\series bold
-dynamics / trade offs 
-\series default
-there
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-What 
-\series bold
-risk segment 
-\series default
-of customers you want to target.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-if you target the high risk customers, like 
-\series bold
-low FICO & low Inocme
-\series default
-, the response rate is high, but loss is high also, because they need the
- liquidity.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-how good the promotion should be.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-if the offer is too good, for example Huge Reward if you open the card,
- 0 APR for 12m, etc.
- profit margin will shrink.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-So we have to balance the 
-\series bold
-overall response rate and profitability of each responders.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-
-\series bold
-Solution
-\end_layout
-
-\begin_layout Itemize
-So our job there is 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-carefully evaluate the risk dimention of customers, define how deep we want
- to go to the 
-\series bold
-subprime marke
-\series default
-t, ----- RA ROI
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Define good time ROI using the recent data
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Bad time ROI using the crisis historical data.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-and also to tweek the offer keep thr reponse rate same, and at the same
- time keep our profit margin high.
- ------- 
-\end_layout
-
-\begin_layout Itemize
-either by boosting the response rate or boosting the profitbility, but you
- can never get both.
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Subsection
-Project: Minimum Critera
-\end_layout
-
-\begin_layout Standard
-Minimum criteria for a campaign: ROE / ROI in good time and bad time
-\end_layout
-
-\begin_layout Subsection
-A/B test
-\end_layout
-
-\begin_layout Standard
-So every month we send out credit card offers by direct mail or email, to
- invite them to apply our cards.
-\end_layout
-
-\begin_layout Standard
-There are multiple factors of a campaign
-\end_layout
-
-\begin_layout Itemize
-Pricing: rewards, intro APR, go to APR, whether there is balance transfer
- fee.
-\end_layout
-
-\begin_layout Itemize
-Channel: online, email.
-\end_layout
-
-\begin_layout Itemize
-Pre-approval or Invitation to Apply.
-\end_layout
-
-\begin_layout Standard
-So my job there is how to design the offer/criteria to boost the response
- rate, For example, subprime customers really love the low intro-APR or
- balance transfer-offers
-\end_layout
-
-\begin_layout Itemize
-but we don't want to make the offer too rich otherwise we will lose money,
- 
-\end_layout
-
-\begin_layout Itemize
-also we dont want to target those super high risk customers
-\end_layout
-
-\begin_layout Itemize
-because we have some minmum investment hurdle we have to meet.
-\end_layout
-
-\begin_layout Standard
-For example, 
-\end_layout
-
-\begin_layout Standard
-So these are the tricks we found that we can make more money per customer
- but not lose the response rate
-\end_layout
-
-\begin_layout Subsection
-A/B test: Tweak the Offer
-\end_layout
-
-\begin_layout Standard
-For example, if offer / pricing schedual can increase our profit margin
- 5 percent, but drop the response rate by 1 percent, then this offer is
- good for us.
- 
-\end_layout
-
-\begin_layout Standard
-So we need catrefully measure the elasticity to the profitability and elasticity
- to response rate at the same time.
-\end_layout
-
-\begin_layout Itemize
-So our goal is there is to tweak the offer to make it looks like good, but
- actually not that good.
-\end_layout
-
-\begin_layout Itemize
-one thing we find there that the customers are not really sensitive the
- go-to-APR, which means if you increase your go-to APR from 18% to 22%,
- the response rate didn't drop too much.
- 
-\end_layout
-
-\begin_layout Itemize
-Also customers are not that customers are not that sensitive to the duration
- of intro APR, which means if you shorten your intro-APR from 18m to 11m,
- response rate didn't change much.
-\end_layout
-
-\begin_layout Subsection
-Optimization
-\end_layout
-
-\begin_layout Itemize
-Response rate 
-\begin_inset Formula $\times$
-\end_inset
-
- profit per responders.
-\end_layout
-
-\begin_layout Enumerate
-First step of the optimization is to find the right offer to the right custome,
- which means we need to segment customers on their behavior and their risk.
- So it is a two-dimention matrix.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-A lot of debt: then we want to give them a balance transfer offer
-\end_layout
-
-\begin_layout Itemize
-Travel a lot: credit card with airline points.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Second step is find the best pricing for each group of the customer.
- We just plug in different pricing shcedual into the model to simulate the
- ROI under different pricing.
- Then you choose 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-
-\series bold
-ROI model is combination of models: it contains response rate model, then
- default probability model.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Then we run the simulation through our forecasting model to see how the
- ROI moves with the pricing of the offer.
- 
-\end_layout
-
-\begin_layout Subsection
-Adverse Selection
-\end_layout
-
-\begin_layout Standard
-There are two perspectives in the Adverse Selection problem
-\end_layout
-
-\begin_layout Subsubsection*
-Risk Perspective: when the offer is bad
-\end_layout
-
-\begin_layout Itemize
-Observable Information: Accept inferior offers have inferior observable
- characteristics; and the customers who accept inferior offers experience
- more defaults.
-\end_layout
-
-\begin_layout Itemize
-Hidden Information: even controlling other risk factors
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-The pool of consumers who accept an offer displays inferior characteristics
- as compared to the pool of consumers who reject an offer, 
-\end_layout
-
-\begin_layout Itemize
-The pool of consumers who accept an inferior contract exhibits inferior
- characteristics as compared to the pool of consumers who accept a better
- offer.
-\end_layout
-
-\begin_layout Itemize
-These coefficients can be interpreted as saying that, even after controlling
- for all information known to the card issuer at the time that the account
- is opened, respondents to a solicitation with an introductory interest
- rate 1 percent higher have a delinquency probability that is 1.2 percentage
- points higher, while respondents to a solicitation with an introductory
- offer which lasts 3 months longer have a delinquency probability that is
- 1.7 percentage points lower.
-\end_layout
-
-\end_deeper
-\begin_layout Subsubsection*
-Marketing Perspective: when the offer is too good
-\end_layout
-
-\begin_layout Itemize
-Adverse Selection on gamers/shoppers (not necessarily risky customers):
- since the data set continues to track customers after the end of the introducto
-ry period, it allows us to examine consumers who switch once are more likely
- to switch a second time.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Then after controlling for all observable information, respondents to a
- solicitation with an introductory interest rate that is 1% lower have an
- activity probability that is 2.6% lower (i.e., an attrition probability that
- is 2.6% higher).
- 
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Project: Inactive Closure
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Problem
-\end_layout
-
-\begin_layout Itemize
-The longer the card stays inactive, 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-the less probability it will be come active.
- 
-\end_layout
-
-\begin_layout Itemize
-And when it became active, it became more and more riskier.
-\end_layout
-
-\begin_layout Itemize
-We call them timing bomb, because if an economic crisis happens, those guys
- might suddenly use our card and charge-off.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-But you don't want to close them too early, because if they become active,
- you still have the chance of making money from them.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Solution
-\end_layout
-
-\begin_layout Itemize
-So the optimal closure for an account is to evaluate marginal cost = marginal
- benefit of maintaining them
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Marginal cost is maintaining an account one more month.
-\end_layout
-
-\begin_layout Itemize
-Marginal benefit is all the expected profit when it becomes active multiply
- the probability of becoming active next month.
- Note that the profit might be negative even.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-And the dynamics of MC and MR changes as the account remains in inactive
- longer and longer.
- So by applying this simple economic ideas to this problem, we find a way
- to identify the optimal points of closing an account.
-\end_layout
-
-\begin_layout Itemize
-Conclusion: we apply our method to different customers in different risk
- groups, find different optimal closure points for them.
-\end_layout
-
-\begin_layout Subsection
-Product: Consistency of risk policy
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Example
-\series default
-: 
-\end_layout
-
-\begin_layout Itemize
-one customer can get a marketing offer from us and then suddenly get a line
- decrease, simply because these two strategies did not talk to each other.
-\end_layout
-
-\begin_layout Standard
-Solution
-\end_layout
-
-\begin_layout Itemize
-We group all of our actions into two groups: positive actions and negative
- actions, and we re-design all of our strategies to make sure that a customer
- who gets positive action from us will not receive a negative action within
- three months.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-This idea is to insure consistency and clearness when you do actions on
- customers.
- 
-\end_layout
-
-\begin_layout Itemize
-This idea may sound like simple and natural but we didn't realize until
- 2012.
- 
-\end_layout
-
-\begin_layout Itemize
-So we decided to group customers to LOW, MEDIUM/LOW, MH, HIGH.
- Positive actions only happen in LOW and ML, negative actions only happen
- in HIGH.
- For Medium High, we leave it as grey area and has no action on it, neither
- positive or negative actions.
- So that we create a 
-\series bold
-grey area between good customers and bad customers, even if they migrate,
- it is hard for them to migrate directly from ML to H.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Take-Away
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Sometimes I think, as analysts, we are too obsessed into building each individua
-l strategies along, but forget the big picture, which is different strategies
- have to work together.
-\end_layout
-
-\begin_layout Subsection
-Why First National Bank of Omaha
-\end_layout
-
-\begin_layout Enumerate
-My original goal is to apply Finance PhD.
- So I applied the five or three of the top 20 schools, but it turned out
- that the admission of Finance PhD is super competitive, and normally they
- just enroll 2-3 people each year.
- 
-\end_layout
-
-\begin_layout Enumerate
-So you see I was over-confident about my self at that time.
- AND when it came to 2013 March, I got rejections from all of those schools.
- 
-\end_layout
-
-\begin_layout Enumerate
-So I say if I cannot stay in academia, let's try Industry.
- 
-\end_layout
-
-\begin_layout Subsection
-Why change from Policy to Risk 
-\end_layout
-
-\begin_layout Itemize
-Because one guy who worked on loss forecasting left, and the manager in
- loss forecasting approached me to see why I like to move.
- 
-\end_layout
-
-\begin_layout Itemize
-I say why not.
-
-\series bold
- It is always good to try some new things and get challenged
-\series default
-.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-You know when you stay in one area too long, you become more and more comfortabl
-e with your work, and thus your learning curve gets flatter and flatter,
- and you slowly loose your passion.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-I think the ideal situation is, you keep yourself being challenged, learning
- and trying new things.
- That's how you advance in your career.
- 
-\end_layout
-
-\begin_layout Part
-R packages
-\end_layout
-
-\begin_layout Subsection
-Behavior: Why R package
-\end_layout
-
-\begin_layout Itemize
-When you got some ideas, or when you build some cool stuff, you really want
- to show off to people, 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-and the best way to show off to people is to 
-\series bold
-share it by contributing
-\series default
- open-source projects.
-\end_layout
-
-\begin_layout Itemize
-so that everyone can use it and change it and help you improve it.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-And this sharing process also 
-\series bold
-in turn
-\series default
- 
-\series bold
-force
-\series default
- you to 
-\series bold
-improve and refine 
-\series default
-your work, as You want to really make it 
-\series bold
-elegant, simple and user friendly
-\series default
-.
-\end_layout
-
-\begin_layout Standard
-I got emails from Singapore, Brazil and India.
- It is exciting that someone in the world is actually using your work to
- do their own stuff.
- So I think that's exactly why there are so many people want to contribute
- their work to open source software's like R or Python.
-\end_layout
-
-\begin_layout Subsection
-Model: Cointegration
-\end_layout
-
-\begin_layout Standard
-Generally stock prices are un-predictable because they are 
-\series bold
-random walk and thus not stationary.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-F(x_{t}1+\tau,....x_{t}k+\tau)=F(x_{t}1,....x_{t}k)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-But there is one professor called Granger: he found although each single
- random walk along might be un-stationary and un-predictable, but when you
- combine them, they may have a 
-\series bold
-stationary
-\series default
- relationship between each other.
-\end_layout
-
-\begin_layout Standard
-For example, you may always find the UK market and US market move together.
- That is a simple 2-dimentional stationary relationship between non- stationary
- time series
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Speaking in mathematics
-\series default
-:
-\end_layout
-
-\begin_layout Itemize
-there might exist a stable linear combination of random walks.
- 
-\end_layout
-
-\begin_layout Itemize
-If there are N random walks in your system, then at most there are N-1 such
- linear combinations.
- 
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Common Trend
-\end_layout
-
-\begin_layout Itemize
-When there are N-1 linear combinations, we call it we only have one-degree
- of freedom in the system, or in other words: there is only one stochastic
- common trend that drives the whole different N random walks.
- 
-\end_layout
-
-\begin_layout Itemize
-Also if there are N-2 linear combinations, then there are 2 common trend
- driving the N random walks.
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Common Trend
-\series default
- 
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Economic meaning
-\end_layout
-
-\begin_layout Standard
-If there are one single common trend, that means the whole stock markets
- in the world are driven by one single global risk factor.
- That means the global stock market is fully integrated.
-\end_layout
-
-\begin_layout Subsection
-Getting Variables from a Formula
-\end_layout
-
-\begin_layout Standard
-This is a quite fundamental and infrastructure-like work, and it is not
- super hard to do, and I'm surprised that no one has done it.
-\end_layout
-
-\begin_layout Standard
-A lot of times you want to extract THE variables you are using in a formula,
- for example
-\end_layout
-
-\begin_layout Standard
-Y = X + X‸2
-\end_layout
-
-\begin_layout Standard
-Then depend on what's your background and the empirical context, there are
- two answers:
-\end_layout
-
-\begin_layout Standard
-One: there is two variables there: X and X‸2
-\end_layout
-
-\begin_layout Standard
-Second: there is only one variable: X
-\end_layout
-
-\begin_layout Standard
-A lot of empirical economist tend to think there is only one variable there,
- as they care about how to quantify the relations between X and Y, not the
- particular coefficient of X‸2 itself.
-\end_layout
-
-\begin_layout Standard
-A more complex case is: using a categorical variable: Categorical variables
- do not appear in the model as their original format.
- R will think an K-class variable as K-1 variables using certain Contrast
- Coding Systems.
-\end_layout
-
-\begin_layout Subsection
-Model: Intuition of linear.tools
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Background
-\end_layout
-
-\begin_layout Itemize
-A lot of times when we build parametric models, especially linear models,
- we already have PRIOR KNOWLEDGE about how certain independent variables
- may impact the dependent variables.
-\end_layout
-
-\begin_layout Itemize
-Or to be more precise, you already know the direction of marginal impact
- of X on Y
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-A simple Example
-\end_layout
-
-\begin_layout Itemize
-when we build models to forecast whether a customer will pay us or not,
- when know the Unemployment rate will contribute to delinquent rate.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Solution:
-\end_layout
-
-\begin_layout Itemize
-So the first functionality of my package is to 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-TEST the marginal impact assumptions, especially to test the 
-\series bold
-Monotonicity
-\series default
- (because you are using the squared unemployment, the when you visualize
- it, it is a quadratic curve, which may peak at some where) and also visualize
- it using ggplot2, ALL done in one function.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-
-\series bold
-A more Complex Example:
-\end_layout
-
-\begin_layout Itemize
-Normally we use both the level form of U and the squared form of it.
- So you want to insure that the 
-\series bold
-combination
-\series default
- of U and squared U has a positive impact on delinquency rate.
- 
-\end_layout
-
-\begin_layout Itemize
-Note that the
-\series bold
- combined marginal impact 
-\series default
-here is not just coefficient of U + coefficient of squared U.
- You have to do 
-\series bold
-Partial Derivatives
-\series default
- to get the true marginal impact.
- 
-\end_layout
-
-\begin_layout Itemize
-A more complex case is, you may INTERACT this U with other variables, for
- example, you expect the 
-\series bold
-recession
-\series default
- may hit the Low FICO/Low Income harder, than HIGH FICO/high Income people
- -
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-/
-\end_layout
-
-\end_inset
-
-- They are more robust to the economic downturn.
- 
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Solution
-\end_layout
-
-\begin_layout Itemize
-This package is capable to test assumptions for the complex examples I just
- mentions
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Problem:
-\end_layout
-
-\begin_layout Enumerate
-Then when you build models, you really want to plug in that PRIOR KNOWLEDGE
- into your standard machine learning process as Constriant.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-For example, stepwise regression.
- For each iteration they selection models according to AIC or BIC only,
-\end_layout
-
-\begin_layout Enumerate
-My package provides another function that you can specify the marginal effect
- you want, so that in each iteration of stepwise regression, they will first
- exclude all the models with wrong marginal effect.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-We call this marginal effect of one independent variable to the depend.
-\end_layout
-
-\begin_layout Itemize
-Direction of the impact / size of the impact 
-\end_layout
-
-\begin_layout Subsection
-Knowledge: Stochastic Finance
-\end_layout
-
-\begin_layout Standard
-Because stocks prices are random walk in discrete times, when you want to
- apply the normal calculus on this kind of time series, it doesn't work
- simplify the series is not smooth, actually it is pointy everywhere.
-\end_layout
-
-\begin_layout Standard
-The fundamental part of Stochastic Finance is to solve this problem: Ito
- integral
-\end_layout
-
-\begin_layout Subsection
-SAS and R
-\end_layout
-
-\begin_layout Standard
-This is a question of personal tastes.
-\end_layout
-
-\begin_layout Standard
-After all they are just means of achieving some purposes, but they are not
- purposes themselves.
-\end_layout
-
-\begin_layout Standard
-SAS Codes are assets of the company, it is an accumulation of hours of coding,
- testing and frustratings.
- If you delete their macros, they will cry.
-\end_layout
-
-\begin_layout Standard
-So to be a better team player, you have to respect this tradition.
-\end_layout
-
-\begin_layout Part
-Consumer Banking
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Always design your strategy with the flexibility of both good time and bad
- time.
-\end_layout
-
-\begin_layout Subsection
-Dcoumentation
-\end_layout
-
-\begin_layout Itemize
-Creatative part: A way to to refine your thinking, re-look at things in
- a more structured - organized way
-\end_layout
-
-\begin_layout Itemize
-Routine part: copy & paste result etc.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Use techniques to minimize the pain of this part
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-
-\series bold
-Literate Programming
-\end_layout
-
-\begin_layout Subsection
-Modelling: Top-down vs Bottom to Top
-\end_layout
-
-\begin_layout Itemize
-Two ways of modelling, one is to do the segmentation and build models on
- those segmentations.
-\end_layout
-
-\begin_layout Itemize
-The other is to do model at account level.
-\end_layout
-
-\begin_layout Standard
-Account level model has advantages: 
-\end_layout
-
-\begin_layout Enumerate
-A lot of times your model will be used for business purposes, and you may
- want to segment your product into different ways.
-\end_layout
-
-\begin_layout Subsection
-Business: a credit card offers
-\end_layout
-
-\begin_layout Standard
-Three aspects
-\end_layout
-
-\begin_layout Enumerate
-Introductory offer: either BT / Purchasing / One--time reward
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-What is BT-fee, what is the duration of the introductory-offer 
-\end_layout
-
-\begin_layout Itemize
-The goal of the introductory offer is to seduce customers to respond to
- your campaign (either direct mail / in-branch / email).
- 
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Portfolio Offer: after acquisition, to maintain the customer or complete
- in the WALLET SHARE 
-\end_layout
-
-\begin_layout Enumerate
-Transaction-level offer: which is mainly Reward
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-It is costly to the bank 
-\end_layout
-
-\begin_layout Itemize
-The purpose of reward is to seduce customers to use our card, and hopefully
- they 
-\series bold
-cannot
-\series default
- fully payback in each cycle, and thus 
-\series bold
-turn them from translator to revolvers
-\series default
-.
- Thus we can charge them high APR 
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Modeling: Pricing of Loans / Credit Card in Marketing Campaigns.
-\end_layout
-
-\begin_layout Standard
-Go-To rate.
- This is the APR we talk about often.
-\end_layout
-
-\begin_layout Itemize
-I found customers are not very sensitive to go to rate, at least not as
- sensitive to Intro-offers.
- 
-\end_layout
-
-\begin_layout Itemize
-We measure sensitivity using 
-\series bold
-response rate\SpecialChar \ldots{}
-.
-
-\series default
- 
-\end_layout
-
-\begin_layout Itemize
-So one tactic we use is to give Super good Intro-offer to seduce customers
- open the card and build balance.
- And then charge them high go-to APR.
- 
-\end_layout
-
-\begin_layout Standard
-It is super hard to have a closed-form equation that can optimize every
- aspect of pricing, because there are so many factors complicate things.
-\end_layout
-
-\begin_layout Enumerate
-Pricing is just not APR,
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-it has Intro / Reward \SpecialChar \ldots{}
- It has BT/Purchasing \SpecialChar \ldots{}
-.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Pricing is 
-\series bold
-not an One Stage thing
-\series default
-, it 
-\series bold
-is not decided in the acquisition level
-\series default
- 
-\series bold
-along
-\series default
- and never change, because when you book the account, (booking is costly)
- you have to maintain the account, (attached rather than detached)
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-So you have to take care of pricing of any 
-\series bold
-portfolio management offer, rather than just acquisition level
-\series default
- 
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Pricing cannot simply be based on risk.
- Because through 
-\series bold
-Adverse Selection
-\series default
-, pricing on the other hand can affect the risk.
- We cannot simply adjust the pricing proportionally according to FICO or
- other risk factor.
- 
-\end_layout
-
-\begin_layout Enumerate
-Even if you found the perfect pricing where you can optimize your profit
- on each single card member, this does not mean it is an optimization for
- 
-\series bold
-overall profit
-\series default
-.
- The overall profit = Profit for each responder MULTIPLY by number of responders.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-So you really want to 
-\series bold
-release some profit to customers by lowering the price to get more competitive
- and get more responders.
-
-\series default
- 
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Customers are never homogenous, there are translators /revolvers.
- There are smart customers that shop different cards for rich intro-offers.
- There are loyal customers who are so conservative and just use your card.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-So you want to design offers for each of the single type of the customer.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-If there is a possible way to attach this problem, you want to design a
- model for each of the single aspect of the pricing, and link the model
- together.
- Then simulate the results through this 
-\series bold
-system of models to get the optimized pricing.
-\end_layout
-
-\begin_layout Subsection
-Modeling: Pricing and Adverse Selection
-\end_layout
-
-\begin_layout Standard
-See consumer banking model.lyx
-\end_layout
-
-\begin_layout Subsection
-Product: Risk in Consumer Banking
-\end_layout
-
-\begin_layout Standard
-The investment industry defines risk as variance, or uncertainty of profit.
-\end_layout
-
-\begin_layout Standard
-The consumer banking industry define risks as probability of loss.
-\end_layout
-
-\begin_layout Standard
-Why:
-\end_layout
-
-\begin_layout Standard
-When we buy stocks we take some 
-\series bold
-Idiosyncratic
-\series default
- risk, because we only certain amount of stocks and we didn't diversity
- enough.
- So there is uncertainty there.
-\end_layout
-
-\begin_layout Standard
-But when we make loans, for each risk group we have hundreds of thousands
- of customers, so by law of large number our return will converge to average
- return of that risk group.
-\end_layout
-
-\begin_layout Standard
-So the only risk we are taking is systematic risk, the risk that caused
- by the fluctuation of macro economy and will affect every single customer
- at the same time.
-\end_layout
-
-\begin_layout Standard
-We are willing to take this risk because
-\end_layout
-
-\begin_layout Enumerate
-They are un-diversifiable 
-\end_layout
-
-\begin_layout Enumerate
-They are the only risk that can give you reward.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Idiosyncratic risk is the risk that gives you nothing, as they are diversifiable.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Different risk groups have different level of systematic risks, or sensitivity
- to the down turn of economy.
-\end_layout
-
-\begin_layout Part
-Behavioral Questions
-\end_layout
-
-\begin_layout Standard
-"Tell me about two suggestions you have made to your supervisor in the past
- year.
- How did you come up with the ideas? What happened? How do you feel about
- the way things went?" (For creative thinking) "
-\end_layout
-
-\begin_layout Standard
-"Describe a situation where you were responsible for getting others to make
- a change.
- What role did you play and what actions did you take? What was the outcome?
- If you had to do it again, would you do anything differently?" (For adaptabilit
-y)
-\end_layout
-
-\begin_layout Standard
-Teamwork
-\end_layout
-
-\begin_layout Standard
-For questions like these, you want a story that illustrates your ability
- to work with others under challenging circumstances.
- Think team conflict, difficult project constraints, or clashing personalities.
-\end_layout
-
-\begin_layout Standard
-Talk about a time when you had to work closely with someone whose personality
- was very different from yours.
- Give me an example of a time you faced a conflict while working on a team.
- How did you handle that? Describe a time when you struggled to build a
- relationship with someone important.
- How did you eventually overcome that? We all make mistakes we wish we could
- take back.
- Tell me about a time you wish you’d handled a situation differently with
- a colleague.
- Tell me about a time you needed to get information from someone who wasn’t
- very responsive.
- What did you do?
-\end_layout
-
-\begin_layout Standard
-Client-Facing Skills
-\end_layout
-
-\begin_layout Standard
-If the role you’re interviewing for works with clients, definitely be ready
- for one of these.
- Find an example of a time where you successfully represented your company
- or team and delivered exceptional customer service.
-\end_layout
-
-\begin_layout Standard
-Describe a time when it was especially important to make a good impression
- on a client.
- How did you go about doing so? Give me an example of a time when you did
- not meet a client’s expectation.
- What happened, and how did you attempt to rectify the situation? Tell me
- about a time when you made sure a customer was pleased with your service.
- Describe a time when you had to interact with a difficult client.
- What was the situation, and how did you handle it? When you’re working
- with a large number of customers, it’s tricky to deliver excellent service
- to them all.
- How do you go about prioritizing your customers’ needs?
-\end_layout
-
-\begin_layout Standard
-Ability to Adapt
-\end_layout
-
-\begin_layout Standard
-Times of turmoil are finally good for something! Think of a recent work
- crisis you successfully navigated.
- Even if your navigation didn’t feel successful at the time, find a lesson
- or silver lining you took from the situation.
-\end_layout
-
-\begin_layout Standard
-Tell me about a time you were under a lot of pressure.
- What was going on, and how did you get through it? Describe a time when
- your team or company was undergoing some change.
- How did that impact you, and how did you adapt? Tell me about the first
- job you’ve ever had.
- What did you do to learn the ropes? Give me an example of a time when you
- had to think on your feet in order to delicately extricate yourself from
- a difficult or awkward situation.
- Tell me about a time you failed.
- How did you deal with this situation?
-\end_layout
-
-\begin_layout Standard
-Time Management Skills
-\end_layout
-
-\begin_layout Standard
-In other words, get ready to talk about a time you juggled multiple responsibili
-ties, organized it all (perfectly), and completed everything before the
- deadline.
-\end_layout
-
-\begin_layout Standard
-Tell me about a time you had to be very strategic in order to meet all your
- top priorities.
- Describe a long-term project that you managed.
- How did you keep everything moving along in a timely manner? Sometimes
- it’s just not possible to get everything on your to-do list done.
- Tell me about a time your responsibilities got a little overwhelming.
- What did you do? Tell me about a time you set a goal for yourself.
- How did you go about ensuring that you would meet your objective? Give
- me an example of a time you managed numerous responsibilities.
- How did you handle that?
-\end_layout
-
-\begin_layout Standard
-Communication Skills
-\end_layout
-
-\begin_layout Standard
-You probably won’t have any trouble thinking of a story for communication
- questions, since it’s not only part of most jobs; it’s part of everyday
- life.
- However, the thing to remember here is to also talk about your thought
- process or preparation.
-\end_layout
-
-\begin_layout Standard
-Give me an example of a time when you were able to successfully persuade
- someone to see things your way at work.
- Describe a time when you were the resident technical expert.
- What did you do to make sure everyone was able to understand you? Tell
- me about a time when you had to rely on written communication to get your
- ideas across to your team.
- Give me an example of a time when you had to explain something fairly complex
- to a frustrated client.
- How did you handle this delicate situation? Tell me about a successful
- presentation you gave and why you think it was a hit.
-\end_layout
-
-\begin_layout Standard
-Motivation and Values
-\end_layout
-
-\begin_layout Standard
-A lot of seemingly random questions are actually attempts to learn more
- about what motivates you.
- Your response would ideally address this directly even if the question
- wasn’t explicit about it.
-\end_layout
-
-\begin_layout Standard
-Tell me about your proudest professional accomplishment.
- Describe a time when you saw some problem and took the initiative to correct
- it rather than waiting for someone else to do it.
- Tell me about a time when you worked under close supervision or extremely
- loose supervision.
- How did you handle that? Give me an example of a time you were able to
- be creative with your work.
- What was exciting or difficult about it? Tell me about a time you were
- dissatisfied in your work.
- What could have been done to make it better? 
-\end_layout
-
-\begin_layout Subsection
-Q you need to prepare
-\end_layout
-
-\begin_layout Itemize
-Most Challenging 
-\end_layout
-
-\begin_layout Itemize
-What You Learned 
-\end_layout
-
-\begin_layout Itemize
-Most Interesting 
-\end_layout
-
-\begin_layout Itemize
-Hardest Bug
-\end_layout
-
-\begin_layout Itemize
-Enjoyed Most 
-\end_layout
-
-\begin_layout Itemize
-Conflicts with Teammates
-\end_layout
-
-\begin_layout Subsection
-Conflicts
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Attitude
-\end_layout
-
-\begin_layout Itemize
-Engage it, don't be afraid to it.
- Having you own oppion means sometime disagree with other people.
- 
-\end_layout
-
-\begin_layout Itemize
-View it in a positive way, use this get closer to your colleagues, and let
- them know you better.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-This is a chance to earn respects from people by letting people know how
- you think, how you solve a prolem
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-
-\series bold
-Solve
-\end_layout
-
-\begin_layout Itemize
-A lot of time confilcts are caused by mis-information, or asymmetric information
-: 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-then clear communication is the key, share what you know and listen what
- they know
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Or you two have different emphasis on different perspectives of one thing:
- there are bo right or wrong
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Like Marketing vs Risk
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-
-\series bold
-Case
-\end_layout
-
-\begin_layout Standard
-Lower the limit or pull back.
-\end_layout
-
-\begin_layout Standard
-My manager stands at higher level and look at things in holistic way, balance
- different business needs.
-\end_layout
-
-\begin_layout Subsection
-Coorporate with Other Departments
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Empathy:
-\series default
- 
-\series bold
-place oneself in another's position, think about others.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Build your reputation of 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-responsible & responsive
-\end_layout
-
-\begin_layout Itemize
-proactive
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-If depends on the irgency of projects
-\end_layout
-
-\begin_layout Itemize
-It is not that others requirement takes a lot of time, but in a lot senario
- you are in the middle of sth and hard to do something else and refocus.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Normally I will try to respond before / or after lunch, or by the end of
- day.
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-How to set Priority in Work
-\end_layout
-
-\begin_layout Standard
-If there is a clear deadline: Depends on 
-\end_layout
-
-\begin_layout Itemize
-when is the deadline.
-\end_layout
-
-\begin_layout Itemize
-work overtime! 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-work overtime: if this thing is really important and I can finish between
- 1am I'm OK with it.
-\end_layout
-
-\begin_layout Enumerate
-Otherwise, reject it.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-You have to clearly understand you 
-\series bold
-capability and capacity
-\series default
-: --What you can do what you cannot.
-\end_layout
-
-\begin_layout Enumerate
-Also you want to manage the expectation you boss has on you, to let him
- know 
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Reject politely, clearly articulate the reasons, people will understand.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-If no choice, then work overnight -- like old days in the college, before
- the midterm...
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-The hard part is when something is not urgent at all, and not even in priority,
- it is a long term project which may have big, but not immediate impact.
- (for example, you know there is some process/code which is manual and in
- a mess, but still work.)
-\end_layout
-
-\begin_layout Standard
-Then normally whenever I get a whole afternoon or whole day, I prefer to
- spend the whole half day on those things.
-\end_layout
-
-\begin_layout Subsection
-How to Reject the additional work
-\end_layout
-
-\begin_layout Enumerate
-work overtime: if this thing is really important and I can finish between
- 1am I'm OK with it.
-\end_layout
-
-\begin_layout Enumerate
-Reject it very politely, tell the truth.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-You dont want to leave a bad reputation.
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Why A Company?
-\end_layout
-
-\begin_layout Itemize
-Grow a lot here, and learn a lot here, both technically and professionally.
-\end_layout
-
-\begin_layout Itemize
-Fit me, relatively new world to me, confident I can handle the work.
-\end_layout
-
-\begin_layout Standard
-Engineer and and Data Scientist are blurrerd.
-\end_layout
-
-\begin_layout Subsection
-Why U
-\end_layout
-
-\begin_layout Enumerate
-PERSONAL: First, my girlfirend just found a job in San F, so I have to move
- there.
- 
-\end_layout
-
-\begin_layout Enumerate
-COMPANY: Secondly, U is such a cool and fast growing c, AND it must be super
- interesting to work as a Data Scientist there, 
-\series bold
-BECAUSE
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-You have 
-\series bold
-huge
-\series default
- amount 
-\series bold
-interesting data you can play once,
-\series default
- 
-\end_layout
-
-\begin_layout Enumerate
-and the 
-\series bold
-problems
-\series default
- we re trying to 
-\series bold
-solve
-\series default
- there, like balancing the demand and supply, optimizing the price, are
- 
-\series bold
-Challenging and Exciting
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-FIT: Also this role really fits me very well, 
-\series bold
-BECAUSE
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-It requires Data Science, a lot of programming and financial modelling,
- which are exactly what I learned in school and what I'm doing now.
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Why T, Data Scientist
-\end_layout
-
-\begin_layout Itemize
-I always want to be a data scientist, and I see Twitter as one the best
- place to do Data Science.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-There is huge amount of interesting data coming in every day and every hour
-\end_layout
-
-\begin_layout Itemize
-you can see how people interact with news, you can see how people interact
- with people.
-\end_layout
-
-\begin_layout Itemize
-So I can imagine a lot of cool things can be biult on this cool data.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Fit: I also believe I woul be a good fit for this job, because my my daily
- job now is also about 
-\series bold
-biulding models & strategies on consumer financial data
-\series default
-.
- So I believe those experiences and skills can be readily transfered to
- Twitter.
-\end_layout
-
-\begin_layout Itemize
-Personally
-\end_layout
-
-\begin_layout Subsection
-Why F, 
-\series bold
-Data Scientist, Analytics 
-\end_layout
-
-\begin_layout Enumerate
-PERSONAL: First, my girlfirend just found a job in San F, so I have to move
- there.
- 
-\end_layout
-
-\begin_layout Enumerate
-COMPANY: Secondly, F is such a cool and fast growing c, AND it must be super
- interesting to work as a Data Scientist there, 
-\series bold
-BECAUSE
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-You have 
-\series bold
-huge
-\series default
- amount 
-\series bold
-interesting data you can play once,
-\series default
- 
-\end_layout
-
-\begin_layout Enumerate
-and the 
-\series bold
-problems
-\series default
- we are trying to 
-\series bold
-solve
-\series default
- there, like quantifying customers certain behavior or optimizing certain
- products., optimizing the price, are 
-\series bold
-Challenging and Exciting
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-FIT: Also this role really fits me very well, 
-\series bold
-BECAUSE
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-It requires Data Science, a lot of programming, analytical mind and data
- science knowledge which are exactly what I learned in school and what I'm
- doing now.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Tracking and Reporting: Besides this, we have also done a lot tracking or
- dashboard reportint on the key metrics of our portfolio.
-\end_layout
-
-\begin_layout Itemize
-Working with Finance, because a lot what we do is the Income Statement,
- so we need to borrow a lot of accountin / finance assumptions from them.
-\end_layout
-
-\begin_layout Subsection
-Question to ask in F
-\end_layout
-
-\begin_layout Standard
-Is this interview for a a particular role or a more generic data scientist
- role
-\end_layout
-
-\begin_layout Standard
-I heard about that after you join F, you didn't join a particular group,
- first go to a training camp to really assess skills and interests, then
- depend on your skills and interests, you will be assigned to certain Particular
- groups.
- OR this is not the case for everyone.
-\end_layout
-
-\begin_layout Subsection
-Why came to America
-\end_layout
-
-\begin_layout Standard
-In UIUC:
-\end_layout
-
-\begin_layout Enumerate
-Professors are nice, students are hard-working.
- 
-\end_layout
-
-\begin_layout Enumerate
-This is the country I want to study and live.
- 
-\end_layout
-
-\begin_layout Enumerate
-So when I graduated, I got graduate school offers from Cambridge and Oxford,
- but I also got the Duke offer.
- So I think, if I do graduate school in UK, I will probably stay in UK forever.
- So I decided, if I really want to come to America, this is time! 
-\end_layout
-
-\begin_layout Subsection
-Name of five your strengths
-\end_layout
-
-\begin_layout Enumerate
-Good at Managing complexity and am
-\series bold
--bi
-\series default
--guity 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-especially in the large project involving different departments, 
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-I have a lot experiences in holding the meetings, managing the schedules,
- keeping every updated and informed, --------- Basically being the central
- point of contact.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Not only good at building models, but Good at selling my model.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Because a lot of the model users are non-technical people.
- So you really have the try to translate the statistics into English.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Wish to get challenged.
- (more and more comfortable with old work).
- 
-\end_layout
-
-\begin_layout Enumerate
-Wish to change, and dare to change things.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-cannot live with broken process, or inefficient / manual way of doing things.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-I love and eager to learn new things.
-\end_layout
-
-\begin_layout Enumerate
-Go into the deep detail, go to the root reason.
- Always ask why
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-A lot of times my work is ac-hoc nature: we got data from other department,
- then my job is to clean it, summarize it and analyze it.
- 
-\end_layout
-
-\begin_layout Enumerate
-You can do them mechanically and never ask why.
- 
-\end_layout
-
-\begin_layout Enumerate
-Just quickly turnover or deliver
-\end_layout
-
-\begin_layout Enumerate
-But I always want to know the underlying reason, why we do this, what's
- the story we want to see from the analysis, 
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-I have a unique combination of skill sets: Finance, consumer banking, data
- scientist, and programming.
- 
-\end_layout
-
-\begin_layout Subsection
-Eager to Learn
-\end_layout
-
-\begin_layout Itemize
-I love to learn new things, and I'm pretty much self-motivated.
-\end_layout
-
-\begin_layout Itemize
-You saw in my resume I'm proficient in Python and Machine Learning, to be
- honest I never touch Python in my school, and I knew nothing about machine
- learning back in that time.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-But then in the past two years every night when I get off work, I spend
- some time, even half hour a day to read and learn those stuff..
-\end_layout
-
-\begin_layout Itemize
-Now I can claim I know those stuff pretty well.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-When you first start it is really hard, because after work I got exhausted,
- hungry and sleepy.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-So first you have to force yourself but then you get used to it, and then
- there is a momentum building up and it becomes voluntary.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-So overall I'm trying to be a lifelong learner.
-\end_layout
-
-\begin_layout Itemize
-Not only learn those technique skills but to learn any cool stuff.
- 
-\end_layout
-
-\begin_layout Subsection
-Breaking Silos
-\end_layout
-
-\begin_layout Itemize
-What loss forecasting does is to design a model with inputs as pricing 
-\backslash
- fico and output as loss curves.
-\end_layout
-
-\begin_layout Itemize
-Pricing is decided by Finance (19 floor).
- Different offer types and targeting group is decided by Marketing, which
- is in 18 floor.
-\end_layout
-
-\begin_layout Standard
-So you see the three most important features of a product: risk, pricing,
- and targeting (and thus response rate) are controlled by three different
- department / floors.
-\end_layout
-
-\begin_layout Standard
-To optimize a product, to maximize the profit, the ideal way is to 
-\series bold
-quantify these three features simultaneously
-\series default
- by one team, rather than to treat them separately.
-\end_layout
-
-\begin_layout Subsection
-Tell me about your weaknesses
-\end_layout
-
-\begin_layout Itemize
-perfectionism.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-It is OK to be perfectionism for your self.
- But when it involves with colleagues of other departments, you have to
- require less.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-rebuild the whole thing
-\end_layout
-
-\begin_layout Itemize
-English, no matter how hard you try, you still cannot fill the gap.
-\end_layout
-
-\begin_layout Subsection
-Re-Build the whole thing?
-\end_layout
-
-\begin_layout Itemize
-Often One process / model has fundamentally weakness that cannot be fixed
- 
-\series bold
-but can only be adapted
-\series default
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-For example, a non-parametric model that is not flexible enough to deal
- with any new situation.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-When you build new features on the existing systems, often there is 
-\series bold
-no way to
-\series default
- 
-\series bold
-get rid of
-\series default
- the old weakness and your new features have to be 
-\series bold
-compromised
-\series default
-.
-\end_layout
-
-\begin_layout Itemize
-As time goes by and more and more new features adding into the existing
- system, it becomes more and more 
-\series bold
-cumbersome
-\series default
-.
- /ˈkəmbərsəm/
-\end_layout
-
-\begin_layout Standard
-So what I often want to do is re-write the whole thing, start from 0, think
- about what a model or procedure should be from 0.
-\end_layout
-
-\begin_layout Standard
-My boss often does not support me to do this.
- .
-\end_layout
-
-\begin_layout Itemize
-Changing will affect other business partners.
- They may use our model in a daily basis or their business is partially
- based on our models
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-It is balance of innovation and being robust or consistent\SpecialChar \ldots{}
-
-\end_layout
-
-\begin_layout Standard
-Being not patient or tolerant about those things
-\end_layout
-
-\begin_layout Subsection
-What things in your work you want to continue.
-\end_layout
-
-\begin_layout Standard
-New and exciting thins
-\end_layout
-
-\begin_layout Standard
-Quant in nature, but not pure quant,
-\end_layout
-
-\begin_layout Standard
-A lot of interaction with business, sell and implement the model in business,
- where you can see the real impact.
-\end_layout
-
-\begin_layout Subsection
-Who is the person you admire most.
-\end_layout
-
-\begin_layout Standard
-Elon Must:
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-His Famous quote: Thinks like physicist.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Think things Not starting from what they are now, but think about what they
- should be, think from 0: 
-\end_layout
-
-\begin_layout Itemize
-if I want to re-build the whole thing, could we design it in a much better
- way, 
-\series bold
-both fundamentally and structurally.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Because a lot of things or systems they have fundamental weakness that cannot
- be fixed but only adapted.
-\end_layout
-
-\begin_layout Standard
-Send people to Mars: crazy
-\end_layout
-
-\begin_layout Enumerate
-Explain it is not crazy at all, as 60 years ago people do think about seriously
- 
-\end_layout
-
-\begin_layout Enumerate
-How to do it
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Lower the cost of rocket.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-How to lower the cost, why it is possible
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-The space industry is controlled by government and has very low competition,
- low efficiency, and low incentive to lower the cost.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Rocket Science did not advance too much in the last 50 years.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-The only way make the rocket re-usable.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Have a vision, decompose the vision into several concrete steps, 
-\series bold
-find the bottleneck, attack this bottleneck hardly in a different way.
- 
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Step-by step
-\end_layout
-
-\begin_layout Subsection
-Who is the person you credit your success.
- What is most valuable feedback you got.
-\end_layout
-
-\begin_layout Standard
-My boss:
-\end_layout
-
-\begin_layout Standard
-Be patient!
-\end_layout
-
-\begin_layout Standard
-Selling models are equally important in building your models.
-\end_layout
-
-\begin_layout Subsection
-Tell me about a situation when your work was criticized.
-\end_layout
-
-\begin_layout Standard
-NO
-\end_layout
-
-\begin_layout Subsection
-Disagree with People
-\end_layout
-
-\begin_layout Standard
-见下
-\end_layout
-
-\begin_layout Subsection
-Career Goal
-\end_layout
-
-\begin_layout Itemize
-I want to try some new techniques in modelling.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Models in consumer banking are quite robust but simple, 
-\end_layout
-
-\begin_layout Itemize
-Nowadays you may hear about more big data, machine learning in Silicon Valley.
- I think several years later, those new techniques will be adopted by banking
- industry.
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-I want to be part of this new trend.
-
-\series default
- 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-I want to become a manger, enroll the smartest people and build a cool team.
- 
-\end_layout
-
-\begin_layout Subsection
-Why this position/ what is your biggest advantage and weakness for this
- job?
-\end_layout
-
-\begin_layout Itemize
-Fit me background.
- I Qualify for it.
-\end_layout
-
-\begin_layout Itemize
-Try different things/ Challenge: That challenges can create passion, d,
- then you will try your best to get your job done beautifully.
- 
-\end_layout
-
-\begin_layout Part
-Q&A 
-\end_layout
-
-\begin_layout Section
-Banking
-\end_layout
-
-\begin_layout Subsubsection
-Product: Regulation Burden
-\end_layout
-
-\begin_layout Standard
-My question is about regulation burden.
-\end_layout
-
-\begin_layout Standard
-The only purpose of this team is to build models for regulators, and those
- models will not be used elsewhere in the business, correct?
-\end_layout
-
-\begin_layout Standard
-So do you think, if regulators don't require us to do these kind modeling,
- will we still do this modeling for ourselves.
-\end_layout
-
-\begin_layout Subsubsection
-Hierarchy 
-\end_layout
-
-\begin_layout Standard
-Young people, diversity.
- Who you report to.
-\end_layout
-
-\begin_layout Subsubsection
-Silos
-\end_layout
-
-\begin_layout Subsubsection
-Big and exciting and new things
-\end_layout
-
-\begin_layout Standard
-The ultimate goal for any modeling team is to develop robust and flexible
- models that can last long.
- One the model was developed, the rest of part is just daily routine, is
- just to maintain the model and use the model
-\end_layout
-
-\begin_layout Standard
-How many 
-\series bold
-percentage of time is for daily-routine
-\series default
- work, and
-\end_layout
-
-\begin_layout Standard
-When one team starts to develop models and build new procedures or prototype,
- everything is so really exciting.
- But when you finished developing those things, everything will become so
- mature and developed, and what left is just maintenance.
-\end_layout
-
-\begin_layout Standard
-How would you describe the development status of the models or procedures
- managed by your team.
- Are they well-developed or developing.
- 
-\begin_inset space ~
-\end_inset
-
-Or do you expect new things keep emerging and you always have something
- new and exciting to do.
-\end_layout
-
-\begin_layout Subsubsection
-What is the coolest model or thing you have done in your work.
-\end_layout
-
-\begin_layout Standard
-That you think it is unique, it is cool, much beyond the expectation of
- your boss.
-\end_layout
-
-\begin_layout Subsubsection
-How if someone did not buy your model
-\end_layout
-
-\begin_layout Standard
-Not because your model is not robust or sounded, just because they don't
- like the result of your model, for example, your forecasting may suggest
- a completely opposite story that the management committee believe.
-\end_layout
-
-\begin_layout Standard
-In my case, I'm doing loss forecasting for marketing.
- They question my model only when the loss forecasting is too high and kill
- their campaign.
-\end_layout
-
-\begin_layout Section
-DS
-\end_layout
-
-\begin_layout Itemize
-How you interact with Engineer? Do you build prototype models and ship them
- to Engineer and they code them in a scalable way into the system
-\end_layout
-
-\begin_layout Itemize
-For this particular role, how do you see the difference between a data scientist
- and data analyst.
 \end_layout
 
 \end_body
