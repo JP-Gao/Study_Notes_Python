@@ -12,17 +12,9 @@
 %\XeTeXlinebreaklocale “zh”%中文断行
 %\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
 \usepackage{indentfirst}%段落首行缩进
-
-\usepackage[multidot]{grffile}
 \setlength{\parindent}{2em}%缩进两个字符
 \end_preamble
 \use_default_options true
-\begin_modules
-eqs-within-sections
-figs-within-sections
-tabs-within-sections
-knitr
-\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package auto
@@ -33,13 +25,13 @@ knitr
 \font_typewriter default
 \font_math auto
 \font_default_family default
-\use_non_tex_fonts true
+\use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
 \graphics default
-\default_output_format pdf4
+\default_output_format default
 \output_sync 0
 \bibtex_command default
 \index_command default
@@ -56,7 +48,7 @@ knitr
 \pdf_backref section
 \pdf_pdfusetitle true
 \pdf_quoted_options "unicode=false"
-\papersize default
+\papersize a4paper
 \use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
@@ -82,13 +74,13 @@ knitr
 \color #008000
 \end_index
 \leftmargin 2.5cm
-\topmargin 2.5cm
+\topmargin 3cm
 \rightmargin 2.5cm
-\bottommargin 2.5cm
+\bottommargin 3cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
-\paragraph_indentation default
+\paragraph_indentation 2bp
 \quotes_language english
 \papercolumns 1
 \papersides 1
@@ -102,444 +94,49 @@ knitr
 
 \begin_body
 
-
-\begin_body
-
 \begin_layout Title
-_______________________________________________________________________________
+R_Visualization: MAIN @ Apr 28, 2015
 \end_layout
 
-\begin_layout Part
-Code Preamble
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
+\begin_layout Author
+Fan Yang
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-
-<<>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-###  Packages  -------------------
-\end_layout
-
-\begin_layout Plain Layout
-
-# _______________________________________________________________________
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
-n 
-\end_layout
-
-\begin_layout Plain Layout
-
-    Global Option Settings: 
-\backslash
-n
-\end_layout
-
-\begin_layout Plain Layout
-
-    Not transform string to factor when load data 
-\backslash
-n
-\end_layout
-
-\begin_layout Plain Layout
-
-    Not use NA in any calculation 
-\backslash
-n
-\end_layout
-
-\begin_layout Plain Layout
-
-    Only print 4 ts.
- 
-\backslash
-n 
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-    Print Warnings as they occure 
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-options(stringsAsFactors = FALSE, na.rm=T,warn=1)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-# Pakcages we will use:
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-list.of.packages <- 
-\end_layout
-
-\begin_layout Plain Layout
-
-  c(
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-    # visualization
-\end_layout
-
-\begin_layout Plain Layout
-
-    "ggplot2","scales",
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-    # regular expression
-\end_layout
-
-\begin_layout Plain Layout
-
-    "stringr", 
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-    # data maniputaltion
-\end_layout
-
-\begin_layout Plain Layout
-
-    "reshape","reshape2","data.table","plyr","dplyr","magrittr","DataCombine",
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-    # some functions in dplyr are duplicate in plyr, and we want to use
- functions in dplyr 
-\end_layout
-
-\begin_layout Plain Layout
-
-    # so load plyr first and then let dplyr to mask it.
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-    # panel and cross sectional data 
-\end_layout
-
-\begin_layout Plain Layout
-
-    "plm","AER","censReg",
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-    # machine learning and Bayesian
-\end_layout
-
-\begin_layout Plain Layout
-
-    # "nnet",
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-    # time series
-\end_layout
-
-\begin_layout Plain Layout
-
-    "lubridate", "zoo","tseries", 
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-    # statistics and regression
-\end_layout
-
-\begin_layout Plain Layout
-
-    "VGAM","MASS","Formula", 
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-    # excel files
-\end_layout
-
-\begin_layout Plain Layout
-
-    "readxl",
-\end_layout
-
-\begin_layout Plain Layout
-
-    # "XML","XLConnect",
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-    # literature programming & code style
-\end_layout
-
-\begin_layout Plain Layout
-
-    "knitr","formatR",'yaml', 'htmltools', 'caTools','rmarkdown',"xtable",
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-    # Computing on the Language
-\end_layout
-
-\begin_layout Plain Layout
-
-    "pryr", "gtools","lazyeval"
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-  )
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("Pakcages we will use : 
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-print(list.of.packages)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
-n 
-\backslash
-n check new packages that this computer did not install before 
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Packag
-e"])]
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
-n 
-\backslash
-n download & install new packages 
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-if(length(new.packages)) install.packages(new.packages)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-# _____________________________________________________________
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-cat("
-\backslash
-n 
-\backslash
-n load packages to R 
-\backslash
-n")
-\end_layout
-
-\begin_layout Plain Layout
-
-for (Library in list.of.packages) library(Library,character.only = T)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-# ggplot2 default font size
-\end_layout
-
-\begin_layout Plain Layout
-
-theme_set(theme_gray(base_size = 18))
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-@
+First version: Nov 2012
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Dev
+\end_layout
+
+\begin_layout Itemize
+right click the plot window in Rstudio and choose inspect.
+ 
+\end_layout
+
+\begin_layout Itemize
+right click the plot window in Rstudio then you can see the size in px.
+\end_layout
+
+\begin_layout Itemize
+Official Size of plot in deck: width 408, height 289.
+ In inches it is 3.01'' and 4.25''
 \end_layout
 
 \begin_layout Part
@@ -964,6 +561,39 @@ parse string as variable
 ggplot(plot_data) + geom_line(aes_string(x='carat',y = 'predict'))
 \end_layout
 
+\begin_layout Standard
+string can also used for expression
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+geom_text(aes_string(x= '(min_x + max_x)/2 + text_p', 
+\end_layout
+
+\begin_layout Plain Layout
+
+	y = '(max_y + min_y)/2', label = 't31_ras_seg_t0'),size = 3) +
+\end_layout
+
+\begin_layout Plain Layout
+
+geom_text(aes_string(x= '(min_x + max_x)/2' , 
+\end_layout
+
+\begin_layout Plain Layout
+
+	y = '(max_y + min_y)/2', label =' percent_text'),size = 2) +
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Geom
 \end_layout
@@ -1012,6 +642,31 @@ Directly use x's frequency as density, so no need aes(y)
 \end_layout
 
 \begin_layout Subsection
+geom_rect
+\end_layout
+
+\begin_layout Standard
+draw rectangular.
+ more flexible than 
+\family typewriter
+geom_bar
+\family default
+ or 
+\family typewriter
+geom_histogram.
+
+\family default
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+geom_rect(aes(xmin = xmin , xmax = xmax, ymin = ymin, ymax = ymax, fill
+ = color))
+\end_layout
+
+\begin_layout Subsection
 geom_histogram
 \end_layout
 
@@ -1051,6 +706,10 @@ aes(x=A,y=..density..)
 
 \begin_layout Subsection
 geom_bar
+\end_layout
+
+\begin_layout Subsection
+geom_density 
 \end_layout
 
 \begin_layout Standard
@@ -1169,6 +828,40 @@ p + geom_point(colour="black", size = 4.5, show_guide = TRUE) +
 
 \end_layout
 
+\begin_layout Subsection
+geom_text
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+geom_text(aes(label = type, label.size = 0.25),hjust=0, vjust=1)
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+    geom_text(aes(x= (xmin + xmax)/2, y = text_position, label = change,
+ size = label_size)) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+label.size is the font size
+\end_layout
+
+\begin_layout Itemize
+font face = c ("plain", "italic", "bold", "bold.italic")
+\end_layout
+
 \begin_layout Section
 Aesetics
 \end_layout
@@ -1234,27 +927,27 @@ ggplot(DATA) +
 
 \begin_layout Plain Layout
 
-    # this is to map variable to aesthetics: mapping aesthetics
+	# this is to map variable to aesthetics: mapping aesthetics
 \end_layout
 
 \begin_layout Plain Layout
 
-    # PLOT means type of plot(line,point etc)
+	# PLOT means type of plot(line,point etc)
 \end_layout
 
 \begin_layout Plain Layout
 
-    geom_PLOT (aes( AESTHETIC = VARIABLE),     
+	geom_PLOT (aes( AESTHETIC = VARIABLE), 	
 \end_layout
 
 \begin_layout Plain Layout
 
-        AESTHETIC = AESTHETIC_VALUE) + # this is fixed AESTHETIC
+		AESTHETIC = AESTHETIC_VALUE) + # this is fixed AESTHETIC
 \end_layout
 
 \begin_layout Plain Layout
 
-    scale_AESTHETIC_manual/discrete/continous(value = ...) # manual adjustment
+	scale_AESTHETIC_manual/discrete/continous(values = ...) # manual adjustment
  of aesthetics.
 \end_layout
 
@@ -1304,7 +997,7 @@ ggplot(head(diamonds,100)) +
 
 \begin_layout Plain Layout
 
-    geom_point(aes( y = price, x = carat, shape = cut, color = color, alpha
+	geom_point(aes( y = price, x = carat, shape = cut, color = color, alpha
  = clarity ))
 \end_layout
 
@@ -1346,6 +1039,15 @@ ggplot(subset(diamonds, clarity == 'SI2' & price <=1000) ) +
 \end_layout
 
 \begin_layout Subsection
+values = NA in Scale / AESTHETIC = NA : empty
+\end_layout
+
+\begin_layout Standard
+It means nothing, for example, if one row of variable color_fill is NA,
+ then when you do aes(fill = color_fill), that row will have empty fill
+\end_layout
+
+\begin_layout Subsection
 Color
 \end_layout
 
@@ -1373,6 +1075,32 @@ RGB is the built-in colour space.
  Instead of "manually" creating a #RRGGBB colour string, a colour can be
  specified using R's rgb() function that takes three arguments: red, green,
  and blue (which, by default, all have a range of [0, 1]).
+ 
+\end_layout
+
+\begin_layout Itemize
+In computers, the component values are often stored as integer numbers in
+ the range 0 to 255, the range that a single 8-bit byte can offer.
+ These are often represented as either decimal or hexadecimal numbers.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+So you have to use value/255 to convert it in range [0,1], or specify the
+ argument 
+\family typewriter
+max = 255
+\family default
+ in rgb() function.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+In ggplot2, you have to add 
+\family typewriter
+scale_fill_identity() + 
+\family default
+scale_fill_identity() 
 \end_layout
 
 \begin_layout Standard
@@ -1386,44 +1114,115 @@ status open
 
 \begin_layout Plain Layout
 
-d=expand.grid(r=seq(0,1,0.1), g=seq(0,1,0.1), b=seq(0,1,0.1))
+ 
 \end_layout
 
 \begin_layout Plain Layout
 
-ggplot() +
+    color_main = 
 \end_layout
 
 \begin_layout Plain Layout
 
-facet_wrap(~b) +
+      rbind(
 \end_layout
 
 \begin_layout Plain Layout
 
-scale_x_continuous(name="red", breaks=seq(0.05, 1.05, 0.2), labels=seq(0, 1,
- 0.2)) +
+        c(red = 235/255,green = 0, blue = 0),
 \end_layout
 
 \begin_layout Plain Layout
 
-scale_y_continuous(name="green", breaks=seq(0.05, 1.05, 0.2), labels=seq(0,
- 1, 0.2)) +
+        c(red = 0,green= 242/255, blue = 0),
 \end_layout
 
 \begin_layout Plain Layout
 
-scale_fill_identity() +
+        c(red = 0,green = 0, blue = 245/255),
 \end_layout
 
 \begin_layout Plain Layout
 
-geom_rect(data=d, mapping=aes(xmin=r, xmax=r+resolution(r), 
+        c(red = 235/255,green = 242/255, blue = 245/255)
 \end_layout
 
 \begin_layout Plain Layout
 
-    ymin=g, ymax=g+resolution(g), fill=rgb(r,g,b)), color="white", size=0.1)
+      ) %>% data.frame
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    color_main$X_id = 1:4
+\end_layout
+
+\begin_layout Plain Layout
+
+    color_main$colors_id = c('r','g','b','background')
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    ggplot(color_main) + 
+\end_layout
+
+\begin_layout Plain Layout
+
+      geom_rect( mapping=aes(xmin= X_id, 
+\end_layout
+
+\begin_layout Plain Layout
+
+                                    xmax= X_id  + 0.5, 
+\end_layout
+
+\begin_layout Plain Layout
+
+                                    ymin=0, ymax=1, 
+\end_layout
+
+\begin_layout Plain Layout
+
+                                    fill=rgb(red,green,blue,max = 1))) 
+ + 
+\end_layout
+
+\begin_layout Plain Layout
+
+      scale_fill_identity() +
+\end_layout
+
+\begin_layout Plain Layout
+
+      scale_x_continuous(breaks = 1:4, labels = color_main$colors_id) +
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+      theme(panel.grid = element_blank(),
+\end_layout
+
+\begin_layout Plain Layout
+
+            panel.background = element_rect(fill = rgb(235/255,242/255,245/255,ma
+x = 1)))
+\end_layout
+
+\begin_layout Plain Layout
+
+    
 \end_layout
 
 \begin_layout Plain Layout
@@ -1621,33 +1420,33 @@ ggplot() +
 
 \begin_layout Plain Layout
 
-    coord_polar(theta="x")+facet_wrap(~l) +
+	coord_polar(theta="x")+facet_wrap(~l) +
 \end_layout
 
 \begin_layout Plain Layout
 
-    scale_x_continuous(name="hue", limits=c(0,360), breaks=seq(5,345,20),
- labels=seq(0,340,20)) +
+	scale_x_continuous(name="hue", limits=c(0,360), breaks=seq(5,345,20), labels=se
+q(0,340,20)) +
 \end_layout
 
 \begin_layout Plain Layout
 
-    scale_y_continuous(name="chroma", breaks=seq(0, 100, 20)) +
+	scale_y_continuous(name="chroma", breaks=seq(0, 100, 20)) +
 \end_layout
 
 \begin_layout Plain Layout
 
-    scale_fill_identity() +
+	scale_fill_identity() +
 \end_layout
 
 \begin_layout Plain Layout
 
-    geom_rect(data=d, mapping=aes(xmin=h, xmax=h+resolution(h), 
+	geom_rect(data=d, mapping=aes(xmin=h, xmax=h+resolution(h), 
 \end_layout
 
 \begin_layout Plain Layout
 
-        ymin=c, ymax=c+resolution(c), fill=hcl(h,c,l)), color="white", size=0.1)
+		ymin=c, ymax=c+resolution(c), fill=hcl(h,c,l)), color="white", size=0.1)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1776,29 +1575,29 @@ ggplot() +
 
 \begin_layout Plain Layout
 
-    scale_alpha_continuous(range =c(0,1), guide="none") +
+	scale_alpha_continuous(range =c(0,1), guide="none") +
 \end_layout
 
 \begin_layout Plain Layout
 
-    scale_x_continuous(name="alpha") +
+	scale_x_continuous(name="alpha") +
 \end_layout
 
 \begin_layout Plain Layout
 
-    scale_y_continuous(name="alpha") +
+	scale_y_continuous(name="alpha") +
 \end_layout
 
 \begin_layout Plain Layout
 
-    geom_segment(data=d, mapping=aes(x=0, y=a, xend=1, yend=a, alpha=a),
- color="red", size=6) +
+	geom_segment(data=d, mapping=aes(x=0, y=a, xend=1, yend=a, alpha=a), color="red
+", size=6) +
 \end_layout
 
 \begin_layout Plain Layout
 
-    geom_segment(data=d, mapping=aes(x=a, y=0, xend=a, yend=1, alpha=a),
- color="blue", size=6)
+	geom_segment(data=d, mapping=aes(x=a, y=0, xend=a, yend=1, alpha=a), color="blu
+e", size=6)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2576,23 +2375,23 @@ ggplot() +
 
 \begin_layout Plain Layout
 
-    scale_alpha_continuous(range =c(0,0.5), guide="none") +
+	scale_alpha_continuous(range =c(0,0.5), guide="none") +
 \end_layout
 
 \begin_layout Plain Layout
 
-    scale_x_continuous(name="alpha") +
+	scale_x_continuous(name="alpha") +
 \end_layout
 
 \begin_layout Plain Layout
 
-    scale_y_continuous(name="alpha") +
+	scale_y_continuous(name="alpha") +
 \end_layout
 
 \begin_layout Plain Layout
 
-    geom_segment(data=d, mapping=aes(x=0, y=a, xend=1, yend=a, alpha=a),
- color="red", size=6)
+	geom_segment(data=d, mapping=aes(x=0, y=a, xend=1, yend=a, alpha=a), color="red
+", size=6)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2625,12 +2424,12 @@ exogen.plot=ggplot(exogen.prepare[[1]],aes(x=X,y=Y,colour=choice))
 
 \begin_layout Plain Layout
 
-    exogen.plot+geom_path(size=1)+
+	exogen.plot+geom_path(size=1)+
 \end_layout
 
 \begin_layout Plain Layout
 
-    geom_path(aes(x=Date,y=X10.),colour=1,alpha=0.4,data=exogen)+ 
+	geom_path(aes(x=Date,y=X10.),colour=1,alpha=0.4,data=exogen)+ 
 \end_layout
 
 \begin_layout Plain Layout
@@ -2641,14 +2440,14 @@ exogen.plot=ggplot(exogen.prepare[[1]],aes(x=X,y=Y,colour=choice))
 
 \begin_layout Plain Layout
 
-    scale_colour_discrete("Normalized Statistics of
+	scale_colour_discrete("Normalized Statistics of
 \backslash
 n Exogenous Test",
 \end_layout
 
 \begin_layout Plain Layout
 
-                            labels=c("Japan","USA"))
+							labels=c("Japan","USA"))
 \end_layout
 
 \begin_layout Plain Layout
@@ -2674,7 +2473,15 @@ To change the values of aesthetics, use “
 \family typewriter
 values=
 \family default
-” inside.
+” inside (this 
+\family typewriter
+values
+\family default
+ shall have the same length = number of unique values in 
+\family typewriter
+aesthetics
+\family default
+, not the full length of data itself)
 \end_layout
 
 \begin_layout Itemize
@@ -2746,7 +2553,7 @@ p + geom_point(aes(color = factor(cyl),shape  = factor(vs) ), size =3 )
 
 \begin_layout Plain Layout
 
-    theme (legend.direction = "horizontal", legend.position = "bottom") 
+	theme (legend.direction = "horizontal", legend.position = "bottom") 
 \end_layout
 
 \begin_layout Plain Layout
@@ -2779,50 +2586,13 @@ Not show in legend:
 \end_layout
 
 \begin_layout Standard
-scale_linetype_discrete(
-\series bold
-guide="none"
-\series default
-)
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
+\begin_inset listings
+inline false
 status open
 
 \begin_layout Plain Layout
 
-<<>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-d=data.frame(a=c("a","b","c","d","e","f","g","h", "i", "j", "k", "l"))
-\end_layout
-
-\begin_layout Plain Layout
-
-ggplot() +
-\end_layout
-
-\begin_layout Plain Layout
-
-scale_x_continuous(limits=c(0,1), name="") +
-\end_layout
-
-\begin_layout Plain Layout
-
-scale_linetype_discrete(guide="none") +
-\end_layout
-
-\begin_layout Plain Layout
-
-geom_segment(data=d, mapping=aes(x=0, xend=1, y=a, yend=a, linetype=a))
-\end_layout
-
-\begin_layout Plain Layout
-
-@
+scale_linetype_discrete(guide="none")
 \end_layout
 
 \end_inset
@@ -2930,6 +2700,35 @@ Axis and Labels
 \end_layout
 
 \begin_layout Subsection
+Breaks
+\end_layout
+
+\begin_layout Standard
+where the ticker locates
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+scale_x_continuous(breaks = c(1:nrow(data)), labels = Index) +
+\end_layout
+
+\begin_layout Plain Layout
+
+# where Index is a var in data
+\end_layout
+
+\end_inset
+
+breaks values seems must be defined outside of data, not as a variable in
+ the data
+\end_layout
+
+\begin_layout Subsection
 labs: Title of Graph 
 \end_layout
 
@@ -3024,7 +2823,7 @@ p + geom_point(aes(color = factor(cyl),shape = factor(vs) ), size =3 ) +
 
 \begin_layout Plain Layout
 
-    scale_y_continuous(breaks = seq(10, 35, by = 1))
+	scale_y_continuous(breaks = seq(10, 35, by = 1))
 \end_layout
 
 \begin_layout Plain Layout
@@ -3038,7 +2837,7 @@ p + geom_point(aes(color = factor(cyl),shape = factor(vs) ), size =3 ) +
 \end_layout
 
 \begin_layout Subsection
-Axis tiker label’s angle, adjustment, and font size
+Axis tiker-label’s angleand font size
 \end_layout
 
 \begin_layout Standard
@@ -3099,6 +2898,212 @@ bp + theme(axis.title.x = element_text(face="bold", colour="#990000", size=20),
 \begin_layout Plain Layout
 
 @
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+No label or breaks
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+    scale_y_continuous(label = NULL, breaks = NULL) + 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+vertical/horizental adjust of axis tiker label
+\end_layout
+
+\begin_layout Subsection
+center/right aligned of axis tiker label
+\end_layout
+
+\begin_layout Itemize
+The code below shows the case when the angle is 0.
+\end_layout
+
+\begin_layout Itemize
+When angle is 90, however, the label text will be center-aligned.
+ If you want it to be right aligned, then use 
+\family typewriter
+hjust = 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+# http://www.r-bloggers.com/hjust-and-vjust/
+\end_layout
+
+\begin_layout Plain Layout
+
+hjustvjust <- expand.grid(
+\end_layout
+
+\begin_layout Plain Layout
+
+  hjust=c(0, 0.5, 1),
+\end_layout
+
+\begin_layout Plain Layout
+
+  vjust=c(0, 0.5, 1),
+\end_layout
+
+\begin_layout Plain Layout
+
+  angle=c(0, 45, 90),
+\end_layout
+
+\begin_layout Plain Layout
+
+  text="is-R"
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+hv <- ggplot(hjustvjust, aes(x=hjust, y=vjust)) + 
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_point() +
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_text(aes(label=text, angle=angle, hjust=hjust, vjust=vjust)) + 
+\end_layout
+
+\begin_layout Plain Layout
+
+  facet_grid(~angle) +
+\end_layout
+
+\begin_layout Plain Layout
+
+  scale_x_continuous(breaks=c(0, 0.5, 1), expand=c(0, 0.2)) +
+\end_layout
+
+\begin_layout Plain Layout
+
+  scale_y_continuous(breaks=c(0, 0.5, 1), expand=c(0, 0.2)) + theme_bw()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+hv + labs(title="Various values of angle, hjust and vjust in ggplot 
+\backslash
+n", y ="vjust 
+\backslash
+n", x =" 
+\backslash
+n hjust") + 
+\end_layout
+
+\begin_layout Plain Layout
+
+  theme(axis.text.x = element_text(colour="black", 
+\end_layout
+
+\begin_layout Plain Layout
+
+                                           size = 12, 
+\end_layout
+
+\begin_layout Plain Layout
+
+                                           face = "bold") , 
+\end_layout
+
+\begin_layout Plain Layout
+
+                axis.text.y = element_text(colour="black", 
+\end_layout
+
+\begin_layout Plain Layout
+
+                                           size = 12, 
+\end_layout
+
+\begin_layout Plain Layout
+
+                                           face = "bold"),
+\end_layout
+
+\begin_layout Plain Layout
+
+                axis.title.x = element_text(face="plain", 
+\end_layout
+
+\begin_layout Plain Layout
+
+              colour="black", 
+\end_layout
+
+\begin_layout Plain Layout
+
+              size=24),
+\end_layout
+
+\begin_layout Plain Layout
+
+              axis.title.y = element_text(face="plain", 
+\end_layout
+
+\begin_layout Plain Layout
+
+              colour="black", 
+\end_layout
+
+\begin_layout Plain Layout
+
+               size=24),
+\end_layout
+
+\begin_layout Plain Layout
+
+              plot.title = element_text(face="bold", 
+\end_layout
+
+\begin_layout Plain Layout
+
+                                    colour="black", 
+\end_layout
+
+\begin_layout Plain Layout
+
+                                    size=18)) 
 \end_layout
 
 \end_inset
@@ -3214,7 +3219,7 @@ status open
 
 \begin_layout Plain Layout
 
-http://sape.inf.usi.ch/quick-reference/ggplot2/themes
+http://docs.ggplot2.org/current/theme.html
 \end_layout
 
 \end_inset
@@ -3223,7 +3228,7 @@ http://sape.inf.usi.ch/quick-reference/ggplot2/themes
 \end_layout
 
 \begin_layout Subsection
-overall theme
+default theme
 \end_layout
 
 \begin_layout Itemize
@@ -3232,6 +3237,521 @@ theme_grey() - the default theme, with a grey background
 
 \begin_layout Itemize
 theme_bw() - a theme with a white background 
+\end_layout
+
+\begin_layout Subsection
+user-defined theme
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ured = rgb(r = 153, g = 0, b = 0,max = 255)
+\end_layout
+
+\begin_layout Plain Layout
+
+ugreen= rgb(95,163,100,max = 255)
+\end_layout
+
+\begin_layout Plain Layout
+
+ublue= rgb(100,144,243,max = 255)
+\end_layout
+
+\begin_layout Plain Layout
+
+umix = rgb(red = 235,green = 242, blue = 245, max = 255) # this is background
+ color
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+utheme = theme(panel.grid = element_blank(),
+\end_layout
+
+\begin_layout Plain Layout
+
+               panel.background = element_rect(fill = umix),
+\end_layout
+
+\begin_layout Plain Layout
+
+               legend.background = element_rect(fill = umix),
+\end_layout
+
+\begin_layout Plain Layout
+
+               plot.background  = element_rect(fill = umix),
+\end_layout
+
+\begin_layout Plain Layout
+
+               plot.title = element_text(size = 13),
+\end_layout
+
+\begin_layout Plain Layout
+
+               panel.border = element_rect(linetype = NULL, colour = NULL),
+\end_layout
+
+\begin_layout Plain Layout
+
+               aspect.ratio = 1/1.618,
+\end_layout
+
+\begin_layout Plain Layout
+
+               legend.position = "bottom") 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot() +geom_xx() + theme
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+syntax 
+\end_layout
+
+\begin_layout Standard
+Theme elements can inherit properties from other theme elements.
+ 
+\end_layout
+
+\begin_layout Itemize
+For example, axis.title.x inherits from axis.title, which in turn inherits
+ from text.
+ 
+\end_layout
+
+\begin_layout Itemize
+All text elements inherit directly or indirectly from text; all lines inherit
+ from line, and all rectangular objects inherit from rect.
+ 
+\end_layout
+
+\begin_layout Description
+line all line elements (element_line) 
+\end_layout
+
+\begin_layout Description
+rect all rectangular elements (element_rect) 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+to change the linetype and color of border
+\end_layout
+
+\begin_layout Description
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+panel.border = element_rect(linetype = NULL, colour = NULL)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+to change the background color for either panel, plot area, or legend:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+umix = rgb(red = 235,green = 242, blue = 245, max = 255) # this is background
+ color
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+panel.background = element_rect(fill = umix)
+\end_layout
+
+\begin_layout Plain Layout
+
+legend.background = element_rect(fill = umix)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot.background = element_rect(fill = umix)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+text all text elements (element_text) 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+for example: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+plot.title = element_text(size = 13)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+axis.text tick labels along axes (element_text; inherits from text) 
+\end_layout
+
+\begin_layout Description
+axis.text.x x axis tick labels (element_text; inherits from axis.text) 
+\end_layout
+
+\begin_layout Description
+axis.text.y y axis tick labels (element_text; inherits from axis.text) 
+\end_layout
+
+\end_deeper
+\begin_layout Description
+title all title elements: plot, axes, legends (element_text; inherits from
+ text) 
+\end_layout
+
+\begin_layout Subsection
+aspect.ratio
+\end_layout
+
+\begin_layout Description
+aspect.ratio aspect ratio of the panel 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+aspect.ratio = 1/1.618 # height = 1, width = 1.618)
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+axis
+\end_layout
+
+\begin_layout Description
+axis.title label of axes (element_text; inherits from text) 
+\end_layout
+
+\begin_layout Description
+axis.title.x x axis label (element_text; inherits from axis.title) 
+\end_layout
+
+\begin_layout Description
+axis.title.y y axis label (element_text; inherits from axis.title) 
+\end_layout
+
+\begin_layout Description
+axis.text tick labels along axes (element_text; inherits from text) 
+\end_layout
+
+\begin_layout Description
+axis.text.x x axis tick labels (element_text; inherits from axis.text) 
+\end_layout
+
+\begin_layout Description
+axis.text.y y axis tick labels (element_text; inherits from axis.text) 
+\end_layout
+
+\begin_layout Description
+axis.ticks tick marks along axes (element_line; inherits from line) 
+\end_layout
+
+\begin_layout Description
+axis.ticks.x x axis tick marks (element_line; inherits from axis.ticks) 
+\end_layout
+
+\begin_layout Description
+axis.ticks.y y axis tick marks (element_line; inherits from axis.ticks) 
+\end_layout
+
+\begin_layout Description
+axis.ticks.length length of tick marks (unit) 
+\end_layout
+
+\begin_layout Description
+axis.line lines along axes (element_line; inherits from line) 
+\end_layout
+
+\begin_layout Description
+axis.line.x line along x axis (element_line; inherits from axis.line) 
+\end_layout
+
+\begin_layout Description
+axis.line.y line along y axis (element_line; inherits from axis.line) 
+\end_layout
+
+\begin_layout Subsection
+legend
+\end_layout
+
+\begin_layout Description
+legend.background background of legend (element_rect; inherits from rect)
+ 
+\end_layout
+
+\begin_layout Description
+legend.margin extra space added around legend (unit) 
+\end_layout
+
+\begin_layout Description
+legend.key background underneath legend keys (element_rect; inherits from
+ rect) 
+\end_layout
+
+\begin_layout Description
+legend.key.size size of legend keys (unit; inherits from legend.key.size) 
+\end_layout
+
+\begin_layout Description
+legend.key.height key background height (unit; inherits from legend.key.size)
+ 
+\end_layout
+
+\begin_layout Description
+legend.key.width key background width (unit; inherits from legend.key.size)
+ 
+\end_layout
+
+\begin_layout Description
+legend.text legend item labels (element_text; inherits from text) 
+\end_layout
+
+\begin_layout Description
+legend.text.align alignment of legend labels (number from 0 (left) to 1 (right))
+ 
+\end_layout
+
+\begin_layout Description
+legend.title title of legend (element_text; inherits from title) 
+\end_layout
+
+\begin_layout Description
+legend.title.align alignment of legend title (number from 0 (left) to 1 (right))
+ 
+\end_layout
+
+\begin_layout Description
+legend.position the position of legends ("none", "left", "right", "bottom",
+ "top", or two-element numeric vector) 
+\end_layout
+
+\begin_layout Description
+legend.direction layout of items in legends ("horizontal" or "vertical")
+ 
+\end_layout
+
+\begin_layout Description
+legend.justification anchor point for positioning legend inside plot ("center"
+ or two-element numeric vector) 
+\end_layout
+
+\begin_layout Description
+legend.box arrangement of multiple legends ("horizontal" or "vertical") 
+\end_layout
+
+\begin_layout Description
+legend.box.just justification of each legend within the overall bounding box,
+ when there are multiple legends ("top", "bottom", "left", or "right") 
+\end_layout
+
+\begin_layout Section
+panel
+\end_layout
+
+\begin_layout Description
+panel.background background of plotting area, drawn underneath plot (element_rect
+; inherits from rect) 
+\end_layout
+
+\begin_layout Description
+panel.border border around plotting area, drawn on top of plot so that it
+ covers tick marks and grid lines.
+ This should be used with fill=NA (element_rect; inherits from rect) 
+\end_layout
+
+\begin_layout Description
+panel.margin margin around facet panels (unit) 
+\end_layout
+
+\begin_layout Description
+panel.margin.x horizontal margin around facet panels (unit; inherits from
+ panel.margin) 
+\end_layout
+
+\begin_layout Description
+panel.margin.y vertical margin around facet panels (unit; inherits from panel.margi
+n) 
+\end_layout
+
+\begin_layout Description
+panel.grid grid lines (element_line; inherits from line) 
+\end_layout
+
+\begin_layout Subsection
+panel grid
+\end_layout
+
+\begin_layout Description
+No_Grid
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+panel.grid = element_blank()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+panel.grid.major major grid lines (element_line; inherits from panel.grid)
+ 
+\end_layout
+
+\begin_layout Description
+panel.grid.minor minor grid lines (element_line; inherits from panel.grid)
+ 
+\end_layout
+
+\begin_layout Description
+panel.grid.major.x vertical major grid lines (element_line; inherits from panel.grid.
+major) 
+\end_layout
+
+\begin_layout Description
+panel.grid.major.y horizontal major grid lines (element_line; inherits from
+ panel.grid.major) 
+\end_layout
+
+\begin_layout Description
+panel.grid.minor.x vertical minor grid lines (element_line; inherits from panel.grid.
+minor) 
+\end_layout
+
+\begin_layout Description
+panel.grid.minor.y horizontal minor grid lines (element_line; inherits from
+ panel.grid.minor) 
+\end_layout
+
+\begin_layout Description
+panel.ontop option to place the panel (background, gridlines) over the data
+ layers.
+ Usually used with a transparent or blank panel.background.
+ (logical) 
+\end_layout
+
+\begin_layout Subsection
+plot area
+\end_layout
+
+\begin_layout Description
+plot.background background of the entire plot (element_rect; inherits from
+ rect) 
+\end_layout
+
+\begin_layout Description
+plot.title plot title (text appearance) (element_text; inherits from title)
+ 
+\end_layout
+
+\begin_layout Description
+plot.margin margin around entire plot (unit with the sizes of the top, right,
+ bottom, and left margins) 
+\end_layout
+
+\begin_layout Subsection
+facet
+\end_layout
+
+\begin_layout Description
+strip.background background of facet labels (element_rect; inherits from
+ rect) 
+\end_layout
+
+\begin_layout Description
+strip.text facet labels (element_text; inherits from text) 
+\end_layout
+
+\begin_layout Description
+strip.text.x facet labels along horizontal direction (element_text; inherits
+ from strip.text) 
+\end_layout
+
+\begin_layout Description
+strip.text.y facet labels along vertical direction (element_text; inherits
+ from strip.text) 
+\end_layout
+
+\begin_layout Description
+strip.switch.pad.grid space between strips and axes when strips are switched
+ (unit) 
+\end_layout
+
+\begin_layout Description
+strip.switch.pad.wrap space between strips and axes when strips are switched
+ (unit) 
+\end_layout
+
+\begin_layout Description
+theme(plot.title=element_text(size=rel(2)))
 \end_layout
 
 \begin_layout Subsection
@@ -3248,6 +3768,19 @@ theme_set()
 
 \family typewriter
 theme_set(theme_gray(base_size = 18)) 
+\end_layout
+
+\begin_layout Subsection
+background color 
+\end_layout
+
+\begin_layout Subsection
+background grid
+\end_layout
+
+\begin_layout Standard
+theme(panel.grid = element_blank(), panel.background = element_rect(fill =
+ rgb(235/255,242/255,245/255,max = 1)))
 \end_layout
 
 \begin_layout Section
