@@ -181,7 +181,7 @@ status open
 
 \begin_layout Plain Layout
 
-pandoc -s doc.docx -o -test.tex
+pandoc -s doc.docx -o test.tex
 \end_layout
 
 \end_inset
@@ -2391,7 +2391,11 @@ admin
 \end_layout
 
 \begin_layout Itemize
-/usr/local/share/man/man1
+/usr/local
+\begin_inset Formula $ $
+\end_inset
+
+/share/man/man1
 \end_layout
 
 \begin_layout Part
@@ -2475,6 +2479,1244 @@ MAIL (Unix-like) – used to indicate where a user's mail is to be found.
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 TEMP – location where processes can store temporary files
+\end_layout
+
+\begin_layout Part
+Garbage Collection
+\end_layout
+
+\begin_layout Standard
+P128 Java a Beginner's Guide
+\end_layout
+
+\begin_layout Subsection
+The finalize( ) Method
+\end_layout
+
+\begin_layout Standard
+P128 Java a Beginner's Guide
+\end_layout
+
+\begin_layout Part
+J Class
+\end_layout
+
+\begin_layout Subsection
+Reference, Copy and Assignment
+\end_layout
+
+\begin_layout Standard
+Terms:
+\end_layout
+
+\begin_layout Itemize
+Object: the value stored in memory.
+ Itself has no name.
+ But it does have position at the RAM.
+\end_layout
+
+\begin_layout Itemize
+Variables: We can only directly interact with them.
+ They are just the frontdoor of an object, they are just the name.
+ 
+\end_layout
+
+\begin_layout Itemize
+Reference: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+a relation between Variable and Object
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Reference Rules
+\end_layout
+
+\begin_layout Itemize
+When you assign one primitive-type variable to another, the situation is
+ straightforward.
+ The variable on the left receives a copy of the value of the variable on
+ the right.
+\end_layout
+
+\begin_layout Itemize
+When you assign one object reference variable to another, the situation
+ is a bit more complicated because you are changing the object that the
+ reference variable refers to.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Vehicle car1 = new Vehicle();
+\end_layout
+
+\begin_layout Plain Layout
+
+Vehicle car2 = car1;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Instead, car1 and car2 will both refer to the same object.
+\end_layout
+
+\begin_layout Itemize
+Later, if you change car1, car2 will automatically changed.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+car1.mpg = 26;
+\end_layout
+
+\begin_layout Plain Layout
+
+executes, both of these println( ) statements
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+System.out.println(car1.mpg);
+\end_layout
+
+\begin_layout Plain Layout
+
+System.out.println(car2.mpg);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+display the same value: 26.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+keyword new
+\end_layout
+
+\begin_layout Standard
+new can be used to create an object of any class type.
+ The new operator returns a reference to the newly created object, which
+ (in this case) is assigned to class-var.
+\end_layout
+
+\begin_layout Standard
+Usage
+\end_layout
+
+\begin_layout Itemize
+Create a ClassObject
+\end_layout
+
+\begin_layout Itemize
+Create an array.
+\end_layout
+
+\begin_layout Section
+Operator 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sum += i++
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In other words, this statement says, “Add to sum the value of sum plus i,
+ then increment i.” Thus, it is the same as this sequence of statements:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sum = sum + i;
+\end_layout
+
+\begin_layout Plain Layout
+
+i++;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Loop
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+for(initialization; condition; iteration)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	statement sequence
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+condition
+\series default
+ is a Boolean expression that determines whether or not the loop will repeat.
+ 
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+iteration
+\series default
+ expression defines the amount by which the loop control variable will change
+ each time the loop is repeated.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The for loop can proceed in a positive or negative fashion, and it can change
+ the loop control variable by any amount.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+iteration can be inside the loop, and initialization can be done outside
+ the loop
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int i;
+\end_layout
+
+\begin_layout Plain Layout
+
+i = 0; // move initialization out of loop
+\end_layout
+
+\begin_layout Plain Layout
+
+for(; i < 10; ) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Pass #" + i);
+\end_layout
+
+\begin_layout Plain Layout
+
+	i++; // increment loop control var
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Example
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+for(num = 1.0; num < 100.0; num++) { ...
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i=0, j=10; i < j; i++, j--){}  // OK to have two variables, separated
+ by comma
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Class
+\end_layout
+
+\begin_layout Subsection
+Creat a Class
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class ClassName {
+\end_layout
+
+\begin_layout Plain Layout
+
+	// declare instance variables
+\end_layout
+
+\begin_layout Plain Layout
+
+	type Var1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	type Var2;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// declare methods 
+\end_layout
+
+\begin_layout Plain Layout
+
+	type Method1(type Parameters) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	// body of method
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	type Method2(type Parameters) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	// body of method
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Terms
+\end_layout
+
+\begin_layout Itemize
+Objects (ClassObject) = Instances of Class : uses a class specification
+ to construct 
+\series bold
+objects
+\series default
+.
+ 
+\series bold
+Objects
+\series default
+ are
+\series bold
+ instances of a class.
+\end_layout
+
+\begin_layout Itemize
+instance variables (MemberVar): 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+defined at the top of class block
+\end_layout
+
+\begin_layout Itemize
+Each time you create an instance of a class, you are creating an object
+ that contains its own copy of each instance variable defined by the class.
+\end_layout
+
+\begin_layout Itemize
+They can be later accessed/redefined as using dot.
+ ClassObject.MemerVar
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Constructors For Instance Variables (MemberVar)
+\end_layout
+
+\begin_layout Standard
+Basic Format
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class ClassName{
+\end_layout
+
+\begin_layout Plain Layout
+
+	int X ;// a memebr instance
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// this is a Constructor
+\end_layout
+
+\begin_layout Plain Layout
+
+	ClassName(type Parameters){
+\end_layout
+
+\begin_layout Plain Layout
+
+		x = i 
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A constructor initializes an ClassObject when it is created.
+\end_layout
+
+\begin_layout Standard
+All classes have constructors, whether you define one or not, which are
+ zero, null, and false, for numeric types, reference types, and booleans,
+ respectively.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class Vehicle {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int passengers; // number of passengers
+\end_layout
+
+\begin_layout Plain Layout
+
+	int fuelcap; // fuel capacity in gallons
+\end_layout
+
+\begin_layout Plain Layout
+
+	int mpg; // fuel consumption in miles per gallon
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// This is a constructor for Vehicle.
+\end_layout
+
+\begin_layout Plain Layout
+
+	Vehicle(int p, int f, int m) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		passengers = p;
+\end_layout
+
+\begin_layout Plain Layout
+
+		fuelcap = f;
+\end_layout
+
+\begin_layout Plain Layout
+
+		mpg = m;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Return the range.
+\end_layout
+
+\begin_layout Plain Layout
+
+	int range() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		return mpg * fuelcap;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Compute fuel needed for a given distance.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	double fuelneeded(int miles) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		return (double) miles / mpg;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Use the constructor 
+\end_layout
+
+\begin_layout Plain Layout
+
+// construct complete vehicles
+\end_layout
+
+\begin_layout Plain Layout
+
+Vehicle minivan = new Vehicle(7, 16, 21);
+\end_layout
+
+\begin_layout Plain Layout
+
+Vehicle sportscar = new Vehicle(2, 14, 12);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Methods
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+returntype Method1(parameters) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	// body of method
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+returntype
+\series default
+ specifies the type of data returned by the method.
+ This can be any valid type, including class types that you creating
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If the method does not return a value, its return type must be 
+\series bold
+void
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+return X : you must write keyword return to return an object
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+return will cause all the following codes within that method not running.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+The return type of a method is important because the type of data returned
+ by a method must be compatible with the return type specified by the method.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Namespace
+\series default
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+the instance variables (MemberVar) can be directly used when define a method,
+ no need to write ClassObject.ClassMember, you can directly write ClassMemeber.
+\end_layout
+
+\begin_layout Itemize
+OR, you can use this.Memebr to access them within the class definition block.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Argument
+\series default
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+a value passed to a method is called an argument.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Parameter
+\series default
+: Inside the method, the variable that receives the argument is called a
+ parameter.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+parameter must be initialized
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class ChkNum {
+\end_layout
+
+\begin_layout Plain Layout
+
+	// return true if x is even
+\end_layout
+
+\begin_layout Plain Layout
+
+	boolean isEven(int x) { //parameter must be initialized
+\end_layout
+
+\begin_layout Plain Layout
+
+		if((x%2) == 0) return true;
+\end_layout
+
+\begin_layout Plain Layout
+
+		else return false;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+Example 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class Vehicle {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int passengers; // number of passengers
+\end_layout
+
+\begin_layout Plain Layout
+
+	int fuelcap; // fuel capacity in gallons
+\end_layout
+
+\begin_layout Plain Layout
+
+	int mpg; // fuel consumption in miles per gallon
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Return the range.
+\end_layout
+
+\begin_layout Plain Layout
+
+	int range() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		return mpg * fuelcap; // directly use the ClassMember
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Call the method
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+minivan.range(parameter);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Creat a Class Objects
+\end_layout
+
+\begin_layout Itemize
+Classname ClassObject = new Classname();
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Step 1: Classname ObjectToDefine ---- is to 
+\series bold
+declare
+\series default
+ a variable called ClassObject (minivan).
+ At this point, minivan does not refer to an object.
+\end_layout
+
+\begin_layout Enumerate
+Step 2: new Classname() --- creates a physical copy of the object and assigns
+ to minivan a ClassObject to that object Classname();.
+ This is done by using the new operator.
+ Here it creates a new Vehicle object and assigns a reference to it to minivan.
+ Now, minivan is linked with an object.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class Vehicle {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int passengers; // number of passengers
+\end_layout
+
+\begin_layout Plain Layout
+
+	int fuelcap; // fuel capacity in gallons
+\end_layout
+
+\begin_layout Plain Layout
+
+	int mpg; // fuel consumption in miles per gallon	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// To use a class
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Vehicle minivan = new Vehicle(); // create a Vehicle object called minivan
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Access Class (Instance) Members
+\end_layout
+
+\begin_layout Standard
+you can use the dot operator to access both instance variables and methods.
+\end_layout
+
+\begin_layout Itemize
+ClassObject.ClassMember
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+minivan.fuelcap = 16;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Arrary
+\end_layout
+
+\begin_layout Standard
+An array is a collection of variables of the same type, referred to by a
+ common name.
+\end_layout
+
+\begin_layout Subsection
+Create an Arrary
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+type
+\series default
+ array-name[ ] = 
+\series bold
+new
+\series default
+ 
+\series bold
+type
+\series default
+[size]; 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+type
+\series default
+ declares the element type of the array.
+ (The element type is also commonly referred to as the base type.)
+\end_layout
+
+\begin_layout Itemize
+size is strictly a constraint, you can not refere/access an element beyond
+ its size.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+or size.
+ Since arrays are implemented as objects, the creation of an array is a
+ two-step process.
+ First, you declare an array reference variable.
+ Second, you allocate memory for the array, assigning a reference to that
+ memory to the array variable.
+ Thus, arrays in Java are dynamically allocated using the new operator.
+ 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int sample[];
+\end_layout
+
+\begin_layout Plain Layout
+
+sample = new int[10];
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+or 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+type array-name[ ] = { val1, val2, val3, ...
+ , valN };
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Biud-in Attributes
+\end_layout
+
+\begin_layout Itemize
+table.length
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If it is a two-dimention arrary: table[0].length is for the row?
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Two-Dimensional Arrays
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int table[][] = new int[10][20];
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+table[0][0] is the left most value.
+\end_layout
+
+\begin_layout Itemize
+Initializing
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+type-specifier array_name[ ] [ ] = {
+\end_layout
+
+\begin_layout Plain Layout
+
+{ val, val, val, ..., val },
+\end_layout
+
+\begin_layout Plain Layout
+
+{ val, val, val, ..., val },
+\end_layout
+
+\begin_layout Plain Layout
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+
+{ val, val, val, ..., val }
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Refer Elements in Arrary
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sample[i] = X;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or for two-dimention
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+table[3][5]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
