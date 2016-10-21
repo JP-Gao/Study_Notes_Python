@@ -1,0 +1,1082 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[BoldFont,SlantFont,CJKnumber,fallback]{xeCJK}%使用TexLive自带的xeCJK宏包，并启用加粗、斜体、CJK数字和备用字体选项
+\setCJKmainfont{Songti SC}%设置中文衬线字体,若没有该字体,请替换该字符串为系统已有的中文字体,下同
+\setCJKsansfont{STXihei}%中文无衬线字体
+\setCJKmonofont{SimHei}%中文等宽字体
+%中文断行和弹性间距在XeCJK中自动处理了
+%\XeTeXlinebreaklocale “zh”%中文断行
+%\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+
+\usepackage[multidot]{grffile}
+\setlength{\parindent}{2em}%缩进两个字符
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "unicode=false"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 16419249 "v660271" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+R: Files and Tech
+\end_layout
+
+\begin_layout Author
+Fan Yang
+\end_layout
+
+\begin_layout Date
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+First version: Feb 
+\begin_inset Formula $10{}^{th}$
+\end_inset
+
+, 2014.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+File
+\end_layout
+
+\begin_layout Section
+File Parth
+\end_layout
+
+\begin_layout Subsection
+root of directory //
+\end_layout
+
+\begin_layout Standard
+source("//master/fnshares/bcriskpolicy/Fan Yang/First_Solution_201409/attach_UCL
+_Forecast_Prepare.R")
+\end_layout
+
+\begin_layout Subsection
+NOT “
+\backslash
+”, use “/”
+\end_layout
+
+\begin_layout Standard
+Note：never use
+\backslash
+ when describe the address of the file as windows does, instead, use / in
+ R
+\end_layout
+
+\begin_layout Section
+Directory
+\end_layout
+
+\begin_layout Subsection
+get directory
+\end_layout
+
+\begin_layout Itemize
+set directory: setwd(
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+getwd() get current working directory.
+ 
+\end_layout
+
+\begin_layout Itemize
+Get the directory you package is installed.: .libPaths()[1] 
+\end_layout
+
+\begin_layout Itemize
+Ser your working directory: setwd(Package_Stored_Directory)
+\end_layout
+
+\begin_layout Section
+Package
+\end_layout
+
+\begin_layout Subsection
+Install the Package from Local
+\end_layout
+
+\begin_layout Standard
+install.packages('BhGLM_1.0.zip', repos = NULL)
+\end_layout
+
+\begin_layout Section
+Data
+\end_layout
+
+\begin_layout Standard
+In R, the safest way to save data is to save a single object into .rds format.
+\end_layout
+
+\begin_layout Subsection
+argument: define class of input vars
+\end_layout
+
+\begin_layout Standard
+argument: colClasses=c("character",rep("numeric",5)): The colClasses vector
+ must have length equal to the number of imported columns.
+ Supposing the rest of your dataset columns are 5:
+\end_layout
+
+\begin_layout Subsection
+argument: keep string, not factor
+\end_layout
+
+\begin_layout Standard
+argument: stringsAs=FALSE: not transfer string to factor
+\end_layout
+
+\begin_layout Subsection
+Save /Load Variable
+\end_layout
+
+\begin_layout Description
+saveRDS(women, "women.rds") 
+\end_layout
+
+\begin_layout Description
+women2 <- readRDS("women.rds") 
+\end_layout
+
+\begin_layout Subsection
+read external R code
+\end_layout
+
+\begin_layout Standard
+source(”file_path”)
+\end_layout
+
+\begin_layout Subsection
+from website 
+\end_layout
+
+\begin_layout Standard
+dat1 = read.table("http://www.stat.uiuc.edu/~stepanov/bodyfat.dat", header =
+ T, na.strings=”.”)
+\end_layout
+
+\begin_layout Subsection
+Download files from internet & Local
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+download.file(destfile="BhGLM_1.0.zip",url="http://www.ssg.uab.edu/bhglm/files//BhGLM_
+1.0.zip")
+\end_layout
+
+\begin_layout Standard
+will be stored into your current working directory.
+\end_layout
+
+\begin_layout Subsection
+from csv
+\end_layout
+
+\begin_layout Description
+dat = read.table("F:/Hw09_1.csv", sep=",", header=T)
+\end_layout
+
+\begin_layout Description
+read.csv : specify varaible’s class when input
+\end_layout
+
+\begin_layout Subsection
+to csv
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+write.csv(cleaned, "cleaned.data.csv", na="NA",raw.names=FALSE) 
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+write.csv(data,path)
+\family default
+ to save data: 
+\series bold
+Just be super careful when you store R data into csv.
+ Some character var lwith values “1’,’2” etc will be transformed to numeric.
+ 
+\end_layout
+
+\begin_layout Subsection
+fromli brary
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+library(faraway); data(prostate)
+\end_layout
+
+\begin_layout Subsection
+from other software: library ( foreign )
+\end_layout
+
+\begin_layout Standard
+http://cran.r-project.org/web/packages/foreign/foreign.pdf
+\end_layout
+
+\begin_layout Subsection
+from txt file
+\end_layout
+
+\begin_layout Standard
+if there are two columns, but one element is empty, then we will get 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,
+ : line 8 did not have 2 elements 
+\end_layout
+
+\begin_layout Standard
+We can get R to load the data correctly by adding the argument fill=T.
+ That is,
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+read.table(file=url("http://math.ucsd.edu/~wgarner/math181c/data/admissions_data_bl
+ank.txt"),header=T,sep="
+\backslash
+t",fill=T)
+\end_layout
+
+\begin_layout Subsection
+workspace
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+save.image("~/Dropbox/RA_Report_1_DataBeforeCoint.RData")
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+load("~/Dropbox/RA_Report_1_DataBeforeCoint.RData")
+\end_layout
+
+\begin_layout Standard
+read.xlsx
+\end_layout
+
+\begin_layout Subsection
+to xlsx file
+\end_layout
+
+\begin_layout Standard
+library(c("XML","XLConnect")
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval = F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# 1 create/open an excel file
+\end_layout
+
+\begin_layout Plain Layout
+
+RESULT_xlsx<- loadWorkbook(paste(TITLE,".xlsx",sep=''), create = TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+# 2 create a worksheet
+\end_layout
+
+\begin_layout Plain Layout
+
+createSheet(RESULT_xlsx, name = "TITLE")
+\end_layout
+
+\begin_layout Plain Layout
+
+# 3 write the dataset into the worksheet
+\end_layout
+
+\begin_layout Plain Layout
+
+writeWorksheet(RESULT_xlsx, RESULT, sheet = "TITLE", startRow = 1, startCol
+ = 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+# you can repeat the step 2 and 3 to create more work sheet
+\end_layout
+
+\begin_layout Plain Layout
+
+# 4 save the whole file
+\end_layout
+
+\begin_layout Plain Layout
+
+saveWorkbook(RESULT_xlsx)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+from xlsx
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+read_excel ("input/PL_total.xlsx",sheet = "4Q14_Base_old",na = "#Missing")
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Files in disk List of files in the directory list.files(Path)
+\end_layout
+
+\begin_layout Standard
+# Including the create time # Input is a character contains file name and
+ file path.
+ file.info()
+\end_layout
+
+\begin_layout Standard
+file.create(..., showWarnings = TRUE) file.exists(...) file.remove(...) file.rename(from,
+ to) # both “from” and “to” needs to be strings file.append(file1, file2)
+ file.copy(from, to, overwrite = recursive, recursive = FALSE, copy.mode =
+ TRUE) file.symlink(from, to) file.link(from, to) 
+\change_inserted 16419249 1461689293
+
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted 16419249 1461689299
+get excel sheet names
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 16419249 1461689300
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 16419249 1461689307
+
+sheet_list = excel_sheets(path)
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Section
+Files in disk 
+\end_layout
+
+\begin_layout Description
+list.files(Path): List of files in the directory .
+\end_layout
+
+\begin_layout Description
+file.info()
+\end_layout
+
+\begin_layout Description
+file.create(..., showWarnings = TRUE)
+\end_layout
+
+\begin_layout Description
+file.exists(...)
+\end_layout
+
+\begin_layout Description
+file.remove(...)
+\end_layout
+
+\begin_layout Description
+file.rename(from, to) # both “from” and “to” needs to be strings
+\end_layout
+
+\begin_layout Description
+file.append(file1, file2)
+\end_layout
+
+\begin_layout Description
+file.copy(from, to, overwrite = recursive, recursive = FALSE,
+\end_layout
+
+\begin_layout Description
+copy.mode = TRUE)
+\end_layout
+
+\begin_layout Description
+file.symlink(from, to)
+\end_layout
+
+\begin_layout Description
+file.link(from, to)
+\end_layout
+
+\begin_layout Part
+Tech
+\end_layout
+
+\begin_layout Section
+Enviorment and Console
+\end_layout
+
+\begin_layout Subsection
+clean the workspace 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+rm(list = ls()) 
+\end_layout
+
+\begin_layout Subsection
+sessionInfo()： return the environmental infor of R
+\end_layout
+
+\begin_layout Subsection
+dump an object in the form of R code: dput(),
+\end_layout
+
+\begin_layout Standard
+One very useful function I often use is dput(), which allows you to dump
+ an object in the form of R code.
+\end_layout
+
+\begin_layout Standard
+# Use the iris data set
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+data(iris)
+\end_layout
+
+\begin_layout Plain Layout
+
+# dput of a numeric vector
+\end_layout
+
+\begin_layout Plain Layout
+
+dput(iris$Petal.Length)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# dput of a factor levels
+\end_layout
+
+\begin_layout Plain Layout
+
+dput(levels(iris$Species))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Type the Keyboard
+\end_layout
+
+\begin_layout Standard
+The following line can be in loop or function to read what user type.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+cat ("
+\backslash
+n ....
+ Press [enter] to continue; Type [s] to stop ....") 
+\end_layout
+
+\begin_layout Plain Layout
+
+line <- readline()
+\end_layout
+
+\begin_layout Plain Layout
+
+if (line=='s' | line=='S') stop("Stop ! ")
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Keyboard and Clipboard
+\end_layout
+
+\begin_layout Subsection
+Copy to Clipboard
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- "hello world"
+\end_layout
+
+\begin_layout Plain Layout
+
+writeClipboard(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Control + click the function: show the source code of the function.
+\end_layout
+
+\begin_layout Standard
+If the function is defined in the opened files.
+ It will direct you to the location of that function in the file.
+\end_layout
+
+\begin_layout Section
+Beautify Code
+\end_layout
+
+\begin_layout Subsection
+Beautify and tidy your code
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval = F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library("gWidgetsRGtk2")
+\end_layout
+
+\begin_layout Plain Layout
+
+library(formatR)
+\end_layout
+
+\begin_layout Plain Layout
+
+tidy.gui()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Code Sections
+\end_layout
+
+\begin_layout Description
+Alt+o : fold all in PC// Alt + command + o in Mac
+\end_layout
+
+\begin_layout Description
+Shift + Alt + o : expand all
+\end_layout
+
+\begin_layout Description
+Alt+l : fold current section
+\end_layout
+
+\begin_layout Description
+Shift + Alt + l : expand current section
+\end_layout
+
+\begin_layout Standard
+Code sections allow you to break a larger source file into a set of discrete
+ regions for easy navigation between them.
+ Code sections are automatically foldable—for example, the following source
+ file has three sections (one expanded and the other two folded): 
+\end_layout
+
+\begin_layout Standard
+To insert a new code section you can use the Code -> Insert Section command.
+ Alternatively, any comment line which includes at least four trailing dashes
+ (-), equal signs (=), or pound signs (#) automatically creates a code section.
+ For example, all of the following lines create code sections:
+\end_layout
+
+\begin_layout Standard
+# Section One ---------------------------------
+\end_layout
+
+\begin_layout Standard
+# Section Two =================================
+\end_layout
+
+\begin_layout Standard
+### Section Three ############################# 
+\end_layout
+
+\begin_layout Standard
+Note that as illustrated above the line can start with any number of pound
+ signs (#) so long as it ends with four or more -, =, or # characters.
+\end_layout
+
+\begin_layout Standard
+To navigate between code sections you can use the Jump To menu available
+ at the bottom of the editor: 
+\end_layout
+
+\begin_layout Section
+R global Options 
+\end_layout
+
+\begin_layout Standard
+还有其他定制启动环境的方式，包括使用命令行选项和环境变量。查看help(Startup)以及R导论的附录B（http://cran.r-project.org/do
+c/manuals/R-intro.pdf，中文版地址http://cran.r-project.org/doc/contrib/Ding-R-intro_cn.pdf
+）获取更多细节
+\end_layout
+
+\begin_layout Subsection
+Set up the Initial Environment when you open R
+\end_layout
+
+\begin_layout Standard
+程序员最喜欢做的事之一是定制启动环境，好让程序按照他们喜欢方式工作。定制启动环境可以让你设置R的选项、指定工作目录、加载常用的包、加载用户自己写的函数、设置CR
+AN下载网址以及其它操作。
+\end_layout
+
+\begin_layout Standard
+你可以通过编辑位置位置初始化文件（Rprofile.site）或者目录初始化文件（.Rprofile）来定制R环境。这两个是纯文本文件，包含启动时要执行的R代码。
+\end_layout
+
+\begin_layout Standard
+在启动的时候，R会从R_HOME/etc这个目录寻找Rprofile.site来调用，其中 R_HOME 是环境变量。
+\end_layout
+
+\begin_layout Standard
+然后R会在当前工作目录寻找.Rprofile文件来调用。如果R没有找到这个文件，就会在用户的主目录寻找。
+\end_layout
+
+\begin_layout Standard
+你可以用Sys.getenv("R_HOME")、Sys.getenv("HOME")和getwd()分别查看R_HOME 、HOME以及当前工作目录。
+\end_layout
+
+\begin_layout Standard
+你可以在这些文件里放两个特殊的函数，.First()函数在启动R会话的时候执行，.Last()函数在结束会话的时候执行。Rprofile.site文件的例子如下：
+\end_layout
+
+\begin_layout Subsubsection
+options
+\end_layout
+
+\begin_layout Standard
+options(papersize="a4")
+\end_layout
+
+\begin_layout Standard
+options(editor="notepad")
+\end_layout
+
+\begin_layout Standard
+options(pager="internal")
+\end_layout
+
+\begin_layout Standard
+options(tab.width = 2)
+\end_layout
+
+\begin_layout Standard
+options(width = 130)
+\end_layout
+
+\begin_layout Standard
+options(graphics.record=TRUE)
+\end_layout
+
+\begin_layout Standard
+options(show.signif.stars=FALSE)
+\end_layout
+
+\begin_layout Subsection
+# 设置R交互提示信息
+\end_layout
+
+\begin_layout Standard
+options(prompt="> ")
+\end_layout
+
+\begin_layout Standard
+options(continue="+ ")
+\end_layout
+
+\begin_layout Subsection
+.libPaths("C:/my_R_library") # 设置包的本地库（library）路径
+\end_layout
+
+\begin_layout Standard
+设置.libPaths值允许你在R的安装目录之外创建包的本地库。这再升级时很有用，可以保留之前安装的包。
+\end_layout
+
+\begin_layout Subsection
+# 设置CRAN镜像默认地址
+\end_layout
+
+\begin_layout Standard
+设置CRAN镜像网站可以让你在使用install.packages()命令时不用每次都选择。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval = F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+local({r <- getOption("repos")
+\end_layout
+
+\begin_layout Plain Layout
+
+	r["CRAN"] <- "http://cran.case.edu/"
+\end_layout
+
+\begin_layout Plain Layout
+
+	options(repos=r)})
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Action at start 
+\end_layout
+
+\begin_layout Standard
+.First() function
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval = F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+.First <- function(){
+\end_layout
+
+\begin_layout Plain Layout
+
+	library(lattice)
+\end_layout
+
+\begin_layout Plain Layout
+
+	library(Hmisc)
+\end_layout
+
+\begin_layout Plain Layout
+
+	source("C:/mydir/myfunctions.R")
+\end_layout
+
+\begin_layout Plain Layout
+
+	cat("
+\backslash
+nWelcome at", date(), "
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Action at end
+\end_layout
+
+\begin_layout Standard
+.Last(): used to save history, save files etc at the end when you log out
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval = F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+.Last <- function(){
+\end_layout
+
+\begin_layout Plain Layout
+
+	cat("
+\backslash
+nGoodbye at ", date(), "
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
