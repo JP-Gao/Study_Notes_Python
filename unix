@@ -2498,6 +2498,36 @@ P128 Java a Beginner's Guide
 \end_layout
 
 \begin_layout Part
+J Primitive Types
+\end_layout
+
+\begin_layout Subsection
+The Shift Operators
+\end_layout
+
+\begin_layout Standard
+p171 beginner;s guid
+\end_layout
+
+\begin_layout Standard
+In Java it is possible to shift the bits that make up a value to the left
+ or to the right by a specified amount.
+ Java defines the three bit-shift operators shown here: 
+\end_layout
+
+\begin_layout Standard
+<< Left shift
+\end_layout
+
+\begin_layout Standard
+>> Right shift 
+\end_layout
+
+\begin_layout Standard
+>>> Unsigned right shift
+\end_layout
+
+\begin_layout Part
 J Class
 \end_layout
 
@@ -2688,6 +2718,269 @@ i++;
 \end_layout
 
 \begin_layout Section
+Strings
+\end_layout
+
+\begin_layout Itemize
+Strings Are Immutable
+\end_layout
+
+\begin_layout Itemize
+Strings are made by chr
+\end_layout
+
+\begin_layout Subsection
+Constructing Strings
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+String str = new String("Hello");
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+OR 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+String str = "Java strings are powerful.";
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Opperations
+\end_layout
+
+\begin_layout Itemize
+str1.length()
+\end_layout
+
+\begin_layout Itemize
+System.out.println(str1)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+concatenate
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+String str1 = "One";
+\end_layout
+
+\begin_layout Plain Layout
+
+String str2 = "Two";
+\end_layout
+
+\begin_layout Plain Layout
+
+String str3 = "Three";
+\end_layout
+
+\begin_layout Plain Layout
+
+String str4 = str1 + str2 + str3;
+\end_layout
+
+\begin_layout Plain Layout
+
+initializes str4 with the string "OneTwoThree".
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+substring( ) method returns a new string that contains a specified portion
+ of the invoking string.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+str1.substring(5, 18);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+match a string
+\end_layout
+
+\begin_layout Itemize
+int indexOf(str) Searches the invoking string for the substring specified
+ by str.
+ Returns the index of the first match or –1 on failure.
+\end_layout
+
+\begin_layout Itemize
+int lastIndexOf(str) Searches the invoking string for the substring specified
+ by str.
+ Returns the index of the last match or –1 on failure.
+\end_layout
+
+\begin_layout Itemize
+get posittion: Obtains the character at the index specified by index.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+str1.charAt(i) // i has to be chr
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Using a String to Control a switch Statement
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+case "connect":
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Connecting");
+\end_layout
+
+\begin_layout Plain Layout
+
+	break;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+case "cancel":
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Canceling");
+\end_layout
+
+\begin_layout Plain Layout
+
+	break;
+\end_layout
+
+\begin_layout Plain Layout
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+case "disconnect":
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Disconnecting");
+\end_layout
+
+\begin_layout Plain Layout
+
+	break;
+\end_layout
+
+\begin_layout Plain Layout
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+default:
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Command Error!");
+\end_layout
+
+\begin_layout Plain Layout
+
+	break;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+A mutable string
+\end_layout
+
+\begin_layout Standard
+Java offers a class called StringBuffer, which creates string objects that
+ can be changed.
+ For example, in addition to the charAt( ) method, which obtains the character
+ at a specific location, StringBuffer defines setCharAt( ), which sets a
+ character within the string.
+ Java also supplies StringBuilder, which is related to StringBuffer, and
+ also supports strings that can be changed.
+ However, for most purposes you will want to use String, not StringBuffer
+ or StringBuilder.
+\end_layout
+
+\begin_layout Section
 Loop
 \end_layout
 
@@ -2816,6 +3109,741 @@ for(num = 1.0; num < 100.0; num++) { ...
 
 for(i=0, j=10; i < j; i++, j--){}  // OK to have two variables, separated
  by comma
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Loop with array
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+for(type itr-var : collection) statement-block
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+type 
+\series default
+specifies the type, 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+itr-var 
+\series default
+specifies the name of an iteration variable that will receive the elements
+ from a collection, one at a time, from beginning to end.
+ 
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+collection
+\series default
+ being cycled through is specified by collection.
+ There are various types of collections that can be used with the for, but
+ the only type used in this book is the array
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Its iteration variable is “read-only” as it relates to the underlying array.
+ You can’t change the contents of the array by assigning the iteration variable
+ a new value.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Example:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int nums[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+\end_layout
+
+\begin_layout Plain Layout
+
+int sum = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+for(int x: nums) sum += x;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Loop with 2-dimentional arrary
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+for(int x[] : nums) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(int y : x) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Value is: " + y);
+\end_layout
+
+\begin_layout Plain Layout
+
+		sum += y;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+break
+\end_layout
+
+\begin_layout Standard
+stop the loop where it belongs.
+ If it is a nested loop, break will only stop loop at its level
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+for(int x : nums) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Value is: " + x);
+\end_layout
+
+\begin_layout Plain Layout
+
+	sum += x;
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(x == 5) break; // stop the loop when 5 is obtained
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Continue
+\end_layout
+
+\begin_layout Subsection
+Recursion
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// A simple example of recursion.
+\end_layout
+
+\begin_layout Plain Layout
+
+class Factorial {
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// This is a recursive function.
+\end_layout
+
+\begin_layout Plain Layout
+
+	int factR(int n) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		int result;
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(n==1) return 1; // recusive function must have a stop condition.
+\end_layout
+
+\begin_layout Plain Layout
+
+		result = factR(n-1) * n;
+\end_layout
+
+\begin_layout Plain Layout
+
+		return result;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// This is an iterative equivalent.
+\end_layout
+
+\begin_layout Plain Layout
+
+	int factI(int n) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		int t, result;
+\end_layout
+
+\begin_layout Plain Layout
+
+		result = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+		for(t=1; t <= n; t++) result *= t;
+\end_layout
+
+\begin_layout Plain Layout
+
+		return result;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Varargs
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int doIt(int a, int b, double c, int ...
+ vals) {
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+valsis operated on as an array.
+ This is because vals is an array.
+ The ...
+ syntax simply tells the compiler that a variable number of arguments will
+ be used, and that these arguments will be stored in the array referred
+ to by vals.
+ The ...
+ arguments are automatically put in an array and passed to vals.
+\end_layout
+
+\begin_layout Itemize
+vararg parameter can be empty
+\end_layout
+
+\begin_layout Itemize
+the varargs parameter must be last
+\end_layout
+
+\begin_layout Subsection
+Nested and Inner Classes
+\end_layout
+
+\begin_layout Section
+Static Blocks
+\end_layout
+
+\begin_layout Subsection
+Static member / Static keyword
+\end_layout
+
+\begin_layout Itemize
+To access Traditional ClassMember: ClassObject.ClassMember
+\end_layout
+
+\begin_layout Itemize
+To access static ClassMember: ClassName.ClassMember
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For example, if you want to assign the value 10 to a static variable called
+ count that is part of the Timer class, use this line:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Timer.count = 10;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Normally a class member must be accessed through an object of its class,
+ but it is possible to create a member that can be used by itself, without
+ reference to a specific instance.
+ To create such a member, precede its declaration with the keyword static.
+ When a member is declared static.
+\end_layout
+
+\begin_layout Standard
+The most common example of a static member is main( ).
+ main( ) is declared as static because it must be called by the JVM when
+ your program begins.
+ Outside the class, to use a static member, you need only specify the name
+ of its class followed by the dot operator.
+ No object needs to be created
+\end_layout
+
+\begin_layout Itemize
+Variables declared as static are, essentially, global variables.
+\end_layout
+
+\begin_layout Itemize
+As you can see, the static variable y is shared by both ob1 and ob2.
+ Changing it affects the entire class, not just an instance
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class StaticDemo {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int x; // a normal instance variable
+\end_layout
+
+\begin_layout Plain Layout
+
+	static int y; // a static variable
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Return the sum of the instance variable x
+\end_layout
+
+\begin_layout Plain Layout
+
+	// and the static variable y.
+\end_layout
+
+\begin_layout Plain Layout
+
+	int sum() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	return x + y;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// usage
+\end_layout
+
+\begin_layout Plain Layout
+
+StaticDemo.y = 19;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+static method / static keyword
+\end_layout
+
+\begin_layout Standard
+The difference between a static method and a normal method is that the static
+ method is called through its class name, without any object of that class
+ being created.
+\end_layout
+
+\begin_layout Standard
+Methods declared as static have several restrictions:
+\end_layout
+
+\begin_layout Standard
+● They can directly call only other static methods.
+\end_layout
+
+\begin_layout Standard
+● They can directly access only static data.
+\end_layout
+
+\begin_layout Standard
+● They do not have a this reference
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class StaticMeth {
+\end_layout
+
+\begin_layout Plain Layout
+
+	static int val = 1024; // a static variable
+\end_layout
+
+\begin_layout Plain Layout
+
+	// a static method
+\end_layout
+
+\begin_layout Plain Layout
+
+	static int valDiv2() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		return val/2;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+taticMeth.valDiv2()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Static Blocks
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class StaticBlock {
+\end_layout
+
+\begin_layout Plain Layout
+
+	static double rootOf2;
+\end_layout
+
+\begin_layout Plain Layout
+
+	static double rootOf3;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	static {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Inside static block.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		rootOf2 = Math.sqrt(2.0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		rootOf3 = Math.sqrt(3.0);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	StaticBlock(String msg) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(msg);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+If
+\end_layout
+
+\begin_layout Subsection
+switch Statement
+\end_layout
+
+\begin_layout Itemize
+need break at the end of each case
+\end_layout
+
+\begin_layout Itemize
+need a default choice at the last
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+case "connect":
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Connecting");
+\end_layout
+
+\begin_layout Plain Layout
+
+	break;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+case "cancel":
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Canceling");
+\end_layout
+
+\begin_layout Plain Layout
+
+	break;
+\end_layout
+
+\begin_layout Plain Layout
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+case "disconnect":
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Disconnecting");
+\end_layout
+
+\begin_layout Plain Layout
+
+	break;
+\end_layout
+
+\begin_layout Plain Layout
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+default:
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Command Error!");
+\end_layout
+
+\begin_layout Plain Layout
+
+	break;
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -3498,6 +4526,254 @@ minivan.fuelcap = 16;
 
 \end_layout
 
+\begin_layout Subsection
+Controlling Access to Class Members
+\end_layout
+
+\begin_layout Standard
+Restricting access to a class’ members is a fundamental part of object-oriented
+ programming because it helps prevent the misuse of an object.
+ Although Java’s approach is a bit more sophisticated, in essence, there
+ are two basic types of class members: public and private.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class MyClass {
+\end_layout
+
+\begin_layout Plain Layout
+
+	private int alpha; // private access
+\end_layout
+
+\begin_layout Plain Layout
+
+	public int beta; // public access
+\end_layout
+
+\begin_layout Plain Layout
+
+	int gamma; // default access
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+private: Because alpha is private, it cannot be accessed by code outside
+ of its class.
+ But you can still directly refer it within the ClassDefine block
+\end_layout
+
+\begin_layout Itemize
+bt default, if no private / public is specified, then the member is public.
+\end_layout
+
+\begin_layout Subsection
+Mutate Arguments inside the Method
+\end_layout
+
+\begin_layout Itemize
+When you pass a primitive type, such as int or double, to a method, it is
+ passed by value.
+ Thus, a copy of the argument is made, and what occurs to the parameter
+ that receives the argument has no effect outside the method.
+\end_layout
+
+\begin_layout Itemize
+When you pass an object to a method, the situation changes dramatically,
+ because objects are implicitly passed by reference.
+ Keep in mind that when you create a variable of a class type, you are creating
+ a reference to an object.
+ It is the reference, not the object itself, that is actually passed to
+ the method.
+\end_layout
+
+\begin_layout Subsection
+Method Overloading & Polymorphism
+\end_layout
+
+\begin_layout Standard
+In Java, two or more methods within the same class can share the same name,
+ as long as their parameter declarations are different.
+ When this is the case, the methods are said to be overloaded, and the process
+ is referred to as method overloading.
+ Method overloading is one of the ways that Java implements polymorphism.
+\end_layout
+
+\begin_layout Itemize
+You must observe one important restriction: the type and/or number of the
+ parameters of each overloaded method must differ.
+\end_layout
+
+\begin_layout Itemize
+Java provides certain automatic type conversions.
+ These conversions also apply to parameters of overloaded methods.
+ For example, consider the following:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In this example, only two versions of f( ) are defined: one that has an
+ int parameter and one that has a double parameter.
+ However, it is possible to pass f( ) a byte, short, or float value.
+ In the case of byte and short, Java automatically converts them to int.
+ Thus, f(int) is invoked.
+ In the case of float, the value is converted to double and f(double) is
+ called.
+\end_layout
+
+\begin_layout Itemize
+In this version, since there is a version of f( ) that takes a byte argument,
+ when f( ) is called with a byte argument, f(byte) is invoked and the automatic
+ conversion to int does not occur.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Overloading Constructors
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class MyClass {
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int x;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Construct objects in a variety of ways.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	MyClass() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Inside MyClass().");
+\end_layout
+
+\begin_layout Plain Layout
+
+	x = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	MyClass(double d) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Inside MyClass(double).");
+\end_layout
+
+\begin_layout Plain Layout
+
+	x = (int) d;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	MyClass(int i, int j) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Inside MyClass(int, int).");
+\end_layout
+
+\begin_layout Plain Layout
+
+	x = i * j;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+One of the most common reasons that constructors are overloaded is to allow
+ one object to initialize another
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Summation(Summation ob)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Arrary
 \end_layout
@@ -3712,6 +4988,129 @@ status open
 \begin_layout Plain Layout
 
 table[3][5]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Inheritance
+\end_layout
+
+\begin_layout Standard
+A class that is inherited is called a superclass.
+ The class that does the inheriting is called a subclass.
+\end_layout
+
+\begin_layout Itemize
+All public memers and methods of SuperClass are also memebers & methods
+ in SubClass
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Within subclass, all public members and methods can be directly accessed
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class TwoDShape {
+\end_layout
+
+\begin_layout Plain Layout
+
+	double width;
+\end_layout
+
+\begin_layout Plain Layout
+
+	double height;	
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+class Triangle extends TwoDShape {
+\end_layout
+
+\begin_layout Plain Layout
+
+	String style;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// All members of Triangle are available to Triangle objects, even those
+ inherited from TwoDShape.
+\end_layout
+
+\begin_layout Plain Layout
+
+t1.width = 4.0;
+\end_layout
+
+\begin_layout Plain Layout
+
+t1.height = 4.0;
+\end_layout
+
+\begin_layout Plain Layout
+
+t1.style = "filled";
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+create a subclass: extends
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class SubClassName extends SuperClassName {
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}
 \end_layout
 
 \end_inset
