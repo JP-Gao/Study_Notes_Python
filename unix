@@ -2498,223 +2498,7 @@ P128 Java a Beginner's Guide
 \end_layout
 
 \begin_layout Part
-J Primitive Types
-\end_layout
-
-\begin_layout Subsection
-The Shift Operators
-\end_layout
-
-\begin_layout Standard
-p171 beginner;s guid
-\end_layout
-
-\begin_layout Standard
-In Java it is possible to shift the bits that make up a value to the left
- or to the right by a specified amount.
- Java defines the three bit-shift operators shown here: 
-\end_layout
-
-\begin_layout Standard
-<< Left shift
-\end_layout
-
-\begin_layout Standard
->> Right shift 
-\end_layout
-
-\begin_layout Standard
->>> Unsigned right shift
-\end_layout
-
-\begin_layout Part
-J Class
-\end_layout
-
-\begin_layout Subsection
-Reference, Copy and Assignment
-\end_layout
-
-\begin_layout Standard
-Terms:
-\end_layout
-
-\begin_layout Itemize
-Object: the value stored in memory.
- Itself has no name.
- But it does have position at the RAM.
-\end_layout
-
-\begin_layout Itemize
-Variables: We can only directly interact with them.
- They are just the frontdoor of an object, they are just the name.
- 
-\end_layout
-
-\begin_layout Itemize
-Reference: 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-a relation between Variable and Object
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Reference Rules
-\end_layout
-
-\begin_layout Itemize
-When you assign one primitive-type variable to another, the situation is
- straightforward.
- The variable on the left receives a copy of the value of the variable on
- the right.
-\end_layout
-
-\begin_layout Itemize
-When you assign one object reference variable to another, the situation
- is a bit more complicated because you are changing the object that the
- reference variable refers to.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-Vehicle car1 = new Vehicle();
-\end_layout
-
-\begin_layout Plain Layout
-
-Vehicle car2 = car1;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Instead, car1 and car2 will both refer to the same object.
-\end_layout
-
-\begin_layout Itemize
-Later, if you change car1, car2 will automatically changed.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-car1.mpg = 26;
-\end_layout
-
-\begin_layout Plain Layout
-
-executes, both of these println( ) statements
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-System.out.println(car1.mpg);
-\end_layout
-
-\begin_layout Plain Layout
-
-System.out.println(car2.mpg);
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-display the same value: 26.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-keyword new
-\end_layout
-
-\begin_layout Standard
-new can be used to create an object of any class type.
- The new operator returns a reference to the newly created object, which
- (in this case) is assigned to class-var.
-\end_layout
-
-\begin_layout Standard
-Usage
-\end_layout
-
-\begin_layout Itemize
-Create a ClassObject
-\end_layout
-
-\begin_layout Itemize
-Create an array.
-\end_layout
-
-\begin_layout Section
-Operator 
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-sum += i++
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In other words, this statement says, “Add to sum the value of sum plus i,
- then increment i.” Thus, it is the same as this sequence of statements:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-sum = sum + i;
-\end_layout
-
-\begin_layout Plain Layout
-
-i++;
-\end_layout
-
-\end_inset
-
-
+J Primitive & Default Types
 \end_layout
 
 \begin_layout Section
@@ -2918,6 +2702,7 @@ case "cancel":
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \end_layout
 
@@ -2937,6 +2722,7 @@ case "disconnect":
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \end_layout
 
@@ -2978,6 +2764,231 @@ Java offers a class called StringBuffer, which creates string objects that
  also supports strings that can be changed.
  However, for most purposes you will want to use String, not StringBuffer
  or StringBuilder.
+\end_layout
+
+\begin_layout Section
+Array
+\end_layout
+
+\begin_layout Standard
+An array is a collection of variables of the same type, referred to by a
+ common name.
+\end_layout
+
+\begin_layout Subsection
+Create an Array
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+type
+\series default
+ array-name[ ] = 
+\series bold
+new
+\series default
+ 
+\series bold
+type
+\series default
+[size]; 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+type
+\series default
+ declares the element type of the array.
+ (The element type is also commonly referred to as the base type.)
+\end_layout
+
+\begin_layout Itemize
+size is strictly a constraint, you can not refer/access an element beyond
+ its size.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+or size.
+ Since arrays are implemented as objects, the creation of an array is a
+ two-step process.
+ First, you declare an array reference variable.
+ Second, you allocate memory for the array, assigning a reference to that
+ memory to the array variable.
+ Thus, arrays in Java are dynamically allocated using the new operator.
+ 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int sample[];
+\end_layout
+
+\begin_layout Plain Layout
+
+sample = new int[10];
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+or 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+type array-name[ ] = { val1, val2, val3, ...
+ , valN };
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Biud-in Attributes
+\end_layout
+
+\begin_layout Itemize
+table.length
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If it is a two-dimention arrary: table[0].length is for the row?
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Two-Dimensional Arrays
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int table[][] = new int[10][20];
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+table[0][0] is the left most value.
+\end_layout
+
+\begin_layout Itemize
+Initializing
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+type-specifier array_name[ ] [ ] = {
+\end_layout
+
+\begin_layout Plain Layout
+
+{ val, val, val, ..., val },
+\end_layout
+
+\begin_layout Plain Layout
+
+{ val, val, val, ..., val },
+\end_layout
+
+\begin_layout Plain Layout
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+
+{ val, val, val, ..., val }
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Refer Elements in Arrary
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sample[i] = X;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or for two-dimention
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+table[3][5]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Loop and Control
 \end_layout
 
 \begin_layout Section
@@ -3438,313 +3449,6 @@ vararg parameter can be empty
 the varargs parameter must be last
 \end_layout
 
-\begin_layout Subsection
-Nested and Inner Classes
-\end_layout
-
-\begin_layout Section
-Static Blocks
-\end_layout
-
-\begin_layout Subsection
-Static member / Static keyword
-\end_layout
-
-\begin_layout Itemize
-To access Traditional ClassMember: ClassObject.ClassMember
-\end_layout
-
-\begin_layout Itemize
-To access static ClassMember: ClassName.ClassMember
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-For example, if you want to assign the value 10 to a static variable called
- count that is part of the Timer class, use this line:
-\end_layout
-
-\begin_layout Itemize
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-Timer.count = 10;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Normally a class member must be accessed through an object of its class,
- but it is possible to create a member that can be used by itself, without
- reference to a specific instance.
- To create such a member, precede its declaration with the keyword static.
- When a member is declared static.
-\end_layout
-
-\begin_layout Standard
-The most common example of a static member is main( ).
- main( ) is declared as static because it must be called by the JVM when
- your program begins.
- Outside the class, to use a static member, you need only specify the name
- of its class followed by the dot operator.
- No object needs to be created
-\end_layout
-
-\begin_layout Itemize
-Variables declared as static are, essentially, global variables.
-\end_layout
-
-\begin_layout Itemize
-As you can see, the static variable y is shared by both ob1 and ob2.
- Changing it affects the entire class, not just an instance
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-class StaticDemo {
-\end_layout
-
-\begin_layout Plain Layout
-
-	int x; // a normal instance variable
-\end_layout
-
-\begin_layout Plain Layout
-
-	static int y; // a static variable
-\end_layout
-
-\begin_layout Plain Layout
-
-	// Return the sum of the instance variable x
-\end_layout
-
-\begin_layout Plain Layout
-
-	// and the static variable y.
-\end_layout
-
-\begin_layout Plain Layout
-
-	int sum() {
-\end_layout
-
-\begin_layout Plain Layout
-
-	return x + y;
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-// usage
-\end_layout
-
-\begin_layout Plain Layout
-
-StaticDemo.y = 19;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-static method / static keyword
-\end_layout
-
-\begin_layout Standard
-The difference between a static method and a normal method is that the static
- method is called through its class name, without any object of that class
- being created.
-\end_layout
-
-\begin_layout Standard
-Methods declared as static have several restrictions:
-\end_layout
-
-\begin_layout Standard
-● They can directly call only other static methods.
-\end_layout
-
-\begin_layout Standard
-● They can directly access only static data.
-\end_layout
-
-\begin_layout Standard
-● They do not have a this reference
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-class StaticMeth {
-\end_layout
-
-\begin_layout Plain Layout
-
-	static int val = 1024; // a static variable
-\end_layout
-
-\begin_layout Plain Layout
-
-	// a static method
-\end_layout
-
-\begin_layout Plain Layout
-
-	static int valDiv2() {
-\end_layout
-
-\begin_layout Plain Layout
-
-		return val/2;
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-taticMeth.valDiv2()
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Static Blocks
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-class StaticBlock {
-\end_layout
-
-\begin_layout Plain Layout
-
-	static double rootOf2;
-\end_layout
-
-\begin_layout Plain Layout
-
-	static double rootOf3;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	static {
-\end_layout
-
-\begin_layout Plain Layout
-
-		System.out.println("Inside static block.");
-\end_layout
-
-\begin_layout Plain Layout
-
-		rootOf2 = Math.sqrt(2.0);
-\end_layout
-
-\begin_layout Plain Layout
-
-		rootOf3 = Math.sqrt(3.0);
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	StaticBlock(String msg) {
-\end_layout
-
-\begin_layout Plain Layout
-
-		System.out.println(msg);
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 If
 \end_layout
@@ -3805,6 +3509,7 @@ case "cancel":
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \end_layout
 
@@ -3824,6 +3529,7 @@ case "disconnect":
 \end_layout
 
 \begin_layout Plain Layout
+
 	
 \end_layout
 
@@ -3852,10 +3558,84 @@ default:
 \end_layout
 
 \begin_layout Section
-Class
+Operator 
 \end_layout
 
 \begin_layout Subsection
+++
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sum += i++
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In other words, this statement says, “Add to sum the value of sum plus i,
+ then increment i.” Thus, it is the same as this sequence of statements:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sum = sum + i;
+\end_layout
+
+\begin_layout Plain Layout
+
+i++;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+The Shift Operators
+\end_layout
+
+\begin_layout Standard
+p171 beginner;s guid
+\end_layout
+
+\begin_layout Standard
+In Java it is possible to shift the bits that make up a value to the left
+ or to the right by a specified amount.
+ Java defines the three bit-shift operators shown here: 
+\end_layout
+
+\begin_layout Standard
+<< Left shift
+\end_layout
+
+\begin_layout Standard
+>> Right shift 
+\end_layout
+
+\begin_layout Standard
+>>> Unsigned right shift
+\end_layout
+
+\begin_layout Part
+J Class
+\end_layout
+
+\begin_layout Section
 Creat a Class
 \end_layout
 
@@ -3938,22 +3718,8 @@ Terms
 \end_layout
 
 \begin_layout Itemize
-Objects (ClassObject) = Instances of Class : uses a class specification
- to construct 
-\series bold
-objects
-\series default
-.
- 
-\series bold
-Objects
-\series default
- are
-\series bold
- instances of a class.
-\end_layout
 
-\begin_layout Itemize
+\series bold
 instance variables (MemberVar): 
 \end_layout
 
@@ -3973,8 +3739,75 @@ They can be later accessed/redefined as using dot.
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+Objects (ClassObject) = Instances of Class : uses a class specification
+ to construct objects.
+ Objects are instances of a class.
+\end_layout
+
+\begin_layout Subsection
+Controlling Access to Class Members: private / public
+\end_layout
+
+\begin_layout Standard
+Restricting access to a class’ members is a fundamental part of object-oriented
+ programming because it helps prevent the misuse of an object.
+ Although Java’s approach is a bit more sophisticated, in essence, there
+ are two basic types of class members: public and private.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class MyClass {
+\end_layout
+
+\begin_layout Plain Layout
+
+	private int alpha; // private access
+\end_layout
+
+\begin_layout Plain Layout
+
+	public int beta; // public access
+\end_layout
+
+\begin_layout Plain Layout
+
+	int gamma; // default access
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+private: Because alpha is private, it cannot be accessed by code outside
+ of its class.
+ But you can still directly refer it within the ClassDefine block
+\end_layout
+
+\begin_layout Itemize
+bt default, if no private / public is specified, then the member is public.
+\end_layout
+
 \begin_layout Subsection
 Constructors For Instance Variables (MemberVar)
+\end_layout
+
+\begin_layout Itemize
+A constructor initializes an ClassObject when it is created.
+\end_layout
+
+\begin_layout Itemize
+All classes have constructors, whether you define one or not, which are
+ zero, null, and false, for numeric types, reference types, and booleans,
+ respectively.
 \end_layout
 
 \begin_layout Standard
@@ -4028,16 +3861,6 @@ class ClassName{
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-A constructor initializes an ClassObject when it is created.
-\end_layout
-
-\begin_layout Standard
-All classes have constructors, whether you define one or not, which are
- zero, null, and false, for numeric types, reference types, and booleans,
- respectively.
 \end_layout
 
 \begin_layout Standard
@@ -4342,6 +4165,19 @@ class ChkNum {
 
 \end_deeper
 \end_deeper
+\begin_layout Itemize
+
+\series bold
+Signature
+\series default
+: As it applies to Java, a signature is the name of a method plus its parameter
+ list.
+ Thus, for the purposes of overloading, no two methods within the same class
+ can have the same signature.
+ Notice that a signature does not include the return type, since it is not
+ used by Java for overload resolution.
+\end_layout
+
 \begin_layout Standard
 Example 
 \end_layout
@@ -4406,7 +4242,63 @@ class Vehicle {
 \end_layout
 
 \begin_layout Subsection
-Call the method
+Static member
+\end_layout
+
+\begin_layout Standard
+Normally a class member must be accessed through an object of its class,
+ but it is possible to create a member that can be used by itself, without
+ reference to a specific instance.
+ To create such a member, precede its declaration with the keyword static.
+ When a member is declared static.
+\end_layout
+
+\begin_layout Itemize
+To access Traditional ClassMember: ClassObject.ClassMember
+\end_layout
+
+\begin_layout Itemize
+To access static ClassMember: ClassName.ClassMember
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For example, if you want to assign the value 10 to a static variable called
+ count that is part of the Timer class, use this line:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Timer.count = 10;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+The most common example of a static member is main( ).
+ main( ) is declared as static because it must be called by the JVM when
+ your program begins.
+ Outside the class, to use a static member, you need only specify the name
+ of its class followed by the dot operator.
+ No object needs to be created
+\end_layout
+
+\begin_layout Itemize
+Variables declared as static are, essentially, global variables.
+\end_layout
+
+\begin_layout Itemize
+As you can see, the static variable y is shared by both ob1 and ob2.
+ Changing it affects the entire class, not just an instance
 \end_layout
 
 \begin_layout Standard
@@ -4416,7 +4308,73 @@ status open
 
 \begin_layout Plain Layout
 
-minivan.range(parameter);
+class StaticDemo {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int x; // a normal instance variable
+\end_layout
+
+\begin_layout Plain Layout
+
+	static int y; // a static variable
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Return the sum of the instance variable x
+\end_layout
+
+\begin_layout Plain Layout
+
+	// and the static variable y.
+\end_layout
+
+\begin_layout Plain Layout
+
+	int sum() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	return x + y;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// usage
+\end_layout
+
+\begin_layout Plain Layout
+
+StaticDemo.y = 19;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -4425,11 +4383,206 @@ minivan.range(parameter);
 \end_layout
 
 \begin_layout Subsection
+static method
+\end_layout
+
+\begin_layout Standard
+The difference between a static method and a normal method is that the static
+ method is called through its class name, without any object of that class
+ being created.
+\end_layout
+
+\begin_layout Standard
+Methods declared as static have several restrictions:
+\end_layout
+
+\begin_layout Standard
+● They can directly call only other static methods.
+\end_layout
+
+\begin_layout Standard
+● They can directly access only static data.
+\end_layout
+
+\begin_layout Standard
+● They do not have a this reference
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class StaticMeth {
+\end_layout
+
+\begin_layout Plain Layout
+
+	static int val = 1024; // a static variable
+\end_layout
+
+\begin_layout Plain Layout
+
+	// a static method
+\end_layout
+
+\begin_layout Plain Layout
+
+	static int valDiv2() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		return val/2;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+taticMeth.valDiv2()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Static Blocks
+\end_layout
+
+\begin_layout Itemize
+Static block is mostly used for changing the default values of static variables.T
+his block gets executed when the class is loaded in the memory.
+\end_layout
+
+\begin_layout Itemize
+It serves the same functionaility of a constructor.
+\end_layout
+
+\begin_layout Itemize
+It's useful since the above static field could not have been initialized
+ using StaticBlock.rootOf2 =
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class StaticBlock {
+\end_layout
+
+\begin_layout Plain Layout
+
+	static double rootOf2;
+\end_layout
+
+\begin_layout Plain Layout
+
+	static double rootOf3;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	static {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Inside static block.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		rootOf2 = Math.sqrt(2.0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		rootOf3 = Math.sqrt(3.0);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	StaticBlock(String msg) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(msg);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Nested and Inner Classes
+\end_layout
+
+\begin_layout Section
+Use a Class
+\end_layout
+
+\begin_layout Subsection
 Creat a Class Objects
 \end_layout
 
 \begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 Classname ClassObject = new Classname();
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -4473,7 +4626,17 @@ class Vehicle {
 
 \begin_layout Plain Layout
 
-	int mpg; // fuel consumption in miles per gallon	}
+	int mpg; // fuel consumption in miles per gallon	
+\end_layout
+
+\begin_layout Plain Layout
+
+	...
+\end_layout
+
+\begin_layout Plain Layout
+
+}
 \end_layout
 
 \begin_layout Plain Layout
@@ -4500,7 +4663,54 @@ Vehicle minivan = new Vehicle(); // create a Vehicle object called minivan
 \end_layout
 
 \begin_layout Subsection
-Access Class (Instance) Members
+keyword: new
+\end_layout
+
+\begin_layout Standard
+new can be used to create an object of any class type.
+ The new operator returns a reference to the newly created object, which
+ (in this case) is assigned to class-var.
+\end_layout
+
+\begin_layout Standard
+Usage
+\end_layout
+
+\begin_layout Itemize
+Create a ClassObject
+\end_layout
+
+\begin_layout Itemize
+Create an array.
+\end_layout
+
+\begin_layout Subsection
+Call the method
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+instance.method(parameter)
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+minivan.range(parameter);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Access/Assign values to Class (Instance) Members
 \end_layout
 
 \begin_layout Standard
@@ -4526,55 +4736,8 @@ minivan.fuelcap = 16;
 
 \end_layout
 
-\begin_layout Subsection
-Controlling Access to Class Members
-\end_layout
-
-\begin_layout Standard
-Restricting access to a class’ members is a fundamental part of object-oriented
- programming because it helps prevent the misuse of an object.
- Although Java’s approach is a bit more sophisticated, in essence, there
- are two basic types of class members: public and private.
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-class MyClass {
-\end_layout
-
-\begin_layout Plain Layout
-
-	private int alpha; // private access
-\end_layout
-
-\begin_layout Plain Layout
-
-	public int beta; // public access
-\end_layout
-
-\begin_layout Plain Layout
-
-	int gamma; // default access
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-private: Because alpha is private, it cannot be accessed by code outside
- of its class.
- But you can still directly refer it within the ClassDefine block
-\end_layout
-
-\begin_layout Itemize
-bt default, if no private / public is specified, then the member is public.
+\begin_layout Section
+Namespace, Overloading Polymorphism
 \end_layout
 
 \begin_layout Subsection
@@ -4582,15 +4745,22 @@ Mutate Arguments inside the Method
 \end_layout
 
 \begin_layout Itemize
-When you pass a primitive type, such as int or double, to a method, it is
- passed by value.
+When you pass 
+\series bold
+a primitive type
+\series default
+, such as int or double, to a method, it is passed by value.
  Thus, a copy of the argument is made, and what occurs to the parameter
  that receives the argument has no effect outside the method.
 \end_layout
 
 \begin_layout Itemize
-When you pass an object to a method, the situation changes dramatically,
- because objects are implicitly passed by reference.
+When you pass 
+\series bold
+an object to a method
+\series default
+, the situation changes dramatically, because objects are implicitly passed
+ by reference.
  Keep in mind that when you create a variable of a class type, you are creating
  a reference to an object.
  It is the reference, not the object itself, that is actually passed to
@@ -4774,181 +4944,118 @@ Summation(Summation ob)
 
 \end_layout
 
-\begin_layout Section
-Arrary
+\begin_layout Subsection
+Reference, Copy and Assignment
 \end_layout
 
 \begin_layout Standard
-An array is a collection of variables of the same type, referred to by a
- common name.
-\end_layout
-
-\begin_layout Subsection
-Create an Arrary
+Terms:
 \end_layout
 
 \begin_layout Itemize
+Object: the value stored in memory.
+ Itself has no name.
+ But it does have position at the RAM.
+\end_layout
 
-\series bold
-type
-\series default
- array-name[ ] = 
-\series bold
-new
-\series default
+\begin_layout Itemize
+Variables: We can only directly interact with them.
+ They are just the frontdoor of an object, they are just the name.
  
-\series bold
-type
-\series default
-[size]; 
+\end_layout
+
+\begin_layout Itemize
+Reference: 
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-
-\series bold
-type
-\series default
- declares the element type of the array.
- (The element type is also commonly referred to as the base type.)
-\end_layout
-
-\begin_layout Itemize
-size is strictly a constraint, you can not refere/access an element beyond
- its size.
+a relation between Variable and Object
 \end_layout
 
 \end_deeper
-\begin_layout Itemize
-or size.
- Since arrays are implemented as objects, the creation of an array is a
- two-step process.
- First, you declare an array reference variable.
- Second, you allocate memory for the array, assigning a reference to that
- memory to the array variable.
- Thus, arrays in Java are dynamically allocated using the new operator.
- 
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-int sample[];
-\end_layout
-
-\begin_layout Plain Layout
-
-sample = new int[10];
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-or 
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-type array-name[ ] = { val1, val2, val3, ...
- , valN };
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Biud-in Attributes
-\end_layout
-
-\begin_layout Itemize
-table.length
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-If it is a two-dimention arrary: table[0].length is for the row?
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Two-Dimensional Arrays
-\end_layout
-
-\begin_layout Itemize
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-int table[][] = new int[10][20];
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-table[0][0] is the left most value.
-\end_layout
-
-\begin_layout Itemize
-Initializing
-\end_layout
-
-\begin_deeper
 \begin_layout Standard
+Reference Rules
+\end_layout
+
+\begin_layout Itemize
+When you assign one primitive-type variable to another, the situation is
+ straightforward.
+ The variable on the left receives a copy of the value of the variable on
+ the right.
+\end_layout
+
+\begin_layout Itemize
+When you assign one object reference variable to another, the situation
+ is a bit more complicated because you are changing the object that the
+ reference variable refers to.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
 \begin_inset listings
 inline false
 status open
 
 \begin_layout Plain Layout
 
-type-specifier array_name[ ] [ ] = {
+Vehicle car1 = new Vehicle();
 \end_layout
 
 \begin_layout Plain Layout
 
-{ val, val, val, ..., val },
+Vehicle car2 = car1;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Instead, car1 and car2 will both refer to the same object.
+\end_layout
+
+\begin_layout Itemize
+Later, if you change car1, car2 will automatically changed.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+car1.mpg = 26;
 \end_layout
 
 \begin_layout Plain Layout
 
-{ val, val, val, ..., val },
+executes, both of these println( ) statements
 \end_layout
 
 \begin_layout Plain Layout
 
-.
 \end_layout
 
 \begin_layout Plain Layout
 
-.
+System.out.println(car1.mpg);
 \end_layout
 
 \begin_layout Plain Layout
 
-.
+System.out.println(car2.mpg);
 \end_layout
 
 \begin_layout Plain Layout
 
-{ val, val, val, ..., val }
 \end_layout
 
 \begin_layout Plain Layout
 
-};
+display the same value: 26.
 \end_layout
 
 \end_inset
@@ -4957,44 +5064,6 @@ type-specifier array_name[ ] [ ] = {
 \end_layout
 
 \end_deeper
-\begin_layout Subsection
-Refer Elements in Arrary
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-sample[i] = X;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-or for two-dimention
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-table[3][5]
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Inheritance
 \end_layout
@@ -5090,8 +5159,190 @@ t1.style = "filled";
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+Multi-Level Inheritance
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+ColorTriangle inherits Triangle, which is descended from TwoDShape, so ColorTria
+ngle includes all members of Triangle and TwoDShape.
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
-create a subclass: extends
+Constructor Execution Order 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// Demonstrate when constructors are executed.
+\end_layout
+
+\begin_layout Plain Layout
+
+// Create a super class.
+\end_layout
+
+\begin_layout Plain Layout
+
+class A {
+\end_layout
+
+\begin_layout Plain Layout
+
+	A() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Constructing A.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Create a subclass by extending class A.
+\end_layout
+
+\begin_layout Plain Layout
+
+class B extends A {
+\end_layout
+
+\begin_layout Plain Layout
+
+	B() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Constructing B.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Create another subclass by extending B.
+\end_layout
+
+\begin_layout Plain Layout
+
+class C extends B {
+\end_layout
+
+\begin_layout Plain Layout
+
+	C() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Constructing C.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+class OrderOfConstruction {
+\end_layout
+
+\begin_layout Plain Layout
+
+	public static void main(String args[]) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	C c = new C();
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+The output from this program is shown here:
+\end_layout
+
+\begin_layout Plain Layout
+
+Constructing A.
+\end_layout
+
+\begin_layout Plain Layout
+
+Constructing B.
+\end_layout
+
+\begin_layout Plain Layout
+
+Constructing C.
+\end_layout
+
+\begin_layout Plain Layout
+
+As you can see, the constructors are executed in order of derivation.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Create a Subclass: Extends
 \end_layout
 
 \begin_layout Standard
@@ -5111,6 +5362,4179 @@ class SubClassName extends SuperClassName {
 \begin_layout Plain Layout
 
 }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Super-Sub Class Refer Compatibility
+\end_layout
+
+\begin_layout Standard
+As you know, Java is a strongly typed language.
+ Aside from the standard conversions and automatic promotions that apply
+ to its primitive types, type compatibility is strictly enforced.
+\end_layout
+
+\begin_layout Itemize
+There is, however, an important exception to Java’s strict type enforcement.
+ A reference variable of a superclass can be assigned a reference to an
+ object of any subclass derived from that superclass.
+\end_layout
+
+\begin_layout Itemize
+Superclass reference variable can refer to a subclass object.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// A superclass reference can refer to a subclass object.
+\end_layout
+
+\begin_layout Plain Layout
+
+class X {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int a;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	X(int i) { a = i; }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class Y extends X {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int b;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	Y(int i, int j) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		super(j);
+\end_layout
+
+\begin_layout Plain Layout
+
+		b = i;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class SupSubRef {
+\end_layout
+
+\begin_layout Plain Layout
+
+	public static void main(String args[]) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		X x = new X(10);
+\end_layout
+
+\begin_layout Plain Layout
+
+		X x2;
+\end_layout
+
+\begin_layout Plain Layout
+
+		Y y = new Y(5, 6);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		x2 = x; // OK, both of same type
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("x2.a: " + x2.a);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		x2 = y; // still Ok because Y is derived from X
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("x2.a: " + x2.a);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		// X references know only about X members
+\end_layout
+
+\begin_layout Plain Layout
+
+		x2.a = 19; // OK
+\end_layout
+
+\begin_layout Plain Layout
+
+		// x2.b = 27; // Error, X doesn't have a b member
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+It is important to understand that it is the type of the reference variable—not
+ the type of the object that it refers to—that determines what members can
+ be accessed.
+ That is, when
+\series bold
+ a reference to a subclass object
+\series default
+ is assigned 
+\series bold
+to a superclass reference variable
+\series default
+, y
+\series bold
+ou will have access only to those parts of the object defined by the superclass.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+An important place where subclass references are assigned to superclass
+ variables is when constructors are called in a class hierarchy.
+ As you know, it is common for a class to define a constructor that takes
+ an object of the class as a parameter.
+ This allows the class to construct a copy of an object.
+ Subclasses of such a class can take advantage of this feature.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+p249
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Polymorphism: Method Overloading / Overriding
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Overrides
+\series default
+: In a class hierarchy, when a method in a subclass has the
+\series bold
+ same return type and signatur
+\series default
+e as a method in its superclass, then the method in the subclass is said
+ to 
+\series bold
+override
+\series default
+ the method in the superclass
+\series bold
+.
+ Overrides
+\series default
+: When show( ) is invoked on an object of type B, the version of show( )
+ defined within B is used.
+ That is, the version of show( ) inside B 
+\series bold
+overrides
+\series default
+ the version declared in A.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class B extends A {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int k;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	B(int a, int b, int c) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		super(a, b);
+\end_layout
+
+\begin_layout Plain Layout
+
+		k = c;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void show() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	super.show(); // this calls A’s show() 
+\end_layout
+
+\begin_layout Plain Layout
+
+	//Use super to call the version of show( ) defined by superclass A.
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("k: " + k);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Overload
+\series default
+: Because signatures differ, this show( ) simply overloads show( ) in superclass
+ A
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class A {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int i, j;
+\end_layout
+
+\begin_layout Plain Layout
+
+	A(int a, int b) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		i = a;
+\end_layout
+
+\begin_layout Plain Layout
+
+		j = b;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// display i and j
+\end_layout
+
+\begin_layout Plain Layout
+
+void show() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("i and j: " + i + " " + j);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Create a subclass by extending class A.
+\end_layout
+
+\begin_layout Plain Layout
+
+class B extends A {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int k;
+\end_layout
+
+\begin_layout Plain Layout
+
+	B(int a, int b, int c) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		super(a, b);
+\end_layout
+
+\begin_layout Plain Layout
+
+		k = c;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// overload show()
+\end_layout
+
+\begin_layout Plain Layout
+
+void show(String msg) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println(msg + k);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+When different types of objects are referred to, different versions of an
+ overridden method will be called.
+ In other words, it is the type of the object being referred to (not the
+ type of the reference variable) that determines which version of an overridden
+ method will be executed.
+ Therefore, if a superclass contains a method that is overridden by a subclass,
+ then when different types of objects are referred to through a superclass
+ reference variable, different versions of the method are executed.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+p254
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// Demonstrate dynamic method dispatch.
+\end_layout
+
+\begin_layout Plain Layout
+
+class Sup {
+\end_layout
+
+\begin_layout Plain Layout
+
+	void who() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("who() in Sup");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class Sub1 extends Sup {
+\end_layout
+
+\begin_layout Plain Layout
+
+	void who() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("who() in Sub1");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class Sub2 extends Sup {
+\end_layout
+
+\begin_layout Plain Layout
+
+	void who() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("who() in Sub2");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class DynDispDemo {
+\end_layout
+
+\begin_layout Plain Layout
+
+	public static void main(String args[]) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		Sup superOb = new Sup();
+\end_layout
+
+\begin_layout Plain Layout
+
+		Sub1 subOb1 = new Sub1();
+\end_layout
+
+\begin_layout Plain Layout
+
+		Sub2 subOb2 = new Sub2();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//In each case, the version of who( ) to call is determined at run time
+ by the type of object being referred to.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		Sup supRef;
+\end_layout
+
+\begin_layout Plain Layout
+
+		supRef = superOb;
+\end_layout
+
+\begin_layout Plain Layout
+
+		supRef.who();
+\end_layout
+
+\begin_layout Plain Layout
+
+		supRef = subOb1;
+\end_layout
+
+\begin_layout Plain Layout
+
+		supRef.who();
+\end_layout
+
+\begin_layout Plain Layout
+
+		supRef = subOb2;
+\end_layout
+
+\begin_layout Plain Layout
+
+		supRef.who();
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+The output from the program is shown here:
+\end_layout
+
+\begin_layout Plain Layout
+
+who() in Sup
+\end_layout
+
+\begin_layout Plain Layout
+
+who() in Sub1
+\end_layout
+
+\begin_layout Plain Layout
+
+who() in Sub2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Abstract Classes
+\end_layout
+
+\begin_layout Itemize
+Such a class determines the nature of the methods that the subclasses must
+ implement but does not, itself, provide an implementation of one or more
+ of these methods.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+One way this situation can occur is when a superclass is unable to create
+ a meaningful implementation for a method.
+ This is the case with the version of TwoDShape used in the preceding example.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A class that contains one or more abstract methods must also be declared
+ as abstract by preceding its class declaration with the abstract modifier.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Since an abstract class does not define a complete implementation, there
+ can be no objects of an abstract class.
+ Thus, attempting to create an object of an abstract class by using new
+ will result in a compile-time error.
+\end_layout
+
+\begin_layout Itemize
+ALL subclasses of SuperClass must override ALL the abstract method.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Example
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// Create an abstract class.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+abstract class TwoDShape {
+\end_layout
+
+\begin_layout Plain Layout
+
+	private double width;
+\end_layout
+
+\begin_layout Plain Layout
+
+	private double height;
+\end_layout
+
+\begin_layout Plain Layout
+
+	private String name;
+\end_layout
+
+\begin_layout Plain Layout
+
+	.....
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Now, area() is abstract.
+\end_layout
+
+\begin_layout Plain Layout
+
+	abstract double area();
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// A subclass of TwoDShape for triangles.
+\end_layout
+
+\begin_layout Plain Layout
+
+class Triangle extends TwoDShape {
+\end_layout
+
+\begin_layout Plain Layout
+
+	double area() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		return getWidth() * getHeight(); // implement the abstrat method
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+final method
+\end_layout
+
+\begin_layout Itemize
+As powerful and useful as method overriding and inheritance are, sometimes
+ you will want to prevent them.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For example, you might have a class that encapsulates control of some hardware
+ device.
+ Further, this class might offer the user the ability to initialize the
+ device, making use of private, proprietary information.
+ In this case, you don’t want users of your class to be able to override
+ the initialization method.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class A {
+\end_layout
+
+\begin_layout Plain Layout
+
+	final void meth() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("This is a final method.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+class B extends A {
+\end_layout
+
+\begin_layout Plain Layout
+
+	void meth() { // ERROR! Can't override.
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Illegal!");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+// Because meth( ) is declared as final, it cannot be overridden in B.
+ If you attempt to do so, a compile-time error will result.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+final class
+\end_layout
+
+\begin_layout Standard
+You can prevent a class from being inherited by preceding its declaration
+ with final.
+ Declaring a class as final implicitly declares all of its methods as final,
+ too.
+ As you might expect, it is illegal to declare a class as both abstract
+ and final.
+\end_layout
+
+\begin_layout Subsection
+final member
+\end_layout
+
+\begin_layout Standard
+Using final with Data Members In addition to the uses of final just shown,
+ final can also be applied to member variables to create what amounts to
+ named constants.
+ 
+\end_layout
+
+\begin_layout Standard
+If you precede a class variable’s name with final, its value cannot be changed
+ throughout the lifetime of your program.
+ You can, of course, give that variable an initial value.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class ErrorMsg {
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Error codes.
+\end_layout
+
+\begin_layout Plain Layout
+
+	final int OUTERR = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	final int INERR = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	final int DISKERR = 2;
+\end_layout
+
+\begin_layout Plain Layout
+
+	final int INDEXERR = 3;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Package
+\end_layout
+
+\begin_layout Itemize
+Package gives you a way to partition the namespace.
+\end_layout
+
+\begin_layout Itemize
+Package provides a means by which classes can be encapsulated.
+\end_layout
+
+\begin_layout Subsection
+Example: create and use
+\end_layout
+
+\begin_layout Standard
+the examples shown in this book is to simply create the package directories
+ below your current development directory,
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// A short package demonstration.
+\end_layout
+
+\begin_layout Plain Layout
+
+package bookpack; // This file is part of the bookpack package.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class Book {  // Thus, Book is part of bookpack.
+\end_layout
+
+\begin_layout Plain Layout
+
+	private String title;
+\end_layout
+
+\begin_layout Plain Layout
+
+	private String author;
+\end_layout
+
+\begin_layout Plain Layout
+
+	private int pubDate;
+\end_layout
+
+\begin_layout Plain Layout
+
+	Book(String t, String a, int d) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	title = t;
+\end_layout
+
+\begin_layout Plain Layout
+
+	author = a;
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class BookDemo { //BookDemo is also part of bookpack.
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Call this file BookDemo.java and put it in a directory called bookpack.
+\end_layout
+
+\begin_layout Itemize
+Next, compile the file.
+ You can do this by specifying from the directory directly above bookpack:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+javac bookpack/BookDemo.java
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Then try executing the class, using the following command line:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+java bookpack.BookDemo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+As explained, BookDemo and Book are now part of the package bookpack.
+ This means that BookDemo cannot be executed by itself.
+ Instead, BookDemo must be qualified with its package name.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Importing Packages
+\end_layout
+
+\begin_layout Standard
+The import statement.
+ Using import you can bring one or more members of a package into view.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+import pkg.classname; 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here, pkg is the name of the package, which can include its full path, and
+ classname is the name of the class being imported.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+import mypack.MyClass  // In the first case, the MyClass class is imported
+ from mypack.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If you want to import the entire contents of a package, use an asterisk
+ (*) for the class name.
+ Here are examples of both forms: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+You can use import to bring the bookpack package into view so that the Book
+ class can be used without qualification.
+ To do so, simply add this import statement to the top of any file that
+ uses Book.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+import bookpack.*;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+path
+\end_layout
+
+\begin_layout Itemize
+First, by default, the Java run-time system uses the current working directory
+ as its starting point.
+ Thus, if your package is in a subdirectory of the current directory, it
+ will be found.
+\end_layout
+
+\begin_layout Itemize
+Second, you can specify a directory path or paths by setting the CLASSPATH
+ environmental variable.
+ Third, you can use the -classpath option with java and javac to specify
+ the path to your classes.
+\end_layout
+
+\begin_layout Subsection
+Protected Members
+\end_layout
+
+\begin_layout Standard
+s explained, the protected modifier creates a member that is accessible
+ within its package and to subclasses in other packages.
+ Thus, a protected member is available for all subclasses to use but is
+ still protected from arbitrary access by code outside its package.
+ To better understand the effects of protected.
+\end_layout
+
+\begin_layout Section
+Interfaces
+\end_layout
+
+\begin_layout Standard
+An interface is syntactically similar to an abstract class, in that you
+ can specify one or more methods that have no body.
+ Those methods must be implemented by a class in order for their actions
+ to be defined.
+ Thus, an interface specifies what must be done, but not how to do it.
+ Once an interface is defined, any number of classes can implement it.
+ Also, one class can implement any number of interfaces.
+\end_layout
+
+\begin_layout Itemize
+Variables declared in an interface are not instance variables.
+ Instead, they are implicitly public, final, and static and must be initialized.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Thus, they are essentially constants
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+access interface name {
+\end_layout
+
+\begin_layout Plain Layout
+
+	ret-type method-name1(param-list);
+\end_layout
+
+\begin_layout Plain Layout
+
+	ret-type method-name2(param-list);
+\end_layout
+
+\begin_layout Plain Layout
+
+	type var1 = value;
+\end_layout
+
+\begin_layout Plain Layout
+
+	type var2 = value;
+\end_layout
+
+\begin_layout Plain Layout
+
+	// ...
+\end_layout
+
+\begin_layout Plain Layout
+
+	ret-type method-nameN(param-list);
+\end_layout
+
+\begin_layout Plain Layout
+
+	type varN = value;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Once an interface has been defined, one or more classes can implement that
+ interface.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+To implement more than one interface, the interfaces are separated with
+ a comma.
+ Of course, the extends clause is optional.
+\end_layout
+
+\begin_layout Itemize
+The methods that implement an interface must be declared public.
+ Also, the type signature of the implementing method must match exactly
+ the type signature specified in the interface definition.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class classname extends superclass implements interface {
+\end_layout
+
+\begin_layout Plain Layout
+
+// class-body
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Example: create an Interface and Implementing Method
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+public interface Series {
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Define the undefined methods
+\end_layout
+
+\begin_layout Plain Layout
+
+	int getNext(); // return next number in series
+\end_layout
+
+\begin_layout Plain Layout
+
+	void reset(); // restart
+\end_layout
+
+\begin_layout Plain Layout
+
+	void setStart(int x); // set starting value
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Implement Series.
+\end_layout
+
+\begin_layout Plain Layout
+
+class ByTwos implements Series {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int start;
+\end_layout
+
+\begin_layout Plain Layout
+
+	int val;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	ByTwos() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		start = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+		val = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// IMPLEMENT THE METHODS
+\end_layout
+
+\begin_layout Plain Layout
+
+	public int getNext() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		val += 2;
+\end_layout
+
+\begin_layout Plain Layout
+
+		return val;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public void reset() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		val = start;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	public void setStart(int x) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		start = x;
+\end_layout
+
+\begin_layout Plain Layout
+
+		val = x;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Interface References
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+public interface Series {}
+\end_layout
+
+\begin_layout Plain Layout
+
+class ByTwos implements Series {}
+\end_layout
+
+\begin_layout Plain Layout
+
+class ByThrees implements Series {}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ByTwos twoOb = new ByTwos();
+\end_layout
+
+\begin_layout Plain Layout
+
+ByThrees threeOb = new ByThrees();
+\end_layout
+
+\begin_layout Plain Layout
+
+Series ob;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//you can create an interface reference variable.
+ Such a variable can refer to any object that implements its interface
+\end_layout
+
+\begin_layout Plain Layout
+
+ob = twoOb;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// When you call a method on an object through an interface reference, it
+ is the version of the method implemented by the object that is executed.
+\end_layout
+
+\begin_layout Plain Layout
+
+ob.getNext()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ob = threeOb;
+\end_layout
+
+\begin_layout Plain Layout
+
+ob.getNext()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Interfaces Can Be Extended
+\end_layout
+
+\begin_layout Itemize
+One interface can inherit another by use of the keyword extends.
+\end_layout
+
+\begin_layout Itemize
+When a class implements an interface that inherits another interface, it
+ must provide implementations for all methods required by the interface
+ inheritance chain.
+\end_layout
+
+\begin_layout Subsection
+Default Method Fundamentals
+\end_layout
+
+\begin_layout Standard
+An interface default method is defined similar to the way a method is defined
+ by a class.
+ The primary difference is that the declaration is preceded by the keyword
+ default.
+ For example, consider this simple interface:
+\end_layout
+
+\begin_layout Itemize
+Because getAdminID( ) includes a default implementation, it is not necessary
+ for an implementing class to override it.
+ In other words, if an implementing class does not provide its own implementatio
+n, the default is used.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+public interface MyIF {
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// This is a "normal" interface method declaration.
+\end_layout
+
+\begin_layout Plain Layout
+
+	// It does NOT define a default implementation.
+\end_layout
+
+\begin_layout Plain Layout
+
+	int getUserID();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// This is a default method.
+ Notice that it provides
+\end_layout
+
+\begin_layout Plain Layout
+
+	// a default implementation.
+\end_layout
+
+\begin_layout Plain Layout
+
+	default int getAdminID() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Use static Methods in an Interface 
+\end_layout
+
+\begin_layout Standard
+JDK 8 added another new capability to interface: the ability to define one
+ or more static methods.
+ 
+\end_layout
+
+\begin_layout Standard
+Like static methods in a class, a static method defined by an interface
+ can be called independently of any object.
+ Thus, no implementation of the interface is necessary, and no instance
+ of the interface is required in order to call a static method.
+ 
+\end_layout
+
+\begin_layout Standard
+Instead, a static method is called by specifying the interface name, followed
+ by a period, followed by the method name.
+ Here is the general form: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+InterfaceName.staticMethodName
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+public interface MyIF {
+\end_layout
+
+\begin_layout Plain Layout
+
+	// This is a "normal" interface method declaration.
+\end_layout
+
+\begin_layout Plain Layout
+
+	// It does NOT define a default implementation.
+\end_layout
+
+\begin_layout Plain Layout
+
+	int getUserID();
+\end_layout
+
+\begin_layout Plain Layout
+
+	// This is a default method.
+ Notice that it provides
+\end_layout
+
+\begin_layout Plain Layout
+
+	// a default implementation.
+\end_layout
+
+\begin_layout Plain Layout
+
+	default int getAdminID() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// This is a static interface method.
+\end_layout
+
+\begin_layout Plain Layout
+
+	static int getUniversalID() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// The getUniversalID( ) method can be called, as shown here:
+\end_layout
+
+\begin_layout Plain Layout
+
+int uID = MyIF.getUniversalID();
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Exception Handling
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Throwable: error vs exception
+\end_layout
+
+\begin_layout Standard
+In Java, all exceptions are represented by classes.
+ All exception classes are derived from a class called 
+\series bold
+Throwable
+\series default
+.
+ Thus, when an exception occurs in a program, an object of some type of
+ exception class is generated.
+ 
+\end_layout
+
+\begin_layout Standard
+There are two direct subclasses of 
+\series bold
+Throwable
+\series default
+: Exception and Error.
+\end_layout
+
+\begin_layout Enumerate
+Exceptions of type Error are related to errors that occur in the Java virtual
+ machine itself, and not in your program.
+ These types of exceptions are beyond your control, and your program will
+ not usually deal with them.
+ Thus, these types of exceptions are not described here.
+\end_layout
+
+\begin_layout Enumerate
+Second, standard exceptions, such as those corresponding to divide-by-zero
+ or array index out-of-bounds, are generated by errors in program code.
+ You need to handle these exceptions.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Third,
+\series bold
+ you can manually generate an exception
+\series default
+ by using the throw statement.
+ No matter how an exception is generated, it is handled in the same way.
+\end_layout
+
+\begin_layout Subsection
+try, catch, throw, throws, and finally
+\end_layout
+
+\begin_layout Enumerate
+Program statements that you want to monitor for exceptions are contained
+ within a try block.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If an exception occurs within the try block, it is 
+\series bold
+thrown
+\series default
+.
+ Your code can catch this exception using catch and handle it in some rational
+ manner.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+System-generated exceptions are automatically thrown by the Java run-time
+ system.
+ 
+\end_layout
+
+\begin_layout Enumerate
+To manually 
+\series bold
+throw
+\series default
+ an exception, use the keyword 
+\series bold
+throw
+\series default
+.
+ In some cases, an exception that is thrown out of a method must be specified
+ as such by a 
+\series bold
+throws
+\series default
+ 
+\series bold
+clause
+\series default
+.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Any code that absolutely must be executed upon exiting from a try block
+ is put in a finally block.
+\end_layout
+
+\begin_layout Subsection
+finally
+\end_layout
+
+\begin_layout Standard
+Sometimes you will want to define a block of code that will execute when
+ a try/catch block is left.
+ For example, an exception might cause an error that terminates the current
+ method, causing its premature return.
+ However, that method may have opened a file or a network connection that
+ needs to be closed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+try {
+\end_layout
+
+\begin_layout Plain Layout
+
+// block of code to monitor for errors
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+catch (ExcepType1 exOb) {
+\end_layout
+
+\begin_layout Plain Layout
+
+// handler for ExcepType1
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+catch (ExcepType2 exOb) {
+\end_layout
+
+\begin_layout Plain Layout
+
+// handler for ExcepType2
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+//...
+\end_layout
+
+\begin_layout Plain Layout
+
+finally {
+\end_layout
+
+\begin_layout Plain Layout
+
+// finally code
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Try and Catch
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+try {
+\end_layout
+
+\begin_layout Plain Layout
+
+// block of code to monitor for errors
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+catch (ExcepType1 exOb) {
+\end_layout
+
+\begin_layout Plain Layout
+
+// handler for ExcepType1
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+catch (ExcepType2 exOb) {
+\end_layout
+
+\begin_layout Plain Layout
+
+// handler for ExcepType2
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//...
+\end_layout
+
+\begin_layout Plain Layout
+
+finally {
+\end_layout
+
+\begin_layout Plain Layout
+
+// finally code
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+type of the exception 
+\series default
+determines which 
+\series bold
+catch statement
+\series default
+ is executed.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+That is, if the 
+\series bold
+exception type
+\series default
+ specified by a catch statement matches that of the 
+\series bold
+exception
+\series default
+, then that 
+\series bold
+catch
+\series default
+ statement is executed (and all others are bypassed).
+ 
+\end_layout
+
+\begin_layout Itemize
+When an exception is caught, 
+\series bold
+exOb
+\series default
+ will receive its value.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If no exception is thrown, then a try block ends normally, and all of its
+ catch statements are bypassed.
+\end_layout
+
+\begin_layout Itemize
+Code in try block after the exception will not be executed.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+try {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Before exception is generated.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Generate an index out-of-bounds exception.
+\end_layout
+
+\begin_layout Plain Layout
+
+	nums[7] = 10;
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("this won't be displayed");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	catch (ArrayIndexOutOfBoundsException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	// catch the exception
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Index out-of-bounds!");
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+multi-catch
+\end_layout
+
+\begin_layout Standard
+Instead of having to catch each exception type individually, you can now
+ use a single catch clause to handle the exceptions without code duplication.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+try {
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(i == 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+		result = a / b; // generate an ArithmeticException
+\end_layout
+
+\begin_layout Plain Layout
+
+	else
+\end_layout
+
+\begin_layout Plain Layout
+
+		chrs[5] = 'X'; // generate an ArrayIndexOutOfBoundsException
+\end_layout
+
+\begin_layout Plain Layout
+
+	// This catch clause catches both exceptions.
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+catch(ArithmeticException | ArrayIndexOutOfBoundsException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Exception caught: " + e);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Throwable's sub-classes
+\end_layout
+
+\begin_layout Subsection
+Built-in Exceptions
+\end_layout
+
+\begin_layout Description
+ArithmeticException: Arithmetic error, such as integer divide-by-zero.
+\end_layout
+
+\begin_layout Description
+ArrayIndexOutOfBoundsException: Array index is out-of-bounds.
+\end_layout
+
+\begin_layout Description
+ArrayStoreException: Assignment to an array element of an incompatible type.
+\end_layout
+
+\begin_layout Description
+ClassCastException: Invalid cast.
+\end_layout
+
+\begin_layout Description
+EnumConstantNotPresentException: An attempt is made to use an undefined
+ enumeration value.
+\end_layout
+
+\begin_layout Description
+IllegalArgumentException: Illegal argument used to invoke a method.
+\end_layout
+
+\begin_layout Description
+IllegalMonitorStateException: Illegal monitor operation, such as waiting
+ on an unlocked thread.
+\end_layout
+
+\begin_layout Description
+IllegalStateException: Environment or application is in incorrect state.
+\end_layout
+
+\begin_layout Description
+IllegalThreadStateException: Requested operation not compatible with current
+ thread state.
+\end_layout
+
+\begin_layout Description
+IndexOutOfBoundsException: Some type of index is out-of-bounds.
+\end_layout
+
+\begin_layout Description
+NegativeArraySizeException: Array created with a negative size.
+\end_layout
+
+\begin_layout Description
+NullPointerException: Invalid use of a null reference.
+\end_layout
+
+\begin_layout Description
+NumberFormatException: Invalid conversion of a string to a numeric format.
+\end_layout
+
+\begin_layout Description
+SecurityException: Attempt to violate security.
+\end_layout
+
+\begin_layout Description
+StringIndexOutOfBoundsException: Attempt to index outside the bounds of
+ a string.
+\end_layout
+
+\begin_layout Description
+TypeNotPresentException: Type not found.
+\end_layout
+
+\begin_layout Description
+UnsupportedOperationException: An unsupported operation was encountered.
+\end_layout
+
+\begin_layout Itemize
+IOException,
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+FileNotFoundException is a subclass of IOException
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Creating Exception Subclasses
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// Use a custom exception.
+\end_layout
+
+\begin_layout Plain Layout
+
+// Create an exception.
+\end_layout
+
+\begin_layout Plain Layout
+
+class NonIntResultException extends Exception {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int n;
+\end_layout
+
+\begin_layout Plain Layout
+
+	int d;
+\end_layout
+
+\begin_layout Plain Layout
+
+	NonIntResultException(int i, int j) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		n = i;
+\end_layout
+
+\begin_layout Plain Layout
+
+		d = j;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	public String toString() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		return "Result of " + n + " / " + d +
+\end_layout
+
+\begin_layout Plain Layout
+
+		" is non-integer.";
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// when use it
+\end_layout
+
+\begin_layout Plain Layout
+
+throw new NonIntResultException(numer[i], denom[i]);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Throw
+\end_layout
+
+\begin_layout Subsection
+Throwing an Exception
+\end_layout
+
+\begin_layout Itemize
+The preceding examples have been catching exceptions generated automatically
+ by the JVM.
+ However, it is possible to manually throw an exception by using the throw
+ statement.
+ Its general form is shown here
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+throw exceptOb;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Notice how the ArithmeticException was created using 
+\series bold
+new
+\series default
+ in the throw statement
+\series bold
+.
+ Remember, throw throws an object.
+ Thus, you must create an object for it to throw.
+ That is, you can’t just throw a type.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+try {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Before throw.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	throw new ArithmeticException(); //Throw an exception.
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+catch (ArithmeticException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	// catch the exception
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Exception caught.");
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Rethrowing an Exception (normally happens at then end of catch block): An
+ exception caught by one catch statement can be rethrown so that it can
+ be caught by an outer catch.
+ The most likely reason for rethrowing this way is to allow multiple handlers
+ access to the exception.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+catch (ArrayIndexOutOfBoundsException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	// catch the exception
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("No matching element found.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	throw exc; // rethrow the exception
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+method throws
+\end_layout
+
+\begin_layout Standard
+In some cases, if a method generates an exception that it does not handle,
+ it must declare that exception in a throws clause.
+ Here is the general form of a method that includes a throws clause: 
+\end_layout
+
+\begin_layout Standard
+Exceptions that are subclasses of Error or RuntimeException don’t need to
+ be specified in a throws list.
+ Java simply assumes that a method may throw one.
+ All other types of exceptions do need to be declared.
+ Failure to do so causes a compile-time error.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ret-type methName(param-list) throws except-list {
+\end_layout
+
+\begin_layout Plain Layout
+
+// body
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class ThrowsDemo {
+\end_layout
+
+\begin_layout Plain Layout
+
+	public static char prompt(String str)
+\end_layout
+
+\begin_layout Plain Layout
+
+		throws java.io.IOException {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.print(str + ": ");
+\end_layout
+
+\begin_layout Plain Layout
+
+		return (char) System.in.read();
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	public static void main(String args[]) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		char ch;
+\end_layout
+
+\begin_layout Plain Layout
+
+		try {
+\end_layout
+
+\begin_layout Plain Layout
+
+			ch = prompt("Enter a letter");
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		// Since prompt( ) might throw an exception, a call to it must be enclosed
+ within a try block.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		catch(java.io.IOException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("I/O exception occurred.");
+\end_layout
+
+\begin_layout Plain Layout
+
+			ch = 'X';
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("You pressed " + ch);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+I/O
+\end_layout
+
+\begin_layout Section
+Byte Stream Classes
+\end_layout
+
+\begin_layout Standard
+Byte streams are defined by using two class hierarchies.
+ At the top of these are two abstract classes: 
+\end_layout
+
+\begin_layout Itemize
+InputStream
+\end_layout
+
+\begin_layout Itemize
+OutputStream
+\end_layout
+
+\begin_layout Section
+Character Stream Classes
+\end_layout
+
+\begin_layout Standard
+Character streams are defined by using two class hierarchies topped by these
+ two abstract classes:
+\end_layout
+
+\begin_layout Standard
+Reader and Writer.
+ Reader is used for input, and Writer is used for output.
+\end_layout
+
+\begin_layout Subsection
+Read from keyboard: subclass - BufferedReader 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+System.in
+\series default
+ is for bite: you must first convert it into a character stream.
+ To do this, you will use 
+\series bold
+InputStreamReader
+\series default
+, which converts bytes to characters
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Read method of BufferedReader
+\end_layout
+
+\begin_layout Itemize
+int read( ) throws IOException
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+reads a single Unicode character.
+ It returns –1 when the end of the stream is reached.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+int read(char data[ ]) throws IOException
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The second version reads characters from the input stream and puts them
+ into data until either the array is full, the end of stream is reached,
+ or an error occurs.
+ It returns the number of characters read or –1 at the end of the stream.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+int read(char data[ ], int start, int max) throws IOException
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The third version reads input into data beginning at the location specified
+ by start.
+ Up to max characters are stored.
+ It returns the number of characters read or –1 when the end of the stream
+ is encountered
+\end_layout
+
+\end_deeper
+\begin_layout Section
+InputStream Method
+\end_layout
+
+\begin_layout Itemize
+int available( ) 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Returns the number of bytes of input currently available for reading.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+void close( ) 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Closes the input source.
+ Further read attempts will generate an IOException.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+void mark(int numBytes) 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Places a mark at the current point in the input stream that will remain
+ valid until numBytes bytes are read.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+boolean markSupported( ) 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Returns true if mark( )/reset( ) are supported by the invoking stream.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+void reset( ) 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Resets the input pointer to the previously set mark.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+long skip(long numBytes) 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ignores (that is, skips) numBytes bytes of input, returning the number of
+ bytes actually ignored
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+System.in.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+System.in is an instance of InputStream
+\series default
+, you automatically have access to the methods defined by InputStream
+\end_layout
+
+\begin_layout Subsection
+read method
+\end_layout
+
+\begin_layout Standard
+InputStream defines only one input method, read( ), which reads bytes.
+ There are three versions of read( ), which are shown here:
+\end_layout
+
+\begin_layout Itemize
+int read( ) 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Returns an integer representation of the next available byte of input.
+ –1 is returned when the end of the stream is encountered.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+int read(byte buffer[ ]) 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Attempts to read up to buffer.length bytes into buffer and 
+\series bold
+returns the actual number of bytes 
+\series default
+that were successfully read.
+ –1 is returned when the end of the stream is encountered.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+int read(byte buffer[ ], int offset, int numBytes)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Attempts to read up to numBytes bytes into buffer starting at buffer[offset],
+ returning the number of bytes successfully read.
+ –1 is returned when the end of the stream is encountered.
+\end_layout
+
+\begin_layout Itemize
+The third version reads input into data beginning at the location specified
+ by start.
+ Up to max bytes are stored.
+ It returns the number of bytes read, or –1 when the end of the stream is
+ reached.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// Read an array of bytes from the keyboard.
+\end_layout
+
+\begin_layout Plain Layout
+
+import java.io.*;
+\end_layout
+
+\begin_layout Plain Layout
+
+class ReadBytes {
+\end_layout
+
+\begin_layout Plain Layout
+
+	public static void main(String args[])
+\end_layout
+
+\begin_layout Plain Layout
+
+		throws IOException {
+\end_layout
+
+\begin_layout Plain Layout
+
+			byte data[] = new byte[10];
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("Enter some characters.");
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.in.read(data); // Read an array of bytes from the keyboard.
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.print("You entered: ");
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+			for(int i=0; i < data.length; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+				System.out.print((char) data[i]);
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+OutputStream
+\end_layout
+
+\begin_layout Itemize
+void close( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Closes the output stream.
+ Further write attempts will generate an IOException.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+void flush( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Causes any output that has been buffered to be sent to its destination.
+ That is, it flushes the output buffer.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+void write(int b)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Writes a single byte to an output stream.
+ Note that the parameter is an int, which allows you to call write( ) with
+ expressions without having to cast them back to byte.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+void write(byte buffer[ ])
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Writes a complete array of bytes to an output stream.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+void write(byte buffer[ ], int offset, int numBytes)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Writes a subrange of numBytes bytes from the array buffer, beginning at
+ buffer[offset].
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Writing Console Output
+\end_layout
+
+\begin_layout Itemize
+System.out is an instance of OutputStream
+\end_layout
+
+\begin_layout Itemize
+write is a method of OutputStream
+\end_layout
+
+\begin_layout Itemize
+You will not often use write( ) to perform console output (although it might
+ be useful in some situations), since print( ) and println( ) are substantially
+ easier to use.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+b = 'X';
+\end_layout
+
+\begin_layout Plain Layout
+
+System.out.write(b);
+\end_layout
+
+\begin_layout Plain Layout
+
+System.out.write('
+\backslash
+n');
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Reading and Writing Files Using Byte Streams
+\end_layout
+
+\begin_layout Subsection
+reading a file
+\end_layout
+
+\begin_layout Standard
+steps:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+initialize
+\series default
+ a file-read object to be read using FileInputStream class
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+FileInputStream fin;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+open the interested file: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+fin = new FileInputStream(args[0]); // Open the file
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+read the file into the file-read object.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+try {
+\end_layout
+
+\begin_layout Plain Layout
+
+		// read bytes until EOF is encountered
+\end_layout
+
+\begin_layout Plain Layout
+
+		do {
+\end_layout
+
+\begin_layout Plain Layout
+
+			i = fin.read();  // Read from the file.
+\end_layout
+
+\begin_layout Plain Layout
+
+			if(i != -1) System.out.print((char) i);
+\end_layout
+
+\begin_layout Plain Layout
+
+		} while(i != -1); // When i equals –1, the end of the file has been reached.
+\end_layout
+
+\begin_layout Plain Layout
+
+	} catch(IOException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Error reading file.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+CLOSE
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// CLOSE
+\end_layout
+
+\begin_layout Plain Layout
+
+		try {
+\end_layout
+
+\begin_layout Plain Layout
+
+			fin.close();   // Close the file.
+\end_layout
+
+\begin_layout Plain Layout
+
+		} catch(IOException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("Error closing file.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Full example
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class ShowFile {
+\end_layout
+
+\begin_layout Plain Layout
+
+public static void main(String args[]){
+\end_layout
+
+\begin_layout Plain Layout
+
+		int i;
+\end_layout
+
+\begin_layout Plain Layout
+
+		FileInputStream fin;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		// First make sure that a file has been specified.
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(args.length != 1) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("Usage: ShowFile File");
+\end_layout
+
+\begin_layout Plain Layout
+
+			return;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		try {
+\end_layout
+
+\begin_layout Plain Layout
+
+			fin = new FileInputStream(args[0]); // Open the file
+\end_layout
+
+\begin_layout Plain Layout
+
+		} catch(FileNotFoundException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("File Not Found");
+\end_layout
+
+\begin_layout Plain Layout
+
+			return;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		// READING	
+\end_layout
+
+\begin_layout Plain Layout
+
+		try {
+\end_layout
+
+\begin_layout Plain Layout
+
+			// read bytes until EOF is encountered
+\end_layout
+
+\begin_layout Plain Layout
+
+			do {
+\end_layout
+
+\begin_layout Plain Layout
+
+				i = fin.read();  // Read from the file.
+\end_layout
+
+\begin_layout Plain Layout
+
+				if(i != -1) System.out.print((char) i);
+\end_layout
+
+\begin_layout Plain Layout
+
+			} while(i != -1); // When i equals –1, the end of the file has been reached.
+\end_layout
+
+\begin_layout Plain Layout
+
+		} catch(IOException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("Error reading file.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		// CLOSE
+\end_layout
+
+\begin_layout Plain Layout
+
+		try {
+\end_layout
+
+\begin_layout Plain Layout
+
+			fin.close();   // Close the file.
+\end_layout
+
+\begin_layout Plain Layout
+
+		} catch(IOException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("Error closing file.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+close and automatically close
+\end_layout
+
+\begin_layout Standard
+You have to close a file when you finish reading/writing, otherwise there
+ will be a memory leak.
+\end_layout
+
+\begin_layout Standard
+usually close is hiding in the finally block:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+finally {
+\end_layout
+
+\begin_layout Plain Layout
+
+// Close file on the way out of the try block.
+\end_layout
+
+\begin_layout Plain Layout
+
+try {
+\end_layout
+
+\begin_layout Plain Layout
+
+	fin.close();
+\end_layout
+
+\begin_layout Plain Layout
+
+	} catch(IOException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	System.out.println("Error Closing File");
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To enable automatic closing a file
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// template
+\end_layout
+
+\begin_layout Plain Layout
+
+try (resource-specification) {
+\end_layout
+
+\begin_layout Plain Layout
+
+// use the resource
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Example
+\end_layout
+
+\begin_layout Plain Layout
+
+try (FileInputStream fin = new FileInputStream(args[0]);
+\end_layout
+
+\begin_layout Plain Layout
+
+	FileOutputStream fout = new FileOutputStream(args[1]))
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		do {
+\end_layout
+
+\begin_layout Plain Layout
+
+			i = fin.read();
+\end_layout
+
+\begin_layout Plain Layout
+
+			if(i != -1) fout.write(i);
+\end_layout
+
+\begin_layout Plain Layout
+
+			} while(i != -1);
+\end_layout
+
+\begin_layout Plain Layout
+
+			} catch(IOException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("I/O Error: " + exc);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Writing to a File
+\end_layout
+
+\begin_layout Itemize
+In the second form, if append is true, then output is appended to the end
+ of the file.
+ Otherwise, the file is overwritten.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+FileOutputStream(String fileName) throws FileNotFoundException
+\end_layout
+
+\begin_layout Plain Layout
+
+FileOutputStream(String fileName, boolean append) throws FileNotFoundException
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Steps:
+\end_layout
+
+\begin_layout Enumerate
+initialize and object under FileOutputStream
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+FileOutputStream fout = null;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+open the file 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+fout = new FileOutputStream(args[1]);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Write
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+//Read bytes from one file and write them to another
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+do {
+\end_layout
+
+\begin_layout Plain Layout
+
+	i = fin.read();
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(i != -1) fout.write(i);
+\end_layout
+
+\begin_layout Plain Layout
+
+} while(i != -1);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Reading & writing Binary Data
+\end_layout
+
+\begin_layout Standard
+To read and write binary values of the Java primitive types, you will use
+ DataInputStream and DataOutputStream.
+\end_layout
+
+\begin_layout Standard
+DataOutputStream implements the DataOutput interface.
+ This interface defines methods that write all of Java’s primitive types
+ to a file.
+ It is important to understand that this data is written using its internal,
+ binary format, not its human-readable text form.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+DataInputStream
+\series default
+ implements the 
+\series bold
+DataInput
+\series default
+ interface.
+ 
+\series bold
+DataInputStream
+\series default
+ uses an 
+\series bold
+InputStream
+\series default
+ instance as its foundation, overlaying it with methods that read the various
+ Java data types
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+DataOutputStream
+\series default
+ is for writing
+\end_layout
+
+\begin_layout Itemize
+boolean readBoolean( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Reads a boolean.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+byte readByte( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Reads a byte.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+char readChar( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Reads a char.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+double readDouble( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Reads a double.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+float readFloat( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Reads a float.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+int readInt( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Reads an int.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+long readLong( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Reads a long.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+short readShort( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Reads a short.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+try (DataOutputStream dataOut = // initialize the to-be-written ob ject
+\end_layout
+
+\begin_layout Plain Layout
+
+		new DataOutputStream(new FileOutputStream("testdata")))
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	dataOut.writeInt(i);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+try (DataInputStream dataIn = // initialize the read ob ject
+\end_layout
+
+\begin_layout Plain Layout
+
+	new DataInputStream(new FileInputStream("testdata")))
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+		i = dataIn.readInt();
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Reading " + i);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
