@@ -2552,15 +2552,100 @@ String str = "Java strings are powerful.";
 \end_layout
 
 \begin_layout Subsection
+Compare
+\end_layout
+
+\begin_layout Standard
+When comparing for equality you should use equals(), because it expresses
+ your intent in a clear way.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+== tests
+\end_layout
+
+\end_inset
+
+ for reference equality (whether they are the same object).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+.equals()
+\end_layout
+
+\end_inset
+
+ tests for value equality (whether they are logically "equal").
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+String.compareTo()
+\end_layout
+
+\end_inset
+
+ seek the difference of the content of two strings.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+equals only tells you whether they're equal or not, but compareTo gives
+ information on how the Strings compare lexicographically.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
 Opperations
 \end_layout
 
 \begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 str1.length()
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
+Print
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 System.out.println(str1)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -2629,28 +2714,107 @@ str1.substring(5, 18);
 
 \end_deeper
 \begin_layout Subsection
-match a string
+string method
 \end_layout
 
 \begin_layout Itemize
-int indexOf(str) Searches the invoking string for the substring specified
- by str.
- Returns the index of the first match or –1 on failure.
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int compareTo(Object o)
 \end_layout
 
-\begin_layout Itemize
-int lastIndexOf(str) Searches the invoking string for the substring specified
- by str.
- Returns the index of the last match or –1 on failure.
-\end_layout
+\end_inset
 
-\begin_layout Itemize
-get posittion: Obtains the character at the index specified by index.
+
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
+This method compares this String to another Object.
+\end_layout
+
+\begin_layout Itemize
+If first string is greater than second string, it returns positive number
+ (difference of character value).
+ 
+\end_layout
+
+\begin_layout Itemize
+If first string is less than second string, it returns negative number and
+ 
+\end_layout
+
+\begin_layout Itemize
+if first string is equal to second string, it returns 0.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int indexOf(str) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Searches the invoking string for the substring specified by str.
+ Returns the index of the first match or –1 on failure.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int lastIndexOf(str) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Searches the invoking string for the substring specified by str.
+ Returns the index of the last match or –1 on failure.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
 str1.charAt(i) // i has to be chr
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+get posittion: Obtains the character at the index specified by index.
 \end_layout
 
 \end_deeper
@@ -3797,23 +3961,105 @@ bt default, if no private / public is specified, then the member is public.
 \end_layout
 
 \begin_layout Subsection
-Constructors For Instance Variables (MemberVar)
+Constructors: Quick/Flexible Initiation of an Instance
 \end_layout
 
 \begin_layout Itemize
-A constructor initializes an ClassObject when it is created.
+Usage: A constructor can 
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+initialize an ClassObject and 
+\end_layout
+
+\begin_layout Enumerate
+at the same time assign references/values to MemberVars
+\end_layout
+
+\begin_layout Enumerate
+Define some start actions
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class MyThread implements Runnable {
+\end_layout
+
+\begin_layout Plain Layout
+
+	Thread thrd;
+\end_layout
+
+\begin_layout Plain Layout
+
+	TickTock ttOb;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Construct a new thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	MyThread(String name, TickTock tt) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrd = new Thread(this, name);
+\end_layout
+
+\begin_layout Plain Layout
+
+		ttOb = tt;
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrd.start(); // start actions
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 All classes have constructors, whether you define one or not, which are
  zero, null, and false, for numeric types, reference types, and booleans,
  respectively.
 \end_layout
 
-\begin_layout Standard
+\end_deeper
+\begin_layout Itemize
 Basic Format
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+To define a Constructor, it must have the same name as Class itself.
+ 
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset listings
 inline false
@@ -3846,6 +4092,11 @@ class ClassName{
 \begin_layout Plain Layout
 
 		x = i 
+\end_layout
+
+\begin_layout Plain Layout
+
+		// and other actions
 \end_layout
 
 \begin_layout Plain Layout
@@ -3982,7 +4233,16 @@ class Vehicle {
 
 \begin_layout Plain Layout
 
-// construct complete vehicles
+// initialize an ClassObject and 
+\end_layout
+
+\begin_layout Plain Layout
+
+// at the same time assign references/values to MemberVars
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -4242,6 +4502,735 @@ class Vehicle {
 \end_layout
 
 \begin_layout Subsection
+Method Tricks
+\end_layout
+
+\begin_layout Standard
+Different methods defined within the class has no implementation orders.
+ 
+\end_layout
+
+\begin_layout Section
+this
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+this
+\series default
+ means the class instance itself.
+\end_layout
+
+\begin_layout Subsection
+this - to refer a Class Instance itself.
+\end_layout
+
+\begin_layout Standard
+Within an instance method or a constructor, this is a reference to the current
+ object — the object whose method or constructor is being called.
+ You can refer to any member of the current object from within an instance
+ method or a constructor by using this.
+\end_layout
+
+\begin_layout Itemize
+The most common reason for using the this keyword is because a field is
+ shadowed by a method or constructor parameter.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+public class Point {
+\end_layout
+
+\begin_layout Plain Layout
+
+    public int x = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    public int y = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+    //constructor
+\end_layout
+
+\begin_layout Plain Layout
+
+    public Point(int a, int b) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        x = a;
+\end_layout
+
+\begin_layout Plain Layout
+
+        y = b;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//but it could have been written like this:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+public class Point {
+\end_layout
+
+\begin_layout Plain Layout
+
+    public int x = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+    public int y = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+    //constructor
+\end_layout
+
+\begin_layout Plain Layout
+
+    public Point(int x, int y) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        this.x = x;
+\end_layout
+
+\begin_layout Plain Layout
+
+        this.y = y;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+this -- in a Constructor
+\end_layout
+
+\begin_layout Standard
+This class contains a set of constructors.
+ Each constructor initializes some or all of the rectangle's member variables.
+ The constructors provide a default value for any member variable whose
+ initial value is not provided by an argument.
+ For example, the no-argument constructor creates a 1x1 Rectangle at coordinates
+ 0,0.
+ The two-argument constructor calls the four-argument constructor, passing
+ in the width and height but always using the 0,0 coordinates.
+ 
+\end_layout
+
+\begin_layout Standard
+As before, the compiler determines which constructor to call, based on the
+ number and the type of arguments.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+public class Rectangle {
+\end_layout
+
+\begin_layout Plain Layout
+
+    private int x, y;
+\end_layout
+
+\begin_layout Plain Layout
+
+    private int width, height;
+\end_layout
+
+\begin_layout Plain Layout
+
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+    public Rectangle() {
+\end_layout
+
+\begin_layout Plain Layout
+
+        this(0, 0, 1, 1);
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    public Rectangle(int width, int height) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        this(0, 0, width, height);
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    public Rectangle(int x, int y, int width, int height) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        this.x = x;
+\end_layout
+
+\begin_layout Plain Layout
+
+        this.y = y;
+\end_layout
+
+\begin_layout Plain Layout
+
+        this.width = width;
+\end_layout
+
+\begin_layout Plain Layout
+
+        this.height = height;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    ...
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+this -- 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class SumArray {
+\end_layout
+
+\begin_layout Plain Layout
+
+	private int sum;
+\end_layout
+
+\begin_layout Plain Layout
+
+	synchronized int sumArray(int nums[]) {   //sumArray( ) is synchronized.
+\end_layout
+
+\begin_layout Plain Layout
+
+		sum = 0; // reset sum
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for(int i=0; i<nums.length; i++) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			sum += nums[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("Running total for " +
+\end_layout
+
+\begin_layout Plain Layout
+
+			Thread.currentThread().getName() +
+\end_layout
+
+\begin_layout Plain Layout
+
+			" is " + sum);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+			try {
+\end_layout
+
+\begin_layout Plain Layout
+
+				Thread.sleep(10); // allow task-switch
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+			catch(InterruptedException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+				System.out.println("Thread interrupted.");
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	return sum;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class MyThread implements Runnable {
+\end_layout
+
+\begin_layout Plain Layout
+
+	Thread thrd;
+\end_layout
+
+\begin_layout Plain Layout
+
+	static SumArray sa = new SumArray(); // use SumArray class defined above
+ to define a new static variable SumArray
+\end_layout
+
+\begin_layout Plain Layout
+
+	int a[];
+\end_layout
+
+\begin_layout Plain Layout
+
+	int answer;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Construct a new thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	MyThread(String name, int nums[]) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrd = new Thread(this, name);
+\end_layout
+
+\begin_layout Plain Layout
+
+		a = nums;
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrd.start(); // start the thread
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Begin execution of new thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	public void run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		int sum;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(thrd.getName() + " starting.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		answer = sa.sumArray(a);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Sum for " + thrd.getName() +
+\end_layout
+
+\begin_layout Plain Layout
+
+		" is " + answer);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(thrd.getName() + " terminating.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class Sync {
+\end_layout
+
+\begin_layout Plain Layout
+
+	public static void main(String args[]) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		int a[] = {1, 2, 3, 4, 5};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		MyThread mt1 = new MyThread("Child #1", a);
+\end_layout
+
+\begin_layout Plain Layout
+
+		MyThread mt2 = new MyThread("Child #2", a);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		try {
+\end_layout
+
+\begin_layout Plain Layout
+
+			mt1.thrd.join();
+\end_layout
+
+\begin_layout Plain Layout
+
+			mt2.thrd.join();
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		catch(InterruptedException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("Main thread interrupted.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Child #1 starting.
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #1 is 1
+\end_layout
+
+\begin_layout Plain Layout
+
+Child #2 starting.
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #1 is 3 
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #1 is 6
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #1 is 10
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #1 is 15  
+\end_layout
+
+\begin_layout Plain Layout
+
+Sum for Child #1 is 15
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Child #1 terminating.
+ // "synchronized" prevent other instance to access method sumArray until
+ it is unlocked
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #2 is 1
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #2 is 3
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #2 is 6
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #2 is 10
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #2 is 15
+\end_layout
+
+\begin_layout Plain Layout
+
+Sum for Child #2 is 15
+\end_layout
+
+\begin_layout Plain Layout
+
+Child #2 terminating.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Static
+\end_layout
+
+\begin_layout Subsection
 Static member
 \end_layout
 
@@ -4293,14 +5282,25 @@ The most common example of a static member is main( ).
 \end_layout
 
 \begin_layout Itemize
+
+\series bold
 Variables declared as static are, essentially, global variables.
 \end_layout
 
 \begin_layout Itemize
+
+\series bold
 As you can see, the static variable y is shared by both ob1 and ob2.
- Changing it affects the entire class, not just an instance
+ Changing it affects the entire class, not just an instance.
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+So you can use this global behavior to control all instances under the same
+ class.
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset listings
 inline false
@@ -4361,7 +5361,7 @@ class StaticDemo {
 
 \begin_layout Plain Layout
 
-// usage
+// usage: no need to create an instance
 \end_layout
 
 \begin_layout Plain Layout
@@ -4472,7 +5472,7 @@ his block gets executed when the class is loaded in the memory.
 \end_layout
 
 \begin_layout Itemize
-It serves the same functionaility of a constructor.
+It serves the same functionality of a constructor.
 \end_layout
 
 \begin_layout Itemize
@@ -6227,7 +7227,6 @@ As powerful and useful as method overriding and inheritance are, sometimes
  
 \end_layout
 
-\begin_deeper
 \begin_layout Itemize
 For example, you might have a class that encapsulates control of some hardware
  device.
@@ -6237,7 +7236,6 @@ For example, you might have a class that encapsulates control of some hardware
  the initialization method.
 \end_layout
 
-\end_deeper
 \begin_layout Standard
 \begin_inset listings
 inline false
@@ -6649,9 +7647,16 @@ Interfaces
 \end_layout
 
 \begin_layout Standard
-An interface is syntactically similar to an abstract class, in that you
- can specify one or more methods that have no body.
- Those methods must be implemented by a class in order for their actions
+
+\series bold
+An interface is syntactically similar to an abstract class
+\series default
+, in that you can specify one or more methods that have no body.
+ 
+\end_layout
+
+\begin_layout Standard
+Those methods must be implemented by a class in order for their actions
  to be defined.
  Thus, an interface specifies what must be done, but not how to do it.
  Once an interface is defined, any number of classes can implement it.
@@ -6660,12 +7665,16 @@ An interface is syntactically similar to an abstract class, in that you
 
 \begin_layout Itemize
 Variables declared in an interface are not instance variables.
- Instead, they are implicitly public, final, and static and must be initialized.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Thus, they are essentially constants
+ Instead, they are implicitly 
+\series bold
+public, final, and static
+\series default
+ and must be 
+\series bold
+initialized
+\series default
+.
+ --- Thus, they are essentially constants
 \end_layout
 
 \begin_deeper
@@ -6681,12 +7690,6 @@ access interface name {
 
 \begin_layout Plain Layout
 
-	ret-type method-name1(param-list);
-\end_layout
-
-\begin_layout Plain Layout
-
-	ret-type method-name2(param-list);
 \end_layout
 
 \begin_layout Plain Layout
@@ -6697,6 +7700,10 @@ access interface name {
 \begin_layout Plain Layout
 
 	type var2 = value;
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -6724,7 +7731,6 @@ access interface name {
 
 \end_layout
 
-\end_deeper
 \end_deeper
 \begin_layout Itemize
 Once an interface has been defined, one or more classes can implement that
@@ -7542,30 +8548,6 @@ catch (ExcepType2 exOb) {
 }
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-//...
-\end_layout
-
-\begin_layout Plain Layout
-
-finally {
-\end_layout
-
-\begin_layout Plain Layout
-
-// finally code
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
 \end_inset
 
 
@@ -7623,6 +8605,16 @@ Code in try block after the exception will not be executed.
 
 \begin_deeper
 \begin_layout Itemize
+when an exception occurs (in this case, because of the attempt to index
+ nums beyond its bounds), the exception is thrown out of the try block and
+ caught by the catch statement.
+ At this point, control passes to the catch, and the try block is terminated.
+ That is, catch is not called.
+ Rather, program execution is transferred to it.
+ 
+\end_layout
+
+\begin_layout Itemize
 \begin_inset listings
 inline false
 status open
@@ -7649,7 +8641,8 @@ try {
 
 \begin_layout Plain Layout
 
-	System.out.println("this won't be displayed");
+	System.out.println("this won't be displayed"); // Code in try block after
+ the exception will not be executed.
 \end_layout
 
 \begin_layout Plain Layout
@@ -7681,6 +8674,39 @@ try {
 }
 \end_layout
 
+\begin_layout Plain Layout
+
+System.out.println("After catch statement.");
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// This program displays the following output:
+\end_layout
+
+\begin_layout Plain Layout
+
+Before exception is generated.
+\end_layout
+
+\begin_layout Plain Layout
+
+Index out-of-bounds!
+\end_layout
+
+\begin_layout Plain Layout
+
+After catch statement.
+\end_layout
+
 \end_inset
 
 
@@ -7688,77 +8714,47 @@ try {
 
 \end_deeper
 \begin_layout Subsection
-multi-catch
+Uncaught Exception
 \end_layout
 
 \begin_layout Standard
-Instead of having to catch each exception type individually, you can now
- use a single catch clause to handle the exceptions without code duplication.
+When an exception is thrown, it must be caught by some piece of code, somewhere.
+ In general, if your program does not catch an exception, then it will be
+ caught by the JVM.
+\end_layout
+
+\begin_layout Standard
+The trouble is that the JVM’s default exception handler terminates execution
+ and displays a stack trace and error message.
  
 \end_layout
 
 \begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-try {
+While such a message is useful for you while debugging, it would not be
+ something that you would want others to see, to say the least! This is
+ why it is important for your program to handle exceptions itself, rather
+ than rely upon the JVM.
 \end_layout
 
-\begin_layout Plain Layout
-
-	if(i == 0)
+\begin_layout Subsection
+Multiple catch Statements
 \end_layout
 
-\begin_layout Plain Layout
-
-		result = a / b; // generate an ArithmeticException
+\begin_layout Enumerate
+For example, since the superclass of all exceptions is Throwable, to catch
+ all possible exceptions, catch Throwable.
+ If you want to catch exceptions of both a superclass type and a subclass
+ type, put the subclass first in the catch sequence.
 \end_layout
 
-\begin_layout Plain Layout
-
-	else
+\begin_layout Subsection
+Try Blocks Can Be Nested
 \end_layout
 
-\begin_layout Plain Layout
-
-		chrs[5] = 'X'; // generate an ArrayIndexOutOfBoundsException
-\end_layout
-
-\begin_layout Plain Layout
-
-	// This catch clause catches both exceptions.
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-catch(ArithmeticException | ArrayIndexOutOfBoundsException e) {
-\end_layout
-
-\begin_layout Plain Layout
-
-	System.out.println("Exception caught: " + e);
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
+\begin_layout Standard
+One try block can be nested within another.
+ An exception generated within the inner try block that is not caught by
+ a catch associated with that try is propagated to the outer try block.
 \end_layout
 
 \begin_layout Section
@@ -9540,6 +10536,2860 @@ try (DataInputStream dataIn = // initialize the read ob ject
 \end_inset
 
 
+\end_layout
+
+\begin_layout Part
+Multithreaded Programming
+\end_layout
+
+\begin_layout Standard
+A multithreaded program contains two or more parts that can run concurrently.
+ Each part of such a program is called a thread, and each thread defines
+ a separate path of execution.
+\end_layout
+
+\begin_layout Itemize
+In process based multitasking, a program is the smallest unit of code that
+ can be dispatched by the scheduler.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Although Java programs make use of process-based multitasking environments,
+ process-based multitasking is not under the control of Java.
+ Multithreaded multitasking is.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+In a thread-based multitasking environment, the thread is the smallest unit
+ of dispatchable code.
+ This means that a single program can perform two or more tasks at once.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For instance, a text editor can be formatting text at the same time that
+ it is printing, as long as these two actions are being performed by two
+ separate threads.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Thread
+\end_layout
+
+\begin_layout Standard
+Each part of such a program is called a thread, and each thread defines
+ a separate path of execution.
+\end_layout
+
+\begin_layout Itemize
+in a single-core system, two or more threads do not actually run at the
+ same time, but idle CPU time is utilized.
+\end_layout
+
+\begin_layout Standard
+A thread can be in one of several states.
+ It can be 
+\series bold
+running
+\series default
+.
+ It can be 
+\series bold
+ready to run
+\series default
+ as soon as it gets CPU time.
+ A running thread can be 
+\series bold
+suspended
+\series default
+, which is a temporary halt to its execution.
+ It can later be 
+\series bold
+resumed
+\series default
+.
+ A thread can be 
+\series bold
+blocked
+\series default
+ when waiting for a resource.
+ A thread can be 
+\series bold
+terminated
+\series default
+, in which case its execution ends and cannot be resumed.
+\end_layout
+
+\begin_layout Standard
+Along with thread-based multitasking comes the need for a special type of
+ feature called 
+\series bold
+synchronization
+\series default
+, which allows the execution of threads to be coordinated in certain well-define
+d ways.
+ Java has a complete subsystem devoted to synchronization, and its key features
+ are also described here.
+\end_layout
+
+\begin_layout Subsection
+Creating a Thread: Method 1
+\end_layout
+
+\begin_layout Standard
+Java defines two ways in which you can create a runnable object:
+\end_layout
+
+\begin_layout Standard
+Methods
+\end_layout
+
+\begin_layout Itemize
+You can implement the Runnable interface.
+ -- major method
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The Thread class defines several methods that can be overridden by a derived
+ class.
+ Of these methods, the only one that must be overridden is run( ).
+ This is, of course, the same method required when you implement Runnable.
+ Some Java programmers feel that classes should be extended only when they
+ are being enhanced or modified in some way.
+ So, if you will not be overriding any of Thread’s other methods, it is
+ probably best to simply implement Runnable.
+ Also, by implementing Runnable, you enable your thread to inherit a class
+ other than Thread.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+You can extend the Thread class.
+\end_layout
+
+\begin_layout Standard
+Steps
+\end_layout
+
+\begin_layout Itemize
+Step 1: 
+\series bold
+define a class to implement the Runnable interface 
+\series default
+-- within which you need to define the method run
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The Runnable interface abstracts a unit of executable code.
+\end_layout
+
+\begin_layout Itemize
+Runnable defines only one method called run( ), which is declared like this:
+ 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+public void run( )
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Inside run( ), you will define the code that constitutes the new thread.
+\end_layout
+
+\begin_layout Itemize
+run( ) establishes the entry point for another, concurrent thread of execution
+ within your program.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Step 2: create a runnable object (MyThread) using the class you defined
+ above.
+\end_layout
+
+\begin_layout Itemize
+Step 3: create a thread object: You can 
+\series bold
+construct
+\series default
+ a 
+\series bold
+thread
+\series default
+ on any object that implements the 
+\series bold
+Runnable
+\series default
+ interface
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Thread(Runnable threadOb, String name)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+there is no need for MyThread to store the name of the thread since it is
+ possible to give a name to a thread when it is created.
+ To do so, use this version of Thread’s constructor:
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Step 4: schedule to start to run
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Once created, the new thread will not start running until you call its start(
+ ) method, which is declared within Thread.
+ In essence, start( ) executes a call to run( ).
+ The start( ) method is shown here: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+void start( )
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// Create a thread by implementing Runnable.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class MyThread implements Runnable { 
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Objects of MyThread can be run in their own threads because MyThread
+ implements Runnable.
+\end_layout
+
+\begin_layout Plain Layout
+
+	String thrdName;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	MyThread(String name) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrdName = name;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Entry point of thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	public void run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(thrdName + " starting.");
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		try {
+\end_layout
+
+\begin_layout Plain Layout
+
+			for(int count=0; count < 10; count++) {
+\end_layout
+
+\begin_layout Plain Layout
+
+				Thread.sleep(400);
+\end_layout
+
+\begin_layout Plain Layout
+
+				System.out.println("In " + thrdName +
+\end_layout
+
+\begin_layout Plain Layout
+
+					", count is " + count);
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		catch(InterruptedException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println(thrdName + " interrupted.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(thrdName + " terminating.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class UseThreads {
+\end_layout
+
+\begin_layout Plain Layout
+
+	public static void main(String args[]) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Main thread starting.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		// First, construct a MyThread object.
+\end_layout
+
+\begin_layout Plain Layout
+
+		MyThread mt = new MyThread("Child #1"); // Create a runnable object.
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		// Next, construct a thread from that object.
+\end_layout
+
+\begin_layout Plain Layout
+
+		Thread newThrd = new Thread(mt); // Construct a thread on that object.
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		// Finally, start execution of the thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+		newThrd.start(); 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		for(int i=0; i<50; i++) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.print(".");
+\end_layout
+
+\begin_layout Plain Layout
+
+			try {
+\end_layout
+
+\begin_layout Plain Layout
+
+				Thread.sleep(100);
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+			catch(InterruptedException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+				System.out.println("Main thread interrupted.");
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Main thread ending.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// After calling start( ), execution returns to main( ), and it enters main(
+ )’s for loop.
+ Notice that this loop iterates 50 times, pausing 100 milliseconds each
+ time through the loop.
+ Both threads continue running, sharing the CPU in single-CPU systems, until
+ their loops finish.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// result below
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Main thread starting.
+\end_layout
+
+\begin_layout Plain Layout
+
+.Child #1 starting.
+\end_layout
+
+\begin_layout Plain Layout
+
+...In Child #1, count is 0
+\end_layout
+
+\begin_layout Plain Layout
+
+....In Child #1, count is 1
+\end_layout
+
+\begin_layout Plain Layout
+
+....In Child #1, count is 2
+\end_layout
+
+\begin_layout Plain Layout
+
+...In Child #1, count is 3
+\end_layout
+
+\begin_layout Plain Layout
+
+....In Child #1, count is 4
+\end_layout
+
+\begin_layout Plain Layout
+
+....In Child #1, count is 5
+\end_layout
+
+\begin_layout Plain Layout
+
+....In Child #1, count is 6
+\end_layout
+
+\begin_layout Plain Layout
+
+...In Child #1, count is 7
+\end_layout
+
+\begin_layout Plain Layout
+
+....In Child #1, count is 8
+\end_layout
+
+\begin_layout Plain Layout
+
+....In Child #1, count is 9
+\end_layout
+
+\begin_layout Plain Layout
+
+Child #1 terminating.
+\end_layout
+
+\begin_layout Plain Layout
+
+............Main thread ending.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Creating a Thread: Method 2
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Create a runnable class: and at the same time 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+initialize the thread within it usign a constructor.
+\end_layout
+
+\begin_layout Itemize
+start the thread usign a constructor.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class MyThread implements Runnable {
+\end_layout
+
+\begin_layout Plain Layout
+
+	Thread thrd;
+\end_layout
+
+\begin_layout Plain Layout
+
+	TickTock ttOb;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Construct a new thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	MyThread(String name, TickTock tt) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrd = new Thread(this, name);
+\end_layout
+
+\begin_layout Plain Layout
+
+		ttOb = tt;
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrd.start(); // start the thread
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Begin execution of new thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	public void run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		...
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Finish the main thread first
+\end_layout
+
+\begin_layout Standard
+having the main thread finish last is not a requirement.
+ It is, however, often a good practice to follow—especially when you are
+ first learning about threads.
+ To illustrate the fact that the 
+\series bold
+main
+\series default
+ thread and 
+\series bold
+mt
+\series default
+ execute concurrently, it is necessary to keep main( ) from terminating
+ until mt is finished.
+ 
+\end_layout
+
+\begin_layout Itemize
+Here, this is done through the timing differences between the two threads.
+ Because the calls to sleep( ) inside main( )’s for loop cause a total delay
+ of 5 seconds (50 iterations times 100 milliseconds), but the total delay
+ within run( )’s loop is only 4 seconds (10 iterations times 400 milliseconds),
+ run( ) will finish approximately 1 second before main( ).
+ 
+\end_layout
+
+\begin_layout Itemize
+As a result, both the main thread and mt will execute concurrently until
+ 
+\series bold
+mt
+\series default
+ ends.
+ Then, about 1 second later main( ) ends.
+\end_layout
+
+\begin_layout Subsection
+Static Methods
+\end_layout
+
+\begin_layout Standard
+The sleep( ) method causes the thread from which it is called to suspend
+ execution for the specified period of milliseconds.
+ Its general form is shown here
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Thread.sleep(4000);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Names
+\end_layout
+
+\begin_layout Itemize
+final String 
+\series bold
+getName
+\series default
+( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Obtains a thread’s name.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+final void 
+\series bold
+setName
+\series default
+(String threadName)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+which is shown here: 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Run Alive and ends
+\end_layout
+
+\begin_layout Itemize
+void 
+\series bold
+run
+\series default
+( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Entry point for the thread.
+ You need to overwrite it in your runnable class
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+void 
+\series bold
+start
+\series default
+( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Starts a thread by calling its run( ) method.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+final boolean 
+\series bold
+isAlive
+\series default
+( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Determines whether a thread is still running.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+mt1.thrd.isAlive()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+final void 
+\series bold
+join
+\series default
+( )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Waits for a thread to terminate.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+mt1.thrd.join(); // Wait until the specified thread ends.
+\end_layout
+
+\begin_layout Plain Layout
+
+System.out.println("Child #1 joined.");
+\end_layout
+
+\begin_layout Plain Layout
+
+mt2.thrd.join();
+\end_layout
+
+\begin_layout Plain Layout
+
+System.out.println("Child #2 joined.");
+\end_layout
+
+\begin_layout Plain Layout
+
+mt3.thrd.join();
+\end_layout
+
+\begin_layout Plain Layout
+
+System.out.println("Child #3 joined.");
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+static void 
+\series bold
+sleep
+\series default
+(long milliseconds)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Suspends a thread for a specified period of milliseconds.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Priorities
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Definition
+\series default
+: thread’s priority determines, in part, how much CPU time a thread receives
+ relative to the other active threads.
+ In general, over a given period of time, low-priority threads receive little.
+ High-priority threads receive a lot.
+ As you might expect, how much CPU time a thread receives has profound impact
+ on its execution characteristics and its interaction with other threads
+ currently executing in the system.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+final int getPriority( )
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Obtains a thread’s priority.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+final void setPriority(int level)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// set the priorities
+\end_layout
+
+\begin_layout Plain Layout
+
+mt1.thrd.setPriority(Thread.NORM_PRIORITY+2);
+\end_layout
+
+\begin_layout Plain Layout
+
+mt2.thrd.setPriority(Thread.NORM_PRIORITY-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// start the threads
+\end_layout
+
+\begin_layout Plain Layout
+
+mt1.thrd.start();
+\end_layout
+
+\begin_layout Plain Layout
+
+mt2.thrd.start();
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+Levels of Priorities:
+\series default
+ 
+\end_layout
+
+\begin_layout Itemize
+Here, level specifies the new priority setting for the calling thread.
+ The value of level must be within the range MIN_PRIORITY and MAX_PRIORITY.
+ 
+\end_layout
+
+\begin_layout Itemize
+Currently, these values are 1 and 10, respectively.
+ To return a thread to default priority, specify NORM_PRIORITY, which is
+ currently 5.
+ These priorities are defined as static final variables within Thread.
+\end_layout
+
+\begin_layout Itemize
+When a child thread is started, its priority setting is equal to that of
+ its parent thread.
+ 
+\end_layout
+
+\begin_layout Subsection
+Synchronization
+\end_layout
+
+\begin_layout Standard
+The most common reason for synchronization is when two or more threads need
+ access to a shared resource that can be used by only one thread at a time.
+\end_layout
+
+\begin_layout Standard
+Another reason for synchronization is when one thread is waiting for an
+ event that is caused by another thread.
+ In this case, there must be some means by which the first thread is held
+ in a suspended state until the event has occurred.
+ Then, the waiting thread must resume execution.
+\end_layout
+
+\begin_layout Standard
+Key to synchronization in Java is the concept of the 
+\series bold
+monitor
+\series default
+, which controls access to an object.
+ A monitor works by implementing the concept of a lock.
+ When an object is locked by one thread, no other thread can gain access
+ to the object.
+ When the thread exits, the object is unlocked and is available for use
+ by another thread.
+\end_layout
+
+\begin_layout Subsection
+Synchronization: define a Synchronized Method
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class SumArray {
+\end_layout
+
+\begin_layout Plain Layout
+
+	private int sum;
+\end_layout
+
+\begin_layout Plain Layout
+
+	synchronized int sumArray(int nums[]) {   //sumArray( ) is synchronized.
+\end_layout
+
+\begin_layout Plain Layout
+
+		sum = 0; // reset sum
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for(int i=0; i<nums.length; i++) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			sum += nums[i];
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("Running total for " +
+\end_layout
+
+\begin_layout Plain Layout
+
+			Thread.currentThread().getName() +
+\end_layout
+
+\begin_layout Plain Layout
+
+			" is " + sum);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+			try {
+\end_layout
+
+\begin_layout Plain Layout
+
+				Thread.sleep(10); // allow task-switch
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+			catch(InterruptedException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+				System.out.println("Thread interrupted.");
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	return sum;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class MyThread implements Runnable {
+\end_layout
+
+\begin_layout Plain Layout
+
+	Thread thrd;
+\end_layout
+
+\begin_layout Plain Layout
+
+	static SumArray sa = new SumArray(); // use SumArray class defined above
+ to define a new static variable SumArray
+\end_layout
+
+\begin_layout Plain Layout
+
+	int a[];
+\end_layout
+
+\begin_layout Plain Layout
+
+	int answer;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Construct a new thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	MyThread(String name, int nums[]) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrd = new Thread(this, name);
+\end_layout
+
+\begin_layout Plain Layout
+
+		a = nums;
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrd.start(); // start the thread
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Begin execution of new thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	public void run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		int sum;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(thrd.getName() + " starting.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		answer = sa.sumArray(a);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Sum for " + thrd.getName() +
+\end_layout
+
+\begin_layout Plain Layout
+
+		" is " + answer);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(thrd.getName() + " terminating.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class Sync {
+\end_layout
+
+\begin_layout Plain Layout
+
+	public static void main(String args[]) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		int a[] = {1, 2, 3, 4, 5};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		MyThread mt1 = new MyThread("Child #1", a);
+\end_layout
+
+\begin_layout Plain Layout
+
+		MyThread mt2 = new MyThread("Child #2", a);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		try {
+\end_layout
+
+\begin_layout Plain Layout
+
+			mt1.thrd.join();
+\end_layout
+
+\begin_layout Plain Layout
+
+			mt2.thrd.join();
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		catch(InterruptedException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("Main thread interrupted.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Child #1 starting.
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #1 is 1
+\end_layout
+
+\begin_layout Plain Layout
+
+Child #2 starting.
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #1 is 3 
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #1 is 6
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #1 is 10
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #1 is 15  
+\end_layout
+
+\begin_layout Plain Layout
+
+Sum for Child #1 is 15
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Child #1 terminating.
+ // "synchronized" prevent other instance to access method sumArray until
+ it is unlocked
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #2 is 1
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #2 is 3
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #2 is 6
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #2 is 10
+\end_layout
+
+\begin_layout Plain Layout
+
+Running total for Child #2 is 15
+\end_layout
+
+\begin_layout Plain Layout
+
+Sum for Child #2 is 15
+\end_layout
+
+\begin_layout Plain Layout
+
+Child #2 terminating.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Synchronization: create a Synchronized Block
+\end_layout
+
+\begin_layout Standard
+you might want to synchronize access to some method that is not modified
+ by synchronized.
+ This can occur because you want to use a class that was not created by
+ you but by a third party, and you do not have access to the source code.
+ Thus, it is not possible for you to add synchronized to the appropriate
+ methods within the class.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+synchronized(objref) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	// statements to be synchronized
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class MyThread implements Runnable {
+\end_layout
+
+\begin_layout Plain Layout
+
+	Thread thrd;
+\end_layout
+
+\begin_layout Plain Layout
+
+	static SumArray sa = new SumArray();
+\end_layout
+
+\begin_layout Plain Layout
+
+	int a[];
+\end_layout
+
+\begin_layout Plain Layout
+
+	int answer;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Construct a new thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	MyThread(String name, int nums[]) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrd = new Thread(this, name);
+\end_layout
+
+\begin_layout Plain Layout
+
+		a = nums;
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrd.start(); // start the thread
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Begin execution of new thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	public void run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		int sum;
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(thrd.getName() + " starting.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		// synchronize calls to sumArray()
+\end_layout
+
+\begin_layout Plain Layout
+
+		synchronized(sa) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			answer = sa.sumArray(a);
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Sum for " + thrd.getName() +
+\end_layout
+
+\begin_layout Plain Layout
+
+		" is " + answer);
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(thrd.getName() + " terminating.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+wait()
+\end_layout
+
+\begin_layout Standard
+When a thread is temporarily blocked from running, it calls wait( ).
+ This causes the thread to go to sleep and the monitor for that object to
+ be released, allowing another thread to use the object.
+\end_layout
+
+\begin_layout Itemize
+final void wait( ) throws InterruptedException
+\end_layout
+
+\begin_layout Itemize
+final void wait(long millis) throws InterruptedException
+\end_layout
+
+\begin_layout Itemize
+final void wait(long millis, int nanos) throws InterruptedException
+\end_layout
+
+\begin_layout Standard
+The first form waits until notified.
+ The second form waits until notified or until the specified period of milliseco
+nds has expired.
+ The third form allows you to specify the wait period in terms of nanoseconds.
+\end_layout
+
+\begin_layout Subsection
+notify
+\end_layout
+
+\begin_layout Standard
+At a later point, the sleeping thread is awakened when some other thread
+ enters the same monitor and calls notify( ), or notifyAll( ).
+\end_layout
+
+\begin_layout Standard
+Here are the general forms for notify( ) and notifyAll( ):
+\end_layout
+
+\begin_layout Itemize
+final void notify( )
+\end_layout
+
+\begin_layout Itemize
+final void notifyAll( )
+\end_layout
+
+\begin_layout Subsection
+Example: wait() and notify()
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class TickTock {
+\end_layout
+
+\begin_layout Plain Layout
+
+	String state; // contains the state of the clock
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	synchronized void tick(boolean running) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(!running) { // stop the clock -- this is to define the closing state
+\end_layout
+
+\begin_layout Plain Layout
+
+			state = "ticked"; // assign a state
+\end_layout
+
+\begin_layout Plain Layout
+
+			notify(); // notify any waiting threads
+\end_layout
+
+\begin_layout Plain Layout
+
+			return;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.print("Tick ");
+\end_layout
+
+\begin_layout Plain Layout
+
+		// though "state" is not defined as a static variable, but as long as
+ it is inside the the synchronized method, it is locked when the method
+ tick() is running.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		state = "ticked"; // set the current state to ticked
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		//The reason for the call to notify( ) when the clock is stopped is to
+ allow a final call to wait( )
+\end_layout
+
+\begin_layout Plain Layout
+
+to succeed.
+ Remember, both tick( ) and tock( ) execute a call to wait( ) after displaying
+ their
+\end_layout
+
+\begin_layout Plain Layout
+
+message.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+		//The problem is that when the clock is stopped, one of the methods will
+ still be waiting.
+\end_layout
+
+\begin_layout Plain Layout
+
+Thus, a final call to notify( ) is required in order for the waiting method
+ to run
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		notify(); // let tock() run
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		// The while loop that calls wait( ) checks the value of state, waiting
+ for it to equal "tocked",
+\end_layout
+
+\begin_layout Plain Layout
+
+which will be the case only after the tock( ) method executes.
+ As explained, using a while loop
+\end_layout
+
+\begin_layout Plain Layout
+
+to check this condition prevents a spurious wakeup from incorrectly restarting
+ the thread.
+ If
+\end_layout
+
+\begin_layout Plain Layout
+
+state does not equal "tocked" when wait( ) returns, it means that a spurious
+ wakeup occurred,
+\end_layout
+
+\begin_layout Plain Layout
+
+and wait( ) is simply called again.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		try {
+\end_layout
+
+\begin_layout Plain Layout
+
+			while(!state.equals("tocked"))
+\end_layout
+
+\begin_layout Plain Layout
+
+				wait(); // wait for tock() to complete.
+ Tick will stop waiting when it is notified from toke.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		catch(InterruptedException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("Thread interrupted.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	synchronized void tock(boolean running) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(!running) { // stop the clock
+\end_layout
+
+\begin_layout Plain Layout
+
+			state = "tocked";
+\end_layout
+
+\begin_layout Plain Layout
+
+			notify(); // notify any waiting threads
+\end_layout
+
+\begin_layout Plain Layout
+
+			return;
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Tock");
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		state = "tocked"; // set the current state to tocked
+\end_layout
+
+\begin_layout Plain Layout
+
+		notify(); // let tick() run
+\end_layout
+
+\begin_layout Plain Layout
+
+		try {
+\end_layout
+
+\begin_layout Plain Layout
+
+			while(!state.equals("ticked"))
+\end_layout
+
+\begin_layout Plain Layout
+
+			wait(); // wait for tick to complete
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		catch(InterruptedException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("Thread interrupted.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class MyThread implements Runnable {
+\end_layout
+
+\begin_layout Plain Layout
+
+	Thread thrd;
+\end_layout
+
+\begin_layout Plain Layout
+
+	TickTock ttOb;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Construct a new thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	MyThread(String name, TickTock tt) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrd = new Thread(this, name);
+\end_layout
+
+\begin_layout Plain Layout
+
+		ttOb = tt;
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrd.start(); // start the thread
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Begin execution of new thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	public void run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(thrd.getName().compareTo("Tick") == 0) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			for(int i=0; i<5; i++) ttOb.tick(true);
+\end_layout
+
+\begin_layout Plain Layout
+
+			ttOb.tick(false);
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		else {
+\end_layout
+
+\begin_layout Plain Layout
+
+			for(int i=0; i<5; i++) ttOb.tock(true);
+\end_layout
+
+\begin_layout Plain Layout
+
+			ttOb.tock(false);
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Run!
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class ThreadCom {
+\end_layout
+
+\begin_layout Plain Layout
+
+	public static void main(String args[]) {
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		TickTock tt = new TickTock();
+\end_layout
+
+\begin_layout Plain Layout
+
+		MyThread mt1 = new MyThread("Tick", tt);
+\end_layout
+
+\begin_layout Plain Layout
+
+		MyThread mt2 = new MyThread("Tock", tt);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		try {
+\end_layout
+
+\begin_layout Plain Layout
+
+			mt1.thrd.join();
+\end_layout
+
+\begin_layout Plain Layout
+
+			mt2.thrd.join();
+\end_layout
+
+\begin_layout Plain Layout
+
+		} catch(InterruptedException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println("Main thread interrupted.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Tick Tock
+\end_layout
+
+\begin_layout Plain Layout
+
+Tick Tock
+\end_layout
+
+\begin_layout Plain Layout
+
+Tick Tock
+\end_layout
+
+\begin_layout Plain Layout
+
+Tick Tock
+\end_layout
+
+\begin_layout Plain Layout
+
+Tick Tock
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+suspend and stop
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// Suspending, resuming, and stopping a thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class MyThread implements Runnable {
+\end_layout
+
+\begin_layout Plain Layout
+
+	Thread thrd;
+\end_layout
+
+\begin_layout Plain Layout
+
+	boolean suspended;
+\end_layout
+
+\begin_layout Plain Layout
+
+	boolean stopped;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	MyThread(String name) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrd = new Thread(this, name);
+\end_layout
+
+\begin_layout Plain Layout
+
+		suspended = false;
+\end_layout
+
+\begin_layout Plain Layout
+
+		stopped = false;
+\end_layout
+
+\begin_layout Plain Layout
+
+		thrd.start();
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// This is the entry point for thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	public void run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(thrd.getName() + " starting.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		try {
+\end_layout
+
+\begin_layout Plain Layout
+
+			for(int i = 1; i < 1000; i++) {
+\end_layout
+
+\begin_layout Plain Layout
+
+				System.out.print(i + " ");
+\end_layout
+
+\begin_layout Plain Layout
+
+				if((i%10)==0) {
+\end_layout
+
+\begin_layout Plain Layout
+
+					System.out.println();
+\end_layout
+
+\begin_layout Plain Layout
+
+					Thread.sleep(250);
+\end_layout
+
+\begin_layout Plain Layout
+
+				}
+\end_layout
+
+\begin_layout Plain Layout
+
+				// Use synchronized block to check suspended and stopped.
+\end_layout
+
+\begin_layout Plain Layout
+
+				synchronized(this) {
+\end_layout
+
+\begin_layout Plain Layout
+
+					while(suspended) { // keyword suspended control here
+\end_layout
+
+\begin_layout Plain Layout
+
+						wait();
+\end_layout
+
+\begin_layout Plain Layout
+
+					}
+\end_layout
+
+\begin_layout Plain Layout
+
+					if(stopped) break; // keyword stop control here
+\end_layout
+
+\begin_layout Plain Layout
+
+				}
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		} catch (InterruptedException exc) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			System.out.println(thrd.getName() + " interrupted.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println(thrd.getName() + " exiting.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Stop the thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	synchronized void mystop() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		stopped = true;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		// The following ensures that a suspended thread can be stopped.
+\end_layout
+
+\begin_layout Plain Layout
+
+		suspended = false;
+\end_layout
+
+\begin_layout Plain Layout
+
+		notify();
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Suspend the thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	synchronized void mysuspend() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		suspended = true;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Resume the thread.
+\end_layout
+
+\begin_layout Plain Layout
+
+	synchronized void myresume() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		suspended = false;
+\end_layout
+
+\begin_layout Plain Layout
+
+		notify();
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class Suspend {
+\end_layout
+
+\begin_layout Plain Layout
+
+public static void main(String args[]) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	MyThread ob1 = new MyThread("My Thread");
+\end_layout
+
+\begin_layout Plain Layout
+
+	try {
+\end_layout
+
+\begin_layout Plain Layout
+
+		Thread.sleep(1000); // let ob1 thread start executing
+\end_layout
+
+\begin_layout Plain Layout
+
+		ob1.mysuspend();
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Suspending thread.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		Thread.sleep(1000);
+\end_layout
+
+\begin_layout Plain Layout
+
+		ob1.myresume();
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Resuming thread.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		Thread.sleep(1000);
+\end_layout
+
+\begin_layout Plain Layout
+
+		ob1.mysuspend();
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Suspending thread.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		Thread.sleep(1000);
+\end_layout
+
+\begin_layout Plain Layout
+
+		ob1.myresume();
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Resuming thread.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		Thread.sleep(1000);
+\end_layout
+
+\begin_layout Plain Layout
+
+		ob1.mysuspend();
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Stopping thread.");
+\end_layout
+
+\begin_layout Plain Layout
+
+		ob1.mystop();
+\end_layout
+
+\begin_layout Plain Layout
+
+		} catch (InterruptedException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Main thread Interrupted");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+// wait for thread to finish
+\end_layout
+
+\begin_layout Plain Layout
+
+	try {
+\end_layout
+
+\begin_layout Plain Layout
+
+		ob1.thrd.join();
+\end_layout
+
+\begin_layout Plain Layout
+
+		} catch (InterruptedException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Main thread Interrupted");
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.out.println("Main thread exiting.");
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+concurrency utilities: Fork/Join Framework
 \end_layout
 
 \end_body
